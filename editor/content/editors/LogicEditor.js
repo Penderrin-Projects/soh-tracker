@@ -51,7 +51,7 @@ export default async function(glitched = false) {
         "submenu": [{
             "content": "SAVE LOGIC",
             "handler": async () => {
-                let logic = JSON.parse(JSON.stringify(FileData.get(`logic${postfix}`, {edges:{},logic:{}})));
+                let logic = FileData.get(`logic${postfix}`, {edges:{}, logic:{}});
                 let patch = await LogicsStorage.getAll();
                 for (let i in patch) {
                     if (i.indexOf(" -> ") >= 0) {

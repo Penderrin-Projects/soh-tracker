@@ -1,3 +1,5 @@
+import Immutable from "/emcJS/data/Immutable.js";
+
 const CONVERTER_FN = [];
 let OFFSET = 0;
 
@@ -52,7 +54,7 @@ class StateConverter {
             version: this.version
         };
         if (typeof data == "object") {
-            data = JSON.parse(JSON.stringify(data));
+            data = new Immutable(data);
             for (const i in data) {
                 res.data[i] = data[i];
             }

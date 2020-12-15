@@ -38,7 +38,7 @@ function onStateChange(event) {
     LocalStorage.set(STATE_DIRTY, true);
     if (event.category == null) {
         actionPath.put(event.data);
-        EventBus.trigger("statechange", JSON.parse(JSON.stringify(event.data)));
+        EventBus.trigger("statechange", event.data);
         updateTitle();
     } else {
         EventBus.trigger(`statechange_${event.category}`, event.data);
@@ -181,11 +181,11 @@ class StateStorage {
         const state = StateConverter.convert(LocalStorage.get(PERSISTANCE_NAME, emptyState));
         decodeState(state);
         updateTitle();
-        EventBus.trigger("state", JSON.parse(JSON.stringify({
+        EventBus.trigger("state", {
             notes: state.notes,
             state: state.data,
             extra: state.extra
-        })));
+        });
     }
 
     async save(name = DATA.name) {
@@ -215,11 +215,11 @@ class StateStorage {
             LocalStorage.set(STATE_DIRTY, false);
             updateTitle();
             actionPath.clear();
-            EventBus.trigger("state", JSON.parse(JSON.stringify({
+            EventBus.trigger("state", {
                 notes: state.notes,
                 state: state.data,
                 extra: state.extra
-            })));
+            });
         }
     }
 
@@ -260,11 +260,11 @@ class StateStorage {
         actionPath.clear();
         // update title & cast event
         document.title = "Track-OOT - new state";
-        EventBus.trigger("state", JSON.parse(JSON.stringify({
+        EventBus.trigger("state", {
             notes: state.notes,
             state: state.data,
             extra: state.extra
-        })));
+        });
     }
 
     getName() {
