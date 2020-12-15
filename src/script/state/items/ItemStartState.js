@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
-import ItemStates from "../ItemStates.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import ItemStates from "../ItemStates.js";
 import AbstractItemState from "/script/state/items/AbstractItemState.js";
 
 const STARTVALUE = new WeakMap();
@@ -39,6 +39,7 @@ export default class ItemStartState extends AbstractItemState {
 
     constructor(ref, props) {
         super(ref, props, props.max, 0);
+        /* --- */
         STARTVALUE.set(this, parseInt(StateStorage.read(props.start_settings, 1)));
         /* EVENTS */
         EventBus.register("state", stateLoaded.bind(this));

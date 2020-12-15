@@ -1,4 +1,4 @@
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
 import Panel from "/emcJS/ui/layout/Panel.js";

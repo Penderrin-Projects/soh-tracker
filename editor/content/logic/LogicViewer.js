@@ -1,4 +1,4 @@
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import LogicUIAbstractElement from "/editors/ui/logic/AbstractElement.js";

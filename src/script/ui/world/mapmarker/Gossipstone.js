@@ -1,4 +1,4 @@
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import StateStorage from "/script/storage/StateStorage.js";

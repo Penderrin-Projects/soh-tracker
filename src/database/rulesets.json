@@ -54,11 +54,11 @@
             "overworld_skips": [],
             "child_dungeons": [],
             "mini_adult_dungeons": [],
-            "area/temple_forest": [],
-            "area/temple_fire": [],
-            "area/temple_water": [],
-            "area/temple_shadow": [],
-            "area/temple_spirit": []
+            "area.temple_forest": [],
+            "area.temple_fire": [],
+            "area.temple_water": [],
+            "area.temple_shadow": [],
+            "area.temple_spirit": []
         }
     },
     "S3 Standard": {
@@ -123,13 +123,13 @@
                 "skip.dc_jump"
             ],
             "mini_adult_dungeons": [],
-            "area/temple_forest": [
+            "area.temple_forest": [
                 "skip.forest_vines"
             ],
-            "area/temple_fire": [],
-            "area/temple_water": [],
-            "area/temple_shadow": [],
-            "area/temple_spirit": []
+            "area.temple_fire": [],
+            "area.temple_water": [],
+            "area.temple_shadow": [],
+            "area.temple_spirit": []
         }
     },
     "S4 Standard": {
@@ -194,16 +194,16 @@
                     "skip.lens_gtg",
                     "skip.lens_castle"
                 ],
-            "area/temple_forest": [
+            "area.temple_forest": [
                     "skip.forest_vines"
                 ],
-            "area/temple_fire": [],
-            "area/temple_water": [],
-            "area/temple_shadow": [
+            "area.temple_fire": [],
+            "area.temple_water": [],
+            "area.temple_shadow": [
                     "skip.lens_shadow",
                     "skip.lens_shadow_back"
                 ],
-            "area/temple_spirit": [
+            "area.temple_spirit": [
                     "skip.lens_spirit"
                 ],
             "known_sequence_breaks": []

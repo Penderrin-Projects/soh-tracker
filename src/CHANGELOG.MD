@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.0.21 (DEV)
+
+### IMPROVED PERFORMANCE
+
+- use proxy objects for readonly storages in filedata
+- create state handlers for ui elements
+
+---
+
 ## VERSION 2.0.20
 
 ### BUGFIXES

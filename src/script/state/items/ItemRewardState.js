@@ -1,7 +1,7 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
+import StateStorage from "/script/storage/StateStorage.js";
 import ItemStates from "../ItemStates.js";
 import AbstractItemState from "/script/state/items/AbstractItemState.js";
-import StateStorage from "/script/storage/StateStorage.js";
 
 const ALL_DUNGEONS = [
     'area/pocket',
@@ -47,6 +47,7 @@ function stateChanged(event) {
 function dungeonRewardUpdate(event) {
     const ref = this.ref;
     const dungeon = this.dungeon;
+    // savesatate
     const data = event.data[dungeon];
     if (data != null && data.newValue != ref) {
         this.dungeon = "";
@@ -64,6 +65,7 @@ export default class ItemRewardState extends AbstractItemState {
 
     constructor(ref, props) {
         super(ref, props, props.max, 0);
+        /* --- */
         this.dungeon = getDisplayDungeon(ref);
         /* EVENTS */
         EventBus.register("state", stateLoaded.bind(this));

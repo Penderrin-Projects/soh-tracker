@@ -415,7 +415,7 @@
             ],
             "default": []
         },
-        "area/temple_forest": {
+        "area.temple_forest": {
             "type": "list",
             "values": [
                 "skip.forest_outdoors_ledge",
@@ -433,7 +433,7 @@
             ],
             "default": []
         },
-        "area/temple_fire": {
+        "area.temple_fire": {
             "type": "list",
             "values": [
                 "skip.fire_boss_door_jump",
@@ -454,7 +454,7 @@
             ],
             "default": []
         },
-        "area/temple_water": {
+        "area.temple_water": {
             "type": "list",
             "values": [
                 "skip.water_temple_torch_longshot",
@@ -480,7 +480,7 @@
             ],
             "default": []
         },
-        "area/temple_shadow": {
+        "area.temple_shadow": {
             "type": "list",
             "values": [
                 "skip.lens_shadow",
@@ -497,7 +497,7 @@
             ],
             "default": []
         },
-        "area/temple_spirit": {
+        "area.temple_spirit": {
             "type": "list",
             "values": [
                 "skip.spirit_child_bombchu",

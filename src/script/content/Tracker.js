@@ -1,4 +1,4 @@
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";

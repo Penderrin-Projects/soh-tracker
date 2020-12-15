@@ -1,5 +1,5 @@
 import Template from "/emcJS/util/Template.js";
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";

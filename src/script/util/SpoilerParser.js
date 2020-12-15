@@ -1,5 +1,5 @@
 import StateStorage from "/script/storage/StateStorage.js";
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/util/events/EventBus.js";
 
 const options = {};

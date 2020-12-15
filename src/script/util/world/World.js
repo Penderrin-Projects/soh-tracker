@@ -1,4 +1,4 @@
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 
 import MarkerEntry from "./MarkerEntry.js";
 import MarkerRegistry from "./MarkerRegistry.js";

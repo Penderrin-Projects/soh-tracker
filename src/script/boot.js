@@ -1,6 +1,6 @@
 
 import EventBus from "/emcJS/util/events/EventBus.js";
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";

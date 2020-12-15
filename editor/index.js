@@ -1,5 +1,5 @@
 
-import FileData from "/emcJS/storage/FileData.js";
+import FileData from "/emcJS/data/FileData.js";
 
 import "/editors/EditorWindow.js";
 

@@ -1,5 +1,5 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
-import BoolState from "/emcJS/data/state/BoolState.js";
+import AnyState from "/emcJS/data/state/AnyState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import WorldStates from "../LocationStates.js";
 import FilterMixin from "../mixins/FilterMixin.js";
@@ -39,28 +39,14 @@ function locationItemUpdate(event) {
     }
 }
 
-export default class LocationState extends FilterMixin(BoolState) {
+export default class GossipstoneState extends FilterMixin(AnyState) {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        this.value = StateStorage.read(ref, 0);
         /* EVENTS */
         EventBus.register("state", stateLoaded.bind(this));
         EventBus.register("statechange", stateChanged.bind(this));
         EventBus.register("statechange_item_location", locationItemUpdate.bind(this));
-    }
-
-    set value(value) {
-        const old = this.value;
-        super.value = value;
-        if (this.value != old) {
-            StateStorage.write(this.ref, this.value);
-        }
-    }
-
-    get value() {
-        return super.value;
     }
 
     set item(value) {
@@ -80,5 +66,4 @@ export default class LocationState extends FilterMixin(BoolState) {
 
 }
 
-WorldStates.register("chest", LocationState);
-WorldStates.register("skulltula", LocationState);
+WorldStates.register("gossipstone", GossipstoneState);

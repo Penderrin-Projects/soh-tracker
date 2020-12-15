@@ -1,5 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
-import AbstractItemState from "/script/state/items/AbstractItemState.js";
+import AbstractLocationState from "/script/state/world/AbstractLocationState.js";
 
 let DATA = null;
 
@@ -8,11 +8,11 @@ const INSTANCES = new Map();
 
 function initData() {
     if (DATA == null) {
-        DATA = FileData.get("items");
+        DATA = FileData.get("world/marker");
     }
 }
 
-class ItemStates {
+class LocationStates {
 
     register(type, clazz) {
         CLAZZ.set(type, clazz);
@@ -31,12 +31,12 @@ class ItemStates {
             throw new Error("the reference must not be null");
         }
         if (!this.has(ref)) {
-            throw new ReferenceError("the item reference does not exist");
+            throw new ReferenceError("the location reference does not exist");
         }
         if (!INSTANCES.has(ref)) {
             const props = DATA[ref];
             if (!CLAZZ.has(props.type)) {
-                const inst = new AbstractItemState(ref, props);
+                const inst = new AbstractLocationState(ref, props);
                 INSTANCES.set(ref, inst);
                 return inst;
             } else {
@@ -51,4 +51,4 @@ class ItemStates {
 
 }
 
-export default new ItemStates();
+export default new LocationStates();

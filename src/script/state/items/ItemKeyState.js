@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
-import ItemStates from "../ItemStates.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import ItemStates from "../ItemStates.js";
 import AbstractItemState from "/script/state/items/AbstractItemState.js";
 
 const TYPE = new WeakMap();
@@ -44,6 +44,7 @@ export default class ItemKeyState extends AbstractItemState {
 
     constructor(ref, props) {
         super(ref, props, props.max, 0);
+        /* --- */
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
         } else {

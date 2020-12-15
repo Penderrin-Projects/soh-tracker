@@ -1,16 +1,13 @@
 import NumberState from "/emcJS/data/state/NumberState.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import StateDataMixin from "../mixins/StateDataMixin.js";
 
-const REF = new WeakMap();
-const PROPS = new WeakMap();
-
-export default class AbstractItemState extends NumberState {
+export default class AbstractItemState extends StateDataMixin(NumberState) {
 
     constructor(ref, props, max, min) {
-        super(max, min);
+        super(ref, props, max, min);
+        /* --- */
         this.value = StateStorage.read(ref, 0);
-        REF.set(this, ref);
-        PROPS.set(this, props);
     }
 
     convert(value) {
@@ -25,19 +22,11 @@ export default class AbstractItemState extends NumberState {
         return value;
     }
 
-    get ref() {
-        return REF.get(this);
-    }
-
-    get props() {
-        return JSON.parse(JSON.stringify(PROPS.get(this)));
-    }
-
     set value(value) {
         const old = this.value;
         super.value = value;
         if (this.value != old) {
-            StateStorage.write(this.ref, parseInt(this.value));
+            StateStorage.write(this.ref, this.value);
         }
     }
 
