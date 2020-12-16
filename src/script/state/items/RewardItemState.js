@@ -1,7 +1,7 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import ItemStates from "../ItemStates.js";
-import AbstractItemState from "/script/state/items/AbstractItemState.js";
+import ItemStates from "/script/state/ItemStates.js";
+import DefaultState from "/script/state/items/DefaultState.js";
 
 const ALL_DUNGEONS = [
     'area/pocket',
@@ -61,10 +61,10 @@ function dungeonRewardUpdate(event) {
     }
 }
 
-export default class ItemRewardState extends AbstractItemState {
+export default class RewardItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, props.max, 0);
+        super(ref, props, 0, props.max);
         /* --- */
         this.dungeon = getDisplayDungeon(ref);
         /* EVENTS */
@@ -105,4 +105,4 @@ export default class ItemRewardState extends AbstractItemState {
 
 }
 
-ItemStates.register("dungeonreward", ItemRewardState);
+ItemStates.register("dungeonreward", RewardItemState);

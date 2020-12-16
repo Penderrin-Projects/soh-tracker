@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
-import ItemStates from "../ItemStates.js";
-import AbstractItemState from "/script/state/items/AbstractItemState.js";
+import ItemStates from "/script/state/ItemStates.js";
+import DefaultState from "/script/state/items/DefaultState.js";
 
 function stateLoaded(event) {
     const ref = this.ref;
@@ -17,10 +17,10 @@ function stateChanged(event) {
     }
 }
 
-export default class ItemInfState extends AbstractItemState {
+export default class InfiniteItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 9999, 0);
+        super(ref, props, 0, 9999);
         /* EVENTS */
         EventBus.register("state", stateLoaded.bind(this));
         EventBus.register("statechange", stateChanged.bind(this));
@@ -44,4 +44,4 @@ export default class ItemInfState extends AbstractItemState {
 
 }
 
-ItemStates.register("infinite", ItemInfState);
+ItemStates.register("infinite", InfiniteItemState);

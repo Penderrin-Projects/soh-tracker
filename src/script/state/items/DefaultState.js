@@ -1,11 +1,11 @@
-import NumberState from "/emcJS/data/state/NumberState.js";
+import IntegerState from "/emcJS/data/state/IntegerState.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateDataMixin from "../mixins/StateDataMixin.js";
+import StateDataMixin from "/script/state/mixins/StateDataMixin.js";
 
-export default class AbstractItemState extends StateDataMixin(NumberState) {
+export default class DefaultState extends StateDataMixin(IntegerState) {
 
-    constructor(ref, props, max, min) {
-        super(ref, props, max, min);
+    constructor(ref, props, min, max) {
+        super(ref, props, min, max);
         /* --- */
         this.value = StateStorage.read(ref, 0);
     }

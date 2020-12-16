@@ -1,15 +1,17 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import ItemStates from "../ItemStates.js";
-import AbstractItemState from "/script/state/items/AbstractItemState.js";
+import AreaStates from "/script/state/AreaStates.js";
+import FilterMixin from "/script/state/mixins/FilterMixin.js";
+import AreaStateEnum from "/script/enum/AreaStateEnum.js";
+import WorldRegistry from "/script/state/WorldRegistry.js";
 
+const AREA_DATA = new WeakMap();
+const ACCESS = new WeakMap();
 const TYPE = new WeakMap();
 
 function stateLoaded(event) {
     const ref = this.ref;
     const props = this.props;
-    // savesatate
-    this.value = parseInt(event.data.state[ref]) || 0;
     // type
     if (props["maxmq"] != null && props.hasOwnProperty["related_dungeon"] != null) {
         const types = event.data.extra.dungeontype;
@@ -19,6 +21,8 @@ function stateLoaded(event) {
             this.type = "n";
         }
     }
+    // savesatate
+    this.value = parseInt(event.data.state[ref]) || 0;
 }
 
 function stateChanged(event) {
@@ -40,11 +44,13 @@ function dungeonTypeUpdate(event) {
     }
 }
 
-export default class ItemKeyState extends AbstractItemState {
+export default class DungeonState extends FilterMixin({}) {
 
-    constructor(ref, props) {
-        super(ref, props, props.max, 0);
+    constructor(ref, props, areaData) {
+        super(ref, props, AreaStateEnum);
         /* --- */
+        AREA_DATA.set(this, areaData);
+        ACCESS.set(AreaStateEnum.UNAVAILABLE);
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
         } else {
@@ -54,28 +60,41 @@ export default class ItemKeyState extends AbstractItemState {
         EventBus.register("state", stateLoaded.bind(this));
         EventBus.register("statechange", stateChanged.bind(this));
         EventBus.register("statechange_dungeontype", dungeonTypeUpdate.bind(this));
+
+        // TODO calculate value on location/subarea/subexit/logic change
+
+        /* register */
+        WorldRegistry.set(`area/${ref}`, this);
     }
 
-    set min(value) {
-        // no action
+    get areaData() {
+        return AREA_DATA.get(this);
     }
 
-    get min() {
-        return super.min;
+    get access() {
+        return ACCESS.get(this);
+    }
+
+    getFilteredList() {
+        const areaData = AREA_DATA.get(this);
+        const list = areaData.lists[this.type];
+        if (list != null) {
+            const result = [];
+            list.forEach(record => {
+                const id = `${record.category}/${record.id}`;
+                const loc = WorldRegistry.get(id);
+                if (!!loc && loc.visible) {
+                    result.push(id);
+                }
+            });
+            return result;
+        }
     }
 
     set type(value) {
         const type = TYPE.get(this);
         TYPE.set(this, value);
         if (type != value) {
-            const props = this.props;
-            if (value == "v") {
-                this.max = props.max;
-            } else if (value == "mq") {
-                this.max = props.maxmq;
-            } else {
-                this.max = Math.max(props.maxmq, props.max);
-            }
             const event = new Event("type");
             event.data = value;
             this.dispatchEvent(event);
@@ -88,4 +107,5 @@ export default class ItemKeyState extends AbstractItemState {
 
 }
 
-ItemStates.register("key", ItemKeyState);
+AreaStates.register("dungeon", DungeonState);
+AreaStates.register("boss_dungeon", DungeonState);

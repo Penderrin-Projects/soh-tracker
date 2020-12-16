@@ -2,13 +2,17 @@ import FileData from "/emcJS/data/FileData.js";
 import DefaultState from "/script/state/world/DefaultState.js";
 
 let PROPS = null;
+let AREA_DATA = null;
 
 const CLAZZ = new Map();
 const INSTANCES = new Map();
 
 function initData() {
     if (PROPS == null) {
-        PROPS = FileData.get("world/marker/location");
+        PROPS = FileData.get("world/marker/area");
+    }
+    if (AREA_DATA == null) {
+        AREA_DATA = FileData.get("world/area");
     }
 }
 
@@ -35,13 +39,14 @@ class LocationStates {
         }
         if (!INSTANCES.has(ref)) {
             const props = PROPS[ref];
+            const areaData = AREA_DATA[ref];
             if (!CLAZZ.has(props.type)) {
-                const inst = new DefaultState(ref, props);
+                const inst = new DefaultState(ref, props, areaData);
                 INSTANCES.set(ref, inst);
                 return inst;
             } else {
                 const clazz = CLAZZ.get(props.type);
-                const inst = new clazz(ref, props);
+                const inst = new clazz(ref, props, areaData);
                 INSTANCES.set(ref, inst);
                 return inst;
             }

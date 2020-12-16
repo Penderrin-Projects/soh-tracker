@@ -1,14 +1,14 @@
 import FileData from "/emcJS/data/FileData.js";
-import AbstractItemState from "/script/state/items/AbstractItemState.js";
+import DefaultState from "/script/state/items/DefaultState.js";
 
-let DATA = null;
+let PROPS = null;
 
 const CLAZZ = new Map();
 const INSTANCES = new Map();
 
 function initData() {
-    if (DATA == null) {
-        DATA = FileData.get("items");
+    if (PROPS == null) {
+        PROPS = FileData.get("items");
     }
 }
 
@@ -23,7 +23,7 @@ class ItemStates {
             throw new Error("the reference must not be null");
         }
         initData();
-        return DATA[ref] != null;
+        return PROPS[ref] != null;
     }
 
     get(ref) {
@@ -34,9 +34,9 @@ class ItemStates {
             throw new ReferenceError("the item reference does not exist");
         }
         if (!INSTANCES.has(ref)) {
-            const props = DATA[ref];
+            const props = PROPS[ref];
             if (!CLAZZ.has(props.type)) {
-                const inst = new AbstractItemState(ref, props);
+                const inst = new DefaultState(ref, props);
                 INSTANCES.set(ref, inst);
                 return inst;
             } else {

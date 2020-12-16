@@ -1,8 +1,8 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
 import BoolState from "/emcJS/data/state/BoolState.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import WorldStates from "../LocationStates.js";
-import FilterMixin from "../mixins/FilterMixin.js";
+import FilterMixin from "/script/state/mixins/FilterMixin.js";
+import WorldRegistry from "/script/state/WorldRegistry.js";
 
 const ITEM = new WeakMap();
 
@@ -39,16 +39,18 @@ function locationItemUpdate(event) {
     }
 }
 
-export default class LocationState extends FilterMixin(BoolState) {
+export default class DefaultState extends FilterMixin(BoolState) {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(ref, 0);
+        this.value = StateStorage.read(ref, false);
         /* EVENTS */
         EventBus.register("state", stateLoaded.bind(this));
         EventBus.register("statechange", stateChanged.bind(this));
         EventBus.register("statechange_item_location", locationItemUpdate.bind(this));
+        /* register */
+        WorldRegistry.set(`location/${ref}`, this);
     }
 
     set value(value) {
@@ -79,6 +81,3 @@ export default class LocationState extends FilterMixin(BoolState) {
     }
 
 }
-
-WorldStates.register("chest", LocationState);
-WorldStates.register("skulltula", LocationState);

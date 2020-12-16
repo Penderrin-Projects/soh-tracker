@@ -1,7 +1,7 @@
 import EventBus from "/emcJS/util/events/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateDataMixin from "./StateDataMixin.js";
+import StateDataMixin from "/script/state/mixins/StateDataMixin.js";
 
 function valueGetter(key) {
     return this.get(key);

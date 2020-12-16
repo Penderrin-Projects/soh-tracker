@@ -1,8 +1,8 @@
 import BoolState from "/emcJS/data/state/BoolState.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import FilterMixin from "../mixins/FilterMixin.js";
+import FilterMixin from "/script/state/mixins/FilterMixin.js";
 
-export default class LocationState extends FilterMixin(BoolState) {
+export default class DefaultState extends FilterMixin(BoolState) {
 
     constructor(ref, props) {
         super(ref, props);
