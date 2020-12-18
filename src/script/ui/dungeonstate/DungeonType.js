@@ -1,7 +1,7 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
@@ -84,7 +84,7 @@ function dungeonTypeUpdate(event) {
     }
 }
 
-class HTMLTrackerDungeonType extends EventBusSubsetMixin(HTMLElement) {
+class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();

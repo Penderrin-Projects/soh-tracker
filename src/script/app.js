@@ -77,7 +77,7 @@ async function init() {
         SpoilerLogWindow
     ] = await $import.module([ // eslint-disable-line no-undef
         // consts
-        "/emcJS/util/events/EventBus.js",
+        "/emcJS/event/EventBus.js",
         "/emcJS/util/Logger.js",
         "/script/ui/TrackerSettingsWindow.js",
         "/script/ui/RandomizerOptionsWindow.js",

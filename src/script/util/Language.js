@@ -1,7 +1,7 @@
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
-import I18n from "/emcJS/util/I18n.js";
+import EventBus from "/emcJS/event/EventBus.js";
+import I18n from "/emcJS/i18n/I18n.js";
 
 let languages = null;
 

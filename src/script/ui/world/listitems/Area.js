@@ -1,7 +1,7 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 import "/emcJS/ui/Icon.js";
@@ -169,7 +169,7 @@ const VALUE_STATES = [
 
 const MNU_CTX = new WeakMap();
 
-export default class ListArea extends EventBusSubsetMixin(HTMLElement) {
+export default class ListArea extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();

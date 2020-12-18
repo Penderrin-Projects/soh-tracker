@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import Language from "/script/util/Language.js";
 import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
@@ -326,7 +326,7 @@ function overviewSelect(event, map) {
     return false;
 }
 
-class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
+class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();

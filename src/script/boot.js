@@ -1,5 +1,5 @@
 
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
@@ -60,7 +60,7 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
 
 export async function registerWorker() {
     if ("SharedWorker" in window) {
-        const EventBusModuleShare = (await import("/emcJS/util/events/EventBusModuleShare.js")).default;
+        const EventBusModuleShare = (await import("/emcJS/event/module/EventBusModuleShare.js")).default;
         EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
     }
 }

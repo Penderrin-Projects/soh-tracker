@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import FileData from "/emcJS/data/FileData.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Language from "/script/util/Language.js";
 import "./ShopItem.js";
@@ -174,7 +174,7 @@ function shopBoughtUpdate(event) {
     }
 }
 
-export default class HTMLTrackerShopField extends EventBusSubsetMixin(HTMLElement) {
+export default class HTMLTrackerShopField extends UIEventBusMixin(HTMLElement) {
     
     constructor() {
         super();

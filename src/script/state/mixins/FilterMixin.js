@@ -1,4 +1,4 @@
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import FilterStorage from "/script/storage/FilterStorage.js";

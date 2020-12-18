@@ -1,5 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Logic from "/script/util/logic/Logic.js";

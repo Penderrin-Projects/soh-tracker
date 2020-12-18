@@ -1,6 +1,6 @@
 import StateStorage from "/script/storage/StateStorage.js";
 import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 
 const options = {};
 const extra = {};

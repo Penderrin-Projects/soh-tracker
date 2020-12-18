@@ -1,7 +1,7 @@
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import DebouncedStorage from "/emcJS/storage/DebouncedStorage.js";
 // import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import ActionPath from "/emcJS/util/ActionPath.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";

@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 import "./ExitChoice.js";
@@ -17,7 +17,7 @@ const TPL = new Template(`
     </style>
 `);
 
-export default class HTMLTrackerExitList extends EventBusSubsetMixin(Panel) {
+export default class HTMLTrackerExitList extends UIEventBusMixin(Panel) {
     
     constructor() {
         super();

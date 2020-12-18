@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
@@ -69,7 +69,7 @@ function updateStates(doneEl, availEl, missEl) {
     doneEl.innerHTML = done;
 }
 
-class HTMLLocationState extends EventBusSubsetMixin(HTMLElement) {
+class HTMLLocationState extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();

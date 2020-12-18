@@ -1,7 +1,7 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import StateStorage from "../storage/StateStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
@@ -52,7 +52,7 @@ slot {
 
 const PERSIST = new WeakMap();
 
-class FilterButton extends EventBusSubsetMixin(HTMLElement) {
+class FilterButton extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();

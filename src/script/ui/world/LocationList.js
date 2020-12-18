@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
 import StateStorage from "/script/storage/StateStorage.js";
@@ -137,7 +137,7 @@ const VALUE_STATES = [
     "available"
 ];
 
-class HTMLTrackerLocationList extends EventBusSubsetMixin(Panel) {
+class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();

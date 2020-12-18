@@ -1,6 +1,6 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import FileData from "/emcJS/data/FileData.js";
@@ -130,7 +130,7 @@ const TYPE = new WeakMap();
 const MNU_CTX = new WeakMap();
 const MNU_ITM = new WeakMap();
 
-export default class MapLocation extends EventBusSubsetMixin(HTMLElement) {
+export default class MapLocation extends UIEventBusMixin(HTMLElement) {
 
     constructor(type) {
         super();

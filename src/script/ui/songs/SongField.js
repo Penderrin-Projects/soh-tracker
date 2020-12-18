@@ -1,7 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import FileData from "/emcJS/data/FileData.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Language from "/script/util/Language.js";
 import "./SongStave.js";
@@ -75,7 +75,7 @@ function songUpdate(event) {
     }
 }
 
-export default class HTMLTrackerSongField extends EventBusSubsetMixin(HTMLElement) {
+export default class HTMLTrackerSongField extends UIEventBusMixin(HTMLElement) {
     
     constructor() {
         super();

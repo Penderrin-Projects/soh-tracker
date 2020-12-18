@@ -1,4 +1,4 @@
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import AreaStates from "/script/state/AreaStates.js";
 import FilterMixin from "/script/state/mixins/FilterMixin.js";

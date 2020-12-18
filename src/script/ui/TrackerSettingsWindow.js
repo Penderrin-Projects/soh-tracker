@@ -4,7 +4,7 @@ import Template from "/emcJS/util/Template.js";
 import FileData from "/emcJS/data/FileData.js";
 import SettingsWindow from "/emcJS/ui/overlay/SettingsWindow.js";
 import PopOver from "/emcJS/ui/overlay/PopOver.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import BusyIndicator from "/script/ui/BusyIndicator.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";

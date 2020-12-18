@@ -1,4 +1,4 @@
-import EventBus from "/emcJS/util/events/EventBus.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import ItemStates from "/script/state/ItemStates.js";
 import DefaultState from "/script/state/items/DefaultState.js";
 
