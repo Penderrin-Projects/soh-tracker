@@ -13,6 +13,15 @@ Application:    Track-OOT
 
 ---
 
+## VERSION 2.0.22
+
+### IMPROVEMENTS
+
+- added missing translation keys to german translation
+- improved the overall quality of german translation
+
+---
+
 ## VERSION 2.0.21
 
 ### BUGFIXES
