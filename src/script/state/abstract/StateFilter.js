@@ -69,10 +69,10 @@ export default class StateFilter extends StateVisible {
     }
 
     get visible() {
-        return super.visible && this.filtered;
+        return super.visible && this.filter;
     }
 
-    get filtered() {
+    get filter() {
         const activeFilter = FilterStorage.getAll();
         const values = FILTER.get(this);
         for (const filter in activeFilter) {

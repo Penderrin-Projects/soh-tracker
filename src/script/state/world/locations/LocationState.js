@@ -9,8 +9,18 @@ const ITEM = new WeakMap();
 function internalChange(event) {
     const ref = this.ref;
     // savesatate
-    if (event.data[ref] != null) {
-        this.item = event.data[ref].newValue;
+    const change = event.data;
+    if (change != null && change.ref == ref) {
+        this.value = change.newValue;
+    }
+}
+
+function internalItemChange(event) {
+    const ref = this.ref;
+    // savesatate
+    const change = event.data;
+    if (change != null && change.ref == ref) {
+        this.item = change.newValue;
     }
 }
 
@@ -19,11 +29,13 @@ export default class LocationState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(ref, false);
+        this.value = StateStorage.read(`location/${ref}`, false);
         this.item = StateStorage.readExtra("item_location", `location/${ref}`, "");
         /* EVENTS */
-        EventBus.register("state_location_item", internalChange.bind(this));
-        EventBus.register("net:state_location_item", internalChange.bind(this));
+        EventBus.register("state::location", internalChange.bind(this));
+        EventBus.register("net::state::location", internalChange.bind(this));
+        EventBus.register("state::location_item", internalItemChange.bind(this));
+        EventBus.register("net::state::location_item", internalItemChange.bind(this));
     }
 
     stateLoaded(event) {
@@ -44,15 +56,16 @@ export default class LocationState extends DefaultState {
         }
         const old = this.value;
         if (value != old) {
+            const ref = this.ref;
             VALUE.set(this, value);
-            StateStorage.write(this.ref, this.value);
+            StateStorage.write(`location/${ref}`, this.value);
             // external
             const event = new Event("value");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state_location", {
-                ref: this.ref,
+            EventBus.trigger("state::location", {
+                ref: ref,
                 oldValue: old,
                 newValue: this.value
             });
@@ -75,7 +88,7 @@ export default class LocationState extends DefaultState {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state_location_item", {
+            EventBus.trigger("state::location_item", {
                 ref: ref,
                 oldValue: old,
                 newValue: this.item

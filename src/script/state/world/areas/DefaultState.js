@@ -34,12 +34,12 @@ export default class DefaultState extends StateFilter {
         this.hint = StateStorage.readExtra("area_hint", `area/${ref}`, "");
         this.calculateAvailability();
         /* EVENTS */
-        EventBus.register("state_area_hint", internalHintChange.bind(this));
-        EventBus.register("net:state_area_hint", internalHintChange.bind(this));
+        EventBus.register("state::area_hint", internalHintChange.bind(this));
+        EventBus.register("net::state::area_hint", internalHintChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
-        EventBus.register("logic", event => {
+        EventBus.register(["logic", "state::location"], event => {
             this.calculateAvailability();
         });
         /* register */
@@ -114,7 +114,7 @@ export default class DefaultState extends StateFilter {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state_area_hint", {
+            EventBus.trigger("state::area_hint", {
                 ref: ref,
                 oldValue: old,
                 newValue: this.hint

@@ -51,8 +51,8 @@ export default class DefaultState extends StateData {
         MAX.set(this, parseNumber(max, Number.MAX_SAFE_INTEGER));
         this.value = StateStorage.read(ref, 0);
         /* EVENTS */
-        EventBus.register("state_item", internalChange.bind(this));
-        EventBus.register("net:state_item", networkChange.bind(this));
+        EventBus.register("state::item", internalChange.bind(this));
+        EventBus.register("net::state::item", networkChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -132,7 +132,7 @@ export default class DefaultState extends StateData {
                 event.data = value;
                 this.dispatchEvent(event);
                 // internal
-                EventBus.trigger("state_item", {
+                EventBus.trigger("state::item", {
                     ref: this.ref,
                     oldValue: old,
                     newValue: this.value

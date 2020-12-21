@@ -13,11 +13,34 @@ export default class StartItemState extends DefaultState {
         STARTVALUE.set(this, parseInt(StateStorage.read(props.start_settings, 1)));
         /* EVENTS */
         EventBus.register("randomizer_options", event => {
-            if (props.start_settings != null) {
-                const startvalue = parseInt(event.data[props.start_settings]) || 0;
-                this.startvalue = startvalue > 0 ? startvalue : 1;
+            if (event.data[props.start_settings] != null) {
+                this.applyStartValue(event.data[props.start_settings]);
             }
         });
+    }
+
+    /*#*/applyStartValue(newValue) {
+        const startvalue = STARTVALUE.get(this);
+        newValue = parseInt(newValue) || 1;
+        const max = this.max;
+        if (newValue < 1) {
+            newValue = 1;
+        }
+        if (newValue > max) {
+            newValue = max;
+        }
+        if (newValue != startvalue) {
+            STARTVALUE.set(this, newValue);
+            // external
+            const event = new Event("startvalue");
+            event.data = newValue;
+            this.dispatchEvent(event);
+            // update value
+            const state = this.value;
+            if (!!state && state < newValue) {
+                this.value = newValue;
+            }
+        }
     }
 
     stateLoaded(event) {
@@ -25,9 +48,8 @@ export default class StartItemState extends DefaultState {
         // savesatate
         super.stateLoaded(event);
         // settings
-        if (props.start_settings != null) {
-            const startvalue = parseInt(event.data.state[props.start_settings]) || 0;
-            this.startvalue = startvalue > 0 ? startvalue : 1;
+        if (event.data.state[props.start_settings] != null) {
+            this.applyStartValue(event.data.state[props.start_settings]);
         }
     }
 
@@ -37,6 +59,10 @@ export default class StartItemState extends DefaultState {
 
     get min() {
         return super.min;
+    }
+
+    get startvalue() {
+        return STARTVALUE.get(this);
     }
 
     set value(value) {
@@ -53,30 +79,6 @@ export default class StartItemState extends DefaultState {
 
     get value() {
         return super.value;
-    }
-
-    set startvalue(value) {
-        if (typeof value != "number") value = 0;
-        const max = this.max;
-        if (value > max) {
-            value = max;
-        }
-        if (value != this.startvalue) {
-            STARTVALUE.set(this, value);
-            // external
-            const event = new Event("startvalue");
-            event.data = value;
-            this.dispatchEvent(event);
-            // update value
-            const state = this.value;
-            if (!!state && state < value) {
-                this.value = value;
-            }
-        }
-    }
-
-    get startvalue() {
-        return STARTVALUE.get(this);
     }
 
 }

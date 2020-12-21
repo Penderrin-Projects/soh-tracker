@@ -26,8 +26,8 @@ export default class DefaultState extends StateFilter {
         this.area = StateStorage.read(ref, false);
         /* EVENTS */
         // TODO get access on logic change
-        EventBus.register("state_exit_area", internalAreaChange.bind(this));
-        EventBus.register("net:state_exit_area", internalAreaChange.bind(this));
+        EventBus.register("state::exit_area", internalAreaChange.bind(this));
+        EventBus.register("net::state::exit_area", internalAreaChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -50,7 +50,7 @@ export default class DefaultState extends StateFilter {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state_exit_area", {
+            EventBus.trigger("state::exit_area", {
                 ref: this.ref,
                 oldValue: old,
                 newValue: this.value

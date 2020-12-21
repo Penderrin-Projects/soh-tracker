@@ -5,6 +5,8 @@ import Logger from "/emcJS/util/Logger.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
+import WorldRegistry from "/script/state/WorldRegistry.js";
+import LocationState from "/script/state/world/locations/LocationState.js";
 import AreaStates from "/script/state/AreaStates.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
@@ -17,7 +19,10 @@ function setAllListEntries(list, value = true) {
             const category = entry.category;
             const id = entry.id;
             if (category == "location") {
-                StateStorage.write(`${category}/${id}`, value);
+                const state = WorldRegistry.get(`${category}/${id}`);
+                if (state instanceof LocationState) {
+                    state.value = value;
+                }
             } else if (category == "subarea") {
                 const subarea = FileData.get(`world/subarea/${id}/list`);
                 setAllListEntries(subarea, value);
@@ -61,17 +66,19 @@ export default class AbstractArea extends StateHandlerMixin(UIEventBusMixin(HTML
         MNU_CTX.set(this, mnu_ctx);
         
         mnu_ctx.addEventListener("check", event => {
-            const data = FileData.get(`world/${this.ref}/lists`);
-            for (const type in data) {
-                setAllListEntries(data[type], true);
+            const state = this.getState();
+            if (state != null) {
+                const list = state.getFilteredList();
+                setAllListEntries(list, true);
             }
             event.preventDefault();
             return false;
         });
         mnu_ctx.addEventListener("uncheck", event => {
-            const data = FileData.get(`world/${this.ref}/lists`);
-            for (const type in data) {
-                setAllListEntries(data[type], false);
+            const state = this.getState();
+            if (state != null) {
+                const list = state.getFilteredList();
+                setAllListEntries(list, false);
             }
             event.preventDefault();
             return false;
@@ -121,6 +128,25 @@ export default class AbstractArea extends StateHandlerMixin(UIEventBusMixin(HTML
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
+    
+    applyAccess(data) {
+        /* access */
+        const textEl = this.shadowRoot.getElementById("text");
+        const value = AccessStateEnum.getName(data.value).toLowerCase();
+        if (textEl != null) {
+            textEl.dataset.state = value;
+        }
+        /* entrances */
+        const entrances = this.shadowRoot.getElementById("entrances");
+        if (entrances != null) {
+            entrances.innerHTML = "";
+            if (data.entrances) {
+                const el_icon = document.createElement("img");
+                el_icon.src = `images/icons/entrance.svg`;
+                entrances.append(el_icon);
+            }
+        }
+    }
 
     connectedCallback() {
         super.connectedCallback();
@@ -142,27 +168,6 @@ export default class AbstractArea extends StateHandlerMixin(UIEventBusMixin(HTML
     disconnectedCallback() {
         super.disconnectedCallback();
         MNU_CTX.get(this).remove();
-    }
-
-    setEntrances(active) {
-        const entrances = this.shadowRoot.getElementById("entrances");
-        if (entrances != null) {
-            entrances.innerHTML = "";
-            if (active) {
-                const el_icon = document.createElement("img");
-                el_icon.src = `images/icons/entrance.svg`;
-                entrances.append(el_icon);
-            }
-        }
-    }
-
-    applyAccess(data) {
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        /* --- */
-        const textEl = this.shadowRoot.getElementById("text");
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
     }
 
     get ref() {
@@ -200,7 +205,6 @@ export default class AbstractArea extends StateHandlerMixin(UIEventBusMixin(HTML
                         if (state != null && this.isConnected) {
                             this.hint = state.hint;
                             this.setFilterData(state.filter);
-                            /* --- */
                             this.applyAccess(state.access);
                         }
                     }

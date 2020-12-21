@@ -31,12 +31,20 @@ function getAccessNeutralOne(res_v, res_m) {
 */
 
 function internalTypeChange(event) {
-    const props = this.props;
-    if (props["maxmq"] != null && props["related_dungeon"] != null) {
-        const change = event.data[props.related_dungeon];
-        if (change != null) {
-            this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
-        }
+    const ref = this.ref;
+    // savesatate
+    const change = event.data;
+    if (change != null && change.ref == ref) {
+        this.applyTypeValue(change.newValue || "n");
+    }
+}
+
+function dungeonTypeUpdate(event) {
+    const ref = this.ref;
+    // savesatate
+    const change = event.data[ref];
+    if (change != null) {
+        this.applyTypeValue(change.newValue || "n");
     }
 }
 
@@ -45,14 +53,24 @@ export default class DungeonState extends DefaultState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        if (props["maxmq"] != null && props["related_dungeon"] != null) {
-            this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
-        } else {
-            this.type = "v";
-        }
+        this.applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
         /* EVENTS */
-        EventBus.register("state_area_type", internalTypeChange.bind(this));
-        EventBus.register("net:state_area_type", internalTypeChange.bind(this));
+        EventBus.register("state::dungeontype", internalTypeChange.bind(this));
+        EventBus.register("statechange_dungeontype", dungeonTypeUpdate.bind(this)); // TODO remove later
+        this.addEventListener("type", event => {
+            this.calculateAvailability();
+        });
+    }
+
+    /*#*/applyTypeValue(newValue) {
+        const type = TYPE.get(this);
+        if (type != newValue) {
+            TYPE.set(this, newValue);
+            // external
+            const event = new Event("type");
+            event.data = newValue;
+            this.dispatchEvent(event);
+        }
     }
 
     stateLoaded(event) {
@@ -110,22 +128,6 @@ export default class DungeonState extends DefaultState {
                 }
             }
         */
-    }
-
-    set type(value) {
-        const old = this.type;
-        if (value != old) {
-            TYPE.set(this, value);
-            // external
-            const event = new Event("type");
-            event.data = value;
-            this.dispatchEvent(event);
-            // internal
-            EventBus.trigger("state_area_type", {
-                oldValue: old,
-                newValue: this.value
-            }); // FIXME no, listen to dungeonstate event
-        }
     }
 
     get type() {

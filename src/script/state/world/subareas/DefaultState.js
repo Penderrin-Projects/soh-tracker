@@ -15,12 +15,12 @@ export default class DefaultState extends StateFilter {
         AREA_DATA.set(this, areaData);
         ACCESS.set(this, AccessStateEnum.UNAVAILABLE);
         this.hint = "";
-
-        // TODO calculate value on location/logic change
-
         /* EVENTS */
         EventBus.register("state", event => {
             this.stateLoaded(event);
+        });
+        EventBus.register(["logic", "state::location"], event => {
+            this.calculateAvailability();
         });
         /* register */
         WorldRegistry.set(`subarea/${ref}`, this);

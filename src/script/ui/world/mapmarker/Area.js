@@ -146,29 +146,27 @@ export default class MapArea extends AbstractArea {
         STYLE.apply(this.shadowRoot);
         /* --- */
     }
-
-    setEntrances(active) {
-        super.setEntrances(active);
-        const marker = this.shadowRoot.getElementById("marker");
-        if (marker != null) {
-            if (active) {
-                marker.dataset.entrances = "true";
-            } else {
-                marker.dataset.entrances = "false";
-            }
-        }
-    }
-
+    
     applyAccess(data) {
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        /* --- */
+        super.applyAccess(data);
+        /* access */
         const markerEl = this.shadowRoot.getElementById("marker");
+        const value = AccessStateEnum.getName(data.value).toLowerCase();
         if (markerEl != null) {
             markerEl.dataset.state = value;
             if (data.value == AccessStateEnum.UNAVAILABLE || data.value == AccessStateEnum.OPENED) {
                 markerEl.innerHTML = "";
             } else {
                 markerEl.innerHTML = data.reachable;
+            }
+        }
+        /* entrances */
+        const marker = this.shadowRoot.getElementById("marker");
+        if (marker != null) {
+            if (data.entrances) {
+                marker.dataset.entrances = "true";
+            } else {
+                marker.dataset.entrances = "false";
             }
         }
     }
@@ -202,6 +200,7 @@ export default class MapArea extends AbstractArea {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
+        super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
             case 'top':
             case 'left':

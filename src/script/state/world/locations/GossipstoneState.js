@@ -6,11 +6,12 @@ import DefaultState from "/script/state/world/locations/DefaultState.js";
 
 const HINT = new WeakMap();
 
-function internalChange(event) {
+function internalHintChange(event) {
     const ref = this.ref;
     // savesatate
-    if (event.data[ref] != null) {
-        this.hint = event.data[ref].newValue;
+    const change = event.data;
+    if (change != null && change.ref == ref) {
+        this.hint = change.newValue;
     }
 }
 
@@ -19,27 +20,25 @@ export default class GossipstoneState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.hint = StateStorage.readExtra("gossipstone", ref, false);
+        this.hint = StateStorage.read(ref, false);
         /* EVENTS */
-        EventBus.register("state_location_hint", internalChange.bind(this));
-        EventBus.register("net:state_location_hint", internalChange.bind(this));
+        EventBus.register("state::gossipstone_hint", internalHintChange.bind(this));
+        EventBus.register("net::state::gossipstone_hint", internalHintChange.bind(this));
     }
 
     stateLoaded(event) {
         const ref = this.ref;
         // savesatate
-        super.stateLoaded(event);
-        // hint
-        if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
-            this.hint = event.data.extra["gossipstone"][ref];
-        } else {
-            this.hint = "";
-        }
+        this.hint = !!event.data.state[ref];
     }
 
     get value() {
         const hint = HINT.get(this);
         return !!hint.location || !!hint.item;
+    }
+
+    set value(value) {
+        // nothing
     }
 
     set hint(value) {
@@ -57,14 +56,16 @@ export default class GossipstoneState extends DefaultState {
         }
         const old = this.hint;
         if (!Helper.isEqual(old, value)) {
+            const ref = this.ref;
             HINT.set(this, value);
-            StateStorage.writeExtra("gossipstone", this.ref, value);
+            StateStorage.write(`location/${ref}`, this.value);
             // external
             const event = new Event("hint");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state_location_hint", {
+            EventBus.trigger("state::gossipstone_hint", {
+                ref: ref,
                 oldValue: old,
                 newValue: this.hint
             });

@@ -22,8 +22,8 @@ export default class DefaultState extends StateFilter {
         ACCESS.set(this, Logic.getValue(props.access));
         /* EVENTS */
         // TODO get access on logic change
-        EventBus.register("state_location", internalChange.bind(this));
-        EventBus.register("net:state_location", internalChange.bind(this));
+        EventBus.register("state::location", internalChange.bind(this));
+        EventBus.register("net::state::location", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
