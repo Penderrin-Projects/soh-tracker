@@ -1,0 +1,219 @@
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import "/emcJS/ui/Icon.js";
+import FileData from "/emcJS/data/FileData.js";
+import LogicViewer from "/script/content/logic/LogicViewer.js";
+import Language from "/script/util/Language.js";
+import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
+import LocationStates from "/script/state/LocationStates.js";
+import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+
+import "./menus/LocationContextMenu.js";
+import "./menus/ItemPickerMenu.js";
+
+const MNU_CTX = new WeakMap();
+const MNU_ITM = new WeakMap();
+
+export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(HTMLElement)) {
+
+    constructor(type) {
+        super();
+        /* --- */
+        this.registerStateHandler("access", event => {
+            const textEl = this.shadowRoot.getElementById("text");
+            if (textEl != null) {
+                textEl.dataset.state = event.data ? "available" : "unavailable";
+            }
+        });
+        this.registerStateHandler("value", event => {
+            const textEl = this.shadowRoot.getElementById("text");
+            if (textEl != null) {
+                textEl.dataset.checked = !!event.data;
+            }
+        });
+        this.registerStateHandler("item", event => {
+            this.item = event.data;
+        });
+
+        /* context menu */
+        const mnu_ctx = document.createElement("ootrt-ctxmenu-location");
+        MNU_CTX.set(this, mnu_ctx);
+
+        const mnu_itm = document.createElement("ootrt-ctxmenu-itempicker");
+        MNU_ITM.set(this, mnu_itm);
+
+        mnu_itm.addEventListener("pick", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.item = event.item;
+            }
+            event.preventDefault();
+            return false;
+        });
+        mnu_ctx.addEventListener("check", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = true;
+            }
+            event.preventDefault();
+            return false;
+        });
+        mnu_ctx.addEventListener("uncheck", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = false;
+            }
+            event.preventDefault();
+            return false;
+        });
+        mnu_ctx.addEventListener("associate", event => {
+            mnu_itm.show(event.left, event.top);
+            event.preventDefault();
+            return false;
+        });
+        mnu_ctx.addEventListener("disassociate", event => {
+            if (this.ref) {
+                const state = this.getState();
+                if (state != null) {
+                    state.item = "";
+                }
+            }
+            event.preventDefault();
+            return false;
+        });
+        mnu_ctx.addEventListener("show_logic", event => {
+            const title = Language.translate(this.ref);
+            LogicViewer.show(this.access, title);
+        });
+        
+        /* mouse events */
+        this.addEventListener("click", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = !state.value;
+            }
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+        this.addEventListener("contextmenu", event => {
+            mnu_ctx.show(event.clientX, event.clientY);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+        
+        /* fck iOS */
+        iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        let el = this;
+        while (el.parentElement != null && !el.classList.contains("panel")) {
+            el = el.parentElement;
+        }
+        el.append(MNU_CTX.get(this));
+        el.append(MNU_ITM.get(this));
+        // state
+        const state = this.getState();
+        if (state != null) {
+            const textEl = this.shadowRoot.getElementById("text");
+            if (textEl != null) {
+                this.item = state.item;
+                textEl.dataset.checked = state.value;
+                textEl.dataset.state = state.access ? "available" : "unavailable";
+                this.setFilterData(state.filter);
+            }
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        MNU_CTX.get(this).remove();
+        MNU_ITM.get(this).remove();
+    }
+
+    get ref() {
+        return this.getAttribute('ref');
+    }
+
+    set ref(val) {
+        this.setAttribute('ref', val);
+    }
+
+    get item() {
+        return this.getAttribute('item');
+    }
+
+    set item(val) {
+        this.setAttribute('item', val);
+    }
+
+    static get observedAttributes() {
+        return ['ref', 'item'];
+    }
+    
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue != newValue) {
+            switch (name) {
+                case 'ref':
+                    {
+                        const textEl = this.shadowRoot.getElementById("text");
+                        if (textEl != null) {
+                            const state = LocationStates.get(this.ref.slice(9));
+                            this.switchState(state);
+                            if (state != null && this.isConnected) {
+                                this.item = state.item;
+                                textEl.dataset.checked = state.value;
+                                textEl.dataset.state = state.access ? "available" : "unavailable";
+                                this.setFilterData(state.filter);
+                            }
+                            textEl.innerHTML = Language.translate(newValue);
+                        }
+                    }
+                    break;
+                case 'item':
+                    {
+                        const itemEl = this.shadowRoot.getElementById("item");
+                        if (itemEl != null) {
+                            itemEl.innerHTML = "";
+                            if (!!newValue && newValue != "false") {
+                                const el_icon = document.createElement("img");
+                                const itemsData = FileData.get("items")[newValue];
+                                const bgImage = Array.isArray(itemsData.images) ? itemsData.images[0] : itemsData.images;
+                                el_icon.src = bgImage;
+                                itemEl.append(el_icon);
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+
+    setFilterData(data) {
+        if (data != null) {
+            const el_era = this.shadowRoot.getElementById("badge-era");
+            if (el_era != null) {
+                if (!data["filter.era/child"]) {
+                    el_era.src = "images/icons/era_adult.svg";
+                } else if (!data["filter.era/adult"]) {
+                    el_era.src = "images/icons/era_child.svg";
+                } else {
+                    el_era.src = "images/icons/era_both.svg";
+                }
+            }
+            const el_time = this.shadowRoot.getElementById("badge-time");
+            if (el_time != null) {
+                if (!data["filter.time/day"]) {
+                    el_time.src = "images/icons/time_night.svg";
+                } else if (!data["filter.time/night"]) {
+                    el_time.src = "images/icons/time_day.svg";
+                } else {
+                    el_time.src = "images/icons/time_always.svg";
+                }
+            }
+        }
+    }
+
+}

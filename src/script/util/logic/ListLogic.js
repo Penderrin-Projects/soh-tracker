@@ -3,6 +3,7 @@ import Logger from "/emcJS/util/Logger.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "/script/util/logic/Logic.js";
 import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
+import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 
 class ListLogic {
     
@@ -13,7 +14,7 @@ class ListLogic {
             unopened: 0,
             reachable: 0,
             entrances: false,
-            value: 0
+            value: AccessStateEnum.OPENED
         };
         if (!!list && Array.isArray(list)) {
             for (const entry of list) {
@@ -66,12 +67,12 @@ class ListLogic {
         if (res.unopened > 0) {
             if (res.reachable > 0) {
                 if (res.unopened == res.reachable) {
-                    res.value = 3;
+                    res.value = AccessStateEnum.AVAILABLE;
                 } else {
-                    res.value = 2;
+                    res.value = AccessStateEnum.POSSIBLE;
                 }
             } else {
-                res.value = 1;
+                res.value = AccessStateEnum.UNAVAILABLE;
             }
         }
         return res;

@@ -2,6 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
 import ItemStates from "/script/state/ItemStates.js";
+import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -74,10 +75,7 @@ function getAlign(value) {
     }
 }
 
-const FN_VALUE = new WeakMap();
-const FN_TYPE = new WeakMap();
-
-export default class Item extends HTMLElement {
+export default class ItemKey extends StateHandlerMixin(HTMLElement) {
 
     constructor() {
         super();
@@ -85,16 +83,30 @@ export default class Item extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        FN_VALUE.set(this, event => {
+        this.registerStateHandler("value", event => {
             this.value = event.data;
         });
-        FN_TYPE.set(this, event => {
+        this.registerStateHandler("type", event => {
             this.fillItemChoices();
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
         /* fck iOS */
         iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.value;
+            this.fillItemChoices();
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
     }
 
     get ref() {
@@ -143,27 +155,27 @@ export default class Item extends HTMLElement {
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
             switch (name) {
                 case 'ref':
-                    // state
-                    if (oldValue != null) {
-                        const oldState = ItemStates.get(oldValue);
-                        oldState.removeEventListener("value", FN_VALUE.get(this));
-                        oldState.removeEventListener("type", FN_TYPE.get(this));
+                    {
+                        // state
+                        const state = ItemStates.get(this.ref);
+                        this.switchState(state);
+                        if (state != null) {
+                            if (this.isConnected) {
+                                this.value = state.value;
+                            }
+                            const data = state.props;
+                            // settings
+                            if (data.halign != null) {
+                                this.halign = data.halign;
+                            }
+                            if (data.valign != null) {
+                                this.valign = data.valign;
+                            }
+                            this.fillItemChoices();
+                        }
                     }
-                    state.addEventListener("value", FN_VALUE.get(this));
-                    state.addEventListener("type", FN_TYPE.get(this));
-                    this.value = state.value;
-                    // settings
-                    if (data.halign != null) {
-                        this.halign = data.halign;
-                    }
-                    if (data.valign != null) {
-                        this.valign = data.valign;
-                    }
-                    this.fillItemChoices();
                     break;
                 case 'halign':
                     this.shadowRoot.getElementById("slot").style.setProperty("--halign", getAlign(newValue));
@@ -201,32 +213,32 @@ export default class Item extends HTMLElement {
 
     next(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
-
-            const oldValue = state.value;
-            let value = oldValue;
-            
-            if ((event.shiftKey || event.ctrlKey)) {
-                if (data.alternate_counting) {
-                    for (let i = 0; i < data.alternate_counting.length; ++i) {
-                        let alt = parseInt(data.alternate_counting[i]);
-                        if (isNaN(alt)) {
-                            alt = 0;
+            const state = this.getState();
+            if (state != null) {
+                const data = state.props;
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    if (data.alternate_counting) {
+                        for (let i = 0; i < data.alternate_counting.length; ++i) {
+                            let alt = parseInt(data.alternate_counting[i]);
+                            if (isNaN(alt)) {
+                                alt = 0;
+                            }
+                            if (alt > oldValue) {
+                                value = data.alternate_counting[i];
+                                break;
+                            }
                         }
-                        if (alt > oldValue) {
-                            value = data.alternate_counting[i];
-                            break;
-                        }
+                    } else {
+                        value = parseInt(data.max);
                     }
                 } else {
-                    value = parseInt(data.max);
+                    value++;
                 }
-            } else {
-                value++;
-            }
-            if (value != oldValue) {
-                state.value = value;
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -236,32 +248,32 @@ export default class Item extends HTMLElement {
 
     prev(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if ((event.shiftKey || event.ctrlKey)) {
-                if (data.alternate_counting) {
-                    for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
-                        let alt = parseInt(data.alternate_counting[i]);
-                        if (isNaN(alt)) {
-                            alt = data.max;
+            const state = this.getState();
+            if (state != null) {
+                const data = state.props;
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    if (data.alternate_counting) {
+                        for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
+                            let alt = parseInt(data.alternate_counting[i]);
+                            if (isNaN(alt)) {
+                                alt = data.max;
+                            }
+                            if (alt < parseInt(oldValue)) {
+                                value = data.alternate_counting[i];
+                                break;
+                            }
                         }
-                        if (alt < parseInt(oldValue)) {
-                            value = data.alternate_counting[i];
-                            break;
-                        }
+                    } else {
+                        value = 0;
                     }
                 } else {
-                    value = 0;
+                    value--;
                 }
-            } else {
-                value--;
-            }
-            if (value != oldValue) {
-                state.value = value;
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -271,7 +283,7 @@ export default class Item extends HTMLElement {
 
 }
 
-customElements.define('ootrt-itemkey', Item);
+customElements.define('ootrt-itemkey', ItemKey);
 
 function createOption(value, img, data, max_value) {
     const opt = document.createElement('emc-option');

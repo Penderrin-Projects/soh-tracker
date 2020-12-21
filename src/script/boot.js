@@ -4,6 +4,19 @@ import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import StateInit from "/script/state/StateInit.js";
+/* --- */
+import "/script/state/items/ItemState.js";
+import "/script/state/items/InfiniteItemState.js";
+import "/script/state/items/KeyState.js";
+import "/script/state/items/RewardItemState.js";
+import "/script/state/items/StartItemState.js";
+/* --- */
+import "/script/state/world/areas/AreaState.js";
+import "/script/state/world/areas/DungeonState.js";
+/* --- */
+import "/script/state/world/locations/LocationState.js";
+import "/script/state/world/locations/GossipstoneState.js";
 
 const SettingsStorage = new IDBStorage('settings');
 
@@ -38,6 +51,7 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
     await Language.load(await SettingsStorage.get("language", "en_us"));
 
     updateLoadingMessage("initialize states...");
+    StateInit.init();
     await StateStorage.init(function() {
         const options = FileData.get("randomizer_options");
         const def_state = {};

@@ -1,83 +1,51 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import BoolState from "/emcJS/data/state/BoolState.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import FilterMixin from "/script/state/mixins/FilterMixin.js";
+import StateFilter from "/script/state/abstract/StateFilter.js";
 import WorldRegistry from "/script/state/WorldRegistry.js";
+import Logic from "/script/util/logic/Logic.js";
 
-const ITEM = new WeakMap();
+const ACCESS = new WeakMap();
 
-function stateLoaded(event) {
+function internalChange(event) {
     const ref = this.ref;
     // savesatate
-    let value = !!event.data.state[ref];
-    if (typeof value == "undefined") {
-        value = false;
-    }
-    this.value = value;
-    // item
-    if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
-        this.item = event.data.extra["item_location"][ref];
-    } else {
-        this.item = "";
+    const change = event.data[ref];
+    if (change != null) {
+        this.value = !!change.newValue;
     }
 }
 
-function stateChanged(event) {
-    const ref = this.ref;
-    // savesatate
-    if (event.data[ref] != null) {
-        const value = !!event.data[ref].newValue;
-        this.value = value;
-    }
-}
-
-function locationItemUpdate(event) {
-    const ref = this.ref;
-    // savesatate
-    if (event.data[ref] != null) {
-        this.item = event.data[ref].newValue;
-    }
-}
-
-export default class DefaultState extends FilterMixin(BoolState) {
+export default class DefaultState extends StateFilter {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(ref, false);
+        ACCESS.set(this, Logic.getValue(props.access));
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
-        EventBus.register("statechange_item_location", locationItemUpdate.bind(this));
+        // TODO get access on logic change
+        EventBus.register("state_location", internalChange.bind(this));
+        EventBus.register("net:state_location", internalChange.bind(this));
+        EventBus.register("state", event => {
+            this.stateLoaded(event);
+        });
+        EventBus.register("logic", event => {
+            const access = event.data[props.access];
+            if (access != null) {
+                ACCESS.set(this, access);
+                const event = new Event("access");
+                event.data = access;
+                this.dispatchEvent(event);
+            }
+        });
         /* register */
         WorldRegistry.set(`location/${ref}`, this);
     }
 
-    set value(value) {
-        const old = this.value;
-        super.value = value;
-        if (this.value != old) {
-            StateStorage.write(this.ref, this.value);
-        }
+    stateLoaded(event) {
+        // empty
     }
 
-    get value() {
-        return super.value;
-    }
-
-    set item(value) {
-        if (typeof value != "string") value = "";
-        if (value != this.item) {
-            ITEM.set(this, value);
-            const event = new Event("item");
-            event.data = value;
-            this.dispatchEvent(event);
-            StateStorage.writeExtra("item_location", this.ref, value);
-        }
-    }
-
-    get item() {
-        return ITEM.get(this);
+    get access() {
+        return ACCESS.get(this);
     }
 
 }

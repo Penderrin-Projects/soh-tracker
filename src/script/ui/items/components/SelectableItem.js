@@ -25,7 +25,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-class HTMLTrackerSelectableItem extends HTMLElement {
+export default class HTMLTrackerSelectableItem extends HTMLElement {
 
     constructor() {
         super();

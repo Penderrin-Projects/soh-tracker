@@ -1,5 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
-import DefaultState from "/script/state/world/areas/DefaultState.js";
+import DefaultState from "/script/state/world/subareas/DefaultState.js";
 
 let PROPS = null;
 let AREA_DATA = null;
@@ -9,14 +9,14 @@ const INSTANCES = new Map();
 
 function initData() {
     if (PROPS == null) {
-        PROPS = FileData.get("world/marker/area");
+        PROPS = FileData.get("world/marker/subarea");
     }
     if (AREA_DATA == null) {
-        AREA_DATA = FileData.get("world/area");
+        AREA_DATA = FileData.get("world/subarea");
     }
 }
 
-class AreaStates {
+class SubAreaStates {
 
     register(type, clazz) {
         CLAZZ.set(type, clazz);
@@ -56,4 +56,4 @@ class AreaStates {
 
 }
 
-export default new AreaStates();
+export default new SubAreaStates();

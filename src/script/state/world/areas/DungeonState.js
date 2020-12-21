@@ -1,40 +1,36 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import AreaStates from "/script/state/AreaStates.js";
-import FilterMixin from "/script/state/mixins/FilterMixin.js";
-import AreaStateEnum from "/script/enum/AreaStateEnum.js";
+import DefaultState from "/script/state/world/areas/DefaultState.js";
 import WorldRegistry from "/script/state/WorldRegistry.js";
 
-const AREA_DATA = new WeakMap();
-const ACCESS = new WeakMap();
 const TYPE = new WeakMap();
 
-function stateLoaded(event) {
-    const ref = this.ref;
-    const props = this.props;
-    // type
-    if (props["maxmq"] != null && props.hasOwnProperty["related_dungeon"] != null) {
-        const types = event.data.extra.dungeontype;
-        if (types != null) {
-            this.type = types[props.related_dungeon];
-        } else {
-            this.type = "n";
-        }
+/*
+function getAccessNeutralBoth(res_v, res_m) {
+    if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+        return AccessStateEnum.UNAVAILABLE;
+    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+        return AccessStateEnum.POSSIBLE;
+    } else if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+        return AccessStateEnum.AVAILABLE;
     }
-    // savesatate
-    this.value = parseInt(event.data.state[ref]) || 0;
+    return AccessStateEnum.OPENED;
 }
 
-function stateChanged(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data[ref];
-    if (change != null) {
-        this.value = parseInt(change.newValue) || 0;
+function getAccessNeutralOne(res_v, res_m) {
+    if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+        return AccessStateEnum.AVAILABLE;
+    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+        return AccessStateEnum.POSSIBLE;
+    } else if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+        return AccessStateEnum.UNAVAILABLE;
     }
+    return AccessStateEnum.OPENED;
 }
+*/
 
-function dungeonTypeUpdate(event) {
+function internalTypeChange(event) {
     const props = this.props;
     if (props["maxmq"] != null && props["related_dungeon"] != null) {
         const change = event.data[props.related_dungeon];
@@ -44,60 +40,91 @@ function dungeonTypeUpdate(event) {
     }
 }
 
-export default class DungeonState extends FilterMixin({}) {
+export default class DungeonState extends DefaultState {
 
     constructor(ref, props, areaData) {
-        super(ref, props, AreaStateEnum);
+        super(ref, props, areaData);
         /* --- */
-        AREA_DATA.set(this, areaData);
-        ACCESS.set(AreaStateEnum.UNAVAILABLE);
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
         } else {
             this.type = "v";
         }
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
-        EventBus.register("statechange_dungeontype", dungeonTypeUpdate.bind(this));
-
-        // TODO calculate value on location/subarea/subexit/logic change
-
-        /* register */
-        WorldRegistry.set(`area/${ref}`, this);
+        EventBus.register("state_area_type", internalTypeChange.bind(this));
+        EventBus.register("net:state_area_type", internalTypeChange.bind(this));
     }
 
-    get areaData() {
-        return AREA_DATA.get(this);
-    }
-
-    get access() {
-        return ACCESS.get(this);
+    stateLoaded(event) {
+        const props = this.props;
+        // type
+        if (props["maxmq"] != null && props["related_dungeon"] != null) {
+            const types = event.data.extra.dungeontype;
+            if (types != null) {
+                this.type = types[props.related_dungeon];
+            } else {
+                this.type = "n";
+            }
+        }
+        // savesatate
+        super.stateLoaded(event);
     }
 
     getFilteredList() {
-        const areaData = AREA_DATA.get(this);
-        const list = areaData.lists[this.type];
-        if (list != null) {
-            const result = [];
-            list.forEach(record => {
-                const id = `${record.category}/${record.id}`;
-                const loc = WorldRegistry.get(id);
-                if (!!loc && loc.visible) {
-                    result.push(id);
-                }
-            });
-            return result;
+        const areaData = this.areaData;
+        if (areaData != null) {
+            const list = areaData.lists[this.type];
+            if (list != null) {
+                const result = [];
+                list.forEach(record => {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    if (!!loc && loc.visible) {
+                        result.push(record);
+                    }
+                });
+                return result;
+            }
         }
+        // TODO check for both if type == "n"
+        /* TODO use this for type == "n" results
+            if (await SettingsStorage.get("unknown_dungeon_need_both", false)) {
+                if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+                    header_value == "unavailable";
+                } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+                    header_value == "possible";
+                } else if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+                    header_value == "available";
+                } else {
+                    header_value == "opened";
+                }
+            } else {
+                if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+                    header_value == "available";
+                } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+                    header_value == "possible";
+                } else if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+                    header_value == "unavailable";
+                } else {
+                    header_value == "opened";
+                }
+            }
+        */
     }
 
     set type(value) {
-        const type = TYPE.get(this);
-        TYPE.set(this, value);
-        if (type != value) {
+        const old = this.type;
+        if (value != old) {
+            TYPE.set(this, value);
+            // external
             const event = new Event("type");
             event.data = value;
             this.dispatchEvent(event);
+            // internal
+            EventBus.trigger("state_area_type", {
+                oldValue: old,
+                newValue: this.value
+            }); // FIXME no, listen to dungeonstate event
         }
     }
 

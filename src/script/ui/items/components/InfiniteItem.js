@@ -2,6 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import ItemStates from "/script/state/ItemStates.js";
 import "/emcJS/ui/input/Option.js";
+import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -62,9 +63,7 @@ function getAlign(value) {
     }
 }
 
-const FN_VALUE = new WeakMap();
-
-class InfiniteItem extends HTMLElement {
+export default class InfiniteItem extends StateHandlerMixin(HTMLElement) {
 
     constructor() {
         super();
@@ -72,13 +71,26 @@ class InfiniteItem extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        FN_VALUE.set(this, event => {
+        this.registerStateHandler("value", event => {
             this.value = event.data;
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
         /* fck iOS */
         iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.value;
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
     }
 
     get ref() {
@@ -127,25 +139,27 @@ class InfiniteItem extends HTMLElement {
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
             switch (name) {
                 case 'ref':
-                    // state
-                    if (oldValue != null) {
-                        const oldState = ItemStates.get(oldValue);
-                        oldState.removeEventListener("value", FN_VALUE.get(this));
+                    {
+                        // state
+                        const state = ItemStates.get(this.ref);
+                        this.switchState(state);
+                        if (state != null) {
+                            if (this.isConnected) {
+                                this.value = state.value;
+                            }
+                            const data = state.props;
+                            // settings
+                            if (data.halign != null) {
+                                this.halign = data.halign;
+                            }
+                            if (data.valign != null) {
+                                this.valign = data.valign;
+                            }
+                            this.style.backgroundImage = `url("${data.images}")`;
+                        }
                     }
-                    state.addEventListener("value", FN_VALUE.get(this));
-                    this.value = state.value;
-                    // settings
-                    if (data.halign != null) {
-                        this.halign = data.halign;
-                    }
-                    if (data.valign != null) {
-                        this.valign = data.valign;
-                    }
-                    this.style.backgroundImage = `url("${data.images}")`;
                     break;
                 case 'value':
                     this.shadowRoot.getElementById("value").innerHTML = newValue;
@@ -162,16 +176,16 @@ class InfiniteItem extends HTMLElement {
 
     next(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if (value < 9999) {
-                value++;
-            }
-            if (value != oldValue) {
-                state.value = value;
+            const state = this.getState();
+            if (state != null) {
+                const oldValue = state.value;
+                let value = oldValue;
+                if (value < 9999) {
+                    value++;
+                }
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -181,18 +195,18 @@ class InfiniteItem extends HTMLElement {
 
     prev(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if ((event.shiftKey || event.ctrlKey)) {
-                value = 0;
-            } else if (value > 0) {
-                value--;
-            }
-            if (value != oldValue) {
-                state.value = value;
+            const state = this.getState();
+            if (state != null) {
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    value = 0;
+                } else if (value > 0) {
+                    value--;
+                }
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;

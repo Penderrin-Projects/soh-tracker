@@ -5,36 +5,6 @@ import DefaultState from "/script/state/items/DefaultState.js";
 
 const STARTVALUE = new WeakMap();
 
-function stateLoaded(event) {
-    const ref = this.ref;
-    const props = this.props;
-    // savesatate
-    this.value = parseInt(event.data.state[ref]) || 0;
-    // settings
-    if (props["start_settings"] != null) {
-        const startvalue = parseInt(event.data.state[props.start_settings]) || 0;
-        this.startvalue = startvalue > 0 ? startvalue : 1;
-    }
-}
-
-function stateChanged(event) {
-    const ref = this.ref;
-    const props = this.props;
-    // savesatate
-    const change = event.data[ref];
-    if (change != null) {
-        this.value = parseInt(change.newValue) || 0;
-    }
-    // settings
-    if (props["start_settings"] != null) {
-        const start = event.data[props.start_settings];
-        if (start != null) {
-            const startvalue = parseInt(start.newValue) || 0;
-            this.startvalue = startvalue > 0 ? startvalue : 1;
-        }
-    }
-}
-
 export default class StartItemState extends DefaultState {
 
     constructor(ref, props) {
@@ -42,20 +12,27 @@ export default class StartItemState extends DefaultState {
         /* --- */
         STARTVALUE.set(this, parseInt(StateStorage.read(props.start_settings, 1)));
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
+        EventBus.register("randomizer_options", event => {
+            if (props.start_settings != null) {
+                const startvalue = parseInt(event.data[props.start_settings]) || 0;
+                this.startvalue = startvalue > 0 ? startvalue : 1;
+            }
+        });
     }
 
-    set max(value) {
-        // no action
+    stateLoaded(event) {
+        const props = this.props;
+        // savesatate
+        super.stateLoaded(event);
+        // settings
+        if (props.start_settings != null) {
+            const startvalue = parseInt(event.data.state[props.start_settings]) || 0;
+            this.startvalue = startvalue > 0 ? startvalue : 1;
+        }
     }
 
     get max() {
         return super.max;
-    }
-
-    set min(value) {
-        // no action
     }
 
     get min() {
@@ -86,9 +63,11 @@ export default class StartItemState extends DefaultState {
         }
         if (value != this.startvalue) {
             STARTVALUE.set(this, value);
+            // external
             const event = new Event("startvalue");
             event.data = value;
             this.dispatchEvent(event);
+            // update value
             const state = this.value;
             if (!!state && state < value) {
                 this.value = value;

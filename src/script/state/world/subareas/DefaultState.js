@@ -1,25 +1,74 @@
-import BoolState from "/emcJS/data/state/BoolState.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import FilterMixin from "/script/state/mixins/FilterMixin.js";
+import EventBus from "/emcJS/event/EventBus.js";
+import StateFilter from "/script/state/abstract/StateFilter.js";
+import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+import WorldRegistry from "/script/state/WorldRegistry.js";
+import ListLogic from "/script/util/logic/ListLogic.js";
 
-export default class DefaultState extends FilterMixin(BoolState) {
+const AREA_DATA = new WeakMap();
+const ACCESS = new WeakMap();
 
-    constructor(ref, props) {
+export default class DefaultState extends StateFilter {
+
+    constructor(ref, props, areaData) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(ref, false);
+        AREA_DATA.set(this, areaData);
+        ACCESS.set(this, AccessStateEnum.UNAVAILABLE);
+        this.hint = "";
+
+        // TODO calculate value on location/logic change
+
+        /* EVENTS */
+        EventBus.register("state", event => {
+            this.stateLoaded(event);
+        });
+        /* register */
+        WorldRegistry.set(`subarea/${ref}`, this);
     }
 
-    set value(value) {
-        const old = this.value;
-        super.value = value;
-        if (this.value != old) {
-            StateStorage.write(this.ref, this.value);
+    stateLoaded(event) {
+        // update
+        this.calculateAvailability();
+    }
+
+    calculateAvailability() {
+        const list = this.getFilteredList();
+        if (list != null) {
+            const res = ListLogic.check(list);
+            if (res != null) {
+                ACCESS.set(this, res.value);
+                // external
+                const event = new Event("access");
+                event.data = res.value;
+                this.dispatchEvent(event);
+            }
         }
     }
 
-    get value() {
-        return super.value;
+    getFilteredList() {
+        const areaData = AREA_DATA.get(this);
+        if (areaData != null) {
+            const list = areaData.list;
+            if (list != null) {
+                const result = [];
+                list.forEach(record => {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    if (!!loc && loc.visible) {
+                        result.push(record);
+                    }
+                });
+                return result;
+            }
+        }
+    }
+
+    get areaData() {
+        return AREA_DATA.get(this);
+    }
+
+    get access() {
+        return ACCESS.get(this);
     }
 
 }

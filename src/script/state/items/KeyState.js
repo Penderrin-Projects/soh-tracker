@@ -5,28 +5,24 @@ import DefaultState from "/script/state/items/DefaultState.js";
 
 const TYPE = new WeakMap();
 
-function stateLoaded(event) {
-    const ref = this.ref;
-    const props = this.props;
-    // type
-    if (props["maxmq"] != null && props.hasOwnProperty["related_dungeon"] != null) {
-        const types = event.data.extra.dungeontype;
-        if (types != null) {
-            this.type = types[props.related_dungeon];
-        } else {
-            this.type = "n";
-        }
+function getMaxValue(props, type = "n") {
+    if (type == "v") {
+        return props.max;
+    } else if (type == "mq") {
+        return props.maxmq;
+    } else {
+        return Math.max(props.maxmq, props.max);
     }
-    // savesatate
-    this.value = parseInt(event.data.state[ref]) || 0;
 }
 
-function stateChanged(event) {
-    const ref = this.ref;
+function internalChange(event) {
+    const props = this.props;
     // savesatate
-    const change = event.data[ref];
-    if (change != null) {
-        this.value = parseInt(change.newValue) || 0;
+    if (props["maxmq"] != null && props["related_dungeon"] != null) {
+        const change = event.data;
+        if (change != null && change.ref == props.related_dungeon) {
+            this.type = change.newValue || "n";
+        }
     }
 }
 
@@ -35,18 +31,8 @@ function dungeonTypeUpdate(event) {
     if (props["maxmq"] != null && props["related_dungeon"] != null) {
         const change = event.data[props.related_dungeon];
         if (change != null) {
-            this.type = StateStorage.readExtra("dungeontype", props.related_dungeon, "n");
+            this.type = change.newValue || "n";
         }
-    }
-}
-
-function getMaxValue(props, type = "n") {
-    if (type == "v") {
-        return props.max;
-    } else if (type == "mq") {
-        return props.maxmq;
-    } else {
-        return Math.max(props.maxmq, props.max);
     }
 }
 
@@ -61,17 +47,31 @@ export default class KeyState extends DefaultState {
             this.type = "v";
         }
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
-        EventBus.register("statechange_dungeontype", dungeonTypeUpdate.bind(this));
+        EventBus.register("state_dungeontype", internalChange.bind(this));
+        EventBus.register("statechange_dungeontype", dungeonTypeUpdate.bind(this)); // TODO remove later
     }
 
-    set min(value) {
-        // no action
+    stateLoaded(event) {
+        const props = this.props;
+        // type
+        if (props["maxmq"] != null && props.hasOwnProperty["related_dungeon"] != null) {
+            const types = event.data.extra.dungeontype;
+            if (types != null) {
+                this.type = types[props.related_dungeon];
+            } else {
+                this.type = "n";
+            }
+        }
+        // savesatate
+        super.stateLoaded(event);
     }
 
     get min() {
         return super.min;
+    }
+
+    get max() {
+        return super.max;
     }
 
     set type(value) {
@@ -79,7 +79,8 @@ export default class KeyState extends DefaultState {
         TYPE.set(this, value);
         if (type != value) {
             const props = this.props;
-            this.max = getMaxValue(props, value);
+            super.max = getMaxValue(props, value);
+            // external
             const event = new Event("type");
             event.data = value;
             this.dispatchEvent(event);

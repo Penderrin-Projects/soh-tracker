@@ -1,8 +1,9 @@
 import Language from "/script/util/Language.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ItemStates from "/script/state/ItemStates.js";
 import "/emcJS/ui/input/Option.js";
+import ItemStates from "/script/state/ItemStates.js";
+import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -67,10 +68,7 @@ function getAlign(value) {
     }
 }
 
-const FN_VALUE = new WeakMap();
-const FN_DUNGEON = new WeakMap();
-
-class RewardItem extends HTMLElement {
+export default class RewardItem extends StateHandlerMixin(HTMLElement) {
 
     constructor() {
         super();
@@ -78,16 +76,30 @@ class RewardItem extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        FN_VALUE.set(this, event => {
+        this.registerStateHandler("value", event => {
             this.value = event.data;
         });
-        FN_DUNGEON.set(this, event => {
+        this.registerStateHandler("dungeon", event => {
             this.dungeon = event.data;
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
         /* fck iOS */
         iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.value;
+            this.dungeon = state.dungeon;
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
     }
 
     get ref() {
@@ -144,28 +156,28 @@ class RewardItem extends HTMLElement {
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
             switch (name) {
                 case 'ref':
-                    // state
-                    if (oldValue != null) {
-                        const oldState = ItemStates.get(oldValue);
-                        oldState.removeEventListener("value", FN_VALUE.get(this));
-                        oldState.removeEventListener("dungeon", FN_DUNGEON.get(this));
+                    {
+                        // state
+                        const state = ItemStates.get(this.ref);
+                        this.switchState(state);
+                        if (state != null) {
+                            if (this.isConnected) {
+                                this.value = state.value;
+                                this.dungeon = state.dungeon;
+                            }
+                            const data = state.props;
+                            // settings
+                            if (data.halign != null) {
+                                this.halign = data.halign;
+                            }
+                            if (data.valign != null) {
+                                this.valign = data.valign;
+                            }
+                            this.style.backgroundImage = `url("${data.images}")`;
+                        }
                     }
-                    state.addEventListener("value", FN_VALUE.get(this));
-                    state.addEventListener("dungeon", FN_DUNGEON.get(this));
-                    this.value = state.value;
-                    this.dungeon = state.dungeon;
-                    // settings
-                    if (data.halign != null) {
-                        this.halign = data.halign;
-                    }
-                    if (data.valign != null) {
-                        this.valign = data.valign;
-                    }
-                    this.style.backgroundImage = `url("${data.images}")`;
                     break;
                 case 'dungeon':
                     if (newValue != "") {
@@ -186,9 +198,11 @@ class RewardItem extends HTMLElement {
 
     next(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            if (state.value == 0) {
-                state.value = 1;
+            const state = this.getState();
+            if (state != null) {
+                if (state.value == 0) {
+                    state.value = 1;
+                }
             }
         }
         if (!event) return;
@@ -198,9 +212,11 @@ class RewardItem extends HTMLElement {
 
     prev(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            if (state.value == 1) {
-                state.value = 0;
+            const state = this.getState();
+            if (state != null) {
+                if (state.value == 1) {
+                    state.value = 0;
+                }
             }
         }
         if (!event) return;

@@ -27,20 +27,17 @@ function getDisplayDungeon(ref) {
     return "";
 }
 
-function stateLoaded(event) {
+function internalChange(event) {
     const ref = this.ref;
+    const dungeon = this.dungeon;
     // savesatate
-    this.value = parseInt(event.data.state[ref]) || 0;
-    // dungeon
-    this.dungeon = getDisplayDungeon(ref);
-}
-
-function stateChanged(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data[ref];
+    const change = event.data;
     if (change != null) {
-        this.value = parseInt(change.newValue) || 0;
+        if (change.ref == dungeon && change.newValue != ref) {
+            this.dungeon = "";
+        } else if (change.newValue == ref) {
+            this.dungeon = change.ref;
+        }
     }
 }
 
@@ -68,21 +65,20 @@ export default class RewardItemState extends DefaultState {
         /* --- */
         this.dungeon = getDisplayDungeon(ref);
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
-        EventBus.register("statechange_dungeonreward", dungeonRewardUpdate.bind(this));
+        EventBus.register("state_dungeonreward", internalChange.bind(this));
+        EventBus.register("statechange_dungeonreward", dungeonRewardUpdate.bind(this)); // TODO remove later
     }
 
-    set max(value) {
-        // no action
+    stateLoaded(event) {
+        const ref = this.ref;
+        // savesatate
+        super.stateLoaded(event);
+        // dungeon
+        this.dungeon = getDisplayDungeon(ref);
     }
 
     get max() {
         return super.max;
-    }
-
-    set min(value) {
-        // no action
     }
 
     get min() {
@@ -93,6 +89,7 @@ export default class RewardItemState extends DefaultState {
         const dungeon = DUNGEON.get(this);
         DUNGEON.set(this, value);
         if (dungeon != value) {
+            // external
             const event = new Event("dungeon");
             event.data = value;
             this.dispatchEvent(event);

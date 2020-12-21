@@ -1,5 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
-import DefaultState from "/script/state/world/DefaultState.js";
+import DefaultState from "/script/state/world/locations/DefaultState.js";
 
 let PROPS = null;
 

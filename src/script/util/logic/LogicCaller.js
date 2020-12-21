@@ -186,7 +186,10 @@ class LogicCaller {
                 }
             }
             // ---------------------------------------------------------
-            Logic.execute(data, "region.root");
+            const res = Logic.execute(data, "region.root");
+            if (Object.keys(res).length > 0) {
+                EventBus.trigger("logic", res);
+            }
         } catch(err) {
             console.error(err);
             window.alert(err.message);

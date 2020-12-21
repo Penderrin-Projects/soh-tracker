@@ -1,36 +1,12 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import AnyState from "/emcJS/data/state/AnyState.js";
+import Helper from "/emcJS/util/Helper.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import FilterMixin from "/script/state/mixins/FilterMixin.js";
 import LocationStates from "/script/state/LocationStates.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import DefaultState from "/script/state/world/locations/DefaultState.js";
 
-function stateLoaded(event) {
-    const ref = this.ref;
-    // savesatate
-    let value = !!event.data.state[ref];
-    if (typeof value == "undefined") {
-        value = false;
-    }
-    this.value = value;
-    // hint
-    if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
-        this.hint = event.data.extra["gossipstone"][ref];
-    } else {
-        this.hint = "";
-    }
-}
+const HINT = new WeakMap();
 
-function stateChanged(event) {
-    const ref = this.ref;
-    // savesatate
-    if (event.data[ref] != null) {
-        const value = !!event.data[ref].newValue;
-        this.value = value;
-    }
-}
-
-function gossipstoneUpdate(event) {
+function internalChange(event) {
     const ref = this.ref;
     // savesatate
     if (event.data[ref] != null) {
@@ -38,21 +14,35 @@ function gossipstoneUpdate(event) {
     }
 }
 
-export default class GossipstoneState extends FilterMixin(AnyState) {
+export default class GossipstoneState extends DefaultState {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.readExtra("gossipstone", ref, false);
+        this.hint = StateStorage.readExtra("gossipstone", ref, false);
         /* EVENTS */
-        EventBus.register("state", stateLoaded.bind(this));
-        EventBus.register("statechange", stateChanged.bind(this));
-        EventBus.register("statechange_gossipstone", gossipstoneUpdate.bind(this));
-        /* register */
-        WorldRegistry.set(`location/${ref}`, this);
+        EventBus.register("state_location_hint", internalChange.bind(this));
+        EventBus.register("net:state_location_hint", internalChange.bind(this));
     }
 
-    set value(value) {
+    stateLoaded(event) {
+        const ref = this.ref;
+        // savesatate
+        super.stateLoaded(event);
+        // hint
+        if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
+            this.hint = event.data.extra["gossipstone"][ref];
+        } else {
+            this.hint = "";
+        }
+    }
+
+    get value() {
+        const hint = HINT.get(this);
+        return !!hint.location || !!hint.item;
+    }
+
+    set hint(value) {
         if (typeof value != "object" || Array.isArray(value)) {
             value = {
                 location: "",
@@ -65,15 +55,24 @@ export default class GossipstoneState extends FilterMixin(AnyState) {
         if (typeof value.item != "string") {
             value.item = "";
         }
-        const old = this.value;
-        super.value = value;
-        if (value.location != old.value || value.item != old.item) {
+        const old = this.hint;
+        if (!Helper.isEqual(old, value)) {
+            HINT.set(this, value);
             StateStorage.writeExtra("gossipstone", this.ref, value);
+            // external
+            const event = new Event("hint");
+            event.data = value;
+            this.dispatchEvent(event);
+            // internal
+            EventBus.trigger("state_location_hint", {
+                oldValue: old,
+                newValue: this.hint
+            });
         }
     }
 
-    get value() {
-        return super.value;
+    get hint() {
+        return HINT.get(this);
     }
 
 }

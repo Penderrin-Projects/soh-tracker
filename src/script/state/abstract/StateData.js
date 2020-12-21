@@ -1,10 +1,10 @@
 const REF = new WeakMap();
 const PROPS = new WeakMap();
 
-export default (CLAZZ) => class extends CLAZZ {
+export default class StateData extends EventTarget {
 
-    constructor(ref, props, ...args) {
-        super(...args);
+    constructor(ref, props) {
+        super();
         /* --- */
         REF.set(this, ref);
         PROPS.set(this, props);

@@ -8,6 +8,8 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Language from "/script/util/Language.js";
 import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
+import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+// more
 import "./listitems/Button.js";
 import "./listitems/Area.js";
 import "./listitems/Exit.js";
@@ -136,6 +138,39 @@ const VALUE_STATES = [
     "possible",
     "available"
 ];
+
+function getAccessNeutralBoth(res_v, res_m) {
+    if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+        return "unavailable";
+    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+        return "possible";
+    } else if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+        return "available";
+    }
+    return "opened";
+}
+
+function getAccessNeutralOne(res_v, res_m) {
+    if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
+        return "available";
+    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
+        return "possible";
+    } else if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
+        return "unavailable";
+    }
+    return "opened";
+}
+
+function getAccess(res) {
+    if (res.value == AccessStateEnum.AVAILABLE) {
+        return "available";
+    } else if (res.value == AccessStateEnum.POSSIBLE) {
+        return "possible";
+    } else if (res.value == AccessStateEnum.UNAVAILABLE) {
+        return "unavailable";
+    }
+    return "opened";
+}
 
 class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
@@ -275,23 +310,24 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             this.shadowRoot.querySelector('#title').className = "";
         } else {
             const dType = this.shadowRoot.getElementById("location-version").value;
-            let header_value = 1;
             if (dType == "n") {
                 const data_v = FileData.get(`world/${this.ref}/lists/v`);
                 const data_m = FileData.get(`world/${this.ref}/lists/mq`);
                 const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
                 const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
                 if (await SettingsStorage.get("unknown_dungeon_need_both", false)) {
-                    header_value = Math.min(res_v.value, res_m.value);
+                    const header_value = getAccessNeutralBoth(res_v, res_m);
+                    this.shadowRoot.querySelector('#title').className = header_value;
                 } else {
-                    header_value = Math.max(res_v.value, res_m.value);
+                    const header_value = getAccessNeutralOne(res_v, res_m);
+                    this.shadowRoot.querySelector('#title').className = header_value;
                 }
             } else {
                 const data = FileData.get(`world/${this.ref}/lists/${dType}`);
                 const res = ListLogic.check(data.filter(ListLogic.filterUnusedChecks));
-                header_value = res.value;
+                const header_value = getAccess(res);
+                this.shadowRoot.querySelector('#title').className = header_value;
             }
-            this.shadowRoot.querySelector('#title').className = VALUE_STATES[header_value];
         }
     }
     
