@@ -1,21 +1,17 @@
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import "/emcJS/ui/Icon.js";
 import FileData from "/emcJS/data/FileData.js";
+import "/emcJS/ui/Icon.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/script/util/Language.js";
-import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
+import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
+import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import LocationStates from "/script/state/LocationStates.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-
 import "./menus/LocationContextMenu.js";
 import "./menus/ItemPickerMenu.js";
 
-const MNU_CTX = new WeakMap();
-const MNU_ITM = new WeakMap();
+export default class AbstractLocation extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
 
-export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(HTMLElement)) {
-
-    constructor(type) {
+    constructor() {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
@@ -36,39 +32,31 @@ export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(
 
         /* context menu */
         const mnu_ctx = document.createElement("ootrt-ctxmenu-location");
-        MNU_CTX.set(this, mnu_ctx);
+        this.setContextMenu("location", mnu_ctx);
 
         const mnu_itm = document.createElement("ootrt-ctxmenu-itempicker");
-        MNU_ITM.set(this, mnu_itm);
+        this.setContextMenu("itempicker", mnu_itm);
 
         mnu_itm.addEventListener("pick", event => {
             const state = this.getState();
             if (state != null) {
                 state.item = event.item;
             }
-            event.preventDefault();
-            return false;
         });
         mnu_ctx.addEventListener("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
-            event.preventDefault();
-            return false;
         });
         mnu_ctx.addEventListener("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
-            event.preventDefault();
-            return false;
         });
         mnu_ctx.addEventListener("associate", event => {
-            mnu_itm.show(event.left, event.top);
-            event.preventDefault();
-            return false;
+            mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
         });
         mnu_ctx.addEventListener("disassociate", event => {
             if (this.ref) {
@@ -77,8 +65,6 @@ export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(
                     state.item = "";
                 }
             }
-            event.preventDefault();
-            return false;
         });
         mnu_ctx.addEventListener("show_logic", event => {
             const title = Language.translate(this.ref);
@@ -106,31 +92,14 @@ export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(
         iOSTouchHandler.register(this);
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        let el = this;
-        while (el.parentElement != null && !el.classList.contains("panel")) {
-            el = el.parentElement;
+    applyStateValues(state) {
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.checked = state.value;
+            textEl.dataset.state = state.access ? "available" : "unavailable";
         }
-        el.append(MNU_CTX.get(this));
-        el.append(MNU_ITM.get(this));
-        // state
-        const state = this.getState();
-        if (state != null) {
-            const textEl = this.shadowRoot.getElementById("text");
-            if (textEl != null) {
-                this.item = state.item;
-                textEl.dataset.checked = state.value;
-                textEl.dataset.state = state.access ? "available" : "unavailable";
-                this.setFilterData(state.filter);
-            }
-        }
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        MNU_CTX.get(this).remove();
-        MNU_ITM.get(this).remove();
+        this.item = state.item;
+        this.setFilterData(state.filter);
     }
 
     get ref() {
@@ -158,18 +127,12 @@ export default class AbstractLocation extends StateHandlerMixin(UIEventBusMixin(
             switch (name) {
                 case 'ref':
                     {
+                        const state = LocationStates.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            const state = LocationStates.get(this.ref.slice(9));
-                            this.switchState(state);
-                            if (state != null && this.isConnected) {
-                                this.item = state.item;
-                                textEl.dataset.checked = state.value;
-                                textEl.dataset.state = state.access ? "available" : "unavailable";
-                                this.setFilterData(state.filter);
-                            }
                             textEl.innerHTML = Language.translate(newValue);
                         }
+                        this.switchState(state);
                     }
                     break;
                 case 'item':

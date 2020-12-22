@@ -1,9 +1,9 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import AreaStates from "/script/state/AreaStates.js";
+import SubAreaStates from "/script/state/SubAreaStates.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 
 const ACCESS = new WeakMap();
 const AREA = new WeakMap();
@@ -33,7 +33,7 @@ export default class DefaultState extends StateFilter {
         });
         // TODO on area access change throw event
         /* register */
-        WorldRegistry.set(`subexit/${ref}`, this);
+        WorldRegistry.set(ref, this);
     }
 
     stateLoaded(event) {
@@ -63,9 +63,9 @@ export default class DefaultState extends StateFilter {
     }
 
     get access() {
-        const area = this.area;
-        if (AreaStates.has(area)) {
-            return AreaStates.get(area).access;
+        const area = AREA.get(this);
+        if (SubAreaStates.has(area)) {
+            return SubAreaStates.get(area).access;
         }
         return ACCESS.get(this);
     }

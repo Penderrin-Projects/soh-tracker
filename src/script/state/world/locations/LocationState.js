@@ -29,8 +29,8 @@ export default class LocationState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(`location/${ref}`, false);
-        this.item = StateStorage.readExtra("item_location", `location/${ref}`, "");
+        this.value = StateStorage.read(ref, false);
+        this.item = StateStorage.readExtra("item_location", ref, "");
         /* EVENTS */
         EventBus.register("state::location", internalChange.bind(this));
         EventBus.register("net::state::location", internalChange.bind(this));
@@ -43,8 +43,8 @@ export default class LocationState extends DefaultState {
         // savesatate
         this.value = !!event.data.state[ref];
         // item
-        if (event.data.extra["item_location"] != null && event.data.extra["item_location"][`location/${ref}`] != null) {
-            this.item = event.data.extra["item_location"][`location/${ref}`];
+        if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
+            this.item = event.data.extra["item_location"][ref];
         } else {
             this.item = "";
         }
@@ -58,7 +58,7 @@ export default class LocationState extends DefaultState {
         if (value != old) {
             const ref = this.ref;
             VALUE.set(this, value);
-            StateStorage.write(`location/${ref}`, this.value);
+            StateStorage.write(ref, this.value);
             // external
             const event = new Event("value");
             event.data = value;
@@ -82,7 +82,7 @@ export default class LocationState extends DefaultState {
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);
-            StateStorage.writeExtra("item_location", `location/${ref}`, value);
+            StateStorage.writeExtra("item_location", ref, value);
             // external
             const event = new Event("item");
             event.data = value;

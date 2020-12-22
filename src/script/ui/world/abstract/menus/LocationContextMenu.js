@@ -35,10 +35,7 @@ export default class LocationContextMenu extends HTMLElement {
             return false;
         });
         this.shadowRoot.getElementById("menu-associate").addEventListener("click", event => {
-            const mnu_ctx = this.shadowRoot.getElementById("menu");
             const ev = new Event("associate");
-            ev.left = mnu_ctx.left;
-            ev.top = mnu_ctx.top;
             this.dispatchEvent(ev);
             /* --- */
             event.preventDefault();
@@ -63,6 +60,16 @@ export default class LocationContextMenu extends HTMLElement {
     show(posX, posY) {
         const mnu_ctx = this.shadowRoot.getElementById("menu");
         mnu_ctx.show(posX, posY);
+    }
+
+    get top() {
+        const mnu_ctx = this.shadowRoot.getElementById("menu");
+        return mnu_ctx.top;
+    }
+
+    get left() {
+        const mnu_ctx = this.shadowRoot.getElementById("menu");
+        return mnu_ctx.left;
     }
 
 }

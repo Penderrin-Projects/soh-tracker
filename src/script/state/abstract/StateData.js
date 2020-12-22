@@ -1,3 +1,5 @@
+import WorldRegistry from "/script/registries/WorldRegistry.js";
+
 const REF = new WeakMap();
 const PROPS = new WeakMap();
 
@@ -8,6 +10,8 @@ export default class StateData extends EventTarget {
         /* --- */
         REF.set(this, ref);
         PROPS.set(this, props);
+        /* register */
+        WorldRegistry.set(ref, this);
     }
 
     get ref() {

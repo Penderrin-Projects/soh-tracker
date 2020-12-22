@@ -1,7 +1,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 
 const AREA_DATA = new WeakMap();
@@ -23,7 +23,7 @@ export default class DefaultState extends StateFilter {
             this.calculateAvailability();
         });
         /* register */
-        WorldRegistry.set(`subarea/${ref}`, this);
+        WorldRegistry.set(ref, this);
     }
 
     stateLoaded(event) {

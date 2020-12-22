@@ -89,7 +89,6 @@ const STYLE = new GlobalStyle(`
 `);
 
 const REG = new Map();
-const TYPE = new WeakMap();
 
 export default class ListLocation extends AbstractLocation {
 
@@ -106,7 +105,6 @@ export default class ListLocation extends AbstractLocation {
         } else {
             type = "location";
         }
-        TYPE.set(this, type);
     }
 
     static registerType(ref, clazz) {

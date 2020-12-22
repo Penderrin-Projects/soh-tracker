@@ -2,7 +2,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 
 const AREA_DATA = new WeakMap();
@@ -31,7 +31,7 @@ export default class DefaultState extends StateFilter {
             entrances: false,
             value: AccessStateEnum.UNAVAILABLE
         });
-        this.hint = StateStorage.readExtra("area_hint", `area/${ref}`, "");
+        this.hint = StateStorage.readExtra("area_hint", ref, "");
         this.calculateAvailability();
         /* EVENTS */
         EventBus.register("state::area_hint", internalHintChange.bind(this));
@@ -39,18 +39,16 @@ export default class DefaultState extends StateFilter {
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
-        EventBus.register(["logic", "state::location"], event => {
+        EventBus.register(["logic", "state::location", "randomizer_options"], event => {
             this.calculateAvailability();
         });
-        /* register */
-        WorldRegistry.set(`area/${ref}`, this);
     }
 
     stateLoaded(event) {
         const ref = this.ref;
         // hint
-        if (event.data.extra["area_hint"] != null && event.data.extra["area_hint"][`area/${ref}`] != null) {
-            this.hint = event.data.extra["area_hint"][`area/${ref}`];
+        if (event.data.extra["area_hint"] != null && event.data.extra["area_hint"][ref] != null) {
+            this.hint = event.data.extra["area_hint"][ref];
         } else {
             this.hint = "";
         }
@@ -96,10 +94,6 @@ export default class DefaultState extends StateFilter {
         return ACCESS.get(this);
     }
 
-    get filter() {
-        return ACCESS.get(this);
-    }
-
     set hint(value) {
         const ref = this.ref;
         if (typeof value != "string" || (value != "woth" && value != "barren")) {
@@ -108,7 +102,7 @@ export default class DefaultState extends StateFilter {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            StateStorage.writeExtra("area_hint", `area/${ref}`, value);
+            StateStorage.writeExtra("area_hint", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;

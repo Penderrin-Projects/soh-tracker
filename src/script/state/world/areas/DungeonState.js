@@ -2,7 +2,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import AreaStates from "/script/state/AreaStates.js";
 import DefaultState from "/script/state/world/areas/DefaultState.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 
 const TYPE = new WeakMap();
 

@@ -1,6 +1,5 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
 import Logic from "/script/util/logic/Logic.js";
 
 const ACCESS = new WeakMap();
@@ -36,8 +35,6 @@ export default class DefaultState extends StateFilter {
                 this.dispatchEvent(event);
             }
         });
-        /* register */
-        WorldRegistry.set(`location/${ref}`, this);
     }
 
     stateLoaded(event) {

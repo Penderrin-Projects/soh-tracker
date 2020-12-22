@@ -149,24 +149,21 @@ export default class MapArea extends AbstractArea {
     
     applyAccess(data) {
         super.applyAccess(data);
-        /* access */
         const markerEl = this.shadowRoot.getElementById("marker");
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
         if (markerEl != null) {
+            /* access */
+            const value = AccessStateEnum.getName(data.value).toLowerCase();
             markerEl.dataset.state = value;
             if (data.value == AccessStateEnum.UNAVAILABLE || data.value == AccessStateEnum.OPENED) {
                 markerEl.innerHTML = "";
             } else {
                 markerEl.innerHTML = data.reachable;
             }
-        }
-        /* entrances */
-        const marker = this.shadowRoot.getElementById("marker");
-        if (marker != null) {
+            /* entrances */
             if (data.entrances) {
-                marker.dataset.entrances = "true";
+                markerEl.dataset.entrances = "true";
             } else {
-                marker.dataset.entrances = "false";
+                markerEl.dataset.entrances = "false";
             }
         }
     }

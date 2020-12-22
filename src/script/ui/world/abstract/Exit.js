@@ -6,11 +6,12 @@ import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import LocationState from "/script/state/world/locations/LocationState.js";
-import AreaStates from "/script/state/AreaStates.js";
+import ExitStates from "/script/state/ExitStates.js";
 import Language from "/script/util/Language.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/AreaContextMenu.js";
+import "./menus/ExitContextMenu.js";
+import "./menus/ExitBindingMenu.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {
@@ -49,61 +50,95 @@ function setAllListEntries(list, value = true) {
     }
 }
 
-export default class AbstractArea extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class MapExit extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
 
-    constructor(type) {
+    constructor() {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
             this.applyAccess(event.data);
+        });
+        this.registerStateHandler("value", event => {
+            
         });
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-area");
-        this.setContextMenu("area", mnu_ctx);
+        const mnu_ctx = document.createElement("ootrt-ctxmenu-exit");
+        this.setContextMenu("exit", mnu_ctx);
         
-        mnu_ctx.addEventListener("check", event => {
+        const mnu_ext = document.createElement("ootrt-ctxmenu-exitbinding");
+        this.setContextMenu("exitbinding", mnu_ext);
+
+        mnu_ext.addEventListener("change", event => {
             const state = this.getState();
             if (state != null) {
-                const list = state.getFilteredList();
+                state.value = event.value;
+            }
+        });
+        mnu_ctx.addEventListener("associate", event => {
+            const state = this.getState();
+            if (state != null) {
+                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+            }
+            mnu_ext.setValue(state.value);
+            mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
+        });
+        mnu_ctx.addEventListener("deassociate", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = "";
+            }
+        });
+        mnu_ctx.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
+            const area = this.getState()?.area;
+            if (area != null) {
+                const list = area.getFilteredList();
                 setAllListEntries(list, true);
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
-            const state = this.getState();
-            if (state != null) {
-                const list = state.getFilteredList();
+        mnu_ctx.shadowRoot.getElementById("menu-uncheck").addEventListener("click", event => {
+            const area = this.getState()?.area;
+            if (area != null) {
+                const list = area.getFilteredList();
                 setAllListEntries(list, false);
             }
         });
-        mnu_ctx.addEventListener("setwoth", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "woth";
+        mnu_ctx.shadowRoot.getElementById("menu-setwoth").addEventListener("click", event => {
+            const area = this.getState()?.area;
+            if (area != null) {
+                area.hint = "woth";
             }
         });
-        mnu_ctx.addEventListener("setbarren", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "barren";
+        mnu_ctx.shadowRoot.getElementById("menu-setbarren").addEventListener("click", event => {
+            const area = this.getState()?.area;
+            if (area != null) {
+                area.hint = "barren";
             }
         });
-        mnu_ctx.addEventListener("clearhint", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "";
+        mnu_ctx.shadowRoot.getElementById("menu-clearhint").addEventListener("click", event => {
+            const area = this.getState()?.area;
+            if (area != null) {
+                area.hint = "";
             }
         });
 
-        
         /* mouse events */
         this.addEventListener("click", event => {
-            EventBus.trigger("location_change", {
-                name: this.ref
-            });
+            const area = this.getState()?.area;
+            if (area != null) {
+                EventBus.trigger("location_change", {
+                    name: area.ref
+                });
+            } else {
+                const state = this.getState();
+                if (state != null) {
+                    mnu_ext.fillEntranceSelection(state.props.access);
+                }
+                mnu_ext.show(event.clientX, event.clientY);
+            }
             event.stopPropagation();
             event.preventDefault();
             return false;
@@ -120,26 +155,45 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
     }
     
     applyAccess(data) {
-        /* access */
         const textEl = this.shadowRoot.getElementById("text");
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
-        /* entrances */
         const entrances = this.shadowRoot.getElementById("entrances");
-        if (entrances != null) {
-            entrances.innerHTML = "";
-            if (data.entrances) {
-                const el_icon = document.createElement("img");
-                el_icon.src = `images/icons/entrance.svg`;
-                entrances.append(el_icon);
+        if (this.value) {
+            /* access */
+            const value = AccessStateEnum.getName(data.value).toLowerCase();
+            if (textEl != null) {
+                textEl.dataset.state = value;
+            }
+            /* entrances */
+            if (entrances != null) {
+                entrances.innerHTML = "";
+                if (data.entrances) {
+                    const el_icon = document.createElement("img");
+                    el_icon.src = `images/icons/entrance.svg`;
+                    entrances.append(el_icon);
+                }
+            }
+        } else {
+            /* access */
+            if (!data) {
+                textEl.dataset.state = "available";
+            } else {
+                textEl.dataset.state = "unavailable";
+            }
+            /* entrances */
+            if (entrances != null) {
+                entrances.innerHTML = "";
             }
         }
     }
 
     applyStateValues(state) {
-        this.hint = state.hint;
+        this.value = state.value;
+        const area = state.area;
+        if (area != null) {
+            this.hint = area.hint;
+        } else {
+            this.hint = "";
+        }
         this.setFilterData(state.filter);
         this.applyAccess(state.access);
     }
@@ -152,6 +206,14 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
         this.setAttribute('ref', val);
     }
 
+    get value() {
+        return this.getAttribute('value');
+    }
+
+    set value(val) {
+        this.setAttribute('value', val);
+    }
+
     get hint() {
         return this.getAttribute('hint');
     }
@@ -161,7 +223,7 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
     }
 
     static get observedAttributes() {
-        return ['ref', 'hint'];
+        return ['ref', 'value', 'hint'];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -169,12 +231,36 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
             switch (name) {
                 case 'ref':
                     {
-                        const state = AreaStates.get(this.ref);
+                        const state = ExitStates.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(newValue);
+                            textEl.innerHTML = Language.translate(state.props.access);
                         }
                         this.switchState(state);
+                    }
+                    break;
+                case 'value':
+                    {
+                        const state = this.getState();
+                        if (state != null) {
+                            const valueEl = this.shadowRoot.getElementById("value");
+                            if (newValue) {
+                                if (valueEl != null) {
+                                    valueEl.innerHTML = Language.translate(newValue);
+                                    const area = state.area;
+                                    if (area != null) {
+                                        this.hint = area.hint;
+                                    } else {
+                                        this.hint = "";
+                                    }
+                                }
+                            } else {
+                                if (valueEl != null) {
+                                    valueEl.innerHTML = "";
+                                    this.hint = "";
+                                }
+                            }
+                        }
                     }
                     break;
                 case 'hint':

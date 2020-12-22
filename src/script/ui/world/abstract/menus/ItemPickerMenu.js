@@ -31,6 +31,16 @@ export default class ItemPickerMenu extends HTMLElement {
         mnu_ctx.show(posX, posY);
     }
 
+    get top() {
+        const mnu_ctx = this.shadowRoot.getElementById("menu");
+        return mnu_ctx.top;
+    }
+
+    get left() {
+        const mnu_ctx = this.shadowRoot.getElementById("menu");
+        return mnu_ctx.left;
+    }
+
 }
 
 customElements.define('ootrt-ctxmenu-itempicker', ItemPickerMenu);

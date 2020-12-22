@@ -1,6 +1,6 @@
 import AreaStates from "/script/state/AreaStates.js";
 import DefaultState from "/script/state/world/areas/DefaultState.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 
 export default class AreaState extends DefaultState {
 

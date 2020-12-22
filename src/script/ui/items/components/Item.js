@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
 import ItemStates from "/script/state/ItemStates.js";
-import StateHandlerMixin from "/script/ui/mixins/StateHandlerMixin.js";
+import StateDataEventManager from "/script/ui/mixin/StateDataEventManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -75,7 +75,7 @@ function getAlign(value) {
     }
 }
 
-export default class Item extends StateHandlerMixin(HTMLElement) {
+export default class Item extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();

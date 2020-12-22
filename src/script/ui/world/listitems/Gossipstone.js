@@ -17,34 +17,17 @@ export default class ListGossipstone extends ListLocation {
         this.shadowRoot.append(TPL.generate());
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        const location = StateStorage.read(`${this.ref}.location`, "");
-        const item = StateStorage.read(`${this.ref}.item`, "");
-        if (!!location && !!item) {
-            this.shadowRoot.getElementById("hintlocation").innerHTML = Language.translate(location);
-            this.shadowRoot.getElementById("hintitem").innerHTML = Language.translate(item);
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        // hint
+        const hint = state.value;
+        if (hint) {
+            this.shadowRoot.getElementById("hintlocation").innerHTML = Language.translate(hint.location);
+            this.shadowRoot.getElementById("hintitem").innerHTML = Language.translate(hint.item);
         } else {
             this.shadowRoot.getElementById("hintlocation").innerHTML = "";
             this.shadowRoot.getElementById("hintitem").innerHTML = "";
         }
-    }
-
-    set checked(val) {
-        super.checked = val;
-        if (val) {
-            const location = StateStorage.read(`${this.ref}.location`, "");
-            const item = StateStorage.read(`${this.ref}.item`, "");
-            this.shadowRoot.getElementById("hintlocation").innerHTML = Language.translate(location);
-            this.shadowRoot.getElementById("hintitem").innerHTML = Language.translate(item);
-        } else {
-            this.shadowRoot.getElementById("hintlocation").innerHTML = "";
-            this.shadowRoot.getElementById("hintitem").innerHTML = "";
-        }
-    }
-
-    get checked() {
-        return super.checked;
     }
 
     check() {

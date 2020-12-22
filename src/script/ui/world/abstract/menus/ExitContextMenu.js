@@ -3,6 +3,9 @@ import "/emcJS/ui/overlay/ContextMenu.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
+    <div id="menu-associate" class="item">Bind Entrance</div>
+    <div id="menu-deassociate" class="item">Unbind Entrance</div>
+    <div class="splitter"></div>
     <div id="menu-check" class="item">Check All</div>
     <div id="menu-uncheck" class="item">Uncheck All</div>
     <div class="splitter"></div>
@@ -12,13 +15,27 @@ const TPL = new Template(`
 </emc-contextmenu>
 `);
 
-export default class AreaContextMenu extends HTMLElement {
+export default class ExitContextMenu extends HTMLElement {
 
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         /* --- */
+        this.shadowRoot.getElementById("menu-associate").addEventListener("click", event => {
+            const ev = new Event("associate");
+            this.dispatchEvent(ev);
+            /* --- */
+            event.preventDefault();
+            return false;
+        });
+        this.shadowRoot.getElementById("menu-deassociate").addEventListener("click", event => {
+            const ev = new Event("deassociate");
+            this.dispatchEvent(ev);
+            /* --- */
+            event.preventDefault();
+            return false;
+        });
         this.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
             const ev = new Event("check");
             this.dispatchEvent(ev);
@@ -73,4 +90,4 @@ export default class AreaContextMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-area', AreaContextMenu);
+customElements.define('ootrt-ctxmenu-exit', ExitContextMenu);

@@ -25,7 +25,7 @@ class StateInit {
             for (const cat in marker) {
                 const entities = marker[cat];
                 for (const ref in entities) {
-                    STATE_ENTRIES[cat].get(ref);
+                    STATE_ENTRIES[cat].get(`${cat}/${ref}`);
                 }
             }
             const items = FileData.get("items");

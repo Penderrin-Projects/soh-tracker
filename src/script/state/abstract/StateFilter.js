@@ -8,6 +8,14 @@ function valueGetter(key) {
     return this.get(key);
 }
 
+function mapToObj(map) {
+    const res = {};
+    map.forEach((v, k) => {
+        res[k] = v;
+    });
+    return res;
+}
+
 const FILTER = new WeakMap();
 const FILTER_LOGICS = new WeakMap();
 
@@ -68,11 +76,15 @@ export default class StateFilter extends StateVisible {
         }
     }
 
-    get visible() {
-        return super.visible && this.filter;
+    get filter() {
+        return mapToObj(FILTER.get(this));
     }
 
-    get filter() {
+    get visible() {
+        return super.visible && this.filtered;
+    }
+
+    get filtered() {
         const activeFilter = FilterStorage.getAll();
         const values = FILTER.get(this);
         for (const filter in activeFilter) {

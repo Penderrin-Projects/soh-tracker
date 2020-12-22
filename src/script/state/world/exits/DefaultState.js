@@ -1,59 +1,121 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import AreaStates from "/script/state/AreaStates.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
-import WorldRegistry from "/script/state/WorldRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
+import ExitRegistry from "/script/registries/ExitRegistry.js";
+import Logic from "/script/util/logic/Logic.js";
+import StateDataEventManager from "/script/util/StateDataEventManager.js";
 
+const MANAGER = new WeakMap();
+const EXIT_DATA = new WeakMap();
 const ACCESS = new WeakMap();
+const VALUE = new WeakMap();
 const AREA = new WeakMap();
 
-function internalAreaChange(event) {
+function getEntranceArea(value) {
+    const entrance = ExitRegistry.get(value);
+    return WorldRegistry.get(entrance.exitData.area);
+}
+
+function getLogicAccess(access) {
+    return (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+}
+
+function getAccess(data, access) {
+    return (!!data[`${access}[child]`] || !!data[`${access}[adult]`]);
+}
+
+function internalChange(event) {
     const ref = this.ref;
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.area = change.newValue;
+        this.value = change.newValue;
     }
 }
 
 export default class DefaultState extends StateFilter {
 
-    constructor(ref, props) {
+    constructor(ref, props, exitData) {
         super(ref, props);
         /* --- */
-        ACCESS.set(this, AccessStateEnum.UNAVAILABLE);
-        this.area = StateStorage.read(ref, false);
+        const manager = new StateDataEventManager();
+        MANAGER.set(this, manager);
+        manager.registerStateHandler("access", event => {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+        /* --- */
+        const logicAccess = props.access.split(" -> ")[0];
+        EXIT_DATA.set(this, exitData);
+        ACCESS.set(this, getLogicAccess(logicAccess));
+        this.value = StateStorage.readExtra("exits", ref, "");
         /* EVENTS */
         // TODO get access on logic change
-        EventBus.register("state::exit_area", internalAreaChange.bind(this));
-        EventBus.register("net::state::exit_area", internalAreaChange.bind(this));
+        EventBus.register("state::exit", internalChange.bind(this));
+        EventBus.register("net::state::exit", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
-        // TODO on area access change throw event
+        EventBus.register("logic", event => {
+            const access = getAccess(event.data, logicAccess);
+            if (access != null) {
+                ACCESS.set(this, access);
+                const area = AREA.get(this);
+                if (area == null) {
+                    const event = new Event("access");
+                    event.data = access;
+                    this.dispatchEvent(event);
+                }
+            }
+        });
         /* register */
-        WorldRegistry.set(`exit/${ref}`, this);
+        ExitRegistry.set(props.access, this);
     }
 
     stateLoaded(event) {
-        // TODO
+        const props = this.props;
+        if (event.data.extra.exits != null && event.data.extra.exits[props.access] != null) {
+            this.value = event.data.extra.exits[props.access];
+        } else {
+            this.value = "";
+        }
     }
 
-    set area(value) {
-        const old = this.value;
+    get exitData() {
+        return EXIT_DATA.get(this);
+    }
+
+    get value() {
+        return VALUE.get(this);
+    }
+
+    set value(value) {
+        const ref = this.ref;
+        const props = this.props;
+        const old = VALUE.get(this);
         if (value != old) {
-            AREA.set(this, value);
-            StateStorage.writeExtra("exits", this.ref, value);
+            const manager = MANAGER.get(this);
+            VALUE.set(this, value);
+            StateStorage.writeExtra("exits", props.access, value);
+            if (value) {
+                const area = getEntranceArea(value);
+                AREA.set(this, area);
+                manager.switchState(area);
+            } else {
+                AREA.set(this, null);
+                manager.switchState(null);
+            }
             // external
-            const event = new Event("area");
+            const event = new Event("value");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::exit_area", {
-                ref: this.ref,
+            EventBus.trigger("state::exit", {
+                ref: ref,
                 oldValue: old,
-                newValue: this.value
+                newValue: value
             });
         }
     }
@@ -63,9 +125,9 @@ export default class DefaultState extends StateFilter {
     }
 
     get access() {
-        const area = this.area;
-        if (AreaStates.has(area)) {
-            return AreaStates.get(area).access;
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.access;
         }
         return ACCESS.get(this);
     }
