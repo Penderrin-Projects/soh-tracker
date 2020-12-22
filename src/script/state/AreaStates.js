@@ -31,15 +31,16 @@ class AreaStates {
     }
 
     get(ref) {
-        if (ref == null) {
+        const id = ref.split("/")[1];
+        if (id == null) {
             throw new Error("the reference must not be null");
         }
-        if (!this.has(ref)) {
-            throw new ReferenceError("the location reference does not exist");
+        if (!this.has(id)) {
+            throw new ReferenceError("the reference does not exist");
         }
         if (!INSTANCES.has(ref)) {
-            const props = PROPS[ref];
-            const areaData = AREA_DATA[ref];
+            const props = PROPS[id];
+            const areaData = AREA_DATA[id];
             if (!CLAZZ.has(props.type)) {
                 const inst = new DefaultState(ref, props, areaData);
                 INSTANCES.set(ref, inst);

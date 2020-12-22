@@ -5,6 +5,8 @@ import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import MapLocation from "./Location.js";
 
+// TODO
+
 const TPL = new Template(`
     <div id="hintlocation" class="textarea"></div>
     <div id="hintitem" class="textarea"></div>

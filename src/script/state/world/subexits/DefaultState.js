@@ -2,11 +2,29 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SubAreaStates from "/script/state/SubAreaStates.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
+import ExitRegistry from "/script/registries/ExitRegistry.js";
+import Logic from "/script/util/logic/Logic.js";
+import StateDataEventManager from "/script/util/StateDataEventManager.js";
 
+// TODO
+
+const EXIT_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 const AREA = new WeakMap();
+
+function getEntranceArea(value) {
+    const entrance = ExitRegistry.get(value);
+    return WorldRegistry.get(entrance.exitData.area);
+}
+
+function getLogicAccess(access) {
+    return (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+}
+
+function getAccess(data, access) {
+    return (!!data[`${access}[child]`] || !!data[`${access}[adult]`]);
+}
 
 function internalAreaChange(event) {
     const ref = this.ref;
@@ -19,10 +37,12 @@ function internalAreaChange(event) {
 
 export default class DefaultState extends StateFilter {
 
-    constructor(ref, props) {
+    constructor(ref, props, exitData) {
         super(ref, props);
         /* --- */
-        ACCESS.set(this, AccessStateEnum.UNAVAILABLE);
+        const logicAccess = props.access.split(" -> ")[0];
+        EXIT_DATA.set(this, exitData);
+        ACCESS.set(this, getLogicAccess(logicAccess));
         this.area = StateStorage.read(ref, false);
         /* EVENTS */
         // TODO get access on logic change

@@ -6,6 +6,8 @@ import ExitRegistry from "/script/registries/ExitRegistry.js";
 import Logic from "/script/util/logic/Logic.js";
 import StateDataEventManager from "/script/util/StateDataEventManager.js";
 
+// TODO
+
 const MANAGER = new WeakMap();
 const EXIT_DATA = new WeakMap();
 const ACCESS = new WeakMap();

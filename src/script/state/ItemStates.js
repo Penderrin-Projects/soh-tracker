@@ -31,7 +31,7 @@ class ItemStates {
             throw new Error("the reference must not be null");
         }
         if (!this.has(ref)) {
-            throw new ReferenceError("the item reference does not exist");
+            throw new ReferenceError("the reference does not exist");
         }
         if (!INSTANCES.has(ref)) {
             const props = PROPS[ref];

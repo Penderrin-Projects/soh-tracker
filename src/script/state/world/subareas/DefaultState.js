@@ -4,6 +4,8 @@ import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 
+// TODO
+
 const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 
