@@ -3,8 +3,8 @@ import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
+import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Language from "/script/util/Language.js";
 import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
@@ -17,8 +17,6 @@ import "./listitems/Location.js";
 import "./listitems/Gossipstone.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
-
-const SettingsStorage = new IDBStorage('settings');
 
 const TPL = new Template(`
     <style>
@@ -315,7 +313,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 const data_m = FileData.get(`world/${this.ref}/lists/mq`);
                 const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
                 const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
-                if (await SettingsStorage.get("unknown_dungeon_need_both", false)) {
+                if (SettingsStorage.get("unknown_dungeon_need_both")) {
                     const header_value = getAccessNeutralBoth(res_v, res_m);
                     this.shadowRoot.querySelector('#title').className = header_value;
                 } else {

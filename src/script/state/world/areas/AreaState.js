@@ -1,4 +1,5 @@
 import AreaStates from "/script/state/AreaStates.js";
+import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import DefaultState from "/script/state/world/areas/DefaultState.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 
@@ -20,6 +21,7 @@ export default class AreaState extends DefaultState {
                 return result;
             }
         }
+        return AccessStateEnum.UNAVAILABLE;
     }
 
 }

@@ -6,6 +6,16 @@ import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 
 class ListLogic {
+
+    get DEFAULT() {
+        return {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            entrances: false,
+            value: AccessStateEnum.UNAVAILABLE
+        };
+    }
     
     check(list) {
         const world = FileData.get("world/marker");

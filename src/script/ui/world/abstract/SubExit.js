@@ -1,4 +1,3 @@
-import EventBus from "/emcJS/event/EventBus.js";
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
 import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
@@ -6,11 +5,11 @@ import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import LocationState from "/script/state/world/locations/LocationState.js";
-import ExitStates from "/script/state/ExitStates.js";
+import SubExitStates from "/script/state/SubExitStates.js";
 import Language from "/script/util/Language.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/ExitContextMenu.js";
+import "./menus/SubExitContextMenu.js";
 import "./menus/ExitBindingMenu.js";
 
 function setAllListEntries(list, value = true) {
@@ -50,7 +49,7 @@ function setAllListEntries(list, value = true) {
     }
 }
 
-export default class MapExit extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
 
     constructor() {
         super();
@@ -112,44 +111,13 @@ export default class MapExit extends ContextMenuManagerMixin(StateDataEventManag
                 }
             }
         });
-        mnu_ctx.shadowRoot.getElementById("menu-setwoth").addEventListener("click", event => {
-            const state = this.getState();
-            if (state != null) {
-                const area = state.area;
-                if (area != null) {
-                    area.hint = "woth";
-                }
-            }
-        });
-        mnu_ctx.shadowRoot.getElementById("menu-setbarren").addEventListener("click", event => {
-            const state = this.getState();
-            if (state != null) {
-                const area = state.area;
-                if (area != null) {
-                    area.hint = "barren";
-                }
-            }
-        });
-        mnu_ctx.shadowRoot.getElementById("menu-clearhint").addEventListener("click", event => {
-            const state = this.getState();
-            if (state != null) {
-                const area = state.area;
-                if (area != null) {
-                    area.hint = "";
-                }
-            }
-        });
 
         /* mouse events */
         this.addEventListener("click", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
-                if (area != null) {
-                    EventBus.trigger("location_change", {
-                        name: area.ref
-                    });
-                } else {
+                if (area == null) {
                     const state = this.getState();
                     if (state != null) {
                         mnu_ext.fillEntranceSelection(state.props.access);
@@ -232,16 +200,8 @@ export default class MapExit extends ContextMenuManagerMixin(StateDataEventManag
         this.setAttribute('value', val);
     }
 
-    get hint() {
-        return this.getAttribute('hint');
-    }
-
-    set hint(val) {
-        this.setAttribute('hint', val);
-    }
-
     static get observedAttributes() {
-        return ['ref', 'value', 'hint'];
+        return ['ref', 'value'];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -249,7 +209,7 @@ export default class MapExit extends ContextMenuManagerMixin(StateDataEventManag
             switch (name) {
                 case 'ref':
                     {
-                        const state = ExitStates.get(this.ref);
+                        const state = SubExitStates.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(state.props.access);
@@ -277,19 +237,6 @@ export default class MapExit extends ContextMenuManagerMixin(StateDataEventManag
                                     valueEl.innerHTML = "";
                                     this.hint = "";
                                 }
-                            }
-                        }
-                    }
-                    break;
-                case 'hint':
-                    {
-                        const hintEl = this.shadowRoot.getElementById("hint");
-                        if (hintEl != null) {
-                            hintEl.innerHTML = "";
-                            if (!!newValue && newValue != "") {
-                                const el_icon = document.createElement("img");
-                                el_icon.src = `images/icons/area_${newValue}.svg`;
-                                hintEl.append(el_icon);
                             }
                         }
                     }

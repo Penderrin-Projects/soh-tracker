@@ -1,6 +1,5 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateFilter from "/script/state/abstract/StateFilter.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 
@@ -15,35 +14,39 @@ export default class DefaultState extends StateFilter {
         super(ref, props);
         /* --- */
         AREA_DATA.set(this, areaData);
-        ACCESS.set(this, AccessStateEnum.UNAVAILABLE);
-        this.hint = "";
+        ACCESS.set(this, ListLogic.DEFAULT);
+        this.refreshAccess();
         /* EVENTS */
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
         EventBus.register(["logic", "state::location"], event => {
-            this.calculateAvailability();
+            this.refreshAccess();
         });
-        /* register */
-        WorldRegistry.set(ref, this);
+    }
+
+    /*#*/refreshAccess() {
+        const access = this.calculateAvailability();
+        if (access != null) {
+            const old = ACCESS.get(this);
+            if (old != access) {
+                ACCESS.set(this, access);
+                // external
+                const event = new Event("access");
+                event.data = access;
+                this.dispatchEvent(event);
+            }
+        }
     }
 
     stateLoaded(event) {
-        // update
-        this.calculateAvailability();
+        // nothing
     }
 
     calculateAvailability() {
         const list = this.getFilteredList();
         if (list != null) {
-            const res = ListLogic.check(list);
-            if (res != null) {
-                ACCESS.set(this, res.value);
-                // external
-                const event = new Event("access");
-                event.data = res.value;
-                this.dispatchEvent(event);
-            }
+            return ListLogic.check(list);
         }
     }
 

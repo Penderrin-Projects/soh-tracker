@@ -7,7 +7,7 @@ import PopOver from "/emcJS/ui/overlay/PopOver.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import BusyIndicator from "/script/ui/BusyIndicator.js";
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 function sortNames(a, b) {
@@ -26,8 +26,6 @@ function createDevEntry(name, type) {
 }
 
 // TODO bind erase stored data button
-
-const SettingsStorage = new IDBStorage('settings');
 
 import SettingsBuilder from "/script/util/SettingsBuilder.js";
 
@@ -156,16 +154,15 @@ async function getSettings() {
     for (const i in options) {
         const opt = options[i];
         if (opt.type === "list" || opt.type === "-list") {
-            const def = new Set(opt.default);
             const val = [];
             for (const el of opt.values) {
-                if (await SettingsStorage.get(i, def.has(el))) {
+                if (SettingsStorage.get(i)) {
                     val.push(el);
                 }
             }
             res[i] = val;
         } else {
-            res[i] = await SettingsStorage.get(i, opt.default);
+            res[i] = SettingsStorage.get(i);
         }
     }
     return res;

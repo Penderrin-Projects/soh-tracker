@@ -1,12 +1,14 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import SettingsStorage from "/script/storage/SettingsStorage.js";
+import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import AreaStates from "/script/state/AreaStates.js";
 import DefaultState from "/script/state/world/areas/DefaultState.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
+import ListLogic from "/script/util/logic/ListLogic.js";
 
 const TYPE = new WeakMap();
 
-/*
 function getAccessNeutralBoth(res_v, res_m) {
     if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
         return AccessStateEnum.UNAVAILABLE;
@@ -28,7 +30,28 @@ function getAccessNeutralOne(res_v, res_m) {
     }
     return AccessStateEnum.OPENED;
 }
-*/
+
+function getAccessNeutral(res_v, res_m) {
+    if (SettingsStorage.get("unknown_dungeon_need_both")) {
+        const value = getAccessNeutralBoth(res_v, res_m);
+        return {
+            done: Math.min(res_v.done, res_m.done),
+            unopened: Math.min(res_v.done, res_m.done),
+            reachable: Math.min(res_v.reachable, res_m.reachable),
+            entrances: res_v.entrances && res_m.entrances,
+            value
+        };
+    } else {
+        const value = getAccessNeutralOne(res_v, res_m);
+        return {
+            done: Math.max(res_v.done, res_m.done),
+            unopened: Math.max(res_v.done, res_m.done),
+            reachable: Math.max(res_v.reachable, res_m.reachable),
+            entrances: res_v.entrances || res_m.entrances,
+            value
+        };
+    }
+}
 
 function internalTypeChange(event) {
     const ref = this.ref;
@@ -88,10 +111,44 @@ export default class DungeonState extends DefaultState {
         super.stateLoaded(event);
     }
 
-    getFilteredList() {
+    test() {
+        getAccessNeutral();
+    }
+
+    calculateAvailability() {
+        const type = TYPE.get(this);
+        if (type == "n") {
+            let res;
+            const listV = this.getFilteredList("v");
+            if (listV != null) {
+                res = ListLogic.check(listV);
+            }
+            const listM = this.getFilteredList("mq");
+            if (listM != null) {
+                const resM = ListLogic.check(listM);
+                if (res != null) {
+                    res = getAccessNeutral(res, resM);
+                } else {
+                    res = resM;
+                }
+            }
+            return res;
+        } else {
+            const list = this.getFilteredList();
+            if (list != null) {
+                const res = ListLogic.check(list);
+                if (res != null) {
+                    super.access = res;
+                }
+            }
+        }
+        return ListLogic.DEFAULT;
+    }
+
+    getFilteredList(type = this.type) {
         const areaData = this.areaData;
         if (areaData != null) {
-            const list = areaData.lists[this.type];
+            const list = areaData.lists[type];
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
@@ -104,30 +161,6 @@ export default class DungeonState extends DefaultState {
                 return result;
             }
         }
-        // TODO check for both if type == "n"
-        /* TODO use this for type == "n" results
-            if (await SettingsStorage.get("unknown_dungeon_need_both", false)) {
-                if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
-                    header_value == "unavailable";
-                } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
-                    header_value == "possible";
-                } else if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
-                    header_value == "available";
-                } else {
-                    header_value == "opened";
-                }
-            } else {
-                if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
-                    header_value == "available";
-                } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
-                    header_value == "possible";
-                } else if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
-                    header_value == "unavailable";
-                } else {
-                    header_value == "opened";
-                }
-            }
-        */
     }
 
     get type() {

@@ -1,11 +1,11 @@
 import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Logic from "/script/util/logic/Logic.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
-const SettingsStorage = new IDBStorage('settings');
 const LogicsStorage = new IDBStorage('logics');
 const GraphStorage = new IDBStorage("edges");
 const LogicsStorageGlitched = new IDBStorage('logics_glitched');
@@ -82,9 +82,8 @@ async function update() {
 class AugmentCustomLogic {
 
     async init() {
-        const settings = FileData.get("settings", {});
         logic_rules = StateStorage.read("option.logic_rules");
-        use_custom_logic = await SettingsStorage.get("use_custom_logic", settings["use_custom_logic"].default);
+        use_custom_logic = SettingsStorage.get("use_custom_logic");
         await update();
     }
 

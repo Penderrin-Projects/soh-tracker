@@ -2,7 +2,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateInit from "/script/state/StateInit.js";
 /* --- */
@@ -17,8 +17,6 @@ import "/script/state/world/areas/DungeonState.js";
 /* --- */
 import "/script/state/world/locations/LocationState.js";
 import "/script/state/world/locations/GossipstoneState.js";
-
-const SettingsStorage = new IDBStorage('settings');
 
 const FILES = {
     "world":                {path: "/database/world.json",              type: "json"},
@@ -46,9 +44,10 @@ function loadingMessage(msg) {
 export async function loadResources(updateLoadingMessage = loadingMessage) {
     updateLoadingMessage("load data...");
     await FileData.load(FILES);
+    await SettingsStorage.init();
 
     updateLoadingMessage("learn languages...");
-    await Language.load(await SettingsStorage.get("language", "en_us"));
+    await Language.load(SettingsStorage.get("language"));
 
     updateLoadingMessage("initialize states...");
     StateInit.init();

@@ -48,13 +48,17 @@ export default class DefaultState extends StateFilter {
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
+        manager.registerStateHandler("hint", event => {
+            const ev = new Event("hint");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
         /* --- */
         const logicAccess = props.access.split(" -> ")[0];
         EXIT_DATA.set(this, exitData);
         ACCESS.set(this, getLogicAccess(logicAccess));
         this.value = StateStorage.readExtra("exits", ref, "");
         /* EVENTS */
-        // TODO get access on logic change
         EventBus.register("state::exit", internalChange.bind(this));
         EventBus.register("net::state::exit", internalChange.bind(this));
         EventBus.register("state", event => {

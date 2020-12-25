@@ -1,15 +1,7 @@
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import Logger from "/emcJS/util/Logger.js";
-import "/emcJS/ui/overlay/ContextMenu.js";
 import "/emcJS/ui/Icon.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
-import Language from "/script/util/Language.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import AbstractSubArea from "/script/ui/world/abstract/SubArea.js";
 
 const TPL = new Template(`
 <div id="header" class="textarea">
@@ -106,58 +98,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const TPL_MNU_CTX = new Template(`
-<emc-contextmenu id="menu">
-    <div id="menu-check" class="item">Check All</div>
-    <div id="menu-uncheck" class="item">Uncheck All</div>
-    <div class="splitter"></div>
-    <div id="menu-setwoth" class="item">Set WOTH</div>
-    <div id="menu-setbarren" class="item">Set Barren</div>
-    <div id="menu-clearhint" class="item">Clear Hint</div>
-</emc-contextmenu>
-`);
-
-function setAllListEntries(list, value = true) {
-    if (!!list && Array.isArray(list)) {
-        for (const entry of list) {
-            const category = entry.category;
-            const id = entry.id;
-            if (category == "location") {
-                StateStorage.write(`${category}/${id}`, value);
-            } else if (category == "subarea") {
-                const subarea = FileData.get(`world/subarea/${id}/list`);
-                setAllListEntries(subarea, value);
-            } else if (category == "subexit") {
-                const subexit = FileData.get(`world/marker/subexit/${id}`);
-                const bound = StateStorage.readExtra("exits", subexit.access);
-                if (!bound) {
-                    continue;
-                }
-                let entrance = FileData.get(`world/exit/${bound}`);
-                if (entrance == null) {
-                    entrance = FileData.get(`world/exit/${bound.split(" -> ").reverse().join(" -> ")}`)
-                }
-                if (entrance != null) {
-                    const subarea = FileData.get(`world/${entrance.area}/list`);
-                    setAllListEntries(subarea, value);
-                }
-            } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
-            }
-        }
-    }
-}
-
-const VALUE_STATES = [
-    "opened",
-    "unavailable",
-    "possible",
-    "available"
-];
-
-const MNU_CTX = new WeakMap();
-
-export default class ListSubArea extends UIEventBusMixin(HTMLElement) {
+export default class ListSubArea extends AbstractSubArea {
 
     constructor() {
         super();
@@ -165,94 +106,10 @@ export default class ListSubArea extends UIEventBusMixin(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-
-        /* context menu */
-        const mnu_ctx = document.createElement("div");
-        mnu_ctx.attachShadow({mode: 'open'});
-        mnu_ctx.shadowRoot.append(TPL_MNU_CTX.generate());
-        const mnu_ctx_el = mnu_ctx.shadowRoot.getElementById("menu");
-        MNU_CTX.set(this, mnu_ctx);
-        
-        mnu_ctx.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
-            const data = FileData.get(`world/${this.ref}/list`);
-            if (data != null) {
-                setAllListEntries(data, true);
-            }
-            event.preventDefault();
-            return false;
-        });
-        mnu_ctx.shadowRoot.getElementById("menu-uncheck").addEventListener("click", event => {
-            const data = FileData.get(`world/${this.ref}/list`);
-            if (data != null) {
-                setAllListEntries(data, false);
-            }
-            event.preventDefault();
-            return false;
-        });
-
-        /* mouse events */
-        this.addEventListener("click", event => {
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        this.addEventListener("contextmenu", event => {
-            mnu_ctx_el.show(event.clientX, event.clientY);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-
-        /* event bus */
-        this.registerGlobal(["state", "statechange", "settings", "randomizer_options", "logic", "filter"], event => {
-            this.refresh();
-        });
-        
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        let el = this;
-        while (el.parentElement != null && !el.classList.contains("panel")) {
-            el = el.parentElement;
-        }
-        el.append(MNU_CTX.get(this));
-        // update state
-        this.refresh();
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        MNU_CTX.get(this).remove();
-    }
-
-    get ref() {
-        return this.getAttribute('ref');
-    }
-
-    set ref(val) {
-        this.setAttribute('ref', val);
-    }
-
-    static get observedAttributes() {
-        return ['ref'];
-    }
-    
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'ref':
-                if (oldValue != newValue) {
-                    this.refresh();
-                    const txt = this.shadowRoot.getElementById("text");
-                    txt.innerHTML = Language.translate(newValue);
-                }
-                break;
-        }
-    }
-
-    refresh() {
+    // TODO generate sublist similar to this function
+    /*refresh() {
         if (this.ref) {
             const data = FileData.get(`world/${this.ref}`);
             this.innerHTML = "";
@@ -272,11 +129,7 @@ export default class ListSubArea extends UIEventBusMixin(HTMLElement) {
         } else {
             this.shadowRoot.getElementById("text").dataset.state = "unavailable";
         }
-    }
-
-    setFilterData(data) {
-        // nothing
-    }
+    }*/
 
 }
 

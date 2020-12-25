@@ -24,15 +24,9 @@ export default class DefaultState extends StateFilter {
         super(ref, props);
         /* --- */
         AREA_DATA.set(this, areaData);
-        ACCESS.set(this, {
-            done: 0,
-            unopened: 0,
-            reachable: 0,
-            entrances: false,
-            value: AccessStateEnum.UNAVAILABLE
-        });
+        ACCESS.set(this, ListLogic.DEFAULT);
         this.hint = StateStorage.readExtra("area_hint", ref, "");
-        this.calculateAvailability();
+        this.refreshAccess();
         /* EVENTS */
         EventBus.register("state::area_hint", internalHintChange.bind(this));
         EventBus.register("net::state::area_hint", internalHintChange.bind(this));
@@ -40,8 +34,22 @@ export default class DefaultState extends StateFilter {
             this.stateLoaded(event);
         });
         EventBus.register(["logic", "state::location", "randomizer_options"], event => {
-            this.calculateAvailability();
+            this.refreshAccess();
         });
+    }
+
+    /*#*/refreshAccess() {
+        const access = this.calculateAvailability();
+        if (access != null) {
+            const old = ACCESS.get(this);
+            if (old != access) {
+                ACCESS.set(this, access);
+                // external
+                const event = new Event("access");
+                event.data = access;
+                this.dispatchEvent(event);
+            }
+        }
     }
 
     stateLoaded(event) {
@@ -57,14 +65,7 @@ export default class DefaultState extends StateFilter {
     calculateAvailability() {
         const list = this.getFilteredList();
         if (list != null) {
-            const res = ListLogic.check(list);
-            if (res != null) {
-                ACCESS.set(this, res);
-                // external
-                const event = new Event("access");
-                event.data = res;
-                this.dispatchEvent(event);
-            }
+            return ListLogic.check(list);
         }
     }
 
@@ -84,6 +85,7 @@ export default class DefaultState extends StateFilter {
                 return result;
             }
         }
+        return AccessStateEnum.UNAVAILABLE;
     }
 
     get areaData() {

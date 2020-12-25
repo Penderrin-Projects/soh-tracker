@@ -1,4 +1,3 @@
-import EventBus from "/emcJS/event/EventBus.js";
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
 import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
@@ -6,11 +5,11 @@ import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import LocationState from "/script/state/world/locations/LocationState.js";
-import AreaStates from "/script/state/AreaStates.js";
+import SubAreaStates from "/script/state/SubAreaStates.js";
 import Language from "/script/util/Language.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/AreaContextMenu.js";
+import "./menus/SubAreaContextMenu.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {
@@ -43,13 +42,13 @@ function setAllListEntries(list, value = true) {
                     }
                 }
             } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
+                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "SubArea");
             }
         }
     }
 }
 
-export default class AbstractArea extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class AbstractSubArea extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
 
     constructor(type) {
         super();
@@ -62,7 +61,7 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-area");
+        const mnu_ctx = document.createElement("ootrt-ctxmenu-subarea");
         this.setContextMenu("area", mnu_ctx);
         
         mnu_ctx.addEventListener("check", event => {
@@ -79,31 +78,9 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
                 setAllListEntries(list, false);
             }
         });
-        mnu_ctx.addEventListener("setwoth", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "woth";
-            }
-        });
-        mnu_ctx.addEventListener("setbarren", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "barren";
-            }
-        });
-        mnu_ctx.addEventListener("clearhint", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.hint = "";
-            }
-        });
-
         
         /* mouse events */
         this.addEventListener("click", event => {
-            EventBus.trigger("location_change", {
-                name: this.ref
-            });
             event.stopPropagation();
             event.preventDefault();
             return false;
@@ -152,16 +129,8 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
         this.setAttribute('ref', val);
     }
 
-    get hint() {
-        return this.getAttribute('hint');
-    }
-
-    set hint(val) {
-        this.setAttribute('hint', val);
-    }
-
     static get observedAttributes() {
-        return ['ref', 'hint'];
+        return ['ref'];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -169,25 +138,12 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
             switch (name) {
                 case 'ref':
                     {
-                        const state = AreaStates.get(this.ref);
+                        const state = SubAreaStates.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(newValue);
                         }
                         this.switchState(state);
-                    }
-                    break;
-                case 'hint':
-                    {
-                        const hintEl = this.shadowRoot.getElementById("hint");
-                        if (hintEl != null) {
-                            hintEl.innerHTML = "";
-                            if (!!newValue && newValue != "") {
-                                const el_icon = document.createElement("img");
-                                el_icon.src = `images/icons/area_${newValue}.svg`;
-                                hintEl.append(el_icon);
-                            }
-                        }
                     }
                     break;
             }
