@@ -1,19 +1,20 @@
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 // more
 import "./listitems/Button.js";
-import "./listitems/Area.js";
-import "./listitems/Exit.js";
 import "./listitems/Location.js";
+import "./listitems/Area.js";
+import "./listitems/SubArea.js";
+import "./listitems/Exit.js";
+import "./listitems/SubExit.js";
 import "./listitems/Gossipstone.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
@@ -130,46 +131,6 @@ const TPL = new Template(`
     </div>
 `);
 
-const VALUE_STATES = [
-    "opened",
-    "unavailable",
-    "possible",
-    "available"
-];
-
-function getAccessNeutralBoth(res_v, res_m) {
-    if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
-        return "unavailable";
-    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
-        return "possible";
-    } else if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
-        return "available";
-    }
-    return "opened";
-}
-
-function getAccessNeutralOne(res_v, res_m) {
-    if (res_v.value == AccessStateEnum.AVAILABLE || res_m.value == AccessStateEnum.AVAILABLE) {
-        return "available";
-    } else if (res_v.value == AccessStateEnum.POSSIBLE || res_m.value == AccessStateEnum.POSSIBLE) {
-        return "possible";
-    } else if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
-        return "unavailable";
-    }
-    return "opened";
-}
-
-function getAccess(res) {
-    if (res.value == AccessStateEnum.AVAILABLE) {
-        return "available";
-    } else if (res.value == AccessStateEnum.POSSIBLE) {
-        return "possible";
-    } else if (res.value == AccessStateEnum.UNAVAILABLE) {
-        return "unavailable";
-    }
-    return "opened";
-}
-
 class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
@@ -271,60 +232,53 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     refresh() {
         // TODO do not use specialized code. make generic
         const cnt = this.shadowRoot.getElementById("list");
-        let dType = this.shadowRoot.getElementById("location-version").value;
         const btn_vanilla = this.shadowRoot.getElementById('vanilla');
         const btn_masterquest = this.shadowRoot.getElementById('masterquest');
         cnt.innerHTML = "";
-        const data = FileData.get(`world/${this.ref || "overworld"}`);
-        if (data) {
-            if (data.lists.mq == null) {
-                dType = "v";
-            }
-            if (dType == "n") {
-                const data_v = data.lists.v;
-                const data_m = data.lists.mq;
-                const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
-                const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
-                btn_vanilla.className = VALUE_STATES[res_v.value];
-                btn_masterquest.className = VALUE_STATES[res_m.value];
-            } else {
+        const data = WorldRegistry.get(this.ref || "overworld");
+        if (data != null) {
+            const list = data.getFilteredList();
+            if (list != null) {
                 btn_vanilla.className = "hidden";
                 btn_masterquest.className = "hidden";
-                data.lists[dType].forEach(record => {
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.listItem;
-                        cnt.append(el);
-                    }
-                });
+                for (const record of list) {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                    const el = uiReg.create(loc.props.type, loc.ref);
+                    cnt.append(el);
+                }
+            } else {
+                const listV = this.getFilteredList("v");
+                if (listV != null) {
+                    const res = ListLogic.check(listV);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_vanilla.className = value;
+                }
+                const listM = this.getFilteredList("mq");
+                if (listM != null) {
+                    const res = ListLogic.check(listM);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_masterquest.className = value;
+                }
             }
+            this.updateHeader();
         }
-        this.updateHeader();
     }
 
     async updateHeader() {
-        // TODO do not use specialized code. make generic
-        if ((!this.ref || this.ref === "overworld")) {
-            this.shadowRoot.querySelector('#title').className = "";
-        } else {
-            const dType = this.shadowRoot.getElementById("location-version").value;
-            if (dType == "n") {
-                const data_v = FileData.get(`world/${this.ref}/lists/v`);
-                const data_m = FileData.get(`world/${this.ref}/lists/mq`);
-                const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
-                const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
-                if (SettingsStorage.get("unknown_dungeon_need_both")) {
-                    const header_value = getAccessNeutralBoth(res_v, res_m);
-                    this.shadowRoot.querySelector('#title').className = header_value;
-                } else {
-                    const header_value = getAccessNeutralOne(res_v, res_m);
-                    this.shadowRoot.querySelector('#title').className = header_value;
-                }
+        const titleEl = this.shadowRoot.querySelector('#title');
+        if (titleEl != null) {
+            if ((!this.ref || this.ref === "overworld")) {
+                titleEl.className = "";
             } else {
-                const data = FileData.get(`world/${this.ref}/lists/${dType}`);
-                const res = ListLogic.check(data.filter(ListLogic.filterUnusedChecks));
-                const header_value = getAccess(res);
-                this.shadowRoot.querySelector('#title').className = header_value;
+                const data = WorldRegistry.get(this.ref);
+                if (data != null) {
+                    /* access */
+                    const access = data.access;
+                    const value = AccessStateEnum.getName(access.value).toLowerCase();
+                    titleEl.className = value;
+                }
             }
         }
     }

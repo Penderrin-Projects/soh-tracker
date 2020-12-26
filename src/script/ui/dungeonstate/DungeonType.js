@@ -1,9 +1,9 @@
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -57,21 +57,22 @@ slot {
 
 function stateChanged(event) {
     if (this.ref) {
-        const area = FileData.get(`world/${this.ref}/lists`);
-        let value = "v";
-        if (area["mq"] != null) {
-            value = "n";
-        }
         if (event.data.extra.dungeontype != null) {
             const state = event.data.extra.dungeontype[this.ref];
             if (typeof state != "undefined" && state != "") {
-                value = state;
+                this.value = state;
+                return;
             }
         }
-        this.value = value;
-    } else {
-        this.value = "n";
+        const data = WorldRegistry.get(this.ref);
+        if (data != null) {
+            if (data.areaData.lists == null) {
+                this.value = "v";
+                return;
+            }
+        }
     }
+    this.value = "n";
 }
 
 function dungeonTypeUpdate(event) {
@@ -135,19 +136,20 @@ class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
             case 'ref':
                 if (oldValue != newValue) {
                     if (newValue) {
-                        const area = FileData.get(`world/${this.ref}/lists`);
-                        let value = "v";
-                        let readonly = true;
-                        if (area["mq"] != null) {
-                            value = StateStorage.readExtra("dungeontype", newValue, "n");
-                            readonly = false;
+                        const data = WorldRegistry.get(newValue);
+                        if (data != null) {
+                            if (data.areaData.lists != null) {
+                                this.value = StateStorage.readExtra("dungeontype", newValue, "n");
+                                this.readonly = false;
+                            } else {
+                                this.value = "v";
+                                this.readonly = true;
+                            }
+                            break;
                         }
-                        this.value = value;
-                        this.readonly = readonly;
-                    } else {
-                        this.value = "n";
-                        this.readonly = true;
                     }
+                    this.value = "n";
+                    this.readonly = true;
                 }
                 break;
             case 'value':

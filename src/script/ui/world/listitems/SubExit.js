@@ -1,7 +1,9 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 import AbstractSubExit from "/script/ui/world/abstract/SubExit.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -114,36 +116,47 @@ export default class ListSubExit extends AbstractSubExit {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("value", event => {
+            this.refreshList();
+            const state = this.getState();
+            if (state != null) {
+                this.applyAccess(state.access);
+            }
+        });
+        this.registerGlobal(["state", "randomizer_options"], event => {
+            if (this.isConnected) {
+                this.refreshList();
+            }
+        });
     }
 
-    // TODO generate sublist similar to this function
-    /*async update() {
-        const area = AREA.get(this);
-        if (!area) {
-            const access = ACCESS.get(this);
-            if (!!access && (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`))) {
-                this.shadowRoot.getElementById("text").dataset.state = "available";
-            } else {
-                this.shadowRoot.getElementById("text").dataset.state = "unavailable";
-            }
-        } else {
-            const data = FileData.get(`world/${area}`);
-            if (data) {
-                // check access logic
-                const res = ListLogic.check(data.list.filter(ListLogic.filterUnusedChecks));
-                this.shadowRoot.getElementById("text").dataset.state = VALUE_STATES[res.value];
-                // create list entries
-                data.list.forEach(record => {
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.listItem;
-                        this.append(el);
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
+        }
+        this.refreshList();
+    }
+
+    refreshList() {
+        this.innerHTML = ""; // TODO use ElementManager
+        const state = this.getState();
+        if (state != null) {
+            const area = state.area;
+            if (area != null) {
+                const list = area.getFilteredList();
+                if (list != null) {
+                    for (const record of list) {
+                        const id = `${record.category}/${record.id}`;
+                        const loc = WorldRegistry.get(id);
+                        const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                        this.append(uiReg.create(loc.props.type, loc.ref));
                     }
-                });
+                }
             }
         }
-    }*/
+    }
 
 }
 
+UIWorldRegistry.set("list-subexit", new UIWorldRegistry(ListSubExit));
 customElements.define('ootrt-list-subexit', ListSubExit);

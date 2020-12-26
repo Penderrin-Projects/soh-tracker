@@ -4,6 +4,7 @@ import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AbstractSubArea from "/script/ui/world/abstract/SubArea.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -192,4 +193,5 @@ export default class MapSubArea extends AbstractSubArea {
 
 }
 
+UIWorldRegistry.set("map-subarea", new UIWorldRegistry(MapSubArea));
 customElements.define('ootrt-marker-subarea', MapSubArea);

@@ -92,14 +92,34 @@ export default class AbstractLocation extends ContextMenuManagerMixin(StateDataE
         iOSTouchHandler.register(this);
     }
 
-    applyStateValues(state) {
+    applyDefaultValues() {
         const textEl = this.shadowRoot.getElementById("text");
         if (textEl != null) {
-            textEl.dataset.checked = state.value;
-            textEl.dataset.state = state.access ? "available" : "unavailable";
+            textEl.dataset.checked = false;
+            textEl.dataset.state = "unavailable";
         }
-        this.item = state.item;
-        this.setFilterData(state.filter);
+        const typeIconEl = this.shadowRoot.getElementById("badge-type");
+        if (typeIconEl != null) {
+            typeIconEl.src = "images/icons/location.svg";
+        }
+        this.item = "";
+        this.setFilterData({});
+    }
+
+    applyStateValues(state) {
+        if (state != null) {
+            const textEl = this.shadowRoot.getElementById("text");
+            if (textEl != null) {
+                textEl.dataset.checked = state.value;
+                textEl.dataset.state = state.access ? "available" : "unavailable";
+            }
+            const typeIconEl = this.shadowRoot.getElementById("badge-type");
+            if (typeIconEl != null) {
+                typeIconEl.src = state.props.icon ?? "images/icons/location.svg";
+            }
+            this.item = state.item ?? "";
+            this.setFilterData(state.filter);
+        }
     }
 
     get ref() {

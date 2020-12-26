@@ -1,4 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
+import OverworldState from "/script/state/world/OverworldState.js";
 import LocationStates from "/script/state/LocationStates.js";
 import AreaStates from "/script/state/AreaStates.js";
 import SubAreaStates from "/script/state/SubAreaStates.js";
@@ -21,6 +22,7 @@ class StateInit {
     init() {
         if (!initialized) {
             initialized = true;
+            new OverworldState(FileData.get("world/overworld"));
             const marker = FileData.get("world/marker");
             for (const cat in marker) {
                 const entities = marker[cat];

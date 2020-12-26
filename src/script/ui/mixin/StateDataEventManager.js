@@ -19,12 +19,19 @@ export default (CLAZZ) => class extends CLAZZ {
                 oldTarget.removeEventListener(name, fn);
             });
         }
-        TARGET.set(this, newTarget);
-        if (newTarget instanceof StateData && this.isConnected) {
-            subs.forEach(function(fn, name) {
-                newTarget.addEventListener(name, fn);
-            });
-            this.applyStateValues(newTarget);
+        if (newTarget instanceof StateData) {
+            TARGET.set(this, newTarget);
+            if (this.isConnected) {
+                subs.forEach(function(fn, name) {
+                    newTarget.addEventListener(name, fn);
+                });
+                this.applyStateValues(newTarget);
+            }
+        } else {
+            TARGET.set(this, null);
+            if (this.isConnected) {
+                this.applyDefaultValues();
+            }
         }
     }
 
@@ -76,6 +83,8 @@ export default (CLAZZ) => class extends CLAZZ {
                 target.addEventListener(name, fn);
             });
             this.applyStateValues(target);
+        } else {
+            this.applyDefaultValues();
         }
     }
 
@@ -93,6 +102,10 @@ export default (CLAZZ) => class extends CLAZZ {
     }
 
     applyStateValues(state) {
+        // empty
+    }
+
+    applyDefaultValues() {
         // empty
     }
 

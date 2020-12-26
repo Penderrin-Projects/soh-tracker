@@ -2,6 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 import AbstractArea from "/script/ui/world/abstract/Area.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -120,4 +121,5 @@ export default class ListArea extends AbstractArea {
 
 }
 
+UIWorldRegistry.set("list-area", new UIWorldRegistry(ListArea));
 customElements.define('ootrt-list-area', ListArea);

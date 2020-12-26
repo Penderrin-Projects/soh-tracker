@@ -2,6 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import AbstractLocation from "/script/ui/world/abstract/Location.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div id="marker"></div>
@@ -100,25 +101,14 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const REG = new Map();
-const TYPE = new WeakMap();
-
 export default class MapLocation extends AbstractLocation {
 
-    constructor(type) {
+    constructor() {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        if (type) {
-            const el_type = this.shadowRoot.getElementById("badge-type");
-            el_type.src = `images/icons/${type}.svg`;
-            type = `location_${type}`;
-        } else {
-            type = "location";
-        }
-        TYPE.set(this, type);
     }
 
     get left() {
@@ -167,22 +157,7 @@ export default class MapLocation extends AbstractLocation {
         }
     }
 
-    static registerType(ref, clazz) {
-        if (REG.has(ref)) {
-            throw new Error(`location type ${ref} already exists`);
-        }
-        REG.set(ref, clazz);
-    }
-
-    static createType(ref) {
-        if (REG.has(ref)) {
-            const MapType = REG.get(ref);
-            return new MapType();
-        }
-        return new MapLocation(ref);
-    }
-
 }
 
-MapLocation.registerType('location', MapLocation);
+UIWorldRegistry.set("map-location", new UIWorldRegistry(MapLocation));
 customElements.define('ootrt-map-location', MapLocation);

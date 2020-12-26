@@ -4,6 +4,7 @@ import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import MapLocation from "./Location.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 // TODO
 
@@ -48,7 +49,7 @@ export default class MapGossipstone extends MapLocation {
 
 }
 
-MapLocation.registerType('gossipstone', MapGossipstone);
+UIWorldRegistry.get("map-location").register('gossipstone', MapGossipstone);
 customElements.define('ootrt-map-gossipstone', MapGossipstone);
 
 function getLocationDescriptors() {

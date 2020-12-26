@@ -1,6 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import AbstractLocation from "/script/ui/world/abstract/Location.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -88,41 +89,17 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const REG = new Map();
-
 export default class ListLocation extends AbstractLocation {
 
-    constructor(type) {
+    constructor() {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        if (type) {
-            const el_type = this.shadowRoot.getElementById("badge-type");
-            el_type.src = `images/icons/${type}.svg`;
-            type = `location_${type}`;
-        } else {
-            type = "location";
-        }
-    }
-
-    static registerType(ref, clazz) {
-        if (REG.has(ref)) {
-            throw new Error(`location type ${ref} already exists`);
-        }
-        REG.set(ref, clazz);
-    }
-
-    static createType(ref) {
-        if (REG.has(ref)) {
-            const ListType = REG.get(ref);
-            return new ListType();
-        }
-        return new ListLocation(ref);
     }
 
 }
 
-ListLocation.registerType('location', ListLocation);
+UIWorldRegistry.set("list-location", new UIWorldRegistry(ListLocation));
 customElements.define('ootrt-list-location', ListLocation);

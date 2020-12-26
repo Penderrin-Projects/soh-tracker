@@ -4,6 +4,7 @@ import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AbstractSubExit from "/script/ui/world/abstract/SubExit.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -208,4 +209,5 @@ export default class MapSubExit extends AbstractSubExit {
 
 }
 
+UIWorldRegistry.set("map-subexit", new UIWorldRegistry(MapSubExit));
 customElements.define('ootrt-marker-subexit', MapSubExit);

@@ -139,9 +139,11 @@ export default class AbstractArea extends ContextMenuManagerMixin(StateDataEvent
     }
 
     applyStateValues(state) {
-        this.hint = state.hint;
-        this.setFilterData(state.filter);
-        this.applyAccess(state.access);
+        if (state != null) {
+            this.hint = state.hint;
+            this.setFilterData(state.filter);
+            this.applyAccess(state.access);
+        }
     }
 
     get ref() {

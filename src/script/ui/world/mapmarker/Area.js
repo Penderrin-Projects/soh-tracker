@@ -4,6 +4,7 @@ import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AbstractArea from "/script/ui/world/abstract/Area.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -217,4 +218,5 @@ export default class MapArea extends AbstractArea {
 
 }
 
+UIWorldRegistry.set("map-area", new UIWorldRegistry(MapArea));
 customElements.define('ootrt-marker-area', MapArea);

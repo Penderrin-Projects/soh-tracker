@@ -1,12 +1,16 @@
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import Language from "/script/util/Language.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
-import "./mapmarker/Area.js";
-import "./mapmarker/Exit.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+//import ListLogic from "/script/util/logic/ListLogic.js";
+//import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import "./mapmarker/Location.js";
+import "./mapmarker/Area.js";
+import "./mapmarker/SubArea.js";
+import "./mapmarker/Exit.js";
+import "./mapmarker/SubExit.js";
 import "./mapmarker/Gossipstone.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
@@ -332,12 +336,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
-        /*this.shadowRoot.getElementById('location-mode').addEventListener("change", event => {
-            this.mode = event.newValue;
-            this.triggerGlobal("location_mode", {
-                value: this.mode
-            });
-        });*/
         this.shadowRoot.getElementById('back').addEventListener("click", () => {
             this.ref = "overworld"
         });
@@ -413,9 +411,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             this.shadowRoot.getElementById('location-mode').value = this.mode;
         });
         this.registerGlobal(["state", "settings", "randomizer_options", "filter"], () => {
-            if (this.ref == "overworld") {
-                this.refreshFilter();
-            }
             this.refresh();
         });
         this.registerGlobal("dungeontype", event => {
@@ -427,9 +422,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     connectedCallback() {
         super.connectedCallback();
-        if (this.ref == "overworld") {
-            this.refreshFilter();
-        }
         this.refresh();
     }
 
@@ -443,16 +435,8 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         this.setAttribute('ref', "overworld");
     }
 
-    get mode() {
-        return this.getAttribute('mode') || "filter.unknown";
-    }
-
-    set mode(val) {
-        this.setAttribute('mode', val);
-    }
-
     static get observedAttributes() {
-        return ['ref', 'mode'];
+        return ['ref'];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -464,79 +448,50 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         }
     }
 
-    refreshFilter() {
-        /*
-        let modeEl = this.shadowRoot.getElementById('location-mode');
-        let opts = modeEl.querySelectorAll("[data-filter]");
-        let first = "filter.unknown";
-        let change = false;
-        for (let opt of opts) {
-            if (FilterStorage.get(opt.dataset.filter) != "false") {
-                // LEGACY
-                opt.removeAttribute("disabled");
-                if (first == "filter.unknown") {
-                    first = opt.dataset.filter;
-                }
-                if (this.mode == "filter.unknown") {
-                    change = true;
-                }
-            } else {
-                // LEGACY
-                opt.setAttribute("disabled", true);
-                if (this.mode == opt.dataset.filter) {
-                    change = true;
-                }
-            }
-        }
-        if (change) {
-            modeEl.value = first;
-            this.setAttribute('mode', first);
-        }
-        */
-    }
-
-    async refresh() {
+    refresh() {
         // TODO do not use specialized code. make generic
-        const dType = "v";//this.shadowRoot.getElementById("location-version").value;
+        //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
+        //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
         this.innerHTML = "";
-        const data = FileData.get(`world/${this.ref}`);
-        if (data) {
+        const data = WorldRegistry.get(this.ref || "overworld");
+        if (data != null) {
+            const areaData = data.areaData;
             // switch map/minimap background
             const map = this.shadowRoot.getElementById('map');
-            map.style.backgroundImage = `url("/images/maps/${data.background}")`;
-            map.style.width = `${data.width}px`;
-            map.style.height = `${data.height}px`;
+            map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
+            map.style.width = `${areaData.width}px`;
+            map.style.height = `${areaData.height}px`;
             const minimap = this.shadowRoot.getElementById('map-overview');
-            minimap.style.backgroundImage = `url("/images/maps/${data.background}")`;
+            minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            if (dType == "n") {
-                //const data_v = data.lists.v;
-                //const data_m = data.lists.mq;
-                // TODO add dungeonType initialization choice
-                //btn_vanilla.className = VALUE_STATES[res_v.value];
-                //btn_masterquest.className = VALUE_STATES[res_m.value];
-            } else {
-                data.lists[dType].forEach(record => {
-                    if (this.ref == "overworld" && this.mode == "filter.gossipstones") {
-                        // LEGACY
-                        if (record.type == "area" || record.type == "entrance") {
-                            return;
-                        }
-                    }
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.mapMarker;
-                        if (this.ref == "overworld" && !!el.dataset.mode && el.dataset.mode != this.mode) {
-                            // LEGACY
-                            return;
-                        }
-                        el.left = record.x;
-                        el.top = record.y;
-                        el.tooltip = calculateTooltipPosition(record.x, record.y, data.width, data.height);
-                        this.append(el);
-                    }
-                });
-            }
+            const list = data.getFilteredList();
+            if (list != null) {
+                //btn_vanilla.className = "hidden";
+                //btn_masterquest.className = "hidden";
+                for (const record of list) {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    const uiReg = UIWorldRegistry.get(`map-${record.category}`);
+                    const el = uiReg.create(loc.props.type, loc.ref);
+                    el.left = record.x;
+                    el.top = record.y;
+                    el.tooltip = calculateTooltipPosition(record.x, record.y, data.width, data.height);
+                    this.append(el);
+                }
+            }/* else {
+                const listV = this.getFilteredList("v");
+                if (listV != null) {
+                    const res = ListLogic.check(listV);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_vanilla.className = value;
+                }
+                const listM = this.getFilteredList("mq");
+                if (listM != null) {
+                    const res = ListLogic.check(listM);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_masterquest.className = value;
+                }
+            }*/
         }
     }
 

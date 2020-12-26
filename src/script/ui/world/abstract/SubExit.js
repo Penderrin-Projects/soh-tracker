@@ -57,9 +57,6 @@ export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventMa
         this.registerStateHandler("access", event => {
             this.applyAccess(event.data);
         });
-        this.registerStateHandler("value", event => {
-            
-        });
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });

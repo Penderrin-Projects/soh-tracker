@@ -1,7 +1,10 @@
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+import WorldRegistry from "/script/registries/WorldRegistry.js";
 import AbstractSubArea from "/script/ui/world/abstract/SubArea.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div id="header" class="textarea">
@@ -98,7 +101,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListSubArea extends AbstractSubArea {
+export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
 
     constructor() {
         super();
@@ -106,31 +109,37 @@ export default class ListSubArea extends AbstractSubArea {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerGlobal(["state", "randomizer_options"], event => {
+            if (this.isConnected) {
+                this.refreshList();
+            }
+        });
     }
 
-    // TODO generate sublist similar to this function
-    /*refresh() {
-        if (this.ref) {
-            const data = FileData.get(`world/${this.ref}`);
-            this.innerHTML = "";
-            if (data) {
-                // check access logic
-                const res = ListLogic.check(data.list.filter(ListLogic.filterUnusedChecks));
-                this.shadowRoot.getElementById("text").dataset.state = VALUE_STATES[res.value];
-                // create list entries
-                data.list.forEach(record => {
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.listItem;
-                        this.append(el);
-                    }
-                });
-            }
-        } else {
-            this.shadowRoot.getElementById("text").dataset.state = "unavailable";
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
         }
-    }*/
+        this.refreshList();
+    }
+
+    refreshList() {
+        this.innerHTML = ""; // TODO use ElementManager
+        const state = this.getState();
+        if (state != null) {
+            const list = state.getFilteredList();
+            if (list != null) {
+                for (const record of list) {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                    this.append(uiReg.create(loc.props.type, loc.ref));
+                }
+            }
+        }
+    }
 
 }
 
+UIWorldRegistry.set("list-subarea", new UIWorldRegistry(ListSubArea));
 customElements.define('ootrt-list-subarea', ListSubArea);

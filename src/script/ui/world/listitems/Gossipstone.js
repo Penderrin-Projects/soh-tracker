@@ -4,6 +4,7 @@ import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import ListLocation from "./Location.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 // TODO
 
@@ -47,7 +48,7 @@ export default class ListGossipstone extends ListLocation {
 
 }
 
-ListLocation.registerType('gossipstone', ListGossipstone);
+UIWorldRegistry.get("list-location").register('gossipstone', ListGossipstone);
 customElements.define('ootrt-list-gossipstone', ListGossipstone);
 
 function getLocationDescriptors() {

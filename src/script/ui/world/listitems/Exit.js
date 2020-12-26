@@ -2,6 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 import AbstractExit from "/script/ui/world/abstract/Exit.js";
+import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -130,4 +131,5 @@ export default class ListExit extends AbstractExit {
 
 }
 
+UIWorldRegistry.set("list-exit", new UIWorldRegistry(ListExit));
 customElements.define('ootrt-list-exit', ListExit);
