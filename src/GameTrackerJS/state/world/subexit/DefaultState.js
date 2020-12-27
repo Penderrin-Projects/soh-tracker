@@ -21,10 +21,6 @@ function getLogicAccess(access) {
     return (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
 }
 
-function getAccess(data, access) {
-    return (!!data[`${access}[child]`] || !!data[`${access}[adult]`]);
-}
-
 function internalAreaChange(event) {
     const ref = this.ref;
     // savesatate
@@ -58,14 +54,18 @@ export default class DefaultState extends StateWorld {
             this.stateLoaded(event);
         });
         EventBus.register("logic", event => {
-            const access = getAccess(event.data, logicAccess);
+            const access = getLogicAccess(logicAccess);
             if (access != null) {
-                ACCESS.set(this, access);
-                const area = AREA.get(this);
-                if (area == null) {
-                    const ev = new Event("access");
-                    ev.data = access;
-                    this.dispatchEvent(ev);
+                const old = ACCESS.get(this);
+                if (access != old) {
+                    ACCESS.set(this, access);
+                    const area = AREA.get(this);
+                    if (area == null) {
+                        // external
+                        const ev = new Event("access");
+                        ev.data = access;
+                        this.dispatchEvent(ev);
+                    }
                 }
             }
         });
@@ -102,9 +102,17 @@ export default class DefaultState extends StateWorld {
                 const area = getEntranceArea(value);
                 AREA.set(this, area);
                 manager.switchState(area);
+                // external
+                const ev = new Event("access");
+                ev.data = area.access;
+                this.dispatchEvent(ev);
             } else {
                 AREA.set(this, null);
                 manager.switchState(null);
+                // external
+                const ev = new Event("access");
+                ev.data = ACCESS.get(this);
+                this.dispatchEvent(ev);
             }
             // external
             const event = new Event("value");

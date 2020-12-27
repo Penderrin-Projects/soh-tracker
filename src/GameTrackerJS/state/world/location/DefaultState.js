@@ -15,12 +15,16 @@ export default class DefaultState extends StateWorld {
             this.stateLoaded(event);
         });
         EventBus.register("logic", event => {
-            const access = event.data[props.access];
+            const access = Logic.getValue(props.access);
             if (access != null) {
-                ACCESS.set(this, access);
-                const ev = new Event("access");
-                ev.data = access;
-                this.dispatchEvent(ev);
+                const old = ACCESS.get(this);
+                if (access != old) {
+                    ACCESS.set(this, access);
+                    // external
+                    const ev = new Event("access");
+                    ev.data = access;
+                    this.dispatchEvent(ev);
+                }
             }
         });
     }

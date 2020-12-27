@@ -297,7 +297,6 @@ export default class MapExit extends WorldElement {
                                     this.hint = "";
                                 }
                             }
-                            this.applyAccess(state.access);
                         }
                     }
                     break;
