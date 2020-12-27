@@ -109,15 +109,18 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
         
         /* mouse events */
         this.addEventListener("click", event => {
-            mnu_itm_picker.items = JSON.stringify([REWARDS.filter(el => !TAKEN_REWARDS.has(el)).map(el => {
-                return {
-                    "type": "item",
-                    "value": el,
-                    "visible": true
-                };
-            })]);
-            /* --- */
-            mnu_itm_el.show(event.clientX, event.clientY);
+            const filteredRewards = REWARDS.filter(el => !TAKEN_REWARDS.has(el));
+            if (filteredRewards.length) {
+                mnu_itm_picker.items = JSON.stringify([filteredRewards.map(el => {
+                    return {
+                        "type": "item",
+                        "value": el,
+                        "visible": true
+                    };
+                })]);
+                /* --- */
+                mnu_itm_el.show(event.clientX, event.clientY);
+            }
             event.stopPropagation();
             event.preventDefault();
             return false;

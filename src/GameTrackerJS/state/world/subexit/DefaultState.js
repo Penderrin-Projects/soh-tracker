@@ -3,11 +3,10 @@ import StateStorage from "/script/storage/StateStorage.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import WorldRegistry from "../../../registry/WorldRegistry.js";
 import ExitRegistry from "../../../registry/ExitRegistry.js";
-import StateWorld from "../../abstract/StateWorld.js";
+import StateExit from "../../abstract/StateExit.js";
 import Logic from "/script/util/logic/Logic.js";
 
 const MANAGER = new WeakMap();
-const EXIT_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
 const AREA = new WeakMap();
@@ -21,19 +20,19 @@ function getLogicAccess(access) {
     return (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
 }
 
-function internalAreaChange(event) {
+function internalChange(event) {
     const ref = this.ref;
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.area = change.newValue;
+        this.value = change.newValue;
     }
 }
 
-export default class DefaultState extends StateWorld {
+export default class DefaultState extends StateExit {
 
     constructor(ref, props, exitData) {
-        super(ref, props);
+        super(ref, props, exitData);
         /* --- */
         const manager = new StateDataEventManager();
         MANAGER.set(this, manager);
@@ -44,14 +43,16 @@ export default class DefaultState extends StateWorld {
         });
         /* --- */
         const logicAccess = props.access.split(" -> ")[0];
-        EXIT_DATA.set(this, exitData);
         ACCESS.set(this, getLogicAccess(logicAccess));
-        this.value = StateStorage.readExtra("exits", props.access, "");
+        this.value = StateStorage.readExtra("exits", ref, "");
         /* EVENTS */
-        EventBus.register("state::subexit_area", internalAreaChange.bind(this));
-        EventBus.register("net::state::subexit_area", internalAreaChange.bind(this));
+        EventBus.register("state::subexit", internalChange.bind(this));
+        EventBus.register("net::state::subexit", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
+        });
+        EventBus.register("statechange_exits", event => {
+            this.calculateEntrances();
         });
         EventBus.register("logic", event => {
             const access = getLogicAccess(logicAccess);
@@ -69,8 +70,6 @@ export default class DefaultState extends StateWorld {
                 }
             }
         });
-        /* register */
-        ExitRegistry.set(props.access, this);
     }
 
     stateLoaded(event) {
@@ -81,9 +80,20 @@ export default class DefaultState extends StateWorld {
             this.value = "";
         }
     }
-
-    get exitData() {
-        return EXIT_DATA.get(this);
+    
+    /*#*/calculateEntrances() {
+        const exits = StateStorage.readAllExtra("exits");
+        const entrances = ExitRegistry.getAll();
+        const possible = [];
+        const exit = ExitRegistry.get(this.props.access);
+        for (const key in entrances) {
+            if (exits[key] == this.value) {
+                const value = entrances[key];
+                if (value.active && value.exitData.type == exit.exitData.type) {
+                    possible.push(exits[key]);
+                }
+            }
+        }
     }
 
     get value() {
@@ -119,7 +129,7 @@ export default class DefaultState extends StateWorld {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::exit", {
+            EventBus.trigger("state::subexit", {
                 ref: ref,
                 oldValue: old,
                 newValue: value

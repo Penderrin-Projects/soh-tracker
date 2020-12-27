@@ -218,6 +218,7 @@ export default class MapExit extends WorldElement {
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/entrance.svg");
         this.hint = "";
+        this.value = "";
         this.applyAccess(false);
     }
 

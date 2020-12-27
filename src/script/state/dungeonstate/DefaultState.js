@@ -15,25 +15,7 @@ function internalTypeChange(event) {
     }
 }
 
-function networkTypeChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this.value = change.newValue;
-    }
-}
-
 function internalRewardChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this.reward = change.newValue;
-    }
-}
-
-function networkRewardChange(event) {
     const ref = this.ref;
     // savesatate
     const change = event.data;
@@ -60,9 +42,9 @@ export default class DefaultState extends StateData {
         this.reward = StateStorage.readExtra("dungeonreward", ref, "");
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
-        EventBus.register("net::state::dungeontype", networkTypeChange.bind(this));
+        EventBus.register("net::state::dungeontype", internalTypeChange.bind(this));
         EventBus.register("state::dungeonreward", internalRewardChange.bind(this));
-        EventBus.register("net::state::dungeonreward", networkRewardChange.bind(this));
+        EventBus.register("net::state::dungeonreward", internalRewardChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });

@@ -86,7 +86,7 @@ export default class ExitBindingMenu extends HTMLElement {
         selectEl.append(empty);
         for (const key in entrances) {
             const value = entrances[key];
-            if (value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)) {
+            if (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)) {
                 const opt = document.createElement('emc-option');
                 opt.value = value.exitData.target;
                 opt.innerHTML = Language.translate(value.exitData.target);

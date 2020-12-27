@@ -40,8 +40,8 @@ export default class StateVisible extends StateData {
         if (typeof visible_logic == "function") {
             const visible = VISIBLE.get(this);
             const value = !!visible_logic(valueGetter.bind(data));
-            VISIBLE.set(this, value);
             if (visible != value) {
+                VISIBLE.set(this, value);
                 const event = new Event("visible");
                 event.data = value;
                 this.dispatchEvent(event);
