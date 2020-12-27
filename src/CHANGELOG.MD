@@ -12,6 +12,7 @@ Application:    Track-OOT
     - use proxy objects for readonly storages in filedata
     - create state handlers for ui elements
 - added accessability icons for world access values
+- added categories to exits/entrances panel
 
 ---
 
