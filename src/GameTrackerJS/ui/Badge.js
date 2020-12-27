@@ -142,4 +142,4 @@ export default class Badge extends HTMLElement {
 
 }
 
-customElements.define('ootrt-badge', Badge);
+customElements.define('gt-badge', Badge);

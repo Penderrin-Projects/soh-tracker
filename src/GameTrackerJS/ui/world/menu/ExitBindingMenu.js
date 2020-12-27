@@ -97,4 +97,4 @@ export default class ExitBindingMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-exitbinding', ExitBindingMenu);
+customElements.define('gt-ctxmenu-exitbinding', ExitBindingMenu);

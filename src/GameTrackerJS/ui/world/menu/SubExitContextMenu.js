@@ -15,7 +15,7 @@ const TPL = new Template(`
 </emc-contextmenu>
 `);
 
-export default class ExitContextMenu extends HTMLElement {
+export default class SubExitContextMenu extends HTMLElement {
 
     constructor() {
         super();
@@ -50,27 +50,6 @@ export default class ExitContextMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        this.shadowRoot.getElementById("menu-setwoth").addEventListener("click", event => {
-            const ev = new Event("setwoth");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
-        this.shadowRoot.getElementById("menu-setbarren").addEventListener("click", event => {
-            const ev = new Event("setbarren");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
-        this.shadowRoot.getElementById("menu-clearhint").addEventListener("click", event => {
-            const ev = new Event("clearhint");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
     }
 
     show(posX, posY) {
@@ -90,4 +69,4 @@ export default class ExitContextMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-exit', ExitContextMenu);
+customElements.define('gt-ctxmenu-subexit', SubExitContextMenu);

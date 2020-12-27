@@ -3,39 +3,23 @@ import "/emcJS/ui/overlay/ContextMenu.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
-    <div id="menu-associate" class="item">Bind Entrance</div>
-    <div id="menu-deassociate" class="item">Unbind Entrance</div>
+    <div id="menu-check" class="item">Check</div>
+    <div id="menu-uncheck" class="item">Uncheck</div>
     <div class="splitter"></div>
-    <div id="menu-check" class="item">Check All</div>
-    <div id="menu-uncheck" class="item">Uncheck All</div>
-    <div class="splitter"></div>
-    <div id="menu-setwoth" class="item">Set WOTH</div>
-    <div id="menu-setbarren" class="item">Set Barren</div>
+    <div id="menu-sethint" class="item">Set Hint</div>
     <div id="menu-clearhint" class="item">Clear Hint</div>
+    <div class="splitter"></div>
+    <div id="menu-logic" class="item">Show Logic</div>
 </emc-contextmenu>
 `);
 
-export default class SubExitContextMenu extends HTMLElement {
+export default class GossipstoneContextMenu extends HTMLElement {
 
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         /* --- */
-        this.shadowRoot.getElementById("menu-associate").addEventListener("click", event => {
-            const ev = new Event("associate");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
-        this.shadowRoot.getElementById("menu-deassociate").addEventListener("click", event => {
-            const ev = new Event("deassociate");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
         this.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
             const ev = new Event("check");
             this.dispatchEvent(ev);
@@ -45,6 +29,27 @@ export default class SubExitContextMenu extends HTMLElement {
         });
         this.shadowRoot.getElementById("menu-uncheck").addEventListener("click", event => {
             const ev = new Event("uncheck");
+            this.dispatchEvent(ev);
+            /* --- */
+            event.preventDefault();
+            return false;
+        });
+        this.shadowRoot.getElementById("menu-sethint").addEventListener("click", event => {
+            const ev = new Event("sethint");
+            this.dispatchEvent(ev);
+            /* --- */
+            event.preventDefault();
+            return false;
+        });
+        this.shadowRoot.getElementById("menu-clearhint").addEventListener("click", event => {
+            const ev = new Event("clearhint");
+            this.dispatchEvent(ev);
+            /* --- */
+            event.preventDefault();
+            return false;
+        });
+        this.shadowRoot.getElementById("menu-logic").addEventListener("click", event => {
+            const ev = new Event("show_logic");
             this.dispatchEvent(ev);
             /* --- */
             event.preventDefault();
@@ -69,4 +74,4 @@ export default class SubExitContextMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-subexit', SubExitContextMenu);
+customElements.define('ootrt-ctxmenu-gossipstone', GossipstoneContextMenu);

@@ -3,16 +3,14 @@ import "/emcJS/ui/overlay/ContextMenu.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
-    <div id="menu-check" class="item">Check All</div>
-    <div id="menu-uncheck" class="item">Uncheck All</div>
+    <div id="menu-check" class="item">Check</div>
+    <div id="menu-uncheck" class="item">Uncheck</div>
     <div class="splitter"></div>
-    <div id="menu-setwoth" class="item">Set WOTH</div>
-    <div id="menu-setbarren" class="item">Set Barren</div>
-    <div id="menu-clearhint" class="item">Clear Hint</div>
+    <div id="menu-logic" class="item">Show Logic</div>
 </emc-contextmenu>
 `);
 
-export default class AreaContextMenu extends HTMLElement {
+export default class LocationContextMenu extends HTMLElement {
 
     constructor() {
         super();
@@ -33,22 +31,8 @@ export default class AreaContextMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        this.shadowRoot.getElementById("menu-setwoth").addEventListener("click", event => {
-            const ev = new Event("setwoth");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
-        this.shadowRoot.getElementById("menu-setbarren").addEventListener("click", event => {
-            const ev = new Event("setbarren");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
-        this.shadowRoot.getElementById("menu-clearhint").addEventListener("click", event => {
-            const ev = new Event("clearhint");
+        this.shadowRoot.getElementById("menu-logic").addEventListener("click", event => {
+            const ev = new Event("show_logic");
             this.dispatchEvent(ev);
             /* --- */
             event.preventDefault();
@@ -73,4 +57,4 @@ export default class AreaContextMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-area', AreaContextMenu);
+customElements.define('gt-ctxmenu-location', LocationContextMenu);

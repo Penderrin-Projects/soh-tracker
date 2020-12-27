@@ -6,7 +6,7 @@ import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
-import "./menus/AreaContextMenu.js";
+import "./menu/AreaContextMenu.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
@@ -60,8 +60,8 @@ export default class AbstractArea extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-area");
-        this.setContextMenu("area", mnu_ctx);
+        const mnu_ctx = document.createElement("gt-ctxmenu-area");
+        this.setContextMenu("main", mnu_ctx);
         
         mnu_ctx.addEventListener("check", event => {
             const state = this.getState();
@@ -115,6 +115,10 @@ export default class AbstractArea extends WorldElement {
         
         /* fck iOS */
         iOSTouchHandler.register(this);
+    }
+
+    getMainContextMenuEntries() {
+        // empty
     }
     
     applyAccess(data) {

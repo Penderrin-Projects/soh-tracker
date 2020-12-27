@@ -11,7 +11,7 @@ const TPL = new Template(`
     <div class="textarea">
         <div id="text"></div>
         <div id="item"></div>
-        <ootrt-badge id="badge"></ootrt-badge>
+        <gt-badge id="badge"></gt-badge>
     </div>
 </emc-tooltip>
 `);
@@ -137,20 +137,20 @@ export default class MapLocation extends AbstractLocation {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'top':
-            case 'left':
-                if (oldValue != newValue) {
+        if (oldValue != newValue) {
+            switch (name) {
+                case 'top':
+                case 'left':
                     this.style.left = `${this.left}px`;
                     this.style.top = `${this.top}px`;
-                }
-                break;
-            case 'tooltip':
-                if (oldValue != newValue) {
-                    const tooltip = this.shadowRoot.getElementById("tooltip");
-                    tooltip.position = newValue;
-                }
-                break;
+                    break;
+                case 'tooltip':
+                    {
+                        const tooltip = this.shadowRoot.getElementById("tooltip");
+                        tooltip.position = newValue;
+                    }
+                    break;
+            }
         }
     }
 

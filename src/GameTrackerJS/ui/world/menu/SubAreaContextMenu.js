@@ -52,4 +52,4 @@ export default class SubAreaContextMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-ctxmenu-subarea', SubAreaContextMenu);
+customElements.define('gt-ctxmenu-subarea', SubAreaContextMenu);

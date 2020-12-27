@@ -6,8 +6,8 @@ import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
-import "./menus/ExitContextMenu.js";
-import "./menus/ExitBindingMenu.js";
+import "./menu/ExitContextMenu.js";
+import "./menu/ExitBindingMenu.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
@@ -70,10 +70,10 @@ export default class MapExit extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-exit");
-        this.setContextMenu("exit", mnu_ctx);
+        const mnu_ctx = document.createElement("gt-ctxmenu-exit");
+        this.setContextMenu("main", mnu_ctx);
         
-        const mnu_ext = document.createElement("ootrt-ctxmenu-exitbinding");
+        const mnu_ext = document.createElement("gt-ctxmenu-exitbinding");
         this.setContextMenu("exitbinding", mnu_ext);
 
         mnu_ext.addEventListener("change", event => {

@@ -3,18 +3,7 @@ import StateStorage from "/script/storage/StateStorage.js";
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
-
-const VALUE = new WeakMap();
 const ITEM = new WeakMap();
-
-function internalChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this.value = change.newValue;
-    }
-}
 
 function internalItemChange(event) {
     const ref = this.ref;
@@ -33,48 +22,19 @@ export default class LocationState extends DefaultState {
         this.value = StateStorage.read(ref, false);
         this.item = StateStorage.readExtra("item_location", ref, "");
         /* EVENTS */
-        EventBus.register("state::location", internalChange.bind(this));
-        EventBus.register("net::state::location", internalChange.bind(this));
         EventBus.register("state::location_item", internalItemChange.bind(this));
         EventBus.register("net::state::location_item", internalItemChange.bind(this));
     }
 
     stateLoaded(event) {
+        super.stateLoaded(event);
         const ref = this.ref;
-        // savesatate
-        this.value = !!event.data.state[ref];
         // item
         if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
             this.item = event.data.extra["item_location"][ref];
         } else {
             this.item = "";
         }
-    }
-
-    set value(value) {
-        if (typeof value != "boolean") {
-            value = !!value;
-        }
-        const old = this.value;
-        if (value != old) {
-            const ref = this.ref;
-            VALUE.set(this, value);
-            StateStorage.write(ref, this.value);
-            // external
-            const event = new Event("value");
-            event.data = value;
-            this.dispatchEvent(event);
-            // internal
-            EventBus.trigger("state::location", {
-                ref: ref,
-                oldValue: old,
-                newValue: this.value
-            });
-        }
-    }
-
-    get value() {
-        return VALUE.get(this);
     }
 
     set item(value) {

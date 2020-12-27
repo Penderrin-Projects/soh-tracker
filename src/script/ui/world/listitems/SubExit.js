@@ -10,7 +10,7 @@ import "/GameTrackerJS/ui/Badge.js";
 const TPL = new Template(`
 <div class="textarea">
     <div id="text"></div>
-    <ootrt-badge id="badge"></ootrt-badge>
+    <gt-badge id="badge"></gt-badge>
 </div>
 <div class="textarea">
     <div id="value"></div>
