@@ -2,28 +2,35 @@ import FileData from "/emcJS/data/FileData.js";
 import "/emcJS/ui/Icon.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/script/util/Language.js";
-import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import LocationStates from "/script/state/LocationStates.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/LocationContextMenu.js";
-import "./menus/ItemPickerMenu.js";
+import WorldElement from "/script/ui/world/abstract/WorldElement.js";
+import "/script/ui/world/abstract/menus/LocationContextMenu.js";
+import "/script/ui/world/abstract/menus/ItemPickerMenu.js";
 
-export default class AbstractLocation extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class AbstractLocation extends WorldElement {
 
     constructor() {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
-            const textEl = this.shadowRoot.getElementById("text");
-            if (textEl != null) {
-                textEl.dataset.state = event.data ? "available" : "unavailable";
+            const state = this.getState();
+            if (state != null) {
+                this.applyAccess(event.data, state.value);
+            } else {
+                this.applyAccess(event.data, false);
             }
         });
         this.registerStateHandler("value", event => {
             const textEl = this.shadowRoot.getElementById("text");
             if (textEl != null) {
-                textEl.dataset.checked = !!event.data;
+                textEl.dataset.checked = event.data;
+                const state = this.getState();
+                if (state != null) {
+                    this.applyAccess(state.access, event.data);
+                } else {
+                    this.applyAccess(false, event.data);
+                }
             }
         });
         this.registerStateHandler("item", event => {
@@ -91,34 +98,39 @@ export default class AbstractLocation extends ContextMenuManagerMixin(StateDataE
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
+    
+    applyAccess(access, checked) {
+        const textEl = this.shadowRoot.getElementById("text");
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        /* access */
+        if (textEl != null) {
+            textEl.dataset.state = access ? "available" : "unavailable";
+        }
+        /* badge */
+        if (badgeEl != null) {
+            badgeEl.access = checked ? "opened" : access ? "available" : "unavailable";
+        }
+    }
 
     applyDefaultValues() {
+        super.applyDefaultValues("images/icons/location.svg");
         const textEl = this.shadowRoot.getElementById("text");
         if (textEl != null) {
             textEl.dataset.checked = false;
-            textEl.dataset.state = "unavailable";
-        }
-        const typeIconEl = this.shadowRoot.getElementById("badge-type");
-        if (typeIconEl != null) {
-            typeIconEl.src = "images/icons/location.svg";
         }
         this.item = "";
-        this.setFilterData({});
+        this.applyAccess(false, false);
     }
 
     applyStateValues(state) {
+        super.applyStateValues(state, "images/icons/location.svg");
         if (state != null) {
             const textEl = this.shadowRoot.getElementById("text");
             if (textEl != null) {
                 textEl.dataset.checked = state.value;
-                textEl.dataset.state = state.access ? "available" : "unavailable";
-            }
-            const typeIconEl = this.shadowRoot.getElementById("badge-type");
-            if (typeIconEl != null) {
-                typeIconEl.src = state.props.icon ?? "images/icons/location.svg";
             }
             this.item = state.item ?? "";
-            this.setFilterData(state.filter);
+            this.applyAccess(state.access, state.value);
         }
     }
 
@@ -170,31 +182,6 @@ export default class AbstractLocation extends ContextMenuManagerMixin(StateDataE
                         }
                     }
                     break;
-            }
-        }
-    }
-
-    setFilterData(data) {
-        if (data != null) {
-            const el_era = this.shadowRoot.getElementById("badge-era");
-            if (el_era != null) {
-                if (!data["filter.era/child"]) {
-                    el_era.src = "images/icons/era_adult.svg";
-                } else if (!data["filter.era/adult"]) {
-                    el_era.src = "images/icons/era_child.svg";
-                } else {
-                    el_era.src = "images/icons/era_both.svg";
-                }
-            }
-            const el_time = this.shadowRoot.getElementById("badge-time");
-            if (el_time != null) {
-                if (!data["filter.time/day"]) {
-                    el_time.src = "images/icons/time_night.svg";
-                } else if (!data["filter.time/night"]) {
-                    el_time.src = "images/icons/time_day.svg";
-                } else {
-                    el_time.src = "images/icons/time_always.svg";
-                }
             }
         }
     }

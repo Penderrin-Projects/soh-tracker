@@ -9,7 +9,7 @@ import StateConverter from "/script/storage/StateConverter.js";
 
 import ItemStates from "/script/state/ItemStates.js";
 
-DebouncedStorage.debounceTime = 1000;
+DebouncedStorage.debounceTime = 0;
 
 const PERSISTANCE_NAME = "savestate";
 const STATE_DIRTY = "state_dirty";

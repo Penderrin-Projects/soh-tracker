@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateFilter from "/script/state/abstract/StateFilter.js";
+import StateWorld from "/script/state/abstract/StateWorld.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
@@ -18,7 +18,7 @@ function internalHintChange(event) {
     }
 }
 
-export default class DefaultState extends StateFilter {
+export default class DefaultState extends StateWorld {
 
     constructor(ref, props, areaData) {
         super(ref, props);

@@ -1,18 +1,16 @@
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import AbstractSubExit from "/script/ui/world/abstract/SubExit.js";
 import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+import "/script/ui/Badge.js";
 
 const TPL = new Template(`
 <div class="textarea">
     <div id="text"></div>
-    <div id="badge">
-        <emc-icon src="images/icons/entrance.svg"></emc-icon>
-        <emc-icon id="badge-time" src="images/icons/time_always.svg"></emc-icon>
-        <emc-icon id="badge-era" src="images/icons/era_none.svg"></emc-icon>
-    </div>
+    <ootrt-badge id="badge"></ootrt-badge>
 </div>
 <div class="textarea">
     <div id="value"></div>
@@ -108,7 +106,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListSubExit extends AbstractSubExit {
+export default class ListSubExit extends UIEventBusMixin(AbstractSubExit) {
 
     constructor() {
         super();
@@ -116,25 +114,6 @@ export default class ListSubExit extends AbstractSubExit {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("value", event => {
-            this.refreshList();
-            const state = this.getState();
-            if (state != null) {
-                this.applyAccess(state.access);
-            }
-        });
-        this.registerGlobal(["state", "randomizer_options"], event => {
-            if (this.isConnected) {
-                this.refreshList();
-            }
-        });
-    }
-
-    connectedCallback() {
-        if (super.connectedCallback) {
-            super.connectedCallback();
-        }
-        this.refreshList();
     }
 
     refreshList() {

@@ -5,6 +5,7 @@ import "/emcJS/ui/Icon.js";
 import AbstractArea from "/script/ui/world/abstract/Area.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+import "/script/ui/Badge.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -13,11 +14,7 @@ const TPL = new Template(`
         <div id="entrances"></div>
         <div id="text"></div>
         <div id="hint"></div>
-        <div id="badge">
-            <emc-icon src="images/icons/area.svg"></emc-icon>
-            <emc-icon id="badge-time" src="images/icons/time_always.svg"></emc-icon>
-            <emc-icon id="badge-era" src="images/icons/era_both.svg"></emc-icon>
-        </div>
+        <ootrt-badge id="badge"></ootrt-badge>
     </div>
 </emc-tooltip>
 `);

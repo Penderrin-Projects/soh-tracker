@@ -475,17 +475,17 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;
                     el.top = record.y;
-                    el.tooltip = calculateTooltipPosition(record.x, record.y, data.width, data.height);
+                    el.tooltip = calculateTooltipPosition(record.x, record.y, areaData.width, areaData.height);
                     this.append(el);
                 }
             }/* else {
-                const listV = this.getFilteredList("v");
+                const listV = data.getFilteredList("v");
                 if (listV != null) {
                     const res = ListLogic.check(listV);
                     const value = AccessStateEnum.getName(res.value).toLowerCase();
                     btn_vanilla.className = value;
                 }
-                const listM = this.getFilteredList("mq");
+                const listM = data.getFilteredList("mq");
                 if (listM != null) {
                     const res = ListLogic.check(listM);
                     const value = AccessStateEnum.getName(res.value).toLowerCase();

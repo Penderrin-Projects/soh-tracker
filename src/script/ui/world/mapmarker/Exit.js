@@ -5,6 +5,7 @@ import "/emcJS/ui/Icon.js";
 import AbstractExit from "/script/ui/world/abstract/Exit.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+import "/script/ui/Badge.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -12,11 +13,7 @@ const TPL = new Template(`
     <div class="textarea">
         <div id="entrances"></div>
         <div id="text"></div>
-        <div id="badge">
-            <emc-icon src="images/icons/entrance.svg"></emc-icon>
-            <emc-icon id="badge-time" src="images/icons/time_always.svg"></emc-icon>
-            <emc-icon id="badge-era" src="images/icons/era_none.svg"></emc-icon>
-        </div>
+        <ootrt-badge id="badge"></ootrt-badge>
     </div>
     <div class="textarea">
         <div id="value"></div>
@@ -160,7 +157,18 @@ export default class MapExit extends AbstractExit {
         super.applyAccess(data);
         const markerEl = this.shadowRoot.getElementById("marker");
         if (markerEl != null) {
-            if (this.value) {
+            if (typeof data == "boolean") {
+                /* access */
+                if (data) {
+                    markerEl.dataset.state = "available";
+                    markerEl.innerHTML = "?";
+                } else {
+                    markerEl.dataset.state = "unavailable";
+                    markerEl.innerHTML = "?";
+                }
+                /* entrances */
+                markerEl.dataset.entrances = "false";
+            } else {
                 /* access */
                 const value = AccessStateEnum.getName(data.value).toLowerCase();
                 markerEl.dataset.state = value;
@@ -175,17 +183,6 @@ export default class MapExit extends AbstractExit {
                 } else {
                     markerEl.dataset.entrances = "false";
                 }
-            } else {
-                /* access */
-                if (!data) {
-                    markerEl.dataset.state = "available";
-                    markerEl.innerHTML = "?";
-                } else {
-                    markerEl.dataset.state = "unavailable";
-                    markerEl.innerHTML = "?";
-                }
-                /* entrances */
-                markerEl.dataset.entrances = "false";
             }
         }
     }

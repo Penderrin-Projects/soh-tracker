@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateFilter from "/script/state/abstract/StateFilter.js";
+import StateWorld from "/script/state/abstract/StateWorld.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import Logic from "/script/util/logic/Logic.js";
@@ -36,7 +36,7 @@ function internalAreaChange(event) {
     }
 }
 
-export default class DefaultState extends StateFilter {
+export default class DefaultState extends StateWorld {
 
     constructor(ref, props, exitData) {
         super(ref, props);
@@ -65,9 +65,9 @@ export default class DefaultState extends StateFilter {
                 ACCESS.set(this, access);
                 const area = AREA.get(this);
                 if (area == null) {
-                    const event = new Event("access");
-                    event.data = access;
-                    this.dispatchEvent(event);
+                    const ev = new Event("access");
+                    ev.data = access;
+                    this.dispatchEvent(ev);
                 }
             }
         });

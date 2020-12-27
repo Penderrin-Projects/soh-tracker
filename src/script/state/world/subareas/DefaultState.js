@@ -1,5 +1,5 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import StateFilter from "/script/state/abstract/StateFilter.js";
+import StateWorld from "/script/state/abstract/StateWorld.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
 
@@ -8,7 +8,7 @@ import ListLogic from "/script/util/logic/ListLogic.js";
 const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 
-export default class DefaultState extends StateFilter {
+export default class DefaultState extends StateWorld {
 
     constructor(ref, props, areaData) {
         super(ref, props);

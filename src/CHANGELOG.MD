@@ -6,10 +6,12 @@ Application:    Track-OOT
 
 ## VERSION 2.1.0 (DEV)
 
-### IMPROVED PERFORMANCE
+### IMPROVEMENTS
 
-- use proxy objects for readonly storages in filedata
-- create state handlers for ui elements
+- performance boost
+    - use proxy objects for readonly storages in filedata
+    - create state handlers for ui elements
+- added accessability icons for world access values
 
 ---
 

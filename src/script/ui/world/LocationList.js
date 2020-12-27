@@ -249,13 +249,13 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     cnt.append(el);
                 }
             } else {
-                const listV = this.getFilteredList("v");
+                const listV = data.getFilteredList("v");
                 if (listV != null) {
                     const res = ListLogic.check(listV);
                     const value = AccessStateEnum.getName(res.value).toLowerCase();
                     btn_vanilla.className = value;
                 }
-                const listM = this.getFilteredList("mq");
+                const listM = data.getFilteredList("mq");
                 if (listM != null) {
                     const res = ListLogic.check(listM);
                     const value = AccessStateEnum.getName(res.value).toLowerCase();

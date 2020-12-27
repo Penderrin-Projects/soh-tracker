@@ -2,16 +2,13 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import AbstractLocation from "/script/ui/world/abstract/Location.js";
 import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+import "/script/ui/Badge.js";
 
 const TPL = new Template(`
 <div class="textarea">
     <div id="text"></div>
     <div id="item"></div>
-    <div id="badge">
-        <emc-icon id="badge-type" src="images/icons/location.svg"></emc-icon>
-        <emc-icon id="badge-time" src="images/icons/time_always.svg"></emc-icon>
-        <emc-icon id="badge-era" src="images/icons/era_none.svg"></emc-icon>
-    </div>
+    <ootrt-badge id="badge"></ootrt-badge>
 </div>
 `);
 

@@ -1,7 +1,5 @@
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
-import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import LocationState from "/script/state/world/locations/LocationState.js";
@@ -9,8 +7,9 @@ import SubExitStates from "/script/state/SubExitStates.js";
 import Language from "/script/util/Language.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/SubExitContextMenu.js";
-import "./menus/ExitBindingMenu.js";
+import WorldElement from "/script/ui/world/abstract/WorldElement.js";
+import "/script/ui/world/abstract/menus/SubExitContextMenu.js";
+import "/script/ui/world/abstract/menus/ExitBindingMenu.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {
@@ -49,16 +48,33 @@ function setAllListEntries(list, value = true) {
     }
 }
 
-export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class MapSubExit extends WorldElement {
 
     constructor() {
         super();
         /* --- */
+        this.registerStateHandler("value", event => {
+            this.value = event.data;
+            this.refreshList();
+            const state = this.getState();
+            if (state != null) {
+                this.applyAccess(state.access);
+            }
+        });
         this.registerStateHandler("access", event => {
             this.applyAccess(event.data);
         });
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
+        });
+        this.registerGlobal(["state", "randomizer_options"], event => {
+            const state = this.getState();
+            if (state != null) {
+                this.value = state.value;
+            }
+            if (this.isConnected) {
+                this.refreshList();
+            }
         });
 
         /* context menu */
@@ -136,20 +152,30 @@ export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventMa
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
+
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
+        }
+        this.refreshList();
+    }
     
     applyAccess(data) {
         const textEl = this.shadowRoot.getElementById("text");
-        const entrances = this.shadowRoot.getElementById("entrances");
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
         if (typeof data == "boolean") {
             /* access */
-            if (!data) {
-                textEl.dataset.state = "available";
-            } else {
-                textEl.dataset.state = "unavailable";
+            if (textEl != null) {
+                textEl.dataset.state = data ? "available" : "unavailable";
+            }
+            /* badge */
+            if (badgeEl != null) {
+                badgeEl.access = data ? "available" : "unavailable";
             }
             /* entrances */
-            if (entrances != null) {
-                entrances.innerHTML = "";
+            if (entrancesEl != null) {
+                entrancesEl.innerHTML = "";
             }
         } else {
             /* access */
@@ -157,28 +183,44 @@ export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventMa
             if (textEl != null) {
                 textEl.dataset.state = value;
             }
+            /* badge */
+            if (badgeEl != null) {
+                badgeEl.access = value;
+            }
             /* entrances */
-            if (entrances != null) {
-                entrances.innerHTML = "";
+            if (entrancesEl != null) {
+                entrancesEl.innerHTML = "";
                 if (data.entrances) {
                     const el_icon = document.createElement("img");
                     el_icon.src = `images/icons/entrance.svg`;
-                    entrances.append(el_icon);
+                    entrancesEl.append(el_icon);
                 }
             }
         }
     }
 
+    applyDefaultValues() {
+        super.applyDefaultValues("images/icons/entrance.svg");
+        this.hint = "";
+        this.applyAccess(false);
+    }
+
     applyStateValues(state) {
-        this.value = state.value;
-        const area = state.area;
-        if (area != null) {
-            this.hint = area.hint;
-        } else {
-            this.hint = "";
+        super.applyStateValues(state, "images/icons/entrance.svg");
+        if (state != null) {
+            this.value = state.value;
+            const area = state.area;
+            if (area != null) {
+                this.hint = area.hint;
+            } else {
+                this.hint = "";
+            }
+            this.applyAccess(state.access);
         }
-        this.setFilterData(state.filter);
-        this.applyAccess(state.access);
+    }
+
+    refreshList() {
+        // nothing
     }
 
     get ref() {
@@ -235,34 +277,10 @@ export default class MapSubExit extends ContextMenuManagerMixin(StateDataEventMa
                                     this.hint = "";
                                 }
                             }
+                            this.applyAccess(state.access);
                         }
                     }
                     break;
-            }
-        }
-    }
-
-    setFilterData(data) {
-        if (data != null) {
-            const el_era = this.shadowRoot.getElementById("badge-era");
-            if (el_era != null) {
-                if (!data["filter.era/child"]) {
-                    el_era.src = "images/icons/era_adult.svg";
-                } else if (!data["filter.era/adult"]) {
-                    el_era.src = "images/icons/era_child.svg";
-                } else {
-                    el_era.src = "images/icons/era_both.svg";
-                }
-            }
-            const el_time = this.shadowRoot.getElementById("badge-time");
-            if (el_time != null) {
-                if (!data["filter.time/day"]) {
-                    el_time.src = "images/icons/time_night.svg";
-                } else if (!data["filter.time/night"]) {
-                    el_time.src = "images/icons/time_day.svg";
-                } else {
-                    el_time.src = "images/icons/time_always.svg";
-                }
             }
         }
     }

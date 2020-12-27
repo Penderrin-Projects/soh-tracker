@@ -1,7 +1,5 @@
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
-import StateDataEventManagerMixin from "/script/ui/mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "/script/ui/mixin/ContextMenuManager.js";
 import WorldRegistry from "/script/registries/WorldRegistry.js";
 import ExitRegistry from "/script/registries/ExitRegistry.js";
 import LocationState from "/script/state/world/locations/LocationState.js";
@@ -9,7 +7,8 @@ import SubAreaStates from "/script/state/SubAreaStates.js";
 import Language from "/script/util/Language.js";
 import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-import "./menus/SubAreaContextMenu.js";
+import WorldElement from "/script/ui/world/abstract/WorldElement.js";
+import "/script/ui/world/abstract/menus/SubAreaContextMenu.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {
@@ -48,7 +47,7 @@ function setAllListEntries(list, value = true) {
     }
 }
 
-export default class AbstractSubArea extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class AbstractSubArea extends WorldElement {
 
     constructor(type) {
         super();
@@ -58,6 +57,11 @@ export default class AbstractSubArea extends ContextMenuManagerMixin(StateDataEv
         });
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
+        });
+        this.registerGlobal(["state", "randomizer_options"], event => {
+            if (this.isConnected) {
+                this.refreshList();
+            }
         });
 
         /* context menu */
@@ -97,28 +101,44 @@ export default class AbstractSubArea extends ContextMenuManagerMixin(StateDataEv
     }
     
     applyAccess(data) {
-        /* access */
         const textEl = this.shadowRoot.getElementById("text");
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
         const value = AccessStateEnum.getName(data.value).toLowerCase();
+        /* access */
         if (textEl != null) {
             textEl.dataset.state = value;
         }
+        /* badge */
+        if (badgeEl != null) {
+            badgeEl.access = value;
+        }
         /* entrances */
-        const entrances = this.shadowRoot.getElementById("entrances");
-        if (entrances != null) {
-            entrances.innerHTML = "";
+        if (entrancesEl != null) {
+            entrancesEl.innerHTML = "";
             if (data.entrances) {
                 const el_icon = document.createElement("img");
-                el_icon.src = `images/icons/entrance.svg`;
-                entrances.append(el_icon);
+                el_icon.src = "images/icons/entrance.svg";
+                entrancesEl.append(el_icon);
             }
         }
     }
 
+    applyDefaultValues() {
+        super.applyDefaultValues("images/icons/area.svg");
+        this.hint = "";
+    }
+
     applyStateValues(state) {
-        this.hint = state.hint;
-        this.setFilterData(state.filter);
-        this.applyAccess(state.access);
+        super.applyStateValues(state, "images/icons/area.svg");
+        if (state != null) {
+            this.hint = state.hint;
+            this.applyAccess(state.access);
+        }
+    }
+
+    refreshList() {
+        // nothing
     }
 
     get ref() {
@@ -146,31 +166,6 @@ export default class AbstractSubArea extends ContextMenuManagerMixin(StateDataEv
                         this.switchState(state);
                     }
                     break;
-            }
-        }
-    }
-
-    setFilterData(data) {
-        if (data != null) {
-            const el_era = this.shadowRoot.getElementById("badge-era");
-            if (el_era != null) {
-                if (!data["filter.era/child"]) {
-                    el_era.src = "images/icons/era_adult.svg";
-                } else if (!data["filter.era/adult"]) {
-                    el_era.src = "images/icons/era_child.svg";
-                } else {
-                    el_era.src = "images/icons/era_both.svg";
-                }
-            }
-            const el_time = this.shadowRoot.getElementById("badge-time");
-            if (el_time != null) {
-                if (!data["filter.time/day"]) {
-                    el_time.src = "images/icons/time_night.svg";
-                } else if (!data["filter.time/night"]) {
-                    el_time.src = "images/icons/time_day.svg";
-                } else {
-                    el_time.src = "images/icons/time_always.svg";
-                }
             }
         }
     }

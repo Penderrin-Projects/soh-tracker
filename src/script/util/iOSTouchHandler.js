@@ -14,8 +14,8 @@ function handleTouchStart(event) {
         const touch = event.changedTouches[0];
         ACTIVE_EVENTS.set(target, setTimeout(() => {
             ACTIVE_EVENTS.delete(target);
-            if (window.navigator?.vibrate != null) {
-                window.navigator.vibrate(100);
+            if (navigator.vibrate != null) {
+                navigator.vibrate(100);
             }
             const nEvent = new Event("contextmenu");
             nEvent.clientX = touch.clientX;
