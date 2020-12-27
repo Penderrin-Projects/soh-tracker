@@ -4,7 +4,7 @@ import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import MapLocation from "./Location.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
 
 // TODO
 

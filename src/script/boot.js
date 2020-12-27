@@ -6,17 +6,17 @@ import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateInit from "/script/state/StateInit.js";
 /* --- */
-import "/script/state/items/ItemState.js";
-import "/script/state/items/InfiniteItemState.js";
-import "/script/state/items/KeyState.js";
-import "/script/state/items/RewardItemState.js";
-import "/script/state/items/StartItemState.js";
+import "/script/state/item/ItemState.js";
+import "/script/state/item/InfiniteItemState.js";
+import "/script/state/item/KeyState.js";
+import "/script/state/item/RewardItemState.js";
+import "/script/state/item/StartItemState.js";
 /* --- */
-import "/script/state/world/areas/AreaState.js";
-import "/script/state/world/areas/DungeonState.js";
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 /* --- */
-import "/script/state/world/locations/LocationState.js";
-import "/script/state/world/locations/GossipstoneState.js";
+import "/script/state/world/location/LocationState.js";
+import "/script/state/world/location/GossipstoneState.js";
 
 const FILES = {
     "world":                {path: "/database/world.json",              type: "json"},

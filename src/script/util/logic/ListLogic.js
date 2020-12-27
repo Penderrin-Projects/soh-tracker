@@ -3,7 +3,7 @@ import Logger from "/emcJS/util/Logger.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "/script/util/logic/Logic.js";
 import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 
 class ListLogic {
 

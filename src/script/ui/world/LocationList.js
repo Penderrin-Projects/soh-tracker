@@ -3,11 +3,11 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
 import Language from "/script/util/Language.js";
-import WorldRegistry from "/script/registries/WorldRegistry.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
 // more
 import "./listitems/Button.js";
 import "./listitems/Location.js";

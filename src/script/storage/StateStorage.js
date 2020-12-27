@@ -7,7 +7,7 @@ import DateUtil from "/emcJS/util/DateUtil.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import StateConverter from "/script/storage/StateConverter.js";
 
-import ItemStates from "/script/state/ItemStates.js";
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 
 DebouncedStorage.debounceTime = 0;
 

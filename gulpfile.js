@@ -134,6 +134,13 @@ function copyEditorExtension(dest = DEV_PATH) {
         .pipe(gulp.dest(`${dest}/script/content`));
 }
 
+function copyGameTrackerJS(dest = DEV_PATH) {
+    return gulp.src(`${SRC_PATH}/GameTrackerJS/**/*.js`)
+        .pipe(filemanager.register(`${SRC_PATH}/GameTrackerJS`, `${dest}/GameTrackerJS`))
+        .pipe(newer(`${dest}/GameTrackerJS`))
+        .pipe(gulp.dest(`${dest}/GameTrackerJS`));
+}
+
 function copyEmcJS(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.emcJS}/**/*.js`,
@@ -188,6 +195,7 @@ exports.build = gulp.series(
         copyFonts.bind(this, PRD_PATH),
         copyScript.bind(this, PRD_PATH),
         copyEditorExtension.bind(this, PRD_PATH),
+        copyGameTrackerJS.bind(this, PRD_PATH),
         copyEmcJS.bind(this, PRD_PATH),
         copyTrackerEditor.bind(this, PRD_PATH),
         copyRTCClient.bind(this, PRD_PATH),
@@ -207,6 +215,7 @@ exports.buildDev = gulp.series(
         copyFonts.bind(this, DEV_PATH),
         copyScript.bind(this, DEV_PATH),
         copyEditorExtension.bind(this, DEV_PATH),
+        copyGameTrackerJS.bind(this, DEV_PATH),
         copyEmcJS.bind(this, DEV_PATH),
         copyTrackerEditor.bind(this, DEV_PATH),
         copyRTCClient.bind(this, DEV_PATH),
@@ -221,26 +230,4 @@ exports.watch = function () {
         `${SRC_PATH}/**/*`,
         exports.build
     );
-}
-
-exports.eslint = function () {
-    return gulp.src([`${SRC_PATH}/script/**/*.js`, `${MODULE_PATHS.emcJS}/**/*.js`])
-        .pipe(eslint({
-            "parserOptions": {
-              "ecmaVersion": 2018,
-              "sourceType": "module",
-              "ecmaFeatures": {
-                "jsx": false
-              }
-            },
-            "env": {
-              "browser": true,
-              "es6": true
-            },
-            "rules": {
-              "eqeqeq": "off"
-            }
-          }))
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
 }

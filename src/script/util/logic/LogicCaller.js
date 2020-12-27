@@ -23,11 +23,11 @@ EventBus.register("state", event => {
     const filter = FilterStorage.getAll();
     const data = Object.assign(filter, event.data.state);
     // dungeonstate
-    const dungeonData = FileData.get("dungeonstate/entries");
+    const dungeonData = FileData.get("dungeonstate/area");
     cached_values["option.track_keys"] = !!data["option.track_keys"];
     cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
+    for (const ref in dungeonData) {
+        const dData = dungeonData[ref];
         // keys - value caching
         if (dData.keys) {
             cached_values[dData.keys] = data[dData.keys] || 0;
@@ -66,9 +66,9 @@ EventBus.register("statechange", event => {
         changed[i] = event.data[i].newValue;
     }
     // keys - cache values
-    const dungeonData = FileData.get("dungeonstate/entries");
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
+    const dungeonData = FileData.get("dungeonstate/area");
+    for (const ref in dungeonData) {
+        const dData = dungeonData[ref];
         if (dData.keys && changed[dData.keys] != null) {
             cached_values[dData.keys] = changed[dData.keys];
         }
@@ -80,8 +80,8 @@ EventBus.register("statechange", event => {
     if (changed["option.track_keys"] != null && cached_values["option.track_keys"] != changed["option.track_keys"]) {
         cached_values["option.track_keys"] = changed["option.track_keys"];
     }
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
+    for (const ref in dungeonData) {
+        const dData = dungeonData[ref];
         if (dData.keys) {
             if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
                 changed[dData.keys] = 9999;
@@ -94,8 +94,8 @@ EventBus.register("statechange", event => {
     if (changed["option.track_bosskeys"] != null && cached_values["option.track_bosskeys"] != changed["option.track_bosskeys"]) {
         cached_values["option.track_bosskeys"] = changed["option.track_bosskeys"];
     }
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
+    for (const ref in dungeonData) {
+        const dData = dungeonData[ref];
         if (dData.bosskey) {
             if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cached_values["option.track_bosskeys"]) {
                 changed[dData.bosskey] = 9999;
@@ -117,9 +117,9 @@ EventBus.register("statechange_dungeontype", event => {
         changed[i] = event.data[i].newValue;
     }
     // dungeonstate
-    const dungeonData = FileData.get("dungeonstate/entries");
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
+    const dungeonData = FileData.get("dungeonstate/area");
+    for (const ref in dungeonData) {
+        const dData = dungeonData[ref];
         // dungeon types
         if (dData.hasmq) {
             if (event.data.dungeontype != null) {
@@ -157,10 +157,10 @@ class LogicCaller {
             Logic.setLogic(randoLogic);
             const data = StateStorage.getAll();
             // keys - value caching
-            const dungeonData = FileData.get("dungeonstate/entries");
+            const dungeonData = FileData.get("dungeonstate/area");
             cached_values["option.track_keys"] = !!data["option.track_keys"];
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
+            for (const ref in dungeonData) {
+                const dData = dungeonData[ref];
                 if (dData.keys) {
                     cached_values[dData.keys] = data[dData.keys] || 0;
                     if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
@@ -169,8 +169,8 @@ class LogicCaller {
                 }
             }
             cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
+            for (const ref in dungeonData) {
+                const dData = dungeonData[ref];
                 if (dData.bosskey) {
                     cached_values[dData.bosskey] = data[dData.bosskey] || 0;
                     if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cached_values["option.track_bosskeys"]) {
@@ -179,8 +179,8 @@ class LogicCaller {
                 }
             }
             // dungeon types
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
+            for (const ref in dungeonData) {
+                const dData = dungeonData[ref];
                 if (dData.hasmq) {
                     data[`dungeontype.${dData.ref}`] = StateStorage.readExtra("dungeontype", dData.ref, "n");
                 }

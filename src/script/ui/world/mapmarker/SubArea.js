@@ -3,10 +3,10 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
-import AbstractSubArea from "/script/ui/world/abstract/SubArea.js";
-import AccessStateEnum from "/script/enum/AccessStateEnum.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
-import "/script/ui/Badge.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
+import "/GameTrackerJS/ui/Badge.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>

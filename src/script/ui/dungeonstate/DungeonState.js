@@ -88,9 +88,10 @@ class HTMLTrackerDungeonState extends Panel {
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
 
-        const data = FileData.get("dungeonstate/entries");
-        for (let i = 0; i < data.length; ++i) {
-            this.shadowRoot.append(createRow(data[i]));
+        const dungeonData = FileData.get("dungeonstate/area");
+        for (const ref in dungeonData) {
+            const dData = dungeonData[ref];
+            this.shadowRoot.append(createRow(`area/${ref}`, dData));
         }
         switchActive.call(this, this.active);
     }
@@ -151,7 +152,7 @@ function switchActive(value) {
     });
 }
 
-function createRow(data) {
+function createRow(ref, data) {
     const el = document.createElement('DIV');
     el.classList.add("item-row");
     el.classList.add("inactive");
@@ -233,8 +234,8 @@ function createRow(data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
         types.push("reward");
-        itm.setAttribute('ref', data.ref);
-        itm.title = Language.translate(data.ref) + " " + Language.translate("dun_reward");
+        itm.setAttribute('ref', ref);
+        itm.title = Language.translate(ref) + " " + Language.translate("dun_reward");
         el.append(itm);
     } else {
         const itm = createItemPlaceholder();
@@ -249,8 +250,8 @@ function createRow(data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
         types.push("type");
-        itm.setAttribute('ref', data.ref);
-        itm.title = Language.translate(data.ref) + " " + Language.translate("dun_type");
+        itm.setAttribute('ref', ref);
+        itm.title = Language.translate(ref) + " " + Language.translate("dun_type");
         el.append(itm);
     } else {
         const itm = createItemPlaceholder();

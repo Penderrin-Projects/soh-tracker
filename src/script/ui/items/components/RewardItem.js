@@ -2,8 +2,8 @@ import Language from "/script/util/Language.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-import ItemStates from "/script/state/ItemStates.js";
-import StateDataEventManager from "/script/ui/mixin/StateDataEventManager.js";
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`

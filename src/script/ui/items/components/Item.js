@@ -1,8 +1,8 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-import ItemStates from "/script/state/ItemStates.js";
-import StateDataEventManager from "/script/ui/mixin/StateDataEventManager.js";
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -180,8 +180,16 @@ export default class Item extends StateDataEventManager(HTMLElement) {
                     this.shadowRoot.getElementById("slot").style.setProperty("--valign", getAlign(newValue));
                     break;
                 case 'value':
-                    this.querySelector(`.active`)?.classList.remove("active");
-                    this.querySelector(`[value="${newValue}"]`)?.classList.add("active");
+                    {
+                        const activeEl = this.querySelector(".active");
+                        if (activeEl != null) {
+                            activeEl.classList.remove("active");
+                        }
+                        const newEl = this.querySelector(`[value="${newValue}"]`);
+                        if (newEl != null) {
+                            newEl.classList.add("active");
+                        }
+                    }
                     break;
             }
         }

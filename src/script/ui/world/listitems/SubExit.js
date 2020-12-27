@@ -2,10 +2,10 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
-import WorldRegistry from "/script/registries/WorldRegistry.js";
-import AbstractSubExit from "/script/ui/world/abstract/SubExit.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
-import "/script/ui/Badge.js";
+import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
+import "/GameTrackerJS/ui/Badge.js";
 
 const TPL = new Template(`
 <div class="textarea">

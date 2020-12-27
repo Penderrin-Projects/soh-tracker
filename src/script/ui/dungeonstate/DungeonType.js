@@ -1,9 +1,9 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import WorldRegistry from "/script/registries/WorldRegistry.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -55,37 +55,7 @@ slot {
 }
 `);
 
-function stateChanged(event) {
-    if (this.ref) {
-        if (event.data.extra.dungeontype != null) {
-            const state = event.data.extra.dungeontype[this.ref];
-            if (typeof state != "undefined" && state != "") {
-                this.value = state;
-                return;
-            }
-        }
-        const data = WorldRegistry.get(this.ref);
-        if (data != null) {
-            if (data.areaData.lists == null) {
-                this.value = "v";
-                return;
-            }
-        }
-    }
-    this.value = "n";
-}
-
-function dungeonTypeUpdate(event) {
-    let data;
-    if (event.data != null) {
-        data = event.data[this.ref];
-    }
-    if (data != null) {
-        this.value = data.newValue;
-    }
-}
-
-class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
+class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
@@ -93,13 +63,32 @@ class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("type", event => {
+            this.value = event.data;
+        });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
-        /* event bus */
-        this.registerGlobal("state", stateChanged.bind(this));
-        this.registerGlobal("statechange_dungeontype", dungeonTypeUpdate.bind(this));
         /* fck iOS */
         iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.type;
+        }
+    }
+
+    applyDefaultValues() {
+        this.value = "v";
+    }
+
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.type;
+        }
     }
 
     get ref() {
@@ -132,49 +121,51 @@ class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'ref':
-                if (oldValue != newValue) {
-                    if (newValue) {
-                        const data = WorldRegistry.get(newValue);
-                        if (data != null) {
-                            if (data.areaData.lists != null) {
-                                this.value = StateStorage.readExtra("dungeontype", newValue, "n");
-                                this.readonly = false;
-                            } else {
-                                this.value = "v";
-                                this.readonly = true;
+        if (oldValue != newValue) {
+            switch (name) {
+                case 'ref':
+                    {
+                        // state
+                        const state = DungeonstateStates.get(this.ref);
+                        if (state != null) {
+                            const data = WorldRegistry.get(newValue);
+                            if (data != null) {
+                                if (data.areaData.lists != null) {
+                                    this.readonly = false;
+                                } else {
+                                    this.readonly = true;
+                                }
                             }
-                            break;
+                        }
+                        this.switchState(state);
+                    }
+                    break;
+                case 'value':
+                    {
+                        const oe = this.shadowRoot.querySelector(`.active`);
+                        if (oe) {
+                            oe.classList.remove("active");
+                        }
+                        const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`);
+                        if (ne) {
+                            ne.classList.add("active");
                         }
                     }
-                    this.value = "n";
-                    this.readonly = true;
-                }
-                break;
-            case 'value':
-                if (oldValue != newValue) {
-                    const oe = this.shadowRoot.querySelector(`.active`);
-                    if (oe) {
-                        oe.classList.remove("active");
-                    }
-                    const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`);
-                    if (ne) {
-                        ne.classList.add("active");
-                    }
-                }
-                break;
+                    break;
+            }
         }
     }
 
     next(event) {
         if (!this.readonly) {
-            if (this.value == 'v') {
-                this.value = 'mq';
-            } else {
-                this.value = 'v';
+            const state = this.getState();
+            if (state != null) {
+                if (this.value == "v") {
+                    state.type = "mq";
+                } else {
+                    state.type = "v";
+                }
             }
-            StateStorage.writeExtra("dungeontype", this.ref, this.value);
         }
         event.preventDefault();
         return false;
@@ -182,8 +173,10 @@ class HTMLTrackerDungeonType extends UIEventBusMixin(HTMLElement) {
 
     revert(event) {
         if (!this.readonly) {
-            this.value = "n";
-            StateStorage.writeExtra("dungeontype", this.ref, 'n');
+            const state = this.getState();
+            if (state != null) {
+                state.type = "n";
+            }
         }
         event.preventDefault();
         return false;

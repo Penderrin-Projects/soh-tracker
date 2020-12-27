@@ -1,9 +1,9 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
-import AbstractArea from "/script/ui/world/abstract/Area.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
-import "/script/ui/Badge.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
+import "/GameTrackerJS/ui/Badge.js";
 
 const TPL = new Template(`
 <div class="textarea">

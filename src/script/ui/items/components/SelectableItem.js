@@ -1,5 +1,5 @@
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ItemStates from "/script/state/ItemStates.js";
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const STYLE = new GlobalStyle(`

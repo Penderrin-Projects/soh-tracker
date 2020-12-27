@@ -10,7 +10,7 @@ const TEST_LOCATION = /location\/[^.]+\.g_[^.]+\.location/;
 StateConverter.register(function(state) {
     const res = {
         data: {},
-        extra: state.extra,
+        extra: {},
         notes: state.notes,
         autosave: state.autosave,
         timestamp: state.timestamp,

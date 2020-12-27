@@ -1,9 +1,10 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import FileData from "/emcJS/data/FileData.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 import "/script/ui/items/ItemPicker.js";
 
@@ -76,30 +77,7 @@ const REWARDS = [
 ];
 const TAKEN_REWARDS = new Map();
 
-function stateChanged(event) {
-    if (event.data.extra.dungeonreward != null) {
-        const value = event.data.extra.dungeonreward[this.ref];
-        if (value != null) {
-            this.value = value;
-        } else {
-            this.value = "";
-        }
-    } else {
-        this.value = "";
-    }
-}
-
-function dungeonRewardUpdate(event) {
-    let data;
-    if (event.data != null) {
-        data = event.data[this.ref];
-    }
-    if (data != null) {
-        this.value = data.newValue;
-    }
-}
-
-class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
+class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
@@ -107,6 +85,9 @@ class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("reward", event => {
+            this.value = event.data;
+        });
 
         /* context menu */
         const mnu_itm = document.createElement("div");
@@ -118,9 +99,9 @@ class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
 
         mnu_itm.shadowRoot.getElementById("item-picker").addEventListener("pick", event => {
             const value = event.detail;
-            if (value != this.value) {
-                this.value = value;
-                StateStorage.writeExtra("dungeonreward", this.ref, value);
+            const state = this.getState();
+            if (state != null) {
+                state.reward = value;
             }
             event.preventDefault();
             return false;
@@ -143,10 +124,6 @@ class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
         });
         this.addEventListener("contextmenu", event => this.revert(event));
 
-        /* event bus */
-        this.registerGlobal("state", stateChanged.bind(this));
-        this.registerGlobal("statechange_dungeonreward", dungeonRewardUpdate.bind(this));
-
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
@@ -164,6 +141,16 @@ class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
     disconnectedCallback() {
         super.disconnectedCallback();
         MNU_ITM.get(this).remove();
+    }
+
+    applyDefaultValues() {
+        this.value = "";
+    }
+
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.reward;
+        }
     }
 
     get ref() {
@@ -187,51 +174,56 @@ class HTMLTrackerDungeonReward extends UIEventBusMixin(HTMLElement) {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'ref':
-                if (oldValue != newValue) {
-                    if (newValue === "") {
-                        this.innerHTML = "";
-                    } else if (oldValue === null || oldValue === undefined || oldValue === "") {
-                        this.append(createOption("", "/images/items/unknown.png"));
-                        const items = FileData.get("items");
-                        for (let i = 0; i < REWARDS.length; ++i) {
-                            const name = REWARDS[i];
-                            let j = items[name].images;
-                            if (Array.isArray(j)) {
-                                j = j[0];
+        if (oldValue != newValue) {
+            switch (name) {
+                case 'ref':
+                    {
+                        // state
+                        const state = DungeonstateStates.get(this.ref);
+                        if (state != null) {
+                            this.append(createOption("", "/images/items/unknown.png"));
+                            const items = FileData.get("items");
+                            for (let i = 0; i < REWARDS.length; ++i) {
+                                const name = REWARDS[i];
+                                let j = items[name].images;
+                                if (Array.isArray(j)) {
+                                    j = j[0];
+                                }
+                                this.append(createOption(name, j));
                             }
-                            this.append(createOption(name, j));
                         }
-                        this.value = StateStorage.readExtra("dungeonreward", newValue, "");
+                        if (newValue === "") {
+                            this.innerHTML = "";
+                        }
+                        this.switchState(state);
                     }
-                }
-                break;
-            case 'value':
-                if (oldValue != newValue) {
-                    const oe = this.querySelector(`.active`);
-                    if (oe) {
-                        oe.classList.remove("active");
+                    break;
+                case 'value':
+                    {
+                        const oe = this.querySelector(`.active`);
+                        if (oe) {
+                            oe.classList.remove("active");
+                        }
+                        const ne = this.querySelector(`[value="${newValue}"]`);
+                        if (ne) {
+                            ne.classList.add("active");
+                        }
+                        if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
+                            TAKEN_REWARDS.delete(oldValue);
+                        }
+                        if (newValue != "") {
+                            TAKEN_REWARDS.set(newValue, this);
+                        }
                     }
-                    const ne = this.querySelector(`[value="${newValue}"]`);
-                    if (ne) {
-                        ne.classList.add("active");
-                    }
-                    if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
-                        TAKEN_REWARDS.delete(oldValue);
-                    }
-                    if (newValue != "") {
-                        TAKEN_REWARDS.set(newValue, this);
-                    }
-                }
-                break;
+                    break;
+            }
         }
     }
 
     revert(ev) {
-        if (this.value != "") {
-            this.value = "";
-            StateStorage.writeExtra("dungeonreward", this.ref, "");
+        const state = this.getState();
+        if (state != null) {
+            state.reward = "";
         }
         ev.preventDefault();
         return false;

@@ -1,9 +1,9 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
-import AbstractLocation from "/script/ui/world/abstract/Location.js";
-import UIWorldRegistry from "/script/registries/UIWorldRegistry.js";
-import "/script/ui/Badge.js";
+import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
+import "/GameTrackerJS/ui/Badge.js";
 
 const TPL = new Template(`
 <div id="marker"></div>
