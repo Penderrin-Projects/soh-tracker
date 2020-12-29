@@ -18,7 +18,11 @@ export default class DefaultState extends StateData {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.notes = StateStorage.readExtra("songs", ref, props.notes);
+        if (props.editable) {
+            this.notes = StateStorage.readExtra("songs", ref, props.notes);
+        } else {
+            NOTES.set(this, props.notes);
+        }
         /* EVENTS */
         EventBus.register("state::song", internalChange.bind(this));
         EventBus.register("state", event => {
@@ -27,26 +31,23 @@ export default class DefaultState extends StateData {
     }
 
     stateLoaded(event) {
-        const ref = this.ref;
-        if (ref) {
-            // notes
-            if (event.data.extra.songs != null) {
-                const value = event.data.extra.songs[ref];
-                if (value != null) {
-                    this.notes = value;
+        if (this.props.editable) {
+            const ref = this.ref;
+            if (ref) {
+                // notes
+                if (event.data.extra.songs != null) {
+                    this.notes = event.data.extra.songs[ref] ?? this.props.notes;
                 } else {
                     this.notes = this.props.notes;
                 }
-            } else {
-                this.notes = this.props.notes;
             }
         }
     }
 
     set notes(value) {
-        const ref = this.ref;
-        if (typeof value == "string") {
-            if (this.props.editable) {
+        if (this.props.editable) {
+            const ref = this.ref;
+            if (typeof value == "string") {
                 const old = this.notes;
                 if (value != old) {
                     NOTES.set(this, value);
