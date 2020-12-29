@@ -33,9 +33,9 @@ function internalRewardChange(event) {
     // savesatate
     const change = event.data;
     if (change != null) {
-        if (change.ref == dungeon && change.newValue != ref) {
+        if (change.ref == dungeon && change.value != ref) {
             this.applyDungeonValue("");
-        } else if (change.newValue == ref) {
+        } else if (change.value == ref) {
             this.applyDungeonValue(change.ref);
         }
     }

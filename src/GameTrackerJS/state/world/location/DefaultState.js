@@ -11,7 +11,7 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.newValue;
+        this.value = change.value;
     }
 }
 
@@ -23,7 +23,6 @@ export default class DefaultState extends StateWorld {
         ACCESS.set(this, Logic.getValue(props.access));
         /* EVENTS */
         EventBus.register("state::location", internalChange.bind(this));
-        EventBus.register("net::state::location", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -66,11 +65,7 @@ export default class DefaultState extends StateWorld {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::location", {
-                ref: ref,
-                oldValue: old,
-                newValue: this.value
-            });
+            EventBus.trigger("state::location", {ref, value});
         }
     }
 

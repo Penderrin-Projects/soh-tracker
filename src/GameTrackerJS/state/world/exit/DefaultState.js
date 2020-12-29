@@ -25,7 +25,7 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.newValue;
+        this.value = change.value;
     }
 }
 
@@ -52,7 +52,6 @@ export default class DefaultState extends StateExit {
         this.value = StateStorage.readExtra("exits", ref, "");
         /* EVENTS */
         EventBus.register("state::exit", internalChange.bind(this));
-        EventBus.register("net::state::exit", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -76,8 +75,9 @@ export default class DefaultState extends StateExit {
 
     stateLoaded(event) {
         const props = this.props;
-        if (event.data.extra.exits != null && event.data.extra.exits[props.access] != null) {
-            this.value = event.data.extra.exits[props.access];
+        // value
+        if (event.data.extra["exits"] != null) {
+            this.value = event.data.extra["exits"][props.access] ?? "";
         } else {
             this.value = "";
         }
@@ -127,11 +127,7 @@ export default class DefaultState extends StateExit {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::exit", {
-                ref: ref,
-                oldValue: old,
-                newValue: value
-            });
+            EventBus.trigger("state::exit", {ref, value});
         }
     }
 

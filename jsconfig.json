@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "allowSyntheticDefaultImports": false,
+        "checkJs": false,
+        "baseUrl": "./src/",
+        "paths": {
+            "/script/*": [
+                "./script/*"
+            ],
+            "/GameTrackerJS/*": [
+                "./GameTrackerJS/*"
+            ],
+            "/emcJS/*": [
+                "../../emcJS/src/*"
+            ],
+            "/editors/*": [
+                "../../JSEditors/*"
+            ],
+            "/rtc/*": [
+                "../../RTCClient/*"
+            ]
+        }
+    }
+}

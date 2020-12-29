@@ -26,19 +26,7 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = parseInt(change.newValue) || 0;
-    }
-}
-
-function networkChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        const diff = (parseInt(change.newValue) || 0) - (parseInt(change.oldValue) || 0);
-        if (diff != 0) {
-            this.value = this.value + diff;
-        }
+        this.value = change.value ?? 0;
     }
 }
 
@@ -52,7 +40,6 @@ export default class DefaultState extends StateData {
         this.value = StateStorage.read(ref, 0);
         /* EVENTS */
         EventBus.register("state::item", internalChange.bind(this));
-        EventBus.register("net::state::item", networkChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -61,21 +48,8 @@ export default class DefaultState extends StateData {
     stateLoaded(event) {
         const ref = this.ref;
         // savesatate
-        this.value = parseInt(event.data.state[ref]) || 0;
+        this.value = event.data.state[ref] ?? 0;
     }
-
-    convert(value) { // XXX is this really needed?
-        if (typeof value != "number" || isNaN(value)) value = 0;
-        const max = this.max;
-        const min = this.min;
-        if (value > max) {
-            value = max;
-        } else if (value < min) {
-            value = min;
-        }
-        return value;
-    }
-    
 
     set min(value) {
         value = parseNumber(value, Number.MIN_VALUE);
@@ -114,6 +88,7 @@ export default class DefaultState extends StateData {
     }
 
     set value(value) {
+        const ref = this.ref;
         value = parseNumber(value);
         if (value != null) {
             const max = MAX.get(this);
@@ -126,17 +101,13 @@ export default class DefaultState extends StateData {
             const old = this.value;
             if (value != old) {
                 VALUE.set(this, value);
-                StateStorage.write(this.ref, this.value);
+                StateStorage.write(ref, value);
                 // external
                 const event = new Event("value");
                 event.data = value;
                 this.dispatchEvent(event);
                 // internal
-                EventBus.trigger("state::item", {
-                    ref: this.ref,
-                    oldValue: old,
-                    newValue: this.value
-                });
+                EventBus.trigger("state::item", {ref, value});
             }
         }
     }

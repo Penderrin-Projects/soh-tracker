@@ -12,7 +12,7 @@ function internalItemChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.newValue;
+        this.item = change.value;
     }
 }
 
@@ -21,7 +21,7 @@ function internalPriceChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.price = change.newValue;
+        this.price = change.value;
     }
 }
 
@@ -30,7 +30,7 @@ function internalBoughtChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.bought = change.newValue;
+        this.bought = change.value;
     }
 }
 
@@ -39,7 +39,7 @@ function internalNameChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.newValue;
+        this.item = change.value;
     }
 }
 
@@ -51,13 +51,9 @@ export default class DefaultState extends StateData {
         this.notes = StateStorage.readExtra("songs", ref, props.notes);
         /* EVENTS */
         EventBus.register("state::shop_item", internalItemChange.bind(this));
-        EventBus.register("net::state::shop_item", internalItemChange.bind(this));
         EventBus.register("state::shop_price", internalPriceChange.bind(this));
-        EventBus.register("net::state::shop_price", internalPriceChange.bind(this));
         EventBus.register("state::shop_bought", internalBoughtChange.bind(this));
-        EventBus.register("net::state::shop_bought", internalBoughtChange.bind(this));
-        EventBus.register("state::shop_name", internalNameChange.bind(this));
-        EventBus.register("net::state::shop_name", internalNameChange.bind(this));
+        EventBus.register("extra::shop_name", internalNameChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -105,23 +101,20 @@ export default class DefaultState extends StateData {
     }
 
     set item(value) {
+        const ref = this.ref;
         if (typeof value != "string") {
             value = "";
         }
         const old = ITEM.get(this);
         if (value != old) {
             ITEM.set(this, value);
-            StateStorage.writeExtra("shops", `${this.ref}.item`, value);
+            StateStorage.writeExtra("shops", `${ref}.item`, value);
             // external
             const event = new Event("item");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::shop_item", {
-                ref: this.ref,
-                oldValue: old,
-                newValue: value
-            });
+            EventBus.trigger("state::shop_item", {ref, value});
         }
     }
 
@@ -130,6 +123,7 @@ export default class DefaultState extends StateData {
     }
 
     set price(value) {
+        const ref = this.ref;
         value = parseInt(value);
         if (isNaN(value)) {
             value = 0;
@@ -137,17 +131,13 @@ export default class DefaultState extends StateData {
         const old = PRICE.get(this);
         if (value != old) {
             PRICE.set(this, value);
-            StateStorage.writeExtra("shops", `${this.ref}.price`, value);
+            StateStorage.writeExtra("shops", `${ref}.price`, value);
             // external
             const event = new Event("price");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::shop_price", {
-                ref: this.ref,
-                oldValue: old,
-                newValue: value
-            });
+            EventBus.trigger("state::shop_price", {ref, value});
         }
     }
 
@@ -156,23 +146,20 @@ export default class DefaultState extends StateData {
     }
 
     set bought(value) {
+        const ref = this.ref;
         if (typeof value != "boolean") {
             value = false;
         }
         const old = BOUGHT.get(this);
         if (value != old) {
             BOUGHT.set(this, value);
-            StateStorage.writeExtra("shops", `${this.ref}.bought`, value);
+            StateStorage.writeExtra("shops", `${ref}.bought`, value);
             // external
             const event = new Event("bought");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::shop_bought", {
-                ref: this.ref,
-                oldValue: old,
-                newValue: value
-            });
+            EventBus.trigger("state::shop_bought", {ref, value});
         }
     }
 
@@ -181,23 +168,20 @@ export default class DefaultState extends StateData {
     }
 
     set name(value) {
+        const ref = this.ref;
         if (typeof value != "string") {
             value = "";
         }
         const old = NAME.get(this);
         if (value != old) {
             NAME.set(this, value);
-            StateStorage.writeExtra("shops", `${this.ref}.name`, value);
+            StateStorage.writeExtra("shops", `${ref}.name`, value);
             // external
             const event = new Event("name");
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::shop_name", {
-                ref: this.ref,
-                oldValue: old,
-                newValue: value
-            });
+            EventBus.trigger("extra::shop_name", {ref, value});
         }
     }
 

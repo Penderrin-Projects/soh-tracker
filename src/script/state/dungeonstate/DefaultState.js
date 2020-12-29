@@ -11,7 +11,7 @@ function internalTypeChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.newValue;
+        this.value = change.value;
     }
 }
 
@@ -20,7 +20,7 @@ function internalRewardChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.reward = change.newValue;
+        this.reward = change.value;
     }
 }
 
@@ -42,9 +42,7 @@ export default class DefaultState extends StateData {
         this.reward = StateStorage.readExtra("dungeonreward", ref, "");
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
-        EventBus.register("net::state::dungeontype", internalTypeChange.bind(this));
         EventBus.register("state::dungeonreward", internalRewardChange.bind(this));
-        EventBus.register("net::state::dungeonreward", internalRewardChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -89,21 +87,18 @@ export default class DefaultState extends StateData {
     }
 
     set type(value) {
+        const ref = this.ref;
         if (value != null) {
             const old = this.type;
             if (value != old) {
                 TYPE.set(this, value);
-                StateStorage.writeExtra("dungeontype", this.ref, this.type);
+                StateStorage.writeExtra("dungeontype", ref, value);
                 // external
                 const event = new Event("type");
                 event.data = value;
                 this.dispatchEvent(event);
                 // internal
-                EventBus.trigger("state::dungeontype", {
-                    ref: this.ref,
-                    oldValue: old,
-                    newValue: this.type
-                });
+                EventBus.trigger("state::dungeontype", {ref, value});
             }
         }
     }
@@ -113,21 +108,18 @@ export default class DefaultState extends StateData {
     }
 
     set reward(value) {
+        const ref = this.ref;
         if (value != null) {
             const old = this.reward;
             if (value != old) {
                 REWARD.set(this, value);
-                StateStorage.writeExtra("dungeonreward", this.ref, this.reward);
+                StateStorage.writeExtra("dungeonreward", ref, value);
                 // external
                 const event = new Event("reward");
                 event.data = value;
                 this.dispatchEvent(event);
                 // internal
-                EventBus.trigger("state::dungeonreward", {
-                    ref: this.ref,
-                    oldValue: old,
-                    newValue: this.reward
-                });
+                EventBus.trigger("state::dungeonreward", {ref, value});
             }
         }
     }

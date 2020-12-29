@@ -11,7 +11,7 @@ function internalHintChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.hint = change.newValue;
+        this.hint = change.value;
     }
 }
 
@@ -23,7 +23,6 @@ export default class GossipstoneState extends DefaultState {
         this.hint = StateStorage.readExtra("gossipstone", ref, {location: "", item: ""});
         /* EVENTS */
         EventBus.register("state::gossipstone", internalHintChange.bind(this));
-        EventBus.register("net::state::gossipstone", internalHintChange.bind(this));
     }
 
     stateLoaded(event) {
@@ -34,6 +33,7 @@ export default class GossipstoneState extends DefaultState {
     }
 
     set hint(value) {
+        const ref = this.ref;
         if (typeof value != "object" || Array.isArray(value)) {
             value = {location: "", item: ""}
         }
@@ -45,7 +45,6 @@ export default class GossipstoneState extends DefaultState {
         }
         const old = this.hint;
         if (!Helper.isEqual(old, value)) {
-            const ref = this.ref;
             HINT.set(this, value);
             StateStorage.writeExtra("gossipstone", ref, value);
             // external
@@ -53,11 +52,7 @@ export default class GossipstoneState extends DefaultState {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::gossipstone", {
-                ref: ref,
-                oldValue: old,
-                newValue: this.hint
-            });
+            EventBus.trigger("state::gossipstone", {ref, value});
         }
     }
 

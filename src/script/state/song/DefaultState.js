@@ -9,7 +9,7 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.notes = change.newValue;
+        this.notes = change.value;
     }
 }
 
@@ -21,7 +21,6 @@ export default class DefaultState extends StateData {
         this.notes = StateStorage.readExtra("songs", ref, props.notes);
         /* EVENTS */
         EventBus.register("state::song", internalChange.bind(this));
-        EventBus.register("net::state::song", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -45,22 +44,19 @@ export default class DefaultState extends StateData {
     }
 
     set notes(value) {
+        const ref = this.ref;
         if (typeof value == "string") {
             if (this.props.editable) {
                 const old = this.notes;
                 if (value != old) {
                     NOTES.set(this, value);
-                    StateStorage.writeExtra("songs", this.ref, value);
+                    StateStorage.writeExtra("songs", ref, value);
                     // external
                     const event = new Event("notes");
                     event.data = value;
                     this.dispatchEvent(event);
                     // internal
-                    EventBus.trigger("state::song", {
-                        ref: this.ref,
-                        oldValue: old,
-                        newValue: value
-                    });
+                    EventBus.trigger("state::song", {ref, value});
                 }
             }
         }

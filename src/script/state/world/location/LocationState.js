@@ -10,7 +10,7 @@ function internalItemChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.newValue;
+        this.item = change.value;
     }
 }
 
@@ -23,7 +23,6 @@ export default class LocationState extends DefaultState {
         this.item = StateStorage.readExtra("item_location", ref, "");
         /* EVENTS */
         EventBus.register("state::location_item", internalItemChange.bind(this));
-        EventBus.register("net::state::location_item", internalItemChange.bind(this));
     }
 
     stateLoaded(event) {
@@ -49,11 +48,7 @@ export default class LocationState extends DefaultState {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::location_item", {
-                ref: ref,
-                oldValue: old,
-                newValue: this.item
-            });
+            EventBus.trigger("state::location_item", {ref, value});
         }
     }
 

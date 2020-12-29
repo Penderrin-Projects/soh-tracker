@@ -21,7 +21,7 @@ function internalTypeChange(event) {
     if (props["maxmq"] != null && props["related_dungeon"] != null) {
         const change = event.data;
         if (change != null && change.ref == props.related_dungeon) {
-            this.applyTypeValue(change.newValue || "n");
+            this.applyTypeValue(change.value || "n");
         }
     }
 }

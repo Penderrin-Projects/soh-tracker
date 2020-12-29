@@ -29,7 +29,6 @@ export default class DefaultState extends StateWorld {
         this.refreshAccess();
         /* EVENTS */
         EventBus.register("state::area_hint", internalHintChange.bind(this));
-        EventBus.register("net::state::area_hint", internalHintChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -55,8 +54,8 @@ export default class DefaultState extends StateWorld {
     stateLoaded(event) {
         const ref = this.ref;
         // hint
-        if (event.data.extra["area_hint"] != null && event.data.extra["area_hint"][ref] != null) {
-            this.hint = event.data.extra["area_hint"][ref];
+        if (event.data.extra["area_hint"] != null) {
+            this.hint = event.data.extra["area_hint"][ref] ?? "";
         } else {
             this.hint = "";
         }
@@ -110,11 +109,7 @@ export default class DefaultState extends StateWorld {
             event.data = value;
             this.dispatchEvent(event);
             // internal
-            EventBus.trigger("state::area_hint", {
-                ref: ref,
-                oldValue: old,
-                newValue: this.hint
-            });
+            EventBus.trigger("state::area_hint", {ref, value});
         }
     }
 

@@ -9,7 +9,7 @@ const PRD_PATH = path.resolve(__dirname, "./prod");
 const EDT_PATH = path.resolve(__dirname, "./editor/content");
 
 const MODULE_PATHS = {
-    emcJS: path.resolve(__dirname, "node_modules/emcjs"),
+    emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
     trackerEditor: path.resolve(__dirname, "node_modules/jseditors"),
     RTCClient: path.resolve(__dirname, "node_modules/rtcclient")
 };
@@ -24,7 +24,7 @@ function fileExists(filename) {
 }
 
 if (process.argv.indexOf('-nolocal') < 0) {
-    let emcJS = path.resolve(__dirname, '../emcJS');
+    let emcJS = path.resolve(__dirname, '../emcJS/src');
     if (fileExists(emcJS)) {
         MODULE_PATHS.emcJS = emcJS;
     }
@@ -144,7 +144,6 @@ function copyGameTrackerJS(dest = DEV_PATH) {
 function copyEmcJS(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.emcJS}/**/*.js`,
-        `!${MODULE_PATHS.emcJS}/_demo/**/*.js`,
         `!${MODULE_PATHS.emcJS}/*.js`
     ];
     return gulp.src(FILES)

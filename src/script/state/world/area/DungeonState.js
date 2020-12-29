@@ -58,7 +58,7 @@ function internalTypeChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.applyTypeValue(change.newValue || "n");
+        this.applyTypeValue(change.value || "n");
     }
 }
 
