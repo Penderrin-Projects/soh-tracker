@@ -26,9 +26,12 @@ const rtcClient = new RTCClient(window.location.hostname == "localhost" ? 8001 :
 const eventModule = new EventBusModuleGeneric();
 EventBus.addModule(eventModule, {
     blacklist: [
-        "statechange_shops_names"
+        "extra::shop_name"
     ],
-    whitelist: /^statechange(_[a-zA-Z0-9]+)?$/
+    whitelist: [
+        /^state::[a-zA-Z0-9_]+$/,
+        "randomizer_options"
+    ]
 });
 
 let silent = false;
@@ -243,9 +246,9 @@ function onJoined() {
         } else if (msg.type == "event") {
             if (EventBus.checkLists(eventModule, msg.data.name)) {
                 silent = true;
-                if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
-                    eventModule.trigger(msg.data.name, msg.data.data);
-                }
+                //if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
+                eventModule.trigger(msg.data.name, msg.data.data);
+                //}
                 silent = false;
             }
         }
@@ -298,9 +301,9 @@ async function onHosting() {
                 if (EventBus.checkLists(eventModule, msg.data.name)) {
                     rtcClient.sendButOne("data", key, msg);
                     silent = true;
-                    if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
-                        eventModule.trigger(msg.data.name, msg.data.data);
-                    }
+                    //if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
+                    eventModule.trigger(msg.data.name, msg.data.data);
+                    //}
                     silent = false;
                 }
             }

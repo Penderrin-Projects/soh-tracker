@@ -1,3 +1,4 @@
+import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import StateData from "/GameTrackerJS/state/abstract/StateData.js";
 import StateStorage from "/script/storage/StateStorage.js";
@@ -6,6 +7,9 @@ const ITEM = new WeakMap();
 const PRICE = new WeakMap();
 const BOUGHT = new WeakMap();
 const NAME = new WeakMap();
+
+const ITEM_DATA = new WeakMap();
+const ICON = new WeakMap();
 
 function internalItemChange(event) {
     const ref = this.ref;
@@ -39,7 +43,7 @@ function internalNameChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.value;
+        this.name = change.value;
     }
 }
 
@@ -48,7 +52,8 @@ export default class DefaultState extends StateData {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.notes = StateStorage.readExtra("songs", ref, props.notes);
+        this.item = StateStorage.readExtra("shops", `${ref}.item`, props.item);
+        this.price = StateStorage.readExtra("shops", `${ref}.price`, props.price);
         /* EVENTS */
         EventBus.register("state::shop_item", internalItemChange.bind(this));
         EventBus.register("state::shop_price", internalPriceChange.bind(this));
@@ -100,6 +105,22 @@ export default class DefaultState extends StateData {
         }
     }
 
+    /*#*/applyItem() {
+        const item = ITEM.get(this);
+        const data = FileData.get(`shop_items/${item}`);
+        ITEM_DATA.set(this, data);
+        const bought = BOUGHT.get(this);
+        if (bought) {
+            ICON.set(this, "/images/items/sold_out.svg");
+        } else {
+            if (data) {
+                ICON.set(this, data.image);
+            } else {
+                ICON.set(this, "/images/items/unknown.svg");
+            }
+        }
+    }
+
     set item(value) {
         const ref = this.ref;
         if (typeof value != "string") {
@@ -109,6 +130,7 @@ export default class DefaultState extends StateData {
         if (value != old) {
             ITEM.set(this, value);
             StateStorage.writeExtra("shops", `${ref}.item`, value);
+            this.applyItem();
             // external
             const event = new Event("item");
             event.data = value;
@@ -154,6 +176,7 @@ export default class DefaultState extends StateData {
         if (value != old) {
             BOUGHT.set(this, value);
             StateStorage.writeExtra("shops", `${ref}.bought`, value);
+            this.applyItem();
             // external
             const event = new Event("bought");
             event.data = value;
@@ -187,6 +210,18 @@ export default class DefaultState extends StateData {
 
     get name() {
         return NAME.get(this);
+    }
+
+    get icon() {
+        return ICON.get(this);
+    }
+
+    get custom() {
+        const itemData = ITEM_DATA.get(this);
+        if (itemData != null) {
+            return !itemData.refill;
+        }
+        return false;
     }
 
 }

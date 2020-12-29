@@ -32,6 +32,8 @@ StateConverter.register(function(state) {
             res.data[i] = state.data[i];
         }
     }
+
+    // TODO modify shops
     // collect data
     return res;
 });

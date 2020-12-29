@@ -1,90 +1,111 @@
-import Window from "/emcJS/ui/overlay/Window.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Template from "/emcJS/util/Template.js";
+import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import Window from "/emcJS/ui/overlay/Window.js";
 import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
 import "./ShopEditItem.js";
 
 const TPL = new Template(`
-    <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
-        #footer,
-        #submit,
-        #cancel {
-            display: flex;
-        }
-        #categories {
-            padding: 5px;
-            overflow-x: auto;
-            overflow-y: none;
-            border-bottom: solid 2px #cccccc;
-        }
-        .category {
-            display: inline-flex;
-            margin: 0 2px;
-        }
-        .panel {
-            display: none;
-            word-wrap: break-word;
-            resize: none;
-        }
-        .panel.active {
-            display: block;
-        }
-        #footer {
-            height: 50px;
-            padding: 10px 30px 10px;
-            justify-content: flex-end;
-            border-top: solid 2px #cccccc;
-        }
-        #submit,
-        #cancel {
-            margin-left: 10px;
-            padding: 5px;
-            border: solid 1px black;
-            border-radius: 2px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            -webkit-appearance: none;
-        }
-        .category {
-            padding: 5px;
-            border: solid 1px black;
-            border-radius: 2px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            -webkit-appearance: none;
-        }
-        .category:hover {
-            background-color: gray;
-        }
-        #submit:hover,
-        #cancel:hover,
-        .category.active {
-            color: white;
-            background-color: black;
-        }
-        ootrt-shopedititem.active {
-            box-shadow: 0 0 2px 2px red;
-        }
-    </style>
-    <div id="categories">
-    </div>
-    <div class="panel" id="panel_about">
-    </div>
-    <div id="footer">
-        <button id="submit" title="submit">
-            submit
-        </button>
-        <button id="cancel" title="cancel">
-            cancel
-        </button>
-    </div>
+<div id="categories">
+</div>
+<div class="panel" id="panel_about">
+</div>
+<div id="footer">
+    <input id="price" type="number" min-value="0" max-value="1">
+    <div id="rupee"></div>
+    <button id="submit" title="submit">
+        submit
+    </button>
+    <button id="cancel" title="cancel">
+        cancel
+    </button>
+</div>
+`);
+
+const STYLE = new GlobalStyle(`
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+#footer,
+#submit,
+#cancel {
+    display: flex;
+}
+#categories {
+    padding: 5px;
+    overflow-x: auto;
+    overflow-y: none;
+    border-bottom: solid 2px #cccccc;
+}
+.category {
+    display: inline-flex;
+    margin: 0 2px;
+}
+.panel {
+    display: none;
+    word-wrap: break-word;
+    resize: none;
+}
+.panel.active {
+    display: block;
+}
+#footer {
+    height: 50px;
+    padding: 10px 30px 10px;
+    justify-content: flex-end;
+    border-top: solid 2px #cccccc;
+}
+#price {
+    width: 60px;
+    text-align: right;
+}
+#price[readonly] {
+    box-shadow: none;
+}
+#rupee:after {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-left: 5px;
+    background-image: url('/images/items/rupees.png');
+    background-size: 20px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    content: " ";
+}
+#submit,
+#cancel {
+    margin-left: 10px;
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.category {
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+.category:hover {
+    background-color: gray;
+}
+#submit:hover,
+#cancel:hover,
+.category.active {
+    color: white;
+    background-color: black;
+}
+ootrt-shopedititem.active {
+    box-shadow: 0 0 2px 2px red;
+}
 `);
 
 const Q_TAB = [
@@ -98,35 +119,23 @@ const Q_TAB = [
 
 async function settingsSubmit() {
     const ev = new Event('submit');
+    const priceEl = this.shadowRoot.getElementById('price');
     const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.value}"]`);
     if (el) {
-        ev.ref = el.ref;
+        ev.item = el.ref;
         if (!isNaN(parseInt(el.price))) {
             ev.price = el.price;
-            this.dispatchEvent(ev);
-            document.body.removeChild(this);
         } else {
-            const shop_price = document.createElement('input');
-            shop_price.setAttribute("type", "number");
-            shop_price.setAttribute("min-value", 1);
-            shop_price.setAttribute("max-value", 999);
-            shop_price.value = 0;
-            const d = new Dialog({title: "Price", submit: true, cancel: true});
-            d.onsubmit = function(result) {
-                if (result) {
-                    ev.price = parseInt(shop_price.value);
-                    this.dispatchEvent(ev);
-                    document.body.removeChild(this);
-                }
-            }.bind(this);
-            d.append(shop_price);
-            d.show();
+            ev.price = priceEl.value;
         }
+        this.dispatchEvent(ev);
+        document.body.removeChild(this);
     }
 }
 
 function clickItem(event) {
-    this.value = event.target.ref;
+    const el = event.target;
+    this.value = el.ref;
 }
 
 export default class HTMLTrackerShopItemChoice extends Window {
@@ -134,9 +143,10 @@ export default class HTMLTrackerShopItemChoice extends Window {
     constructor(title = "Item Choice", options = {}) {
         super(title, options.close);
         const els = TPL.generate();
+        STYLE.apply(this.shadowRoot);
+        /* --- */
         const window = this.shadowRoot.getElementById('window');
         this.shadowRoot.getElementById('body').innerHTML = "";
-        this.shadowRoot.insertBefore(els.children[0], this.shadowRoot.getElementById('focus_catcher_top'));
         this.shadowRoot.getElementById('body').append(els.getElementById('panel_about'));
         const ctgrs = els.getElementById('categories');
         window.insertBefore(ctgrs, this.shadowRoot.getElementById('body'));
@@ -198,19 +208,19 @@ export default class HTMLTrackerShopItemChoice extends Window {
             case 'active':
                 if (oldValue != newValue) {
                     const ol = this.shadowRoot.getElementById(`panel_${oldValue}`);
-                    if (ol) {
+                    if (ol != null) {
                         ol.classList.remove("active");
                     }
                     const ob = this.shadowRoot.querySelector(`[target="${oldValue}"]`);
-                    if (ob) {
+                    if (ob != null) {
                         ob.classList.remove("active");
                     }
                     const nl = this.shadowRoot.getElementById(`panel_${newValue}`);
-                    if (nl) {
+                    if (nl != null) {
                         nl.classList.add("active");
                     }
                     const nb = this.shadowRoot.querySelector(`[target="${newValue}"]`);
-                    if (nb) {
+                    if (nb != null) {
                         nb.classList.add("active");
                     }
                 }
@@ -218,12 +228,26 @@ export default class HTMLTrackerShopItemChoice extends Window {
             case 'value':
                 if (oldValue != newValue) {
                     const ol = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${oldValue}"]`);
-                    if (ol) {
+                    if (ol != null) {
                         ol.classList.remove("active");
                     }
                     const nl = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${newValue}"]`);
-                    if (nl) {
+                    if (nl != null) {
                         nl.classList.add("active");
+                        // category
+                        const parent = nl.parentElement;
+                        if (parent != null) {
+                            this.active = parent.dataset.ref;
+                        }
+                        // price
+                        const priceEl = this.shadowRoot.getElementById('price');
+                        if (!isNaN(parseInt(nl.price))) {
+                            priceEl.value = nl.price;
+                            priceEl.readOnly = true;
+                        } else {
+                            priceEl.value = 0;
+                            priceEl.readOnly = false;
+                        }
                     }
                 }
                 break;
@@ -247,7 +271,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
         }
         if (category) {
             this.active = category;
-        } else {
+        } else if (!this.active) {
             const ctg = this.shadowRoot.getElementById('categories').children;
             if (ctg.length) {
                 this.active = ctg[0].getAttribute('target')

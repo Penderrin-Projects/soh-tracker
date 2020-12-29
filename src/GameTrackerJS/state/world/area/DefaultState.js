@@ -14,7 +14,7 @@ function internalHintChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.hint = change.newValue;
+        this.hint = change.value;
     }
 }
 
