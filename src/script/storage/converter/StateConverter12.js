@@ -32,8 +32,23 @@ StateConverter.register(function(state) {
             res.data[i] = state.data[i];
         }
     }
-
-    // TODO modify shops
+    const extra_shops = {};
+    for (const [key, value] of Object.entries(state.extra.shops_items)) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.item`] = value[i].item;
+            extra_shops[`${key}/${i}.price`] = value[i].price;
+        }
+    }
+    for (const [key, value] of Object.entries(state.extra.shops_bought)) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.bought`] = !!value[i];
+        }
+    }
+    for (const [key, value] of Object.entries(state.extra.shops_names)) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.name`] = value[i];
+        }
+    }
     // collect data
     return res;
 });

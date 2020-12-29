@@ -54,6 +54,8 @@ export default class DefaultState extends StateData {
         /* --- */
         this.item = StateStorage.readExtra("shops", `${ref}.item`, props.item);
         this.price = StateStorage.readExtra("shops", `${ref}.price`, props.price);
+        this.bought = StateStorage.readExtra("shops", `${ref}.bought`, false);
+        this.name = StateStorage.readExtra("shops", `${ref}.name`, "");
         /* EVENTS */
         EventBus.register("state::shop_item", internalItemChange.bind(this));
         EventBus.register("state::shop_price", internalPriceChange.bind(this));
@@ -111,12 +113,12 @@ export default class DefaultState extends StateData {
         ITEM_DATA.set(this, data);
         const bought = BOUGHT.get(this);
         if (bought) {
-            ICON.set(this, "/images/items/sold_out.svg");
+            ICON.set(this, "/images/items/sold_out.png");
         } else {
             if (data) {
                 ICON.set(this, data.image);
             } else {
-                ICON.set(this, "/images/items/unknown.svg");
+                ICON.set(this, "/images/items/unknown.png");
             }
         }
     }

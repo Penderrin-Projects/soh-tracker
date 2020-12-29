@@ -13,6 +13,7 @@ Application:    Track-OOT
     - create state handlers for ui elements
 - added accessability icons for world access values
 - added categories to exits/entrances panel
+- make shop items editable one by one
 
 ---
 

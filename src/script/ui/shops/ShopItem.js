@@ -107,15 +107,14 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             }
         });
         this.registerStateHandler("name", event => {
-            const nameEl = this.shadowRoot.getElementById("price");
+            const nameEl = this.shadowRoot.getElementById("name");
             if (nameEl != null) {
                 nameEl.value = event.data;
             }
         });
 
         /* mouse events */
-
-        this.addEventListener("click", event => {
+        this.shadowRoot.getElementById("image").addEventListener("click", event => {
             const state = this.getState();
             if (state != null) {
                 state.bought = !state.bought;
@@ -136,11 +135,6 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
                 state.name = event.target.value;
             }
         });
-        this.shadowRoot.getElementById("name").addEventListener("click", event => {
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }, true);
 
         /* fck iOS */
         iOSTouchHandler.register(this);
@@ -163,7 +157,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             priceEl.innerHTML = "0";
         }
         // name
-        const nameEl = this.shadowRoot.getElementById("price");
+        const nameEl = this.shadowRoot.getElementById("name");
         if (nameEl != null) {
             nameEl.value = "";
         }
@@ -187,7 +181,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
                 priceEl.innerHTML = state.price;
             }
             // name
-            const nameEl = this.shadowRoot.getElementById("price");
+            const nameEl = this.shadowRoot.getElementById("name");
             if (nameEl != null) {
                 nameEl.value = state.name;
             }

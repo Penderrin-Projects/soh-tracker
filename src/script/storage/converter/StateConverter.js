@@ -10,5 +10,7 @@ import "./StateConverter7.js";
 import "./StateConverter8.js";
 import "./StateConverter9.js";
 import "./StateConverter10.js";
+import "./StateConverter11.js";
+import "./StateConverter12.js";
 
 StateConverter.offset = 0;

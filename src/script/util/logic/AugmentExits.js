@@ -1,8 +1,7 @@
-import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "/script/util/logic/Logic.js";
-import ExitRegistry from "/script/util/world/ExitRegistry.js";
 
 const OPTIONS = {
     "option.shuffle_grottos": false,
@@ -21,11 +20,11 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
     if (exitEntry == null) {
         console.error(`missing exit: ${edgeThere}`);
     } else {
-        if (!exitEntry.active()) return;
+        if (!exitEntry.active) return;
         const [source, target] = edgeThere.split(" -> ");
         const entranceEntry = ExitRegistry.get(edgeBack);
         if (entranceEntry != null) {
-            if (!entranceEntry.active() || exitEntry.getType() != entranceEntry.getType()) return;
+            if (!entranceEntry.active || exitEntry.exitData.type != entranceEntry.exitData.type) return;
             const [reroute, entrance] = edgeBack.split(" -> ");
             if (exit_binding[edgeThere]) {
                 StateStorage.writeExtra("exits", exit_binding[edgeThere], "");
@@ -56,14 +55,14 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
     }
 }
 
-async function update() {
+function update(force) {
     const changes = [];
     for (const exit in exit_binding) {
         if (!exit) continue;
         const exitEntry = ExitRegistry.get(exit);
         if (exitEntry != null) {
             const [source, target] = exit.split(" -> ");
-            if (exitEntry.active()) {
+            if (exitEntry.active) {
                 const reroute = exit_binding[exit].split(" -> ")[0];
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
@@ -75,7 +74,7 @@ async function update() {
             throw Error("Entrance association error: data may be stale");
         }
     }
-    if (changes.length) {
+    if (force || changes.length) {
         const res = Logic.setTranslation(changes, "region.root");
         if (Object.keys(res).length > 0) {
             EventBus.trigger("logic", res);
@@ -86,7 +85,7 @@ async function update() {
 // register event on state change
 EventBus.register("state", event => {
     let changed = false;
-    const exits = FileData.get("world/exit");
+    const exits = ExitRegistry.getAll();
     for (const exit in exits) {
         if (event.data.extra.exits != null && event.data.extra.exits[exit] != null) {
             const edgeBack = event.data.extra.exits[exit];
@@ -107,7 +106,7 @@ EventBus.register("state", event => {
         }
     }
     if (changed) {
-        update();
+        update(true);
     }
 });
 
@@ -121,7 +120,7 @@ EventBus.register("randomizer_options", event => {
         }
     }
     if (changed) {
-        update();
+        update(true);
     }
 });
 
@@ -143,20 +142,26 @@ EventBus.register("statechange_exits", event => {
 
 class AugmentExits {
 
-    async init() {
+    init() {
         const bound = StateStorage.readAllExtra("exits");
-        const exits = FileData.get("world/exit");
+        const exits = ExitRegistry.getAll();
         for (const exit in exits) {
             const entrance = bound[exit] || "";
             exit_binding[exit] = entrance;
             if (entrance) {
                 exit_binding[entrance] = exit;
+            } else {
+                const tExit = exits[exit].exitData.target;
+                const tEntrance = bound[tExit] || "";
+                exit_binding[tExit] = tEntrance;
             }
         }
         for (const key in OPTIONS) {
             OPTIONS[key] = StateStorage.read(key);
         }
-        await update();
+        setTimeout(async function() {
+            update(true)
+        }, 0);
     }
 
 }
