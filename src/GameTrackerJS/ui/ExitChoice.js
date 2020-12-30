@@ -139,7 +139,7 @@ export default class HTMLTrackerExitChoice extends StateDataEventManagerMixin(UI
         selectEl.append(empty);
         for (const key in entrances) {
             const value = entrances[key];
-            if (value.active && ((exit.exitData.type === 'special' && value.exitData.type !== 'dungeon') || (exit.exitData.type !== 'special' && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)))) {
+            if (value.active && ((exit.exitData.type === 'special' && value.exitData.type !== 'dungeon') || (value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)))) {
                 const opt = document.createElement('emc-option');
                 opt.value = value.exitData.target;
                 opt.innerHTML = Language.translate(value.exitData.target);

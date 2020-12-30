@@ -33,7 +33,7 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //if (!!exit_binding[edgeBack]) {
             //    StateStorage.writeExtra("exits", exit_binding[edgeBack], "");
             //}
-            if(exitEntry.getType() !== 'special') {
+            if(exitEntry.exitData.type !== 'special') {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
                 changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
@@ -52,7 +52,7 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //}
             edgeBack = exit_binding[edgeThere];
             const [reroute, entrance] = edgeBack.split(" -> ");
-            if(exitEntry.getType() !== 'special') {
+            if(exitEntry.exitData.type !== 'special') {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
                 changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: "[child]"});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
