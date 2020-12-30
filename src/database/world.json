@@ -7590,6 +7590,97 @@
                 "type": "value",
                 "el": "option.shuffle_grottos"
             }
+        },
+
+        "region.lh_owl_flight -> region.hyrule_field": {
+            "target": "region.hyrule_field -> region.lh_owl_flight",
+            "type": "special",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_owls"
+            }
+        },
+        "region.dmt_owl_flight -> region.kak_impas_rooftop": {
+            "target": "region.kak_impas_rooftop -> region.dmt_owl_flight",
+            "type": "special",
+            "area": "area/kakariko",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_owls"
+            }
+        },
+        "region.child_spawn -> region.kf_links_house": {
+            "target": "region.kf_links_house -> region.child_spawn",
+            "type": "special",
+            "area": "subarea/kokiri.links_house",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_spawns"
+            }
+        },
+        "region.adult_spawn -> region.temple_of_time": {
+            "target": "region.temple_of_time -> region.adult_spawn",
+            "type": "special",
+            "area": "subarea/castle_town.temple_of_time",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_spawns"
+            }
+        },
+        "region.prelude_of_light_warp -> region.temple_of_time": {
+            "target": "region.temple_of_time -> region.prelude_of_light_warp",
+            "type": "special",
+            "area": "subarea/castle_town.temple_of_time",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
+        },
+        "region.minuet_of_forest_warp -> region.sacred_forest_meadow": {
+            "target": "region.sacred_forest_meadow -> region.minuet_of_forest_warp",
+            "type": "special",
+            "area": "area/meadow",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
+        },
+        "region.bolero_of_fire_warp -> region.dmc_central_local": {
+            "target": "region.dmc_central_local -> region.bolero_of_fire_warp",
+            "type": "special",
+            "area": "area/crater",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
+        },
+        "region.serenade_of_water_warp -> region.lake_hylia": {
+            "target": "region.lake_hylia -> region.serenade_of_water_warp",
+            "type": "special",
+            "area": "area/lake",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
+        },
+        "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region": {
+            "target": "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp",
+            "type": "special",
+            "area": "area/graveyard",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
+        },
+        "region.requiem_of_spirit_warp -> region.desert_colossus": {
+            "target": "region.desert_colossus -> region.requiem_of_spirit_warp",
+            "type": "special",
+            "area": "area/colossus",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            }
         }
     },
     "marker": {
