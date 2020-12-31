@@ -7,7 +7,6 @@ import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import World from "/script/util/world/World.js";
 
 import {loadResources, registerWorker} from "/script/boot.js";
 
@@ -38,8 +37,6 @@ function setDevs(data) {
         // initial boot
         await loadResources(updateLoadingMessage); // eslint-disable-line no-undef
         // ---
-        updateLoadingMessage("build world data..."); // eslint-disable-line no-undef
-        World.init();
         updateLoadingMessage("poke application..."); // eslint-disable-line no-undef
         await init();
     } catch(err) {

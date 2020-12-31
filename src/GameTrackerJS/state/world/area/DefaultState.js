@@ -32,7 +32,7 @@ export default class DefaultState extends StateWorld {
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
-        EventBus.register(["logic", "state::location", "randomizer_options"], event => {
+        EventBus.register(["logic", "state::location", "randomizer_options", "filter"], event => {
             this.refreshAccess();
         });
     }

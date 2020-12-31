@@ -1,9 +1,8 @@
-import FileData from "/emcJS/data/FileData.js";
 import Logger from "/emcJS/util/Logger.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "/script/util/logic/Logic.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 
 class ListLogic {
 
@@ -18,7 +17,6 @@ class ListLogic {
     }
     
     check(list) {
-        const world = FileData.get("world/marker");
         const res = {
             done: 0,
             unopened: 0,
@@ -30,47 +28,41 @@ class ListLogic {
             for (const entry of list) {
                 const category = entry.category;
                 const id = entry.id;
-                const buffer = world[category][id];
-                if (category == "location") {
-                    const access = buffer.access;
-                    if (!StateStorage.read(`${category}/${id}`, 0)) {
-                        res.unopened++;
-                        if (Logic.getValue(access)) {
-                            res.reachable++;
+                const ref = `${category}/${id}`;
+                const worldElementState = WorldRegistry.get(ref);
+                if (worldElementState != null && worldElementState.visible) {
+                    if (category == "location") {
+                        const access = worldElementState.props.access;
+                        if (!StateStorage.read(`${category}/${id}`, 0)) {
+                            res.unopened++;
+                            if (Logic.getValue(access)) {
+                                res.reachable++;
+                            }
+                        } else {
+                            res.done++;
+                        }
+                    } else if (category == "subarea") {
+                        const subareaList = worldElementState.getFilteredList();
+                        if (subareaList != null) {
+                            const {done, unopened, reachable} = this.check(subareaList);
+                            res.done += done;
+                            res.unopened += unopened;
+                            res.reachable += reachable;
+                        }
+                    } else if (category == "subexit") {
+                        const subareaState = WorldRegistry.get(worldElementState.area);
+                        if (subareaState != null) {
+                            const subareaList = subareaState.getFilteredList();
+                            if (subareaList != null) {
+                                const {done, unopened, reachable} = this.check(subareaList);
+                                res.done += done;
+                                res.unopened += unopened;
+                                res.reachable += reachable;
+                            }
                         }
                     } else {
-                        res.done++;
+                        Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
                     }
-                } else if (category == "subarea") {
-                    const subarea = FileData.get(`world/subarea/${id}/list`).filter(this.filterUnusedChecks);
-                    const {done, unopened, reachable} = this.check(subarea);
-                    res.done += done;
-                    res.unopened += unopened;
-                    res.reachable += reachable;
-                } else if (category == "subexit") {
-                    const exitData = FileData.get(`world/marker/subexit/${id}`);
-                    const [source] = exitData.access.split(" -> ");
-                    const bound = StateStorage.readExtra("exits", exitData.access);
-                    if (!bound) {
-                        if (!!Logic.getValue(`${source}[child]`) || !!Logic.getValue(`${source}[adult]`)) {
-                            res.entrances = true;
-                        }
-                        continue;
-                    }
-                    let entranceData = FileData.get(`world/exit/${bound}`);
-                    if (entranceData == null) {
-                        const [reroute, entrance] = bound.split(" -> ");
-                        entranceData = FileData.get(`world/exit/${entrance} -> ${reroute}`)
-                    }
-                    if (entranceData != null) {
-                        const subarea = FileData.get(`world/${entranceData.area}/list`).filter(this.filterUnusedChecks);
-                        const {done, unopened, reachable} = this.check(subarea);
-                        res.done += done;
-                        res.unopened += unopened;
-                        res.reachable += reachable;
-                    }
-                } else {
-                    Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
                 }
             }
         }
@@ -86,11 +78,6 @@ class ListLogic {
             }
         }
         return res;
-    }
-
-    filterUnusedChecks(check) {
-        const loc = MarkerRegistry.get(`${check.category}/${check.id}`);
-        return !!loc && loc.visible();
     }
 
 }

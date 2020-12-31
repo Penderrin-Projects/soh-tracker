@@ -70,6 +70,15 @@ export default class StateManager {
         return new StateClass(ref, props);
     }
 
+    getAll() {
+        const instancces = INSTANCES.get(this);
+        const res = {};
+        for (const [key, value] of instancces) {
+            res[key] = value;
+        }
+        return res;
+    }
+
     initData() {
         throw new Error("can not initialize data in abstract method");
     }

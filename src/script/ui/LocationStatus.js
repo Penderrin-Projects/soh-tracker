@@ -1,21 +1,22 @@
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
+import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
-import StateStorage from "/script/storage/StateStorage.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 
 const TPL = new Template(`
-    <style>
-        .state {
-            display: inline;
-            padding: 0 5px;
-            white-space: nowrap;
-        }
-    </style>
-    <div class="state">
-        <span id="locations-done">#</span> done / <span id="locations-available">#</span> avail / <span id="locations-missing">#</span> miss
-    </div>
+<div class="state">
+    <span id="locations-done">#</span> done / <span id="locations-available">#</span> avail / <span id="locations-missing">#</span> miss
+</div>
+`);
+    
+const STYLE = new GlobalStyle(`
+.state {
+    display: inline;
+    padding: 0 5px;
+    white-space: nowrap;
+}
 `);
 
 function updateStates(doneEl, availEl, missEl) {
@@ -24,14 +25,13 @@ function updateStates(doneEl, availEl, missEl) {
     let todo_min = 0;
     let todo_max = 0;
     let done = 0;
-    const areas = FileData.get("world/area");
+    const areas = AreaStateManager.getAll();
     if (areas) {
-        Object.keys(areas).forEach(name => {
-            const buff = areas[name];
-            const dType = StateStorage.readExtra("dungeontype", `area/${name}`, buff.lists["mq"] != null ? "n" : "v");
-            if (dType == "n") {
-                const cv = ListLogic.check(buff.lists.v.filter(ListLogic.filterUnusedChecks));
-                const cm = ListLogic.check(buff.lists.mq.filter(ListLogic.filterUnusedChecks));
+        for (const [, area] of Object.entries(areas)) {
+            const dType = area.type;
+            if (dType != undefined && dType == "n") {
+                const cv = ListLogic.check(area.getFilteredList("v"));
+                const cm = ListLogic.check(area.getFilteredList("mq"));
                 if (cv.reachable < cm.reachable) {
                     access_min += cv.reachable;
                     access_max += cm.reachable;
@@ -47,14 +47,14 @@ function updateStates(doneEl, availEl, missEl) {
                     todo_max += cv.unopened;
                 }
             } else {
-                const c = ListLogic.check(buff.lists[dType].filter(ListLogic.filterUnusedChecks));
+                const c = ListLogic.check(area.getFilteredList());
                 access_min += c.reachable;
                 access_max += c.reachable;
                 todo_min += c.unopened;
                 todo_max += c.unopened;
                 done += c.done;
             }
-        });
+        }
     }
     if (access_min == access_max) {
         availEl.innerHTML = access_min;
@@ -75,6 +75,8 @@ class HTMLLocationState extends UIEventBusMixin(HTMLElement) {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
+        STYLE.apply(this.shadowRoot);
+        /* --- */
         const locationsDone = this.shadowRoot.getElementById("locations-done");
         const locationsAvail = this.shadowRoot.getElementById("locations-available");
         const locationsMiss = this.shadowRoot.getElementById("locations-missing");
