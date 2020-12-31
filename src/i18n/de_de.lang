@@ -977,6 +977,7 @@ skips=Aktive Skips
 # SETTINGS - GENERAL
 font=Wähle Font
 layout=Wähle Layout
+color_blind_mode=Farbenblind Modus aktivieren
 item_size=Item Größe
 autosave_time=Zeit für automatisches Speichern in Minuten (0 zum Deaktivieren)
 autosave_amount=Anzahl zu behaltender automatischer Speicherungen

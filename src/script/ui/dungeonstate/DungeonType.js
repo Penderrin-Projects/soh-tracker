@@ -160,7 +160,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                if (this.value == "v") {
+                if (state.type == "v") {
                     state.type = "mq";
                 } else {
                     state.type = "v";

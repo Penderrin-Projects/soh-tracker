@@ -2,6 +2,9 @@ import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+import SettingsSpy from "../util/spy/SettingsSpy.js";
+
+const colorBlindSpy = new SettingsSpy("color_blind_mode");
 
 const TPL = new Template(`
 <emc-icon id="access"></emc-icon>
@@ -20,8 +23,8 @@ const STYLE = new GlobalStyle(`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
     flex-shrink: 0;
+    padding: 2px;
     margin-left: 5px;
     border: 1px solid var(--navigation-background-color, #ffffff);
     border-radius: 2px;
@@ -32,7 +35,7 @@ emc-icon {
     margin: 1px;
 }
 emc-icon:not([src]),
-emc-icon[src=""], {
+emc-icon[src=""] {
     display: none;
 }
 `);
@@ -60,6 +63,19 @@ function getLoneFilterIndex(name, filter, data) {
     return current;
 }
 
+function onColorBlindModeChanged(event) {
+    const accessEl = this.shadowRoot.getElementById("access");
+    if (accessEl != null) {
+        if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
+            accessEl.src = `images/icons/access_${this.access}.svg`;
+        } else {
+            accessEl.src = "";
+        }
+    }
+}
+
+const COLOR_BLIND_FN = new WeakMap();
+
 export default class Badge extends HTMLElement {
 
     constructor() {
@@ -77,6 +93,19 @@ export default class Badge extends HTMLElement {
                 this.shadowRoot.append(el);
             }
         }
+        /* --- */
+        COLOR_BLIND_FN.set(this, onColorBlindModeChanged.bind(this));
+    }
+
+    connectedCallback() {
+        colorBlindSpy.addEventListener("value", COLOR_BLIND_FN.get(this));
+    }
+
+    disconnectedCallback() {
+        colorBlindSpy.removeEventListener("value", COLOR_BLIND_FN.get(this));
+    }
+
+    onColorBlindModeChanged(value) {
     }
 
     get typeIcon() {
@@ -114,7 +143,7 @@ export default class Badge extends HTMLElement {
                     {
                         const accessEl = this.shadowRoot.getElementById("access");
                         if (accessEl != null) {
-                            if (ACCESS_VALUES.indexOf(newValue) >= 0) {
+                            if (colorBlindSpy.value && ACCESS_VALUES.indexOf(newValue) >= 0) {
                                 accessEl.src = `images/icons/access_${newValue}.svg`;
                             } else {
                                 accessEl.src = "";

@@ -7,9 +7,9 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
 import Language from "/script/util/Language.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
 // more
 import "./listitems/Button.js";
+import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
 import "./listitems/Area.js";
 import "./listitems/SubArea.js";
@@ -89,7 +89,8 @@ const TPL = new Template(`
             width: 25px;
             height: 25px;
         }
-        ootrt-list-button {
+        ootrt-list-button,
+        ootrt-list-typebutton {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -99,10 +100,12 @@ const TPL = new Template(`
             padding: 5px;
         }
         ootrt-list-button:hover,
+        ootrt-list-typebutton:hover,
         #list > *:hover {
             background-color: var(--main-hover-color, #ffffff32);
         }
         ootrt-list-button.hidden,
+        ootrt-list-typebutton.hidden,
         :host(:not([ref])) #back,
         :host([ref="overworld"]) #back {
             display: none;
@@ -125,8 +128,8 @@ const TPL = new Template(`
     </div>
     <div id="body">
         <ootrt-list-button id="back">(${Language.translate("back")})</ootrt-list-button>
-        <ootrt-list-button id="vanilla" class="hidden">${Language.translate("vanilla")}</ootrt-list-button>
-        <ootrt-list-button id="masterquest" class="hidden">${Language.translate("masterquest")}</ootrt-list-button>
+        <ootrt-list-typebutton type="v" id="vanilla" class="hidden">${Language.translate("vanilla")}</ootrt-list-typebutton>
+        <ootrt-list-typebutton type="mq" id="masterquest" class="hidden">${Language.translate("masterquest")}</ootrt-list-typebutton>
         <div id="list"></div>
     </div>
 `);
@@ -143,12 +146,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             event.stopPropagation();
             event.preventDefault();
             return false;
-        });
-        this.shadowRoot.getElementById('vanilla').addEventListener("click", event => {
-            StateStorage.writeExtra("dungeontype", this.ref, 'v');
-        });
-        this.shadowRoot.getElementById('masterquest').addEventListener("click", event => {
-            StateStorage.writeExtra("dungeontype", this.ref, 'mq');
         });
         /* event bus */
         this.registerGlobal("location_change", event => {
@@ -239,8 +236,14 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         if (data != null) {
             const list = data.getFilteredList();
             if (list != null) {
-                btn_vanilla.className = "hidden";
-                btn_masterquest.className = "hidden";
+                if (btn_vanilla != null) {
+                    btn_vanilla.classList.add("hidden");
+                    btn_vanilla.ref = "";
+                }
+                if (btn_masterquest != null) {
+                    btn_masterquest.classList.add("hidden");
+                    btn_vanilla.ref = "";
+                }
                 for (const record of list) {
                     const id = `${record.category}/${record.id}`;
                     const loc = WorldRegistry.get(id);
@@ -249,17 +252,13 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     cnt.append(el);
                 }
             } else {
-                const listV = data.getFilteredList("v");
-                if (listV != null) {
-                    const res = ListLogic.check(listV);
-                    const value = AccessStateEnum.getName(res.value).toLowerCase();
-                    btn_vanilla.className = value;
+                if (btn_vanilla != null) {
+                    btn_vanilla.classList.remove("hidden");
+                    btn_vanilla.ref = this.ref;
                 }
-                const listM = data.getFilteredList("mq");
-                if (listM != null) {
-                    const res = ListLogic.check(listM);
-                    const value = AccessStateEnum.getName(res.value).toLowerCase();
-                    btn_masterquest.className = value;
+                if (btn_masterquest != null) {
+                    btn_masterquest.classList.remove("hidden");
+                    btn_vanilla.ref = this.ref;
                 }
             }
             this.updateHeader();

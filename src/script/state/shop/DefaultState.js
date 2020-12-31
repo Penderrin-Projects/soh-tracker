@@ -91,10 +91,10 @@ export default class DefaultState extends StateData {
                 } else {
                     this.bought = false;
                 }
-                // bought
+                // name
                 const name = event.data.extra.shops[`${ref}.name`];
                 if (name != null) {
-                    this.name = bought;
+                    this.name = name;
                 } else {
                     this.name = "";
                 }
@@ -108,17 +108,24 @@ export default class DefaultState extends StateData {
     }
 
     /*#*/applyItem() {
+        const ref = this.ref;
         const item = ITEM.get(this);
-        const data = FileData.get(`shop_items/${item}`);
-        ITEM_DATA.set(this, data);
-        const bought = BOUGHT.get(this);
-        if (bought) {
-            ICON.set(this, "/images/items/sold_out.png");
+        const itemData = FileData.get(`shop_items/${item}`);
+        ITEM_DATA.set(this, itemData);
+        if (itemData != null && itemData.refill) {
+            BOUGHT.set(this, false);
+            StateStorage.writeExtra("shops", `${ref}.bought`, false);
+            ICON.set(this, itemData.image);
         } else {
-            if (data) {
-                ICON.set(this, data.image);
+            const bought = BOUGHT.get(this);
+            if (bought) {
+                ICON.set(this, "/images/items/sold_out.png");
             } else {
-                ICON.set(this, "/images/items/unknown.png");
+                if (itemData != null) {
+                    ICON.set(this, itemData.image);
+                } else {
+                    ICON.set(this, "/images/items/unknown.png");
+                }
             }
         }
     }
@@ -149,8 +156,11 @@ export default class DefaultState extends StateData {
     set price(value) {
         const ref = this.ref;
         value = parseInt(value);
-        if (isNaN(value)) {
+        if (isNaN(value) || value < 0) {
             value = 0;
+        }
+        if (value > 999) {
+            value = 999;
         }
         const old = PRICE.get(this);
         if (value != old) {
@@ -170,21 +180,24 @@ export default class DefaultState extends StateData {
     }
 
     set bought(value) {
-        const ref = this.ref;
-        if (typeof value != "boolean") {
-            value = false;
-        }
-        const old = BOUGHT.get(this);
-        if (value != old) {
-            BOUGHT.set(this, value);
-            StateStorage.writeExtra("shops", `${ref}.bought`, value);
-            this.applyItem();
-            // external
-            const event = new Event("bought");
-            event.data = value;
-            this.dispatchEvent(event);
-            // internal
-            EventBus.trigger("state::shop_bought", {ref, value});
+        const itemData = ITEM_DATA.get(this);
+        if (!itemData.refill) {
+            const ref = this.ref;
+            if (typeof value != "boolean") {
+                value = false;
+            }
+            const old = BOUGHT.get(this);
+            if (value != old) {
+                BOUGHT.set(this, value);
+                StateStorage.writeExtra("shops", `${ref}.bought`, value);
+                this.applyItem();
+                // external
+                const event = new Event("bought");
+                event.data = value;
+                this.dispatchEvent(event);
+                // internal
+                EventBus.trigger("state::shop_bought", {ref, value});
+            }
         }
     }
 
@@ -218,10 +231,10 @@ export default class DefaultState extends StateData {
         return ICON.get(this);
     }
 
-    get custom() {
+    get mark() {
         const itemData = ITEM_DATA.get(this);
         if (itemData != null) {
-            return !itemData.refill;
+            return itemData.mark;
         }
         return false;
     }

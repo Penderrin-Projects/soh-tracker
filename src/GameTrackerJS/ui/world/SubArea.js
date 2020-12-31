@@ -125,6 +125,10 @@ export default class AbstractSubArea extends WorldElement {
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/area.svg");
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.state = "unavailable";
+        }
         this.hint = "";
     }
 

@@ -15,15 +15,19 @@ export default (CLAZZ) => class extends CLAZZ {
         const subs = SUBS.get(this);
         const oldTarget = TARGET.get(this);
         if (oldTarget != null) {
-            subs.forEach(function(fn, name) {
-                oldTarget.removeEventListener(name, fn);
+            subs.forEach(function(fns, name) {
+                fns.forEach(function(fn) {
+                    oldTarget.addEventListener(name, fn);
+                });
             });
         }
         if (newTarget instanceof StateData) {
             TARGET.set(this, newTarget);
             if (this.isConnected) {
-                subs.forEach(function(fn, name) {
-                    newTarget.addEventListener(name, fn);
+                subs.forEach(function(fns, name) {
+                    fns.forEach(function(fn) {
+                        newTarget.addEventListener(name, fn);
+                    });
                 });
                 this.applyStateValues(newTarget);
             }
@@ -45,15 +49,14 @@ export default (CLAZZ) => class extends CLAZZ {
         } else {
             const subs = SUBS.get(this);
             const target = TARGET.get(this);
-            if (target != null) {
-                if (subs.has(name)) {
-                    target.removeEventListener(name, fn);
-                }
-                if (this.isConnected) {
-                    target.addEventListener(name, fn);
-                }
+            if (!subs.has(name)) {
+                subs.set(name, new Set());
             }
-            subs.set(name, fn);
+            const fns = subs.get(name);
+            fns.add(fn);
+            if (target != null && this.isConnected) {
+                target.addEventListener(name, fn);
+            }
         }
     }
 
@@ -63,11 +66,14 @@ export default (CLAZZ) => class extends CLAZZ {
         } else {
             const subs = SUBS.get(this);
             const target = TARGET.get(this);
-            if (target != null) {
-                if (subs.has(name)) {
-                    target.removeEventListener(name, fn);
+            if (subs.has(name)) {
+                const fns = subs.get(name);
+                if (fns.has(fn)) {
                     subs.delete(name);
                 }
+            }
+            if (target != null) {
+                target.removeEventListener(name, fn);
             }
         }
     }
@@ -79,8 +85,10 @@ export default (CLAZZ) => class extends CLAZZ {
         const target = TARGET.get(this);
         if (target != null) {
             const subs = SUBS.get(this);
-            subs.forEach(function(fn, name) {
-                target.addEventListener(name, fn);
+            subs.forEach(function(fns, name) {
+                fns.forEach(function(fn) {
+                    target.addEventListener(name, fn);
+                });
             });
             this.applyStateValues(target);
         } else {
@@ -95,8 +103,10 @@ export default (CLAZZ) => class extends CLAZZ {
         const target = TARGET.get(this);
         if (target != null) {
             const subs = SUBS.get(this);
-            subs.forEach(function(fn, name) {
-                target.removeEventListener(name, fn);
+            subs.forEach(function(fns, name) {
+                fns.forEach(function(fn) {
+                    target.removeEventListener(name, fn);
+                });
             });
         }
     }

@@ -98,20 +98,6 @@ const STYLE = new GlobalStyle(`
     width: 25px;
     height: 25px;
 }
-#badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.1em;
-    flex-shrink: 0;
-    margin-left: 0.3em;
-    border: 0.1em solid var(--navigation-background-color, #ffffff);
-    border-radius: 0.3em;
-}
-#badge emc-icon {
-    width: 30px;
-    height: 30px;
-}
 `);
 
 export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {

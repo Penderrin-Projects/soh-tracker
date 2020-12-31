@@ -92,8 +92,8 @@ export default class AbstractLocation extends WorldElement {
         const textEl = this.shadowRoot.getElementById("text");
         if (textEl != null) {
             textEl.dataset.checked = false;
+            textEl.dataset.state = "unavailable";
         }
-        this.applyAccess(false, false);
     }
 
     applyStateValues(state) {

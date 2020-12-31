@@ -36,6 +36,10 @@
             "essential-map-key"
         ]
     },
+    "color_blind_mode": {
+        "type": "check",
+        "default": true
+    },
     "item_size": {
         "type": "-range",
         "min": 32,

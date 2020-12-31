@@ -217,6 +217,10 @@ export default class MapExit extends WorldElement {
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/entrance.svg");
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.state = "unavailable";
+        }
         this.hint = "";
         this.value = "";
         this.applyAccess(false);

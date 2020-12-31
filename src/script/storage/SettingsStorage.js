@@ -8,7 +8,7 @@ const DEFAULTS = new Map();
 class SettingsStorage {
 
     async init() {
-        const data = STORAGE.getAll();
+        const data = await STORAGE.getAll();
         for (const key in data) {
             const value = data[key];
             DATA.set(key, value);

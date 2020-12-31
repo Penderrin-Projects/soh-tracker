@@ -14,6 +14,10 @@ Application:    Track-OOT
 - added accessability icons for world access values
 - added categories to exits/entrances panel
 - make shop items editable one by one
+- add shop item color frames
+    - gold for non refill items
+    - red to reflect junk
+- add a special type button for choosing v/mq
 
 ---
 

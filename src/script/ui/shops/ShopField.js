@@ -7,7 +7,6 @@ import "./ShopItem.js";
 const TPL = new Template(`
 <div id="title">
     <span id="title-text"></span>
-    <button id="edit">✎</button>
 </div>
 <div id="body">
     <ootrt-shopitem id="slot0"></ootrt-shopitem>
@@ -36,18 +35,6 @@ const STYLE = new GlobalStyle(`
     display: flex;
     align-items: center;
     height: 30px;
-}
-#title button {
-    appearance: none;
-    color: white;
-    background-color: black;
-    border: solid 1px white;
-    margin-left: 15px;
-    cursor: pointer;
-}
-#title button:hover {
-    color: black;
-    background-color: white;
 }
 #body {
     display: grid;

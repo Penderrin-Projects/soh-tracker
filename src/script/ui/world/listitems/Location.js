@@ -64,20 +64,6 @@ const STYLE = new GlobalStyle(`
 #item {
     margin-left: 5px;
 }
-#badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px;
-    flex-shrink: 0;
-    margin-left: 5px;
-    border: 1px solid var(--navigation-background-color, #ffffff);
-    border-radius: 2px;
-}
-#badge emc-icon {
-    width: 25px;
-    height: 25px;
-}
 .menu-tip {
     font-size: 0.7em;
     color: #777777;

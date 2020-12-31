@@ -200,8 +200,11 @@ export default class MapSubExit extends WorldElement {
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/entrance.svg");
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.state = "unavailable";
+        }
         this.hint = "";
-        this.applyAccess(false);
     }
 
     applyStateValues(state) {

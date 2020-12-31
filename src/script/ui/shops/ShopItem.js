@@ -31,8 +31,33 @@ const STYLE = new GlobalStyle(`
     background-color: black;
     cursor: pointer;
 }
-:host(.custom) {
-    background-color: #363636;
+:host([data-mark]) {
+    --shop-item-color-border: rgb(99 99 99);
+    --shop-item-color-back: rgb(99 99 99 / 0.2);
+    background-color: var(--shop-item-color-back, rgb(99 99 99 / 0.2));
+    box-shadow:
+        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 2px inset,
+        var(--shop-item-color-border, rgb(99 99 99)) 0px 0px 2px 1px;
+}
+:host([data-mark="red"]) {
+    --shop-item-color-border: rgb(109 0 36);
+    --shop-item-color-back: rgb(109 0 36 / 0.2);
+}
+:host([data-mark="green"]) {
+    --shop-item-color-border: rgb(9 82 3);
+    --shop-item-color-back: rgb(9 82 3 / 0.2);
+}
+:host([data-mark="turquoise"]) {
+    --shop-item-color-border: rgb(51 129 136);
+    --shop-item-color-back: rgb(51 129 136 / 0.2);
+}
+:host([data-mark="silver"]) {
+    --shop-item-color-border: rgb(204 212 226);
+    --shop-item-color-back: rgb(204 212 226 / 0.2);
+}
+:host([data-mark="gold"]) {
+    --shop-item-color-border: rgb(203 156 61);
+    --shop-item-color-back: rgb(203 156 61 / 0.2);
 }
 #image {
     height: 40px;
@@ -47,10 +72,12 @@ const STYLE = new GlobalStyle(`
 }
 #info {
     display: flex;
-    height: 20px;
+    align-items: center;
+    height: 28px;
 }
 #name {
-    width: 100px;
+    width: 120px;
+    height: 100%;
     background-color: #2b2b2b;
     color: white;
     border: solid 1px #929292;
@@ -91,7 +118,17 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             if (imageEl != null) {
                 imageEl.style.backgroundImage = `url("${state.icon}")`;
             }
-            this.classList.toggle("custom", state.custom);
+            // mark
+            const mark = state.mark;
+            if (mark) {
+                if (typeof mark == "string") {
+                    this.dataset.mark = mark;
+                } else {
+                    this.dataset.mark = "";
+                }
+            } else {
+                delete document.body.dataset.mark;
+            }
         });
         this.registerStateHandler("bought", event => {
             const state = this.getState();
@@ -114,7 +151,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         });
 
         /* mouse events */
-        this.shadowRoot.getElementById("image").addEventListener("click", event => {
+        this.addEventListener("click", event => {
             const state = this.getState();
             if (state != null) {
                 state.bought = !state.bought;
@@ -129,11 +166,17 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             event.stopPropagation();
             return false;
         });
-        this.shadowRoot.getElementById("name").addEventListener("change", event => {
+        const nameEl = this.shadowRoot.getElementById("name");
+        nameEl.addEventListener("change", event => {
             const state = this.getState();
             if (state != null) {
                 state.name = event.target.value;
             }
+        });
+        nameEl.addEventListener("click", event => {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
         });
 
         /* fck iOS */
@@ -161,6 +204,8 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         if (nameEl != null) {
             nameEl.value = "";
         }
+        // mark
+        delete document.body.dataset.mark;
     }
 
     applyStateValues(state) {
@@ -184,6 +229,17 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             const nameEl = this.shadowRoot.getElementById("name");
             if (nameEl != null) {
                 nameEl.value = state.name;
+            }
+            // mark
+            const mark = state.mark;
+            if (mark) {
+                if (typeof mark == "string") {
+                    this.dataset.mark = mark;
+                } else {
+                    this.dataset.mark = "";
+                }
+            } else {
+                delete document.body.dataset.mark;
             }
         }
     }
