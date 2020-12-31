@@ -118,11 +118,11 @@
             ]
         },
         "option.shuffle_overworld": {
-            "type": "hidden",
+            "type": "check",
             "default": false
         },
         "option.shuffle_owls": {
-            "type": "hidden",
+            "type": "check",
             "default": false
         },
         "option.shuffle_warps": {
@@ -130,7 +130,7 @@
             "default": false
         },
         "option.shuffle_spawns": {
-            "type": "hidden",
+            "type": "check",
             "default": false
         },
         "option.trade_sequence_start_item": {

@@ -124,7 +124,8 @@ export default class HTMLTrackerExitChoice extends StateDataEventManagerMixin(UI
         const exits = StateStorage.readAllExtra("exits");
         const bound = new Set();
         for (const key in exits) {
-            if (exits[key] == current) continue;
+            const exitKey = ExitRegistry.get(key)
+            if (exits[key] == current || exitKey.exitData.type === 'special') continue;
             bound.add(exits[key]);
         }
         // add options
@@ -139,7 +140,7 @@ export default class HTMLTrackerExitChoice extends StateDataEventManagerMixin(UI
         selectEl.append(empty);
         for (const key in entrances) {
             const value = entrances[key];
-            if (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)) {
+            if ((exit.exitData.type === 'special' && value.exitData.type !== 'dungeon') || (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target))) {
                 const opt = document.createElement('emc-option');
                 opt.value = value.exitData.target;
                 opt.innerHTML = Language.translate(value.exitData.target);
