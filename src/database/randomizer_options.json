@@ -118,7 +118,7 @@
             ]
         },
         "option.shuffle_overworld": {
-            "type": "hidden",
+            "type": "check",
             "default": false
         },
         "option.shuffle_owls": {

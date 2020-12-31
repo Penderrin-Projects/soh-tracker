@@ -7592,6 +7592,475 @@
             }
         },
 
+        "region.kokiri_forest -> region.kokiri_bridge_gateway": {
+            "target": "region.kokiri_bridge_gateway -> region.kokiri_forest",
+            "type": "overworld_exit",
+            "area": "area/kokiri",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lw_bridge -> region.kokiri_bridge_gateway": {
+            "target": "region.kokiri_bridge_gateway -> region.lw_bridge",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.kokiri_forest -> region.kokiri_woods_gateway": {
+            "target": "region.kokiri_woods_gateway -> region.kokiri_forest",
+            "type": "overworld_exit",
+            "area": "area/kokiri",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lost_woods -> region.kokiri_woods_gateway": {
+            "target": "region.kokiri_woods_gateway -> region.lost_woods",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lost_woods -> region.gc_woods_gateway": {
+            "target": "region.gc_woods_gateway -> region.lost_woods",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gc_woods_warp -> region.gc_woods_gateway": {
+            "target": "region.gc_woods_gateway -> region.gc_woods_warp",
+            "type": "overworld_exit",
+            "area": "area/gorons",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lost_woods -> region.river_woods_gateway": {
+            "target": "region.river_woods_gateway -> region.lost_woods",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zora_river -> region.river_woods_gateway": {
+            "target": "region.river_woods_gateway -> region.zora_river",
+            "type": "overworld_exit",
+            "area": "area/river",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.sfm_entryway -> region.meadow_woods_gateway": {
+            "target": "region.meadow_woods_gateway -> region.sfm_entryway",
+            "type": "overworld_exit",
+            "area": "area/meadow",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lw_beyond_mido -> region.meadow_woods_gateway": {
+            "target": "region.meadow_woods_gateway -> region.lw_beyond_mido",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.field_woods_gateway": {
+            "target": "region.field_woods_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lw_bridge -> region.field_woods_gateway": {
+            "target": "region.field_woods_gateway -> region.lw_bridge",
+            "type": "overworld_exit",
+            "area": "area/woods",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.lake_field_gateway": {
+            "target": "region.lake_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lake_hylia -> region.lake_field_gateway": {
+            "target": "region.lake_field_gateway -> region.lake_hylia",
+            "type": "overworld_exit",
+            "area": "area/lake",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.valley_field_gateway": {
+            "target": "region.valley_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gerudo_valley -> region.valley_field_gateway": {
+            "target": "region.valley_field_gateway -> region.gerudo_valley",
+            "type": "overworld_exit",
+            "area": "area/gerudo_valley",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.marketentrance_field_gateway": {
+            "target": "region.marketentrance_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.market_entrance -> region.marketentrance_field_gateway": {
+            "target": "region.marketentrance_field_gateway -> region.market_entrance",
+            "type": "overworld_exit",
+            "area": "area/market",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.kakariko_field_gateway": {
+            "target": "region.kakariko_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.kakariko_village -> region.kakariko_field_gateway": {
+            "target": "region.kakariko_field_gateway -> region.kakariko_village",
+            "type": "overworld_exit",
+            "area": "area/kakariko",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.river_field_gateway": {
+            "target": "region.river_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zr_front -> region.river_field_gateway": {
+            "target": "region.river_field_gateway -> region.zr_front",
+            "type": "overworld_exit",
+            "area": "area/river",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.hyrule_field -> region.ranch_field_gateway": {
+            "target": "region.ranch_field_gateway -> region.hyrule_field",
+            "type": "overworld_exit",
+            "area": "area/hyrule_field",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lon_lon_ranch -> region.ranch_field_gateway": {
+            "target": "region.ranch_field_gateway -> region.lon_lon_ranch",
+            "type": "overworld_exit",
+            "area": "area/lonlon",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.lake_hylia -> region.domain_lake_gateway": {
+            "target": "region.domain_lake_gateway -> region.lake_hylia",
+            "type": "overworld_exit",
+            "area": "area/lake",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zoras_domain -> region.domain_lake_gateway": {
+            "target": "region.domain_lake_gateway -> region.zoras_domain",
+            "type": "overworld_exit",
+            "area": "area/zoras",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gerudo_fortress -> region.valley_fortress_gateway": {
+            "target": "region.valley_fortress_gateway -> region.gerudo_fortress",
+            "type": "overworld_exit",
+            "area": "area/gerudo",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gv_fortress_side -> region.valley_fortress_gateway": {
+            "target": "region.valley_fortress_gateway -> region.gv_fortress_side",
+            "type": "overworld_exit",
+            "area": "area/gerudo_valley",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gf_outside_gate -> region.wasteland_fortress_gateway": {
+            "target": "region.wasteland_fortress_gateway -> region.gf_outside_gate",
+            "type": "overworld_exit",
+            "area": "area/gerudo",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.wasteland_near_fortress -> region.wasteland_fortress_gateway": {
+            "target": "region.wasteland_fortress_gateway -> region.wasteland_near_fortress",
+            "type": "overworld_exit",
+            "area": "area/wasteland",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.desert_colossus -> region.wasteland_colossus_gateway": {
+            "target": "region.wasteland_colossus_gateway -> region.desert_colossus",
+            "type": "overworld_exit",
+            "area": "area/colossus",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.wasteland_near_colossus -> region.wasteland_colossus_gateway": {
+            "target": "region.wasteland_colossus_gateway -> region.wasteland_near_colossus",
+            "type": "overworld_exit",
+            "area": "area/wasteland",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.market -> region.marketentrance_market_gateway": {
+            "target": "region.marketentrance_market_gateway -> region.market",
+            "type": "overworld_exit",
+            "area": "area/market",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.market_entrance -> region.marketentrance_market_gateway": {
+            "target": "region.marketentrance_market_gateway -> region.market_entrance",
+            "type": "overworld_exit",
+            "area": "area/market",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.market -> region.grounds_market_gateway": {
+            "target": "region.grounds_market_gateway -> region.market",
+            "type": "overworld_exit",
+            "area": "area/market",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.castle_grounds -> region.grounds_market_gateway": {
+            "target": "region.grounds_market_gateway -> region.castle_grounds",
+            "type": "overworld_exit",
+            "area": "area/castle",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.market -> region.tot_market_gateway": {
+            "target": "region.tot_market_gateway -> region.market",
+            "type": "overworld_exit",
+            "area": "area/market",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.tot_entrance -> region.tot_market_gateway": {
+            "target": "region.tot_market_gateway -> region.tot_entrance",
+            "type": "overworld_exit",
+            "area": "area/temple_time",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.kakariko_village -> region.graveyard_kakariko_gateway": {
+            "target": "region.graveyard_kakariko_gateway -> region.kakariko_village",
+            "type": "overworld_exit",
+            "area": "area/kakariko",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.graveyard -> region.graveyard_kakariko_gateway": {
+            "target": "region.graveyard_kakariko_gateway -> region.graveyard",
+            "type": "overworld_exit",
+            "area": "area/graveyard",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.kak_behind_gate -> region.mountain_kakariko_gateway": {
+            "target": "region.mountain_kakariko_gateway -> region.kak_behind_gate",
+            "type": "overworld_exit",
+            "area": "area/kakariko",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.death_mountain -> region.mountain_kakariko_gateway": {
+            "target": "region.mountain_kakariko_gateway -> region.death_mountain",
+            "type": "overworld_exit",
+            "area": "area/mountain",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.goron_city -> region.mountain_goron_gateway": {
+            "target": "region.mountain_goron_gateway -> region.goron_city",
+            "type": "overworld_exit",
+            "area": "area/gorons",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.death_mountain -> region.mountain_goron_gateway": {
+            "target": "region.mountain_goron_gateway -> region.death_mountain",
+            "type": "overworld_exit",
+            "area": "area/mountain",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.gc_darunias_chamber -> region.crater_goron_gateway": {
+            "target": "region.crater_goron_gateway -> region.gc_darunias_chamber",
+            "type": "overworld_exit",
+            "area": "area/gorons",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.dmc_lower_local -> region.crater_goron_gateway": {
+            "target": "region.crater_goron_gateway -> region.dmc_lower_local",
+            "type": "overworld_exit",
+            "area": "area/crater",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.death_mountain_summit -> region.crater_mountain_gateway": {
+            "target": "region.crater_mountain_gateway -> region.death_mountain_summit",
+            "type": "overworld_exit",
+            "area": "area/mountain",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.dmc_upper_local -> region.crater_mountain_gateway": {
+            "target": "region.crater_mountain_gateway -> region.dmc_upper_local",
+            "type": "overworld_exit",
+            "area": "area/crater",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zr_behind_waterfall -> region.river_domain_gateway": {
+            "target": "region.river_domain_gateway -> region.zr_behind_waterfall",
+            "type": "overworld_exit",
+            "area": "area/river",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zoras_domain -> region.river_domain_gateway": {
+            "target": "region.river_domain_gateway -> region.zoras_domain",
+            "type": "overworld_exit",
+            "area": "area/zoras",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zd_behind_king_zora -> region.fountain_domain_gateway": {
+            "target": "region.fountain_domain_gateway -> region.zd_behind_king_zora",
+            "type": "overworld_exit",
+            "area": "area/zoras",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+        "region.zoras_fountain -> region.fountain_domain_gateway": {
+            "target": "region.fountain_domain_gateway -> region.zoras_fountain",
+            "type": "overworld_exit",
+            "area": "area/fountain",
+            "active": {
+                "type": "value",
+                "el": "option.shuffle_overworld"
+            }
+        },
+
         "region.lh_owl_flight -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.lh_owl_flight",
             "type": "special",
@@ -24332,6 +24801,939 @@
                     }
                 },
                 "icon": "images/icons/grotto.svg"
+            },
+
+
+            "region.kokiri_forest -> region.kokiri_bridge_gateway": {
+                "access": "region.kokiri_forest -> region.kokiri_bridge_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lw_bridge -> region.kokiri_bridge_gateway": {
+                "access": "region.lw_bridge -> region.kokiri_bridge_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.kokiri_forest -> region.kokiri_woods_gateway": {
+                "access": "region.kokiri_forest -> region.kokiri_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lost_woods -> region.kokiri_woods_gateway": {
+                "access": "region.lost_woods -> region.kokiri_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lost_woods -> region.gc_woods_gateway": {
+                "access": "region.lost_woods -> region.gc_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gc_woods_warp -> region.gc_woods_gateway": {
+                "access": "region.gc_woods_warp -> region.gc_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lost_woods -> region.river_woods_gateway": {
+                "access": "region.lost_woods -> region.river_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zora_river -> region.river_woods_gateway": {
+                "access": "region.zora_river -> region.river_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.sfm_entryway -> region.meadow_woods_gateway": {
+                "access": "region.sfm_entryway -> region.meadow_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lw_beyond_mido -> region.meadow_woods_gateway": {
+                "access": "region.lw_beyond_mido -> region.meadow_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.field_woods_gateway": {
+                "access": "region.hyrule_field -> region.field_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lw_bridge -> region.field_woods_gateway": {
+                "access": "region.lw_bridge -> region.field_woods_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.lake_field_gateway": {
+                "access": "region.hyrule_field -> region.lake_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lake_hylia -> region.lake_field_gateway": {
+                "access": "region.lake_hylia -> region.lake_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.valley_field_gateway": {
+                "access": "region.hyrule_field -> region.valley_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gerudo_valley -> region.valley_field_gateway": {
+                "access": "region.gerudo_valley -> region.valley_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.marketentrance_field_gateway": {
+                "access": "region.hyrule_field -> region.marketentrance_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.market_entrance -> region.marketentrance_field_gateway": {
+                "access": "region.market_entrance -> region.marketentrance_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.kakariko_field_gateway": {
+                "access": "region.hyrule_field -> region.kakariko_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.kakariko_village -> region.kakariko_field_gateway": {
+                "access": "region.kakariko_village -> region.kakariko_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.river_field_gateway": {
+                "access": "region.hyrule_field -> region.river_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zr_front -> region.river_field_gateway": {
+                "access": "region.zr_front -> region.river_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.hyrule_field -> region.ranch_field_gateway": {
+                "access": "region.hyrule_field -> region.ranch_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lon_lon_ranch -> region.ranch_field_gateway": {
+                "access": "region.lon_lon_ranch -> region.ranch_field_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.lake_hylia -> region.domain_lake_gateway": {
+                "access": "region.lake_hylia -> region.domain_lake_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zoras_domain -> region.domain_lake_gateway": {
+                "access": "region.zoras_domain -> region.domain_lake_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gerudo_fortress -> region.valley_fortress_gateway": {
+                "access": "region.gerudo_fortress -> region.valley_fortress_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gv_fortress_side -> region.valley_fortress_gateway": {
+                "access": "region.gv_fortress_side -> region.valley_fortress_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gf_outside_gate -> region.wasteland_fortress_gateway": {
+                "access": "region.gf_outside_gate -> region.wasteland_fortress_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.wasteland_near_fortress -> region.wasteland_fortress_gateway": {
+                "access": "region.wasteland_near_fortress -> region.wasteland_fortress_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.desert_colossus -> region.wasteland_colossus_gateway": {
+                "access": "region.desert_colossus -> region.wasteland_colossus_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.wasteland_near_colossus -> region.wasteland_colossus_gateway": {
+                "access": "region.wasteland_near_colossus -> region.wasteland_colossus_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.market -> region.marketentrance_market_gateway": {
+                "access": "region.market -> region.marketentrance_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.market_entrance -> region.marketentrance_market_gateway": {
+                "access": "region.market_entrance -> region.marketentrance_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.market -> region.grounds_market_gateway": {
+                "access": "region.market -> region.grounds_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.castle_grounds -> region.grounds_market_gateway": {
+                "access": "region.castle_grounds -> region.grounds_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.market -> region.tot_market_gateway": {
+                "access": "region.market -> region.tot_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.tot_entrance -> region.tot_market_gateway": {
+                "access": "region.tot_entrance -> region.tot_market_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.kakariko_village -> region.graveyard_kakariko_gateway": {
+                "access": "region.kakariko_village -> region.graveyard_kakariko_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.graveyard -> region.graveyard_kakariko_gateway": {
+                "access": "region.graveyard -> region.graveyard_kakariko_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.kak_behind_gate -> region.mountain_kakariko_gateway": {
+                "access": "region.kak_behind_gate -> region.mountain_kakariko_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.death_mountain -> region.mountain_kakariko_gateway": {
+                "access": "region.death_mountain -> region.mountain_kakariko_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.goron_city -> region.mountain_goron_gateway": {
+                "access": "region.goron_city -> region.mountain_goron_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.death_mountain -> region.mountain_goron_gateway": {
+                "access": "region.death_mountain -> region.mountain_goron_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.gc_darunias_chamber -> region.crater_goron_gateway": {
+                "access": "region.gc_darunias_chamber -> region.crater_goron_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.dmc_lower_local -> region.crater_goron_gateway": {
+                "access": "region.dmc_lower_local -> region.crater_goron_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.death_mountain_summit -> region.crater_mountain_gateway": {
+                "access": "region.death_mountain_summit -> region.crater_mountain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.dmc_upper_local -> region.crater_mountain_gateway": {
+                "access": "region.dmc_upper_local -> region.crater_mountain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zr_behind_waterfall -> region.river_domain_gateway": {
+                "access": "region.zr_behind_waterfall -> region.river_domain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zoras_domain -> region.river_domain_gateway": {
+                "access": "region.zoras_domain -> region.river_domain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zd_behind_king_zora -> region.fountain_domain_gateway": {
+                "access": "region.zd_behind_king_zora -> region.fountain_domain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.zoras_fountain -> region.fountain_domain_gateway": {
+                "access": "region.zoras_fountain -> region.fountain_domain_gateway",
+                "type": "overworld_exit",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+
+            "region.lh_owl_flight -> region.hyrule_field": {
+                "access": "region.lh_owl_flight -> region.hyrule_field",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.dmt_owl_flight -> region.kak_impas_rooftop": {
+                "access": "region.dmt_owl_flight -> region.kak_impas_rooftop",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.child_spawn -> region.kf_links_house": {
+                "access": "region.child_spawn -> region.kf_links_house",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.adult_spawn -> region.temple_of_time": {
+                "access": "region.adult_spawn -> region.temple_of_time",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.prelude_of_light_warp -> region.temple_of_time": {
+                "access": "region.prelude_of_light_warp -> region.temple_of_time",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.minuet_of_forest_warp -> region.sacred_forest_meadow": {
+                "access": "region.minuet_of_forest_warp -> region.sacred_forest_meadow",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.bolero_of_fire_warp -> region.dmc_central_local": {
+                "access": "region.bolero_of_fire_warp -> region.dmc_central_local",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.serenade_of_water_warp -> region.lake_hylia": {
+                "access": "region.serenade_of_water_warp -> region.lake_hylia",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region": {
+                "access": "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
+            },
+            "region.requiem_of_spirit_warp -> region.desert_colossus": {
+                "access": "region.requiem_of_spirit_warp -> region.desert_colossus",
+                "type": "special",
+                "filter": {
+                    "filter.era": {
+                        "child": false,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": false,
+                        "night": false
+                    }
+                },
+                "visible": false
             }
         }
     }
