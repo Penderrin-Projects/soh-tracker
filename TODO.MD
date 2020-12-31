@@ -1,8 +1,7 @@
 
 ### FIX MAJOR BUGS
 
-- areas are counting filtered items for the numbers
-    - maybe the filter is not checked correctly in the listlogic module
+- 
 
 ---
 
