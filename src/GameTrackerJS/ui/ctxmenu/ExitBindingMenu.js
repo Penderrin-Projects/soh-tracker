@@ -94,7 +94,7 @@ export default class ExitBindingMenu extends HTMLElement {
             for (const key in entrances) {
                 const value = entrances[key];
                 const isActiveAndType = value.active && value.exitData.type == exit.exitData.type;
-                const isSpecial = (exit.exitData.type === 'special' && value.exitData.type !== 'dungeon');
+                const isSpecial = (exit.exitData.type === 'special' && ['special', 'overworld_exit', 'not_seen'].indexOf(value.exitData.type) > -1);
                 if ((isActiveAndType || isSpecial) && !bound.has(value.exitData.target)) {
                     const opt = document.createElement('emc-option');
                     opt.value = value.exitData.target;

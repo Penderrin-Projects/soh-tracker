@@ -24,7 +24,7 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
         const [source, target] = edgeThere.split(" -> ");
         const entranceEntry = ExitRegistry.get(edgeBack);
         if (entranceEntry != null) {
-            if (!entranceEntry.active || (exitEntry.exitData.type != entranceEntry.exitData.type && exitEntry.exitData.type !== 'special')) return;
+            if (!entranceEntry.active && exitEntry.exitData.type !== 'special') return;
             const [reroute, entrance] = edgeBack.split(" -> ");
             if (exit_binding[edgeThere]) {
                 StateStorage.writeExtra("exits", exit_binding[edgeThere], "");
@@ -160,7 +160,7 @@ class AugmentExits {
         for (const exit in exits) {
             const entrance = bound[exit] || "";
             exit_binding[exit] = entrance;
-            if (entrance && exit.type !== 'special') {
+            if (entrance) {
                 exit_binding[entrance] = exit;
             } else {
                 const tExit = exits[exit].exitData.target;

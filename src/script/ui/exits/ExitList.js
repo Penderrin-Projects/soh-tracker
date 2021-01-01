@@ -117,27 +117,31 @@ export default class HTMLTrackerExitList extends UIEventBusMixin(Panel) {
     }
 
     addTab(category) {
-        const pnl = document.createElement('div');
-        pnl.className = "panel";
-        pnl.id = `panel_${category}`;
-        pnl.dataset.ref = category;
-        this.shadowRoot.getElementById('body').append(pnl);
-        const cb = document.createElement('div');
-        cb.className = "category";
-        cb.setAttribute('target', category);
-        cb.innerHTML = Language.translate(category);
-        this.shadowRoot.getElementById('categories').append(cb);
-        return pnl;
+        if(category !== 'not_seen') {
+            const pnl = document.createElement('div');
+            pnl.className = "panel";
+            pnl.id = `panel_${category}`;
+            pnl.dataset.ref = category;
+            this.shadowRoot.getElementById('body').append(pnl);
+            const cb = document.createElement('div');
+            cb.className = "category";
+            cb.setAttribute('target', category);
+            cb.innerHTML = Language.translate(category);
+            this.shadowRoot.getElementById('categories').append(cb);
+            return pnl;
+        }
     }
 
     addEntrance(category, ref) {
-        const el = document.createElement('gt-exitchoice');
-        el.ref = ref;
-        const panel = this.shadowRoot.getElementById(`panel_${category}`);
-        if (panel != null) {
-            panel.append(el);
-        } else {
-            this.addTab(category).append(el);
+        if(category !== 'not_seen') {
+            const el = document.createElement('gt-exitchoice');
+            el.ref = ref;
+            const panel = this.shadowRoot.getElementById(`panel_${category}`);
+            if(panel != null) {
+                panel.append(el);
+            } else {
+                this.addTab(category).append(el);
+            }
         }
     }
 

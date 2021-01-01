@@ -1433,6 +1433,8 @@ location=Location
 back=back
 dun_reward=Reward
 dun_type=Type (V/MQ)
+search=Search
+search_reset=Reset
 
 # exits
 ## dungeons
@@ -1706,3 +1708,39 @@ region.tot_entrance\u0020->\u0020region.temple_of_time=Temple of Time Entrance
 region.temple_of_time\u0020->\u0020region.tot_entrance=Temple of Time Exit
 
 ## overworld
+
+## specials
+
+## inverted grottos/interiors
+
+region.hyrule_field\u0020->\u0020region.hf_tektite_grotto_entrance=Hyrule Field
+region.kokiri_forest\u0020->\u0020region.kf_midos_house_entrance=Kokiri Forest
+region.lost_woods\u0020->\u0020region.lw_near_shortcuts_grotto_entrance=Lost Woods
+region.lw_beyond_mido\u0020->\u0020region.deku_theater_entrance=Lost Woods Beyond Mido
+region.sfm_entryway\u0020->\u0020region.sfm_wolfos_grotto_entrance=Sacred Forest Meadow Entryway
+region.sacred_forest_meadow\u0020->\u0020region.sfm_storms_grotto_entrance=Sacred Forest Meadow
+region.market_entrance\u0020->\u0020region.market_guard_house_entrance=Market Entrance
+region.market\u0020->\u0020region.market_mask_shop_entrance=Market
+region.market_back_alley\u0020->\u0020region.market_bombchu_shop_entrance=Market Back Alley
+region.lon_lon_ranch\u0020->\u0020region.llr_grotto_entrance=Lon Lon Ranch
+region.hyrule_castle_grounds\u0020->\u0020region.hc_storms_grotto_entrance=Hyrule Castle Grounds
+region.ganons_castle_grounds\u0020->\u0020region.ogc_great_fairy_fountain_entrance=Ganon's Castle Grounds
+region.kak_impas_ledge\u0020->\u0020region.kak_impas_house_back_entrance=Kakariko Impa's Ledge
+region.kak_backyard\u0020->\u0020region.kak_odd_medicine_building_entrance=Kakariko Backyard
+region.kakariko_village\u0020->\u0020region.kak_bazaar_entrance=Kakariko
+region.graveyard\u0020->\u0020region.graveyard_dampes_grave_entrance=Graveyard
+region.death_mountain_summit\u0020->\u0020region.dmt_great_fairy_fountain_entrance=Death Mountain Summit
+region.death_mountain\u0020->\u0020region.dmt_storms_grotto_entrance=Death Mountain
+region.dmc_lower_nearby\u0020->\u0020region.dmc_hammer_grotto_entrance=Death Mountain Crater Lower Nearby
+region.dmc_upper_nearby\u0020->\u0020region.dmc_upper_grotto_entrance=Death Mountain Crater Upper Nearby
+region.goron_city\u0020->\u0020region.gc_shop_entrance=Goron City
+region.gc_grotto_platform\u0020->\u0020region.gc_grotto_entrance=Goron City Grotto Platform
+region.zora_river\u0020->\u0020region.zr_open_grotto_entrance=Zora River
+region.zoras_domain\u0020->\u0020region.zd_storms_grotto_entrance=Zora's Domain
+region.zoras_fountain\u0020->\u0020region.zf_great_fairy_fountain_entrance=Zora's Fountain
+region.lh_fishing_island\u0020->\u0020region.lh_fishing_hole_entrance=Lake Hylia Fishing Island
+region.lake_hylia\u0020->\u0020region.lh_grotto_entrance=Lake Hylia
+region.gv_fortress_side\u0020->\u0020region.gv_storms_grotto_entrance=Gerudo Valley Fortress Side
+region.gv_grotto_ledge\u0020->\u0020region.gv_octorok_grotto_entrance=Gerudo Valley Grotto Ledge
+region.gerudo_fortress\u0020->\u0020region.gf_storms_grotto_entrance=Gerudo Fortress
+region.desert_colossus\u0020->\u0020region.colossus_grotto_entrance=Desert Colossus
