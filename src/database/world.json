@@ -7991,7 +7991,7 @@
         "region.gc_darunias_chamber -> region.crater_goron_gateway": {
             "target": "region.crater_goron_gateway -> region.gc_darunias_chamber",
             "type": "overworld_exit",
-            "area": "area/gorons",
+            "area": "area/goron",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_overworld"

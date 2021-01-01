@@ -13,7 +13,11 @@ const AREA = new WeakMap();
 
 function getEntranceArea(value) {
     const entrance = ExitRegistry.get(value);
-    return WorldRegistry.get(entrance.exitData.area);
+    const area = WorldRegistry.get(entrance.exitData.area);
+    if (area == null) {
+        console.error(`area "${entrance.exitData.area}" not found for exit "${value}"`);
+    }
+    return area;
 }
 
 function getLogicAccess(access) {
