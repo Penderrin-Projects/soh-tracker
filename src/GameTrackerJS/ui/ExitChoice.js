@@ -4,6 +4,8 @@ import ExitRegistry from "../registry/ExitRegistry.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
 import Badge from "./Badge.js";
+import "./ctxmenu/ExitChoiceContextMenu.js";
+import "./ctxmenu/ExitBindingMenu.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 
@@ -86,6 +88,9 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         });
 
         /* context menu */
+        const mnu_ctx = document.createElement("gt-ctxmenu-exitchoice");
+        this.setContextMenu("main", mnu_ctx);
+
         const mnu_ext = document.createElement("gt-ctxmenu-exitbinding");
         this.setContextMenu("exitbinding", mnu_ext);
 
@@ -95,17 +100,42 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
                 state.value = event.value;
             }
         });
-
-        /* mouse events */
-        this.addEventListener("contextmenu", event => {
+        mnu_ctx.addEventListener("associate", event => {
             const state = this.getState();
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.setValue(state.value);
             } else {
                 mnu_ext.fillEntranceSelection("", "");
+                mnu_ext.setValue("");
             }
             mnu_ext.setValue(state.value);
-            mnu_ext.show(event.clientX, event.clientY);
+            mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
+        });
+        mnu_ctx.addEventListener("deassociate", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = "";
+            }
+        });
+
+        /* mouse events */
+        this.addEventListener("click", event => {
+            const state = this.getState();
+            if (state != null) {
+                const area = state.area;
+                if (area == null) {
+                    mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                    mnu_ext.setValue(state.value);
+                    mnu_ext.show(event.clientX, event.clientY);
+                }
+            }
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+        this.addEventListener("contextmenu", event => {
+            mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();
             return false;

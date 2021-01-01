@@ -150,10 +150,8 @@ export default class MapExit extends WorldElement {
                         name: area.ref
                     });
                 } else {
-                    const state = this.getState();
-                    if (state != null) {
-                        mnu_ext.fillEntranceSelection(state.props.access);
-                    }
+                    mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                    mnu_ext.setValue(state.value);
                     mnu_ext.show(event.clientX, event.clientY);
                 }
             }

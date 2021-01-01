@@ -89,10 +89,11 @@ export default class MapSubExit extends WorldElement {
             const state = this.getState();
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.setValue(state.value);
             } else {
                 mnu_ext.fillEntranceSelection("", "");
+                mnu_ext.setValue("");
             }
-            mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
         mnu_ctx.addEventListener("deassociate", event => {
@@ -128,10 +129,8 @@ export default class MapSubExit extends WorldElement {
             if (state != null) {
                 const area = state.area;
                 if (area == null) {
-                    const state = this.getState();
-                    if (state != null) {
-                        mnu_ext.fillEntranceSelection(state.props.access);
-                    }
+                    mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                    mnu_ext.setValue(state.value);
                     mnu_ext.show(event.clientX, event.clientY);
                 }
             }
