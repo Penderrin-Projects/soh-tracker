@@ -2,8 +2,8 @@ import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/script/util/Language.js";
-import "./menu/LocationContextMenu.js";
-import "./menu/ItemPickerMenu.js";
+import "../../ctxmenu/LocationContextMenu.js";
+import "../../ctxmenu/ItemPickerMenu.js";
 
 export default class MapLocation extends AbstractLocation {
 

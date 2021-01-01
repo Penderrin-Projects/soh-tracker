@@ -4,7 +4,7 @@ import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
-import "./menu/GossipstoneContextMenu.js";
+import "../../ctxmenu/GossipstoneContextMenu.js";
 
 // TODO
 

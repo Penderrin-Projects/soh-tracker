@@ -24,16 +24,15 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
         const [source, target] = edgeThere.split(" -> ");
         const entranceEntry = ExitRegistry.get(edgeBack);
         if (entranceEntry != null) {
-
-            if(!entranceEntry.active || (exitEntry.exitData.type != entranceEntry.exitData.type && exitEntry.exitData.type !== 'special')) return;
+            if (!entranceEntry.active || (exitEntry.exitData.type != entranceEntry.exitData.type && exitEntry.exitData.type !== 'special')) return;
             const [reroute, entrance] = edgeBack.split(" -> ");
-            if(exit_binding[edgeThere]) {
+            if (exit_binding[edgeThere]) {
                 StateStorage.writeExtra("exits", exit_binding[edgeThere], "");
             }
             //if (!!exit_binding[edgeBack]) {
             //    StateStorage.writeExtra("exits", exit_binding[edgeBack], "");
             //}
-            if(exitEntry.exitData.type !== 'special') {
+            if (exitEntry.exitData.type !== 'special') {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
                 changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
@@ -52,7 +51,7 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //}
             edgeBack = exit_binding[edgeThere];
             const [reroute, entrance] = edgeBack.split(" -> ");
-            if(exitEntry.exitData.type !== 'special') {
+            if (exitEntry.exitData.type !== 'special') {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
                 changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: "[child]"});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});

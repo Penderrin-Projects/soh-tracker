@@ -1,92 +1,136 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import "/emcJS/ui/input/SearchSelect.js";
 import ExitRegistry from "../registry/ExitRegistry.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
+import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
+import Badge from "./Badge.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 
 const TPL = new Template(`
-<label>
-    <span id="title"></span>
-    <emc-searchselect id="select"></emc-searchselect>
-</label>
+<div class="textarea">
+    <div id="text"></div>
+    <gt-badge id="badge"></gt-badge>
+</div>
+<div class="pointer">→</div>
+<div class="textarea">
+    <div id="value"></div>
+</div>
 `);
 
 const STYLE = new GlobalStyle(`
 * {
     position: relative;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 :host {
-    display: block;
-    padding: 10px;
-    margin: 5px;
-    background-color: #222222;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 3px;
 }
-#title {
-    display: block;
-    height: 20px;
-    margin-bottom: 5px;
+:host(:hover) {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+.textarea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    height: 50px;
+    margin: 2px;
+    word-break: break-word;
+}
+.textarea:empty {
+    display: none;
+}
+.pointer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#value:empty:after {
+    display: inline;
+    font-style: italic;
+    content: "no association";
+}
+#text {
+    display: flex;
+    flex: 1;
+    color: #ffffff;
+    align-items: center;
 }
 `);
 
 
-export default class HTMLTrackerExitChoice extends StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)) {
-    
+export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const selectEl = this.shadowRoot.getElementById("select");
         this.registerStateHandler("value", event => {
-            selectEl.value = event.data;
+            this.value = event.data;
         });
-        this.registerStateHandler("active", event => {
-            const state = this.getState();
-            if (state != null) {
-                selectEl.readonly = !event.data;
-                setTimeout(() => {
-                    this.fillEntranceSelection(state.props.access, state.value);
-                }, 0);
-            }
-        });
-        selectEl.addEventListener("change", event => {
+
+        /* context menu */
+        const mnu_ext = document.createElement("gt-ctxmenu-exitbinding");
+        this.setContextMenu("exitbinding", mnu_ext);
+
+        mnu_ext.addEventListener("change", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;
             }
         });
-        this.registerGlobal("statechange_exits", event => {
+
+        /* mouse events */
+        this.addEventListener("contextmenu", event => {
             const state = this.getState();
             if (state != null) {
-                this.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+            } else {
+                mnu_ext.fillEntranceSelection("", "");
             }
+            mnu_ext.setValue(state.value);
+            mnu_ext.show(event.clientX, event.clientY);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
         });
     }
 
     applyDefaultValues() {
         super.applyDefaultValues();
-        const selectEl = this.shadowRoot.getElementById("select");
-        if (selectEl != null) {
-            selectEl.value = "";
-            selectEl.readonly = true;
-            selectEl.innerHTML = "";
+        this.value = "";
+        const badge = this.shadowRoot.getElementById("badge");
+        if (badge instanceof Badge) {
+            badge.typeIcon = "images/icons/entrance.svg";
+            badge.setFilterData({});
         }
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
         if (state != null) {
-            const selectEl = this.shadowRoot.getElementById("select");
-            if (selectEl != null) {
-                selectEl.value = state.value;
-                selectEl.readonly = !state.active;
+            this.value = state.value;
+            const badge = this.shadowRoot.getElementById("badge");
+            if (badge instanceof Badge) {
+                badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
+                badge.setFilterData(state.filter);
             }
-            this.fillEntranceSelection(state.props.access, state.value);
         }
     }
 
@@ -98,21 +142,44 @@ export default class HTMLTrackerExitChoice extends StateDataEventManagerMixin(UI
         this.setAttribute('ref', val);
     }
 
-    static get observedAttributes() {
-        return ['ref'];
+    get value() {
+        return this.getAttribute('value');
     }
-    
+
+    set value(val) {
+        this.setAttribute('value', val);
+    }
+
+    static get observedAttributes() {
+        return ['ref', 'value'];
+    }
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
                 case 'ref':
                     {
                         const state = ExitRegistry.get(newValue);
-                        const textEl = this.shadowRoot.getElementById("title");
+                        const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(newValue);
                         }
                         this.switchState(state);
+                    }
+                    break;
+                case 'value':
+                    {
+                        const state = this.getState();
+                        if (state != null) {
+                            const valueEl = this.shadowRoot.getElementById("value");
+                            if (valueEl != null) {
+                                if (newValue) {
+                                    valueEl.innerHTML = Language.translate(newValue);
+                                } else {
+                                    valueEl.innerHTML = "";
+                                }
+                            }
+                        }
                     }
                     break;
             }

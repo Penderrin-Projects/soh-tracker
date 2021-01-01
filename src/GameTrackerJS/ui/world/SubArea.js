@@ -5,7 +5,7 @@ import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
-import "./menu/SubAreaContextMenu.js";
+import "../ctxmenu/SubAreaContextMenu.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 

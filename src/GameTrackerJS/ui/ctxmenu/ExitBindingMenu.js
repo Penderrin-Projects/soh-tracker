@@ -3,7 +3,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
-import ExitRegistry from "../../../registry/ExitRegistry.js";
+import ExitRegistry from "../../registry/ExitRegistry.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -64,19 +64,20 @@ export default class ExitBindingMenu extends HTMLElement {
     }
 
     fillEntranceSelection(access, current = "") {
+        const selectEl = this.shadowRoot.getElementById("select");
+        selectEl.innerHTML = "";
         // retrieve bound
         const exits = StateStorage.readAllExtra("exits");
         const bound = new Set();
         for (const key in exits) {
-            if (exits[key] == current) continue;
-            bound.add(exits[key]);
+            if (exits[key] != current) {
+                const boundExit = ExitRegistry.get(key);
+                if (boundExit.exitData.type != 'special') {
+                    bound.add(exits[key]);
+                }
+            }
         }
-        // add options
-        const exit = ExitRegistry.get(access);
-        const entrances = ExitRegistry.getAll();
-        const selectEl = this.shadowRoot.getElementById("select");
-        selectEl.value = current;
-        selectEl.innerHTML = "";
+        // add empty
         const empty = document.createElement('emc-option');
         empty.value = "";
         const emptyText = document.createElement('span');
@@ -84,14 +85,25 @@ export default class ExitBindingMenu extends HTMLElement {
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
         selectEl.append(empty);
-        for (const key in entrances) {
-            const value = entrances[key];
-            if (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target)) {
-                const opt = document.createElement('emc-option');
-                opt.value = value.exitData.target;
-                opt.innerHTML = Language.translate(value.exitData.target);
-                selectEl.append(opt);
+        // set choices and value
+        const exit = ExitRegistry.get(access);
+        if (exit != null) {
+            selectEl.value = current;
+            const entrances = ExitRegistry.getAll();
+            // add options
+            for (const key in entrances) {
+                const value = entrances[key];
+                const isActiveAndType = value.active && value.exitData.type == exit.exitData.type;
+                const isSpecial = (exit.exitData.type === 'special' && value.exitData.type !== 'dungeon');
+                if ((isActiveAndType || isSpecial) && !bound.has(value.exitData.target)) {
+                    const opt = document.createElement('emc-option');
+                    opt.value = value.exitData.target;
+                    opt.innerHTML = Language.translate(value.exitData.target);
+                    selectEl.append(opt);
+                }
             }
+        } else {
+            selectEl.value = "";
         }
     }
 

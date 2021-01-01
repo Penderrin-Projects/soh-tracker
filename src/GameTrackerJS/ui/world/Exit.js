@@ -6,8 +6,8 @@ import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
-import "./menu/ExitContextMenu.js";
-import "./menu/ExitBindingMenu.js";
+import "../ctxmenu/ExitContextMenu.js";
+import "../ctxmenu/ExitBindingMenu.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
@@ -62,12 +62,6 @@ export default class MapExit extends WorldElement {
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
-        this.registerGlobal(["state", "randomizer_options"], event => {
-            const state = this.getState();
-            if (state != null) {
-                this.value = state.value;
-            }
-        });
 
         /* context menu */
         const mnu_ctx = document.createElement("gt-ctxmenu-exit");
@@ -86,6 +80,8 @@ export default class MapExit extends WorldElement {
             const state = this.getState();
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
+            } else {
+                mnu_ext.fillEntranceSelection("", "");
             }
             mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
@@ -286,8 +282,8 @@ export default class MapExit extends WorldElement {
                         const state = this.getState();
                         if (state != null) {
                             const valueEl = this.shadowRoot.getElementById("value");
-                            if (newValue) {
-                                if (valueEl != null) {
+                            if (valueEl != null) {
+                                if (newValue) {
                                     valueEl.innerHTML = Language.translate(newValue);
                                     const area = state.area;
                                     if (area != null) {
@@ -295,9 +291,7 @@ export default class MapExit extends WorldElement {
                                     } else {
                                         this.hint = "";
                                     }
-                                }
-                            } else {
-                                if (valueEl != null) {
+                                } else {
                                     valueEl.innerHTML = "";
                                     this.hint = "";
                                 }

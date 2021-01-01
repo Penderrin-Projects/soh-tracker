@@ -1,7 +1,7 @@
 import "/emcJS/ui/Icon.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElement from "./WorldElement.js";
-import "./menu/LocationContextMenu.js";
+import "../ctxmenu/LocationContextMenu.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
