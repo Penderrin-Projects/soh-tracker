@@ -1420,7 +1420,7 @@
             "region.kak_potion_shop_back[child]": {
                 "type": "true"
             },
-            "region.kakariko_village[child]": {
+            "region.kak_backyard[child]": {
                 "type": "true"
             }
         },
@@ -1428,7 +1428,7 @@
             "region.kak_potion_shop_back[adult]": {
                 "type": "true"
             },
-            "region.kakariko_village[adult]": {
+            "region.kak_backyard[adult]": {
                 "type": "true"
             }
         },
@@ -1820,7 +1820,7 @@
             "region.gv_carpenter_tent[child]": {
                 "type": "true"
             },
-            "region.gv_fortess_side[child]": {
+            "region.gv_fortress_side[child]": {
                 "type": "true"
             }
         },
@@ -1828,7 +1828,7 @@
             "region.gv_carpenter_tent[adult]": {
                 "type": "true"
             },
-            "region.gv_fortess_side[adult]": {
+            "region.gv_fortress_side[adult]": {
                 "type": "true"
             }
         },
@@ -1836,7 +1836,7 @@
             "region.gv_storms_grotto[child]": {
                 "type": "true"
             },
-            "region.gv_fortess_side[child]": {
+            "region.gv_fortress_side[child]": {
                 "type": "true"
             }
         },
@@ -1844,7 +1844,7 @@
             "region.gv_storms_grotto[adult]": {
                 "type": "true"
             },
-            "region.gv_fortess_side[adult]": {
+            "region.gv_fortress_side[adult]": {
                 "type": "true"
             }
         },
@@ -1868,7 +1868,7 @@
             "region.gf_storms_grotto[child]": {
                 "type": "true"
             },
-            "region.gerudo_fortess[child]": {
+            "region.gerudo_fortress[child]": {
                 "type": "true"
             }
         },
@@ -1876,7 +1876,7 @@
             "region.gf_storms_grotto[adult]": {
                 "type": "true"
             },
-            "region.gerudo_fortess[adult]": {
+            "region.gerudo_fortress[adult]": {
                 "type": "true"
             }
         },
@@ -15291,7 +15291,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.fire_upper_maze[child]",
+                                                        "node": "region.fire_upper_maze_mq[child]",
                                                         "el": {
                                                             "type": "true"
                                                         }
@@ -15323,7 +15323,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.fire_upper_maze[adult]",
+                                                        "node": "region.fire_upper_maze_mq[adult]",
                                                         "el": {
                                                             "type": "true"
                                                         }
@@ -15453,7 +15453,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.fire_upper_maze[child]",
+                                                        "node": "region.fire_upper_maze_mq[child]",
                                                         "el": {
                                                             "type": "true"
                                                         }
@@ -15485,7 +15485,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.fire_upper_maze[adult]",
+                                                        "node": "region.fire_upper_maze_mq[adult]",
                                                         "el": {
                                                             "type": "true"
                                                         }
@@ -21736,7 +21736,7 @@
             "region.ganons_castle_spirit_trial_mq[child]": {
                 "type": "true"
             },
-            "region.ganons_castle_tower_mq[child]": {
+            "region.ganons_castle_tower[child]": {
                 "type": "and",
                 "el": [
                     {
@@ -21887,7 +21887,7 @@
                 "type": "mixin",
                 "el": "function.can_use(mixin.golden_gauntlets)[adult]"
             },
-            "region.ganons_castle_tower_mq[adult]": {
+            "region.ganons_castle_tower[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -29438,7 +29438,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_boss_area[child]",
+                                                "node": "region.jabu_jabus_belly_boss_area_mq[child]",
                                                 "el": {
                                                     "type": "mixin",
                                                     "el": "mixin.is_child[child]"
@@ -29471,7 +29471,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_boss_area[adult]",
+                                                "node": "region.jabu_jabus_belly_boss_area_mq[adult]",
                                                 "el": {
                                                     "type": "mixin",
                                                     "el": "mixin.is_child[adult]"
@@ -29671,7 +29671,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_boss_area[child]",
+                                                "node": "region.jabu_jabus_belly_boss_area_mq[child]",
                                                 "el": {
                                                     "type": "mixin",
                                                     "el": "mixin.is_child[child]"
@@ -29704,7 +29704,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_boss_area[adult]",
+                                                "node": "region.jabu_jabus_belly_boss_area_mq[adult]",
                                                 "el": {
                                                     "type": "mixin",
                                                     "el": "mixin.is_child[adult]"
@@ -29970,7 +29970,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_main[child]",
+                                                "node": "region.jabu_jabus_belly_main_mq[child]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -30012,7 +30012,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_main[adult]",
+                                                "node": "region.jabu_jabus_belly_main_mq[adult]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -30172,7 +30172,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_main[child]",
+                                                "node": "region.jabu_jabus_belly_main_mq[child]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -30214,7 +30214,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.jabu_jabus_belly_main[adult]",
+                                                "node": "region.jabu_jabus_belly_main_mq[adult]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -32359,8 +32359,8 @@
                                 "el": "mixin.is_child[child]"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[child]"
                             }
                         ]
                     }
@@ -32825,7 +32825,7 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
-                                        "value": 2
+                                        "value": 3
                                     }
                                 ]
                             }
@@ -34775,8 +34775,8 @@
                                 "el": "mixin.is_child[child]"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[child]"
                             }
                         ]
                     }
@@ -35381,7 +35381,7 @@
                                                     "type": "value",
                                                     "el": "item.cojiro"
                                                 },
-                                                "value": 8
+                                                "value": 9
                                             },
                                             {
                                                 "type": "and",
@@ -36084,7 +36084,7 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
-                                        "value": 5
+                                        "value": 6
                                     }
                                 ]
                             }
@@ -41548,7 +41548,7 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
-                                        "value": 1
+                                        "value": 2
                                     }
                                 ]
                             }
@@ -42011,8 +42011,8 @@
                                 "el": "mixin.is_adult[adult]"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[adult]"
                             }
                         ]
                     }
@@ -42528,7 +42528,7 @@
                                                     "type": "value",
                                                     "el": "item.cojiro"
                                                 },
-                                                "value": 3
+                                                "value": 4
                                             },
                                             {
                                                 "type": "and",
@@ -45237,7 +45237,7 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
-                                        "value": 10
+                                        "value": 11
                                     },
                                     {
                                         "type": "and",
@@ -45262,7 +45262,7 @@
                                                                     "type": "value",
                                                                     "el": "item.cojiro"
                                                                 },
-                                                                "value": 9
+                                                                "value": 10
                                                             },
                                                             {
                                                                 "type": "and",
@@ -45409,7 +45409,7 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
-                                        "value": 6
+                                        "value": 7
                                     }
                                 ]
                             }
@@ -49854,6 +49854,14 @@
                                             "type": "value",
                                             "el": "item.cojiro"
                                         },
+                                        "value": 10
+                                    },
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item.cojiro"
+                                        },
                                         "value": 9
                                     },
                                     {
@@ -49863,14 +49871,6 @@
                                             "el": "item.cojiro"
                                         },
                                         "value": 8
-                                    },
-                                    {
-                                        "type": "min",
-                                        "el": {
-                                            "type": "value",
-                                            "el": "item.cojiro"
-                                        },
-                                        "value": 7
                                     },
                                     {
                                         "type": "value",
@@ -50653,8 +50653,8 @@
                                 "value": 3
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[child]"
                             },
                             {
                                 "type": "mixin",
@@ -59158,7 +59158,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.adult_spirit_temple[child]",
+                                                        "node": "region.adult_spirit_temple_mq[child]",
                                                         "el": {
                                                             "type": "or",
                                                             "el": [
@@ -59213,7 +59213,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.adult_spirit_temple[adult]",
+                                                        "node": "region.adult_spirit_temple_mq[adult]",
                                                         "el": {
                                                             "type": "or",
                                                             "el": [
@@ -59485,7 +59485,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.adult_spirit_temple[child]",
+                                                        "node": "region.adult_spirit_temple_mq[child]",
                                                         "el": {
                                                             "type": "or",
                                                             "el": [
@@ -59540,7 +59540,7 @@
                                                     },
                                                     {
                                                         "type": "at",
-                                                        "node": "region.adult_spirit_temple[adult]",
+                                                        "node": "region.adult_spirit_temple_mq[adult]",
                                                         "el": {
                                                             "type": "or",
                                                             "el": [
@@ -60908,8 +60908,8 @@
                                 "el": "item.hammer"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[child]"
                             },
                             {
                                 "type": "value",
@@ -60995,8 +60995,8 @@
                                 "el": "item.hammer"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[child]"
                             },
                             {
                                 "type": "value",
@@ -61067,8 +61067,8 @@
                                 "el": "item.hammer"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[adult]"
                             },
                             {
                                 "type": "value",
@@ -61154,8 +61154,8 @@
                                 "el": "item.hammer"
                             },
                             {
-                                "type": "value",
-                                "el": "item.ocarina"
+                                "type": "mixin",
+                                "el": "mixin.can_play_ocarina[adult]"
                             },
                             {
                                 "type": "value",
@@ -65749,7 +65749,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.water_temple_lobby[child]",
+                                                "node": "region.water_temple_lobby_mq[child]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -65791,7 +65791,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.water_temple_lobby[adult]",
+                                                "node": "region.water_temple_lobby_mq[adult]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -65883,7 +65883,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.water_temple_lobby[child]",
+                                                "node": "region.water_temple_lobby_mq[child]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -65925,7 +65925,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region.water_temple_lobby[adult]",
+                                                "node": "region.water_temple_lobby_mq[adult]",
                                                 "el": {
                                                     "type": "and",
                                                     "el": [
@@ -70020,22 +70020,6 @@
                 }
             ]
         },
-        "mixin.is_glitched[child]": {
-            "type": "not",
-            "el": {
-                "type": "state",
-                "el": "option.logic_rules",
-                "value": "logic_rules_glitchless"
-            }
-        },
-        "mixin.is_glitched[adult]": {
-            "type": "not",
-            "el": {
-                "type": "state",
-                "el": "option.logic_rules",
-                "value": "logic_rules_glitchless"
-            }
-        },
         "mixin.can_blast_or_smash[child]": {
             "type": "or",
             "el": [
@@ -70386,8 +70370,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "or",
@@ -70416,8 +70400,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "or",
@@ -70446,8 +70430,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "or",
@@ -70472,8 +70456,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "or",
@@ -72672,6 +72656,232 @@
                 }
             ]
         },
+        "mixin.can_play_ocarina[child]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item.ocarina"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.bottle"
+                        },
+                        {
+                            "type": "or",
+                            "el": [
+                                {
+                                    "type": "value",
+                                    "el": "skip.invisible_ocarina"
+                                },
+                                {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "value",
+                                            "el": "skip.invisible_ocarina_midair"
+                                        },
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.bombs"
+                                                },
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.bombchu"
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin.is_child[child]"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.stick"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_kokiri"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.slingshot"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.boomerang"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin.is_adult[child]"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_master"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_biggoron"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.bow"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.hookshot"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.hammer"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin.can_play_ocarina[adult]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item.ocarina"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.bottle"
+                        },
+                        {
+                            "type": "or",
+                            "el": [
+                                {
+                                    "type": "value",
+                                    "el": "skip.invisible_ocarina"
+                                },
+                                {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "value",
+                                            "el": "skip.invisible_ocarina_midair"
+                                        },
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.bombs"
+                                                },
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.bombchu"
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin.is_child[adult]"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.stick"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_kokiri"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.slingshot"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.boomerang"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin.is_adult[adult]"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_master"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.sword_biggoron"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.bow"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.hookshot"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item.hammer"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
         "function.has_projectile[child]": {
             "type": "or",
             "el": [
@@ -72920,8 +73130,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -72933,8 +73143,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -72946,8 +73156,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -72959,8 +73169,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -72972,8 +73182,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -72985,8 +73195,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -72998,8 +73208,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73011,8 +73221,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73024,8 +73234,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73037,8 +73247,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73050,8 +73260,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73063,8 +73273,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73076,8 +73286,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73089,8 +73299,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73102,8 +73312,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73115,8 +73325,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73128,8 +73338,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73141,8 +73351,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73154,8 +73364,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73167,8 +73377,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73180,8 +73390,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73193,8 +73403,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73206,8 +73416,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "value",
@@ -73219,8 +73429,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "value",
@@ -73232,8 +73442,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[child]"
                 },
                 {
                     "type": "or",
@@ -73254,8 +73464,8 @@
             "type": "and",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item.ocarina"
+                    "type": "mixin",
+                    "el": "mixin.can_play_ocarina[adult]"
                 },
                 {
                     "type": "or",
