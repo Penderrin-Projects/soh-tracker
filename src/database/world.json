@@ -6642,137 +6642,138 @@
     },
     "exit": {
         "region.deku_tree_entrance -> region.deku_tree_gateway": {
+            "type": "dungeon",
             "target": "region.deku_tree_gateway -> region.deku_tree_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["deku","dungeon","child","adult"],
-            "type": "dungeon",
-            "area": "area/deku",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/deku"
         },
         "region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway": {
+            "type": "dungeon",
             "target": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["dodongo","dungeon""child","adult"],
-            "type": "dungeon",
-            "area": "area/dodongo",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/dodongo"
         },
         "region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway": {
+            "type": "dungeon",
             "target": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["jabujabu","dungeon","child"],
-            "type": "dungeon",
-            "area": "area/jabujabu",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/jabujabu"
         },
         "region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway": {
+            "type": "dungeon",
             "target": "region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["well","dungeon","child"],
-            "type": "dungeon",
-            "area": "area/well",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/well"
         },
         "region.forest_temple_entrance -> region.forest_temple_gateway": {
+            "type": "dungeon",
             "target": "region.forest_temple_gateway -> region.forest_temple_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["forest","temple","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/temple_forest",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/temple_forest"
         },
         "region.fire_temple_entrance -> region.fire_temple_gateway": {
+            "type": "dungeon",
             "target": "region.fire_temple_gateway -> region.fire_temple_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["Fire","temple","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/temple_fire",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/temple_fire"
         },
         "region.water_temple_entrance -> region.water_temple_gateway": {
+            "type": "dungeon",
             "target": "region.water_temple_gateway -> region.water_temple_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["Water","Temple","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/temple_water",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/temple_water"
         },
         "region.spirit_temple_entrance -> region.spirit_temple_gateway": {
+            "type": "dungeon",
             "target": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["spirit","temple","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/temple_spirit",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/temple_spirit"
         },
         "region.shadow_temple_entrance -> region.shadow_temple_gateway": {
+            "type": "dungeon",
             "target": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["shadow","temple","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/temple_shadow",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/temple_shadow"
         },
         "region.ice_cavern_entrance -> region.ice_cavern_gateway": {
+            "type": "dungeon",
             "target": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["ice","cavern","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/ice_cavern",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/ice_cavern"
         },
         "region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway": {
+            "type": "dungeon",
             "target": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
             "bindsTo": ["dungeon"],
             "ignoreBound": false,
-            "category": ["gerudo","training_grounds","dungeon","adult"],
-            "type": "dungeon",
-            "area": "area/training_grounds",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
-            }
+            },
+            "includeInactiveEntrances": false,
+            "area": "area/training_grounds"
         },
+
         "region.hf_tektite_grotto_entrance -> region.hf_tektite_grotto": {
             "target": "region.hf_tektite_grotto -> region.hf_tektite_grotto_entrance",
             "bindsTo": ["grotto"],
@@ -6813,7 +6814,7 @@
             "target": "region.hf_near_market_grotto -> region.hf_near_market_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","near_market","child"."adult"],
+            "category": ["grotto","hyrule_field","near_market","child","adult"],
             "type": "grotto",
             "area": "subarea/hyrule_field.castle_entrance_grotto",
             "active": {
@@ -8475,7 +8476,7 @@
             "target": "region.fountain_domain_gateway -> region.zoras_fountain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
-            "category": ["overworld exit","fountaim","to"],
+            "category": ["overworld exit","fountain","to"],
             "type": "overworld_exit",
             "area": "area/fountain",
             "active": {
@@ -8486,6 +8487,9 @@
 
         "region.kokiri_bridge_gateway -> region.kokiri_forest": {
             "target": "region.kokiri_forest -> region.kokiri_bridge_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","kokiri","from"],
             "type": "overworld_exit",
             "area": "area/kokiri",
             "active": {
@@ -8495,6 +8499,9 @@
         },
         "region.kokiri_bridge_gateway -> region.lw_bridge": {
             "target": "region.lw_bridge -> region.kokiri_bridge_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8504,6 +8511,9 @@
         },
         "region.kokiri_woods_gateway -> region.kokiri_forest": {
             "target": "region.kokiri_forest -> region.kokiri_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","kokiri","from"],
             "type": "overworld_exit",
             "area": "area/kokiri",
             "active": {
@@ -8513,6 +8523,9 @@
         },
         "region.kokiri_woods_gateway -> region.lost_woods": {
             "target": "region.lost_woods -> region.kokiri_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8522,6 +8535,9 @@
         },
         "region.gc_woods_gateway -> region.lost_woods": {
             "target": "region.lost_woods -> region.gc_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8531,6 +8547,9 @@
         },
         "region.gc_woods_gateway -> region.gc_woods_warp": {
             "target": "region.gc_woods_warp -> region.gc_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","goron","from"],
             "type": "overworld_exit",
             "area": "area/goron",
             "active": {
@@ -8540,6 +8559,9 @@
         },
         "region.river_woods_gateway -> region.lost_woods": {
             "target": "region.lost_woods -> region.river_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8549,6 +8571,9 @@
         },
         "region.river_woods_gateway -> region.zora_river": {
             "target": "region.zora_river -> region.river_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","river","from"],
             "type": "overworld_exit",
             "area": "area/river",
             "active": {
@@ -8558,6 +8583,9 @@
         },
         "region.meadow_woods_gateway -> region.sfm_entryway": {
             "target": "region.sfm_entryway -> region.meadow_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","meadow","from"],
             "type": "overworld_exit",
             "area": "area/meadow",
             "active": {
@@ -8567,6 +8595,9 @@
         },
         "region.meadow_woods_gateway -> region.lw_beyond_mido": {
             "target": "region.lw_beyond_mido -> region.meadow_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8576,6 +8607,9 @@
         },
         "region.field_woods_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.field_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8585,6 +8619,9 @@
         },
         "region.field_woods_gateway -> region.lw_bridge": {
             "target": "region.lw_bridge -> region.field_woods_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","woods","from"],
             "type": "overworld_exit",
             "area": "area/woods",
             "active": {
@@ -8594,6 +8631,9 @@
         },
         "region.lake_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.lake_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","Hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8603,6 +8643,8 @@
         },
         "region.lake_field_gateway -> region.lake_hylia": {
             "target": "region.lake_hylia -> region.lake_field_gateway",
+
+
             "type": "overworld_exit",
             "area": "area/lake",
             "active": {
@@ -8612,6 +8654,9 @@
         },
         "region.valley_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.valley_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8621,6 +8666,7 @@
         },
         "region.valley_field_gateway -> region.gerudo_valley": {
             "target": "region.gerudo_valley -> region.valley_field_gateway",
+
             "type": "overworld_exit",
             "area": "area/gerudo_valley",
             "active": {
@@ -9234,7 +9280,6 @@
     "marker": {
         "exit": {
             "deku": {
-                "type": "dungeon",
                 "access": "region.deku_tree_entrance -> region.deku_tree_gateway",
                 "visible": {
                     "type": "value",
@@ -9250,10 +9295,10 @@
                         "night": true
                     }
                 },
+                "category": ["forest", "deku", "dungeon", "child", "adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "dodongo": {
-                "type": "dungeon",
                 "access": "region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway",
                 "visible": {
                     "type": "value",
@@ -9269,10 +9314,10 @@
                         "night": true
                     }
                 },
+                "category": ["mountain","dodongo","dungeon", "child","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "jabujabu": {
-                "type": "dungeon",
                 "access": "region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway",
                 "visible": {
                     "type": "value",
@@ -9288,10 +9333,10 @@
                         "night": true
                     }
                 },
+                "category": ["zoras","fountain","jabujabu","dungeon","child"],
                 "icon": "images/icons/dungeon.svg"
             },
             "well": {
-                "type": "dungeon",
                 "access": "region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway",
                 "visible": {
                     "type": "value",
@@ -9307,10 +9352,10 @@
                         "night": true
                     }
                 },
+                "category": ["kakariko","well","dungeon","child"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_forest": {
-                "type": "dungeon",
                 "access": "region.forest_temple_entrance -> region.forest_temple_gateway",
                 "visible": {
                     "type": "value",
@@ -9326,10 +9371,10 @@
                         "night": true
                     }
                 },
+                "category": ["meadow","forest","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_fire": {
-                "type": "dungeon",
                 "access": "region.fire_temple_entrance -> region.fire_temple_gateway",
                 "visible": {
                     "type": "value",
@@ -9345,10 +9390,10 @@
                         "night": true
                     }
                 },
+                "category": ["crater","fire","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_water": {
-                "type": "dungeon",
                 "access": "region.water_temple_entrance -> region.water_temple_gateway",
                 "visible": {
                     "type": "value",
@@ -9364,10 +9409,10 @@
                         "night": true
                     }
                 },
+                "category": ["lake","water","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_spirit": {
-                "type": "dungeon",
                 "access": "region.spirit_temple_entrance -> region.spirit_temple_gateway",
                 "visible": {
                     "type": "value",
@@ -9383,10 +9428,10 @@
                         "night": true
                     }
                 },
+                "category": ["colossus","spirit","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_shadow": {
-                "type": "dungeon",
                 "access": "region.shadow_temple_entrance -> region.shadow_temple_gateway",
                 "visible": {
                     "type": "value",
@@ -9402,10 +9447,10 @@
                         "night": true
                     }
                 },
+                "category": ["graveyard","shadow","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "ice_cavern": {
-                "type": "dungeon",
                 "access": "region.ice_cavern_entrance -> region.ice_cavern_gateway",
                 "visible": {
                     "type": "value",
@@ -9421,10 +9466,10 @@
                         "night": true
                     }
                 },
+                "category": ["zoras","fountain","ice","cavern","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "training_grounds": {
-                "type": "dungeon",
                 "access": "region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway",
                 "visible": {
                     "type": "value",
@@ -9440,473 +9485,8 @@
                         "night": true
                     }
                 },
+                "category": ["fortress","gerudo","training_grounds","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
-            },
-
-            "hyrule_field": {
-                "access": "region.hf_tektite_grotto_entrance -> region.hyrule_field",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "kokiri_forest": {
-                "access": "region.kf_midos_house_entrance -> region.kokiri_forest",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "lost_woods": {
-                "access": "region.lw_near_shortcuts_grotto_entrance -> region.lost_woods",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "lw_beyond_mido": {
-                "access": "region.deku_theater_entrance -> region.lw_beyond_mido",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "sfm_entryway": {
-                "access": "region.sfm_wolfos_grotto_entrance -> region.sfm_entryway",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "sacred_forest_meadow": {
-                "access": "region.sfm_storms_grotto_entrance -> region.sacred_forest_meadow",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "market_entrance": {
-                "access": "region.market_guard_house_entrance -> region.market_entrance",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "market": {
-                "access": "region.market_mask_shop_entrance -> region.market",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "market_back_alley": {
-                "access": "region.market_bombchu_shop_entrance -> region.market_back_alley",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "lon_lon_ranch": {
-                "access": "region.llr_grotto_entrance -> region.lon_lon_ranch",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "hyrule_castle_grounds": {
-                "access": "region.hc_storms_grotto_entrance -> region.hyrule_castle_grounds",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "ganons_castle_grounds": {
-                "access": "region.ogc_great_fairy_fountain_entrance -> region.ganons_castle_grounds",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "kak_impas_ledge": {
-                "access": "region.kak_impas_house_back_entrance -> region.kak_impas_ledge",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "kak_backyard": {
-                "access": "region.kak_odd_medicine_building_entrance -> region.kak_backyard",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "kakariko_village": {
-                "access": "region.kak_bazaar_entrance -> region.kakariko_village",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "graveyard": {
-                "access": "region.graveyard_dampes_grave_entrance -> region.graveyard",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "death_mountain_summit": {
-                "access": "region.dmt_great_fairy_fountain_entrance -> region.death_mountain_summit",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "death_mountain": {
-                "access": "region.dmt_storms_grotto_entrance -> region.death_mountain",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "dmc_lower_nearby": {
-                "access": "region.dmc_hammer_grotto_entrance -> region.dmc_lower_nearby",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "dmc_upper_nearby": {
-                "access": "region.dmc_upper_grotto_entrance -> region.dmc_upper_nearby",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "goron_city": {
-                "access": "region.gc_shop_entrance -> region.goron_city",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "gc_grotto_platform": {
-                "access": "region.gc_grotto_entrance -> region.gc_grotto_platform",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "zora_river": {
-                "access": "region.zr_open_grotto_entrance -> region.zora_river",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "zoras_domain": {
-                "access": "region.zd_storms_grotto_entrance -> region.zoras_domain",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "zoras_fountain": {
-                "access": "region.zf_great_fairy_fountain_entrance -> region.zoras_fountain",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "lh_fishing_island": {
-                "access": "region.lh_fishing_hole_entrance -> region.lh_fishing_island",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "lake_hylia": {
-                "access": "region.lh_grotto_entrance -> region.lake_hylia",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "gv_fortress_side": {
-                "access": "region.gv_storms_grotto_entrance -> region.gv_fortress_side",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "gv_grotto_ledge": {
-                "access": "region.gv_octorok_grotto_entrance -> region.gv_grotto_ledge",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "gerudo_fortress": {
-                "access": "region.gf_storms_grotto_entrance -> region.gerudo_fortress",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
-            },
-            "desert_colossus": {
-                "access": "region.colossus_grotto_entrance -> region.desert_colossus",
-                "type": "not_seen",
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                },
-                "visible": false
             },
 
             "kokiri_forest.kokiri_bridge_gateway": {
