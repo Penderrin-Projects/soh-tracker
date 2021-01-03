@@ -3,12 +3,11 @@ import { MarkerAreaList } from "./data/MarkerArea";
 import { MarkerExitList } from "./data/MarkerExit";
 import { MarkerLocationList } from "./data/MarkerLocation";
 
-export type WorldFile = {
+export interface WorldFile {
     overworld: MapData,
     area: {
         [key: string]: MapDataSpecial
-    },
-    subarea: {
+    },    subarea: {
         [key: string]: MapData
     },
     exit: ExitDataList,
@@ -21,7 +20,7 @@ export type WorldFile = {
     }
 };
 
-export type MapData = {
+export interface MapData {
     /**
      * path to an image shown as map background
      */
@@ -31,7 +30,7 @@ export type MapData = {
     list: WorldListEntry[]
 };
 
-export type MapDataSpecial = {
+export interface MapDataSpecial {
     /**
      * path to an image shown as map background
      */
@@ -44,7 +43,7 @@ export type MapDataSpecial = {
     }
 };
 
-export type WorldListEntry = {
+export interface WorldListEntry {
     category: "area" | "subarea" | "exit" | "subexit" | "location",
     /**
      * the marker id

@@ -1,10 +1,10 @@
 import { Logic } from "./Logic";
 
-export type MarkerExitList = {
+export interface MarkerExitList {
     [key: string]: MarkerExit
 };
 
-export type MarkerExit = {
+export interface MarkerExit {
     /**
      * logic access value
      * also pointer to exitData

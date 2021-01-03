@@ -1,6 +1,6 @@
 import { Logic } from "./data/Logic";
 
-export type LogicFile = {
+export interface LogicFile {
     /**
      * the graph logic will be executed as a nearest fit graph, with unreachables never being executed
      * dependencies on other nodes are possible due to access awaiting functionality
@@ -24,7 +24,7 @@ export type LogicFile = {
 };
 
 
-export type FutureLogicFile = {
+export interface FutureLogicFile {
     /**
      * the whole linear logic will be executed at once
      * dependencies on other entries are possible due to postcompile sorting

@@ -1,10 +1,10 @@
 import { Logic } from "./Logic";
 
-export type MarkerLocationList = {
+export interface MarkerLocationList {
     [key: string]: MarkerLocation
 };
 
-export type MarkerLocation = {
+export interface MarkerLocation {
     /**
      * logic access value
      */
