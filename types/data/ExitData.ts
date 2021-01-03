@@ -1,10 +1,10 @@
 import { Logic } from "./Logic";
 
-export type ExitDataList = {
+export interface ExitDataList {
     [key: string]: ExitData
 };
 
-export type ExitData = {
+export interface ExitData {
     /**
      * the type of the entrance
      */

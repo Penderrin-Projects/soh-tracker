@@ -1,78 +1,78 @@
 export type Logic = LogicBoolaean | LogicString | LogicNumber |
                     LogicMemoryValue | LogicMemoryPointer |
-                    LogicMemoryState | BoolMultiLogic |
-                    BoolTwoElLogic | MathMinMax | MathComparators |
+                    LogicMemoryState | MultiElLogic |
+                    TwoElLogic | MathMinMax | MathComparators |
                     MultiElMath | TwoElMath | InterLogicDependency |
                     LogicMixin;
 
-export type LogicBoolaean = {
+export interface LogicBoolaean {
     type: "true" | "false"
 };
 
-export type LogicString = {
+export interface LogicString {
     type: "string",
     el: string
 };
 
-export type LogicNumber = {
+export interface LogicNumber {
     type: "number",
     el: number
 };
 
-export type LogicMemoryValue = {
+export interface LogicMemoryValue {
     type: "value",
     el: string // identifier where a value is stored
 };
 
-export type LogicMemoryPointer = {
+export interface LogicMemoryPointer {
     type: "pointer",
     el: string // pointer to an identifier where a value is stored
 };
 
-export type LogicMemoryState = {
+export interface LogicMemoryState {
     type: "state",
     el: string, // identifier where a value is stored
     value: string // expected value
 };
 
-export type BoolMultiLogic = {
+export interface MultiElLogic {
     type: "and" | "nand" | "or" | "nor",
     el: Logic[]
 };
 
-export type BoolTwoElLogic = {
+export interface TwoElLogic {
     type: "xor" | "xnor",
     el: [Logic, Logic]
 };
 
-export type MathMinMax = {
+export interface MathMinMax {
     type: "min" | "max",
     el: string, // identifier where a value is stored
     value: number // compare to value
 };
 
-export type MathComparators = {
+export interface MathComparators {
     type: "eq" | "neq" | "lt" | "lte" | "gt" | "gte",
     el: [Logic, Logic]
 };
 
-export type MultiElMath = {
+export interface MultiElMath {
     type: "add" | "sub" | "mul" | "div" | "mod",
     el: Logic[]
 };
 
-export type TwoElMath = {
+export interface TwoElMath {
     type: "pow",
     el: [Logic, Logic]
 };
 
-export type InterLogicDependency = {
+export interface InterLogicDependency {
     type: "at",
     node: string, // identifier to a Logic node
     el?: Logic
 };
 
-export type LogicMixin = {
+export interface LogicMixin {
     type: "mixin",
     el: string // identifier of a mixin to execute
 };
