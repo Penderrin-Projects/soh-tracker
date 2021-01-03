@@ -1,6 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
-import EntranceStateManager from "../entrance/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
 class StateManager extends AbstractStateManager {
@@ -10,12 +9,11 @@ class StateManager extends AbstractStateManager {
     }
 
     createState(StateClass, ref, props) {
-        const data = EntranceStateManager.get(props.access);
-        return new StateClass(`exit/${ref}`, props, data.props);
+        return new StateClass(ref, props);
     }
     
     initData() {
-        return FileData.get("world/marker/exit");
+        return FileData.get("world/exit");
     }
 
 }

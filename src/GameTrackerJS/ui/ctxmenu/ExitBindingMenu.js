@@ -4,6 +4,7 @@ import "/emcJS/ui/overlay/ContextMenu.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
+import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -72,7 +73,7 @@ export default class ExitBindingMenu extends HTMLElement {
         for (const key in exits) {
             if (exits[key] != current) {
                 const boundExit = ExitRegistry.get(key);
-                if (boundExit.exitData.type != 'special') {
+                if (boundExit != null && boundExit.exitData.type != 'special') {
                     bound.add(exits[key]);
                 }
             }
@@ -89,16 +90,16 @@ export default class ExitBindingMenu extends HTMLElement {
         const exit = ExitRegistry.get(access);
         if (exit != null) {
             selectEl.value = current;
-            const entrances = ExitRegistry.getAll();
+            const entrances = EntranceStateManager.getAll();
             // add options
             for (const key in entrances) {
                 const value = entrances[key];
-                const isActiveAndType = value.active && value.exitData.type == exit.exitData.type;
-                const isSpecial = (exit.exitData.type === 'special' && ['special', 'overworld_exit', 'not_seen'].indexOf(value.exitData.type) > -1);
-                if ((isActiveAndType || isSpecial) && !bound.has(value.exitData.target)) {
+                const isActiveAndType = value.active && value.props.type == exit.exitData.type;
+                const isSpecial = (exit.exitData.type === 'special' && value.props.type !== 'dungeon');
+                if ((isActiveAndType || isSpecial) && !bound.has(value.props.target)) {
                     const opt = document.createElement('emc-option');
-                    opt.value = value.exitData.target;
-                    opt.innerHTML = Language.translate(value.exitData.target);
+                    opt.value = value.props.target;
+                    opt.innerHTML = Language.translate(value.props.target);
                     selectEl.append(opt);
                 }
             }
