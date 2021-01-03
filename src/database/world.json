@@ -6775,108 +6775,98 @@
         },
 
         "region.hf_tektite_grotto_entrance -> region.hf_tektite_grotto": {
+            "type": "grotto",
             "target": "region.hf_tektite_grotto -> region.hf_tektite_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","diving","Child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.dive_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.dive_grotto"
         },
         "region.hf_near_kak_grotto_entrance -> region.hf_near_kak_grotto": {
+            "type": "grotto",
             "target": "region.hf_near_kak_grotto -> region.hf_near_kak_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","near_kakariko","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.kakariko_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.kakariko_grotto"
         },
         "region.hf_fairy_grotto_entrance -> region.hf_fairy_grotto": {
+            "type": "grotto",
             "target": "region.hf_fairy_grotto -> region.hf_fairy_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","fairy","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.fairy_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.fairy_grotto"
         },
         "region.hf_near_market_grotto_entrance -> region.hf_near_market_grotto": {
+            "type": "grotto",
             "target": "region.hf_near_market_grotto -> region.hf_near_market_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","near_market","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.castle_entrance_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.castle_entrance_grotto"
         },
         "region.hf_cow_grotto_entrance -> region.hf_cow_grotto": {
+            "type": "grotto",
             "target": "region.hf_cow_grotto -> region.hf_cow_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","cow_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.valley_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.valley_grotto"
         },
         "region.hf_inside_fence_grotto_entrance -> region.hf_inside_fence_grotto": {
+            "type": "grotto",
             "target": "region.hf_inside_fence_grotto -> region.hf_inside_fence_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","inside_fence","scrub","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.lake_fence_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.lake_fence_grotto"
         },
         "region.hf_open_grotto_entrance -> region.hf_open_grotto": {
+            "type": "grotto",
             "target": "region.hf_open_grotto -> region.hf_open_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.lake_open_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.lake_open_grotto"
         },
         "region.hf_southeast_grotto_entrance -> region.hf_southeast_grotto": {
+            "type": "grotto",
             "target": "region.hf_southeast_grotto -> region.hf_southeast_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","hyrule_field","southeast_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/hyrule_field.little_forest_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/hyrule_field.little_forest_grotto"
         },
         "region.kf_midos_house_entrance -> region.kf_midos_house": {
+            "type": "interior",
             "target": "region.kf_midos_house -> region.kf_midos_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","midos_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.midos_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -6884,15 +6874,14 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kokiri.midos_house"
         },
         "region.kf_sarias_house_entrance -> region.kf_sarias_house": {
+            "type": "interior",
             "target": "region.kf_sarias_house -> region.kf_sarias_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","sarias_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.sarias_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -6900,15 +6889,14 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kokiri.sarias_house"
         },
         "region.kf_house_of_twins_entrance -> region.kf_house_of_twins": {
+            "type": "interior",
             "target": "region.kf_house_of_twins -> region.kf_house_of_twins_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","twins_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.twins_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -6916,15 +6904,14 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kokiri.twins_house"
         },
         "region.kf_know_it_all_house_entrance -> region.kf_know_it_all_house": {
+            "type": "interior",
             "target": "region.kf_know_it_all_house -> region.kf_know_it_all_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","know_it_all_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.know_it_all_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -6932,15 +6919,14 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kokiri.know_it_all_house"
         },
         "region.kf_kokiri_shop_entrance -> region.kf_kokiri_shop": {
+            "type": "interior",
             "target": "region.kf_kokiri_shop -> region.kf_kokiri_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","kokiri_shop","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.shop",
             "active": {
                 "type": "not",
                 "el": {
@@ -6948,112 +6934,104 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kokiri.shop"
         },
         "region.kf_links_house_entrance -> region.kf_links_house": {
+            "type": "interior",
             "target": "region.kf_links_house -> region.kf_links_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
-            "category": ["interior","kokiri_forest","links_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kokiri.links_house",
             "active": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
-            }
+            },
+            "area": "subarea/kokiri.links_house"
         },
         "region.kf_storms_grotto_entrance -> region.kf_storms_grotto": {
+            "type": "grotto",
             "target": "region.kf_storms_grotto -> region.kf_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","kokiri_forest","storms_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/kokiri.storm_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/kokiri.storm_grotto"
         },
         "region.lw_near_shortcuts_grotto_entrance -> region.lw_near_shortcuts_grotto": {
+            "type": "grotto",
             "target": "region.lw_near_shortcuts_grotto -> region.lw_near_shortcuts_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","lost_woods","near_goron","child","adult"],
-            "type": "grotto",
-            "area": "subarea/woods.near_goron_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/woods.near_goron_grotto"
         },
         "region.lw_scrubs_grotto_entrance -> region.lw_scrubs_grotto": {
+            "type": "grotto",
             "target": "region.lw_scrubs_grotto -> region.lw_scrubs_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","lost_woods","near_medow","scrub","child","adult"],
-            "type": "grotto",
-            "area": "subarea/woods.near_meadow_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/woods.near_meadow_grotto"
         },
         "region.deku_theater_entrance -> region.deku_theater": {
+            "type": "grotto",
             "target": "region.deku_theater -> region.deku_theater_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","lost_woods","theatre","child","adult"],
-            "type": "grotto",
-            "area": "subarea/woods.theatre_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/woods.theatre_grotto"
         },
         "region.sfm_wolfos_grotto_entrance -> region.sfm_wolfos_grotto": {
+            "type": "grotto",
             "target": "region.sfm_wolfos_grotto -> region.sfm_wolfos_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","sacred_forest_meadow","wolfos","child","adult"],
-            "type": "grotto",
-            "area": "subarea/meadow.wolfos_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/meadow.wolfos_grotto"
         },
         "region.sfm_storms_grotto_entrance -> region.sfm_storms_grotto": {
+            "type": "grotto",
             "target": "region.sfm_storms_grotto -> region.sfm_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","sacred_forest_meadow","storms_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/meadow.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/meadow.storms_grotto"
         },
         "region.sfm_fairy_grotto_entrance -> region.sfm_fairy_grotto": {
+            "type": "grotto",
             "target": "region.sfm_fairy_grotto -> region.sfm_fairy_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
-            "category": ["grotto","sacred_forest_meadow","fairy","child","adult"],
-            "type": "grotto",
-            "area": "subarea/meadow.fairy_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/meadow.fairy_grotto"
         },
         "region.market_guard_house_entrance -> region.market_guard_house": {
+            "type": "interior",
             "target": "region.market_guard_house -> region.market_guard_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","guard_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/castle_town.guard_tower",
             "active": {
                 "type": "not",
                 "el": {
@@ -7061,15 +7039,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.guard_tower"
         },
         "region.market_mask_shop_entrance -> region.market_mask_shop": {
+            "type": "interior",
             "target": "region.market_mask_shop -> region.market_mask_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","mask_shop","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.shop_mask",
             "active": {
                 "type": "not",
                 "el": {
@@ -7077,15 +7055,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.shop_mask"
         },
         "region.market_bombchu_bowling_entrance -> region.market_bombchu_bowling": {
+            "type": "interior",
             "target": "region.market_bombchu_bowling -> region.market_bombchu_bowling_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","bombchu_bowling","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.minigame_bombchu",
             "active": {
                 "type": "not",
                 "el": {
@@ -7093,15 +7071,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.minigame_bombchu"
         },
         "region.market_potion_shop_entrance -> region.market_potion_shop": {
+            "type": "interior",
             "target": "region.market_potion_shop -> region.market_potion_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","potion_shop","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.shop_magic",
             "active": {
                 "type": "not",
                 "el": {
@@ -7109,15 +7087,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.shop_magic"
         },
         "region.market_treasure_chest_game_entrance -> region.market_treasure_chest_game": {
+            "type": "interior",
             "target": "region.market_treasure_chest_game -> region.market_treasure_chest_game_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","treasure_chest","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.minigame_treasure",
             "active": {
                 "type": "not",
                 "el": {
@@ -7125,15 +7103,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.minigame_treasure"
         },
         "region.market_bombchu_shop_entrance -> region.market_bombchu_shop": {
+            "type": "interior",
             "target": "region.market_bombchu_shop -> region.market_bombchu_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","bombchu_shop","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.shop_bombchu",
             "active": {
                 "type": "not",
                 "el": {
@@ -7141,15 +7119,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.shop_bombchu"
         },
         "region.market_man_in_green_house_entrance -> region.market_man_in_green_house": {
+            "type": "interior",
             "target": "region.market_man_in_green_house -> region.market_man_in_green_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","man_in_green_house","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.back_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -7157,15 +7135,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.back_house"
         },
         "region.market_bazaar_entrance -> region.market_bazaar": {
+            "type": "interior",
             "target": "region.market_bazaar -> region.market_bazaar_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","bazaar","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.shop_bazaar",
             "active": {
                 "type": "not",
                 "el": {
@@ -7173,15 +7151,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.shop_bazaar"
         },
         "region.market_shooting_gallery_entrance -> region.market_shooting_gallery": {
+            "type": "interior",
             "target": "region.market_shooting_gallery -> region.market_shooting_gallery_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","market","guard_house","child"],
-            "type": "interior",
-            "area": "subarea/castle_town.minigame_shooting",
             "active": {
                 "type": "not",
                 "el": {
@@ -7189,28 +7167,28 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle_town.minigame_shooting"
         },
         "region.tot_entrance -> region.temple_of_time": {
+            "type": "interior",
             "target": "region.temple_of_time -> region.tot_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","temple_of_time","child","adult"],
-            "type": "interior",
-            "area": "subarea/castle_town.temple_of_time",
             "active": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
-            }
+            },
+            "area": "subarea/castle_town.temple_of_time"
         },
         "region.llr_talons_house_entrance -> region.llr_talons_house": {
+            "type": "interior",
             "target": "region.llr_talons_house -> region.llr_talons_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","lonlon","talon_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/lonlon.house",
             "active": {
                 "type": "not",
                 "el": {
@@ -7218,15 +7196,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/lonlon.house"
         },
         "region.llr_stables_entrance -> region.llr_stables": {
+            "type": "interior",
             "target": "region.llr_stables -> region.llr_stables_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","lonlon","stables","child","adult"],
-            "type": "interior",
-            "area": "subarea/lonlon.stables",
             "active": {
                 "type": "not",
                 "el": {
@@ -7234,15 +7212,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/lonlon.stables"
         },
         "region.llr_tower_entrance -> region.llr_tower": {
+            "type": "interior",
             "target": "region.llr_tower -> region.llr_tower_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","lonlon","tower","child","adult"],
-            "type": "interior",
-            "area": "subarea/lonlon.silo",
             "active": {
                 "type": "not",
                 "el": {
@@ -7250,27 +7228,27 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/lonlon.silo"
         },
         "region.llr_grotto_entrance -> region.llr_grotto": {
+            "type": "grotto",
             "target": "region.llr_grotto -> region.llr_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","lonlon","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/lonlon.open_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/lonlon.open_grotto"
         },
         "region.hc_great_fairy_fountain_entrance -> region.hc_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.hc_great_fairy_fountain -> region.hc_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","castle_grounds","fairy_fountain","child"],
-            "type": "interior",
-            "area": "subarea/castle.fairy_young",
             "active": {
                 "type": "not",
                 "el": {
@@ -7278,27 +7256,27 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle.fairy_young"
         },
         "region.hc_storms_grotto_entrance -> region.hc_storms_grotto": {
+            "type": "grotto",
             "target": "region.hc_storms_grotto -> region.hc_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","castle_grounds","storms_grotto","child"],
-            "type": "grotto",
-            "area": "subarea/castle.storm_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/castle.storm_grotto"
         },
         "region.ogc_great_fairy_fountain_entrance -> region.ogc_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.ogc_great_fairy_fountain -> region.ogc_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","castle_grounds","fariy_fountain","adult"],
-            "type": "interior",
-            "area": "subarea/castle.fairy_adult",
             "active": {
                 "type": "not",
                 "el": {
@@ -7306,15 +7284,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/castle.fairy_adult"
         },
         "region.kak_carpenter_boss_house_entrance -> region.kak_carpenter_boss_house": {
+            "type": "interior",
             "target": "region.kak_carpenter_boss_house -> region.kak_carpenter_boss_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","carpenter_boss_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.carpenter_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -7322,15 +7300,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.carpenter_house"
         },
         "region.kak_house_of_skulltula_entrance -> region.kak_house_of_skulltula": {
+            "type": "interior",
             "target": "region.kak_house_of_skulltula -> region.kak_house_of_skulltula_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","skulltula_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.skulltula_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -7338,15 +7316,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.skulltula_house"
         },
         "region.kak_impas_house_entrance -> region.kak_impas_house": {
+            "type": "interior",
             "target": "region.kak_impas_house -> region.kak_impas_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","impas_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.impas_house",
             "active": {
                 "type": "not",
                 "el": {
@@ -7354,15 +7332,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.impas_house"
         },
         "region.kak_impas_house_back_entrance -> region.kak_impas_house_back": {
+            "type": "interior",
             "target": "region.kak_impas_house_back -> region.kak_impas_house_back_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","impas_house_back","child","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.impa_back",
             "active": {
                 "type": "not",
                 "el": {
@@ -7370,15 +7348,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.impa_back"
         },
         "region.kak_odd_medicine_building_entrance -> region.kak_odd_medicine_building": {
+            "type": "interior",
             "target": "region.kak_odd_medicine_building -> region.kak_odd_medicine_building_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","odd_medicine_building","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.kakariko_witch",
             "active": {
                 "type": "not",
                 "el": {
@@ -7386,15 +7364,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.kakariko_witch"
         },
         "region.kak_bazaar_entrance -> region.kak_bazaar": {
+            "type": "interior",
             "target": "region.kak_bazaar -> region.kak_bazaar_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","kakariko_bazaar","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.shop_bazaar",
             "active": {
                 "type": "not",
                 "el": {
@@ -7402,15 +7380,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.shop_bazaar"
         },
         "region.kak_shooting_gallery_entrance -> region.kak_shooting_gallery": {
+            "type": "interior",
             "target": "region.kak_shooting_gallery -> region.kak_shooting_gallery_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","shooting_gallery","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.minigame_shooting",
             "active": {
                 "type": "not",
                 "el": {
@@ -7418,78 +7396,78 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/kakariko.minigame_shooting"
         },
         "region.kak_windmill_entrance -> region.kak_windmill": {
+            "type": "interior",
             "target": "region.kak_windmill -> region.kak_windmill_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","windmill","child","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.windmill",
             "active": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
-            }
+            },
+            "area": "subarea/kakariko.windmill"
         },
         "region.kak_potion_shop_front_entrance -> region.kak_potion_shop_front": {
+            "type": "interior",
             "target": "region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","potion_shop_front","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.shop_magic",
             "active": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
-            }
+            },
+            "area": "subarea/kakariko.shop_magic"
         },
         "region.kak_potion_shop_back_entrance -> region.kak_potion_shop_back": {
+            "type": "interior",
             "target": "region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","kakariko","potion_shop_front","adult"],
-            "type": "interior",
-            "area": "subarea/kakariko.shop_magic",
             "active": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
-            }
+            },
+            "area": "subarea/kakariko.shop_magic"
         },
         "region.kak_open_grotto_entrance -> region.kak_open_grotto": {
+            "type": "grotto",
             "target": "region.kak_open_grotto -> region.kak_open_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","kakariko","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/kakariko.open_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/kakariko.open_grotto"
         },
         "region.kak_redead_grotto_entrance -> region.kak_redead_grotto": {
+            "type": "grotto",
             "target": "region.kak_redead_grotto -> region.kak_redead_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","kakariko","redead_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/kakariko.redead_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/kakariko.redead_grotto"
         },
         "region.graveyard_dampes_house_entrance -> region.graveyard_dampes_house": {
+            "type": "interior",
             "target": "region.graveyard_dampes_house -> region.graveyard_dampes_house_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","graveyard","dampes_house","child","adult"],
-            "type": "interior",
-            "area": "subarea/graveyard.dampes_hut",
             "active": {
                 "type": "not",
                 "el": {
@@ -7497,63 +7475,63 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/graveyard.dampes_hut"
         },
         "region.graveyard_shield_grave_entrance -> region.graveyard_shield_grave": {
+            "type": "grotto",
             "target": "region.graveyard_shield_grave -> region.graveyard_shield_grave_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","graveyard","shield_grave","child","adult"],
-            "type": "grotto",
-            "area": "subarea/graveyard.shield_grave",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/graveyard.shield_grave"
         },
         "region.graveyard_heart_piece_grave_entrance -> region.graveyard_heart_piece_grave": {
+            "type": "grotto",
             "target": "region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","graveyard","redead_grave","sun_song","child","adult"],
-            "type": "grotto",
-            "area": "subarea/graveyard.redead_grave",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/graveyard.redead_grave"
         },
         "region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave": {
+            "type": "grotto",
             "target": "region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","graveyard","composers_grave","child","adult"],
-            "type": "grotto",
-            "area": "subarea/graveyard.royal_grave",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/graveyard.royal_grave"
         },
         "region.graveyard_dampes_grave_entrance -> region.graveyard_dampes_grave": {
+            "type": "grotto",
             "target": "region.graveyard_dampes_grave -> region.graveyard_dampes_grave_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","graveyard","dampes_grave","adult"],
-            "type": "grotto",
-            "area": "subarea/graveyard.dampes_grave",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/graveyard.dampes_grave"
         },
         "region.dmt_great_fairy_fountain_entrance -> region.dmt_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.dmt_great_fairy_fountain -> region.dmt_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","death_mountain","fariy_fountain","child","adult"],
-            "type": "interior",
-            "area": "subarea/mountain.fairy_fountain",
             "active": {
                 "type": "not",
                 "el": {
@@ -7561,39 +7539,39 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/mountain.fairy_fountain"
         },
         "region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto": {
+            "type": "grotto",
             "target": "region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","death_mountain_trail","storms_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/mountain.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/mountain.storms_grotto"
         },
         "region.dmt_cow_grotto_entrance -> region.dmt_cow_grotto": {
+            "type": "grotto",
             "target": "region.dmt_cow_grotto -> region.dmt_cow_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","death_mountain_trail","cow_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/mountain.bomb_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/mountain.bomb_grotto"
         },
         "region.dmc_great_fairy_fountain_entrance -> region.dmc_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.dmc_great_fairy_fountain -> region.dmc_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","death_mountain_crater","fariy_fountain","child","adult"],
-            "type": "interior",
-            "area": "subarea/crater.fairy_fountain",
             "active": {
                 "type": "not",
                 "el": {
@@ -7601,39 +7579,39 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/crater.fairy_fountain"
         },
         "region.dmc_hammer_grotto_entrance -> region.dmc_hammer_grotto": {
+            "type": "grotto",
             "target": "region.dmc_hammer_grotto -> region.dmc_hammer_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","death_mountain_crater","hammer_grotto","adult"],
-            "type": "grotto",
-            "area": "subarea/crater.hammer_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/crater.hammer_grotto"
         },
         "region.dmc_upper_grotto_entrance -> region.dmc_upper_grotto": {
+            "type": "grotto",
             "target": "region.dmc_upper_grotto -> region.dmc_upper_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","death_mountain_crater","upper_grotto","bomb","child","adult"],
-            "type": "grotto",
-            "area": "subarea/crater.crater_bomb_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/crater.crater_bomb_grotto"
         },
         "region.gc_shop_entrance -> region.gc_shop": {
+            "type": "interior",
             "target": "region.gc_shop -> region.gc_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","goron_city","shop","child","adult"],
-            "type": "interior",
-            "area": "subarea/goron.shop",
             "active": {
                 "type": "not",
                 "el": {
@@ -7641,63 +7619,63 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/goron.shop"
         },
         "region.gc_grotto_entrance -> region.gc_grotto": {
+            "type": "grotto",
             "target": "region.gc_grotto -> region.gc_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","goron_city","adult"],
-            "type": "grotto",
-            "area": "subarea/goron.grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/goron.grotto"
         },
         "region.zr_storms_grotto_entrance -> region.zr_storms_grotto": {
+            "type": "grotto",
             "target": "region.zr_storms_grotto -> region.zr_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","zoras_river","storms_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/river.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/river.storms_grotto"
         },
         "region.zr_fairy_grotto_entrance -> region.zr_fairy_grotto": {
+            "type": "grotto",
             "target": "region.zr_fairy_grotto -> region.zr_fairy_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","zoras_river","fairy_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/river.bomb_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/river.bomb_grotto"
         },
         "region.zr_open_grotto_entrance -> region.zr_open_grotto": {
+            "type": "grotto",
             "target": "region.zr_open_grotto -> region.zr_open_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","zoras_river","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/river.open_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/river.open_grotto"
         },
         "region.zd_shop_entrance -> region.zd_shop": {
+            "type": "interior",
             "target": "region.zd_shop -> region.zd_shop_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","zoras_domain","shop","child"],
-            "type": "interior",
-            "area": "subarea/zoras.shop",
             "active": {
                 "type": "not",
                 "el": {
@@ -7705,27 +7683,27 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/zoras.shop"
         },
         "region.zd_storms_grotto_entrance -> region.zd_storms_grotto": {
+            "type": "grotto",
             "target": "region.zd_storms_grotto -> region.zd_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","zoras_domain","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/zoras.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/zoras.storms_grotto"
         },
         "region.zf_great_fairy_fountain_entrance -> region.zf_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.zf_great_fairy_fountain -> region.zf_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","zoras_fountain","fariy_fountain","child","adult"],
-            "type": "interior",
-            "area": "subarea/fountain.fairy_fountain",
             "active": {
                 "type": "not",
                 "el": {
@@ -7733,15 +7711,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/fountain.fairy_fountain"
         },
         "region.lh_lab_entrance -> region.lh_lab": {
+            "type": "interior",
             "target": "region.lh_lab -> region.lh_lab_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","lake_hilya","lab","child","adult"],
-            "type": "interior",
-            "area": "subarea/lake.laboratory",
             "active": {
                 "type": "not",
                 "el": {
@@ -7749,15 +7727,15 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/lake.laboratory"
         },
         "region.lh_fishing_hole_entrance -> region.lh_fishing_hole": {
+            "type": "interior",
             "target": "region.lh_fishing_hole -> region.lh_fishing_hole_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","lake_hilya","fishing","child","adult"],
-            "type": "interior",
-            "area": "subarea/lake.fishing",
             "active": {
                 "type": "not",
                 "el": {
@@ -7765,27 +7743,27 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/lake.fishing"
         },
         "region.lh_grotto_entrance -> region.lh_grotto": {
+            "type": "grotto",
             "target": "region.lh_grotto -> region.lh_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","lake_hilya","open_grotto","child","adult"],
-            "type": "grotto",
-            "area": "subarea/lake.grave_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/lake.grave_grotto"
         },
         "region.gv_carpenter_tent_entrance -> region.gv_carpenter_tent": {
+            "type": "interior",
             "target": "region.gv_carpenter_tent -> region.gv_carpenter_tent_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","gerudo_vally","carpenter_tent","child","adult"],
-            "type": "interior",
-            "area": "subarea/gerudo_valley.tend",
             "active": {
                 "type": "not",
                 "el": {
@@ -7793,51 +7771,51 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/gerudo_valley.tend"
         },
         "region.gv_storms_grotto_entrance -> region.gv_storms_grotto": {
+            "type": "grotto",
             "target": "region.gv_storms_grotto -> region.gv_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","gerudo_vally","storms_grotto","adult"],
-            "type": "grotto",
-            "area": "subarea/gerudo_valley.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/gerudo_valley.storms_grotto"
         },
         "region.gv_octorok_grotto_entrance -> region.gv_octorok_grotto": {
+            "type": "grotto",
             "target": "region.gv_octorok_grotto -> region.gv_octorok_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","gerudo_vally","octorok_grotto","adult"],
-            "type": "grotto",
-            "area": "subarea/gerudo_valley.octorock_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/gerudo_valley.octorock_grotto"
         },
         "region.gf_storms_grotto_entrance -> region.gf_storms_grotto": {
+            "type": "grotto",
             "target": "region.gf_storms_grotto -> region.gf_storms_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","gerudo_fortress","storms_grotto","adult"],
-            "type": "grotto",
-            "area": "subarea/gerudo.storms_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/gerudo.storms_grotto"
         },
         "region.colossus_great_fairy_fountain_entrance -> region.colossus_great_fairy_fountain": {
+            "type": "interior",
             "target": "region.colossus_great_fairy_fountain -> region.colossus_great_fairy_fountain_entrance",
             "bindsTo": ["interior"],
             "ignoreBound": false,
             "category": ["interior","colossus","fairy_fountain","child","adult"],
-            "type": "interior",
-            "area": "subarea/desert.fairy_fountain",
             "active": {
                 "type": "not",
                 "el": {
@@ -7845,19 +7823,20 @@
                     "el": "option.entrance_shuffle_interior",
                     "value": "entrance_shuffle_off"
                 }
-            }
+            },
+            "area": "subarea/desert.fairy_fountain"
         },
         "region.colossus_grotto_entrance -> region.colossus_grotto": {
+            "type": "grotto",
             "target": "region.colossus_grotto -> region.colossus_grotto_entrance",
             "bindsTo": ["grotto"],
             "ignoreBound": false,
             "category": ["grotto","colossus","colossus_grotto","silver-gantlets","adult"],
-            "type": "grotto",
-            "area": "subarea/desert.strength_grotto",
             "active": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
-            }
+            },
+            "area": "subarea/desert.strength_grotto"
         },
 
         "region.kokiri_forest -> region.kokiri_bridge_gateway": {
@@ -11064,7 +11043,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "dmt.owl_flight": {
                 "access": "region.dmt_owl_flight -> region.kak_impas_rooftop",
@@ -11079,7 +11059,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "child.spawn": {
                 "access": "region.child_spawn -> region.kf_links_house",
@@ -11094,7 +11075,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "adult.spawn": {
                 "access": "region.adult_spawn -> region.temple_of_time",
@@ -11109,7 +11091,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "prelude": {
                 "access": "region.prelude_of_light_warp -> region.temple_of_time",
@@ -11124,7 +11107,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "minuet": {
                 "access": "region.minuet_of_forest_warp -> region.sacred_forest_meadow",
@@ -11139,7 +11123,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "bolero": {
                 "access": "region.bolero_of_fire_warp -> region.dmc_central_local",
@@ -11154,7 +11139,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "serenade": {
                 "access": "region.serenade_of_water_warp -> region.lake_hylia",
@@ -11169,7 +11155,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "nocturne": {
                 "access": "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region",
@@ -11184,7 +11171,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             },
             "requiem": {
                 "access": "region.requiem_of_spirit_warp -> region.desert_colossus",
@@ -11199,7 +11187,8 @@
                         "night": false
                     }
                 },
-                "visible": false
+                "visible": false,
+                "icon": "images/icons/location.svg"
             }
         },
         "subarea": {
@@ -26010,7 +25999,6 @@
         },
         "subexit": {
             "hyrule_field.dive_grotto": {
-                "type": "grotto",
                 "access": "region.hf_tektite_grotto_entrance -> region.hf_tektite_grotto",
                 "visible": {
                     "type": "value",
@@ -26026,10 +26014,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","diving","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.kakariko_grotto": {
-                "type": "grotto",
                 "access": "region.hf_near_kak_grotto_entrance -> region.hf_near_kak_grotto",
                 "visible": {
                     "type": "value",
@@ -26045,10 +26033,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","near","kakariko","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.fairy_grotto": {
-                "type": "grotto",
                 "access": "region.hf_fairy_grotto_entrance -> region.hf_fairy_grotto",
                 "visible": {
                     "type": "value",
@@ -26064,10 +26052,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","fairy","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.castle_entrance_grotto": {
-                "type": "grotto",
                 "access": "region.hf_near_market_grotto_entrance -> region.hf_near_market_grotto",
                 "visible": {
                     "type": "value",
@@ -26083,10 +26071,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","near","market","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.valley_grotto": {
-                "type": "grotto",
                 "access": "region.hf_cow_grotto_entrance -> region.hf_cow_grotto",
                 "visible": {
                     "type": "value",
@@ -26102,10 +26090,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","cow","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_fence_grotto": {
-                "type": "grotto",
                 "access": "region.hf_inside_fence_grotto_entrance -> region.hf_inside_fence_grotto",
                 "visible": {
                     "type": "value",
@@ -26121,10 +26109,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","inside","fence","scrub","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_open_grotto": {
-                "type": "grotto",
                 "access": "region.hf_open_grotto_entrance -> region.hf_open_grotto",
                 "visible": {
                     "type": "value",
@@ -26140,10 +26128,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.little_forest_grotto": {
-                "type": "grotto",
                 "access": "region.hf_southeast_grotto_entrance -> region.hf_southeast_grotto",
                 "visible": {
                     "type": "value",
@@ -26159,10 +26147,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","hyrule","field","southeast","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "kokiri.midos_house": {
-                "type": "interior",
                 "access": "region.kf_midos_house_entrance -> region.kf_midos_house",
                 "visible": {
                     "type": "not",
@@ -26182,10 +26170,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","midos","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.sarias_house": {
-                "type": "interior",
                 "access": "region.kf_sarias_house_entrance -> region.kf_sarias_house",
                 "visible": {
                     "type": "not",
@@ -26205,10 +26193,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","sarias","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.twins_house": {
-                "type": "interior",
                 "access": "region.kf_house_of_twins_entrance -> region.kf_house_of_twins",
                 "visible": {
                     "type": "not",
@@ -26228,10 +26216,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","twins","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.know_it_house": {
-                "type": "interior",
                 "access": "region.kf_know_it_all_house_entrance -> region.kf_know_it_all_house",
                 "visible": {
                     "type": "not",
@@ -26251,10 +26239,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","know_it_all_house","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.shop": {
-                "type": "interior",
                 "access": "region.kf_kokiri_shop_entrance -> region.kf_kokiri_shop",
                 "visible": {
                     "type": "not",
@@ -26274,10 +26262,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","shop","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.links_house": {
-                "type": "interior",
                 "access": "region.kf_links_house_entrance -> region.kf_links_house",
                 "visible": {
                     "type": "state",
@@ -26294,10 +26282,10 @@
                         "night": true
                     }
                 },
+                "category": ["interior","kokiri","forest","links","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.storm_grotto": {
-                "type": "grotto",
                 "access": "region.kf_storms_grotto_entrance -> region.kf_storms_grotto",
                 "visible": {
                     "type": "value",
@@ -26313,10 +26301,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","kokiri","forest","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_goron_grotto": {
-                "type": "grotto",
                 "access": "region.lw_near_shortcuts_grotto_entrance -> region.lw_near_shortcuts_grotto",
                 "visible": {
                     "type": "value",
@@ -26332,10 +26320,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","lost","woods","near","goron","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_meadow_grotto": {
-                "type": "grotto",
                 "access": "region.lw_scrubs_grotto_entrance -> region.lw_scrubs_grotto",
                 "visible": {
                     "type": "value",
@@ -26351,10 +26339,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","lost","woods","near","meadow","scrub","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.theatre_grotto": {
-                "type": "grotto",
                 "access": "region.deku_theater_entrance -> region.deku_theater",
                 "visible": {
                     "type": "value",
@@ -26370,10 +26358,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","lost","woods","theatre","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.wolfos_grotto": {
-                "type": "grotto",
                 "access": "region.sfm_wolfos_grotto_entrance -> region.sfm_wolfos_grotto",
                 "visible": {
                     "type": "value",
@@ -26389,10 +26377,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","sacred","forest","meadow","wolfos","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.storms_grotto": {
-                "type": "grotto",
                 "access": "region.sfm_storms_grotto_entrance -> region.sfm_storms_grotto",
                 "visible": {
                     "type": "value",
@@ -26408,10 +26396,10 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","sacred","forest","meadow","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.fairy_grotto": {
-                "type": "grotto",
                 "access": "region.sfm_fairy_grotto_entrance -> region.sfm_fairy_grotto",
                 "visible": {
                     "type": "value",
@@ -26427,6 +26415,7 @@
                         "night": true
                     }
                 },
+                "category": ["grotto","sacred","forest","meadow","fairy","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "castle_town.guard_tower": {
