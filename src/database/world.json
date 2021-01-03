@@ -9529,7 +9529,7 @@
                         "night": true
                     }
                 },
-                "category": ["forest", "deku", "dungeon", "child", "adult"],
+                "categories": ["forest", "deku", "dungeon", "child", "adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "dodongo": {
@@ -9548,7 +9548,7 @@
                         "night": true
                     }
                 },
-                "category": ["mountain","dodongo","dungeon", "child","adult"],
+                "categories": ["mountain","dodongo","dungeon", "child","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "jabujabu": {
@@ -9567,7 +9567,7 @@
                         "night": true
                     }
                 },
-                "category": ["zoras","fountain","jabujabu","dungeon","child"],
+                "categories": ["zoras","fountain","jabujabu","dungeon","child"],
                 "icon": "images/icons/dungeon.svg"
             },
             "well": {
@@ -9586,7 +9586,7 @@
                         "night": true
                     }
                 },
-                "category": ["kakariko","well","dungeon","child"],
+                "categories": ["kakariko","well","dungeon","child"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_forest": {
@@ -9605,7 +9605,7 @@
                         "night": true
                     }
                 },
-                "category": ["meadow","forest","temple","dungeon","adult"],
+                "categories": ["meadow","forest","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_fire": {
@@ -9624,7 +9624,7 @@
                         "night": true
                     }
                 },
-                "category": ["crater","fire","temple","dungeon","adult"],
+                "categories": ["crater","fire","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_water": {
@@ -9643,7 +9643,7 @@
                         "night": true
                     }
                 },
-                "category": ["lake","water","temple","dungeon","adult"],
+                "categories": ["lake","water","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_spirit": {
@@ -9662,7 +9662,7 @@
                         "night": true
                     }
                 },
-                "category": ["colossus","spirit","temple","dungeon","adult"],
+                "categories": ["colossus","spirit","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "temple_shadow": {
@@ -9681,7 +9681,7 @@
                         "night": true
                     }
                 },
-                "category": ["graveyard","shadow","temple","dungeon","adult"],
+                "categories": ["graveyard","shadow","temple","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "ice_cavern": {
@@ -9700,7 +9700,7 @@
                         "night": true
                     }
                 },
-                "category": ["zoras","fountain","ice","cavern","dungeon","adult"],
+                "categories": ["zoras","fountain","ice","cavern","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
             "training_grounds": {
@@ -9719,13 +9719,16 @@
                         "night": true
                     }
                 },
-                "category": ["fortress","gerudo","training_grounds","dungeon","adult"],
+                "categories": ["fortress","gerudo","training_grounds","dungeon","adult"],
                 "icon": "images/icons/dungeon.svg"
             },
 
             "kokiri_forest.kokiri_bridge_gateway": {
                 "access": "region.kokiri_forest -> region.kokiri_bridge_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9736,12 +9739,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kokiri","to"],
+                "categories": ["overworld","kokiri","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lw_bridge.kokiri_bridge_gateway": {
                 "access": "region.lw_bridge -> region.kokiri_bridge_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9752,12 +9758,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "kokiri_forest.kokiri_woods_gateway": {
                 "access": "region.kokiri_forest -> region.kokiri_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9768,12 +9777,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kokiri","to"],
+                "categories": ["overworld","kokiri","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lost_woods.kokiri_woods_gateway": {
                 "access": "region.lost_woods -> region.kokiri_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9784,12 +9796,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lost_woods.gc_woods_gateway": {
                 "access": "region.lost_woods -> region.gc_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9800,12 +9815,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gc_woods_warp.gc_woods_gateway": {
                 "access": "region.gc_woods_warp -> region.gc_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9816,12 +9834,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","to"],
+                "categories": ["overworld","goron","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lost_woods.river_woods_gateway": {
                 "access": "region.lost_woods -> region.river_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9832,12 +9853,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zora_river.river_woods_gateway": {
                 "access": "region.zora_river -> region.river_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9848,12 +9872,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","river","to"],
+                "categories": ["overworld","river","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "sfm_entryway.meadow_woods_gateway": {
                 "access": "region.sfm_entryway -> region.meadow_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9864,12 +9891,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","meadow","to"],
+                "categories": ["overworld","meadow","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lw_beyond_mido.meadow_woods_gateway": {
                 "access": "region.lw_beyond_mido -> region.meadow_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9880,12 +9910,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.field_woods_gateway": {
                 "access": "region.hyrule_field -> region.field_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9896,12 +9929,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule_field","to"],
+                "categories": ["overworld","hyrule_field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lw_bridge.field_woods_gateway": {
                 "access": "region.lw_bridge -> region.field_woods_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9912,12 +9948,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","to"],
+                "categories": ["overworld","woods","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.lake_field_gateway": {
                 "access": "region.hyrule_field -> region.lake_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9928,12 +9967,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lake_hylia.lake_field_gateway": {
                 "access": "region.lake_hylia -> region.lake_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9944,12 +9986,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lake","to"],
+                "categories": ["overworld","lake","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.valley_field_gateway": {
                 "access": "region.hyrule_field -> region.valley_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9960,12 +10005,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gerudo_valley.valley_field_gateway": {
                 "access": "region.gerudo_valley -> region.valley_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9976,12 +10024,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","valley","to"],
+                "categories": ["overworld","gerudo","valley","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.marketentrance_field_gateway": {
                 "access": "region.hyrule_field -> region.marketentrance_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -9992,12 +10043,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "market_entrance.marketentrance_field_gateway": {
                 "access": "region.market_entrance -> region.marketentrance_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10008,12 +10062,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","to"],
+                "categories": ["overworld","market","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.kakariko_field_gateway": {
                 "access": "region.hyrule_field -> region.kakariko_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10024,12 +10081,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "kakariko_village.kakariko_field_gateway": {
                 "access": "region.kakariko_village -> region.kakariko_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10040,12 +10100,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","to"],
+                "categories": ["overworld","kakariko","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.river_field_gateway": {
                 "access": "region.hyrule_field -> region.river_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10056,12 +10119,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zr_front.river_field_gateway": {
                 "access": "region.zr_front -> region.river_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10072,12 +10138,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","river","to"],
+                "categories": ["overworld","zoras","river","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "hyrule_field.ranch_field_gateway": {
                 "access": "region.hyrule_field -> region.ranch_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10088,12 +10157,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","to"],
+                "categories": ["overworld","hyrule","field","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lon_lon_ranch.ranch_field_gateway": {
                 "access": "region.lon_lon_ranch -> region.ranch_field_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10104,12 +10176,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lonlon","to"],
+                "categories": ["overworld","lonlon","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "lake_hylia.domain_lake_gateway": {
                 "access": "region.lake_hylia -> region.domain_lake_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10120,12 +10195,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lake","to"],
+                "categories": ["overworld","lake","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zoras_domain.domain_lake_gateway": {
                 "access": "region.zoras_domain -> region.domain_lake_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10136,12 +10214,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","domain","to"],
+                "categories": ["overworld","zoras","domain","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gerudo_fortress.valley_fortress_gateway": {
                 "access": "region.gerudo_fortress -> region.valley_fortress_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10152,12 +10233,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","fortress","to"],
+                "categories": ["overworld","gerudo","fortress","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gv_fortress_side.valley_fortress_gateway": {
                 "access": "region.gv_fortress_side -> region.valley_fortress_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10168,12 +10252,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","valley","to"],
+                "categories": ["overworld","gerudo","valley","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gf_outside_gate.wasteland_fortress_gateway": {
                 "access": "region.gf_outside_gate -> region.wasteland_fortress_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10184,12 +10271,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","fortress","to"],
+                "categories": ["overworld","gerudo","fortress","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_near_fortress.wasteland_fortress_gateway": {
                 "access": "region.wasteland_near_fortress -> region.wasteland_fortress_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10200,12 +10290,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","wasteland","to"],
+                "categories": ["overworld","wasteland","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "desert_colossus.wasteland_colossus_gateway": {
                 "access": "region.desert_colossus -> region.wasteland_colossus_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10216,12 +10309,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","colossus","to"],
+                "categories": ["overworld","colossus","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_near_colossus.wasteland_colossus_gateway": {
                 "access": "region.wasteland_near_colossus -> region.wasteland_colossus_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10232,12 +10328,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","wasteland","to"],
+                "categories": ["overworld","wasteland","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "market.marketentrance_market_gateway": {
                 "access": "region.market -> region.marketentrance_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10248,12 +10347,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","to"],
+                "categories": ["overworld","market","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "market_entrance.marketentrance_market_gateway": {
                 "access": "region.market_entrance -> region.marketentrance_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10264,12 +10366,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","to"],
+                "categories": ["overworld","market","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "market.grounds_market_gateway": {
                 "access": "region.market -> region.grounds_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10280,12 +10385,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","to"],
+                "categories": ["overworld","market","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "castle_grounds.grounds_market_gateway": {
                 "access": "region.castle_grounds -> region.grounds_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10296,12 +10404,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","castle","grounds","to"],
+                "categories": ["overworld","castle","grounds","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "market.tot_market_gateway": {
                 "access": "region.market -> region.tot_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10312,12 +10423,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","to"],
+                "categories": ["overworld","market","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "tot_entrance.tot_market_gateway": {
                 "access": "region.tot_entrance -> region.tot_market_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10328,12 +10442,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","temple","time","to"],
+                "categories": ["overworld","temple","time","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "kakariko_village.graveyard_kakariko_gateway": {
                 "access": "region.kakariko_village -> region.graveyard_kakariko_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10344,12 +10461,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","to"],
+                "categories": ["overworld","kakariko","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "graveyard.graveyard_kakariko_gateway": {
                 "access": "region.graveyard -> region.graveyard_kakariko_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10360,12 +10480,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","graveyard","to"],
+                "categories": ["overworld","graveyard","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "kak_behind_gate.mountain_kakariko_gateway": {
                 "access": "region.kak_behind_gate -> region.mountain_kakariko_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10376,12 +10499,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","to"],
+                "categories": ["overworld","kakariko","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "death_mountain.mountain_kakariko_gateway": {
                 "access": "region.death_mountain -> region.mountain_kakariko_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10392,12 +10518,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountian","to"],
+                "categories": ["overworld","mountian","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "goron_city.mountain_goron_gateway": {
                 "access": "region.goron_city -> region.mountain_goron_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10408,12 +10537,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","to"],
+                "categories": ["overworld","goron","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "death_mountain.mountain_goron_gateway": {
                 "access": "region.death_mountain -> region.mountain_goron_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10424,12 +10556,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountain","to"],
+                "categories": ["overworld","mountain","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "gc_darunias_chamber.crater_goron_gateway": {
                 "access": "region.gc_darunias_chamber -> region.crater_goron_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10440,12 +10575,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","to"],
+                "categories": ["overworld","goron","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "dmc_lower_local.crater_goron_gateway": {
                 "access": "region.dmc_lower_local -> region.crater_goron_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10456,12 +10594,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","crater","to"],
+                "categories": ["overworld","crater","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "death_mountain_summit.crater_mountain_gateway": {
                 "access": "region.death_mountain_summit -> region.crater_mountain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10472,12 +10613,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountain","to"],
+                "categories": ["overworld","mountain","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "dmc_upper_local.crater_mountain_gateway": {
                 "access": "region.dmc_upper_local -> region.crater_mountain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10488,12 +10632,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","crater","to"],
+                "categories": ["overworld","crater","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zr_behind_waterfall.river_domain_gateway": {
                 "access": "region.zr_behind_waterfall -> region.river_domain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10504,12 +10651,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","river","to"],
+                "categories": ["overworld","river","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zoras_domain.river_domain_gateway": {
                 "access": "region.zoras_domain -> region.river_domain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10520,12 +10670,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","to"],
+                "categories": ["overworld","zoras","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zd_behind_king_zora.fountain_domain_gateway": {
                 "access": "region.zd_behind_king_zora -> region.fountain_domain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10536,12 +10689,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","to"],
+                "categories": ["overworld","zoras","to"],
                 "icon": "images/icons/entrance.svg"
             },
             "zoras_fountain.fountain_domain_gateway": {
                 "access": "region.zoras_fountain -> region.fountain_domain_gateway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10552,13 +10708,16 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","fountain","to"],
+                "categories": ["overworld","fountain","to"],
                 "icon": "images/icons/entrance.svg"
             },
 
             "kokiri_bridge_gateway.kokiri_forest": {
                 "access": "region.kokiri_bridge_gateway -> region.kokiri_forest",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10569,12 +10728,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kokiri","from"],
+                "categories": ["overworld","kokiri","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "kokiri_bridge_gateway.lw_bridge": {
                 "access": "region.kokiri_bridge_gateway -> region.lw_bridge",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10585,12 +10747,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "kokiri_woods_gateway.kokiri_forest": {
                 "access": "region.kokiri_woods_gateway -> region.kokiri_forest",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10601,12 +10766,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kokiri","from"],
+                "categories": ["overworld","kokiri","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "kokiri_woods_gateway.lost_woods": {
                 "access": "region.kokiri_woods_gateway -> region.lost_woods",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10617,12 +10785,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "gc_woods_gateway.lost_woods": {
                 "access": "region.gc_woods_gateway -> region.lost_woods",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10633,12 +10804,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "gc_woods_gateway.gc_woods_warp": {
                 "access": "region.gc_woods_gateway -> region.gc_woods_warp",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10649,12 +10823,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","from"],
+                "categories": ["overworld","goron","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_woods_gateway.lost_woods": {
                 "access": "region.river_woods_gateway -> region.lost_woods",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10665,12 +10842,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_woods_gateway.zora_river": {
                 "access": "region.river_woods_gateway -> region.zora_river",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10681,12 +10861,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","river","from"],
+                "categories": ["overworld","river","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "meadow_woods_gateway.sfm_entryway": {
                 "access": "region.meadow_woods_gateway -> region.sfm_entryway",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10697,12 +10880,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","meadow","from"],
+                "categories": ["overworld","meadow","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "meadow_woods_gateway.lw_beyond_mido": {
                 "access": "region.meadow_woods_gateway -> region.lw_beyond_mido",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10713,12 +10899,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "field_woods_gateway.hyrule_field": {
                 "access": "region.field_woods_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10729,12 +10918,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "field_woods_gateway.lw_bridge": {
                 "access": "region.field_woods_gateway -> region.lw_bridge",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10745,12 +10937,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","woods","from"],
+                "categories": ["overworld","woods","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "lake_field_gateway.hyrule_field": {
                 "access": "region.lake_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10761,12 +10956,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "lake_field_gateway.lake_hylia": {
                 "access": "region.lake_field_gateway -> region.lake_hylia",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10777,12 +10975,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lake","from"],
+                "categories": ["overworld","lake","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "valley_field_gateway.hyrule_field": {
                 "access": "region.valley_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10793,12 +10994,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "valley_field_gateway.gerudo_valley": {
                 "access": "region.valley_field_gateway -> region.gerudo_valley",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10809,12 +11013,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","vally","from"],
+                "categories": ["overworld","gerudo","vally","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "marketentrance_field_gateway.hyrule_field": {
                 "access": "region.marketentrance_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10825,12 +11032,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "marketentrance_field_gateway.market_entrance": {
                 "access": "region.marketentrance_field_gateway -> region.market_entrance",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10841,12 +11051,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","from"],
+                "categories": ["overworld","market","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "kakariko_field_gateway.hyrule_field": {
                 "access": "region.kakariko_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10857,12 +11070,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "kakariko_field_gateway.kakariko_village": {
                 "access": "region.kakariko_field_gateway -> region.kakariko_village",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10873,12 +11089,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","from"],
+                "categories": ["overworld","kakariko","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_field_gateway.hyrule_field": {
                 "access": "region.river_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10889,12 +11108,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_field_gateway.zr_front": {
                 "access": "region.river_field_gateway -> region.zr_front",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10905,12 +11127,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","river","from"],
+                "categories": ["overworld","river","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "ranch_field_gateway.hyrule_field": {
                 "access": "region.ranch_field_gateway -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10921,12 +11146,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","from"],
+                "categories": ["overworld","hyrule","field","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "ranch_field_gateway.lon_lon_ranch": {
                 "access": "region.ranch_field_gateway -> region.lon_lon_ranch",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10937,12 +11165,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lonlon","from"],
+                "categories": ["overworld","lonlon","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "domain_lake_gateway.lake_hylia": {
                 "access": "region.domain_lake_gateway -> region.lake_hylia",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10953,12 +11184,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lake","from"],
+                "categories": ["overworld","lake","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "domain_lake_gateway.zoras_domain": {
                 "access": "region.domain_lake_gateway -> region.zoras_domain",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10969,12 +11203,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","from"],
+                "categories": ["overworld","zoras","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "valley_fortress_gateway.gerudo_fortress": {
                 "access": "region.valley_fortress_gateway -> region.gerudo_fortress",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -10985,12 +11222,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","from"],
+                "categories": ["overworld","gerudo","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "valley_fortress_gateway.gv_fortress_side": {
                 "access": "region.valley_fortress_gateway -> region.gv_fortress_side",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11001,12 +11241,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo_vally","from"],
+                "categories": ["overworld","gerudo_vally","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_fortress_gateway.gf_outside_gate": {
                 "access": "region.wasteland_fortress_gateway -> region.gf_outside_gate",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11017,12 +11260,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","gerudo","from"],
+                "categories": ["overworld","gerudo","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_fortress_gateway.wasteland_near_fortress": {
                 "access": "region.wasteland_fortress_gateway -> region.wasteland_near_fortress",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11033,12 +11279,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","wasteland","from"],
+                "categories": ["overworld","wasteland","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_colossus_gateway.desert_colossus": {
                 "access": "region.wasteland_colossus_gateway -> region.desert_colossus",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11049,12 +11298,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","colossus","from"],
+                "categories": ["overworld","colossus","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "wasteland_colossus_gateway.wasteland_near_colossus": {
                 "access": "region.wasteland_colossus_gateway -> region.wasteland_near_colossus",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11065,12 +11317,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","wasteland","from"],
+                "categories": ["overworld","wasteland","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "marketentrance_market_gateway.market": {
                 "access": "region.marketentrance_market_gateway -> region.market",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11081,12 +11336,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","from"],
+                "categories": ["overworld","market","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "marketentrance_market_gateway.market_entrance": {
                 "access": "region.marketentrance_market_gateway -> region.market_entrance",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11097,12 +11355,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","from"],
+                "categories": ["overworld","market","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "grounds_market_gateway.market": {
                 "access": "region.grounds_market_gateway -> region.market",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11113,12 +11374,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","from"],
+                "categories": ["overworld","market","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "grounds_market_gateway.castle_grounds": {
                 "access": "region.grounds_market_gateway -> region.castle_grounds",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11129,12 +11393,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","castle","from"],
+                "categories": ["overworld","castle","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "tot_market_gateway.market": {
                 "access": "region.tot_market_gateway -> region.market",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11145,12 +11412,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","market","from"],
+                "categories": ["overworld","market","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "tot_market_gateway.tot_entrance": {
                 "access": "region.tot_market_gateway -> region.tot_entrance",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11161,12 +11431,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","temple","time","from"],
+                "categories": ["overworld","temple","time","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "graveyard_kakariko_gateway.kakariko_village": {
                 "access": "region.graveyard_kakariko_gateway -> region.kakariko_village",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11177,12 +11450,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","from"],
+                "categories": ["overworld","kakariko","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "graveyard_kakariko_gateway.graveyard": {
                 "access": "region.graveyard_kakariko_gateway -> region.graveyard",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11193,12 +11469,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","graveyard","from"],
+                "categories": ["overworld","graveyard","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "mountain_kakariko_gateway.kak_behind_gate": {
                 "access": "region.mountain_kakariko_gateway -> region.kak_behind_gate",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11209,12 +11488,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","from"],
+                "categories": ["overworld","kakariko","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "mountain_kakariko_gateway.death_mountain": {
                 "access": "region.mountain_kakariko_gateway -> region.death_mountain",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11225,12 +11507,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountain","from"],
+                "categories": ["overworld","mountain","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "mountain_goron_gateway.goron_city": {
                 "access": "region.mountain_goron_gateway -> region.goron_city",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11241,12 +11526,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","from"],
+                "categories": ["overworld","goron","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "mountain_goron_gateway.death_mountain": {
                 "access": "region.mountain_goron_gateway -> region.death_mountain",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11257,12 +11545,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountain","from"],
+                "categories": ["overworld","mountain","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "crater_goron_gateway.gc_darunias_chamber": {
                 "access": "region.crater_goron_gateway -> region.gc_darunias_chamber",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11273,12 +11564,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","goron","from"],
+                "categories": ["overworld","goron","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "crater_goron_gateway.dmc_lower_local": {
                 "access": "region.crater_goron_gateway -> region.dmc_lower_local",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11289,12 +11583,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","crater","from"],
+                "categories": ["overworld","crater","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "crater_mountain_gateway.death_mountain_summit": {
                 "access": "region.crater_mountain_gateway -> region.death_mountain_summit",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11305,12 +11602,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","mountain","from"],
+                "categories": ["overworld","mountain","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "crater_mountain_gateway.dmc_upper_local": {
                 "access": "region.crater_mountain_gateway -> region.dmc_upper_local",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11321,12 +11621,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","crader","from"],
+                "categories": ["overworld","crader","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_domain_gateway.zr_behind_waterfall": {
                 "access": "region.river_domain_gateway -> region.zr_behind_waterfall",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11337,12 +11640,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","river","from"],
+                "categories": ["overworld","river","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "river_domain_gateway.zoras_domain": {
                 "access": "region.river_domain_gateway -> region.zoras_domain",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11353,12 +11659,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","from"],
+                "categories": ["overworld","zoras","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "fountain_domain_gateway.zd_behind_king_zora": {
                 "access": "region.fountain_domain_gateway -> region.zd_behind_king_zora",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11369,12 +11678,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","zoras","from"],
+                "categories": ["overworld","zoras","from"],
                 "icon": "images/icons/entrance.svg"
             },
             "fountain_domain_gateway.zoras_fountain": {
                 "access": "region.fountain_domain_gateway -> region.zoras_fountain",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11385,13 +11697,16 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","fountain","from"],
+                "categories": ["overworld","fountain","from"],
                 "icon": "images/icons/entrance.svg"
             },
 
             "lh.owl_flight": {
                 "access": "region.lh_owl_flight -> region.hyrule_field",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_owls"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11402,12 +11717,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","hyrule","field","owl","drop"],
+                "categories": ["overworld","hyrule","field","owl","drop"],
                 "icon": "images/icons/location.svg"
             },
             "dmt.owl_flight": {
                 "access": "region.dmt_owl_flight -> region.kak_impas_rooftop",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_owls"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11418,12 +11736,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","kakariko","owl","drop"],
+                "categories": ["overworld","kakariko","owl","drop"],
                 "icon": "images/icons/location.svg"
             },
             "child.spawn": {
                 "access": "region.child_spawn -> region.kf_links_house",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_spawns"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11434,12 +11755,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","links","child","spawn"],
+                "categories": ["overworld","links","child","spawn"],
                 "icon": "images/icons/location.svg"
             },
             "adult.spawn": {
                 "access": "region.adult_spawn -> region.temple_of_time",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_spawns"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11450,12 +11774,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","temple","time","adult","spawn"],
+                "categories": ["overworld","temple","time","adult","spawn"],
                 "icon": "images/icons/location.svg"
             },
             "prelude": {
                 "access": "region.prelude_of_light_warp -> region.temple_of_time",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11466,12 +11793,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","temple","time","song","warp"],
+                "categories": ["overworld","temple","time","song","warp"],
                 "icon": "images/icons/location.svg"
             },
             "minuet": {
                 "access": "region.minuet_of_forest_warp -> region.sacred_forest_meadow",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11482,12 +11812,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","meadow","song","warp"],
+                "categories": ["overworld","meadow","song","warp"],
                 "icon": "images/icons/location.svg"
             },
             "bolero": {
                 "access": "region.bolero_of_fire_warp -> region.dmc_central_local",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11498,12 +11831,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","crater","song","warp"],
+                "categories": ["overworld","crater","song","warp"],
                 "icon": "images/icons/location.svg"
             },
             "serenade": {
                 "access": "region.serenade_of_water_warp -> region.lake_hylia",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11514,12 +11850,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","lake","song","warp"],
+                "categories": ["overworld","lake","song","warp"],
                 "icon": "images/icons/location.svg"
             },
             "nocturne": {
                 "access": "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11530,12 +11869,15 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","graveyard","song","warp"],
+                "categories": ["overworld","graveyard","song","warp"],
                 "icon": "images/icons/location.svg"
             },
             "requiem": {
                 "access": "region.requiem_of_spirit_warp -> region.desert_colossus",
-                "visible": false,
+                "visible": {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -11546,7 +11888,7 @@
                         "night": false
                     }
                 },
-                "category": ["overworld","colossus","song","warp"],
+                "categories": ["overworld","colossus","song","warp"],
                 "icon": "images/icons/location.svg"
             }
         },
@@ -26373,7 +26715,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","diving","child","adult"],
+                "categories": ["grotto","hyrule","field","diving","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.kakariko_grotto": {
@@ -26392,7 +26734,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","near","kakariko","child","adult"],
+                "categories": ["grotto","hyrule","field","near","kakariko","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.fairy_grotto": {
@@ -26411,7 +26753,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","fairy","child","adult"],
+                "categories": ["grotto","hyrule","field","fairy","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.castle_entrance_grotto": {
@@ -26430,7 +26772,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","near","market","child","adult"],
+                "categories": ["grotto","hyrule","field","near","market","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.valley_grotto": {
@@ -26449,7 +26791,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","cow","child","adult"],
+                "categories": ["grotto","hyrule","field","cow","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_fence_grotto": {
@@ -26468,7 +26810,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","inside","fence","scrub","child","adult"],
+                "categories": ["grotto","hyrule","field","inside","fence","scrub","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_open_grotto": {
@@ -26487,7 +26829,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","open","child","adult"],
+                "categories": ["grotto","hyrule","field","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.little_forest_grotto": {
@@ -26506,7 +26848,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","hyrule","field","southeast","child","adult"],
+                "categories": ["grotto","hyrule","field","southeast","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "kokiri.midos_house": {
@@ -26529,7 +26871,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","midos","child","adult"],
+                "categories": ["interior","kokiri","forest","midos","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.sarias_house": {
@@ -26552,7 +26894,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","sarias","child","adult"],
+                "categories": ["interior","kokiri","forest","sarias","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.twins_house": {
@@ -26575,7 +26917,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","twins","child","adult"],
+                "categories": ["interior","kokiri","forest","twins","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.know_it_house": {
@@ -26598,7 +26940,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","know_it_all_house","child","adult"],
+                "categories": ["interior","kokiri","forest","know_it_all_house","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.shop": {
@@ -26621,7 +26963,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","shop","child","adult"],
+                "categories": ["interior","kokiri","forest","shop","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.links_house": {
@@ -26641,7 +26983,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kokiri","forest","links","child","adult"],
+                "categories": ["interior","kokiri","forest","links","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kokiri.storm_grotto": {
@@ -26660,7 +27002,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","kokiri","forest","storms","child","adult"],
+                "categories": ["grotto","kokiri","forest","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_goron_grotto": {
@@ -26679,7 +27021,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","lost","woods","near","goron","child","adult"],
+                "categories": ["grotto","lost","woods","near","goron","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_meadow_grotto": {
@@ -26698,7 +27040,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","lost","woods","near","meadow","scrub","child","adult"],
+                "categories": ["grotto","lost","woods","near","meadow","scrub","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "woods.theatre_grotto": {
@@ -26717,7 +27059,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","lost","woods","theatre","child","adult"],
+                "categories": ["grotto","lost","woods","theatre","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.wolfos_grotto": {
@@ -26736,7 +27078,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","sacred","forest","meadow","wolfos","child","adult"],
+                "categories": ["grotto","sacred","forest","meadow","wolfos","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.storms_grotto": {
@@ -26755,7 +27097,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","sacred","forest","meadow","storms","child","adult"],
+                "categories": ["grotto","sacred","forest","meadow","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.fairy_grotto": {
@@ -26774,7 +27116,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","sacred","forest","meadow","fairy","child","adult"],
+                "categories": ["grotto","sacred","forest","meadow","fairy","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "castle_town.guard_tower": {
@@ -26797,7 +27139,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","market","guard","house","child","adult"],
+                "categories": ["interior","market","guard","house","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.shop_mask": {
@@ -26820,7 +27162,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","market","mask","shop","child"],
+                "categories": ["interior","market","mask","shop","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.minigame_bombchu": {
@@ -26843,7 +27185,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","market","bombchu","bowling","child"],
+                "categories": ["interior","market","bombchu","bowling","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.shop_magic": {
@@ -26866,7 +27208,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","market","potion","shop","child"],
+                "categories": ["interior","market","potion","shop","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.minigame_treasure": {
@@ -26889,7 +27231,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","market","treasure","chest","child"],
+                "categories": ["interior","market","treasure","chest","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.shop_bombchu": {
@@ -26912,7 +27254,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","market","bombchu","shop","child"],
+                "categories": ["interior","market","bombchu","shop","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.back_house": {
@@ -26935,7 +27277,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","market","man_in_green","child"],
+                "categories": ["interior","market","man_in_green","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.shop_bazaar": {
@@ -26958,7 +27300,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","market","bazaar","child"],
+                "categories": ["interior","market","bazaar","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.minigame_shooting": {
@@ -26981,7 +27323,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","market","shooting","child"],
+                "categories": ["interior","market","shooting","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle_town.temple_of_time": {
@@ -27001,7 +27343,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","temple","time","child","adult"],
+                "categories": ["interior","temple","time","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lonlon.house": {
@@ -27024,7 +27366,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","lonlon","talon","house","child","adult"],
+                "categories": ["interior","lonlon","talon","house","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lonlon.stables": {
@@ -27047,7 +27389,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","lonlon","stables","child","adult"],
+                "categories": ["interior","lonlon","stables","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lonlon.silo": {
@@ -27070,7 +27412,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","lonlon","tower","child","adult"],
+                "categories": ["interior","lonlon","tower","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lonlon.open_grotto": {
@@ -27089,7 +27431,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","lonlon","open","child","adult"],
+                "categories": ["grotto","lonlon","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "castle.fairy_young": {
@@ -27112,7 +27454,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","castle","grounds","fairy","fountain","child"],
+                "categories": ["interior","castle","grounds","fairy","fountain","child"],
                 "icon": "images/icons/interior.svg"
             },
             "castle.storm_grotto": {
@@ -27131,7 +27473,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","castle","grounds","storms","child"],
+                "categories": ["grotto","castle","grounds","storms","child"],
                 "icon": "images/icons/grotto.svg"
             },
             "castle.fairy_adult": {
@@ -27154,7 +27496,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","castle","grounds","fairy","fountain","adult"],
+                "categories": ["interior","castle","grounds","fairy","fountain","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.carpenter_house": {
@@ -27177,7 +27519,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","carpenter","child","adult"],
+                "categories": ["interior","kakariko","carpenter","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.skulltula_house": {
@@ -27200,7 +27542,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","skulltula","child","adult"],
+                "categories": ["interior","kakariko","skulltula","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.impas_house": {
@@ -27223,7 +27565,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","impa","child","adult"],
+                "categories": ["interior","kakariko","impa","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.impa_back": {
@@ -27246,7 +27588,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","impa","child","adult"],
+                "categories": ["interior","kakariko","impa","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.kakariko_witch": {
@@ -27269,7 +27611,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","odd_medicine","adult"],
+                "categories": ["interior","kakariko","odd_medicine","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.shop_bazaar": {
@@ -27292,7 +27634,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","kakariko","bazaar","adult"],
+                "categories": ["interior","kakariko","bazaar","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.minigame_shooting": {
@@ -27315,7 +27657,7 @@
                         "night": false
                     }
                 },
-                "category": ["interior","kakariko","shooting","gallery","adult"],
+                "categories": ["interior","kakariko","shooting","gallery","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.windmill": {
@@ -27335,7 +27677,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","windmill","child","adult"],
+                "categories": ["interior","kakariko","windmill","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.shop_magic": {
@@ -27355,7 +27697,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","potion","shop","front","adult"],
+                "categories": ["interior","kakariko","potion","shop","front","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.shop_magic_back": {
@@ -27375,7 +27717,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","kakariko","potion","shop","front","adult"],
+                "categories": ["interior","kakariko","potion","shop","front","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.open_grotto": {
@@ -27394,7 +27736,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","kakariko","open","child","adult"],
+                "categories": ["grotto","kakariko","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "kakariko.redead_grotto": {
@@ -27413,7 +27755,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","kakariko","redead","child","adult"],
+                "categories": ["grotto","kakariko","redead","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.dampes_hut": {
@@ -27436,7 +27778,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","graveyard","dampe","child","adult"],
+                "categories": ["interior","graveyard","dampe","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "graveyard.shield_grave": {
@@ -27455,7 +27797,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","graveyard","shield","grave","child","adult"],
+                "categories": ["grotto","graveyard","shield","grave","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.redead_grave": {
@@ -27474,7 +27816,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","graveyard","redead","grave","sun","song","child","adult"],
+                "categories": ["grotto","graveyard","redead","grave","sun","song","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.royal_grave": {
@@ -27493,7 +27835,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","graveyard","composers","grave","child","adult"],
+                "categories": ["grotto","graveyard","composers","grave","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.dampes_grave": {
@@ -27512,7 +27854,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","graveyard","dampe","grave","adult"],
+                "categories": ["grotto","graveyard","dampe","grave","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "mountain.fairy_fountain": {
@@ -27535,7 +27877,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","death","mountain","fairy","fountain","child","adult"],
+                "categories": ["interior","death","mountain","fairy","fountain","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "mountain.storms_grotto": {
@@ -27554,7 +27896,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","death","mountain","storms","child","adult"],
+                "categories": ["grotto","death","mountain","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "mountain.bomb_grotto": {
@@ -27573,7 +27915,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","death","mountain","cow","child","adult"],
+                "categories": ["grotto","death","mountain","cow","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "crater.fairy_fountain": {
@@ -27596,7 +27938,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","death","mountain","crater","fairy","fountain","child","adult"],
+                "categories": ["interior","death","mountain","crater","fairy","fountain","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "crater.hammer_grotto": {
@@ -27615,7 +27957,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","death","mountain","crater","hammer","adult"],
+                "categories": ["grotto","death","mountain","crater","hammer","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "crater.bomb_grotto": {
@@ -27634,7 +27976,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","death","mountain","crater","upper","bomb","child","adult"],
+                "categories": ["grotto","death","mountain","crater","upper","bomb","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "goron.shop": {
@@ -27657,7 +27999,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","goron","shop","child","adult"],
+                "categories": ["interior","goron","shop","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "goron.grotto": {
@@ -27676,7 +28018,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","goron","adult"],
+                "categories": ["grotto","goron","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "river.storms_grotto": {
@@ -27695,7 +28037,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","zoras","river","storms","child","adult"],
+                "categories": ["grotto","zoras","river","storms","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "river.bomb_grotto": {
@@ -27714,7 +28056,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","zoras","river","fairy","child","adult"],
+                "categories": ["grotto","zoras","river","fairy","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "river.open_grotto": {
@@ -27733,7 +28075,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","zoras","river","open","child","adult"],
+                "categories": ["grotto","zoras","river","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "zoras.shop": {
@@ -27756,7 +28098,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","zoras","domain","shop","child"],
+                "categories": ["interior","zoras","domain","shop","child"],
                 "icon": "images/icons/interior.svg"
             },
             "zoras.storms_grotto": {
@@ -27775,7 +28117,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","zoras","domain","open","child","adult"],
+                "categories": ["grotto","zoras","domain","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "fountain.fairy_fountain": {
@@ -27798,7 +28140,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","zoras","fountain","fariy","fountain","child","adult"],
+                "categories": ["interior","zoras","fountain","fariy","fountain","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lake.laboratory": {
@@ -27821,7 +28163,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","lake","hilya","lab","child","adult"],
+                "categories": ["interior","lake","hilya","lab","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lake.fishing": {
@@ -27844,7 +28186,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","lake","hilya","fishing","child","adult"],
+                "categories": ["interior","lake","hilya","fishing","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "lake.grave_grotto": {
@@ -27863,7 +28205,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","lake","hilya","open","child","adult"],
+                "categories": ["grotto","lake","hilya","open","child","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "gerudo_valley.tend": {
@@ -27886,7 +28228,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","gerudo","valley","carpenter","tent","child","adult"],
+                "categories": ["interior","gerudo","valley","carpenter","tent","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "gerudo_valley.storms_grotto": {
@@ -27905,7 +28247,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","gerudo","valley","storms","adult"],
+                "categories": ["grotto","gerudo","valley","storms","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "gerudo_valley.octorock_grotto": {
@@ -27924,7 +28266,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","gerudo","valley","octorok","adult"],
+                "categories": ["grotto","gerudo","valley","octorok","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "gerudo.storms_grotto": {
@@ -27943,7 +28285,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","gerudo","fortress","storms","adult"],
+                "categories": ["grotto","gerudo","fortress","storms","adult"],
                 "icon": "images/icons/grotto.svg"
             },
             "desert.fairy_fountain": {
@@ -27966,7 +28308,7 @@
                         "night": true
                     }
                 },
-                "category": ["interior","colossus","fairy","fountain","child","adult"],
+                "categories": ["interior","colossus","fairy","fountain","child","adult"],
                 "icon": "images/icons/interior.svg"
             },
             "desert.strength_grotto": {
@@ -27985,7 +28327,7 @@
                         "night": true
                     }
                 },
-                "category": ["grotto","colossus","colossus","silver","gantlets","adult"],
+                "categories": ["grotto","colossus","colossus","silver","gantlets","adult"],
                 "icon": "images/icons/grotto.svg"
             }
         }
