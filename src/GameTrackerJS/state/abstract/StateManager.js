@@ -71,9 +71,9 @@ export default class StateManager {
     }
 
     getAll() {
-        const instancces = INSTANCES.get(this);
+        const instances = INSTANCES.get(this);
         const res = {};
-        for (const [key, value] of instancces) {
+        for (const [key, value] of instances) {
             res[key] = value;
         }
         return res;

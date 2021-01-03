@@ -6,6 +6,7 @@ import AreaStates from "/GameTrackerJS/state/world/area/StateManager.js";
 import SubAreaStates from "/GameTrackerJS/state/world/subarea/StateManager.js";
 import ExitStates from "/GameTrackerJS/state/world/exit/StateManager.js";
 import SubExitStates from "/GameTrackerJS/state/world/subexit/StateManager.js";
+import EntranceStates from "/GameTrackerJS/state/world/entrance/StateManager.js";
 // items
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 // dungeonstate
@@ -34,6 +35,11 @@ class StateInit {
             const subareas = FileData.get("world/marker/subarea");
             for (const ref in subareas) {
                 SubAreaStates.get(ref);
+            }
+            // entrances
+            const entrances = FileData.get("world/exit");
+            for (const ref in entrances) {
+                EntranceStates.get(ref);
             }
             // exits
             const exits = FileData.get("world/marker/exit");
