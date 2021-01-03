@@ -8622,8 +8622,9 @@
         },
         "region.lake_field_gateway -> region.lake_hylia": {
             "target": "region.lake_hylia -> region.lake_field_gateway",
-
-
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","lake","from"],
             "type": "overworld_exit",
             "area": "area/lake",
             "active": {
@@ -8645,7 +8646,9 @@
         },
         "region.valley_field_gateway -> region.gerudo_valley": {
             "target": "region.gerudo_valley -> region.valley_field_gateway",
-
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","gerudo_vally","from"],
             "type": "overworld_exit",
             "area": "area/gerudo_valley",
             "active": {
@@ -8655,6 +8658,9 @@
         },
         "region.marketentrance_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.marketentrance_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8664,6 +8670,9 @@
         },
         "region.marketentrance_field_gateway -> region.market_entrance": {
             "target": "region.market_entrance -> region.marketentrance_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","market","from"],
             "type": "overworld_exit",
             "area": "area/market",
             "active": {
@@ -8673,6 +8682,9 @@
         },
         "region.kakariko_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.kakariko_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8682,6 +8694,9 @@
         },
         "region.kakariko_field_gateway -> region.kakariko_village": {
             "target": "region.kakariko_village -> region.kakariko_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","kakariko","from"],
             "type": "overworld_exit",
             "area": "area/kakariko",
             "active": {
@@ -8691,6 +8706,9 @@
         },
         "region.river_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.river_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8700,6 +8718,9 @@
         },
         "region.river_field_gateway -> region.zr_front": {
             "target": "region.zr_front -> region.river_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","river","from"],
             "type": "overworld_exit",
             "area": "area/river",
             "active": {
@@ -8709,6 +8730,9 @@
         },
         "region.ranch_field_gateway -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.ranch_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","hyrule_field","from"],
             "type": "overworld_exit",
             "area": "area/hyrule_field",
             "active": {
@@ -8718,6 +8742,9 @@
         },
         "region.ranch_field_gateway -> region.lon_lon_ranch": {
             "target": "region.lon_lon_ranch -> region.ranch_field_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","lonlon","from"],
             "type": "overworld_exit",
             "area": "area/lonlon",
             "active": {
@@ -8727,6 +8754,9 @@
         },
         "region.domain_lake_gateway -> region.lake_hylia": {
             "target": "region.lake_hylia -> region.domain_lake_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","lake","from"],
             "type": "overworld_exit",
             "area": "area/lake",
             "active": {
@@ -8736,6 +8766,9 @@
         },
         "region.domain_lake_gateway -> region.zoras_domain": {
             "target": "region.zoras_domain -> region.domain_lake_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","zoras","from"],
             "type": "overworld_exit",
             "area": "area/zoras",
             "active": {
@@ -8745,6 +8778,9 @@
         },
         "region.valley_fortress_gateway -> region.gerudo_fortress": {
             "target": "region.gerudo_fortress -> region.valley_fortress_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","gerudo","from"],
             "type": "overworld_exit",
             "area": "area/gerudo",
             "active": {
@@ -8754,6 +8790,9 @@
         },
         "region.valley_fortress_gateway -> region.gv_fortress_side": {
             "target": "region.gv_fortress_side -> region.valley_fortress_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","gerudo_vally","from"],
             "type": "overworld_exit",
             "area": "area/gerudo_valley",
             "active": {
@@ -8763,6 +8802,9 @@
         },
         "region.wasteland_fortress_gateway -> region.gf_outside_gate": {
             "target": "region.gf_outside_gate -> region.wasteland_fortress_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","gerudo","from"],
             "type": "overworld_exit",
             "area": "area/gerudo",
             "active": {
@@ -8772,6 +8814,9 @@
         },
         "region.wasteland_fortress_gateway -> region.wasteland_near_fortress": {
             "target": "region.wasteland_near_fortress -> region.wasteland_fortress_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","wasteland","from"],
             "type": "overworld_exit",
             "area": "area/wasteland",
             "active": {
@@ -8781,6 +8826,9 @@
         },
         "region.wasteland_colossus_gateway -> region.desert_colossus": {
             "target": "region.desert_colossus -> region.wasteland_colossus_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","colossus","from"],
             "type": "overworld_exit",
             "area": "area/colossus",
             "active": {
@@ -8790,6 +8838,9 @@
         },
         "region.wasteland_colossus_gateway -> region.wasteland_near_colossus": {
             "target": "region.wasteland_near_colossus -> region.wasteland_colossus_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","wasteland","from"],
             "type": "overworld_exit",
             "area": "area/wasteland",
             "active": {
@@ -8799,6 +8850,9 @@
         },
         "region.marketentrance_market_gateway -> region.market": {
             "target": "region.market -> region.marketentrance_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","market","from"],
             "type": "overworld_exit",
             "area": "area/market",
             "active": {
@@ -8808,6 +8862,9 @@
         },
         "region.marketentrance_market_gateway -> region.market_entrance": {
             "target": "region.market_entrance -> region.marketentrance_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","market","from"],
             "type": "overworld_exit",
             "area": "area/market",
             "active": {
@@ -8817,6 +8874,9 @@
         },
         "region.grounds_market_gateway -> region.market": {
             "target": "region.market -> region.grounds_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","market","from"],
             "type": "overworld_exit",
             "area": "area/market",
             "active": {
@@ -8826,6 +8886,9 @@
         },
         "region.grounds_market_gateway -> region.castle_grounds": {
             "target": "region.castle_grounds -> region.grounds_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","castle","from"],
             "type": "overworld_exit",
             "area": "area/castle",
             "active": {
@@ -8835,6 +8898,9 @@
         },
         "region.tot_market_gateway -> region.market": {
             "target": "region.market -> region.tot_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","market","from"],
             "type": "overworld_exit",
             "area": "area/market",
             "active": {
@@ -8844,6 +8910,9 @@
         },
         "region.tot_market_gateway -> region.tot_entrance": {
             "target": "region.tot_entrance -> region.tot_market_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","temple_time","from"],
             "type": "overworld_exit",
             "area": "area/temple_time",
             "active": {
@@ -8853,6 +8922,9 @@
         },
         "region.graveyard_kakariko_gateway -> region.kakariko_village": {
             "target": "region.kakariko_village -> region.graveyard_kakariko_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","kakariko","from"],
             "type": "overworld_exit",
             "area": "area/kakariko",
             "active": {
@@ -8862,6 +8934,9 @@
         },
         "region.graveyard_kakariko_gateway -> region.graveyard": {
             "target": "region.graveyard -> region.graveyard_kakariko_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","graveyard","from"],
             "type": "overworld_exit",
             "area": "area/graveyard",
             "active": {
@@ -8871,6 +8946,9 @@
         },
         "region.mountain_kakariko_gateway -> region.kak_behind_gate": {
             "target": "region.kak_behind_gate -> region.mountain_kakariko_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","kakariko","from"],
             "type": "overworld_exit",
             "area": "area/kakariko",
             "active": {
@@ -8880,6 +8958,9 @@
         },
         "region.mountain_kakariko_gateway -> region.death_mountain": {
             "target": "region.death_mountain -> region.mountain_kakariko_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","mountain","from"],
             "type": "overworld_exit",
             "area": "area/mountain",
             "active": {
@@ -8889,6 +8970,9 @@
         },
         "region.mountain_goron_gateway -> region.goron_city": {
             "target": "region.goron_city -> region.mountain_goron_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","goron","from"],
             "type": "overworld_exit",
             "area": "area/goron",
             "active": {
@@ -8898,6 +8982,9 @@
         },
         "region.mountain_goron_gateway -> region.death_mountain": {
             "target": "region.death_mountain -> region.mountain_goron_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","mountain","from"],
             "type": "overworld_exit",
             "area": "area/mountain",
             "active": {
@@ -8907,6 +8994,9 @@
         },
         "region.crater_goron_gateway -> region.gc_darunias_chamber": {
             "target": "region.gc_darunias_chamber -> region.crater_goron_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","goron","from"],
             "type": "overworld_exit",
             "area": "area/goron",
             "active": {
@@ -8916,6 +9006,9 @@
         },
         "region.crater_goron_gateway -> region.dmc_lower_local": {
             "target": "region.dmc_lower_local -> region.crater_goron_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","crater","from"],
             "type": "overworld_exit",
             "area": "area/crater",
             "active": {
@@ -8925,6 +9018,9 @@
         },
         "region.crater_mountain_gateway -> region.death_mountain_summit": {
             "target": "region.death_mountain_summit -> region.crater_mountain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","mountain","from"],
             "type": "overworld_exit",
             "area": "area/mountain",
             "active": {
@@ -8934,6 +9030,9 @@
         },
         "region.crater_mountain_gateway -> region.dmc_upper_local": {
             "target": "region.dmc_upper_local -> region.crater_mountain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","crader","from"],
             "type": "overworld_exit",
             "area": "area/crater",
             "active": {
@@ -8943,6 +9042,9 @@
         },
         "region.river_domain_gateway -> region.zr_behind_waterfall": {
             "target": "region.zr_behind_waterfall -> region.river_domain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","river","from"],
             "type": "overworld_exit",
             "area": "area/river",
             "active": {
@@ -8952,6 +9054,9 @@
         },
         "region.river_domain_gateway -> region.zoras_domain": {
             "target": "region.zoras_domain -> region.river_domain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","zoras","from"],
             "type": "overworld_exit",
             "area": "area/zoras",
             "active": {
@@ -8961,6 +9066,9 @@
         },
         "region.fountain_domain_gateway -> region.zd_behind_king_zora": {
             "target": "region.zd_behind_king_zora -> region.fountain_domain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","zoras","from"],
             "type": "overworld_exit",
             "area": "area/zoras",
             "active": {
@@ -8970,6 +9078,9 @@
         },
         "region.fountain_domain_gateway -> region.zoras_fountain": {
             "target": "region.zoras_fountain -> region.fountain_domain_gateway",
+            "bindsTo": ["overworld_exit"],
+            "ignoreBound": false,
+            "category": ["overworld exit","fountain","from"],
             "type": "overworld_exit",
             "area": "area/fountain",
             "active": {
@@ -8980,6 +9091,9 @@
 
         "region.lh_owl_flight -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.lh_owl_flight",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","hyrule_field","owl_drop"],
             "type": "special",
             "area": "area/hyrule_field",
             "active": {
@@ -8989,6 +9103,9 @@
         },
         "region.dmt_owl_flight -> region.kak_impas_rooftop": {
             "target": "region.kak_impas_rooftop -> region.dmt_owl_flight",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","kakariko","owl_drop"],
             "type": "special",
             "area": "area/kakariko",
             "active": {
@@ -8998,6 +9115,9 @@
         },
         "region.child_spawn -> region.kf_links_house": {
             "target": "region.kf_links_house -> region.child_spawn",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","links_house","child_spawn"],
             "type": "special",
             "area": "subarea/kokiri.links_house",
             "active": {
@@ -9007,6 +9127,9 @@
         },
         "region.adult_spawn -> region.temple_of_time": {
             "target": "region.temple_of_time -> region.adult_spawn",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","temple_time","adult_spawn"],
             "type": "special",
             "area": "subarea/castle_town.temple_of_time",
             "active": {
@@ -9016,6 +9139,9 @@
         },
         "region.prelude_of_light_warp -> region.temple_of_time": {
             "target": "region.temple_of_time -> region.prelude_of_light_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","temple_time","song_warp"],
             "type": "special",
             "area": "subarea/castle_town.temple_of_time",
             "active": {
@@ -9025,6 +9151,9 @@
         },
         "region.minuet_of_forest_warp -> region.sacred_forest_meadow": {
             "target": "region.sacred_forest_meadow -> region.minuet_of_forest_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","meadow","song_warp"],
             "type": "special",
             "area": "area/meadow",
             "active": {
@@ -9034,6 +9163,9 @@
         },
         "region.bolero_of_fire_warp -> region.dmc_central_local": {
             "target": "region.dmc_central_local -> region.bolero_of_fire_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","crater","song_warp"],
             "type": "special",
             "area": "area/crater",
             "active": {
@@ -9043,6 +9175,9 @@
         },
         "region.serenade_of_water_warp -> region.lake_hylia": {
             "target": "region.lake_hylia -> region.serenade_of_water_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","lake","song_warp"],
             "type": "special",
             "area": "area/lake",
             "active": {
@@ -9052,6 +9187,9 @@
         },
         "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region": {
             "target": "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","graveyard","song_warp"],
             "type": "special",
             "area": "area/graveyard",
             "active": {
@@ -9061,6 +9199,9 @@
         },
         "region.requiem_of_spirit_warp -> region.desert_colossus": {
             "target": "region.desert_colossus -> region.requiem_of_spirit_warp",
+            "bindsTo": ["special"],
+            "ignoreBound": true,
+            "category": ["overworld exit","colossus","song_warp"],
             "type": "special",
             "area": "area/colossus",
             "active": {
@@ -9071,186 +9212,280 @@
 
         "region.hf_tektite_grotto_entrance -> region.hyrule_field": {
             "target": "region.hyrule_field -> region.hf_tektite_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
+
             "type": "not_seen",
             "area": "subarea/hyrule_field.dive_grotto",
             "active": false
         },
         "region.kf_midos_house_entrance -> region.kokiri_forest": {
             "target": "region.kokiri_forest -> region.kf_midos_house_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/kokiri.midos_house",
             "active": false
         },
         "region.lw_near_shortcuts_grotto_entrance -> region.lost_woods": {
             "target": "region.lost_woods -> region.lw_near_shortcuts_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/woods.near_goron_grotto",
             "active": false
         },
         "region.deku_theater_entrance -> region.lw_beyond_mido": {
             "target": "region.lw_beyond_mido -> region.deku_theater_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/woods.theatre_grotto",
             "active": false
         },
         "region.sfm_wolfos_grotto_entrance -> region.sfm_entryway": {
             "target": "region.sfm_entryway -> region.sfm_wolfos_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/meadow.wolfos_grotto",
             "active": false
         },
         "region.sfm_storms_grotto_entrance -> region.sacred_forest_meadow": {
             "target": "region.sacred_forest_meadow -> region.sfm_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/meadow.storms_grotto",
             "active": false
         },
         "region.market_guard_house_entrance -> region.market_entrance": {
             "target": "region.market_entrance -> region.market_guard_house_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/castle_town.guard_tower",
             "active": false
         },
         "region.market_mask_shop_entrance -> region.market": {
             "target": "region.market -> region.market_mask_shop_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/castle_town.shop_mask",
             "active": false
         },
         "region.market_bombchu_shop_entrance -> region.market_back_alley": {
             "target": "region.market_back_alley -> region.market_bombchu_shop_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/castle_town.shop_bombchu",
             "active": false
         },
         "region.llr_grotto_entrance -> region.lon_lon_ranch": {
             "target": "region.lon_lon_ranch -> region.llr_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/lonlon.open_grotto",
             "active": false
         },
         "region.hc_storms_grotto_entrance -> region.hyrule_castle_grounds": {
             "target": "region.hyrule_castle_grounds -> region.hc_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/castle.storm_grotto",
             "active": false
         },
         "region.ogc_great_fairy_fountain_entrance -> region.ganons_castle_grounds": {
             "target": "region.ganons_castle_grounds -> region.ogc_great_fairy_fountain_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/castle.fairy_adult",
             "active": false
         },
         "region.kak_impas_house_back_entrance -> region.kak_impas_ledge": {
             "target": "region.kak_impas_ledge -> region.kak_impas_house_back_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/kakariko.impa_back",
             "active": false
         },
         "region.kak_odd_medicine_building_entrance -> region.kak_backyard": {
             "target": "region.kak_backyard -> region.kak_odd_medicine_building_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/kakariko.kakariko_witch",
             "active": false
         },
         "region.kak_bazaar_entrance -> region.kakariko_village": {
             "target": "region.kakariko_village -> region.kak_bazaar_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/kakariko.shop_bazaar",
             "active": false
         },
         "region.graveyard_dampes_grave_entrance -> region.graveyard": {
             "target": "region.graveyard -> region.graveyard_dampes_grave_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/graveyard.dampes_grave",
             "active": false
         },
         "region.dmt_great_fairy_fountain_entrance -> region.death_mountain_summit": {
             "target": "region.death_mountain_summit -> region.dmt_great_fairy_fountain_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/mountain.fairy_fountain",
             "active": false
         },
         "region.dmt_storms_grotto_entrance -> region.death_mountain": {
             "target": "region.death_mountain -> region.dmt_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/mountain.storms_grotto",
             "active": false
         },
         "region.dmc_hammer_grotto_entrance -> region.dmc_lower_nearby": {
             "target": "region.dmc_lower_nearby -> region.dmc_hammer_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/crater.hammer_grotto",
             "active": false
         },
         "region.dmc_upper_grotto_entrance -> region.dmc_upper_nearby": {
             "target": "region.dmc_upper_nearby -> region.dmc_upper_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/crater.crater_bomb_grotto",
             "active": false
         },
         "region.gc_shop_entrance -> region.goron_city": {
             "target": "region.goron_city -> region.gc_shop_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/goron.shop",
             "active": false
         },
         "region.gc_grotto_entrance -> region.gc_grotto_platform": {
             "target": "region.gc_grotto_platform -> region.gc_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/goron.grotto",
             "active": false
         },
         "region.zr_open_grotto_entrance -> region.zora_river": {
             "target": "region.zora_river -> region.zr_open_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/river.open_grotto",
             "active": false
         },
         "region.zd_storms_grotto_entrance -> region.zoras_domain": {
             "target": "region.zoras_domain -> region.zd_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/zoras.storms_grotto",
             "active": false
         },
         "region.zf_great_fairy_fountain_entrance -> region.zoras_fountain": {
             "target": "region.zoras_fountain -> region.zf_great_fairy_fountain_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/fountain.fairy_fountain",
             "active": false
         },
         "region.lh_fishing_hole_entrance -> region.lh_fishing_island": {
             "target": "region.lh_fishing_island -> region.lh_fishing_hole_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/lake.fishing",
             "active": false
         },
         "region.lh_grotto_entrance -> region.lake_hylia": {
             "target": "region.lake_hylia -> region.lh_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/lake.grave_grotto",
             "active": false
         },
         "region.gv_storms_grotto_entrance -> region.gv_fortress_side": {
             "target": "region.gv_fortress_side -> region.gv_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/gerudo_valley.storms_grotto",
             "active": false
         },
         "region.gv_octorok_grotto_entrance -> region.gv_grotto_ledge": {
             "target": "region.gv_grotto_ledge -> region.gv_octorok_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/gerudo_valley.octorock_grotto",
             "active": false
         },
         "region.gf_storms_grotto_entrance -> region.gerudo_fortress": {
             "target": "region.gerudo_fortress -> region.gf_storms_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/gerudo.storms_grotto",
             "active": false
         },
         "region.colossus_grotto_entrance -> region.desert_colossus": {
             "target": "region.desert_colossus -> region.colossus_grotto_entrance",
+            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "ignoreBound": true,
+            "category":"" ,
             "type": "not_seen",
             "area": "subarea/desert.strength_grotto",
             "active": false
