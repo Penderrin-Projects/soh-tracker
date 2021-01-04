@@ -33,21 +33,12 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //    StateStorage.writeExtra("exits", exit_binding[edgeBack], "");
             //}
             if (exitEntry.exitData.type !== 'special') {
-                if(exitEntry.exitData.type === "overworld_exits" && entranceEntry.props.categories.indexOf("from") > -1) {
-                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
-                    changes.push({source: `${entrance}[child]`, target: `${reroute}[child]`, reroute: `${source}[child]`});
-                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
-                    changes.push({source: `${entrance}[adult]`, target: `${reroute}[adult]`, reroute: `${source}[adult]`});
-                    exit_binding[edgeThere] = edgeBack;
-                    exit_binding[edgeBack] = edgeThere;
-                } else {
-                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                    changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
-                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-                    changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: `${source}[adult]`});
-                    exit_binding[edgeThere] = edgeBack;
-                    exit_binding[edgeBack] = edgeThere;
-                }
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: `${source}[adult]`});
+                exit_binding[edgeThere] = edgeBack;
+                exit_binding[edgeBack] = edgeThere;
                 //StateStorage.writeExtra("exits", edgeBack, edgeThere);
             } else {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
