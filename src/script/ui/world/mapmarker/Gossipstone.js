@@ -1,6 +1,6 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
 import AbstractGossipstone from "../abstract/Gossipstone.js";
 
@@ -98,5 +98,5 @@ export default class MapGossipstone extends AbstractGossipstone {
 
 }
 
-UIWorldRegistry.get("map-location").register('gossipstone', MapGossipstone);
+UIRegistry.get("map-location").register('gossipstone', MapGossipstone);
 customElements.define('ootrt-map-gossipstone', MapGossipstone);

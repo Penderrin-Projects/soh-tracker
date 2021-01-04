@@ -5,7 +5,7 @@ import "/emcJS/ui/input/SwitchButton.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/script/util/Language.js";
 // more
 import "./listitems/Button.js";
@@ -247,7 +247,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 for (const record of list) {
                     const id = `${record.category}/${record.id}`;
                     const loc = WorldRegistry.get(id);
-                    const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                    const uiReg = UIRegistry.get(`list-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     cnt.append(el);
                 }

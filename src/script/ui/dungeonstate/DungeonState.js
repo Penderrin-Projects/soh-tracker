@@ -2,8 +2,14 @@ import Template from "/emcJS/util/Template.js";
 import FileData from "/emcJS/data/FileData.js";
 import Language from "/script/util/Language.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "./DungeonReward.js";
 import "./DungeonType.js";
+import "../items/components/Item.js";
+import "../items/components/ItemKey.js";
+import "../items/components/InfiniteItem.js";
+import "../items/components/RewardItem.js";
+import "../items/components/VariableMaxItem.js";
 
 const TPL = new Template(`
     <style>
@@ -158,6 +164,8 @@ function createRow(ref, data) {
     el.classList.add("inactive");
     const types = [];
 
+    const items = FileData.get("items");
+
     //////////////////////////////////
     // title
     const title = createItemText(data.title);
@@ -166,13 +174,14 @@ function createRow(ref, data) {
     //////////////////////////////////
     // small key
     if (data.keys) {
-        const itm = document.createElement('ootrt-itemkey');
+        const itemData = items[data.keys];
+        const itm = UIRegistry.get("item").create(itemData.type, data.keys);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
-        types.push("key");
-        itm.setAttribute('ref', data.keys);
         itm.title = Language.translate(data.keys);
         el.append(itm);
+        /* register */
+        types.push("key");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
@@ -182,13 +191,14 @@ function createRow(ref, data) {
     //////////////////////////////////
     // boss key
     if (data.bosskey) {
-        const itm = document.createElement('ootrt-item');
+        const itemData = items[data.bosskey];
+        const itm = UIRegistry.get("item").create(itemData.type, data.bosskey);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
-        types.push("bosskey");
-        itm.setAttribute('ref', data.bosskey);
         itm.title = Language.translate(data.bosskey);
         el.append(itm);
+        /* register */
+        types.push("bosskey");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
@@ -198,13 +208,15 @@ function createRow(ref, data) {
     //////////////////////////////////
     // map
     if (data.map) {
-        const itm = document.createElement('ootrt-item');
+        const itemData = items[data.map];
+        const itm = UIRegistry.get("item").create(itemData.type, data.map);
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
-        types.push("map");
         itm.setAttribute('ref', data.map);
         itm.title = Language.translate(data.map);
         el.append(itm);
+        /* register */
+        types.push("map");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
@@ -214,13 +226,15 @@ function createRow(ref, data) {
     //////////////////////////////////
     // compass
     if (data.compass) {
-        const itm = document.createElement('ootrt-item');
+        const itemData = items[data.compass];
+        const itm = UIRegistry.get("item").create(itemData.type, data.compass);
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
-        types.push("compass");
         itm.setAttribute('ref', data.compass);
         itm.title = Language.translate(data.compass);
         el.append(itm);
+        /* register */
+        types.push("compass");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
@@ -233,10 +247,11 @@ function createRow(ref, data) {
         const itm = document.createElement('ootrt-dungeonreward');
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
-        types.push("reward");
         itm.setAttribute('ref', ref);
         itm.title = Language.translate(ref) + " " + Language.translate("dun_reward");
         el.append(itm);
+        /* register */
+        types.push("reward");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
@@ -249,10 +264,11 @@ function createRow(ref, data) {
         const itm = document.createElement('ootrt-dungeontype');
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
-        types.push("type");
         itm.setAttribute('ref', ref);
         itm.title = Language.translate(ref) + " " + Language.translate("dun_type");
         el.append(itm);
+        /* register */
+        types.push("type");
     } else {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");

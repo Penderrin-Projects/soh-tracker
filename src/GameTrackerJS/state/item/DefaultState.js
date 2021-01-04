@@ -54,13 +54,21 @@ export default class DefaultState extends StateData {
     set min(value) {
         value = parseNumber(value, Number.MIN_VALUE);
         if (value != null) {
+            const min = MIN.get(this);
             const max = MAX.get(this);
             if (value > max) {
                 value = max;
             }
-            MIN.set(this, value);
-            if (this.value < value) {
-                this.value = value;
+            if (value != min) {
+                MIN.set(this, value);
+                // external
+                const event = new Event("min");
+                event.data = value;
+                this.dispatchEvent(event);
+                // update value
+                if (this.value < value) {
+                    this.value = value;
+                }
             }
         }
     }
@@ -72,13 +80,21 @@ export default class DefaultState extends StateData {
     set max(value) {
         value = parseNumber(value, Number.MAX_VALUE);
         if (value != null) {
+            const max = MAX.get(this);
             const min = MIN.get(this);
             if (value < min) {
                 value = min;
             }
-            MAX.set(this, value);
-            if (this.value > value) {
-                this.value = value;
+            if (value != max) {
+                MAX.set(this, value);
+                // external
+                const event = new Event("max");
+                event.data = value;
+                this.dispatchEvent(event);
+                // update value
+                if (this.value > value) {
+                    this.value = value;
+                }
             }
         }
     }

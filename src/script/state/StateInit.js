@@ -1,5 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
-// world
+/* GameTrackerJS - world */
 import OverworldState from "/GameTrackerJS/state/world/OverworldState.js";
 import LocationStates from "/GameTrackerJS/state/world/location/StateManager.js";
 import AreaStates from "/GameTrackerJS/state/world/area/StateManager.js";
@@ -7,10 +7,22 @@ import SubAreaStates from "/GameTrackerJS/state/world/subarea/StateManager.js";
 import ExitStates from "/GameTrackerJS/state/world/exit/StateManager.js";
 import SubExitStates from "/GameTrackerJS/state/world/subexit/StateManager.js";
 import EntranceStates from "/GameTrackerJS/state/world/entrance/StateManager.js";
-// items
+/* GameTrackerJS - item */
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
-// dungeonstate
+/* Track-OOT - dungeonstate */
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
+/* Track-OOT - item */
+import "/script/state/item/ItemState.js";
+import "/script/state/item/InfiniteItemState.js";
+import "/script/state/item/KeyState.js";
+import "/script/state/item/RewardItemState.js";
+import "/script/state/item/StartItemState.js";
+import "/script/state/item/VariableMaxItemState.js";
+/* Track-OOT - world */
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/location/LocationState.js";
+import "/script/state/world/location/GossipstoneState.js";
 
 let initialized = false;
 

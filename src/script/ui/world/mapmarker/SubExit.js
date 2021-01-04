@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -193,5 +193,5 @@ export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
 
 }
 
-UIWorldRegistry.set("map-subexit", new UIWorldRegistry(MapSubExit));
+UIRegistry.set("map-subexit", new UIRegistry(MapSubExit));
 customElements.define('ootrt-marker-subexit', MapSubExit);

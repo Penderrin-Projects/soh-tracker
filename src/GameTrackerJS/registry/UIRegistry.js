@@ -2,7 +2,7 @@ import ClassRegister from "/emcJS/util/ClassRegister.js";
 
 const CATEGORIES = new Map();
 
-export default class UIWorldRegistry extends ClassRegister {
+export default class UIRegistry extends ClassRegister {
 
     create(type, ref = "") {
         const el = super.create(type);
@@ -11,11 +11,11 @@ export default class UIWorldRegistry extends ClassRegister {
     }
 
     static set(category, registry) {
-        if (!(registry instanceof UIWorldRegistry)) {
-            throw new TypeError("registry has to be a UIWorldRegistry");
+        if (!(registry instanceof UIRegistry)) {
+            throw new TypeError("registry has to be a UIRegistry");
         }
         if (CATEGORIES.has(category)) {
-            throw new Error(`category "${category}" already exists in UIWorldRegistry`);
+            throw new Error(`category "${category}" already exists in UIRegistry`);
         }
         CATEGORIES.set(category, registry);
     }

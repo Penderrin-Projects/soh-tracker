@@ -3,6 +3,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -287,6 +288,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
 
 }
 
+UIRegistry.set("item", new UIRegistry(Item));
 customElements.define('ootrt-item', Item);
 
 function createOption(value, img, data, max_value) {

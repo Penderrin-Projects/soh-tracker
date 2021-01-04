@@ -1,7 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
 import AbstractLocation from "../abstract/Location.js";
 
@@ -142,5 +142,5 @@ export default class MapLocation extends AbstractLocation {
 
 }
 
-UIWorldRegistry.set("map-location", new UIWorldRegistry(MapLocation));
+UIRegistry.set("map-location", new UIRegistry(MapLocation));
 customElements.define('ootrt-map-location', MapLocation);

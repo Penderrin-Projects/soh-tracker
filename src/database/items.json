@@ -682,8 +682,15 @@
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_gerudo": {
-        "type": "item",
-        "max": 4,
+        "type": "varmax",
+        "max": {
+            "option": "option.gerudo_fortress_open",
+            "values": {
+                "gerudo_fortress_open_default": 4,
+                "gerudo_fortress_open_one": 1,
+                "gerudo_fortress_open_open": 0
+            }
+        },
         "counting": true,
         "images": "/images/items/key_small.png",
         "halign": "end",

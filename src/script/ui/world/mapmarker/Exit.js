@@ -3,7 +3,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -222,5 +222,5 @@ export default class MapExit extends AbstractExit {
 
 }
 
-UIWorldRegistry.set("map-exit", new UIWorldRegistry(MapExit));
+UIRegistry.set("map-exit", new UIRegistry(MapExit));
 customElements.define('ootrt-marker-exit', MapExit);

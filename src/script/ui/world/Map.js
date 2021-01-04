@@ -3,7 +3,7 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 //import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/script/util/Language.js";
 //import ListLogic from "/script/util/logic/ListLogic.js";
 import "./mapmarker/Location.js";
@@ -471,7 +471,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
                 for (const record of list) {
                     const id = `${record.category}/${record.id}`;
                     const loc = WorldRegistry.get(id);
-                    const uiReg = UIWorldRegistry.get(`map-${record.category}`);
+                    const uiReg = UIRegistry.get(`map-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;
                     el.top = record.y;

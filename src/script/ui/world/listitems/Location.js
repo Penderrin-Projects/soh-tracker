@@ -1,6 +1,6 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
 import AbstractLocation from "../abstract/Location.js";
 
@@ -84,5 +84,5 @@ export default class ListLocation extends AbstractLocation {
 
 }
 
-UIWorldRegistry.set("list-location", new UIWorldRegistry(ListLocation));
+UIRegistry.set("list-location", new UIRegistry(ListLocation));
 customElements.define('ootrt-list-location', ListLocation);
