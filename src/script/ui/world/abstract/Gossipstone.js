@@ -46,8 +46,11 @@ export default class ListGossipstone extends AbstractLocation {
             }
         });
         mnu_ctx.addEventListener("show_logic", event => {
-            const title = Language.translate(this.ref);
-            LogicViewer.show(this.access, title);
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.translate(this.ref);
+                LogicViewer.show(state.props.access, title);
+            }
         });
         
         /* mouse events */
