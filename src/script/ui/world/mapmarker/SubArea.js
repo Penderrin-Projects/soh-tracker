@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -177,5 +177,5 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
 
 }
 
-UIWorldRegistry.set("map-subarea", new UIWorldRegistry(MapSubArea));
+UIRegistry.set("map-subarea", new UIRegistry(MapSubArea));
 customElements.define('ootrt-marker-subarea', MapSubArea);

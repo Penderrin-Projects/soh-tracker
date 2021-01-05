@@ -1,7 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -104,5 +104,5 @@ export default class ListArea extends AbstractArea {
 
 }
 
-UIWorldRegistry.set("list-area", new UIWorldRegistry(ListArea));
+UIRegistry.set("list-area", new UIRegistry(ListArea));
 customElements.define('ootrt-list-area', ListArea);

@@ -2,11 +2,13 @@ import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/script/util/Language.js";
 import "./components/Item.js";
 import "./components/ItemKey.js";
 import "./components/InfiniteItem.js";
 import "./components/RewardItem.js";
+import "./components/VariableMaxItem.js";
 
 const TPL = new Template(`
 <div id="content">
@@ -47,20 +49,9 @@ const STYLE = new GlobalStyle(`
 `);
 
 function createItem(value, data) {
-    let type = 'ootrt-item';
-    if (data.type === "infinite") {
-        type = 'ootrt-infiniteitem';
-    } else if (data.type === "dungeonreward") {
-        type = 'ootrt-rewarditem';
-    } else if (data.type === "key") {
-        type = 'ootrt-itemkey';
-    }
-        
-    const el = document.createElement(type);
+    const el = UIRegistry.get("item").create(data.type, value);
     el.className = "item";
     el.title = Language.translate(value);
-    el.setAttribute('i18n-tooltip', value);
-    el.setAttribute('ref', value);
     return el;
 }
 

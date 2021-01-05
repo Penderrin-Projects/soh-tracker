@@ -3,7 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -113,7 +113,7 @@ export default class ListSubExit extends UIEventBusMixin(AbstractSubExit) {
                     for (const record of list) {
                         const id = `${record.category}/${record.id}`;
                         const loc = WorldRegistry.get(id);
-                        const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                        const uiReg = UIRegistry.get(`list-${record.category}`);
                         this.append(uiReg.create(loc.props.type, loc.ref));
                     }
                 }
@@ -123,5 +123,5 @@ export default class ListSubExit extends UIEventBusMixin(AbstractSubExit) {
 
 }
 
-UIWorldRegistry.set("list-subexit", new UIWorldRegistry(ListSubExit));
+UIRegistry.set("list-subexit", new UIRegistry(ListSubExit));
 customElements.define('ootrt-list-subexit', ListSubExit);

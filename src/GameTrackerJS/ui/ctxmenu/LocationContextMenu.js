@@ -31,13 +31,6 @@ export default class LocationContextMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        this.shadowRoot.getElementById("menu-logic").addEventListener("click", event => {
-            const ev = new Event("show_logic");
-            this.dispatchEvent(ev);
-            /* --- */
-            event.preventDefault();
-            return false;
-        });
     }
 
     show(posX, posY) {

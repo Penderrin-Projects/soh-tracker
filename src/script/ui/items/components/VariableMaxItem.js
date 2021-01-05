@@ -76,7 +76,7 @@ function getAlign(value) {
     }
 }
 
-export default class ItemKey extends StateDataEventManager(HTMLElement) {
+export default class VariableMaxItem extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
@@ -87,7 +87,7 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
         this.registerStateHandler("value", event => {
             this.value = event.data;
         });
-        this.registerStateHandler("type", event => {
+        this.registerStateHandler("max", event => {
             this.fillItemChoices();
         });
         this.addEventListener("click", event => this.next(event));
@@ -292,8 +292,8 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
 
 }
 
-UIRegistry.get("item").register('key', ItemKey);
-customElements.define('ootrt-itemkey', ItemKey);
+UIRegistry.get("item").register('varmax', VariableMaxItem);
+customElements.define('ootrt-varmaxitem', VariableMaxItem);
 
 function createOption(value, img, data, max_value) {
     const opt = document.createElement('emc-option');

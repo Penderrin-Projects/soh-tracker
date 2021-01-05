@@ -2,7 +2,6 @@ import "/emcJS/ui/Icon.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
-import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/script/util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
@@ -47,10 +46,6 @@ export default class AbstractLocation extends WorldElement {
             if (state != null) {
                 state.value = false;
             }
-        });
-        mnu_ctx.addEventListener("show_logic", event => {
-            const title = Language.translate(this.ref);
-            LogicViewer.show(this.access, title);
         });
         
         /* mouse events */

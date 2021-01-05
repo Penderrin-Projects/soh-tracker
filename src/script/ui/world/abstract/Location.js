@@ -43,16 +43,17 @@ export default class MapLocation extends AbstractLocation {
             mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
         });
         mnu_ctx.addEventListener("disassociate", event => {
-            if (this.ref) {
-                const state = this.getState();
-                if (state != null) {
-                    state.item = "";
-                }
+            const state = this.getState();
+            if (state != null) {
+                state.item = "";
             }
         });
         mnu_ctx.addEventListener("show_logic", event => {
-            const title = Language.translate(this.ref);
-            LogicViewer.show(this.access, title);
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.translate(this.ref);
+                LogicViewer.show(state.props.access, title);
+            }
         });
         
         /* mouse events */

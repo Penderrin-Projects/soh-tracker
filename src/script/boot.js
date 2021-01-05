@@ -5,18 +5,6 @@ import Language from "/script/util/Language.js";
 import SettingsStorage from "/script/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateInit from "/script/state/StateInit.js";
-/* --- */
-import "/script/state/item/ItemState.js";
-import "/script/state/item/InfiniteItemState.js";
-import "/script/state/item/KeyState.js";
-import "/script/state/item/RewardItemState.js";
-import "/script/state/item/StartItemState.js";
-/* --- */
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
-/* --- */
-import "/script/state/world/location/LocationState.js";
-import "/script/state/world/location/GossipstoneState.js";
 
 const FILES = {
     "world":                {path: "/database/world.json",              type: "json"},
@@ -49,9 +37,8 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
     updateLoadingMessage("learn languages...");
     await Language.load(SettingsStorage.get("language"));
 
-    updateLoadingMessage("initialize states...");
-    StateInit.init();
-    await StateStorage.init(function() {
+    updateLoadingMessage("initialize savestate...");
+    StateStorage.init(function() {
         const options = FileData.get("randomizer_options");
         const def_state = {};
         for (const i in options) {
@@ -69,6 +56,9 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
         }
         return def_state;
     }());
+    
+    updateLoadingMessage("initialize states...");
+    StateInit.init();
 }
 
 export async function registerWorker() {

@@ -1,7 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -114,5 +114,5 @@ export default class ListExit extends AbstractExit {
 
 }
 
-UIWorldRegistry.set("list-exit", new UIWorldRegistry(ListExit));
+UIRegistry.set("list-exit", new UIRegistry(ListExit));
 customElements.define('ootrt-list-exit', ListExit);

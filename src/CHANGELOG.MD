@@ -14,10 +14,15 @@ Application:    Track-OOT
 - added accessability icons for world access values
 - added categories to exits/entrances panel
 - make shop items editable one by one
-- add shop item color frames
+- added shop item color frames
     - gold for non refill items
     - red to reflect junk
-- add a special type button for choosing v/mq
+- added a special type button for choosing v/mq in locationlist
+
+### BUGFIXES
+
+- fixed gerudo fortress key counting
+- fixed network issues with synchronizing data
 
 ---
 
@@ -1148,7 +1153,7 @@ Application:    Track-OOT
 
 ## VERSION  1.3.0
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
@@ -1208,7 +1213,7 @@ Application:    Track-OOT
 
 ## VERSION  1.1.9
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
@@ -1235,31 +1240,31 @@ Application:    Track-OOT
 
 ## VERSION  1.1.6
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
 ## VERSION  1.1.5
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
 ## VERSION  1.1.4
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
 ## VERSION  1.1.3
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 
 ## VERSION  1.1.2
 
-### FAILED BUILD
+> FAILED BUILD
 
 ---
 

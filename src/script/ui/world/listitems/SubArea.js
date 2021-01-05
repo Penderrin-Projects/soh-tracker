@@ -3,7 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -115,7 +115,7 @@ export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
                 for (const record of list) {
                     const id = `${record.category}/${record.id}`;
                     const loc = WorldRegistry.get(id);
-                    const uiReg = UIWorldRegistry.get(`list-${record.category}`);
+                    const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
                 }
             }
@@ -124,5 +124,5 @@ export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
 
 }
 
-UIWorldRegistry.set("list-subarea", new UIWorldRegistry(ListSubArea));
+UIRegistry.set("list-subarea", new UIRegistry(ListSubArea));
 customElements.define('ootrt-list-subarea', ListSubArea);

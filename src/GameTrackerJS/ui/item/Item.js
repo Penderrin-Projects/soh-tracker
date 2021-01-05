@@ -3,7 +3,6 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -32,6 +31,10 @@ const STYLE = new GlobalStyle(`
 :host(:hover) {
     background-size: 100%;
 }
+:host([value="0"]) {
+    filter: contrast(0.8) grayscale(0.5);
+    opacity: 0.4;
+}
 #value {
     width: 100%;
     height: 100%;
@@ -50,6 +53,9 @@ const STYLE = new GlobalStyle(`
     white-space: normal;
     line-height: 0.7em;
     font-weight: bold;
+}
+:host([value="0"]) #value {
+    display: none;
 }
 `);
 
@@ -81,17 +87,28 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         iOSTouchHandler.register(this);
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        // state
-        const state = this.getState();
-        if (state != null) {
-            this.value = state.value;
+    applyDefaultValues() {
+        super.applyDefaultValues("images/icons/area.svg");
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.state = "unavailable";
         }
+        this.hint = "";
     }
 
-    disconnectedCallback() {
-        super.disconnectedCallback();
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.value;
+            const data = state.props;
+            // settings
+            if (data.halign != null) {
+                this.halign = data.halign;
+            }
+            if (data.valign != null) {
+                this.valign = data.valign;
+            }
+            this.style.backgroundImage = `url("${data.images}")`;
+        }
     }
 
     get ref() {
@@ -217,5 +234,4 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
 
 }
 
-UIRegistry.get("item").register('infinite', InfiniteItem);
 customElements.define('ootrt-infiniteitem', InfiniteItem);

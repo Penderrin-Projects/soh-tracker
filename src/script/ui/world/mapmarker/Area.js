@@ -3,7 +3,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import UIWorldRegistry from "/GameTrackerJS/registry/UIWorldRegistry.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
 
@@ -202,5 +202,5 @@ export default class MapArea extends AbstractArea {
 
 }
 
-UIWorldRegistry.set("map-area", new UIWorldRegistry(MapArea));
+UIRegistry.set("map-area", new UIRegistry(MapArea));
 customElements.define('ootrt-marker-area', MapArea);
