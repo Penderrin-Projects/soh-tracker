@@ -1,5 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import "/emcJS/ui/input/SearchSelect.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
