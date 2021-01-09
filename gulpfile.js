@@ -10,7 +10,7 @@ const EDT_PATH = path.resolve(__dirname, "./editor/content");
 
 const MODULE_PATHS = {
     emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
-    trackerEditor: path.resolve(__dirname, "node_modules/jseditors"),
+    trackerEditor: path.resolve(__dirname, "node_modules/jseditors/src"),
     RTCClient: path.resolve(__dirname, "node_modules/rtcclient")
 };
 
@@ -28,7 +28,7 @@ if (process.argv.indexOf('-nolocal') < 0) {
     if (fileExists(emcJS)) {
         MODULE_PATHS.emcJS = emcJS;
     }
-    let trackerEditor = path.resolve(__dirname, '../JSEditors');
+    let trackerEditor = path.resolve(__dirname, '../JSEditors/src');
     if (fileExists(trackerEditor)) {
         MODULE_PATHS.trackerEditor = trackerEditor;
     }
