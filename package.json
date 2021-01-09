@@ -2,8 +2,8 @@
   "license": "MIT",
   "author": "Denis Peters (ZidArgs)",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.3",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.10",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.5",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.11",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.1.9"
   },
   "devDependencies": {
@@ -37,6 +37,6 @@
     "buildDev": "gulp buildDev",
     "buildDevNoCompress": "gulp buildDev -nocompress",
     "serve": "serve dev",
-    "edit": "electron  --inspect=7777 ./editor --no-sandbox"
+    "edit": "electron ./editor --no-sandbox > nul 2>&1"
   }
 }

@@ -84,7 +84,7 @@ async function init() {
         "/emcJS/ui/LogScreen.js",
         "/emcJS/ui/Icon.js",
         "/emcJS/ui/layout/Layout.js",
-        "/emcJS/ui/layout/TabView.js",
+        "/script/ui/ViewChoice.js",
         "/script/ui/items/ItemGrid.js",
         "/script/ui/dungeonstate/DungeonState.js",
         "/script/ui/world/LocationList.js",

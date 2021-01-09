@@ -4,7 +4,7 @@ import FileData from "/emcJS/data/FileData.js";
 import "/editors/EditorWindow.js";
 
 import createLogicEditor from "./content/editors/LogicEditor.js";
-//import createLocationEditor from "./content/editors/LocationEditor.js";
+import createWorldEditor from "./content/editors/WorldEditor.js";
 
 const FILES = {
     "world":                {path: "/src/database/world.json",              type: "json"},
@@ -37,6 +37,6 @@ function registerWindow({name, panel, navigation, refreshFn}) {
     // add editors
     registerWindow(await createLogicEditor(false));
     registerWindow(await createLogicEditor(true));
-    //registerWindow(await createLocationEditor());
+    registerWindow(await createWorldEditor());
 
 }();

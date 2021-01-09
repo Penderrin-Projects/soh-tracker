@@ -42,16 +42,16 @@ class LogicListsCreator {
 
     async createLists(glitched = false) {
 
-        let result = {
+        const result = {
             logics: [],
             operators: []
         };
 
-        let world = FileData.get("world/marker");
-        let items = FileData.get("items");
-        let randomizer_options = FileData.get("randomizer_options");
-        let filter = FileData.get("filter");
-        let logic = FileData.get(`logic${!!glitched?"_glitched":""}`);
+        const world = FileData.get("world/marker");
+        const items = FileData.get("items");
+        const randomizer_options = FileData.get("randomizer_options");
+        const filter = FileData.get("filter");
+        const logic = FileData.get(`logic${!!glitched?"_glitched":""}`);
         let custom_logic = {};
         if (!!glitched) {
             custom_logic = await LogicsStorageGlitched.getAll();
@@ -59,11 +59,11 @@ class LogicListsCreator {
             custom_logic = await LogicsStorage.getAll();
         }
 
-        let mixins = {};
-        let functions = {};
+        const mixins = {};
+        const functions = {};
         
         if (!!logic) {
-            for (let i in logic.logic) {
+            for (const i in logic.logic) {
                 if (i.startsWith("mixin.")) {
                     mixins[i] = logic[i];
                     continue;
@@ -75,7 +75,7 @@ class LogicListsCreator {
             }
         }
         if (!!custom_logic) {
-            for (let i in custom_logic.logic) {
+            for (const i in custom_logic.logic) {
                 if (i.startsWith("mixin.")) {
                     mixins[i] = logic[i];
                     continue;
@@ -98,7 +98,7 @@ class LogicListsCreator {
         }*/
         result.operators.push(createOperatorLocationDoneCategory(world));
         
-        for (let cat of createOperatorReachCategories(logic.edges)) {
+        for (const cat of createOperatorReachCategories(logic.edges)) {
             result.operators.push(cat);
         }
 
@@ -123,12 +123,12 @@ export default new LogicListsCreator();
 // OPERATORS
 // -------------------
 function createDefaultOperatorCategory() {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "default",
         "children": []
     };
-    for (let i in LOGIC_OPERATORS) {
+    for (const i in LOGIC_OPERATORS) {
         res.children.push({
             "type": LOGIC_OPERATORS[i]
         });
@@ -137,12 +137,12 @@ function createDefaultOperatorCategory() {
 }
 
 function createItemOperatorCategory(data) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "item",
         "children": []
     };
-    for (let i in data) {
+    for (const i in data) {
         res.children.push({
             "type": "tracker-logic-custom",
             "ref": i,
@@ -153,14 +153,14 @@ function createItemOperatorCategory(data) {
 }
 
 function createFilterOperatorCategory(data, ref) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "filter",
         "children": []
     };
-    for (let i in data) {
-        let opt = data[i];
-        for (let j of opt.values) {
+    for (const i in data) {
+        const opt = data[i];
+        for (const j of opt.values) {
             res.children.push({
                 "type": "tracker-logic-custom",
                 "ref": i,
@@ -173,16 +173,16 @@ function createFilterOperatorCategory(data, ref) {
 }
 
 function createSettingsOperatorCategory(data, ref) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": ref,
         "children": []
     };
-    for (let i in data) {
-        let opt = data[i];
+    for (const i in data) {
+        const opt = data[i];
         if (!!opt.type && opt.type.startsWith("-")) continue;
         if (opt.type === "choice") {
-            for (let j of opt.values) {
+            for (const j of opt.values) {
                 res.children.push({
                     "type": "tracker-logic-custom",
                     "ref": i,
@@ -192,7 +192,7 @@ function createSettingsOperatorCategory(data, ref) {
             }
         } else {
             if (opt.type === "list") {
-                for (let j of opt.values) {
+                for (const j of opt.values) {
                     res.children.push({
                         "type": "tracker-logic-custom",
                         "ref": j,
@@ -212,24 +212,24 @@ function createSettingsOperatorCategory(data, ref) {
 }
 
 function createOperatorReachCategories(data) {
-    let lbuf = {
+    const lbuf = {
         "type": "group",
         "caption": "locations reach",
         "children": []
     };
-    let rbuf = {
+    const rbuf = {
         "type": "group",
         "caption": "regions reach",
         "children": []
     };
-    let ebuf = {
+    const ebuf = {
         "type": "group",
         "caption": "events reach",
         "children": []
     };
-    for (let ref in data) {
-        let sub = data[ref];
-        for (let sref in sub) {
+    for (const ref in data) {
+        const sub = data[ref];
+        for (const sref in sub) {
             if (sref.startsWith("logic.location.")) {
                 lbuf.children.push({
                     "type": "tracker-logic-custom",
@@ -255,13 +255,13 @@ function createOperatorReachCategories(data) {
 }
 
 function createOperatorLocationDoneCategory(world) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "locations done",
         "children": []
     };
-    for (let name in world) {
-        let ref = world[name];
+    for (const name in world) {
+        const ref = world[name];
         if (ref.category == "location") {
             res.children.push({
                 "type": "tracker-logic-custom",
@@ -274,12 +274,12 @@ function createOperatorLocationDoneCategory(world) {
 }
 
 function createOperatorMixins(data) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "mixin",
         "children": []
     };
-    for (let ref in data) {
+    for (const ref in data) {
         res.children.push({
             "type": "tracker-logic-mixin",
             "ref": ref
@@ -289,12 +289,12 @@ function createOperatorMixins(data) {
 }
 
 function createOperatorFunctions(data) {
-    let res = {
+    const res = {
         "type": "group",
         "caption": "function",
         "children": []
     };
-    for (let ref in data) {
+    for (const ref in data) {
         res.children.push({
             "type": "tracker-logic-function",
             "ref": ref
@@ -306,107 +306,92 @@ function createOperatorFunctions(data) {
 // LOGICS
 // -------------------
 function createLogicGraphCategory(data, world) {
-    let resC = {
+    const resC = {
         "type": "group",
         "caption": "child",
         "children": []
     };
-    let resA = {
+    const resA = {
         "type": "group",
         "caption": "adult",
         "children": []
     };
-	let res = {
+	const res = {
         "type": "group",
         "caption": "graph",
         "children": [resC, resA]
     };
-    for (let ref in data) {
-        let lbuf = {
+    for (const ref in data) {
+        const lbuf = {
             "type": "group",
             "caption": "locations",
             "children": []
         };
-        let rbuf = {
+        const rbuf = {
             "type": "group",
             "caption": "regions",
             "children": []
         };
-		let ebuf = {
+		const ebuf = {
 			"type": "group",
 			"caption": "events",
 			"children": []
 		};
-        let sub = data[ref];
+        const sub = data[ref];
         if (ref.endsWith("[child]")) {
-        for (let sref in sub) {
-            if (sref.startsWith("logic.location.")) {
-                let name = sref.slice(6);
-                let loc = world[name];
-                if (!!loc) {
-                    lbuf.children.push({
-                        "type": loc.type,
+            for (const sref in sub) {
+                if (sref.startsWith("logic.location.")) {
+                    const name = sref.slice(6);
+                    const loc = world[name];
+                    if (!!loc) {
+                        lbuf.children.push({
+                            "type": loc.type,
+                            "ref": `${ref} -> ${sref}`,
+                            "category": "location",
+                            "content": sref,
+                            "icon": `/images/icons/${loc.type}.svg`
+                        });
+                    } else {
+                        lbuf.children.push({
+                            "ref": `${ref} -> ${sref}`,
+                            "category": "location",
+                            "content": sref
+                        });
+                    }
+                } else if (sref.startsWith("region.")) {
+                    rbuf.children.push({
                         "ref": `${ref} -> ${sref}`,
-                        "category": "location",
-                        "content": sref,
-                        "icon": `/images/icons/${loc.type}.svg`
+                        "category": "region",
+                        "content": sref
                     });
-                } else {
-                    lbuf.children.push({
+                } else if (sref.startsWith("event.")) {
+                    ebuf.children.push({
                         "ref": `${ref} -> ${sref}`,
-                        "category": "location",
+                        "category": "event",
                         "content": sref
                     });
                 }
-            } else if (sref.startsWith("region.")) {
-                rbuf.children.push({
-                    "ref": `${ref} -> ${sref}`,
-                    "category": "region",
-                    "content": sref
-                });
-            } else if (sref.startsWith("event.")) {
-				ebuf.children.push({
-                    "ref": `${ref} -> ${sref}`,
-					"category": "event",
-					"content": sref
-				});
-			}
-        }
-        let ch = [];
-        if (!!lbuf.children.length) {
-            ch.push(lbuf);
-        }
-        if (!!rbuf.children.length) {
-            ch.push(rbuf);
-        }
-        if (!!ebuf.children.length) {
-            ch.push(ebuf);
-        }
-        resC.children.push({
-            "type": "group",
-            "caption": ref,
-            "children": ch
-        });
+            }
+            const ch = [];
+            if (!!lbuf.children.length) {
+                ch.push(lbuf);
+            }
+            if (!!rbuf.children.length) {
+                ch.push(rbuf);
+            }
+            if (!!ebuf.children.length) {
+                ch.push(ebuf);
+            }
+            resC.children.push({
+                "type": "group",
+                "caption": ref,
+                "children": ch
+            });
 		} else {
-			lbuf = {
-				"type": "group",
-				"caption": "locations",
-				"children": []
-			};
-			rbuf = {
-				"type": "group",
-				"caption": "regions",
-				"children": []
-			};
-			ebuf = {
-				"type": "group",
-				"caption": "events",
-				"children": []
-			};
-			for (let sref in sub) {
+			for (const sref in sub) {
 				if (sref.startsWith("logic.location.")) {
-					let name = sref.slice(6);
-					let loc = world[name];
+					const name = sref.slice(6);
+					const loc = world[name];
 					if (!!loc) {
 						lbuf.children.push({
 							"type": loc.type,
@@ -436,7 +421,7 @@ function createLogicGraphCategory(data, world) {
 					});
 				}
 			}
-			let ch = [];
+			const ch = [];
 			if (!!lbuf.children.length) {
 				ch.push(lbuf);
 			}
@@ -457,22 +442,22 @@ function createLogicGraphCategory(data, world) {
 }
 
 function createLogicMixinCategory(data) {
-    let resC = {
+    const resC = {
         "type": "group",
         "caption": "child",
         "children": []
     };
-	let resA = {
+	const resA = {
         "type": "group",
         "caption": "adult",
         "children": []
     };
-	let res = {
+	const res = {
         "type": "group",
         "caption": "mixin",
         "children": [resC, resA]
     };
-    for (let ref in data) {
+    for (const ref in data) {
 		if(ref.endsWith("[child]")) {
 			resC.children.push({
 				"ref": ref,
@@ -491,22 +476,22 @@ function createLogicMixinCategory(data) {
 }
 
 function createLogicFunctionCategory(data) {
-	let resC = {
+	const resC = {
         "type": "group",
         "caption": "child",
         "children": []
     };
-	let resA = {
+	const resA = {
         "type": "group",
         "caption": "adult",
         "children": []
     };
-    let res = {
+    const res = {
         "type": "group",
         "caption": "function",
         "children": [resC, resA]
     };
-    for (let ref in data) {
+    for (const ref in data) {
 		if(ref.endsWith("[child]")) {
 			resC.children.push({
 				"ref": ref,

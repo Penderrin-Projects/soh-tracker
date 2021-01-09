@@ -10,8 +10,8 @@ if (process.argv.indexOf('-debug') >= 1) {
 }
 
 const MODULE_PATHS = {
-    emcJS: "../node_modules/emcjs/",
-    trackerEditor: "../node_modules/jseditors/"
+    emcJS: "../node_modules/emcjs/src/",
+    trackerEditor: "../node_modules/jseditors/src/"
 };
 
 function fileExists(filename) {
@@ -24,13 +24,13 @@ function fileExists(filename) {
 }
 
 if (process.argv.indexOf('-nolocal') < 0) {
-    let emcJS = path.resolve(__dirname, '../../emcJS');
+    let emcJS = path.resolve(__dirname, '../../emcJS/src');
     if (fileExists(emcJS)) {
-        MODULE_PATHS.emcJS = '../../emcJS/';
+        MODULE_PATHS.emcJS = '../../emcJS/src/';
     }
-    let trackerEditor = path.resolve(__dirname, '../../JSEditors');
+    let trackerEditor = path.resolve(__dirname, '../../JSEditors/src');
     if (fileExists(trackerEditor)) {
-        MODULE_PATHS.trackerEditor = '../../JSEditors/';
+        MODULE_PATHS.trackerEditor = '../../JSEditors/src/';
     }
 }
 

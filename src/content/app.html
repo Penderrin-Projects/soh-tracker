@@ -1,7 +1,7 @@
 
 <emc-navbar id="navbar"></emc-navbar>
 <emc-paging id="view-pager" active="main">
-    <emc-tabview id="main-content" slot="main" active="tracker">
+    <ootrt-viewchoice id="main-content" slot="main" active="tracker">
         <div slot="tracker" data-title="Item & Map Tracker" data-icon="images/icons/tracker.svg">
             <ootrt-layoutcontainer id="layout-container" layout="map-compact">
             </ootrt-layoutcontainer>
@@ -26,7 +26,7 @@
             <ootrt-multiplayer>
             </ootrt-multiplayer>
         </div>
-    </emc-tabview>
+    </ootrt-viewchoice>
     <jse-choice id="editor-choice" slot="editor_choice"></jse-choice>
 </emc-paging>
 <footer class="footer">
