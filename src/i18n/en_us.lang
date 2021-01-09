@@ -1816,9 +1816,9 @@ region.mountain_to_crater_entrance\u0020->\u0020region.crater_mountain_gateway=D
 
 region.crater_to_mountain_entrance\u0020->\u0020region.crater_mountain_gateway=Death Mountain Crater To Death Mountain Trail
 
-region.zr_behind_waterfall\u0020->\u0020region.river_domain_gateway=Zora's Domain To Zora's River
+region.zr_behind_waterfall\u0020->\u0020region.river_domain_gateway=Zora's River To Zora's Domain
 
-region.zoras_domain\u0020->\u0020region.river_domain_gateway=Zora's River To Zora's Domain
+region.zoras_domain\u0020->\u0020region.river_domain_gateway=Zora's Domain To Zora's River
 
 region.zd_behind_king_zora\u0020->\u0020region.fountain_domain_gateway=Zora's Domain To Zora's Fountain
 
