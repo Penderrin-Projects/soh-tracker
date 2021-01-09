@@ -95,8 +95,8 @@ export default class ExitBindingMenu extends HTMLElement {
             for (const key in entrances) {
                 const value = entrances[key];
                 const isActiveAndType = value.active && value.props.type == exit.exitData.type;
-                //TODO Fix Uncaught TypeError: Cannot read property 'exitData' of undefined, when setting a special exit with not_seen exits
-                const isSpecial = (exit.exitData.type === 'special' && value.props.type !== 'dungeon' && value.props.type !== 'not_seen');
+                //TODO Fix Uncaught TypeError: Cannot read property 'exitData' of undefined, when setting a special exit with not_seen exits with no marker
+                const isSpecial = (exit.exitData.type === 'special' && value.props.type !== 'dungeon');
                 if ((isActiveAndType && !bound.has(value.props.target)) || isSpecial) {
                     const opt = document.createElement('emc-option');
                     opt.value = value.props.target;

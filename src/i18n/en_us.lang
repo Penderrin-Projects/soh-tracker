@@ -22,6 +22,7 @@ location/kokiri.c_midos_house_4=Mido Chest 4
 location/kokiri.c_saria_ocarina=Saria's Ocarina
 time_ocarina=Ocarina of Time
 location/kokiri.c_storm_grotto=Kokiri Song of Storms Grotto
+location/hyrule_field.c_ocarina_of_time=Ocarina of Time
 location/hyrule_field.c_song_of_time=Song of Time
 location/hyrule_field.c_hyrule_north_grotto=Hyrule Field North Grotto
 location/hyrule_field.c_hyrule_forest_grotto=Hyrule Field Forest Grotto
@@ -1719,161 +1720,109 @@ region.temple_of_time\u0020->\u0020region.tot_entrance=Temple of Time
 
 ## overworld
 
-region.kokiri_forest\u0020->\u0020region.kokiri_bridge_gateway=Kokiri Forest From Lost Woods Bridge
-region.kokiri_bridge_gateway\u0020->\u0020region.kokiri_forest=Lost Woods Bridge To Kokiri Forest
+region.kokiri_to_bridge_entrance\u0020->\u0020region.kokiri_bridge_gateway=Kokiri Forest To Lost Woods Bridge
 
-region.lw_bridge\u0020->\u0020region.kokiri_bridge_gateway=Lost Woods Bridge From Kokiri Forest
-region.kokiri_bridge_gateway\u0020->\u0020region.lw_bridge=Kokiri Forest To Lost Woods Bridge
+region.bridge_to_kokiri_entrance\u0020->\u0020region.kokiri_bridge_gateway=Lost Woods Bridge To Kokiri Forest
 
-region.kokiri_forest\u0020->\u0020region.kokiri_woods_gateway=Kokiri Forest From Lost Woods
-region.kokiri_woods_gateway\u0020->\u0020region.kokiri_forest=Lost Woods To Kokiri Forest
+region.kokiri_forest\u0020->\u0020region.kokiri_woods_gateway=Kokiri Forest To Lost Woods
 
-region.lost_woods\u0020->\u0020region.kokiri_woods_gateway=Lost Woods From Kokiri Forest
-region.kokiri_woods_gateway\u0020->\u0020region.lost_woods=Kokiri Forest To Lost Woods
+region.lost_woods\u0020->\u0020region.kokiri_woods_gateway=Lost Woods To Kokiri Forest
 
-region.lost_woods\u0020->\u0020region.gc_woods_gateway=Lost Woods From Goron City
-region.gc_woods_gateway\u0020->\u0020region.lost_woods=Goron City To Lost Woods
+region.lost_woods\u0020->\u0020region.gc_woods_gateway=Lost Woods To Goron City
 
-region.gc_woods_warp\u0020->\u0020region.gc_woods_gateway=Goron City From Lost Woods
-region.gc_woods_gateway\u0020->\u0020region.gc_woods_warp=Lost Woods To Goron City
+region.gc_woods_warp\u0020->\u0020region.gc_woods_gateway=Goron City To Lost Woods
 
-region.lost_woods\u0020->\u0020region.river_woods_gateway=Lost Woods From Zora's River
-region.river_woods_gateway\u0020->\u0020region.lost_woods=Zora's River To Lost Woods
+region.lost_woods\u0020->\u0020region.river_woods_gateway=Lost Woods To Zora's River
 
-region.zora_river\u0020->\u0020region.river_woods_gateway=Zora's River From Lost Woods
-region.river_woods_gateway\u0020->\u0020region.zora_river=Lost Woods To Zora's River
+region.zora_river\u0020->\u0020region.river_woods_gateway=Zora's River To Lost Woods
 
-region.sfm_entryway\u0020->\u0020region.meadow_woods_gateway=Sacred Forest Meadow From Lost Woods
-region.meadow_woods_gateway\u0020->\u0020region.sfm_entryway=Lost Woods To Sacred Forest Meadow
+region.sfm_entryway\u0020->\u0020region.meadow_woods_gateway=Sacred Forest Meadow To Lost Woods
 
-region.lw_beyond_mido\u0020->\u0020region.meadow_woods_gateway=Lost Woods From Sacred Forest Meadow
-region.meadow_woods_gateway\u0020->\u0020region.lw_beyond_mido=Sacred Forest Meadow To Lost Woods
+region.lw_beyond_mido\u0020->\u0020region.meadow_woods_gateway=Lost Woods To Sacred Forest Meadow
 
-region.hyrule_field\u0020->\u0020region.field_woods_gateway=Hyrule Field From Lost Woods Bridge
-region.field_woods_gateway\u0020->\u0020region.hyrule_field=Lost Woods Bridge To Hyrule Field
+region.hyrule_field\u0020->\u0020region.field_woods_gateway=Hyrule Field To Lost Woods Bridge
 
-region.lw_bridge\u0020->\u0020region.field_woods_gateway=Lost Woods Bridge From Hyrule Field
-region.field_woods_gateway\u0020->\u0020region.lw_bridge=Hyrule Field To Lost Woods Bridge
+region.lw_bridge\u0020->\u0020region.field_woods_gateway=Lost Woods Bridge To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.lake_field_gateway=Hyrule Field From Lake Hylia
-region.lake_field_gateway\u0020->\u0020region.hyrule_field=Lake Hylia To Hyrule Field
+region.hyrule_field\u0020->\u0020region.lake_field_gateway=Hyrule Field To Lake Hylia
 
-region.lake_hylia\u0020->\u0020region.lake_field_gateway=Lake Hylia From Hyrule Field
-region.lake_field_gateway\u0020->\u0020region.lake_hylia=Hyrule Field To Lake Hylia
+region.lake_hylia\u0020->\u0020region.lake_field_gateway=Lake Hylia To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.valley_field_gateway=Hyrule Field From Gerudo Valley
-region.valley_field_gateway\u0020->\u0020region.hyrule_field=Gerudo Valley To Hyrule Field
+region.hyrule_field\u0020->\u0020region.valley_field_gateway=Hyrule Field To Gerudo Valley
 
-region.gerudo_valley\u0020->\u0020region.valley_field_gateway=Gerudo Valley From Hyrule Field
-region.valley_field_gateway\u0020->\u0020region.gerudo_valley=Hyrule Field To Gerudo Valley
+region.gerudo_valley\u0020->\u0020region.valley_field_gateway=Gerudo Valley To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.marketentrance_field_gateway=Hyrule Field From Market Entrance
-region.marketentrance_field_gateway\u0020->\u0020region.hyrule_field=Market Entrance To Hyrule Field
+region.hyrule_field\u0020->\u0020region.marketentrance_field_gateway=Hyrule Field To Market Entrance
 
-region.market_entrance\u0020->\u0020region.marketentrance_field_gateway=Market Entrance From Hyrule Field
-region.marketentrance_field_gateway\u0020->\u0020region.market_entrance=Hyrule Field To Market Entrance
+region.market_entrance\u0020->\u0020region.marketentrance_field_gateway=Market Entrance To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.kakariko_field_gateway=Hyrule Field From Kakariko Village
-region.kakariko_field_gateway\u0020->\u0020region.hyrule_field=Kakariko Village To Hyrule Field
+region.hyrule_field\u0020->\u0020region.kakariko_field_gateway=Hyrule Field To Kakariko Village
 
-region.kakariko_village\u0020->\u0020region.kakariko_field_gateway=Kakariko Village From Hyrule Field
-region.kakariko_field_gateway\u0020->\u0020region.kakariko_village=Hyrule Field To Kakariko Village
+region.kakariko_village\u0020->\u0020region.kakariko_field_gateway=Kakariko Village To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.river_field_gateway=Hyrule Field From Zora's River
-region.river_field_gateway\u0020->\u0020region.hyrule_field=Zora's River To Hyrule Field
+region.hyrule_field\u0020->\u0020region.river_field_gateway=Hyrule Field To Zora's River
 
-region.zr_front\u0020->\u0020region.river_field_gateway=Zora's River From Hyrule Field
-region.river_field_gateway\u0020->\u0020region.zr_front=Hyrule Field To Zora's River
+region.zr_front\u0020->\u0020region.river_field_gateway=Zora's River To Hyrule Field
 
-region.hyrule_field\u0020->\u0020region.ranch_field_gateway=Hyrule Field From Lon Lon Ranch
-region.ranch_field_gateway\u0020->\u0020region.hyrule_field=Lon Lon Ranch To Hyrule Field
+region.hyrule_field\u0020->\u0020region.ranch_field_gateway=Hyrule Field To Lon Lon Ranch
 
-region.lon_lon_ranch\u0020->\u0020region.ranch_field_gateway=Lon Lon Ranch From Hyrule Field
-region.ranch_field_gateway\u0020->\u0020region.lon_lon_ranch=Hyrule Field To Lon Lon Ranch
+region.lon_lon_ranch\u0020->\u0020region.ranch_field_gateway=Lon Lon Ranch To Hyrule Field
 
-region.lake_hylia\u0020->\u0020region.domain_lake_gateway=Lake Hylia From Zora's Domain
-region.domain_lake_gateway\u0020->\u0020region.lake_hylia=Zora's Domain To Lake Hylia
+region.lake_hylia\u0020->\u0020region.domain_lake_gateway=Lake Hylia To Zora's Domain
 
-region.zoras_domain\u0020->\u0020region.domain_lake_gateway=Zora's Domain From Lake Hylia
-region.domain_lake_gateway\u0020->\u0020region.zoras_domain=Lake Hylia To Zora's Domain
+region.zoras_domain\u0020->\u0020region.domain_lake_gateway=Zora's Domain To Lake Hylia
 
-region.gerudo_fortress\u0020->\u0020region.valley_fortress_gateway=Gerudo Fortress From Gerudo Valley
-region.valley_fortress_gateway\u0020->\u0020region.gerudo_fortress=Gerudo Valley To Gerudo Fortress
+region.gerudo_fortress\u0020->\u0020region.valley_fortress_gateway=Gerudo Fortress To Gerudo Valley
 
-region.gv_fortress_side\u0020->\u0020region.valley_fortress_gateway=Gerudo Valley From Gerudo Fortress
-region.valley_fortress_gateway\u0020->\u0020region.gv_fortress_side=Gerudo Fortress To Gerudo Valley
+region.gv_fortress_side\u0020->\u0020region.valley_fortress_gateway=Gerudo Valley To Gerudo Fortress
 
-region.gf_outside_gate\u0020->\u0020region.wasteland_fortress_gateway=Gerudo Fortress From Wasteland
-region.wasteland_fortress_gateway\u0020->\u0020region.gf_outside_gate=Wasteland To Gerudo Fortress
+region.gf_outside_gate\u0020->\u0020region.wasteland_fortress_gateway=Gerudo Fortress To Wasteland
 
-region.wasteland_near_fortress\u0020->\u0020region.wasteland_fortress_gateway=Wasteland From Gerudo Fortress
-region.wasteland_fortress_gateway\u0020->\u0020region.wasteland_near_fortress=Gerudo Fortress To Wasteland
+region.wasteland_near_fortress\u0020->\u0020region.wasteland_fortress_gateway=Wasteland To Gerudo Fortress
 
-region.desert_colossus\u0020->\u0020region.wasteland_colossus_gateway=Desert Colossus From Wasteland
-region.wasteland_colossus_gateway\u0020->\u0020region.desert_colossus=Wasteland To Desert Colossus
+region.desert_colossus\u0020->\u0020region.wasteland_colossus_gateway=Desert Colossus To Wasteland
 
-region.wasteland_near_colossus\u0020->\u0020region.wasteland_colossus_gateway=Wasteland From Desert Colossus
-region.wasteland_colossus_gateway\u0020->\u0020region.wasteland_near_colossus=Desert Colossus To Wasteland
+region.wasteland_near_colossus\u0020->\u0020region.wasteland_colossus_gateway=Wasteland To Desert Colossus
 
-region.market\u0020->\u0020region.marketentrance_market_gateway=Market From Market Entrance
-region.marketentrance_market_gateway\u0020->\u0020region.market=Market Entrance To Market
+region.market\u0020->\u0020region.marketentrance_market_gateway=Market To Market Entrance
 
-region.market_entrance\u0020->\u0020region.marketentrance_market_gateway=Market Entrance From Market
-region.marketentrance_market_gateway\u0020->\u0020region.market_entrance=Market To Market Entrance
+region.market_entrance\u0020->\u0020region.marketentrance_market_gateway=Market Entrance To Market
 
-region.market\u0020->\u0020region.grounds_market_gateway=Market From Castle Grounds
-region.grounds_market_gateway\u0020->\u0020region.market=Castle Grounds To Market
+region.market\u0020->\u0020region.grounds_market_gateway=Market To Castle Grounds
 
-region.castle_grounds\u0020->\u0020region.grounds_market_gateway=Castle Grounds From Market
-region.grounds_market_gateway\u0020->\u0020region.castle_grounds=Market To Castle Grounds
+region.castle_grounds\u0020->\u0020region.grounds_market_gateway=Castle Grounds To Market
 
-region.market\u0020->\u0020region.tot_market_gateway=Market From Temple of Time Landing
-region.tot_market_gateway\u0020->\u0020region.market=Temple of Time Landing To Market
+region.market\u0020->\u0020region.tot_market_gateway=Market To Temple of Time Landing
 
-region.tot_entrance\u0020->\u0020region.tot_market_gateway=Temple of Time Landing From Market
-region.tot_market_gateway\u0020->\u0020region.tot_entrance=Market To Temple of Time Landing
+region.tot_entrance\u0020->\u0020region.tot_market_gateway=Temple of Time Landing To Market
 
-region.kakariko_village\u0020->\u0020region.graveyard_kakariko_gateway=Kakariko Village From Graveyard
-region.graveyard_kakariko_gateway\u0020->\u0020region.kakariko_village=Graveyard To Kakariko Village
+region.kakariko_village\u0020->\u0020region.graveyard_kakariko_gateway=Kakariko Village To Graveyard
 
-region.graveyard\u0020->\u0020region.graveyard_kakariko_gateway=Graveyard From Kakariko Village
-region.graveyard_kakariko_gateway\u0020->\u0020region.graveyard=Kakariko Village To Graveyard
+region.graveyard\u0020->\u0020region.graveyard_kakariko_gateway=Graveyard To Kakariko Village
 
-region.kak_behind_gate\u0020->\u0020region.mountain_kakariko_gateway=Kakariko Village From Death Mountain Trail
-region.mountain_kakariko_gateway\u0020->\u0020region.kak_behind_gate=Death Mountain Trail To Kakariko Village
+region.kak_behind_gate\u0020->\u0020region.mountain_kakariko_gateway=Kakariko Village To Death Mountain Trail
 
-region.death_mountain\u0020->\u0020region.mountain_kakariko_gateway=Death Mountain Trail From Kakariko Village
-region.mountain_kakariko_gateway\u0020->\u0020region.death_mountain=Kakariko Village To Death Mountain Trail
+region.death_mountain\u0020->\u0020region.mountain_kakariko_gateway=Death Mountain Trail To Kakariko Village
 
-region.goron_city\u0020->\u0020region.mountain_goron_gateway=Goron City From Death Mountain Trail
-region.mountain_goron_gateway\u0020->\u0020region.goron_city=Death Mountain Trail To Goron City
+region.goron_city\u0020->\u0020region.mountain_goron_gateway=Goron City To Death Mountain Trail
 
-region.death_mountain\u0020->\u0020region.mountain_goron_gateway=Death Mountain Trail From Goron City
-region.mountain_goron_gateway\u0020->\u0020region.death_mountain=Goron City To Death Mountain Trail
+region.death_mountain\u0020->\u0020region.mountain_goron_gateway=Death Mountain Trail To Goron City
 
-region.gc_darunias_chamber\u0020->\u0020region.crater_goron_gateway=Goron City From Death Mountain Crater
-region.crater_goron_gateway\u0020->\u0020region.gc_darunias_chamber=Death Mountain Crater To Goron City
+region.goron_to_crater_entrance\u0020->\u0020region.crater_goron_gateway=Goron City To Death Mountain Crater
 
-region.dmc_lower_local\u0020->\u0020region.crater_goron_gateway=Death Mountain Crater From Goron City
-region.crater_goron_gateway\u0020->\u0020region.dmc_lower_local=Goron City To Death Mountain Crater
+region.crater_to_goron_entrance\u0020->\u0020region.crater_goron_gateway=Death Mountain Crater To Goron City
 
-region.death_mountain_summit\u0020->\u0020region.crater_mountain_gateway=Death Mountain Trail From Death Mountain Crater
-region.crater_mountain_gateway\u0020->\u0020region.death_mountain_summit=Death Mountain Crater To Death Mountain Trail
+region.mountain_to_crater_entrance\u0020->\u0020region.crater_mountain_gateway=Death Mountain Trail To Death Mountain Crater
 
-region.dmc_upper_local\u0020->\u0020region.crater_mountain_gateway=Death Mountain Crater From Death Mountain Trail
-region.crater_mountain_gateway\u0020->\u0020region.dmc_upper_local=Death Mountain Trail To Death Mountain Crater
+region.crater_to_mountain_entrance\u0020->\u0020region.crater_mountain_gateway=Death Mountain Crater To Death Mountain Trail
 
-region.zr_behind_waterfall\u0020->\u0020region.river_domain_gateway=Zora's Domain From Zora's River
-region.river_domain_gateway\u0020->\u0020region.zr_behind_waterfall=Zora's River To Zora's Domain
+region.zr_behind_waterfall\u0020->\u0020region.river_domain_gateway=Zora's Domain To Zora's River
 
-region.zoras_domain\u0020->\u0020region.river_domain_gateway=Zora's River From Zora's Domain
-region.river_domain_gateway\u0020->\u0020region.zoras_domain=Zora's Domain To Zora's River
+region.zoras_domain\u0020->\u0020region.river_domain_gateway=Zora's River To Zora's Domain
 
-region.zd_behind_king_zora\u0020->\u0020region.fountain_domain_gateway=Zora's Domain From Zora's Fountain
-region.fountain_domain_gateway\u0020->\u0020region.zd_behind_king_zora=Zora's Fountain To Zora's Domain
+region.zd_behind_king_zora\u0020->\u0020region.fountain_domain_gateway=Zora's Domain To Zora's Fountain
 
-region.zoras_fountain\u0020->\u0020region.fountain_domain_gateway=Zora's Fountain From Zora's Domain
-region.fountain_domain_gateway\u0020->\u0020region.zoras_fountain=Zora's Domain To Zora's Fountain
+region.zoras_fountain\u0020->\u0020region.fountain_domain_gateway=Zora's Fountain To Zora's Domain
 
 
 ## specials
