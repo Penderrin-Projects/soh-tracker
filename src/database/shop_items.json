@@ -538,7 +538,7 @@
         "mark": "gold",
         "price": false
     }, 
-    "key_small_training": {
+    "item.key_small_training": {
         "image": "/images/items/key_small.png",
         "category": "unlocking_items",
         "mark": "gold",
