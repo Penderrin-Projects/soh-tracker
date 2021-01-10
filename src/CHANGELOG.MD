@@ -3,26 +3,28 @@
 Application:    Track-OOT
 
 ***
-## VERSION 2.0.26
-
-### IMPROVEMENTS
-
-- added ocarina of time check
-
 ## VERSION 2.1.0 (DEV)
 
 ### IMPROVEMENTS
 
 - performance boost
-    - use proxy objects for readonly storages in filedata
-    - create state handlers for ui elements
+  - use proxy objects for readonly storages in filedata
+  - create state handlers for ui elements
 - added accessability icons for world access values
 - added categories to exits/entrances panel
 - make shop items editable one by one
 - added shop item color frames
-    - gold for non refill items
-    - red to reflect junk
+  - gold for non refill items
+  - red to reflect junk
 - added a special type button for choosing v/mq in locationlist
+- added overworld, owl drops, spawns, and song warps to entrance rando
+- reduced logic file sizes
+
+## VERSION 2.0.26
+
+### IMPROVEMENTS
+
+- added ocarina of time check
 
 ### BUGFIXES
 
