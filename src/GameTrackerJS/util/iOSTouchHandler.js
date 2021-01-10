@@ -2,7 +2,7 @@
  * Thinking different does not always work better...
  */
 
-const force = false;
+const force = true;
 const isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
 !window.MSStream;
@@ -19,14 +19,22 @@ function handleTouchStart(event) {
     } else {
         if (!ACTIVE_EVENTS.has(target)) {
             const timeout = setTimeout(() => {
-                ACTIVE_EVENTS.delete(target);
-                /*if (navigator.vibrate != null) {
-                    navigator.vibrate(100);
-                }*/
-                const nEvent = new Event("contextmenu");
-                nEvent.clientX = touch.clientX;
-                nEvent.clientY = touch.clientY;
-                target.dispatchEvent(nEvent);
+                if (ACTIVE_EVENTS.has(target)) {
+                    ACTIVE_EVENTS.delete(target);
+                    if (ACTIVE_TOUCHES.has(target)) {
+                        ACTIVE_TOUCHES.delete(target);
+                    }
+                    if (ACTIVE_MOMENTUM.has(target)) {
+                        ACTIVE_MOMENTUM.delete(target);
+                    }
+                    /*if (navigator.vibrate != null) {
+                        navigator.vibrate(100);
+                    }*/
+                    const nEvent = new Event("contextmenu");
+                    nEvent.clientX = touch.clientX;
+                    nEvent.clientY = touch.clientY;
+                    target.dispatchEvent(nEvent);
+                }
             }, 500);
             ACTIVE_EVENTS.set(target, timeout);
         }
@@ -134,20 +142,40 @@ function handleMomentum(target) {
     }
 }
 
-class TouchHandler {
+class iOSTouchHandler {
 
-    register(element) {
+    register(element, stopPropagation = false) {
         if (!(element instanceof HTMLElement)) {
             throw new TypeError("element must be of type HTMLElement");
         }
         if (force || isIOS) {
-            element.addEventListener("touchstart", handleTouchStart);
-            element.addEventListener("touchmove", handleTouchMove);
-            element.addEventListener("touchcancle", handleTouchCancle);
-            element.addEventListener("touchend", handleTouchEnd);
+            element.addEventListener("touchstart", event => {
+                handleTouchStart(event);
+                if (stopPropagation) {
+                    event.stopPropagation();
+                }
+            });
+            element.addEventListener("touchmove", event => {
+                handleTouchMove(event);
+                if (stopPropagation) {
+                    event.stopPropagation();
+                }
+            });
+            element.addEventListener("touchcancle", event => {
+                handleTouchCancle(event);
+                if (stopPropagation) {
+                    event.stopPropagation();
+                }
+            });
+            element.addEventListener("touchend", event => {
+                handleTouchEnd(event);
+                if (stopPropagation) {
+                    event.stopPropagation();
+                }
+            });
         }
     }
 
 }
 
-export default new TouchHandler();
+export default new iOSTouchHandler();

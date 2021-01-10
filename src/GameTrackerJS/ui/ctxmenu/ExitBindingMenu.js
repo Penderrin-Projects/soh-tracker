@@ -5,6 +5,7 @@ import StateStorage from "/script/storage/StateStorage.js";
 import Language from "/script/util/Language.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -42,6 +43,13 @@ export default class ExitBindingMenu extends HTMLElement {
         menuEl.addEventListener("close", function() {
             selectEl.resetSearch();
         });
+        
+        /* fck iOS */
+        iOSTouchHandler.register(this.shadowRoot.getElementById("menu"), true);
+        const all = this.shadowRoot.querySelectorAll(".item");
+        for (const el of all) {
+            iOSTouchHandler.register(el);
+        }
     }
 
     show(posX, posY) {

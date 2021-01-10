@@ -3,7 +3,7 @@ import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
 import Language from "/script/util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class AbstractLocation extends WorldElement {
 

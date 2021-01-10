@@ -7,7 +7,7 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/script/util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // more
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";

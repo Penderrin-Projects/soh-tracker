@@ -8,7 +8,7 @@ import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
 import Language from "/script/util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {

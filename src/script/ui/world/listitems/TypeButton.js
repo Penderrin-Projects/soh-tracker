@@ -7,7 +7,7 @@ import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventMa
 import "/GameTrackerJS/ui/Badge.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div class="textarea">

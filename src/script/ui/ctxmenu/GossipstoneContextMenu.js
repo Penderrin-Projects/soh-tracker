@@ -1,5 +1,6 @@
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -55,6 +56,13 @@ export default class GossipstoneContextMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
+
+        /* fck iOS */
+        iOSTouchHandler.register(this.shadowRoot.getElementById("menu"), true);
+        const all = this.shadowRoot.querySelectorAll(".item");
+        for (const el of all) {
+            iOSTouchHandler.register(el);
+        }
     }
 
     show(posX, posY) {

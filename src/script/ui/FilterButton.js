@@ -5,7 +5,7 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
 import StateStorage from "../storage/StateStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <slot>
