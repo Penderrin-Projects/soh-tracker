@@ -23,7 +23,9 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
         if (!exitEntry.active) return;
         const [source, target] = edgeThere.split(" -> ");
         const entranceEntry = ExitRegistry.get(edgeBack);
+        const type = exitEntry.exitData.type;
         if (entranceEntry != null) {
+            const eType = entranceEntry.exitData.type;
             if (!entranceEntry.active && exitEntry.exitData.type !== 'special') return;
             const [reroute, entrance] = edgeBack.split(" -> ");
             if (exit_binding[edgeThere]) {
@@ -32,18 +34,36 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //if (!!exit_binding[edgeBack]) {
             //    StateStorage.writeExtra("exits", exit_binding[edgeBack], "");
             //}
-            if (exitEntry.exitData.type !== 'special') {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-                changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: `${source}[adult]`});
-                exit_binding[edgeThere] = edgeBack;
-                exit_binding[edgeBack] = edgeThere;
-                //StateStorage.writeExtra("exits", edgeBack, edgeThere);
-            } else {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-                exit_binding[edgeThere] = edgeBack;
+            switch (type) {
+                case "special":
+                    switch(eType) {
+                        case "overworld_exit":
+                            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
+                            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
+                            exit_binding[edgeThere] = edgeBack;
+                            break;
+                        default:
+                            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                            exit_binding[edgeThere] = edgeBack;
+                    }
+                    break;
+                case "overworld_exit":
+                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
+                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
+                    //TODO set rerouted exit to have entrance filled automatically on exit page
+                    //changes.push({source: `${entrance}[child]`, target: `${reroute}[child]`, reroute: `${source}[child]`});
+                    //changes.push({source: `${entrance}[adult]`, target: `${reroute}[adult]`, reroute: `${source}[adult]`});
+                    exit_binding[edgeThere] = edgeBack;
+                    //exit_binding[edgeBack] = edgeThere;
+                    break;
+                default:
+                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                    changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
+                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                    changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: `${source}[adult]`});
+                    exit_binding[edgeThere] = edgeBack;
+                    exit_binding[edgeBack] = edgeThere;
             }
         } else {
             //if (!!exit_binding[edgeThere]) {
@@ -51,17 +71,20 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
             //}
             edgeBack = exit_binding[edgeThere];
             const [reroute, entrance] = edgeBack.split(" -> ");
-            if (exitEntry.exitData.type !== 'special') {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
-                changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: "[child]"});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
-                changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: "[adult]"});
-                exit_binding[edgeThere] = "";
-                exit_binding[edgeBack] = "";
-            } else {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
-                exit_binding[edgeThere] = "";
+            switch (type) {
+                case "special":
+                case "overworld_exit":
+                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
+                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
+                    exit_binding[edgeThere] = "";
+                    break;
+                default:
+                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
+                    changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: "[child]"});
+                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
+                    changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: "[adult]"});
+                    exit_binding[edgeThere] = "";
+                    exit_binding[edgeBack] = "";
             }
         }
     }
@@ -75,9 +98,32 @@ function update(force) {
         if (exitEntry != null) {
             const [source, target] = exit.split(" -> ");
             if (exitEntry.active) {
-                const reroute = exit_binding[exit].split(" -> ")[0];
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                const [reroute, entrance] = exit_binding[exit];
+                let type = "";
+                if(exit_binding[exit] !== "")
+                    type = ExitRegistry.get(exit_binding[exit]).exitData.type
+                switch (exitEntry.exitData.type) {
+                    case "special":
+                        switch (type) {
+                            case "overworld_exit":
+                                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
+                                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
+                                break;
+                            default:
+                                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                        }
+                        break;
+                    case "overworld_exit":
+                        changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
+                        changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
+                        break;
+                    default:
+                        changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                        changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                }
+                //changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                //changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
             } else {
                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${target}[child]`});
                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${target}[adult]`});
