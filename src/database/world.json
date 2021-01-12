@@ -7895,7 +7895,7 @@
 
         "region.hyrule_field -> region.field_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.field_woods_gateway",
+            "target": "region.field_woods_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7907,7 +7907,7 @@
         },
         "region.hyrule_field -> region.lake_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.lake_field_gateway",
+            "target": "region.lake_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7919,7 +7919,7 @@
         },
         "region.hyrule_field -> region.marketentrance_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.marketentrance_field_gateway",
+            "target": "region.marketentrance_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7931,7 +7931,7 @@
         },
         "region.hyrule_field -> region.ranch_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.ranch_field_gateway",
+            "target": "region.ranch_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7943,7 +7943,7 @@
         },
         "region.hyrule_field -> region.kakariko_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.kakariko_field_gateway",
+            "target": "region.kakariko_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7955,7 +7955,7 @@
         },
         "region.hyrule_field -> region.river_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.river_field_gateway",
+            "target": "region.river_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7967,7 +7967,7 @@
         },
         "region.hyrule_field -> region.valley_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.hyrule_field -> region.valley_field_gateway",
+            "target": "region.valley_field_gateway -> region.hyrule_field",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7979,7 +7979,7 @@
         },
         "region.kokiri_to_bridge_entrance -> region.kokiri_bridge_gateway": {
             "type": "overworld_exit",
-            "target": "region.kokiri_to_bridge_entrance -> region.kokiri_bridge_gateway",
+            "target": "region.kokiri_bridge_gateway -> region.kokiri_to_bridge_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -7991,7 +7991,7 @@
         },
         "region.kokiri_forest -> region.kokiri_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.kokiri_forest -> region.kokiri_woods_gateway",
+            "target": "region.kokiri_woods_gateway -> region.kokiri_forest",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8003,7 +8003,7 @@
         },
         "region.lw_bridge -> region.field_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.lw_bridge -> region.field_woods_gateway",
+            "target": "region.field_woods_gateway -> region.lw_bridge",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8015,7 +8015,7 @@
         },
         "region.bridge_to_kokiri_entrance -> region.kokiri_bridge_gateway": {
             "type": "overworld_exit",
-            "target": "region.bridge_to_kokiri_entrance -> region.kokiri_bridge_gateway",
+            "target": "region.kokiri_bridge_gateway -> region.bridge_to_kokiri_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8027,7 +8027,7 @@
         },
         "region.lost_woods -> region.kokiri_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.lost_woods -> region.kokiri_woods_gateway",
+            "target": "region.kokiri_woods_gateway -> region.lost_woods",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8039,7 +8039,7 @@
         },
         "region.lost_woods -> region.gc_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.lost_woods -> region.gc_woods_gateway",
+            "target": "region.gc_woods_gateway -> region.lost_woods",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8051,7 +8051,7 @@
         },
         "region.lost_woods -> region.river_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.lost_woods -> region.river_woods_gateway",
+            "target": "region.river_woods_gateway -> region.lost_woods",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8063,7 +8063,7 @@
         },
         "region.lw_beyond_mido -> region.meadow_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.lw_beyond_mido -> region.meadow_woods_gateway",
+            "target": "region.meadow_woods_gateway -> region.lw_beyond_mido",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8075,7 +8075,7 @@
         },
         "region.sfm_entryway -> region.meadow_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.sfm_entryway -> region.meadow_woods_gateway",
+            "target": "region.meadow_woods_gateway -> region.sfm_entryway",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8087,7 +8087,7 @@
         },
         "region.lake_hylia -> region.lake_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.lake_hylia -> region.lake_field_gateway",
+            "target": "region.lake_field_gateway -> region.lake_hylia",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8099,7 +8099,7 @@
         },
         "region.lake_hylia -> region.domain_lake_gateway": {
             "type": "overworld_exit",
-            "target": "region.lake_hylia -> region.domain_lake_gateway",
+            "target": "region.domain_lake_gateway -> region.lake_hylia",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8111,7 +8111,7 @@
         },
         "region.lon_lon_ranch -> region.ranch_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.lon_lon_ranch -> region.ranch_field_gateway",
+            "target": "region.ranch_field_gateway -> region.lon_lon_ranch",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8123,7 +8123,7 @@
         },
         "region.market_entrance -> region.marketentrance_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.market_entrance -> region.marketentrance_field_gateway",
+            "target": "region.marketentrance_field_gateway -> region.market_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8135,7 +8135,7 @@
         },
         "region.market_entrance -> region.marketentrance_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.market_entrance -> region.marketentrance_market_gateway",
+            "target": "region.marketentrance_market_gateway -> region.market_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8147,7 +8147,7 @@
         },
         "region.market -> region.marketentrance_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.market -> region.marketentrance_market_gateway",
+            "target": "region.marketentrance_market_gateway -> region.market",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8159,7 +8159,7 @@
         },
         "region.market -> region.grounds_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.market -> region.grounds_market_gateway",
+            "target": "region.grounds_market_gateway -> region.market",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8171,7 +8171,7 @@
         },
         "region.market -> region.tot_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.market -> region.tot_market_gateway",
+            "target": "region.tot_market_gateway -> region.market",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8183,7 +8183,7 @@
         },
         "region.castle_grounds -> region.grounds_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.castle_grounds -> region.grounds_market_gateway",
+            "target": "region.grounds_market_gateway -> region.castle_grounds",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8195,7 +8195,7 @@
         },
         "region.tot_entrance -> region.tot_market_gateway": {
             "type": "overworld_exit",
-            "target": "region.tot_entrance -> region.tot_market_gateway",
+            "target": "region.tot_market_gateway -> region.tot_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8207,7 +8207,7 @@
         },
         "region.kakariko_village -> region.kakariko_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.kakariko_village -> region.kakariko_field_gateway",
+            "target": "region.kakariko_field_gateway -> region.kakariko_village",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8219,7 +8219,7 @@
         },
         "region.kakariko_village -> region.graveyard_kakariko_gateway": {
             "type": "overworld_exit",
-            "target": "region.kakariko_village -> region.graveyard_kakariko_gateway",
+            "target": "region.graveyard_kakariko_gateway -> region.kakariko_village",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8231,7 +8231,7 @@
         },
         "region.graveyard -> region.graveyard_kakariko_gateway": {
             "type": "overworld_exit",
-            "target": "region.graveyard -> region.graveyard_kakariko_gateway",
+            "target": "region.graveyard_kakariko_gateway -> region.graveyard",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8243,7 +8243,7 @@
         },
         "region.kak_behind_gate -> region.mountain_kakariko_gateway": {
             "type": "overworld_exit",
-            "target": "region.kak_behind_gate -> region.mountain_kakariko_gateway",
+            "target": "region.mountain_kakariko_gateway -> region.kak_behind_gate",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8255,7 +8255,7 @@
         },
         "region.death_mountain -> region.mountain_kakariko_gateway": {
             "type": "overworld_exit",
-            "target": "region.death_mountain -> region.mountain_kakariko_gateway",
+            "target": "region.mountain_kakariko_gateway -> region.death_mountain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8267,7 +8267,7 @@
         },
         "region.death_mountain -> region.mountain_goron_gateway": {
             "type": "overworld_exit",
-            "target": "region.death_mountain -> region.mountain_goron_gateway",
+            "target": "region.mountain_goron_gateway -> region.death_mountain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8279,7 +8279,7 @@
         },
         "region.mountain_to_crater_entrance -> region.crater_mountain_gateway": {
             "type": "overworld_exit",
-            "target": "region.mountain_to_crater_entrance -> region.crater_mountain_gateway",
+            "target": "region.crater_mountain_gateway -> region.mountain_to_crater_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8291,7 +8291,7 @@
         },
         "region.crater_to_mountain_entrance -> region.crater_mountain_gateway": {
             "type": "overworld_exit",
-            "target": "region.crater_to_mountain_entrance -> region.crater_mountain_gateway",
+            "target": "region.crater_mountain_gateway -> region.crater_to_mountain_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8303,7 +8303,7 @@
         },
         "region.crater_to_goron_entrance -> region.crater_goron_gateway": {
             "type": "overworld_exit",
-            "target": "region.crater_to_goron_entrance -> region.crater_goron_gateway",
+            "target": "region.crater_goron_gateway -> region.crater_to_goron_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8315,7 +8315,7 @@
         },
         "region.goron_to_crater_entrance -> region.crater_goron_gateway": {
             "type": "overworld_exit",
-            "target": "region.goron_to_crater_entrance -> region.crater_goron_gateway",
+            "target": "region.crater_goron_gateway -> region.goron_to_crater_entrance",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8327,7 +8327,7 @@
         },
         "region.goron_city -> region.mountain_goron_gateway": {
             "type": "overworld_exit",
-            "target": "region.goron_city -> region.mountain_goron_gateway",
+            "target": "region.mountain_goron_gateway -> region.goron_city",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8339,7 +8339,7 @@
         },
         "region.gc_woods_warp -> region.gc_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.gc_woods_warp -> region.gc_woods_gateway",
+            "target": "region.gc_woods_gateway -> region.gc_woods_warp",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8351,7 +8351,7 @@
         },
         "region.zr_front -> region.river_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.zr_front -> region.river_field_gateway",
+            "target": "region.river_field_gateway -> region.zr_front",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8363,7 +8363,7 @@
         },
         "region.zora_river -> region.river_woods_gateway": {
             "type": "overworld_exit",
-            "target": "region.zora_river -> region.river_woods_gateway",
+            "target": "region.river_woods_gateway -> region.zora_river",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8375,7 +8375,7 @@
         },
         "region.zr_behind_waterfall -> region.river_domain_gateway": {
             "type": "overworld_exit",
-            "target": "region.zr_behind_waterfall -> region.river_domain_gateway",
+            "target": "region.river_domain_gateway -> region.zr_behind_waterfall",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8387,7 +8387,7 @@
         },
         "region.zoras_domain -> region.river_domain_gateway": {
             "type": "overworld_exit",
-            "target": "region.zoras_domain -> region.river_domain_gateway",
+            "target": "region.river_domain_gateway -> region.zoras_domain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8399,7 +8399,7 @@
         },
         "region.zoras_domain -> region.domain_lake_gateway": {
             "type": "overworld_exit",
-            "target": "region.zoras_domain -> region.domain_lake_gateway",
+            "target": "region.domain_lake_gateway -> region.zoras_domain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8411,7 +8411,7 @@
         },
         "region.zd_behind_king_zora -> region.fountain_domain_gateway": {
             "type": "overworld_exit",
-            "target": "region.zd_behind_king_zora -> region.fountain_domain_gateway",
+            "target": "region.fountain_domain_gateway -> region.zd_behind_king_zora",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8423,7 +8423,7 @@
         },
         "region.zoras_fountain -> region.fountain_domain_gateway": {
             "type": "overworld_exit",
-            "target": "region.zoras_fountain -> region.fountain_domain_gateway",
+            "target": "region.fountain_domain_gateway -> region.zoras_fountain",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8435,7 +8435,7 @@
         },
         "region.gerudo_valley -> region.valley_field_gateway": {
             "type": "overworld_exit",
-            "target": "region.gerudo_valley -> region.valley_field_gateway",
+            "target": "region.valley_field_gateway -> region.gerudo_valley",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8447,7 +8447,7 @@
         },
         "region.gv_fortress_side -> region.valley_fortress_gateway": {
             "type": "overworld_exit",
-            "target": "region.gv_fortress_side -> region.valley_fortress_gateway",
+            "target": "region.valley_fortress_gateway -> region.gv_fortress_side",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8459,7 +8459,7 @@
         },
         "region.gerudo_fortress -> region.valley_fortress_gateway": {
             "type": "overworld_exit",
-            "target": "region.gerudo_fortress -> region.valley_fortress_gateway",
+            "target": "region.valley_fortress_gateway -> region.gerudo_fortress",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8471,7 +8471,7 @@
         },
         "region.gf_outside_gate -> region.wasteland_fortress_gateway": {
             "type": "overworld_exit",
-            "target": "region.gf_outside_gate -> region.wasteland_fortress_gateway",
+            "target": "region.wasteland_fortress_gateway -> region.gf_outside_gate",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8483,7 +8483,7 @@
         },
         "region.wasteland_near_fortress -> region.wasteland_fortress_gateway": {
             "type": "overworld_exit",
-            "target": "region.wasteland_near_fortress -> region.wasteland_fortress_gateway",
+            "target": "region.wasteland_fortress_gateway -> region.wasteland_near_fortress",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8495,7 +8495,7 @@
         },
         "region.wasteland_near_colossus -> region.wasteland_colossus_gateway": {
             "type": "overworld_exit",
-            "target": "region.wasteland_near_colossus -> region.wasteland_colossus_gateway",
+            "target": "region.wasteland_colossus_gateway -> region.wasteland_near_colossus",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
@@ -8507,7 +8507,7 @@
         },
         "region.desert_colossus -> region.wasteland_colossus_gateway": {
             "type": "overworld_exit",
-            "target": "region.desert_colossus -> region.wasteland_colossus_gateway",
+            "target": "region.wasteland_colossus_gateway -> region.desert_colossus",
             "bindsTo": ["overworld_exit"],
             "ignoreBound": false,
             "active": {
