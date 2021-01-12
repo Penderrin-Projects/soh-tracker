@@ -24,8 +24,8 @@ function applyEntranceChanges(changes, edgeThere, edgeBack) {
         const [source, target] = edgeThere.split(" -> ");
         const entranceEntry = ExitRegistry.get(edgeBack);
         const type = exitEntry.exitData.type;
-        const eType = entranceEntry.exitData.type;
         if (entranceEntry != null) {
+            const eType = entranceEntry.exitData.type;
             if (!entranceEntry.active && exitEntry.exitData.type !== 'special') return;
             const [reroute, entrance] = edgeBack.split(" -> ");
             if (exit_binding[edgeThere]) {
@@ -124,9 +124,12 @@ function update(force) {
             const [source, target] = exit.split(" -> ");
             if (exitEntry.active) {
                 const [reroute, entrance] = exit_binding[exit];
+                let type = "";
+                if(exit_binding[exit] !== "")
+                    type = ExitRegistry.get(exit_binding[exit]).exitData.type
                 switch (exitEntry.exitData.type) {
                     case "special":
-                        switch (ExitRegistry.get(exit_binding[exit]).exitData.type) {
+                        switch (type) {
                             case "overworld_exit":
                                 changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${entrance}[child]`});
                                 changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${entrance}[adult]`});
