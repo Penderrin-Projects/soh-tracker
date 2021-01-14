@@ -232,7 +232,7 @@ class StateStorage {
         });
     }
 
-    override(data, extraData) {
+    overwrite(data, extraData) {
         const state = encodeState();
         // write data
         for (const key in data) {
