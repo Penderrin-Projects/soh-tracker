@@ -233,7 +233,11 @@ class StateStorage {
     }
 
     override(data, extraData) {
-        const state = StateConverter.createEmptyState(data);
+        const state = encodeState();
+        // write data
+        for (const key in data) {
+            state.data[key] = data[key];
+        }
         // write extra data
         if (typeof extraData == "object") {
             for (const category in extraData) {
