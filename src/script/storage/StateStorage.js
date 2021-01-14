@@ -2,12 +2,9 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import DebouncedStorage from "/emcJS/storage/DebouncedStorage.js";
 // import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
-import ActionPath from "/emcJS/util/ActionPath.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import StateConverter from "/script/storage/StateConverter.js";
-
-import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 
 DebouncedStorage.debounceTime = 0;
 
@@ -17,7 +14,6 @@ const TITLE_PREFIX = document.title;
 
 const STORAGE = new IDBStorage("savestates");
 
-const actionPath = new ActionPath();
 let autosaveMax = 0;
 let autosaveTime = 0;
 let autosaveTimeout = null;
@@ -37,7 +33,6 @@ function onStateChange(event) {
     LocalStorage.set(PERSISTANCE_NAME, encodeState());
     LocalStorage.set(STATE_DIRTY, true);
     if (event.category == null) {
-        actionPath.put(event.data);
         EventBus.trigger("statechange", event.data);
         updateTitle();
     } else {
@@ -89,34 +84,6 @@ function encodeState() {
         res.extra[key] = value.getAll();
     }
     return res;
-}
-
-function writeChanges(data, storage) {
-    const changes = {};
-    for (const [key, value] of Object.entries(data)) {
-        const change = storage.get(key);
-        const current = storage.getImmediate(key);
-        if (ItemStates.has(key)) {
-            const state = ItemStates.get(key);
-            const diff = value.newValue - value.oldValue;
-            if (diff != 0) {
-                const newCurrent = state.convert(current + diff);
-                const newChanged = state.convert(change + diff);
-                changes[key] = {
-                    current: newCurrent,
-                    change: newChanged
-                };
-                console.log(`${key}: ${current}/${change} (${value.oldValue}) -> ${newCurrent}/${newChanged} (${value.newValue})`);
-            }
-        } else {
-            changes[key] = {
-                current: value.newValue,
-                change: change
-            };
-            console.log(`${key}: ${current} -> ${changes[key]}`);
-        }
-    }
-    storage.setImmediateAll(changes);
 }
 
 DATA.state.addEventListener("change", onStateChange);
@@ -214,7 +181,6 @@ class StateStorage {
             }
             LocalStorage.set(STATE_DIRTY, false);
             updateTitle();
-            actionPath.clear();
             EventBus.trigger("state", {
                 notes: state.notes,
                 state: state.data,
@@ -257,9 +223,30 @@ class StateStorage {
         decodeState(state);
         LocalStorage.set(PERSISTANCE_NAME, state);
         LocalStorage.set(STATE_DIRTY, false);
-        actionPath.clear();
         // update title & cast event
         document.title = "Track-OOT - new state";
+        EventBus.trigger("state", {
+            notes: state.notes,
+            state: state.data,
+            extra: state.extra
+        });
+    }
+
+    override(data, extraData) {
+        const state = StateConverter.createEmptyState(data);
+        // write extra data
+        if (typeof extraData == "object") {
+            for (const category in extraData) {
+                state.extra[category] = {};
+                for (const key in extraData[category]) {
+                    state.extra[category][key] = extraData[category][key];
+                }
+            }
+        }
+        // write state data
+        decodeState(state);
+        LocalStorage.set(PERSISTANCE_NAME, state);
+        // cast event
         EventBus.trigger("state", {
             notes: state.notes,
             state: state.data,
@@ -273,30 +260,6 @@ class StateStorage {
 
     isDirty() {
         return LocalStorage.get(STATE_DIRTY);
-    }
-
-    undo() {
-        const act = actionPath.undo();
-        if (act != null) {
-            const changes = {};
-            for (const key in act) {
-                const value = act[key].oldValue;
-                changes[key] = value;
-            }
-            DATA.state.setImmediateAll(changes);
-        }
-    }
-
-    redo() {
-        const act = actionPath.redo();
-        if (act != null) {
-            const changes = {};
-            for (const key in act) {
-                const value = act[key].oldValue;
-                changes[key] = value;
-            }
-            DATA.state.setImmediateAll(changes);
-        }
     }
 
     write(key, value) {
@@ -364,29 +327,6 @@ class StateStorage {
             const buffer = getExtraStorage(category);
             return buffer.getAll();
         }
-    }
-
-    resolveNetworkStateEvent(event, data) {
-        if (event.startsWith("statechange")) {
-            if (event === "statechange") {
-                // event for statechange
-                console.group("resolve network statechange");
-                const storage = DATA.state;
-                writeChanges(data, storage);
-                console.groupEnd("resolve network statechange");
-                return true;
-            } else if (event.startsWith("statechange_")) {
-                // event for statechange_*
-                const category = event.slice(12);
-                console.group(`resolve network statechange "${category}"`);
-                const storage = getExtraStorage(category);
-                writeChanges(data, storage);
-                console.groupEnd(`resolve network statechange "${category}"`);
-                return true;
-            }
-        }
-        // event missmatch
-        return false;
     }
 
 }

@@ -246,9 +246,7 @@ function onJoined() {
         } else if (msg.type == "event") {
             if (EventBus.checkLists(eventModule, msg.data.name)) {
                 silent = true;
-                //if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
                 eventModule.trigger(msg.data.name, msg.data.data);
-                //}
                 silent = false;
             }
         }
@@ -301,9 +299,7 @@ async function onHosting() {
                 if (EventBus.checkLists(eventModule, msg.data.name)) {
                     rtcClient.sendButOne("data", key, msg);
                     silent = true;
-                    //if (!StateStorage.resolveNetworkStateEvent(msg.data.name, msg.data.data)) {
                     eventModule.trigger(msg.data.name, msg.data.data);
-                    //}
                     silent = false;
                 }
             }

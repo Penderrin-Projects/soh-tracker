@@ -157,14 +157,6 @@ async function init() {
         altKey: true,
         key: "i"
     });
-    /*HotkeyHandler.setAction("undo", StateStorage.undo, {
-        ctrlKey: true,
-        key: "z"
-    });
-    HotkeyHandler.setAction("redo", StateStorage.redo, {
-        ctrlKey: true,
-        key: "y"
-    });*/
     window.addEventListener('keydown', function(event) {
         if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
             event.preventDefault();
