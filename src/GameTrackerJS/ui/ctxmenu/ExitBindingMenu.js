@@ -73,7 +73,7 @@ export default class ExitBindingMenu extends HTMLElement {
         for (const key in exits) {
             if (exits[key] != current) {
                 const boundExit = ExitRegistry.get(key);
-                if (boundExit != null && boundExit.exitData.type != 'special') {
+                if (boundExit != null && boundExit.exitData.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
@@ -94,13 +94,21 @@ export default class ExitBindingMenu extends HTMLElement {
             // add options
             for (const key in entrances) {
                 const value = entrances[key];
-                const isActiveAndType = value.active && value.props.type == exit.exitData.type;
-                //TODO Fix Uncaught TypeError: Cannot read property 'exitData' of undefined, when setting a special exit with not_seen exits with no marker
-                const isSpecial = (exit.exitData.type === 'special' && value.props.type !== 'dungeon');
-                if ((isActiveAndType && !bound.has(value.props.target)) || isSpecial) {
+                const isActive = value.active || exit.exitData.includeInactiveEntrances;
+                const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
+                if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
                     const opt = document.createElement('emc-option');
                     opt.value = value.props.target;
-                    opt.innerHTML = Language.translate(value.props.target);
+                    if (exit.exitData.bindsTo.length > 1) {
+                        const category = `
+                            <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
+                                ${Language.translate(value.props.type)}
+                            </span>
+                        `;
+                        opt.innerHTML = `${Language.translate(value.props.target)}${category}`;
+                    } else {
+                        opt.innerHTML = Language.translate(value.props.target);
+                    }
                     selectEl.append(opt);
                 }
             }

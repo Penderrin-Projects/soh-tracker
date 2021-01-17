@@ -3,6 +3,7 @@ import StateStorage from "/script/storage/StateStorage.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import WorldRegistry from "../../../registry/WorldRegistry.js";
 import ExitRegistry from "../../../registry/ExitRegistry.js";
+import EntranceStates from "../entrance/StateManager.js";
 import StateExit from "../../abstract/StateExit.js";
 import Logic from "/script/util/logic/Logic.js";
 
@@ -12,10 +13,10 @@ const VALUE = new WeakMap();
 const AREA = new WeakMap();
 
 function getEntranceArea(value) {
-    const entrance = ExitRegistry.get(value);
-    const area = WorldRegistry.get(entrance.exitData.area);
+    const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
+    const area = WorldRegistry.get(entrance.props.area);
     if (area == null) {
-        console.error(`area "${entrance.exitData.area}" not found for exit "${value}"`);
+        console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
     }
     return area;
 }
