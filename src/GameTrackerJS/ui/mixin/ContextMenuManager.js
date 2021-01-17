@@ -1,6 +1,9 @@
+import {registerMixin} from "/emcJS/util/Mixin.js";
+import ContextMenuCatcher from "../ContextMenuCatcher.js";
+
 const MENUS = new WeakMap();
 
-export default (CLAZZ) => class extends CLAZZ {
+export default registerMixin((superclass) => class extends superclass {
 
     constructor(...args) {
         super(...args);
@@ -15,8 +18,14 @@ export default (CLAZZ) => class extends CLAZZ {
                 oldMenu.remove();
             }
             let el = this;
-            while (el.parentElement != null && !el.classList.contains("panel")) {
-                el = el.parentElement;
+            while (!(el instanceof ContextMenuCatcher)) {
+                if (el.parentElement != null) {
+                    el = el.parentElement;
+                } else if (el.getRootNode() != null && el.getRootNode().host != null) {
+                    el = el.getRootNode().host;
+                } else {
+                    break;
+                }
             }
             el.append(menu);
         }
@@ -33,8 +42,14 @@ export default (CLAZZ) => class extends CLAZZ {
             super.connectedCallback();
         }
         let el = this;
-        while (el.parentElement != null && !el.classList.contains("panel")) {
-            el = el.parentElement;
+        while (!(el instanceof ContextMenuCatcher)) {
+            if (el.parentElement != null) {
+                el = el.parentElement;
+            } else if (el.getRootNode() != null && el.getRootNode().host != null) {
+                el = el.getRootNode().host;
+            } else {
+                break;
+            }
         }
         const menus = MENUS.get(this);
         for (const [, menu] of menus) {
@@ -52,4 +67,4 @@ export default (CLAZZ) => class extends CLAZZ {
         }
     }
 
-}
+});

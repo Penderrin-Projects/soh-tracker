@@ -1,9 +1,10 @@
+import {registerMixin} from "/emcJS/util/Mixin.js";
 import StateData from "../../state/abstract/StateData.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
 
-export default (CLAZZ) => class extends CLAZZ {
+export default registerMixin((superclass) => class extends superclass {
 
     constructor(...args) {
         super(...args);
@@ -119,4 +120,4 @@ export default (CLAZZ) => class extends CLAZZ {
         // empty
     }
 
-}
+});

@@ -11,7 +11,7 @@ function internalTypeChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.value;
+        this.type = change.value;
     }
 }
 
