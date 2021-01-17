@@ -28,8 +28,17 @@ function internalChange(event) {
     const ref = this.ref;
     // savesatate
     const change = event.data;
-    if (change != null && change.ref == ref) {
-        this.value = change.value;
+    if (change != null) {
+        if (change.ref == ref) {
+            this.value = change.value;
+        } else if (this.value == change.value) {
+            if (!this.exitData.ignoreBound) {
+                const otherExit = WorldRegistry.get(change.ref);
+                if (!otherExit.exitData.ignoreBound) {
+                    this.value = "";
+                }
+            }
+        }
     }
 }
 

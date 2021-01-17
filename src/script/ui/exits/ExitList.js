@@ -24,11 +24,13 @@ export default class HTMLTrackerExitList extends TabPanel {
         el.ref = ref;
         const panel = this.getTab(category);
         if (panel != null) {
-            if(category !== "not_seen")
+            if (category !== "not_seen") {
                 panel.append(el);
+            }
         } else {
-            if(category !== "not_seen")
+            if (category !== "not_seen") {
                 this.addTab(category).append(el);
+            }
         }
     }
 
