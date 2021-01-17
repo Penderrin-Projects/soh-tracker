@@ -62,7 +62,7 @@ export default class DefaultState extends StateExit {
         /* --- */
         const logicAccess = props.access.split(" -> ")[0];
         ACCESS.set(this, getLogicAccess(logicAccess));
-        this.value = StateStorage.readExtra("exits", ref, "");
+        this.value = StateStorage.readExtra("exits", props.access, "");
         /* EVENTS */
         EventBus.register("state::exit", internalChange.bind(this));
         EventBus.register("state", event => {
@@ -115,6 +115,9 @@ export default class DefaultState extends StateExit {
         const ref = this.ref;
         const props = this.props;
         const old = VALUE.get(this);
+        if (value == ref) {
+            value = "";
+        }
         if (value != old) {
             const manager = MANAGER.get(this);
             VALUE.set(this, value);
