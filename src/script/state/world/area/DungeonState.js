@@ -58,7 +58,7 @@ function internalTypeChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.applyTypeValue(change.value || "n");
+        this./*#*/__applyTypeValue(change.value || "n");
     }
 }
 
@@ -67,7 +67,7 @@ export default class DungeonState extends DefaultState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        this.applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
+        this./*#*/__applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
         this.addEventListener("type", event => {
@@ -75,7 +75,7 @@ export default class DungeonState extends DefaultState {
         });
     }
 
-    /*#*/applyTypeValue(newValue) {
+    /*#*/__applyTypeValue(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
@@ -92,9 +92,9 @@ export default class DungeonState extends DefaultState {
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this.type = types[props.related_dungeon];
+                this./*#*/__applyTypeValue(types[props.related_dungeon]);
             } else {
-                this.type = "n";
+                this./*#*/__applyTypeValue("n");
             }
         }
         // savesatate

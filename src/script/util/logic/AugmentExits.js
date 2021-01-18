@@ -2,16 +2,31 @@ import EventBus from "/emcJS/event/EventBus.js";
 import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
 import Logic from "/script/util/logic/Logic.js";
 
-function changeBinding(from, to) {
+function changeBinding(values) {
     const changes = [];
-    const [source, target] = from.split(" -> ");
-    if (!to) {
-        changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
-        changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
+    if (Array.isArray(values)) {
+        for (const {from, to} of values) {
+            const [source, target] = from.split(" -> ");
+            if (!to) {
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
+            } else {
+                const [reroute] = to.split(" -> ");
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            }
+        }
     } else {
-        const [reroute] = to.split(" -> ");
-        changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-        changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+        const {from, to} = values;
+        const [source, target] = from.split(" -> ");
+        if (!to) {
+            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
+            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
+        } else {
+            const [reroute] = to.split(" -> ");
+            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+        }
     }
     if (changes.length) {
         const res = Logic.setTranslation(changes, "region.root");
@@ -43,9 +58,21 @@ class ExitAugmentor {
         const exit = EXIT.get(this);
         const access = exit.props.access;
         if (exit.active) {
-            changeBinding(access, exit.value);
+            changeBinding([{
+                from: access,
+                to: exit.value
+            }, {
+                from: exit.value,
+                to: access
+            }]);
         } else {
-            changeBinding(access, null);
+            changeBinding([{
+                from: access,
+                to: null
+            }, {
+                from: exit.value,
+                to: null
+            }]);
         }
     }
 
@@ -53,7 +80,13 @@ class ExitAugmentor {
         const exit = EXIT.get(this);
         const access = exit.props.access;
         if (exit.active) {
-            changeBinding(access, exit.value);
+            changeBinding([{
+                from: access,
+                to: exit.value
+            }, {
+                from: exit.value,
+                to: access
+            }]);
         }
     }
 

@@ -150,14 +150,14 @@ async function init() {
     
     // hotkeys
     function openDetached() {
-        window.open('/detached/#items', "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
+        window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
     }
     HotkeyHandler.setAction("detached_window", openDetached, {
         ctrlKey: true,
         altKey: true,
         key: "i"
     });
-    window.addEventListener('keydown', function(event) {
+    window.addEventListener("keydown", function(event) {
         if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
             event.preventDefault();
             event.stopPropagation();

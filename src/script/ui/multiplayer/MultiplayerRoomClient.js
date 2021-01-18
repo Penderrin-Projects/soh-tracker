@@ -1,5 +1,6 @@
 import Template from "/emcJS/util/Template.js";
-import RTCController from "/script/util/RTCController.js";
+import RTCController from "/script/util/rtc/RTCController.js";
+import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
 import "./MPUser.js";
 import "./MPLogger.js";
 
@@ -43,14 +44,17 @@ class HTMLMultiplayerRoomClient extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const leave_button = this.shadowRoot.getElementById("leave_button");
 
         leave_button.addEventListener("click", async function() {
-            await RTCController.disconnect();
-            this.dispatchEvent(new Event('leave'));
+            const rtcPeer = RTCController.getPeer();
+            if (rtcPeer instanceof RTCPeerClient) {
+                await rtcPeer.disconnect();
+            }
+            this.dispatchEvent(new Event("leave"));
         }.bind(this));
     }
 
@@ -59,27 +63,27 @@ class HTMLMultiplayerRoomClient extends HTMLElement {
         if (data.host) {
             const el = document.createElement("ootrt-mpuser");
             el.name = data.host;
-            el.role = 'host';
+            el.role = "host";
             this.append(el);
         }
-        if (data.peers) {
-            data.peers.forEach(function(inst) {
+        if (data.clients) {
+            data.clients.forEach(function(inst) {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
-                el.role = 'client';
-                if (inst == RTCController.getUsername()) {
+                el.role = "client";
+                if (inst == RTCController.getPeer().username) {
                     this.prepend(el);
                 } else {
                     this.append(el);
                 }
             }.bind(this));
         }
-        if (data.viewer) {
-            data.viewer.forEach(function(inst) {
+        if (data.spectators) {
+            data.spectators.forEach(function(inst) {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
-                el.role = 'spectator';
-                if (inst == RTCController.getUsername()) {
+                el.role = "spectator";
+                if (inst == RTCController.getPeer().username) {
                     this.prepend(el);
                 } else {
                     this.append(el);
@@ -90,4 +94,4 @@ class HTMLMultiplayerRoomClient extends HTMLElement {
 
 }
 
-customElements.define('ootrt-multiplayerroomclient', HTMLMultiplayerRoomClient);
+customElements.define("ootrt-multiplayerroomclient", HTMLMultiplayerRoomClient);

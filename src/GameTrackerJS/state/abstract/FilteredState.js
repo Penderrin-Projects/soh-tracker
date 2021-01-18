@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
-import StateVisible from "./StateVisible.js";
+import VisibilityState from "./VisibilityState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import FilterStorage from "/script/storage/FilterStorage.js";
 
@@ -19,7 +19,7 @@ function mapToObj(map) {
 const FILTER = new WeakMap();
 const FILTER_LOGICS = new WeakMap();
 
-export default class StateFilter extends StateVisible {
+export default class FilteredState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -47,15 +47,15 @@ export default class StateFilter extends StateVisible {
         /* EVENTS */
         EventBus.register("state", event => {
             const data = new Map(Object.entries(event.data.state));
-            this.calculateFilter(data);
+            this./*#*/__calculateFilter(data);
         });
         EventBus.register("randomizer_options", event => {
             const data = new Map(Object.entries(event.data));
-            this.calculateFilter(data);
+            this./*#*/__calculateFilter(data);
         });
     }
     
-    /*#*/calculateFilter(data) {
+    /*#*/__calculateFilter(data) {
         let changed = false;
         const filter_values = FILTER.get(this);
         const filter_logics = FILTER_LOGICS.get(this);

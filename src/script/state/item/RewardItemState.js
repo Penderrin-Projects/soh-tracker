@@ -34,9 +34,9 @@ function internalRewardChange(event) {
     const change = event.data;
     if (change != null) {
         if (change.ref == dungeon && change.value != ref) {
-            this.applyDungeonValue("");
+            this./*#*/__applyDungeonValue("");
         } else if (change.value == ref) {
-            this.applyDungeonValue(change.ref);
+            this./*#*/__applyDungeonValue(change.ref);
         }
     }
 }
@@ -46,12 +46,12 @@ export default class RewardItemState extends DefaultState {
     constructor(ref, props) {
         super(ref, props, 0, props.max);
         /* --- */
-        this.applyDungeonValue(getDisplayDungeon(ref));
+        this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
         /* EVENTS */
         EventBus.register("state::dungeonreward", internalRewardChange.bind(this));
     }
 
-    /*#*/applyDungeonValue(newValue) {
+    /*#*/__applyDungeonValue(newValue) {
         const dungeon = DUNGEON.get(this);
         if (dungeon != newValue) {
             DUNGEON.set(this, newValue);
@@ -67,7 +67,7 @@ export default class RewardItemState extends DefaultState {
         // savesatate
         super.stateLoaded(event);
         // dungeon
-        this.applyDungeonValue(getDisplayDungeon(ref));
+        this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
     }
 
     get max() {

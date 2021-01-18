@@ -11,7 +11,7 @@ function internalHintChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.hint = change.value;
+        this./*#*/__setHint(change.value);
     }
 }
 
@@ -32,7 +32,7 @@ export default class GossipstoneState extends DefaultState {
         this.hint = event.data.state[ref];
     }
 
-    set hint(value) {
+    /*#*/__setHint(value) {
         const ref = this.ref;
         if (typeof value != "object" || Array.isArray(value)) {
             value = {location: "", item: ""}
@@ -51,6 +51,15 @@ export default class GossipstoneState extends DefaultState {
             const event = new Event("hint");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set hint(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setHint(value);
+        if (value != null && !Helper.isEqual(old, value)) {
             // internal
             EventBus.trigger("state::gossipstone", {ref, value});
         }

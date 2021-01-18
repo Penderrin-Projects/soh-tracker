@@ -1,5 +1,5 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import StateData from "/GameTrackerJS/state/abstract/StateData.js";
+import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 const NOTES = new WeakMap();
@@ -9,11 +9,11 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.notes = change.value;
+        this./*#*/__setNotes(change.value);
     }
 }
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -44,7 +44,7 @@ export default class DefaultState extends StateData {
         }
     }
 
-    set notes(value) {
+    /*#*/__setNotes(value) {
         if (this.props.editable) {
             const ref = this.ref;
             if (typeof value == "string") {
@@ -56,10 +56,19 @@ export default class DefaultState extends StateData {
                     const event = new Event("notes");
                     event.data = value;
                     this.dispatchEvent(event);
-                    // internal
-                    EventBus.trigger("state::song", {ref, value});
                 }
+                return value;
             }
+        }
+    }
+        
+    set notes(value) {
+        const ref = this.ref;
+        const old = this.hint;
+        value = this./*#*/__setNotes(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::song", {ref, value});
         }
     }
 

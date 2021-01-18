@@ -161,7 +161,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             return false;
         });
         this.addEventListener("contextmenu", event => {
-            this.editItem();
+            this./*#*/__editItem();
             event.preventDefault();
             event.stopPropagation();
             return false;
@@ -244,7 +244,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         }
     }
 
-    /*#*/editItem(event) {
+    /*#*/__editItem(event) {
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(Language.translate(this.ref));

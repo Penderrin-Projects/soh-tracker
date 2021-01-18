@@ -1,4 +1,4 @@
-import StateData from "../state/abstract/StateData.js";
+import DataState from "../state/abstract/DataState.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
@@ -19,7 +19,7 @@ export default class StateDataEventManager {
             });
         }
         TARGET.set(this, newTarget);
-        if (newTarget instanceof StateData) {
+        if (newTarget instanceof DataState) {
             subs.forEach(function(fn, name) {
                 newTarget.addEventListener(name, fn);
             });

@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateWorld from "../../abstract/StateWorld.js";
+import WorldElementState from "../../abstract/WorldElementState.js";
 import Logic from "/script/util/logic/Logic.js";
 
 const ACCESS = new WeakMap();
@@ -11,11 +11,11 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.value;
+        this./*#*/__setValue(change.value);
     }
 }
 
-export default class DefaultState extends StateWorld {
+export default class DefaultState extends WorldElementState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -51,7 +51,7 @@ export default class DefaultState extends StateWorld {
         return ACCESS.get(this);
     }
 
-    set value(value) {
+    /*#*/__setValue(value) {
         if (typeof value != "boolean") {
             value = !!value;
         }
@@ -64,6 +64,15 @@ export default class DefaultState extends StateWorld {
             const event = new Event("value");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set value(value) {
+        const ref = this.ref;
+        const old = this.value;
+        value = this./*#*/__setValue(value);
+        if (value != null && value != old) {
             // internal
             EventBus.trigger("state::location", {ref, value});
         }

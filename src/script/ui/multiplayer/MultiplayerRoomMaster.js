@@ -1,5 +1,6 @@
 import Template from "/emcJS/util/Template.js";
-import RTCController from "/script/util/RTCController.js";
+import RTCController from "/script/util/rtc/RTCController.js";
+import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
 import "./MPUser.js";
 import "./MPManagedUser.js";
 import "./MPLogger.js";
@@ -47,28 +48,34 @@ class HTMLMultiplayerRoomMaster extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const close_button = this.shadowRoot.getElementById("close_button");
         const leave_button = this.shadowRoot.getElementById("leave_button");
         let closed_room = false;
 
-        close_button.addEventListener("click", async function() {
-            if (await RTCController.close()) {
-                close_button.style.display = "none";
-                closed_room = true;
+        close_button.addEventListener("click", async () => {
+            const rtcPeer = RTCController.getPeer();
+            if (rtcPeer instanceof RTCPeerHost) {
+                if (await rtcPeer.close()) {
+                    close_button.style.display = "none";
+                    closed_room = true;
+                }
             }
-        }.bind(this));
+        });
 
-        leave_button.addEventListener("click", async function() {
-            if (closed_room || await RTCController.close()) {
-                close_button.style.display = undefined;
-                await RTCController.disconnect();
-                closed_room = false;
-                this.dispatchEvent(new Event('close'));
+        leave_button.addEventListener("click", async () => {
+            const rtcPeer = RTCController.getPeer();
+            if (rtcPeer instanceof RTCPeerHost) {
+                if (closed_room || await rtcPeer.close()) {
+                    close_button.style.display = undefined;
+                    await rtcPeer.disconnect();
+                    closed_room = false;
+                    this.dispatchEvent(new Event("close"));
+                }
             }
-        }.bind(this));
+        });
     }
 
     updateRoom(data) {
@@ -76,23 +83,23 @@ class HTMLMultiplayerRoomMaster extends HTMLElement {
         if (data.host) {
             const el = document.createElement("ootrt-mpuser");
             el.name = data.host;
-            el.role = 'host';
+            el.role = "host";
             this.append(el);
         }
-        if (data.peers) {
-            data.peers.forEach(function(inst) {
+        if (data.clients) {
+            data.clients.forEach(function(inst) {
                 const el = document.createElement("ootrt-mpmanageduser");
                 el.name = inst;
-                el.role = 'client';
+                el.role = "client";
                 el.addEventListener("kick", kickUser);
                 this.append(el);
             }.bind(this));
         }
-        if (data.viewer) {
-            data.viewer.forEach(function(inst) {
+        if (data.spectators) {
+            data.spectators.forEach(function(inst) {
                 const el = document.createElement("ootrt-mpmanageduser");
                 el.name = inst;
-                el.role = 'spectator';
+                el.role = "spectator";
                 el.addEventListener("kick", kickUser);
                 this.append(el);
             }.bind(this));
@@ -102,7 +109,10 @@ class HTMLMultiplayerRoomMaster extends HTMLElement {
 }
 
 function kickUser(event) {
-    RTCController.kick(event.target.name);
+    const rtcPeer = RTCController.getPeer();
+    if (rtcPeer instanceof RTCPeerHost) {
+        rtcPeer.kick(event.target.name);
+    }
 }
 
-customElements.define('ootrt-multiplayerroommaster', HTMLMultiplayerRoomMaster);
+customElements.define("ootrt-multiplayerroommaster", HTMLMultiplayerRoomMaster);

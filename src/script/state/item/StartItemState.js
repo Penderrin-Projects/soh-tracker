@@ -14,12 +14,12 @@ export default class StartItemState extends DefaultState {
         /* EVENTS */
         EventBus.register("randomizer_options", event => {
             if (event.data[props.start_settings] != null) {
-                this.applyStartValue(event.data[props.start_settings]);
+                this./*#*/__applyStartValue(event.data[props.start_settings]);
             }
         });
     }
 
-    /*#*/applyStartValue(newValue) {
+    /*#*/__applyStartValue(newValue) {
         const startvalue = STARTVALUE.get(this);
         newValue = parseInt(newValue) || 1;
         const max = this.max;
@@ -49,7 +49,7 @@ export default class StartItemState extends DefaultState {
         super.stateLoaded(event);
         // settings
         if (event.data.state[props.start_settings] != null) {
-            this.applyStartValue(event.data.state[props.start_settings]);
+            this./*#*/__applyStartValue(event.data.state[props.start_settings]);
         }
     }
 

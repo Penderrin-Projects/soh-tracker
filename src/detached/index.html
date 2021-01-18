@@ -21,6 +21,7 @@
         });
     </script>
     <script type="module">
+        import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
         import EventBus from "/emcJS/event/EventBus.js";
         import FileData from "/emcJS/data/FileData.js";
         import "/emcJS/ui/layout/Layout.js";
@@ -31,7 +32,18 @@
         
         import {loadResources, registerWorker} from "/script/boot.js";
 
+        function setVersion(data) {
+            MemoryStorage.set("version-dev", data.dev);
+            if (data.dev) {
+                MemoryStorage.set("version-string", `DEV [${data.commit.slice(0, 7)}]`);
+            } else {
+                MemoryStorage.set("version-string", data.version);
+            }
+            MemoryStorage.set("version-date", DateUtil.convert(new Date(data.date), "D.M.Y h:m:s"));
+        }
+
         (async function main() {
+            setVersion(await FileLoader.json("version.json"));
 
             await loadResources();
             await registerWorker();

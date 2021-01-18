@@ -1,7 +1,7 @@
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import StateData from "../../abstract/StateData.js";
+import DataState from "../../abstract/DataState.js";
 
 function valueGetter(key) {
     return this.get(key);
@@ -10,7 +10,7 @@ function valueGetter(key) {
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -29,15 +29,15 @@ export default class DefaultState extends StateData {
         /* EVENTS */
         EventBus.register("state", event => {
             const data = new Map(Object.entries(event.data.state));
-            this.calculateActive(data);
+            this./*#*/__calculateActive(data);
         });
         EventBus.register("randomizer_options", event => {
             const data = new Map(Object.entries(event.data));
-            this.calculateActive(data);
+            this./*#*/__calculateActive(data);
         });
     }
     
-    /*#*/calculateActive(data) {
+    /*#*/__calculateActive(data) {
         const active_logic = ACTIVE_LOGIC.get(this);
         if (typeof active_logic == "function") {
             const active = ACTIVE.get(this);

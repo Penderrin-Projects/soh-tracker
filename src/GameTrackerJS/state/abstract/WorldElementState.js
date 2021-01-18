@@ -1,7 +1,7 @@
 import WorldRegistry from "../../registry/WorldRegistry.js";
-import StateFilter from "./StateFilter.js";
+import FilteredState from "./FilteredState.js";
 
-export default class StateWorld extends StateFilter {
+export default class WorldElementState extends FilteredState {
 
     constructor(ref, props) {
         super(ref, props);

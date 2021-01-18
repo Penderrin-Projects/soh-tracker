@@ -4,7 +4,7 @@ import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import WorldRegistry from "../../../registry/WorldRegistry.js";
 import ExitRegistry from "../../../registry/ExitRegistry.js";
 import EntranceStates from "../entrance/StateManager.js";
-import StateExit from "../../abstract/StateExit.js";
+import ExitState from "../../abstract/ExitState.js";
 import Logic from "/script/util/logic/Logic.js";
 
 const MANAGER = new WeakMap();
@@ -26,24 +26,33 @@ function getLogicAccess(access) {
 }
 
 function internalChange(event) {
-    const ref = this.ref;
+    const access = this.props.access;
     // savesatate
     const change = event.data;
     if (change != null) {
-        if (change.ref == ref) {
-            this.value = change.value;
+        if (change.ref == access) {
+            this./*#*/__setValue(change.value);
+        } else if (change.value == access) {
+            this./*#*/__setValue(change.ref);
         } else if (this.value == change.value) {
             if (!this.exitData.ignoreBound) {
-                const otherExit = WorldRegistry.get(change.ref);
+                const otherExit = ExitRegistry.get(change.ref);
                 if (!otherExit.exitData.ignoreBound) {
-                    this.value = "";
+                    this./*#*/__setValue("");
+                }
+            }
+        } else if (this.value == change.ref) {
+            if (!this.exitData.ignoreBound) {
+                const otherExit = ExitRegistry.get(change.value);
+                if (!otherExit.exitData.ignoreBound) {
+                    this./*#*/__setValue("");
                 }
             }
         }
     }
 }
 
-export default class DefaultState extends StateExit {
+export default class DefaultState extends ExitState {
 
     constructor(ref, props, exitData) {
         super(ref, props, exitData);
@@ -55,17 +64,19 @@ export default class DefaultState extends StateExit {
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
+        manager.registerStateHandler("hint", event => {
+            const ev = new Event("hint");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
         /* --- */
         const logicAccess = props.access.split(" -> ")[0];
         ACCESS.set(this, getLogicAccess(logicAccess));
         this.value = StateStorage.readExtra("exits", props.access, "");
         /* EVENTS */
-        EventBus.register("state::subexit", internalChange.bind(this));
+        EventBus.register("state::exit_binding", internalChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
-        });
-        EventBus.register("statechange_exits", event => {
-            this.calculateEntrances();
         });
         EventBus.register("logic", event => {
             const access = getLogicAccess(logicAccess);
@@ -87,33 +98,15 @@ export default class DefaultState extends StateExit {
 
     stateLoaded(event) {
         const props = this.props;
-        if (event.data.extra.exits != null && event.data.extra.exits[props.access] != null) {
-            this.value = event.data.extra.exits[props.access];
+        // value
+        if (event.data.extra["exits"] != null) {
+            this.value = event.data.extra["exits"][props.access] ?? "";
         } else {
             this.value = "";
         }
     }
-    
-    /*#*/calculateEntrances() {
-        const exits = StateStorage.readAllExtra("exits");
-        const entrances = ExitRegistry.getAll();
-        const possible = [];
-        const exit = ExitRegistry.get(this.props.access);
-        for (const key in entrances) {
-            if (exits[key] == this.value) {
-                const value = entrances[key];
-                if (value.active && value.exitData.type == exit.exitData.type) {
-                    possible.push(exits[key]);
-                }
-            }
-        }
-    }
 
-    get value() {
-        return VALUE.get(this);
-    }
-
-    set value(value) {
+    /*#*/__setValue(value) {
         const ref = this.ref;
         const props = this.props;
         const old = VALUE.get(this);
@@ -144,9 +137,21 @@ export default class DefaultState extends StateExit {
             const event = new Event("value");
             event.data = value;
             this.dispatchEvent(event);
-            // internal
-            EventBus.trigger("state::subexit", {ref, value});
         }
+        return value;
+    }
+
+    set value(value) {
+        const old = this.value;
+        value = this./*#*/__setValue(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::exit_binding", {ref: this.props.access, value});
+        }
+    }
+
+    get value() {
+        return VALUE.get(this);
     }
 
     get area() {

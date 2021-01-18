@@ -2,7 +2,7 @@ import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
-import StateWorld from "./StateWorld.js";
+import WorldElementState from "./WorldElementState.js";
 
 function valueGetter(key) {
     return this.get(key);
@@ -12,7 +12,7 @@ const EXIT_DATA = new WeakMap();
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
 
-export default class StateExit extends StateWorld {
+export default class ExitState extends WorldElementState {
 
     constructor(ref, props, exitData) {
         super(ref, props);
@@ -30,18 +30,18 @@ export default class StateExit extends StateWorld {
         /* EVENTS */
         EventBus.register("state", event => {
             const data = new Map(Object.entries(event.data.state));
-            this.calculateActive(data);
+            this./*#*/__calculateActive(data);
         });
         EventBus.register("randomizer_options", event => {
             const data = new Map(Object.entries(event.data));
-            this.calculateActive(data);
+            this./*#*/__calculateActive(data);
         });
 
         /* register */
         ExitRegistry.set(props.access, this);
     }
     
-    /*#*/calculateActive(data) {
+    /*#*/__calculateActive(data) {
         const active_logic = ACTIVE_LOGIC.get(this);
         if (typeof active_logic == "function") {
             const active = ACTIVE.get(this);
@@ -51,6 +51,8 @@ export default class StateExit extends StateWorld {
                 const event = new Event("active");
                 event.data = value;
                 this.dispatchEvent(event);
+                // internal
+                EventBus.trigger("state::exit_active", {ref: this.props.access, value});
             }
         }
     }

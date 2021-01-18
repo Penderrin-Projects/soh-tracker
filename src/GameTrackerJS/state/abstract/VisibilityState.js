@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
-import StateData from "./StateData.js";
+import DataState from "./DataState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 function valueGetter(key) {
@@ -10,7 +10,7 @@ function valueGetter(key) {
 const VISIBLE = new WeakMap();
 const VISIBLE_LOGIC = new WeakMap();
 
-export default class StateVisible extends StateData {
+export default class VisibilityState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -27,15 +27,15 @@ export default class StateVisible extends StateData {
         /* EVENTS */
         EventBus.register("state", event => {
             const data = new Map(Object.entries(event.data.state));
-            this.calculateVisibility(data);
+            this./*#*/__calculateVisibility(data);
         });
         EventBus.register("randomizer_options", event => {
             const data = new Map(Object.entries(event.data));
-            this.calculateVisibility(data);
+            this./*#*/__calculateVisibility(data);
         });
     }
     
-    /*#*/calculateVisibility(data) {
+    /*#*/__calculateVisibility(data) {
         const visible_logic = VISIBLE_LOGIC.get(this);
         if (typeof visible_logic == "function") {
             const visible = VISIBLE.get(this);

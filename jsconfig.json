@@ -15,10 +15,10 @@
                 "../../emcJS/src/*"
             ],
             "/editors/*": [
-                "../../JSEditors/*"
+                "../../JSEditors/src/*"
             ],
             "/rtc/*": [
-                "../../RTCClient/*"
+                "../../RTCClient/src*"
             ]
         }
     }

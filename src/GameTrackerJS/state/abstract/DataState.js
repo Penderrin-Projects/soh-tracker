@@ -1,7 +1,7 @@
 const REF = new WeakMap();
 const PROPS = new WeakMap();
 
-export default class StateData extends EventTarget {
+export default class DataState extends EventTarget {
 
     constructor(ref, props) {
         super();

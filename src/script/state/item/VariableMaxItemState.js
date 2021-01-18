@@ -20,17 +20,17 @@ export default class VariableMaxItemState extends DefaultState {
         if (props.max.option != null) {
             const optionProps = FileData.get(`randomizer_options/options/${props.max.option}`);
             const option = StateStorage.read(props.max.option, optionProps.default);
-            this.applyMaxValue(option);
+            this./*#*/__applyMaxValue(option);
         }
         /* EVENTS */
         EventBus.register("randomizer_options", event => {
             if (event.data[props.max.option] != null) {
-                this.applyMaxValue(event.data[props.max.option]);
+                this./*#*/__applyMaxValue(event.data[props.max.option]);
             }
         });
     }
 
-    /*#*/applyMaxValue(newValue) {
+    /*#*/__applyMaxValue(newValue) {
         const props = this.props;
         if (props.max.values[newValue] != null) {
             super.max = props.max.values[newValue];
@@ -43,7 +43,7 @@ export default class VariableMaxItemState extends DefaultState {
         super.stateLoaded(event);
         // settings
         if (event.data.state[props.max.values] != null) {
-            this.applyMaxValue(event.data.state[props.max.values]);
+            this./*#*/__applyMaxValue(event.data.state[props.max.values]);
         }
     }
 

@@ -1,5 +1,5 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import StateData from "../abstract/StateData.js";
+import DataState from "../abstract/DataState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 const VALUE = new WeakMap();
@@ -26,11 +26,11 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.value ?? 0;
+        this./*#*/__setValue(change.value);
     }
 }
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
     constructor(ref, props, min = 0, max = 0) {
         super(ref, props);
@@ -103,7 +103,7 @@ export default class DefaultState extends StateData {
         return MAX.get(this);
     }
 
-    set value(value) {
+    /*#*/__setValue(value) {
         const ref = this.ref;
         value = parseNumber(value);
         if (value != null) {
@@ -122,9 +122,18 @@ export default class DefaultState extends StateData {
                 const event = new Event("value");
                 event.data = value;
                 this.dispatchEvent(event);
-                // internal
-                EventBus.trigger("state::item", {ref, value});
             }
+            return value;
+        }
+    }
+
+    set value(value) {
+        const ref = this.ref;
+        const old = this.value;
+        value = this./*#*/__setValue(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::item", {ref, value});
         }
     }
 

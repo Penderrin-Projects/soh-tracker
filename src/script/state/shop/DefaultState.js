@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
-import StateData from "/GameTrackerJS/state/abstract/StateData.js";
+import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 const ITEM = new WeakMap();
@@ -17,6 +17,7 @@ function internalItemChange(event) {
     const change = event.data;
     if (change != null && change.ref == ref) {
         this.item = change.value;
+        this./*#*/__setItem(change.value);
     }
 }
 
@@ -26,6 +27,7 @@ function internalPriceChange(event) {
     const change = event.data;
     if (change != null && change.ref == ref) {
         this.price = change.value;
+        this./*#*/__setPrice(change.value);
     }
 }
 
@@ -35,6 +37,7 @@ function internalBoughtChange(event) {
     const change = event.data;
     if (change != null && change.ref == ref) {
         this.bought = change.value;
+        this./*#*/__setBought(change.value);
     }
 }
 
@@ -44,10 +47,11 @@ function internalNameChange(event) {
     const change = event.data;
     if (change != null && change.ref == ref) {
         this.name = change.value;
+        this./*#*/__setName(change.value);
     }
 }
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -107,7 +111,7 @@ export default class DefaultState extends StateData {
         }
     }
 
-    /*#*/applyItem() {
+    /*#*/__applyItem() {
         const ref = this.ref;
         const item = ITEM.get(this);
         const itemData = FileData.get(`shop_items/${item}`);
@@ -130,7 +134,7 @@ export default class DefaultState extends StateData {
         }
     }
 
-    set item(value) {
+    /*#*/__setItem(value) {
         const ref = this.ref;
         if (typeof value != "string") {
             value = "";
@@ -139,11 +143,20 @@ export default class DefaultState extends StateData {
         if (value != old) {
             ITEM.set(this, value);
             StateStorage.writeExtra("shops", `${ref}.item`, value);
-            this.applyItem();
+            this./*#*/__applyItem();
             // external
             const event = new Event("item");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set item(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setItem(value);
+        if (value != null && value != old) {
             // internal
             EventBus.trigger("state::shop_item", {ref, value});
         }
@@ -153,7 +166,7 @@ export default class DefaultState extends StateData {
         return ITEM.get(this);
     }
 
-    set price(value) {
+    /*#*/__setPrice(value) {
         const ref = this.ref;
         value = parseInt(value);
         if (isNaN(value) || value < 0) {
@@ -170,6 +183,15 @@ export default class DefaultState extends StateData {
             const event = new Event("price");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set price(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setPrice(value);
+        if (value != null && value != old) {
             // internal
             EventBus.trigger("state::shop_price", {ref, value});
         }
@@ -179,7 +201,7 @@ export default class DefaultState extends StateData {
         return PRICE.get(this);
     }
 
-    set bought(value) {
+    /*#*/__setBought(value) {
         const itemData = ITEM_DATA.get(this);
         if (!itemData.refill) {
             const ref = this.ref;
@@ -190,14 +212,23 @@ export default class DefaultState extends StateData {
             if (value != old) {
                 BOUGHT.set(this, value);
                 StateStorage.writeExtra("shops", `${ref}.bought`, value);
-                this.applyItem();
+                this./*#*/__applyItem();
                 // external
                 const event = new Event("bought");
                 event.data = value;
                 this.dispatchEvent(event);
-                // internal
-                EventBus.trigger("state::shop_bought", {ref, value});
             }
+            return value;
+        }
+    }
+    
+    set bought(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setBought(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::shop_bought", {ref, value});
         }
     }
 
@@ -205,7 +236,7 @@ export default class DefaultState extends StateData {
         return BOUGHT.get(this);
     }
 
-    set name(value) {
+    /*#*/__setName(value) {
         const ref = this.ref;
         if (typeof value != "string") {
             value = "";
@@ -218,6 +249,15 @@ export default class DefaultState extends StateData {
             const event = new Event("name");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set name(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setName(value);
+        if (value != null && value != old) {
             // internal
             EventBus.trigger("extra::shop_name", {ref, value});
         }

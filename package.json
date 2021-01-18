@@ -2,9 +2,9 @@
   "license": "MIT",
   "author": "Denis Peters (ZidArgs)",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.7",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.9",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.11",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.1.9"
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
   "devDependencies": {
     "del": "^5.1.0",

@@ -1,5 +1,5 @@
 import {registerMixin} from "/emcJS/util/Mixin.js";
-import StateData from "../../state/abstract/StateData.js";
+import DataState from "../../state/abstract/DataState.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
@@ -22,7 +22,7 @@ export default registerMixin((superclass) => class extends superclass {
                 });
             });
         }
-        if (newTarget instanceof StateData) {
+        if (newTarget instanceof DataState) {
             TARGET.set(this, newTarget);
             if (this.isConnected) {
                 subs.forEach(function(fns, name) {

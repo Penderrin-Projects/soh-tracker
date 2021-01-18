@@ -10,7 +10,7 @@ function internalItemChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.value;
+        this./*#*/__setItem(change.value);
     }
 }
 
@@ -36,7 +36,7 @@ export default class LocationState extends DefaultState {
         }
     }
 
-    set item(value) {
+    /*#*/__setItem(value) {
         const ref = this.ref;
         if (typeof value != "string") value = "";
         const old = this.item;
@@ -47,6 +47,15 @@ export default class LocationState extends DefaultState {
             const event = new Event("item");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set item(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setItem(value);
+        if (value != null && value != old) {
             // internal
             EventBus.trigger("state::location_item", {ref, value});
         }
