@@ -250,7 +250,9 @@ export default class MapSubExit extends WorldElement {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
+                            // XXX Takacomic: use commented code after translation update
+                            // textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
+                            textEl.innerHTML = Language.translate(state.props.access);
                         }
                         this.switchState(state);
                     }
@@ -262,7 +264,9 @@ export default class MapSubExit extends WorldElement {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
+                                    // XXX Takacomic: use commented code after translation update
+                                    // valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
+                                    valueEl.innerHTML = Language.translate(newValue);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }
