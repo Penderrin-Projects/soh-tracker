@@ -3,6 +3,7 @@
 Application:    Track-OOT
 
 ***
+
 ## VERSION 2.1.0 (DEV)
 
 ### IMPROVEMENTS
@@ -19,6 +20,16 @@ Application:    Track-OOT
 - added a special type button for choosing v/mq in locationlist
 - added overworld, owl drops, spawns, and song warps to entrance rando
 - reduced logic file sizes
+
+---
+
+## VERSION 2.0.27
+
+### BUGFIXES
+
+- fix english translation for option.keysanity_small
+
+---
 
 ## VERSION 2.0.26
 
