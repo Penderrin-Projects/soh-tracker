@@ -99,15 +99,16 @@ export default class ExitBindingMenu extends HTMLElement {
                 if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
                     const opt = document.createElement("emc-option");
                     opt.value = value.props.target;
+                    const entranceName = Language.translate(`entrance[${value.props.target}]`);
                     if (exit.exitData.bindsTo.length > 1) {
                         const category = `
                             <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
                                 ${Language.translate(value.props.type)}
                             </span>
                         `;
-                        opt.innerHTML = `${Language.translate(value.props.target)}${category}`;
+                        opt.innerHTML = `${entranceName}${category}`;
                     } else {
-                        opt.innerHTML = Language.translate(value.props.target);
+                        opt.innerHTML = entranceName;
                     }
                     selectEl.append(opt);
                 }

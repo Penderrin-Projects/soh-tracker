@@ -79,7 +79,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
 
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -178,46 +178,46 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         const state = ExitRegistry.get(newValue);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(newValue);
+                            textEl.innerHTML = Language.translate(`exit[${newValue}]`);
                         }
                         this.switchState(state);
                     }
                     break;
-                case 'value':
+                case "value":
                     {
                         const state = this.getState();
                         if (state != null) {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(newValue);
+                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }
@@ -235,7 +235,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         const bound = new Set();
         for (const key in exits) {
             const exitKey = ExitRegistry.get(key)
-            if (exits[key] == current || exitKey.exitData.type === 'special') continue;
+            if (exits[key] == current || exitKey.exitData.type === "special") continue;
             bound.add(exits[key]);
         }
         // add options
@@ -244,14 +244,14 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         const selectEl = this.shadowRoot.getElementById("select");
         selectEl.value = current;
         selectEl.innerHTML = "";
-        const empty = document.createElement('emc-option');
+        const empty = document.createElement("emc-option");
         empty.value = "";
         empty.innerHTML = "unbound";
         selectEl.append(empty);
         for (const key in entrances) {
             const value = entrances[key];
-            if ((exit.exitData.type === 'special' && value.exitData.type !== 'dungeon') || (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target))) {
-                const opt = document.createElement('emc-option');
+            if ((exit.exitData.type === "special" && value.exitData.type !== "dungeon") || (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target))) {
+                const opt = document.createElement("emc-option");
                 opt.value = value.exitData.target;
                 opt.innerHTML = Language.translate(value.exitData.target);
                 selectEl.append(opt);
@@ -261,4 +261,4 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
 
 }
 
-customElements.define('gt-exitchoice', HTMLTrackerExitChoice);
+customElements.define("gt-exitchoice", HTMLTrackerExitChoice);

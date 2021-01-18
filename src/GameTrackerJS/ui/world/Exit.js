@@ -235,54 +235,54 @@ export default class MapExit extends WorldElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get hint() {
-        return this.getAttribute('hint');
+        return this.getAttribute("hint");
     }
 
     set hint(val) {
-        this.setAttribute('hint', val);
+        this.setAttribute("hint", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value', 'hint'];
+        return ["ref", "value", "hint"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(state.props.access);
+                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }
                     break;
-                case 'value':
+                case "value":
                     {
                         const state = this.getState();
                         if (state != null) {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(newValue);
+                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
                                     const area = state.area;
                                     if (area != null) {
                                         this.hint = area.hint;
@@ -297,7 +297,7 @@ export default class MapExit extends WorldElement {
                         }
                     }
                     break;
-                case 'hint':
+                case "hint":
                     {
                         const hintEl = this.shadowRoot.getElementById("hint");
                         if (hintEl != null) {
