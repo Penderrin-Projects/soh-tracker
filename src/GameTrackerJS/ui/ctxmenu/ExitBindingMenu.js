@@ -23,7 +23,7 @@ export default class ExitBindingMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -73,15 +73,15 @@ export default class ExitBindingMenu extends HTMLElement {
         for (const key in exits) {
             if (exits[key] != current) {
                 const boundExit = ExitRegistry.get(key);
-                if (boundExit != null && boundExit.exitData.ignoreBound) {
+                if (boundExit == null || !boundExit.exitData.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
         }
         // add empty
-        const empty = document.createElement('emc-option');
+        const empty = document.createElement("emc-option");
         empty.value = "";
-        const emptyText = document.createElement('span');
+        const emptyText = document.createElement("span");
         emptyText.innerHTML = "unbind";
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
@@ -97,7 +97,7 @@ export default class ExitBindingMenu extends HTMLElement {
                 const isActive = value.active || exit.exitData.includeInactiveEntrances;
                 const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
                 if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
-                    const opt = document.createElement('emc-option');
+                    const opt = document.createElement("emc-option");
                     opt.value = value.props.target;
                     if (exit.exitData.bindsTo.length > 1) {
                         const category = `
@@ -119,4 +119,4 @@ export default class ExitBindingMenu extends HTMLElement {
 
 }
 
-customElements.define('gt-ctxmenu-exitbinding', ExitBindingMenu);
+customElements.define("gt-ctxmenu-exitbinding", ExitBindingMenu);

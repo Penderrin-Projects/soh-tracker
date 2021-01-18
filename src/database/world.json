@@ -8521,7 +8521,7 @@
         "region.lh_owl_flight -> region.hyrule_field": {
             "type": "special",
             "target": "region.hyrule_field -> region.lh_owl_flight",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8533,7 +8533,7 @@
         "region.dmt_owl_flight -> region.kak_impas_rooftop": {
             "type": "special",
             "target": "region.kak_impas_rooftop -> region.dmt_owl_flight",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8545,7 +8545,7 @@
         "region.child_spawn -> region.kf_links_house": {
             "type": "special",
             "target": "region.kf_links_house -> region.child_spawn",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8557,7 +8557,7 @@
         "region.adult_spawn -> region.temple_of_time": {
             "type": "special",
             "target": "region.temple_of_time -> region.adult_spawn",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8569,7 +8569,7 @@
         "region.prelude_of_light_warp -> region.temple_of_time": {
             "type": "special",
             "target": "region.temple_of_time -> region.prelude_of_light_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8581,7 +8581,7 @@
         "region.minuet_of_forest_warp -> region.sacred_forest_meadow": {
             "type": "special",
             "target": "region.sacred_forest_meadow -> region.minuet_of_forest_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8593,7 +8593,7 @@
         "region.bolero_of_fire_warp -> region.dmc_central_local": {
             "type": "special",
             "target": "region.dmc_central_local -> region.bolero_of_fire_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8605,7 +8605,7 @@
         "region.serenade_of_water_warp -> region.lake_hylia": {
             "type": "special",
             "target": "region.lake_hylia -> region.serenade_of_water_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8617,7 +8617,7 @@
         "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region": {
             "type": "special",
             "target": "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
@@ -8629,7 +8629,7 @@
         "region.requiem_of_spirit_warp -> region.desert_colossus": {
             "type": "special",
             "target": "region.desert_colossus -> region.requiem_of_spirit_warp",
-            "bindsTo": ["special","overworld-exit","interior","grotto","not_seen"],
+            "bindsTo": ["special","overworld_exit","interior","grotto","not_seen"],
             "ignoreBound": true,
             "active": {
                 "type": "value",
