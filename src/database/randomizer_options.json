@@ -186,6 +186,10 @@
             "type": "hidden",
             "old_type": "check",
             "default": false
+        },
+        "option.sun_song_skulltuta": {
+            "type": "check",
+            "default": false
         }
     },
     "lacsAndGanon": {

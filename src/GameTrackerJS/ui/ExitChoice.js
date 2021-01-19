@@ -205,9 +205,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
                         const state = ExitRegistry.get(newValue);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            // XXX Takacomic: use commented code after translation update
-                            // textEl.innerHTML = Language.translate(`exit[${newValue}]`);
-                            textEl.innerHTML = Language.translate(newValue);
+                            textEl.innerHTML = Language.translate(`exit[${newValue}]`);
                         }
                         this.switchState(state);
                     }
@@ -219,9 +217,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    // XXX Takacomic: use commented code after translation update
-                                    // valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
-                                    valueEl.innerHTML = Language.translate(newValue);
+                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }

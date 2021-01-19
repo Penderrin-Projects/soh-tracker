@@ -99,9 +99,7 @@ export default class ExitBindingMenu extends HTMLElement {
                 if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
                     const opt = document.createElement("emc-option");
                     opt.value = value.props.target;
-                    // XXX Takacomic: use commented code after translation update
-                    // const entranceName = Language.translate(`entrance[${value.props.target}]`);
-                    const entranceName = Language.translate(value.props.target);
+                    const entranceName = Language.translate(`entrance[${value.props.target}]`);
                     if (exit.exitData.bindsTo.length > 1) {
                         const category = `
                             <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">

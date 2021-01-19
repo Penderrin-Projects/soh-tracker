@@ -1913,18 +1913,18 @@
             }
         },
         "region.kokiri_bridge_gateway[child]": {
-            "region.kokiri_to_bridge_entrance[child]": {
+            "region.kokiri_forest[child]": {
                 "type": "true"
             },
-            "region.bridge_to_kokiri_entrance[child]": {
+            "region.bridge_kokiri_gateway[child]": {
                 "type": "true"
             }
         },
         "region.kokiri_bridge_gateway[adult]": {
-            "region.kokiri_to_bridge_entrance[adult]": {
+            "region.kokiri_forest[adult]": {
                 "type": "true"
             },
-            "region.bridge_to_kokiri_entrance[adult]": {
+            "region.bridge_kokiri_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -1932,7 +1932,7 @@
             "region.kokiri_forest[child]": {
                 "type": "true"
             },
-            "region.lost_woods[child]": {
+            "region.woods_kokiri_gateway[child]": {
                 "type": "true"
             }
         },
@@ -1940,7 +1940,7 @@
             "region.kokiri_forest[adult]": {
                 "type": "true"
             },
-            "region.lost_woods[adult]": {
+            "region.woods_kokiri_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -1948,7 +1948,7 @@
             "region.gc_woods_warp[child]": {
                 "type": "true"
             },
-            "region.lost_woods[child]": {
+            "region.woods_gc_gateway[child]": {
                 "type": "true"
             }
         },
@@ -1956,7 +1956,7 @@
             "region.gc_woods_warp[adult]": {
                 "type": "true"
             },
-            "region.lost_woods[adult]": {
+            "region.woods_gc_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -1964,7 +1964,7 @@
             "region.zora_river[child]": {
                 "type": "true"
             },
-            "region.lost_woods[child]": {
+            "region.woods_river_gateway[child]": {
                 "type": "true"
             }
         },
@@ -1972,7 +1972,7 @@
             "region.zora_river[adult]": {
                 "type": "true"
             },
-            "region.lost_woods[adult]": {
+            "region.woods_river_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -1980,7 +1980,7 @@
             "region.sfm_entryway[child]": {
                 "type": "true"
             },
-            "region.lw_beyond_mido[child]": {
+            "region.woods_meadow_gateway[child]": {
                 "type": "true"
             }
         },
@@ -1988,7 +1988,7 @@
             "region.sfm_entryway[adult]": {
                 "type": "true"
             },
-            "region.lw_beyond_mido[adult]": {
+            "region.woods_meadow_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -1996,7 +1996,7 @@
             "region.hyrule_field[child]": {
                 "type": "true"
             },
-            "region.lw_bridge[child]": {
+            "region.woods_field_gateway[child]": {
                 "type": "true"
             }
         },
@@ -2004,12 +2004,12 @@
             "region.hyrule_field[adult]": {
                 "type": "true"
             },
-            "region.lw_bridge[adult]": {
+            "region.woods_field_gateway[adult]": {
                 "type": "true"
             }
         },
         "region.lake_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_lake_gateway[child]": {
                 "type": "true"
             },
             "region.lake_hylia[child]": {
@@ -2017,7 +2017,7 @@
             }
         },
         "region.lake_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_lake_gateway[adult]": {
                 "type": "true"
             },
             "region.lake_hylia[adult]": {
@@ -2025,7 +2025,7 @@
             }
         },
         "region.valley_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_valley_gateway[child]": {
                 "type": "true"
             },
             "region.gerudo_valley[child]": {
@@ -2033,7 +2033,7 @@
             }
         },
         "region.valley_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_valley_gateway[adult]": {
                 "type": "true"
             },
             "region.gerudo_valley[adult]": {
@@ -2041,7 +2041,7 @@
             }
         },
         "region.marketentrance_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_marketentrance_gateway[child]": {
                 "type": "true"
             },
             "region.market_entrance[child]": {
@@ -2049,7 +2049,7 @@
             }
         },
         "region.marketentrance_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_marketentrance_gateway[adult]": {
                 "type": "true"
             },
             "region.market_entrance[adult]": {
@@ -2057,7 +2057,7 @@
             }
         },
         "region.kakariko_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_kakariko_gateway[child]": {
                 "type": "true"
             },
             "region.kakariko_village[child]": {
@@ -2065,7 +2065,7 @@
             }
         },
         "region.kakariko_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_kakariko_gateway[adult]": {
                 "type": "true"
             },
             "region.kakariko_village[adult]": {
@@ -2073,7 +2073,7 @@
             }
         },
         "region.river_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_river_gateway[child]": {
                 "type": "true"
             },
             "region.zr_front[child]": {
@@ -2081,7 +2081,7 @@
             }
         },
         "region.river_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_river_gateway[adult]": {
                 "type": "true"
             },
             "region.zr_front[adult]": {
@@ -2089,7 +2089,7 @@
             }
         },
         "region.ranch_field_gateway[child]": {
-            "region.hyrule_field[child]": {
+            "region.field_ranch_gateway[child]": {
                 "type": "true"
             },
             "region.lon_lon_ranch[child]": {
@@ -2097,7 +2097,7 @@
             }
         },
         "region.ranch_field_gateway[adult]": {
-            "region.hyrule_field[adult]": {
+            "region.field_ranch_gateway[adult]": {
                 "type": "true"
             },
             "region.lon_lon_ranch[adult]": {
@@ -2105,7 +2105,7 @@
             }
         },
         "region.domain_lake_gateway[child]": {
-            "region.lake_hylia[child]": {
+            "region.lake_domain_gateway[child]": {
                 "type": "true"
             },
             "region.zoras_domain[child]": {
@@ -2113,7 +2113,7 @@
             }
         },
         "region.domain_lake_gateway[adult]": {
-            "region.lake_hylia[adult]": {
+            "region.lake_domain_gateway[adult]": {
                 "type": "true"
             },
             "region.zoras_domain[adult]": {
@@ -2121,7 +2121,7 @@
             }
         },
         "region.valley_fortress_gateway[child]": {
-            "region.gerudo_fortress[child]": {
+            "region.fortress_valley_gateway[child]": {
                 "type": "true"
             },
             "region.gv_fortress_side[child]": {
@@ -2129,7 +2129,7 @@
             }
         },
         "region.valley_fortress_gateway[adult]": {
-            "region.gerudo_fortress[adult]": {
+            "region.fortress_valley_gateway[adult]": {
                 "type": "true"
             },
             "region.gv_fortress_side[adult]": {
@@ -2137,7 +2137,7 @@
             }
         },
         "region.wasteland_fortress_gateway[child]": {
-            "region.gf_outside_gate[child]": {
+            "region.fortress_wasteland_gateway[child]": {
                 "type": "true"
             },
             "region.wasteland_near_fortress[child]": {
@@ -2145,7 +2145,7 @@
             }
         },
         "region.wasteland_fortress_gateway[adult]": {
-            "region.gf_outside_gate[adult]": {
+            "region.fortress_wasteland_gateway[adult]": {
                 "type": "true"
             },
             "region.wasteland_near_fortress[adult]": {
@@ -2153,7 +2153,7 @@
             }
         },
         "region.wasteland_colossus_gateway[child]": {
-            "region.desert_colossus[child]": {
+            "region.colossus_wasteland_gateway[child]": {
                 "type": "true"
             },
             "region.wasteland_near_colossus[child]": {
@@ -2161,7 +2161,7 @@
             }
         },
         "region.wasteland_colossus_gateway[adult]": {
-            "region.desert_colossus[adult]": {
+            "region.colossus_wasteland_gateway[adult]": {
                 "type": "true"
             },
             "region.wasteland_near_colossus[adult]": {
@@ -2169,7 +2169,7 @@
             }
         },
         "region.marketentrance_market_gateway[child]": {
-            "region.market[child]": {
+            "region.market_marketentrance_gateway[child]": {
                 "type": "true"
             },
             "region.market_entrance[child]": {
@@ -2177,7 +2177,7 @@
             }
         },
         "region.marketentrance_market_gateway[adult]": {
-            "region.market[adult]": {
+            "region.market_marketentrance_gateway[adult]": {
                 "type": "true"
             },
             "region.market_entrance[adult]": {
@@ -2185,7 +2185,7 @@
             }
         },
         "region.grounds_market_gateway[child]": {
-            "region.market[child]": {
+            "region.market_grounds_gateway[child]": {
                 "type": "true"
             },
             "region.castle_grounds[child]": {
@@ -2193,7 +2193,7 @@
             }
         },
         "region.grounds_market_gateway[adult]": {
-            "region.market[adult]": {
+            "region.market_grounds_gateway[adult]": {
                 "type": "true"
             },
             "region.castle_grounds[adult]": {
@@ -2201,7 +2201,7 @@
             }
         },
         "region.tot_market_gateway[child]": {
-            "region.market[child]": {
+            "region.market_tot_gateway[child]": {
                 "type": "true"
             },
             "region.tot_entrance[child]": {
@@ -2209,7 +2209,7 @@
             }
         },
         "region.tot_market_gateway[adult]": {
-            "region.market[adult]": {
+            "region.market_tot_gateway[adult]": {
                 "type": "true"
             },
             "region.tot_entrance[adult]": {
@@ -2217,7 +2217,7 @@
             }
         },
         "region.graveyard_kakariko_gateway[child]": {
-            "region.kakariko_village[child]": {
+            "region.kakariko_graveyard_gateway[child]": {
                 "type": "true"
             },
             "region.graveyard[child]": {
@@ -2225,7 +2225,7 @@
             }
         },
         "region.graveyard_kakariko_gateway[adult]": {
-            "region.kakariko_village[adult]": {
+            "region.kakariko_graveyard_gateway[adult]": {
                 "type": "true"
             },
             "region.graveyard[adult]": {
@@ -2233,7 +2233,7 @@
             }
         },
         "region.mountain_kakariko_gateway[child]": {
-            "region.kak_behind_gate[child]": {
+            "region.kakariko_mountain_gateway[child]": {
                 "type": "true"
             },
             "region.death_mountain[child]": {
@@ -2241,7 +2241,7 @@
             }
         },
         "region.mountain_kakariko_gateway[adult]": {
-            "region.kak_behind_gate[adult]": {
+            "region.kakariko_mountain_gateway[adult]": {
                 "type": "true"
             },
             "region.death_mountain[adult]": {
@@ -2249,7 +2249,7 @@
             }
         },
         "region.mountain_goron_gateway[child]": {
-            "region.goron_city[child]": {
+            "region.goron_mountain_gateway[child]": {
                 "type": "true"
             },
             "region.death_mountain[child]": {
@@ -2257,7 +2257,7 @@
             }
         },
         "region.mountain_goron_gateway[adult]": {
-            "region.goron_city[adult]": {
+            "region.goron_mountain_gateway[adult]": {
                 "type": "true"
             },
             "region.death_mountain[adult]": {
@@ -2265,143 +2265,7 @@
             }
         },
         "region.crater_goron_gateway[child]": {
-            "region.goron_to_crater_entrance[child]": {
-                "type": "true"
-            },
-            "region.crater_to_goron_entrance[child]": {
-                "type": "true"
-            }
-        },
-        "region.crater_goron_gateway[adult]": {
-            "region.goron_to_crater_entrance[adult]": {
-                "type": "true"
-            },
-            "region.crater_to_goron_entrance[adult]": {
-                "type": "true"
-            }
-        },
-        "region.crater_mountain_gateway[child]": {
-            "region.mountain_to_crater_entrance[child]": {
-                "type": "true"
-            },
-            "region.crater_to_mountain_entrance[child]": {
-                "type": "true"
-            }
-        },
-        "region.crater_mountain_gateway[adult]": {
-            "region.mountain_to_crater_entrance[adult]": {
-                "type": "true"
-            },
-            "region.crater_to_mountain_entrance[adult]": {
-                "type": "true"
-            }
-        },
-        "region.river_domain_gateway[child]": {
-            "region.zr_behind_waterfall[child]": {
-                "type": "true"
-            },
-            "region.zoras_domain[child]": {
-                "type": "true"
-            }
-        },
-        "region.river_domain_gateway[adult]": {
-            "region.zr_behind_waterfall[adult]": {
-                "type": "true"
-            },
-            "region.zoras_domain[adult]": {
-                "type": "true"
-            }
-        },
-        "region.fountain_domain_gateway[child]": {
-            "region.zd_behind_king_zora[child]": {
-                "type": "true"
-            },
-            "region.zoras_fountain[child]": {
-                "type": "true"
-            }
-        },
-        "region.fountain_domain_gateway[adult]": {
-            "region.zd_behind_king_zora[adult]": {
-                "type": "true"
-            },
-            "region.zoras_fountain[adult]": {
-                "type": "true"
-            }
-        },
-        "region.kokiri_to_bridge_entrance[child]": {
-            "region.kokiri_forest[child]": {
-                "type": "true"
-            },
-            "region.kokiri_bridge_gateway[child]": {
-                "type": "true"
-            }
-        },
-        "region.kokiri_to_bridge_entrance[adult]": {
-            "region.kokiri_forest[adult]": {
-                "type": "true"
-            },
-            "region.kokiri_bridge_gateway[adult]": {
-                "type": "true"
-            }
-        },
-        "region.goron_to_crater_entrance[child]": {
-            "region.gc_darunias_chamber[child]": {
-                "type": "true"
-            },
-            "region.crater_goron_gateway[child]": {
-                "type": "true"
-            }
-        },
-        "region.goron_to_crater_entrance[adult]": {
-            "region.gc_darunias_chamber[adult]": {
-                "type": "true"
-            },
-            "region.crater_goron_gateway[adult]": {
-                "type": "true"
-            }
-        },
-        "region.mountain_to_crater_entrance[child]": {
-            "region.death_mountain_summit[child]": {
-                "type": "true"
-            },
-            "region.crater_mountain_gateway[child]": {
-                "type": "true"
-            }
-        },
-        "region.mountain_to_crater_entrance[adult]": {
-            "region.death_mountain_summit[adult]": {
-                "type": "true"
-            },
-            "region.crater_mountain_gateway[adult]": {
-                "type": "true"
-            }
-        },
-        "region.bridge_to_kokiri_entrance[child]": {
-            "region.kokiri_bridge_gateway[child]": {
-                "type": "true"
-            },
-            "region.lw_bridge[child]": {
-                "type": "true"
-            },
-            "region.lw_bridge_from_forest[child]": {
-                "type": "mixin",
-                "el": "mixin.can_leave_forest[child]"
-            }
-        },
-        "region.bridge_to_kokiri_entrance[adult]": {
-            "region.kokiri_bridge_gateway[adult]": {
-                "type": "true"
-            },
-            "region.lw_bridge[adult]": {
-                "type": "true"
-            },
-            "region.lw_bridge_from_forest[adult]": {
-                "type": "mixin",
-                "el": "mixin.can_leave_forest[adult]"
-            }
-        },
-        "region.crater_to_goron_entrance[child]": {
-            "region.crater_goron_gateway[child]": {
+            "region.goron_crater_gateway[child]": {
                 "type": "true"
             },
             "region.dmc_lower_local[child]": {
@@ -2418,8 +2282,8 @@
                 ]
             }
         },
-        "region.crater_to_goron_entrance[adult]": {
-            "region.crater_goron_gateway[adult]": {
+        "region.crater_goron_gateway[adult]": {
+            "region.goron_crater_gateway[adult]": {
                 "type": "true"
             },
             "region.dmc_lower_local[adult]": {
@@ -2436,8 +2300,8 @@
                 ]
             }
         },
-        "region.crater_to_mountain_entrance[child]": {
-            "region.crater_mountain_gateway[child]": {
+        "region.crater_mountain_gateway[child]": {
+            "region.mountain_crater_gateway[child]": {
                 "type": "true"
             },
             "region.dmc_upper_local[child]": {
@@ -2454,8 +2318,8 @@
                 ]
             }
         },
-        "region.crater_to_mountain_entrance[adult]": {
-            "region.crater_mountain_gateway[adult]": {
+        "region.crater_mountain_gateway[adult]": {
+            "region.mountain_crater_gateway[adult]": {
                 "type": "true"
             },
             "region.dmc_upper_local[adult]": {
@@ -2470,6 +2334,462 @@
                         "el": "function.can_use(item.tunic_fire)[adult]"
                     }
                 ]
+            }
+        },
+        "region.river_domain_gateway[child]": {
+            "region.zr_behind_waterfall[child]": {
+                "type": "true"
+            },
+            "region.domain_river_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.river_domain_gateway[adult]": {
+            "region.zr_behind_waterfall[adult]": {
+                "type": "true"
+            },
+            "region.domain_river_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.fountain_domain_gateway[child]": {
+            "region.domain_fountain_gateway[child]": {
+                "type": "true"
+            },
+            "region.zoras_fountain[child]": {
+                "type": "true"
+            }
+        },
+        "region.fountain_domain_gateway[adult]": {
+            "region.domain_fountain_gateway[adult]": {
+                "type": "true"
+            },
+            "region.zoras_fountain[adult]": {
+                "type": "true"
+            }
+        },
+        "region.bridge_kokiri_gateway[child]": {
+            "region.kokiri_bridge_gateway[child]": {
+                "type": "true"
+            },
+            "region.lw_bridge[child]": {
+                "type": "true"
+            },
+            "region.lw_bridge_from_forest[child]": {
+                "type": "mixin",
+                "el": "mixin.can_leave_forest[child]"
+            }
+        },
+        "region.bridge_kokiri_gateway[adult]": {
+            "region.kokiri_bridge_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lw_bridge[adult]": {
+                "type": "true"
+            },
+            "region.lw_bridge_from_forest[adult]": {
+                "type": "mixin",
+                "el": "mixin.can_leave_forest[adult]"
+            }
+        },
+        "region.woods_kokiri_gateway[child]": {
+            "region.kokiri_woods_gateway[child]": {
+                "type": "true"
+            },
+            "region.lost_woods[child]": {
+                "type": "true"
+            }
+        },
+        "region.woods_kokiri_gateway[adult]": {
+            "region.kokiri_woods_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lost_woods[adult]": {
+                "type": "true"
+            }
+        },
+        "region.woods_gc_gateway[child]": {
+            "region.gc_woods_gateway[child]": {
+                "type": "true"
+            },
+            "region.lost_woods[child]": {
+                "type": "true"
+            }
+        },
+        "region.woods_gc_gateway[adult]": {
+            "region.gc_woods_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lost_woods[adult]": {
+                "type": "true"
+            }
+        },
+        "region.woods_river_gateway[child]": {
+            "region.river_woods_gateway[child]": {
+                "type": "true"
+            },
+            "region.lost_woods[child]": {
+                "type": "true"
+            }
+        },
+        "region.woods_river_gateway[adult]": {
+            "region.river_woods_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lost_woods[adult]": {
+                "type": "true"
+            }
+        },
+        "region.woods_meadow_gateway[child]": {
+            "region.meadow_woods_gateway[child]": {
+                "type": "true"
+            },
+            "region.lw_beyond_mido[child]": {
+                "type": "true"
+            }
+        },
+        "region.woods_meadow_gateway[adult]": {
+            "region.meadow_woods_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lw_beyond_mido[adult]": {
+                "type": "true"
+            }
+        },
+        "region.woods_field_gateway[child]": {
+            "region.field_woods_gateway[child]": {
+                "type": "true"
+            },
+            "region.lw_bridge[child]": {
+                "type": "true"
+            }
+        },
+        "region.woods_field_gateway[adult]": {
+            "region.field_woods_gateway[adult]": {
+                "type": "true"
+            },
+            "region.lw_bridge[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_lake_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.lake_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_lake_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.lake_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_valley_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.valley_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_valley_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.valley_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_marketentrance_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.marketentrance_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_marketentrance_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.marketentrance_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_kakariko_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.kakariko_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_kakariko_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.kakariko_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_river_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.river_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_river_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.river_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.field_ranch_gateway[child]": {
+            "region.hyrule_field[child]": {
+                "type": "true"
+            },
+            "region.ranch_field_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.field_ranch_gateway[adult]": {
+            "region.hyrule_field[adult]": {
+                "type": "true"
+            },
+            "region.ranch_field_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.lake_domain_gateway[child]": {
+            "region.lake_hylia[child]": {
+                "type": "true"
+            },
+            "region.domain_lake_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.lake_domain_gateway[adult]": {
+            "region.lake_hylia[adult]": {
+                "type": "true"
+            },
+            "region.domain_lake_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.fortress_valley_gateway[child]": {
+            "region.gerudo_fortress[child]": {
+                "type": "true"
+            },
+            "region.valley_fortress_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.fortress_valley_gateway[adult]": {
+            "region.gerudo_fortress[adult]": {
+                "type": "true"
+            },
+            "region.valley_fortress_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.fortress_wasteland_gateway[child]": {
+            "region.gf_outside_gate[child]": {
+                "type": "true"
+            },
+            "region.wasteland_fortress_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.fortress_wasteland_gateway[adult]": {
+            "region.gf_outside_gate[adult]": {
+                "type": "true"
+            },
+            "region.wasteland_fortress_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.colossus_wasteland_gateway[child]": {
+            "region.desert_colossus[child]": {
+                "type": "true"
+            },
+            "region.wasteland_colossus_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.colossus_wasteland_gateway[adult]": {
+            "region.desert_colossus[adult]": {
+                "type": "true"
+            },
+            "region.wasteland_colossus_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.market_marketentrance_gateway[child]": {
+            "region.market[child]": {
+                "type": "true"
+            },
+            "region.marketentrance_market_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.market_marketentrance_gateway[adult]": {
+            "region.market[adult]": {
+                "type": "true"
+            },
+            "region.marketentrance_market_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.market_grounds_gateway[child]": {
+            "region.market[child]": {
+                "type": "true"
+            },
+            "region.grounds_market_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.market_grounds_gateway[adult]": {
+            "region.market[adult]": {
+                "type": "true"
+            },
+            "region.grounds_market_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.market_tot_gateway[child]": {
+            "region.market[child]": {
+                "type": "true"
+            },
+            "region.tot_market_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.market_tot_gateway[adult]": {
+            "region.market[adult]": {
+                "type": "true"
+            },
+            "region.tot_market_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.kakariko_graveyard_gateway[child]": {
+            "region.kakariko_village[child]": {
+                "type": "true"
+            },
+            "region.graveyard_kakariko_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.kakariko_graveyard_gateway[adult]": {
+            "region.kakariko_village[adult]": {
+                "type": "true"
+            },
+            "region.graveyard_kakariko_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.kakariko_mountain_gateway[child]": {
+            "region.kak_behind_gate[child]": {
+                "type": "true"
+            },
+            "region.mountain_kakariko_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.kakariko_mountain_gateway[adult]": {
+            "region.kak_behind_gate[adult]": {
+                "type": "true"
+            },
+            "region.mountain_kakariko_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.goron_mountain_gateway[child]": {
+            "region.goron_city[child]": {
+                "type": "true"
+            },
+            "region.mountain_goron_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.goron_mountain_gateway[adult]": {
+            "region.goron_city[adult]": {
+                "type": "true"
+            },
+            "region.mountain_goron_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.goron_crater_gateway[child]": {
+            "region.gc_darunias_chamber[child]": {
+                "type": "true"
+            },
+            "region.crater_goron_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.goron_crater_gateway[adult]": {
+            "region.gc_darunias_chamber[adult]": {
+                "type": "true"
+            },
+            "region.crater_goron_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.mountain_crater_gateway[child]": {
+            "region.death_mountain_summit[child]": {
+                "type": "true"
+            },
+            "region.crater_mountain_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.mountain_crater_gateway[adult]": {
+            "region.death_mountain_summit[adult]": {
+                "type": "true"
+            },
+            "region.crater_mountain_gateway[adult]": {
+                "type": "true"
+            }
+        },
+        "region.domain_river_gateway[child]": {
+            "region.river_domain_gateway[child]": {
+                "type": "true"
+            },
+            "region.zoras_domain[child]": {
+                "type": "true"
+            }
+        },
+        "region.domain_river_gateway[adult]": {
+            "region.river_domain_gateway[adult]": {
+                "type": "true"
+            },
+            "region.zoras_domain[adult]": {
+                "type": "true"
+            }
+        },
+        "region.domain_fountain_gateway[child]": {
+            "region.zd_behind_king_zora[child]": {
+                "type": "true"
+            },
+            "region.fountain_domain_gateway[child]": {
+                "type": "true"
+            }
+        },
+        "region.domain_fountain_gateway[adult]": {
+            "region.zd_behind_king_zora[adult]": {
+                "type": "true"
+            },
+            "region.fountain_domain_gateway[adult]": {
+                "type": "true"
             }
         },
         "region.bottom_of_the_well_mq[child]": {
@@ -29053,7 +29373,7 @@
             "region.kokiri_woods_gateway[child]": {
                 "type": "true"
             },
-            "region.kokiri_to_bridge_entrance[child]": {
+            "region.kokiri_bridge_gateway[child]": {
                 "type": "mixin",
                 "el": "mixin.can_leave_forest[child]"
             },
@@ -29102,7 +29422,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             },
                             {
                                 "type": "or",
@@ -29281,7 +29601,7 @@
             "region.kokiri_woods_gateway[adult]": {
                 "type": "true"
             },
-            "region.kokiri_to_bridge_entrance[adult]": {
+            "region.kokiri_bridge_gateway[adult]": {
                 "type": "mixin",
                 "el": "mixin.can_leave_forest[adult]"
             },
@@ -29309,7 +29629,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -29967,13 +30287,13 @@
             }
         },
         "region.lost_woods[child]": {
-            "region.kokiri_woods_gateway[child]": {
+            "region.woods_kokiri_gateway[child]": {
                 "type": "true"
             },
-            "region.gc_woods_gateway[child]": {
+            "region.woods_gc_gateway[child]": {
                 "type": "true"
             },
-            "region.river_woods_gateway[child]": {
+            "region.woods_river_gateway[child]": {
                 "type": "and",
                 "el": [
                     {
@@ -30299,10 +30619,10 @@
             }
         },
         "region.lost_woods[adult]": {
-            "region.kokiri_woods_gateway[adult]": {
+            "region.woods_kokiri_gateway[adult]": {
                 "type": "true"
             },
-            "region.gc_woods_gateway[adult]": {
+            "region.woods_gc_gateway[adult]": {
                 "type": "true"
             },
             "region.lw_bridge[adult]": {
@@ -30397,7 +30717,7 @@
                     }
                 ]
             },
-            "region.river_woods_gateway[adult]": {
+            "region.woods_river_gateway[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -30628,7 +30948,7 @@
                     }
                 ]
             },
-            "region.meadow_woods_gateway[child]": {
+            "region.woods_meadow_gateway[child]": {
                 "type": "true"
             },
             "region.deku_theater_entrance[child]": {
@@ -30837,7 +31157,7 @@
                 "type": "mixin",
                 "el": "function.can_play(item.song_saria)[adult]"
             },
-            "region.meadow_woods_gateway[adult]": {
+            "region.woods_meadow_gateway[adult]": {
                 "type": "true"
             },
             "region.deku_theater_entrance[adult]": {
@@ -30934,7 +31254,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -31386,7 +31706,7 @@
             }
         },
         "region.lw_bridge_from_forest[child]": {
-            "region.bridge_to_kokiri_entrance[child]": {
+            "region.bridge_kokiri_gateway[child]": {
                 "type": "true"
             },
             "logic.location.kokiri.c_saria_ocarina": {
@@ -31407,7 +31727,7 @@
             }
         },
         "region.lw_bridge_from_forest[adult]": {
-            "region.bridge_to_kokiri_entrance[adult]": {
+            "region.bridge_kokiri_gateway[adult]": {
                 "type": "true"
             },
             "logic.location.kokiri.c_saria_ocarina": {
@@ -31428,18 +31748,18 @@
             }
         },
         "region.lw_bridge[child]": {
-            "region.bridge_to_kokiri_entrance[child]": {
+            "region.bridge_kokiri_gateway[child]": {
                 "type": "true"
             },
-            "region.field_woods_gateway[child]": {
+            "region.woods_field_gateway[child]": {
                 "type": "true"
             }
         },
         "region.lw_bridge[adult]": {
-            "region.bridge_to_kokiri_entrance[adult]": {
+            "region.bridge_kokiri_gateway[adult]": {
                 "type": "true"
             },
-            "region.field_woods_gateway[adult]": {
+            "region.woods_field_gateway[adult]": {
                 "type": "true"
             },
             "region.lost_woods[adult]": {
@@ -31451,22 +31771,22 @@
             "region.field_woods_gateway[child]": {
                 "type": "true"
             },
-            "region.lake_field_gateway[child]": {
+            "region.field_lake_gateway[child]": {
                 "type": "true"
             },
-            "region.valley_field_gateway[child]": {
+            "region.field_valley_gateway[child]": {
                 "type": "true"
             },
-            "region.marketentrance_field_gateway[child]": {
+            "region.field_marketentrance_gateway[child]": {
                 "type": "true"
             },
-            "region.kakariko_field_gateway[child]": {
+            "region.field_kakariko_gateway[child]": {
                 "type": "true"
             },
-            "region.river_field_gateway[child]": {
+            "region.field_river_gateway[child]": {
                 "type": "true"
             },
-            "region.ranch_field_gateway[child]": {
+            "region.field_ranch_gateway[child]": {
                 "type": "true"
             },
             "region.hf_southeast_grotto_entrance[child]": {
@@ -31767,22 +32087,22 @@
             "region.field_woods_gateway[adult]": {
                 "type": "true"
             },
-            "region.lake_field_gateway[adult]": {
+            "region.field_lake_gateway[adult]": {
                 "type": "true"
             },
-            "region.valley_field_gateway[adult]": {
+            "region.field_valley_gateway[adult]": {
                 "type": "true"
             },
-            "region.marketentrance_field_gateway[adult]": {
+            "region.field_marketentrance_gateway[adult]": {
                 "type": "true"
             },
-            "region.kakariko_field_gateway[adult]": {
+            "region.field_kakariko_gateway[adult]": {
                 "type": "true"
             },
-            "region.river_field_gateway[adult]": {
+            "region.field_river_gateway[adult]": {
                 "type": "true"
             },
-            "region.ranch_field_gateway[adult]": {
+            "region.field_ranch_gateway[adult]": {
                 "type": "true"
             },
             "region.hf_southeast_grotto_entrance[adult]": {
@@ -32061,7 +32381,7 @@
             "region.lake_field_gateway[child]": {
                 "type": "true"
             },
-            "region.domain_lake_gateway[child]": {
+            "region.lake_domain_gateway[child]": {
                 "type": "and",
                 "el": [
                     {
@@ -32266,7 +32586,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -32296,7 +32616,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -32811,7 +33131,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -33161,7 +33481,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -33661,7 +33981,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -33687,7 +34007,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -34145,7 +34465,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -34171,7 +34491,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -34247,7 +34567,7 @@
             }
         },
         "region.gf_outside_gate[child]": {
-            "region.wasteland_fortress_gateway[child]": {
+            "region.fortress_wasteland_gateway[child]": {
                 "type": "true"
             }
         },
@@ -34274,7 +34594,7 @@
                     }
                 ]
             },
-            "region.wasteland_fortress_gateway[adult]": {
+            "region.fortress_wasteland_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -34614,7 +34934,7 @@
             "region.spirit_temple_entrance[child]": {
                 "type": "true"
             },
-            "region.wasteland_colossus_gateway[child]": {
+            "region.colossus_wasteland_gateway[child]": {
                 "type": "true"
             },
             "logic.location.desert.s_beanspot_child": {
@@ -34737,7 +35057,7 @@
             "region.spirit_temple_entrance[adult]": {
                 "type": "true"
             },
-            "region.wasteland_colossus_gateway[adult]": {
+            "region.colossus_wasteland_gateway[adult]": {
                 "type": "true"
             },
             "region.colossus_grotto_entrance[adult]": {
@@ -34852,7 +35172,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -34878,7 +35198,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -35178,13 +35498,13 @@
             }
         },
         "region.market[child]": {
-            "region.marketentrance_market_gateway[child]": {
+            "region.market_marketentrance_gateway[child]": {
                 "type": "true"
             },
-            "region.tot_market_gateway[child]": {
+            "region.market_tot_gateway[child]": {
                 "type": "true"
             },
-            "region.grounds_market_gateway[child]": {
+            "region.market_grounds_gateway[child]": {
                 "type": "true"
             },
             "region.market_bazaar_entrance[child]": {
@@ -35262,13 +35582,13 @@
             }
         },
         "region.market[adult]": {
-            "region.marketentrance_market_gateway[adult]": {
+            "region.market_marketentrance_gateway[adult]": {
                 "type": "true"
             },
-            "region.tot_market_gateway[adult]": {
+            "region.market_tot_gateway[adult]": {
                 "type": "true"
             },
-            "region.grounds_market_gateway[adult]": {
+            "region.market_grounds_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -38112,7 +38432,7 @@
                 "type": "mixin",
                 "el": "mixin.is_day[child]"
             },
-            "region.graveyard_kakariko_gateway[child]": {
+            "region.kakariko_graveyard_gateway[child]": {
                 "type": "true"
             },
             "region.kak_behind_gate[child]": {
@@ -38165,7 +38485,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -38191,7 +38511,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -38217,7 +38537,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -38243,7 +38563,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -38325,7 +38645,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -38582,7 +38902,7 @@
                     }
                 ]
             },
-            "region.graveyard_kakariko_gateway[adult]": {
+            "region.kakariko_graveyard_gateway[adult]": {
                 "type": "true"
             },
             "region.kak_behind_gate[adult]": {
@@ -38753,7 +39073,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -39258,15 +39578,77 @@
                         }
                     },
                     {
-                        "type": "and",
+                        "type": "or",
                         "el": [
                             {
-                                "type": "mixin",
-                                "el": "mixin.is_child[child]"
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era_apply",
+                                                    "value": "force",
+                                                    "category": "filter"
+                                                },
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era",
+                                                    "value": "adult",
+                                                    "category": "filter"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region.kak_windmill[child]",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin.is_child[child]"
+                                                },
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "function.can_play(item.song_storm)[child]"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
                             },
                             {
-                                "type": "mixin",
-                                "el": "function.can_play(item.song_storm)[child]"
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era_apply",
+                                                    "value": "force",
+                                                    "category": "filter"
+                                                },
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era",
+                                                    "value": "child",
+                                                    "category": "filter"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "false"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -39333,6 +39715,94 @@
                             {
                                 "type": "mixin",
                                 "el": "mixin.can_play_ocarina[adult]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event.drain_well": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "filter.era",
+                            "value": "child"
+                        }
+                    },
+                    {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era_apply",
+                                                    "value": "force",
+                                                    "category": "filter"
+                                                },
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era",
+                                                    "value": "adult",
+                                                    "category": "filter"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region.kak_windmill[child]",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin.is_child[child]"
+                                                },
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "function.can_play(item.song_storm)[child]"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era_apply",
+                                                    "value": "force",
+                                                    "category": "filter"
+                                                },
+                                                {
+                                                    "type": "state",
+                                                    "el": "filter.era",
+                                                    "value": "child",
+                                                    "category": "filter"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "false"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -39972,7 +40442,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -40820,7 +41290,7 @@
                     }
                 ]
             },
-            "region.mountain_kakariko_gateway[child]": {
+            "region.kakariko_mountain_gateway[child]": {
                 "type": "true"
             }
         },
@@ -40847,7 +41317,7 @@
                     }
                 ]
             },
-            "region.mountain_kakariko_gateway[adult]": {
+            "region.kakariko_mountain_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -41518,7 +41988,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -41657,7 +42127,7 @@
             "region.death_mountain[child]": {
                 "type": "true"
             },
-            "region.mountain_to_crater_entrance[child]": {
+            "region.mountain_crater_gateway[child]": {
                 "type": "true"
             },
             "region.dmt_owl_flight[child]": {
@@ -41879,7 +42349,7 @@
             "region.death_mountain[adult]": {
                 "type": "true"
             },
-            "region.mountain_to_crater_entrance[adult]": {
+            "region.mountain_crater_gateway[adult]": {
                 "type": "true"
             },
             "region.dmt_cow_grotto_entrance[adult]": {
@@ -42144,7 +42614,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -42243,7 +42713,7 @@
             }
         },
         "region.goron_city[child]": {
-            "region.mountain_goron_gateway[child]": {
+            "region.goron_mountain_gateway[child]": {
                 "type": "true"
             },
             "region.gc_woods_warp[child]": {
@@ -42658,7 +43128,7 @@
             }
         },
         "region.goron_city[adult]": {
-            "region.mountain_goron_gateway[adult]": {
+            "region.goron_mountain_gateway[adult]": {
                 "type": "true"
             },
             "region.gc_woods_warp[adult]": {
@@ -43337,7 +43807,7 @@
             "region.goron_city[adult]": {
                 "type": "true"
             },
-            "region.goron_to_crater_entrance[adult]": {
+            "region.goron_crater_gateway[adult]": {
                 "type": "mixin",
                 "el": "mixin.is_adult[adult]"
             }
@@ -43855,7 +44325,7 @@
             "region.dmc_upper_nearby[child]": {
                 "type": "true"
             },
-            "region.crater_to_mountain_entrance[child]": {
+            "region.crater_mountain_gateway[child]": {
                 "type": "true"
             },
             "logic.location.mountain.c_crater_wall": {
@@ -43952,7 +44422,7 @@
             "region.dmc_upper_nearby[adult]": {
                 "type": "true"
             },
-            "region.crater_to_mountain_entrance[adult]": {
+            "region.crater_mountain_gateway[adult]": {
                 "type": "true"
             },
             "region.dmc_central_nearby[adult]": {
@@ -44183,7 +44653,7 @@
             "region.dmc_lower_nearby[child]": {
                 "type": "true"
             },
-            "region.crater_to_goron_entrance[child]": {
+            "region.crater_goron_gateway[child]": {
                 "type": "true"
             }
         },
@@ -44191,7 +44661,7 @@
             "region.dmc_lower_nearby[adult]": {
                 "type": "true"
             },
-            "region.crater_to_goron_entrance[adult]": {
+            "region.crater_goron_gateway[adult]": {
                 "type": "true"
             },
             "region.dmc_central_nearby[adult]": {
@@ -45038,7 +45508,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             },
                             {
                                 "type": "mixin",
@@ -45400,7 +45870,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -45426,7 +45896,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -45877,7 +46347,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             },
                             {
                                 "type": "or",
@@ -46365,7 +46835,7 @@
                     }
                 ]
             },
-            "region.fountain_domain_gateway[child]": {
+            "region.domain_fountain_gateway[child]": {
                 "type": "true"
             }
         },
@@ -46398,7 +46868,7 @@
                     }
                 ]
             },
-            "region.fountain_domain_gateway[adult]": {
+            "region.domain_fountain_gateway[adult]": {
                 "type": "true"
             }
         },
@@ -46470,7 +46940,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -46661,7 +47131,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[adult]"
+                                "el": "mixin.is_night_gs[adult]"
                             }
                         ]
                     }
@@ -47145,7 +47615,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -47171,7 +47641,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -47197,7 +47667,7 @@
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin.is_night[child]"
+                                "el": "mixin.is_night_gs[child]"
                             }
                         ]
                     }
@@ -67584,6 +68054,74 @@
                                     ]
                                 }
                             ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin.is_night_gs[child]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "mixin",
+                            "el": "mixin.is_night[child]"
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "option.sun_song_skulltuta"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option.sun_song_skulltuta"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "function.can_play(item.song_sun)[child]"
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin.is_night_gs[adult]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "mixin",
+                            "el": "mixin.is_night[adult]"
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "option.sun_song_skulltuta"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option.sun_song_skulltuta"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "function.can_play(item.song_sun)[adult]"
                         }
                     ]
                 }
