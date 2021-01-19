@@ -262,9 +262,7 @@ export default class MapSubExit extends WorldElement {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    // XXX Takacomic: use commented code after translation update
-                                    // valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
-                                    valueEl.innerHTML = Language.translate(newValue);
+                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }

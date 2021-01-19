@@ -57,36 +57,48 @@ class ExitAugmentor {
     changeActive() {
         const exit = EXIT.get(this);
         const access = exit.props.access;
+        const bindingChange = [];
         if (exit.active) {
-            changeBinding([{
+            bindingChange.push({
                 from: access,
                 to: exit.value
-            }, {
-                from: exit.value,
-                to: access
-            }]);
+            });
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: access
+                });
+            }
         } else {
-            changeBinding([{
+            bindingChange.push({
                 from: access,
                 to: null
-            }, {
-                from: exit.value,
-                to: null
-            }]);
+            });
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: null
+                });
+            }
         }
+        changeBinding(bindingChange);
     }
 
     changeValue() {
         const exit = EXIT.get(this);
         const access = exit.props.access;
         if (exit.active) {
-            changeBinding([{
+            const bindingChange = [{
                 from: access,
                 to: exit.value
-            }, {
-                from: exit.value,
-                to: access
-            }]);
+            }];
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: access
+                });
+            }
+            changeBinding(bindingChange);
         }
     }
 

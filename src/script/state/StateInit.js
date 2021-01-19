@@ -38,30 +38,30 @@ class StateInit {
             for (const ref in locations) {
                 LocationStates.get(ref);
             }
-            // areas
-            const areas = FileData.get("world/marker/area");
-            for (const ref in areas) {
-                AreaStates.get(ref);
+            // entrances
+            const entrances = FileData.get("world/exit");
+            for (const ref in entrances) {
+                EntranceStates.get(ref);
             }
             // subareas
             const subareas = FileData.get("world/marker/subarea");
             for (const ref in subareas) {
                 SubAreaStates.get(ref);
             }
-            // entrances
-            const entrances = FileData.get("world/exit");
-            for (const ref in entrances) {
-                EntranceStates.get(ref);
+            // subexits
+            const subexits = FileData.get("world/marker/subexit");
+            for (const ref in subexits) {
+                SubExitStates.get(ref);
+            }
+            // areas
+            const areas = FileData.get("world/marker/area");
+            for (const ref in areas) {
+                AreaStates.get(ref);
             }
             // exits
             const exits = FileData.get("world/marker/exit");
             for (const ref in exits) {
                 ExitStates.get(ref);
-            }
-            // subexits
-            const subexits = FileData.get("world/marker/subexit");
-            for (const ref in subexits) {
-                SubExitStates.get(ref);
             }
             // dungeonstate
             const dungeonstate = FileData.get("dungeonstate");

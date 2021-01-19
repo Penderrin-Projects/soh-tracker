@@ -94,23 +94,25 @@ export default class ExitBindingMenu extends HTMLElement {
             // add options
             for (const key in entrances) {
                 const value = entrances[key];
-                const isActive = value.active || exit.exitData.includeInactiveEntrances;
-                const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
-                if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
-                    const opt = document.createElement("emc-option");
-                    opt.value = value.props.target;
-                    const entranceName = Language.translate(`entrance[${value.props.target}]`);
-                    if (exit.exitData.bindsTo.length > 1) {
-                        const category = `
-                            <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
-                                ${Language.translate(value.props.type)}
-                            </span>
-                        `;
-                        opt.innerHTML = `${entranceName}${category}`;
-                    } else {
-                        opt.innerHTML = entranceName;
+                if (access != value.props.target) {
+                    const isActive = value.active || exit.exitData.includeInactiveEntrances;
+                    const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
+                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
+                        const opt = document.createElement("emc-option");
+                        opt.value = value.props.target;
+                        const entranceName = Language.translate(`entrance[${value.props.target}]`);
+                        if (exit.exitData.bindsTo.length > 1) {
+                            const category = `
+                                <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
+                                    ${Language.translate(value.props.type)}
+                                </span>
+                            `;
+                            opt.innerHTML = `${entranceName}${category}`;
+                        } else {
+                            opt.innerHTML = entranceName;
+                        }
+                        selectEl.append(opt);
                     }
-                    selectEl.append(opt);
                 }
             }
         } else {

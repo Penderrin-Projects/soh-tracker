@@ -32,10 +32,9 @@ class ListLogic {
                 const worldElementState = WorldRegistry.get(ref);
                 if (worldElementState != null && worldElementState.visible) {
                     if (category == "location") {
-                        const access = worldElementState.props.access;
                         if (!StateStorage.read(`${category}/${id}`, 0)) {
                             res.unopened++;
-                            if (Logic.getValue(access)) {
+                            if (worldElementState.access) {
                                 res.reachable++;
                             }
                         } else {
@@ -50,14 +49,20 @@ class ListLogic {
                             res.reachable += reachable;
                         }
                     } else if (category == "subexit") {
-                        const subareaState = WorldRegistry.get(worldElementState.area);
-                        if (subareaState != null) {
-                            const subareaList = subareaState.getFilteredList();
-                            if (subareaList != null) {
-                                const {done, unopened, reachable} = this.check(subareaList);
-                                res.done += done;
-                                res.unopened += unopened;
-                                res.reachable += reachable;
+                        if (worldElementState.area) {
+                            const subareaState = WorldRegistry.get(worldElementState.area);
+                            if (subareaState != null) {
+                                const subareaList = subareaState.getFilteredList();
+                                if (subareaList != null) {
+                                    const {done, unopened, reachable} = this.check(subareaList);
+                                    res.done += done;
+                                    res.unopened += unopened;
+                                    res.reachable += reachable;
+                                }
+                            }
+                        } else {
+                            if (worldElementState.access) {
+                                res.entrances = true;
                             }
                         }
                     } else {
