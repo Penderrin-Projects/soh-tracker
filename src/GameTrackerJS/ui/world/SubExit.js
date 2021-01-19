@@ -250,9 +250,7 @@ export default class MapSubExit extends WorldElement {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            // XXX Takacomic: use commented code after translation update
-                            // textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
-                            textEl.innerHTML = Language.translate(state.props.access);
+                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }

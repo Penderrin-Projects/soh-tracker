@@ -270,9 +270,7 @@ export default class MapExit extends WorldElement {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            // XXX Takacomic: use commented code after translation update
-                            // textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
-                            textEl.innerHTML = Language.translate(state.props.access);
+                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }
@@ -284,9 +282,7 @@ export default class MapExit extends WorldElement {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    // XXX Takacomic: use commented code after translation update
-                                    // valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
-                                    valueEl.innerHTML = Language.translate(newValue);
+                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
                                     const area = state.area;
                                     if (area != null) {
                                         this.hint = area.hint;
