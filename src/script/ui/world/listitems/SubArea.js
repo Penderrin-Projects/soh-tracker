@@ -1,11 +1,15 @@
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
+import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
 import "/GameTrackerJS/ui/Badge.js";
+
+const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 
 const TPL = new Template(`
 <div id="header" class="textarea">
@@ -33,6 +37,9 @@ const STYLE = new GlobalStyle(`
     width: 100%;
     cursor: pointer;
     padding: 5px;
+}
+:host(:empty) {
+    display: none;
 }
 :host(:hover) {
     background-color: var(--main-hover-color, #ffffff32);
@@ -69,6 +76,21 @@ const STYLE = new GlobalStyle(`
 #text[data-state="possible"] {
     color: var(--location-status-possible-color, #000000);
 }
+:host(:not(:empty)) #text.collapsible:before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-right: 8px;
+    font-weight: bold;
+    text-align: center;
+    content: "+"
+}
+:host(:not(:empty)) #text.collapsible.expanded:before {
+    content:"-"
+}
 .menu-tip {
     font-size: 0.7em;
     color: #777777;
@@ -79,16 +101,19 @@ const STYLE = new GlobalStyle(`
     width: 100%;
     margin-top: 5px;
 }
-:host(:empty) #list {
+#list.collapsible {
     display: none;
+}
+:host(:not(:empty)) #list.collapsible.expanded {
+    display: block;
 }
 `);
 
-export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
+export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(AbstractSubArea)) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -97,6 +122,59 @@ export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
                 this.refreshList();
             }
         });
+        /* --- */
+        const textEl = this.shadowRoot.getElementById("text");
+        const listEl = this.shadowRoot.getElementById("list");
+        textEl.addEventListener("click", (event) => {
+            if (textEl.classList.contains("collapsible") && this.value != "") {
+                if (textEl.classList.contains("expanded")) {
+                    textEl.classList.remove("expanded");
+                    listEl.classList.remove("expanded");
+                } else {
+                    textEl.classList.add("expanded");
+                    listEl.classList.add("expanded");
+                }
+            }
+        });
+        /* --- */
+        this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
+        this.setTargetEventListener("sublistCollapsible", "value", event => {
+            const collapsible = event.data;
+            if (collapsible != "off") {
+                textEl.classList.add("collapsible");
+                listEl.classList.add("collapsible");
+                if (collapsible == "start_expanded") {
+                    textEl.classList.add("startexpanded");
+                }
+            } else {
+                textEl.classList.remove("collapsible");
+                listEl.classList.remove("collapsible");
+            }
+        });
+        const collapsible = sublistCollapsibleSpy.value;
+        if (collapsible != "off") {
+            textEl.classList.add("collapsible");
+            listEl.classList.add("collapsible");
+            if (collapsible == "start_expanded") {
+                textEl.classList.add("expanded");
+                listEl.classList.add("expanded");
+                textEl.classList.add("startexpanded");
+            }
+        }
+    }
+
+    setCollapsed(value) {
+        const textEl = this.shadowRoot.getElementById("text");
+        const listEl = this.shadowRoot.getElementById("list");
+        if (textEl.classList.contains("collapsible")) {
+            if (value) {
+                textEl.classList.remove("expanded");
+                listEl.classList.remove("expanded");
+            } else {
+                textEl.classList.add("expanded");
+                listEl.classList.add("expanded");
+            }
+        }
     }
 
     connectedCallback() {
@@ -122,7 +200,15 @@ export default class ListSubArea extends UIEventBusMixin(AbstractSubArea) {
         }
     }
 
+    get expanded() {
+        return this.getAttribute("expanded");
+    }
+
+    set expanded(val) {
+        this.setAttribute("expanded", val);
+    }
+
 }
 
 UIRegistry.set("list-subarea", new UIRegistry(ListSubArea));
-customElements.define('ootrt-list-subarea', ListSubArea);
+customElements.define("ootrt-list-subarea", ListSubArea);
