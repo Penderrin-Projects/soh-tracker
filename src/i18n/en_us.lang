@@ -6,6 +6,7 @@ language=Language (needs restart)
 
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
+area/root=Root Exits
 area/hyrule_field=Hyrule Field
 area/kokiri=Kokiri Forest
 area/desert=Haunted Wasteland
@@ -334,9 +335,12 @@ location/castle_ganon_mq.c_boss_key=Boss Key Chest
 location/castle_ganon_mq.c_boss=Ganon Fight
 
 # LOCATIONS - TOWN
+area/town_entrance=Castle Town Entrance
 area/castle_town=Castle Town
 area/temple_time=Temple of Time
-area/castle=Castle Grounds
+area/castle_gateway=Castle Grounds
+area/castle=Hyrule Castle Grounds
+area/castle_ganon_outside=Ganon's Castle Grounds
 location/castle_town.c_maron=Malon's Weird Egg
 location/castle_town.c_zelda=Zelda's Lullaby
 location/castle_town.c_child_shooting=Child Shooting Gallery
