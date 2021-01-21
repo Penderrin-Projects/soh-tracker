@@ -12,14 +12,20 @@ Application:    Track-OOT
   - use proxy objects for readonly storages in filedata
   - create state handlers for ui elements
 - added accessability icons for world access values
+    - add settings entry to control behaviour
 - added categories to exits/entrances panel
 - make shop items editable one by one
 - added shop item color frames
-  - gold for non refill items
+  - gold for non-refill items
   - red to reflect junk
 - added a special type button for choosing v/mq in locationlist
 - added overworld, owl drops, spawns, and song warps to entrance rando
 - reduced logic file sizes
+- make sublists collapsible
+    - add settings entry to control behaviour
+        - if sublistst collapse is active
+        - if subliststs start expanded or collapsed
+- hide sublists when they are empty
 
 ---
 

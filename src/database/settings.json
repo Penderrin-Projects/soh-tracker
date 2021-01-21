@@ -40,6 +40,15 @@
         "type": "check",
         "default": true
     },
+    "sublist_collapsible": {
+        "type": "choice",
+        "default": "start_expanded",
+        "values": [
+            "off",
+            "start_expanded",
+            "start_collapsed"
+        ]
+    },
     "item_size": {
         "type": "-range",
         "min": 32,

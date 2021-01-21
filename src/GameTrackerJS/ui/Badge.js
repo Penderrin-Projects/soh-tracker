@@ -1,6 +1,7 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 import SettingsSpy from "../util/spy/SettingsSpy.js";
 
@@ -63,24 +64,11 @@ function getLoneFilterIndex(name, filter, data) {
     return current;
 }
 
-function onColorBlindModeChanged(event) {
-    const accessEl = this.shadowRoot.getElementById("access");
-    if (accessEl != null) {
-        if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
-            accessEl.src = `images/icons/access_${this.access}.svg`;
-        } else {
-            accessEl.src = "";
-        }
-    }
-}
-
-const COLOR_BLIND_FN = new WeakMap();
-
-export default class Badge extends HTMLElement {
+export default class Badge extends EventTargetMixin(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -94,44 +82,46 @@ export default class Badge extends HTMLElement {
             }
         }
         /* --- */
-        COLOR_BLIND_FN.set(this, onColorBlindModeChanged.bind(this));
-    }
-
-    connectedCallback() {
-        colorBlindSpy.addEventListener("value", COLOR_BLIND_FN.get(this));
-    }
-
-    disconnectedCallback() {
-        colorBlindSpy.removeEventListener("value", COLOR_BLIND_FN.get(this));
+        this.switchTarget("colorBlind", colorBlindSpy);
+        this.setTargetEventListener("colorBlind", "value", event => {
+            const accessEl = this.shadowRoot.getElementById("access");
+            if (accessEl != null) {
+                if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
+                    accessEl.src = `images/icons/access_${this.access}.svg`;
+                } else {
+                    accessEl.src = "";
+                }
+            }
+        });
     }
 
     onColorBlindModeChanged(value) {
     }
 
     get typeIcon() {
-        return this.getAttribute('type-icon');
+        return this.getAttribute("type-icon");
     }
 
     set typeIcon(val) {
-        this.setAttribute('type-icon', val);
+        this.setAttribute("type-icon", val);
     }
 
     get access() {
-        return this.getAttribute('access');
+        return this.getAttribute("access");
     }
 
     set access(val) {
-        this.setAttribute('access', val);
+        this.setAttribute("access", val);
     }
 
     static get observedAttributes() {
-        return ['type-icon', 'access'];
+        return ["type-icon", "access"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'type-icon':
+                case "type-icon":
                     {
                         const typeEl = this.shadowRoot.getElementById("type");
                         if (typeEl != null) {
@@ -139,7 +129,7 @@ export default class Badge extends HTMLElement {
                         }
                     }
                     break;
-                case 'access':
+                case "access":
                     {
                         const accessEl = this.shadowRoot.getElementById("access");
                         if (accessEl != null) {
@@ -171,4 +161,4 @@ export default class Badge extends HTMLElement {
 
 }
 
-customElements.define('gt-badge', Badge);
+customElements.define("gt-badge", Badge);

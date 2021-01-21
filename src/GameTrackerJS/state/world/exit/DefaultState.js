@@ -31,23 +31,29 @@ function internalChange(event) {
     const change = event.data;
     if (change != null) {
         if (change.ref == access) {
+            // if this exit got bound
             this./*#*/__setValue(change.value);
         } else if (change.value == access) {
-            this./*#*/__setValue(change.ref);
-        } else if (change.value != "") {
-            if (this.value == change.value) {
-                if (!this.exitData.ignoreBound) {
-                    const otherExit = ExitRegistry.get(change.ref);
-                    if (!otherExit.exitData.ignoreBound) {
-                        this./*#*/__setValue("");
-                    }
+            // if this entrance got bound
+            const otherExit = ExitRegistry.get(change.ref);
+            if (otherExit != null && otherExit.exitData.isBiDir) {
+                this./*#*/__setValue(change.ref);
+            }
+        } else if (change.value != "" && change.value == this.value) {
+            // if another exit got bound to this ones entrance
+            if (!this.exitData.ignoreBound) {
+                const otherExit = ExitRegistry.get(change.ref);
+                if (otherExit != null && !otherExit.exitData.ignoreBound) {
+                    this./*#*/__setValue("");
                 }
-            } else if (this.value == change.ref) {
-                if (!this.exitData.ignoreBound) {
-                    const otherExit = ExitRegistry.get(change.value);
-                    if (otherExit != null && !otherExit.exitData.ignoreBound) {
-                        this./*#*/__setValue("");
-                    }
+            }
+        } else if (change.ref == this.value) {
+            // if another entrance got bound to this ones exit
+            // if the exit does no longer bind to this
+            if (!this.exitData.ignoreBound) {
+                const otherExit = ExitRegistry.get(change.value);
+                if (otherExit == null || !otherExit.exitData.ignoreBound) {
+                    this./*#*/__setValue("");
                 }
             }
         }
