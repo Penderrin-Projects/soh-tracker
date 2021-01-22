@@ -830,6 +830,12 @@
         "height": 1080,
         "list": [
             {
+                "id": "spawns",
+                "x": -10000,
+                "y": -10000,
+                "category": "subarea"
+            },
+            {
                 "id": "kokiri",
                 "x": 1507,
                 "y": 626,
@@ -896,19 +902,25 @@
                 "category": "area"
             },
             {
+                "id": "town_entrance",
+                "x": 998,
+                "y": 300,
+                "category": "area"
+            },
+            {
                 "id": "castle_town",
                 "x": 998,
-                "y": 250,
+                "y": 240,
                 "category": "area"
             },
             {
                 "id": "temple_time",
-                "x": 1065,
-                "y": 216,
+                "x": 1055,
+                "y": 225,
                 "category": "area"
             },
             {
-                "id": "castle",
+                "id": "castle_gateway",
                 "x": 1000,
                 "y": 180,
                 "category": "area"
@@ -1209,6 +1221,18 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "kokiri_forest.kokiri_bridge_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "kokiri_forest.kokiri_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1236,6 +1260,18 @@
                         "x": 0,
                         "y": 0,
                         "category": "location"
+                    },
+                    {
+                        "id": "wasteland_near_fortress.wasteland_fortress_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "wasteland_near_colossus.wasteland_colossus_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1305,6 +1341,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "desert_colossus.wasteland_colossus_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1410,6 +1452,24 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "zr_front.river_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "zora_river.river_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "zr_behind_waterfall.river_domain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1527,6 +1587,48 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "hyrule_field.field_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.lake_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.marketentrance_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.ranch_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.kakariko_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.river_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "hyrule_field.valley_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1614,6 +1716,18 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "gerudo_valley.valley_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "gv_fortress_side.valley_fortress_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1719,6 +1833,24 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "lake_hylia.lake_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lake_hylia.domain_lake_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lh.owl_flight",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1806,6 +1938,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "lon_lon_ranch.ranch_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1881,6 +2019,18 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "gerudo_fortress.valley_fortress_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "gf_outside_gate.wasteland_fortress_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -1986,6 +2136,42 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "lw_bridge.field_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lw_bridge.kokiri_bridge_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lost_woods.kokiri_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lost_woods.gc_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lost_woods.river_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "lw_beyond_mido.meadow_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2061,6 +2247,45 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "sfm_entryway.meadow_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    }
+                ]
+            }
+        },
+        "town_entrance": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "lists": {
+                "v": [
+                    {
+                        "id": "castle_town.guard_tower",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
+                        "id": "castle_town.guard_tower",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subexit"
+                    },
+                    {
+                        "id": "market_entrance.marketentrance_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "market_entrance.marketentrance_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2085,12 +2310,6 @@
                     },
                     {
                         "id": "castle_town.minigame_treasure",
-                        "x": 0,
-                        "y": 0,
-                        "category": "subarea"
-                    },
-                    {
-                        "id": "castle_town.guard_tower",
                         "x": 0,
                         "y": 0,
                         "category": "subarea"
@@ -2144,16 +2363,28 @@
                         "category": "subexit"
                     },
                     {
-                        "id": "castle_town.guard_tower",
+                        "id": "castle_town.back_house",
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
                     },
                     {
-                        "id": "castle_town.back_house",
+                        "id": "market.marketentrance_market_gateway",
                         "x": 0,
                         "y": 0,
-                        "category": "subexit"
+                        "category": "exit"
+                    },
+                    {
+                        "id": "market.grounds_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "market.tot_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2175,6 +2406,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subarea"
+                    },
+                    {
+                        "id": "tot_entrance.tot_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     },
                     {
                         "id": "castle_town.g_gossip_tot_1",
@@ -2199,6 +2436,33 @@
                         "x": 0,
                         "y": 0,
                         "category": "location"
+                    }
+                ]
+            }
+        },
+        "castle_gateway": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "lists": {
+                "v": [
+                    {
+                        "id": "castle",
+                        "x": 0,
+                        "y": 0,
+                        "category": "area"
+                    },
+                    {
+                        "id": "castle_ganon_outside",
+                        "x": 0,
+                        "y": 0,
+                        "category": "area"
+                    },
+                    {
+                        "id": "castle_grounds.grounds_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2228,12 +2492,6 @@
                         "category": "subarea"
                     },
                     {
-                        "id": "castle.fairy_adult",
-                        "x": 0,
-                        "y": 0,
-                        "category": "subarea"
-                    },
-                    {
                         "id": "castle_town.s_tree_child",
                         "x": 0,
                         "y": 0,
@@ -2244,12 +2502,6 @@
                         "x": 0,
                         "y": 0,
                         "category": "subarea"
-                    },
-                    {
-                        "id": "castle_town.s_near_ganon_fairy_adult",
-                        "x": 0,
-                        "y": 0,
-                        "category": "location"
                     },
                     {
                         "id": "castle_town.g_gossip_castle_malon",
@@ -2265,12 +2517,6 @@
                     },
                     {
                         "id": "castle.fairy_young",
-                        "x": 0,
-                        "y": 0,
-                        "category": "subexit"
-                    },
-                    {
-                        "id": "castle.fairy_adult",
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
@@ -2490,6 +2736,24 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "kakariko_village.kakariko_field_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "kakariko_village.graveyard_kakariko_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "kak_behind_gate.mountain_kakariko_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2583,6 +2847,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "graveyard.graveyard_kakariko_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2676,6 +2946,30 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "death_mountain.mountain_kakariko_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "death_mountain.mountain_goron_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "death_mountain_summit.crater_mountain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "dmt.owl_flight",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2763,6 +3057,18 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "dmc_upper_local.crater_mountain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "dmc_lower_local.crater_goron_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2862,6 +3168,24 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "gc_darunias_chamber.crater_goron_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "goron_city.mountain_goron_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "gc_woods_warp.gc_woods_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2913,6 +3237,24 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "zoras_domain.river_domain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "zoras_domain.domain_lake_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
+                    },
+                    {
+                        "id": "zd_behind_king_zora.fountain_domain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2976,6 +3318,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "zoras_fountain.fountain_domain_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -5574,6 +5922,61 @@
         }
     },
     "subarea": {
+        "spawns": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "list": [
+                {
+                    "id": "child.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "adult.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "prelude",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "minuet",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "bolero",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "serenade",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "nocturne",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "requiem",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
+        },
         "kokiri.links_house": {
             "background": "",
             "width": 0,
@@ -8455,7 +8858,7 @@
                 "el": "option.shuffle_overworld"
             },
             "includeInactiveEntrances": false,
-            "area": "area/castle_town",
+            "area": "area/town_entrance",
             "isBiDir": true
         },
         "region.marketentrance_market_gateway -> region.market_marketentrance_gateway": {
@@ -8470,7 +8873,7 @@
                 "el": "option.shuffle_overworld"
             },
             "includeInactiveEntrances": false,
-            "area": "area/castle_town",
+            "area": "area/town_entrance",
             "isBiDir": true
         },
         "region.market_marketentrance_gateway -> region.marketentrance_market_gateway": {
@@ -9137,7 +9540,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/hyrule_field.dive_grotto",
+            "area": "area/hyrule_field",
             "isBiDir": true
         },
         "region.kf_midos_house_entrance -> region.kokiri_forest": {
@@ -9149,7 +9552,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/kokiri.midos_house",
+            "area": "area/kokiri",
             "isBiDir": true
         },
         "region.lw_near_shortcuts_grotto_entrance -> region.lost_woods": {
@@ -9161,7 +9564,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/woods.near_goron_grotto",
+            "area": "area/woods",
             "isBiDir": true
         },
         "region.deku_theater_entrance -> region.lw_beyond_mido": {
@@ -9173,7 +9576,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/woods.theatre_grotto",
+            "area": "area/woods",
             "isBiDir": true
         },
         "region.sfm_wolfos_grotto_entrance -> region.sfm_entryway": {
@@ -9185,7 +9588,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/meadow.wolfos_grotto",
+            "area": "area/meadow",
             "isBiDir": true
         },
         "region.sfm_storms_grotto_entrance -> region.sacred_forest_meadow": {
@@ -9197,7 +9600,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/meadow.storms_grotto",
+            "area": "area/meadow",
             "isBiDir": true
         },
         "region.market_guard_house_entrance -> region.market_entrance": {
@@ -9209,7 +9612,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/castle_town.guard_tower",
+            "area": "area/town_entrance",
             "isBiDir": true
         },
         "region.market_mask_shop_entrance -> region.market": {
@@ -9221,19 +9624,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/castle_town.shop_mask",
-            "isBiDir": true
-        },
-        "region.market_bombchu_shop_entrance -> region.market_back_alley": {
-            "type": "not_seen",
-            "target": "region.market_back_alley -> region.market_bombchu_shop_entrance",
-            "bindsTo": [
-                ""
-            ],
-            "ignoreBound": false,
-            "active": false,
-            "includeInactiveEntrances": false,
-            "area": "subarea/castle_town.shop_bombchu",
+            "area": "area/castle_town",
             "isBiDir": true
         },
         "region.llr_grotto_entrance -> region.lon_lon_ranch": {
@@ -9245,7 +9636,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/lonlon.open_grotto",
+            "area": "area/lonlon",
             "isBiDir": true
         },
         "region.hc_storms_grotto_entrance -> region.hyrule_castle_grounds": {
@@ -9257,7 +9648,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/castle.storm_grotto",
+            "area": "area/castle",
             "isBiDir": true
         },
         "region.ogc_great_fairy_fountain_entrance -> region.ganons_castle_grounds": {
@@ -9269,7 +9660,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/castle.fairy_adult",
+            "area": "area/castle_ganon_outside",
             "isBiDir": true
         },
         "region.kak_impas_house_back_entrance -> region.kak_impas_ledge": {
@@ -9281,7 +9672,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/kakariko.impa_back",
+            "area": "area/kakariko",
             "isBiDir": true
         },
         "region.kak_odd_medicine_building_entrance -> region.kak_backyard": {
@@ -9293,7 +9684,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/kakariko.kakariko_witch",
+            "area": "area/kakariko",
             "isBiDir": true
         },
         "region.kak_bazaar_entrance -> region.kakariko_village": {
@@ -9305,7 +9696,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/kakariko.shop_bazaar",
+            "area": "area/kakariko",
             "isBiDir": true
         },
         "region.graveyard_dampes_grave_entrance -> region.graveyard": {
@@ -9317,7 +9708,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/graveyard.dampes_grave",
+            "area": "area/graveyard",
             "isBiDir": true
         },
         "region.dmt_great_fairy_fountain_entrance -> region.death_mountain_summit": {
@@ -9329,7 +9720,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/mountain.fairy_fountain",
+            "area": "area/mountain",
             "isBiDir": true
         },
         "region.dmt_storms_grotto_entrance -> region.death_mountain": {
@@ -9341,7 +9732,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/mountain.storms_grotto",
+            "area": "area/mountain",
             "isBiDir": true
         },
         "region.dmc_hammer_grotto_entrance -> region.dmc_lower_nearby": {
@@ -9353,7 +9744,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/crater.hammer_grotto",
+            "area": "area/crater",
             "isBiDir": true
         },
         "region.dmc_upper_grotto_entrance -> region.dmc_upper_nearby": {
@@ -9365,7 +9756,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/crater.crater_bomb_grotto",
+            "area": "area/crater",
             "isBiDir": true
         },
         "region.gc_shop_entrance -> region.goron_city": {
@@ -9377,7 +9768,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/goron.shop",
+            "area": "area/goron",
             "isBiDir": true
         },
         "region.gc_grotto_entrance -> region.gc_grotto_platform": {
@@ -9389,7 +9780,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/goron.grotto",
+            "area": "area/goron",
             "isBiDir": true
         },
         "region.zr_open_grotto_entrance -> region.zora_river": {
@@ -9401,7 +9792,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/river.open_grotto",
+            "area": "area/river",
             "isBiDir": true
         },
         "region.zd_storms_grotto_entrance -> region.zoras_domain": {
@@ -9413,7 +9804,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/zoras.storms_grotto",
+            "area": "area/zoras",
             "isBiDir": true
         },
         "region.zf_great_fairy_fountain_entrance -> region.zoras_fountain": {
@@ -9425,7 +9816,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/fountain.fairy_fountain",
+            "area": "area/fountain",
             "isBiDir": true
         },
         "region.lh_fishing_hole_entrance -> region.lh_fishing_island": {
@@ -9437,7 +9828,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/lake.fishing",
+            "area": "area/lake",
             "isBiDir": true
         },
         "region.lh_grotto_entrance -> region.lake_hylia": {
@@ -9449,7 +9840,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/lake.grave_grotto",
+            "area": "area/lake",
             "isBiDir": true
         },
         "region.gv_storms_grotto_entrance -> region.gv_fortress_side": {
@@ -9461,7 +9852,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/gerudo_valley.storms_grotto",
+            "area": "area/gerudo_valley",
             "isBiDir": true
         },
         "region.gv_octorok_grotto_entrance -> region.gv_grotto_ledge": {
@@ -9473,7 +9864,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/gerudo_valley.octorock_grotto",
+            "area": "area/gerudo_valley",
             "isBiDir": true
         },
         "region.gf_storms_grotto_entrance -> region.gerudo_fortress": {
@@ -9485,7 +9876,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/gerudo.storms_grotto",
+            "area": "area/gerudo",
             "isBiDir": true
         },
         "region.colossus_grotto_entrance -> region.desert_colossus": {
@@ -9497,7 +9888,7 @@
             "ignoreBound": false,
             "active": false,
             "includeInactiveEntrances": false,
-            "area": "subarea/desert.strength_grotto",
+            "area": "area/colossus",
             "isBiDir": true
         }
     },
@@ -11246,7 +11637,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.kf_midos_house_entrance -> region.kokiri_forest": {
                 "access": "region.kf_midos_house_entrance -> region.kokiri_forest",
@@ -11263,7 +11655,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.lw_near_shortcuts_grotto_entrance -> region.lost_woods": {
                 "access": "region.lw_near_shortcuts_grotto_entrance -> region.lost_woods",
@@ -11280,7 +11673,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.deku_theater_entrance -> region.lw_beyond_mido": {
                 "access": "region.deku_theater_entrance -> region.lw_beyond_mido",
@@ -11297,7 +11691,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.sfm_wolfos_grotto_entrance -> region.sfm_entryway": {
                 "access": "region.sfm_wolfos_grotto_entrance -> region.sfm_entryway",
@@ -11314,7 +11709,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.sfm_storms_grotto_entrance -> region.sacred_forest_meadow": {
                 "access": "region.sfm_storms_grotto_entrance -> region.sacred_forest_meadow",
@@ -11331,7 +11727,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.market_guard_house_entrance -> region.market_entrance": {
                 "access": "region.market_guard_house_entrance -> region.market_entrance",
@@ -11348,7 +11745,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.market_mask_shop_entrance -> region.market": {
                 "access": "region.market_mask_shop_entrance -> region.market",
@@ -11365,24 +11763,8 @@
                         "day": false,
                         "night": false
                     }
-                }
-            },
-            "region.market_bombchu_shop_entrance -> region.market_back_alley": {
-                "access": "region.market_bombchu_shop_entrance -> region.market_back_alley",
-                "categories": [
-                    ""
-                ],
-                "visible": false,
-                "filter": {
-                    "filter.era": {
-                        "child": false,
-                        "adult": false
-                    },
-                    "filter.time": {
-                        "day": false,
-                        "night": false
-                    }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.llr_grotto_entrance -> region.lon_lon_ranch": {
                 "access": "region.llr_grotto_entrance -> region.lon_lon_ranch",
@@ -11399,7 +11781,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.hc_storms_grotto_entrance -> region.hyrule_castle_grounds": {
                 "access": "region.hc_storms_grotto_entrance -> region.hyrule_castle_grounds",
@@ -11416,7 +11799,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.ogc_great_fairy_fountain_entrance -> region.ganons_castle_grounds": {
                 "access": "region.ogc_great_fairy_fountain_entrance -> region.ganons_castle_grounds",
@@ -11433,7 +11817,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.kak_impas_house_back_entrance -> region.kak_impas_ledge": {
                 "access": "region.kak_impas_house_back_entrance -> region.kak_impas_ledge",
@@ -11450,7 +11835,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.kak_odd_medicine_building_entrance -> region.kak_backyard": {
                 "access": "region.kak_odd_medicine_building_entrance -> region.kak_backyard",
@@ -11467,7 +11853,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.kak_bazaar_entrance -> region.kakariko_village": {
                 "access": "region.kak_bazaar_entrance -> region.kakariko_village",
@@ -11484,7 +11871,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.graveyard_dampes_grave_entrance -> region.graveyard": {
                 "access": "region.graveyard_dampes_grave_entrance -> region.graveyard",
@@ -11501,7 +11889,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.dmt_great_fairy_fountain_entrance -> region.death_mountain_summit": {
                 "access": "region.dmt_great_fairy_fountain_entrance -> region.death_mountain_summit",
@@ -11518,7 +11907,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.dmt_storms_grotto_entrance -> region.death_mountain": {
                 "access": "region.dmt_storms_grotto_entrance -> region.death_mountain",
@@ -11535,7 +11925,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.dmc_hammer_grotto_entrance -> region.dmc_lower_nearby": {
                 "access": "region.dmc_hammer_grotto_entrance -> region.dmc_lower_nearby",
@@ -11552,7 +11943,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.dmc_upper_grotto_entrance -> region.dmc_upper_nearby": {
                 "access": "region.dmc_upper_grotto_entrance -> region.dmc_upper_nearby",
@@ -11569,7 +11961,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.gc_shop_entrance -> region.goron_city": {
                 "access": "region.gc_shop_entrance -> region.goron_city",
@@ -11586,7 +11979,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.gc_grotto_entrance -> region.gc_grotto_platform": {
                 "access": "region.gc_grotto_entrance -> region.gc_grotto_platform",
@@ -11603,7 +11997,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.zr_open_grotto_entrance -> region.zora_river": {
                 "access": "region.zr_open_grotto_entrance -> region.zora_river",
@@ -11620,7 +12015,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.zd_storms_grotto_entrance -> region.zoras_domain": {
                 "access": "region.zd_storms_grotto_entrance -> region.zoras_domain",
@@ -11637,7 +12033,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.zf_great_fairy_fountain_entrance -> region.zoras_fountain": {
                 "access": "region.zf_great_fairy_fountain_entrance -> region.zoras_fountain",
@@ -11654,7 +12051,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.lh_fishing_hole_entrance -> region.lh_fishing_island": {
                 "access": "region.lh_fishing_hole_entrance -> region.lh_fishing_island",
@@ -11671,7 +12069,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.lh_grotto_entrance -> region.lake_hylia": {
                 "access": "region.lh_grotto_entrance -> region.lake_hylia",
@@ -11688,7 +12087,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.gv_storms_grotto_entrance -> region.gv_fortress_side": {
                 "access": "region.gv_storms_grotto_entrance -> region.gv_fortress_side",
@@ -11705,7 +12105,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.gv_octorok_grotto_entrance -> region.gv_grotto_ledge": {
                 "access": "region.gv_octorok_grotto_entrance -> region.gv_grotto_ledge",
@@ -11722,7 +12123,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.gf_storms_grotto_entrance -> region.gerudo_fortress": {
                 "access": "region.gf_storms_grotto_entrance -> region.gerudo_fortress",
@@ -11739,7 +12141,8 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             },
             "region.colossus_grotto_entrance -> region.desert_colossus": {
                 "access": "region.colossus_grotto_entrance -> region.desert_colossus",
@@ -11756,10 +12159,39 @@
                         "day": false,
                         "night": false
                     }
-                }
+                },
+                "icon": "images/icons/entrance.svg"
             }
         },
         "subarea": {
+            "spawns": {
+                "type": "interior",
+                "access": "logic.subarea.root",
+                "visible": {
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option.shuffle_spawns"
+                        },
+                        {
+                            "type": "value",
+                            "el": "option.shuffle_warps"
+                        }
+                    ]
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    }
+                },
+                "icon": "images/icons/area.svg"
+            },
             "kokiri.links_house": {
                 "type": "interior",
                 "access": "logic.subarea.kokiri.links_house",
@@ -13471,6 +13903,22 @@
                 },
                 "icon": "images/icons/area.svg"
             },
+            "town_entrance": {
+                "type": "area",
+                "access": "logic.area.town_entrance",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    }
+                },
+                "icon": "images/icons/area.svg"
+            },
             "castle_town": {
                 "type": "area",
                 "access": "logic.area.castle_town",
@@ -13503,6 +13951,22 @@
                 },
                 "icon": "images/icons/area.svg"
             },
+            "castle_gateway": {
+                "type": "area",
+                "access": "logic.area.castle_gateway",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    }
+                },
+                "icon": "images/icons/area.svg"
+            },
             "castle": {
                 "type": "area",
                 "access": "logic.area.castle",
@@ -13510,6 +13974,22 @@
                 "filter": {
                     "filter.era": {
                         "child": true,
+                        "adult": false
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    }
+                },
+                "icon": "images/icons/area.svg"
+            },
+            "castle_ganon_outside": {
+                "type": "area",
+                "access": "logic.area.castle_ganon_outside",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {
