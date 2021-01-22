@@ -127,7 +127,7 @@ const TPL = new Template(`
         </ootrt-filtermenu>
     </div>
     <div id="body">
-        <ootrt-list-button id="back">(${Language.translate("back")})</ootrt-list-button>
+        <ootrt-list-button id="back">(${Language.translate("to overworld")})</ootrt-list-button>
         <ootrt-list-typebutton type="v" id="vanilla" class="hidden">${Language.translate("vanilla")}</ootrt-list-typebutton>
         <ootrt-list-typebutton type="mq" id="masterquest" class="hidden">${Language.translate("masterquest")}</ootrt-list-typebutton>
         <div id="list"></div>
@@ -138,10 +138,10 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         this.attributeChangedCallback("", "");
-        this.shadowRoot.getElementById('back').addEventListener("click", event => {
+        this.shadowRoot.getElementById("back").addEventListener("click", event => {
             this.ref = "overworld";
             event.stopPropagation();
             event.preventDefault();
@@ -150,6 +150,9 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
+            if (event.data.focus) {
+                // TODO
+            }
         });
         this.registerGlobal(["state", "statechange", "logic", "settings", "randomizer_options", "filter"], event => {
             this.refresh();
@@ -181,38 +184,38 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     }
 
     get ref() {
-        return this.getAttribute('ref') || "overworld";
+        return this.getAttribute("ref") || "overworld";
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get hint() {
-        return this.getAttribute('hint');
+        return this.getAttribute("hint");
     }
 
     set hint(val) {
-        this.setAttribute('hint', val);
+        this.setAttribute("hint", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'hint'];
+        return ["ref", "hint"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'ref':
+            case "ref":
                 if (oldValue != newValue) {
                     this.shadowRoot.getElementById("title-text").innerHTML = Language.translate(newValue || "hyrule");
                     this.shadowRoot.getElementById("location-version").ref = newValue;
-                    this.shadowRoot.getElementById('vanilla').ref = newValue;
-                    this.shadowRoot.getElementById('masterquest').ref = newValue;
+                    this.shadowRoot.getElementById("vanilla").ref = newValue;
+                    this.shadowRoot.getElementById("masterquest").ref = newValue;
                     this.hint = StateStorage.readExtra("area_hint", newValue, "");
                     this.refresh();
                 }
                 break;
-            case 'hint':
+            case "hint":
                 if (oldValue != newValue) {
                     const hintEl = this.shadowRoot.getElementById("hint");
                     hintEl.innerHTML = "";
@@ -229,8 +232,8 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     refresh() {
         // TODO do not use specialized code. make generic
         const cnt = this.shadowRoot.getElementById("list");
-        const btn_vanilla = this.shadowRoot.getElementById('vanilla');
-        const btn_masterquest = this.shadowRoot.getElementById('masterquest');
+        const btn_vanilla = this.shadowRoot.getElementById("vanilla");
+        const btn_masterquest = this.shadowRoot.getElementById("masterquest");
         cnt.innerHTML = "";
         const data = WorldRegistry.get(this.ref || "overworld");
         if (data != null) {
@@ -266,7 +269,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     }
 
     async updateHeader() {
-        const titleEl = this.shadowRoot.querySelector('#title');
+        const titleEl = this.shadowRoot.querySelector("#title");
         if (titleEl != null) {
             if ((!this.ref || this.ref === "overworld")) {
                 titleEl.className = "";
@@ -285,4 +288,4 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 }
 
 Panel.registerReference("location-list", HTMLTrackerLocationList);
-customElements.define('ootrt-locationlist', HTMLTrackerLocationList);
+customElements.define("ootrt-locationlist", HTMLTrackerLocationList);

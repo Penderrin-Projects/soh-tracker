@@ -101,7 +101,7 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -129,44 +129,44 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
     }
 
     get left() {
-        return this.getAttribute('left');
+        return this.getAttribute("left");
     }
 
     set left(val) {
-        this.setAttribute('left', val);
+        this.setAttribute("left", val);
     }
 
     get top() {
-        return this.getAttribute('top');
+        return this.getAttribute("top");
     }
 
     set top(val) {
-        this.setAttribute('top', val);
+        this.setAttribute("top", val);
     }
 
     get tooltip() {
-        return this.getAttribute('tooltip');
+        return this.getAttribute("tooltip");
     }
 
     set tooltip(val) {
-        this.setAttribute('tooltip', val);
+        this.setAttribute("tooltip", val);
     }
 
     static get observedAttributes() {
-        return [...super.observedAttributes, 'left', 'top', 'tooltip'];
+        return [...super.observedAttributes, "left", "top", "tooltip"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
-            case 'top':
-            case 'left':
+            case "top":
+            case "left":
                 if (oldValue != newValue) {
                     this.style.left = `${this.left}px`;
                     this.style.top = `${this.top}px`;
                 }
                 break;
-            case 'tooltip':
+            case "tooltip":
                 if (oldValue != newValue) {
                     const tooltip = this.shadowRoot.getElementById("tooltip");
                     tooltip.position = newValue;
@@ -178,4 +178,4 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
 }
 
 UIRegistry.set("map-subarea", new UIRegistry(MapSubArea));
-customElements.define('ootrt-marker-subarea', MapSubArea);
+customElements.define("ootrt-marker-subarea", MapSubArea);

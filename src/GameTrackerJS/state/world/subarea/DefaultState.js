@@ -15,4 +15,12 @@ export default class DefaultState extends AreaState {
         // nothing
     }
 
+    set hint(value) {
+        // nothing
+    }
+
+    get hint() {
+        return "";
+    }
+
 }
