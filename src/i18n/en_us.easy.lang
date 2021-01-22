@@ -6,7 +6,7 @@ language=Language (needs restart)
 
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
-area/root=Root Exits
+subarea/spawns=Spawn Exits
 area/hyrule_field=Hyrule Field
 area/kokiri=Kokiri Forest
 area/desert=Haunted Wasteland

@@ -830,10 +830,10 @@
         "height": 1080,
         "list": [
             {
-                "id": "root",
+                "id": "spawns",
                 "x": -10000,
                 "y": -10000,
-                "category": "area"
+                "category": "subarea"
             },
             {
                 "id": "kokiri",
@@ -1108,63 +1108,6 @@
         ]
     },
     "area": {
-        "root": {
-            "background": "",
-            "width": 0,
-            "height": 0,
-            "lists": {
-                "v": [
-                    {
-                        "id": "child.spawn",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "adult.spawn",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "prelude",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "minuet",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "bolero",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "serenade",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "nocturne",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    },
-                    {
-                        "id": "requiem",
-                        "x": 0,
-                        "y": 0,
-                        "category": "exit"
-                    }
-                ]
-            }
-        },
         "kokiri": {
             "background": "",
             "width": 0,
@@ -5979,6 +5922,61 @@
         }
     },
     "subarea": {
+        "spawns": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "list": [
+                {
+                    "id": "child.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "adult.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "prelude",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "minuet",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "bolero",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "serenade",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "nocturne",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "requiem",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
+        },
         "kokiri.links_house": {
             "background": "",
             "width": 0,
@@ -12166,6 +12164,34 @@
             }
         },
         "subarea": {
+            "spawns": {
+                "type": "interior",
+                "access": "logic.subarea.root",
+                "visible": {
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option.shuffle_spawns"
+                        },
+                        {
+                            "type": "value",
+                            "el": "option.shuffle_warps"
+                        }
+                    ]
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    }
+                },
+                "icon": "images/icons/area.svg"
+            },
             "kokiri.links_house": {
                 "type": "interior",
                 "access": "logic.subarea.kokiri.links_house",
@@ -13701,34 +13727,6 @@
             }
         },
         "area": {
-            "root": {
-                "type": "area",
-                "access": "logic.area.root",
-                "visible": {
-                    "type": "or",
-                    "el": [
-                        {
-                            "type": "value",
-                            "el": "option.shuffle_spawns"
-                        },
-                        {
-                            "type": "value",
-                            "el": "option.shuffle_warps"
-                        }
-                    ]
-                },
-                "filter": {
-                    "filter.era": {
-                        "child": true,
-                        "adult": true
-                    },
-                    "filter.time": {
-                        "day": true,
-                        "night": true
-                    }
-                },
-                "icon": "images/icons/area.svg"
-            },
             "kokiri": {
                 "type": "area",
                 "access": "logic.area.kokiri",
