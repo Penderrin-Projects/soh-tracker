@@ -861,8 +861,8 @@
             },
             {
                 "id": "hyrule_field",
-                "x": 1004,
-                "y": 350,
+                "x": 1020,
+                "y": 400,
                 "category": "area"
             },
             {
@@ -920,9 +920,15 @@
                 "category": "area"
             },
             {
-                "id": "castle_gateway",
-                "x": 1000,
-                "y": 180,
+                "id": "castle",
+                "x": 980,
+                "y": 170,
+                "category": "area"
+            },
+            {
+                "id": "castle_ganon_outside",
+                "x": 1040,
+                "y": 150,
                 "category": "area"
             },
             {
@@ -2526,6 +2532,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "castle_grounds.grounds_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -2553,6 +2565,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "castle_grounds.grounds_market_gateway",
+                        "x": 0,
+                        "y": 0,
+                        "category": "exit"
                     }
                 ]
             }
@@ -8933,7 +8951,7 @@
                 "el": "option.shuffle_overworld"
             },
             "includeInactiveEntrances": false,
-            "area": "area/castle",
+            "area": "area/castle_gateway",
             "isBiDir": true
         },
         "region.tot_market_gateway -> region.market_tot_gateway": {
