@@ -1,6 +1,5 @@
 
 import Template from "/emcJS/util/Template.js";
-import EventBus from "/emcJS/event/EventBus.js";
 import FileData from "/emcJS/data/FileData.js";
 
 import OptionsStorage from "../../storage/OptionsStorage.js";
@@ -31,7 +30,6 @@ export default class SavestateOptionsWindow extends SettingsWindow {
             BusyIndicator.busy();
             const settings = event.data;
             OptionsStorage.setAll(settings);
-            EventBus.trigger("randomizer_options", settings);
             BusyIndicator.unbusy();
         });
         

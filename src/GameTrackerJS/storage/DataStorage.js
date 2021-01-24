@@ -9,10 +9,19 @@ export default class DataStorage extends EventTarget {
 
     set(key, value) {
         const buffer = BUFFER.get(this);
-        buffer.set(key, value);
-        const ev = new Event("change");
-        ev.data = {[key]: value};
-        this.dispatchEvent(ev);
+        const old = buffer.get(key);
+        if (old != value) {
+            buffer.set(key, value);
+            const ev = new Event("change");
+            ev.data = {
+                [key]: {
+                    old,
+                    value,
+                    newValue: value
+                }
+            };
+            this.dispatchEvent(ev);
+        }
     }
 
     setAll(values) {
@@ -20,9 +29,14 @@ export default class DataStorage extends EventTarget {
         const changes = {};
         for (const key in values) {
             const value = values[key];
-            if (buffer.get(key) != value) {
+            const old = buffer.get(key);
+            if (old != value) {
                 buffer.set(key, value);
-                changes[key] = value;
+                changes[key] = {
+                    old,
+                    value,
+                    newValue: value
+                };
             }
         }
         if (Object.keys(changes).length) {

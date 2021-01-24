@@ -1,6 +1,5 @@
 import Logger from "/emcJS/util/Logger.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import Logic from "/script/util/logic/Logic.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 

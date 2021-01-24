@@ -43,6 +43,10 @@ class SettingsStorage extends IDBProxyStorage {
         return res;
     }
 
+    has(key) {
+        return DEFAULTS.has(key);
+    }
+
 }
 
 export default new SettingsStorage();

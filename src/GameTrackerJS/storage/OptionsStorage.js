@@ -1,4 +1,5 @@
 import FileData from "/emcJS/data/FileData.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
@@ -9,6 +10,20 @@ const SET_TYPES = [
 const DEFAULTS = new Map();
 
 class OptionsStorage extends DataStorage {
+
+    constructor() {
+        super();
+        this.addEventListener("change", event => {
+            const data = {};
+            for (const [key, value] of Object.entries(event.data)) {
+                data[key] = value.value;
+            }
+            EventBus.trigger("randomizer_options", data);
+        });
+        EventBus.register("randomizer_options", event => {
+            this.setAll(event.data);
+        });
+    }
 
     async init() {
         const options = FileData.get("options", {});
@@ -35,6 +50,10 @@ class OptionsStorage extends DataStorage {
             res[key] = super.get(key, value);
         }
         return res;
+    }
+
+    has(key) {
+        return DEFAULTS.has(key);
     }
 
 }

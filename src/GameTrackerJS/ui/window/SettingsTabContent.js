@@ -65,7 +65,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = event.data[ref];
+                input.value = event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
@@ -93,7 +93,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = event.data[ref];
+                input.value = event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
@@ -121,7 +121,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = event.data[ref];
+                input.value = event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
@@ -143,7 +143,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.checked = !!event.data[ref];
+                input.checked = !!event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
@@ -171,7 +171,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = event.data[ref];
+                input.value = event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
@@ -200,7 +200,7 @@ export default class SettingsTabContent extends HTMLElement {
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = event.data[ref];
+                input.value = event.data[ref].value;
             }
         });
         input.addEventListener("change", event => {
