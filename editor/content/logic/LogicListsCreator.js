@@ -50,6 +50,7 @@ class LogicListsCreator {
         const world = FileData.get("world/marker");
         const items = FileData.get("items");
         const randomizer_options = FileData.get("options");
+        const tracker_settings = FileData.get("settings");
         const filter = FileData.get("filter");
         const logic = FileData.get(`logic${!!glitched?"_glitched":""}`);
         let custom_logic = {};
@@ -90,8 +91,8 @@ class LogicListsCreator {
         // OPERATORS
         result.operators.push(createDefaultOperatorCategory());
         result.operators.push(createItemOperatorCategory(items));
-        result.operators.push(createSettingsOperatorCategory(randomizer_options.options, "option"));
-        result.operators.push(createSettingsOperatorCategory(randomizer_options.skips, "skip"));
+        result.operators.push(createOptionsOperatorCategory(randomizer_options));
+        result.operators.push(createSettingsOperatorCategory(tracker_settings));
         result.operators.push(createFilterOperatorCategory(filter));
         /*for (let cat of createOperatorWorldCategories(world)) {
             result.operators.push(cat);
@@ -172,40 +173,90 @@ function createFilterOperatorCategory(data, ref) {
     return res;
 }
 
-function createSettingsOperatorCategory(data, ref) {
+function createOptionsOperatorCategory(data) {
+    const res = {};
+    for (const i in data) {
+        const opt = data[i];
+        if (res[opt.category] == null) {
+            res[opt.category] = {
+                "type": "group",
+                "caption": opt.category,
+                "children": []
+            };
+        }
+        if (!!opt.type && opt.type.startsWith("-")) continue;
+        if (opt.type === "choice") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res[opt.category].children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": i,
+                        "value": j,
+                        "category": opt.category
+                    });
+                }
+            }
+        } else if (opt.type === "list") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res[opt.category].children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": j,
+                        "category": opt.category
+                    });
+                }
+            }
+        } else {
+            res[opt.category].children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": opt.category
+            });
+        }
+    }
+    return {
+        "type": "group",
+        "caption": "options",
+        "children": Object.values(res)
+    };
+}
+
+function createSettingsOperatorCategory(data) {
     const res = {
         "type": "group",
-        "caption": ref,
+        "caption": "settings",
         "children": []
     };
     for (const i in data) {
         const opt = data[i];
         if (!!opt.type && opt.type.startsWith("-")) continue;
         if (opt.type === "choice") {
-            for (const j of opt.values) {
-                res.children.push({
-                    "type": "tracker-logic-custom",
-                    "ref": i,
-                    "value": j,
-                    "category": ref
-                });
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res.children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": i,
+                        "value": j,
+                        "category": "settings"
+                    });
+                }
             }
-        } else {
-            if (opt.type === "list") {
+        } else if (opt.type === "list") {
+            if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {
                     res.children.push({
                         "type": "tracker-logic-custom",
                         "ref": j,
-                        "category": ref
+                        "category": "settings"
                     });
                 }
-            } else {
-                res.children.push({
-                    "type": "tracker-logic-custom",
-                    "ref": i,
-                    "category": ref
-                });
             }
+        } else {
+            res.children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": "settings"
+            });
         }
     }
     return res;

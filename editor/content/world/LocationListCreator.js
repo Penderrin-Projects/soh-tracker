@@ -56,7 +56,8 @@ class LocationListsCreator {
         let randomizer_options = FileData.get("options");
 
         result.push(createDefaultOperatorCategory());
-        result.push(createSettingsOperatorCategory(randomizer_options.options, "option"));
+        result.operators.push(createOptionsOperatorCategory(randomizer_options));
+        result.operators.push(createSettingsOperatorCategory(tracker_settings));
 
         return result;
     }
@@ -81,40 +82,90 @@ function createDefaultOperatorCategory() {
     return res;
 }
 
-function createSettingsOperatorCategory(data, ref) {
-    let res = {
-        "type": "group",
-        "caption": ref,
-        "children": []
-    };
-    for (let i in data) {
-        let opt = data[i];
+function createOptionsOperatorCategory(data) {
+    const res = {};
+    for (const i in data) {
+        const opt = data[i];
+        if (res[opt.category] == null) {
+            res[opt.category] = {
+                "type": "group",
+                "caption": opt.category,
+                "children": []
+            };
+        }
         if (!!opt.type && opt.type.startsWith("-")) continue;
         if (opt.type === "choice") {
-            for (let j of opt.values) {
-                res.children.push({
-                    "type": "tracker-logic-custom",
-                    "ref": i,
-                    "value": j,
-                    "category": ref
-                });
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res[opt.category].children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": i,
+                        "value": j,
+                        "category": opt.category
+                    });
+                }
+            }
+        } else if (opt.type === "list") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res[opt.category].children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": j,
+                        "category": opt.category
+                    });
+                }
             }
         } else {
-            if (opt.type === "list") {
-                for (let j of opt.values) {
+            res[opt.category].children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": opt.category
+            });
+        }
+    }
+    return {
+        "type": "group",
+        "caption": "options",
+        "children": Object.values(res)
+    };
+}
+
+function createSettingsOperatorCategory(data) {
+    const res = {
+        "type": "group",
+        "caption": "settings",
+        "children": []
+    };
+    for (const i in data) {
+        const opt = data[i];
+        if (!!opt.type && opt.type.startsWith("-")) continue;
+        if (opt.type === "choice") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res.children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": i,
+                        "value": j,
+                        "category": "settings"
+                    });
+                }
+            }
+        } else if (opt.type === "list") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
                     res.children.push({
                         "type": "tracker-logic-custom",
                         "ref": j,
-                        "category": ref
+                        "category": "settings"
                     });
                 }
-            } else {
-                res.children.push({
-                    "type": "tracker-logic-custom",
-                    "ref": i,
-                    "category": ref
-                });
             }
+        } else {
+            res.children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": "settings"
+            });
         }
     }
     return res;

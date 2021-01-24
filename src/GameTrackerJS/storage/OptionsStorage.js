@@ -41,7 +41,10 @@ class OptionsStorage extends DataStorage {
     }
 
     get(key, value = DEFAULTS.get(key)) {
-        return super.get(key, value);
+        if (DEFAULTS.has(key)) {
+            return super.get(key, value);
+        }
+        return value;
     }
 
     getAll() {
@@ -54,6 +57,10 @@ class OptionsStorage extends DataStorage {
 
     has(key) {
         return DEFAULTS.has(key);
+    }
+
+    keys() {
+        return DEFAULTS.keys();
     }
 
 }

@@ -1,7 +1,7 @@
-import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import DataState from "./DataState.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import SavestateHandler from "../../savestate/SavestateHandler.js";
+import OptionsStorage from "../../storage/OptionsStorage.js";
 import SettingsStorage from "../../storage/SettingsStorage.js";
 
 function valueGetter(key) {
@@ -16,7 +16,11 @@ export default class VisibilityState extends DataState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const stored_data = new Map(Object.entries(StateStorage.getAll()));
+        const stored_data = new Map(Object.entries({
+            ...SavestateHandler.getAll(""),
+            ...SettingsStorage.getAll(),
+            ...OptionsStorage.getAll()
+        }));
         /* VISIBLE */
         if (typeof props.visible == "object") {
             const visible_logic = LogicCompiler.compile(props.visible);
@@ -26,16 +30,29 @@ export default class VisibilityState extends DataState {
             VISIBLE.set(this, !!props.visible);
         }
         /* EVENTS */
-        EventBus.register("state", event => {
-            const data = new Map(Object.entries(event.data.state));
-            this./*#*/__calculateVisibility(data);
-        });
-        EventBus.register("randomizer_options", event => {
-            const data = new Map(Object.entries(event.data));
+        SavestateHandler.addEventListener("change", event => {
+            const data = new Map(Object.entries({
+                ...SavestateHandler.getAll(""),
+                ...SettingsStorage.getAll(),
+                ...OptionsStorage.getAll()
+            }));
             this./*#*/__calculateVisibility(data);
         });
         SettingsStorage.addEventListener("change", event => {
-
+            const data = new Map(Object.entries({
+                ...SavestateHandler.getAll(""),
+                ...SettingsStorage.getAll(),
+                ...OptionsStorage.getAll()
+            }));
+            this./*#*/__calculateVisibility(data);
+        });
+        OptionsStorage.addEventListener("change", event => {
+            const data = new Map(Object.entries({
+                ...SavestateHandler.getAll(""),
+                ...SettingsStorage.getAll(),
+                ...OptionsStorage.getAll()
+            }));
+            this./*#*/__calculateVisibility(data);
         });
     }
     

@@ -1,5 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import FilterStorage from "/script/storage/FilterStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "./Logic.js";
@@ -15,17 +16,26 @@ const ACCEPTED_BOSSKEY_GROUPS = [
     "ganon"
 ];
 
+const DUNGEON_KEY_AMP = {
+    "temple_fire": 1,
+    "temple_water": 1
+};
+
 let cached_values = {};
 
 EventBus.register("state", event => {
     cached_values = {};
     Logic.reset();
-    const filter = FilterStorage.getAll();
-    const data = Object.assign(filter, event.data.state);
+    const data = {
+        ...FilterStorage.getAll(),
+        ...SettingsStorage.getAll(),
+        ...event.data.state
+    };
     // dungeonstate
     const dungeonData = FileData.get("dungeonstate/area");
     cached_values["option.track_keys"] = !!data["option.track_keys"];
     cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
+    cached_values["option.keysanity_small"] = !!data["option.keysanity_small"];
     for (const ref in dungeonData) {
         const dData = dungeonData[ref];
         // keys - value caching
@@ -33,6 +43,8 @@ EventBus.register("state", event => {
             cached_values[dData.keys] = data[dData.keys] || 0;
             if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
                 data[dData.keys] = 9999;
+            } else if (DUNGEON_KEY_AMP[ref] != null && !cached_values["option.keysanity_small"]) {
+                data[dData.keys] = cached_values[dData.keys] + DUNGEON_KEY_AMP[ref];
             }
         }
         if (dData.bosskey) {
@@ -80,11 +92,16 @@ EventBus.register("statechange", event => {
     if (changed["option.track_keys"] != null && cached_values["option.track_keys"] != changed["option.track_keys"]) {
         cached_values["option.track_keys"] = changed["option.track_keys"];
     }
+    if (changed["option.keysanity_small"] != null && cached_values["option.keysanity_small"] != changed["option.keysanity_small"]) {
+        cached_values["option.keysanity_small"] = changed["option.keysanity_small"];
+    }
     for (const ref in dungeonData) {
         const dData = dungeonData[ref];
         if (dData.keys) {
             if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
                 changed[dData.keys] = 9999;
+            } else if (DUNGEON_KEY_AMP[ref] != null && !cached_values["option.keysanity_small"]) {
+                changed[dData.keys] = cached_values[dData.keys] + DUNGEON_KEY_AMP[ref];
             } else {
                 changed[dData.keys] = cached_values[dData.keys] || 0;
             }
@@ -155,20 +172,29 @@ class LogicCaller {
             const randoLogic = FileData.get("logic", {edges:{}, logic:{}});
             //LOGIC_PROCESSOR.clearLogic();
             Logic.setLogic(randoLogic);
-            const data = StateStorage.getAll();
+            const data = {
+                ...FilterStorage.getAll(),
+                ...SettingsStorage.getAll(),
+                ...StateStorage.getAll()
+            };
             // keys - value caching
-            const dungeonData = FileData.get("dungeonstate/area");
             cached_values["option.track_keys"] = !!data["option.track_keys"];
+            cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
+            cached_values["option.keysanity_small"] = !!data["option.keysanity_small"];
+            // keys - apply values
+            const dungeonData = FileData.get("dungeonstate/area");
             for (const ref in dungeonData) {
                 const dData = dungeonData[ref];
                 if (dData.keys) {
                     cached_values[dData.keys] = data[dData.keys] || 0;
                     if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
                         data[dData.keys] = 9999;
+                    } else if (DUNGEON_KEY_AMP[ref] != null && !cached_values["option.keysanity_small"]) {
+                        data[dData.keys] = data[dData.keys] + DUNGEON_KEY_AMP[ref];
                     }
                 }
             }
-            cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
+            // bosskeys - apply values
             for (const ref in dungeonData) {
                 const dData = dungeonData[ref];
                 if (dData.bosskey) {

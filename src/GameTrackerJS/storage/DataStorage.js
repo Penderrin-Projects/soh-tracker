@@ -65,6 +65,11 @@ export default class DataStorage extends EventTarget {
         return buffer.has(key);
     }
 
+    keys() {
+        const buffer = BUFFER.get(this);
+        return buffer.keys();
+    }
+
     clear() {
         const buffer = BUFFER.get(this);
         buffer.clear();
