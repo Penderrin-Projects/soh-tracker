@@ -1,6 +1,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";

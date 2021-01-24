@@ -1,12 +1,24 @@
 import FileData from "/emcJS/data/FileData.js";
+import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import TabPanel from "/emcJS/ui/layout/panel/TabPanel.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import "/GameTrackerJS/ui/ExitChoice.js";
+
+const STYLE = new GlobalStyle(`
+:host {
+    --category-color: white;
+    --category-background-color: black;
+    --category-hover-color: gray;
+    --category-marked-color: black;
+    --category-marked-background-color: white;
+}
+`);
 
 export default class HTMLTrackerExitList extends TabPanel {
     
     constructor() {
         super();
+        STYLE.apply(this.shadowRoot);
         /* --- */
         const exits = FileData.get("world/exit");
         for (const exit in exits) {
@@ -20,7 +32,7 @@ export default class HTMLTrackerExitList extends TabPanel {
     }
 
     addEntrance(category, ref) {
-        const el = document.createElement('gt-exitchoice');
+        const el = document.createElement("gt-exitchoice");
         el.ref = ref;
         const panel = this.getTab(category);
         if (panel != null) {
@@ -36,4 +48,4 @@ export default class HTMLTrackerExitList extends TabPanel {
 
 }
 
-customElements.define('ootrt-exitlist', HTMLTrackerExitList);
+customElements.define("ootrt-exitlist", HTMLTrackerExitList);

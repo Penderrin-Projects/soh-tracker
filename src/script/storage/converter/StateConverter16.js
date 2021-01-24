@@ -1,0 +1,25 @@
+/**
+ * move to serverside past TBD
+ */
+
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+
+SavestateConverter.register(function(state) {
+    const res = {
+        data: {
+            "": {},
+            ...state.extra
+        },
+        options: {}
+    };
+    
+    for (const [key, value] of Object.entries(state.data)) {
+        if (key.startsWith("option.") || key.startsWith("skip.")) {
+            res.options[key] = value;
+        } else {
+            res.data[""][key] = value;
+        }
+    }
+
+    return res;
+});

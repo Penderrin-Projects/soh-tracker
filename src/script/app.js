@@ -69,15 +69,15 @@ async function init() {
     const [
         EventBus,
         Logger,
+        SavestateOptionsWindow,
         TrackerSettingsWindow,
-        RandomizerOptionsWindow,
         SpoilerLogWindow
     ] = await $import.module([ // eslint-disable-line no-undef
         // consts
         "/emcJS/event/EventBus.js",
         "/emcJS/util/Logger.js",
-        "/script/ui/TrackerSettingsWindow.js",
-        "/script/ui/RandomizerOptionsWindow.js",
+        "/GameTrackerJS/ui/window/SavestateOptionsWindow.js",
+        "/script/ui/window/TrackerSettingsWindow.js",
         "/script/ui/SpoilerLogWindow.js",
         // untracked
         "/emcJS/ui/input/TextEditor.js",
@@ -130,7 +130,7 @@ async function init() {
 
     updateLoadingMessage("initialize settings..."); // eslint-disable-line no-undef
     window.TrackerSettingsWindow = new TrackerSettingsWindow();
-    window.RandomizerOptionsWindow = new RandomizerOptionsWindow();
+    window.SavestateOptionsWindow = new SavestateOptionsWindow();
     window.SpoilerLogWindow = new SpoilerLogWindow();
 
     updateLoadingMessage("add modules..."); // eslint-disable-line no-undef

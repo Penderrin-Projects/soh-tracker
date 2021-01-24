@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ShopStates from "/script/state/shop/StateManager.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 

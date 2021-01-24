@@ -1,6 +1,6 @@
 import Template from "/emcJS/util/Template.js";
 import FileData from "/emcJS/data/FileData.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "./DungeonReward.js";

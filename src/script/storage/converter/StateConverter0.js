@@ -2,9 +2,9 @@
  * move to serverside past 2020‑12‑31
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
-StateConverter.register(function(state) {
+SavestateConverter.register(function(state) {
     if (!state["data"] != null) {
         state = {data: state};
     }

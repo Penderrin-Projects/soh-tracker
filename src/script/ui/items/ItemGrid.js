@@ -3,7 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import "./components/Item.js";
 import "./components/ItemKey.js";
 import "./components/InfiniteItem.js";

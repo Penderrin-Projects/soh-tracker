@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import SongStateManager from "/script/state/song/StateManager.js"
 import "./SongStave.js";
 import "./SongBuilder.js";

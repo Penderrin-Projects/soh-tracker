@@ -58,7 +58,7 @@ class WorldListsCreator {
 
     async createOperators() {
         const result = [];
-        const randomizer_options = FileData.get("randomizer_options");
+        const randomizer_options = FileData.get("options");
         result.push(createDefaultOperatorCategory());
         result.push(createSettingsOperatorCategory(randomizer_options.options, "option"));
         return result;

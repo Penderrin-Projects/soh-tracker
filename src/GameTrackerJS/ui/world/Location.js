@@ -2,7 +2,7 @@ import "/emcJS/ui/Icon.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
-import Language from "/script/util/Language.js";
+import Language from "../../util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 export default class AbstractLocation extends WorldElement {
@@ -103,21 +103,21 @@ export default class AbstractLocation extends WorldElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");

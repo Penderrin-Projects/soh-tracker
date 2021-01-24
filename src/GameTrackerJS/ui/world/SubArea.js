@@ -6,7 +6,7 @@ import ExitRegistry from "../../registry/ExitRegistry.js";
 import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubAreaContextMenu.js";
-import Language from "/script/util/Language.js";
+import Language from "../../util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 function setAllListEntries(list, value = true) {
@@ -145,21 +145,21 @@ export default class AbstractSubArea extends WorldElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         const state = WorldRegistry.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");

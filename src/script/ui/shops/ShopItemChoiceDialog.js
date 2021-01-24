@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/Window.js";
 import FileData from "/emcJS/data/FileData.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import "./ShopEditItem.js";
 
 const TPL = new Template(`

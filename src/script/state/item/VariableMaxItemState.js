@@ -18,7 +18,7 @@ export default class VariableMaxItemState extends DefaultState {
         super(ref, props, 0, getMaxValue(props));
         /* --- */
         if (props.max.option != null) {
-            const optionProps = FileData.get(`randomizer_options/options/${props.max.option}`);
+            const optionProps = FileData.get(`options/${props.max.option}`);
             const option = StateStorage.read(props.max.option, optionProps.default);
             this./*#*/__applyMaxValue(option);
         }

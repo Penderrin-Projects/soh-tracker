@@ -2,16 +2,9 @@
  * move to serverside past 2021‑05‑16
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
-function convertShopItem(item) {
-    if (!item.item.startsWith("item.")) {
-        item.item = `item.${item.item}`;
-    }
-    return item;
-}
-
-StateConverter.register(function(state) {
+SavestateConverter.register(function(state) {
     const res = {
         data: {},
         autosave: state.autosave,
@@ -43,3 +36,10 @@ StateConverter.register(function(state) {
     }
     return res;
 });
+
+function convertShopItem(item) {
+    if (!item.item.startsWith("item.")) {
+        item.item = `item.${item.item}`;
+    }
+    return item;
+}

@@ -1,4 +1,4 @@
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter0.js";
 import "./StateConverter1.js";
 import "./StateConverter2.js";
@@ -15,5 +15,6 @@ import "./StateConverter12.js";
 import "./StateConverter13.js";
 import "./StateConverter14.js";
 import "./StateConverter15.js";
+import "./StateConverter16.js";
 
-StateConverter.offset = 0;
+SavestateConverter.offset = 0;

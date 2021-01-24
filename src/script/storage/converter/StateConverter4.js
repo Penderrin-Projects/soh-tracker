@@ -2,7 +2,73 @@
  * move to serverside past TBD
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+
+SavestateConverter.register(function(state) {
+    const res = {
+        data: {},
+        extra: state.extra || {},
+        notes: state.notes || state.data.notes || "",
+        autosave: state.autosave,
+        timestamp: state.timestamp,
+        name: state.name
+    };
+    for (const i of Object.keys(state.data)) {
+        if (i == "notes") continue;
+        if (i.startsWith("shop.")) {
+            if (i.endsWith(".names")) {
+                res.extra.shops_names = res.extra.shops_names || {};
+                res.extra.shops_names[i.slice(0, -6)] = state.data[i];
+            } else if (i.endsWith(".bought")) {
+                res.extra.shops_bought = res.extra.shops_bought || {};
+                res.extra.shops_bought[i.slice(0, -7)] = state.data[i];
+            } else {
+                res.extra.shops_items = res.extra.shops_items || {};
+                res.extra.shops_items[i] = state.data[i];
+            }
+        } else if (i.startsWith("song.")) {
+            res.extra.songs = res.extra.songs || {};
+            res.extra.songs[i] = state.data[i];
+        } else if (i == "option.keysanity_small") {
+            const val = state.data[i];
+            if (typeof val == "string") {
+                res.data[i] = val == "keysanity_small_keysanity";
+                res.data["option.track_keys"] = val != "keysanity_small_ignore";
+            }
+        } else if (i == "option.keysanity_boss") {
+            const val = state.data[i];
+            if (typeof val == "string") {
+                res.data["option.track_bosskeys"] = val != "keysanity_boss_ignore";
+            }
+        } else if (SKIP_CONVERT[i] != null) {
+            res.data[SKIP_CONVERT[i]] = state.data[i];
+        } else {
+            res.data[i] = state.data[i];
+        }
+    }
+    if (res.data["option.starting_age"] == null) {
+        res.data["option.starting_age"] = "child";
+    }
+    if (res.data["option.light_arrow_cutscene"] == null) {
+        res.data["option.light_arrow_cutscene"] = "light_arrow_cutscene_vanilla";
+    }
+    if (res.data["option.doors_open_forest"] == null || res.data["option.doors_open_forest"] === true) {
+        res.data["option.doors_open_forest"] = "doors_open_forest_open";
+    }
+    if (res.data["option.doors_open_forest"] === false) {
+        res.data["option.doors_open_forest"] = "doors_open_forest_closed";
+    }
+    if (state.extra != null && state.extra.exits != null) {
+        const buf = {};
+        for (const i of Object.keys(state.extra.exits)) {
+            const [k1, k2] = i.split(" -> ");
+            const [v1, v2] = state.extra.exits[i].split(" -> ");
+            buf[`${EXIT_TRANS[k1] || k1} -> ${EXIT_TRANS[k2] || k2}`] = `${EXIT_TRANS[v1] || v1} -> ${EXIT_TRANS[v2] || v2}`;
+        }
+        res.extra.exits = buf;
+    }
+    return res;
+});
 
 const EXIT_TRANS = {
     "region.deku_tree_lobby": "region.deku_tree_gateway",
@@ -118,69 +184,3 @@ const SKIP_CONVERT = {
     "skip.sptmq_lower_no_firearrows": "skip.spirit_mq_lower_adult",
     "skip.sptmq_sunblock_gs_boomerang": "skip.spirit_mq_sun_block_gs"
 };
-
-StateConverter.register(function(state) {
-    const res = {
-        data: {},
-        extra: state.extra || {},
-        notes: state.notes || state.data.notes || "",
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
-    };
-    for (const i of Object.keys(state.data)) {
-        if (i == "notes") continue;
-        if (i.startsWith("shop.")) {
-            if (i.endsWith(".names")) {
-                res.extra.shops_names = res.extra.shops_names || {};
-                res.extra.shops_names[i.slice(0, -6)] = state.data[i];
-            } else if (i.endsWith(".bought")) {
-                res.extra.shops_bought = res.extra.shops_bought || {};
-                res.extra.shops_bought[i.slice(0, -7)] = state.data[i];
-            } else {
-                res.extra.shops_items = res.extra.shops_items || {};
-                res.extra.shops_items[i] = state.data[i];
-            }
-        } else if (i.startsWith("song.")) {
-            res.extra.songs = res.extra.songs || {};
-            res.extra.songs[i] = state.data[i];
-        } else if (i == "option.keysanity_small") {
-            const val = state.data[i];
-            if (typeof val == "string") {
-                res.data[i] = val == "keysanity_small_keysanity";
-                res.data["option.track_keys"] = val != "keysanity_small_ignore";
-            }
-        } else if (i == "option.keysanity_boss") {
-            const val = state.data[i];
-            if (typeof val == "string") {
-                res.data["option.track_bosskeys"] = val != "keysanity_boss_ignore";
-            }
-        } else if (SKIP_CONVERT[i] != null) {
-            res.data[SKIP_CONVERT[i]] = state.data[i];
-        } else {
-            res.data[i] = state.data[i];
-        }
-    }
-    if (res.data["option.starting_age"] == null) {
-        res.data["option.starting_age"] = "child";
-    }
-    if (res.data["option.light_arrow_cutscene"] == null) {
-        res.data["option.light_arrow_cutscene"] = "light_arrow_cutscene_vanilla";
-    }
-    if (res.data["option.doors_open_forest"] == null || res.data["option.doors_open_forest"] === true) {
-        res.data["option.doors_open_forest"] = "doors_open_forest_open";
-    }
-    if (res.data["option.doors_open_forest"] === false) {
-        res.data["option.doors_open_forest"] = "doors_open_forest_closed";
-    }
-    if (state.extra != null && state.extra.exits != null) {
-        const buf = {};
-        for (const i of Object.keys(state.extra.exits)) {
-            const [k1, k2] = i.split(" -> ");
-            const [v1, v2] = state.extra.exits[i].split(" -> ");
-            buf[`${EXIT_TRANS[k1] || k1} -> ${EXIT_TRANS[k2] || k2}`] = `${EXIT_TRANS[v1] || v1} -> ${EXIT_TRANS[v2] || v2}`;
-        }
-        res.extra.exits = buf;
-    }
-    return res;
-});

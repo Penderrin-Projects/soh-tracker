@@ -2,7 +2,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
+import Language from "../../util/Language.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 

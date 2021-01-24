@@ -1,6 +1,6 @@
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 
 const TPL = new Template(`
     <style>

@@ -2,6 +2,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import DataState from "./DataState.js";
 import StateStorage from "/script/storage/StateStorage.js";
+import SettingsStorage from "../../storage/SettingsStorage.js";
 
 function valueGetter(key) {
     return this.get(key);
@@ -32,6 +33,9 @@ export default class VisibilityState extends DataState {
         EventBus.register("randomizer_options", event => {
             const data = new Map(Object.entries(event.data));
             this./*#*/__calculateVisibility(data);
+        });
+        SettingsStorage.addEventListener("change", event => {
+
         });
     }
     

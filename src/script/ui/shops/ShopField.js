@@ -1,7 +1,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import "./ShopItem.js";
 
 const TPL = new Template(`

@@ -1,4 +1,4 @@
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";

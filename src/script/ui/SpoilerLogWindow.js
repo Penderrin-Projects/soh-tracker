@@ -7,8 +7,8 @@ import "/emcJS/ui/Paging.js";
 
 import StateStorage from "/script/storage/StateStorage.js";
 import BusyIndicator from "/script/ui/BusyIndicator.js";
-import SettingsBuilder from "/script/util/SettingsBuilder.js";
-import Language from "/script/util/Language.js";
+import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
@@ -25,14 +25,14 @@ const LOAD_SPOILER = new Template(`
 async function loadSpoiler(button) {
     spoiler = await FileSystem.load(".json");
     if (!!spoiler && !!spoiler.data) {
-        button.innerHTML = Language.translate('loaded-spoiler-button');
+        button.innerHTML = Language.translate("loaded-spoiler-button");
     }
 }
 
 export default class SpoilerLogSettings {
 
     constructor() {
-        settings.addEventListener('submit', function(event) {
+        settings.addEventListener("submit", function(event) {
             BusyIndicator.busy();
             const options = FileData.get("spoiler_options");
             const settingsData = {};
@@ -53,7 +53,7 @@ export default class SpoilerLogSettings {
             }
             if (!!spoiler && !!spoiler.data) {
                 SpoilerParser.parse(spoiler.data, settingsData);
-                loadSpoilerButton.innerHTML = Language.translate('load-spoiler-button');
+                loadSpoilerButton.innerHTML = Language.translate("load-spoiler-button");
                 spoiler = {};
             }
             BusyIndicator.unbusy();
@@ -67,10 +67,10 @@ export default class SpoilerLogSettings {
         loadSpoilerWrapper.style.display = "flex";
         loadSpoilerWrapper.style.flex = "1";
         const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
-        loadSpoilerButton.innerHTML = Language.translate('load-spoiler-button');
+        loadSpoilerButton.innerHTML = Language.translate("load-spoiler-button");
 
 
-        loadSpoilerButton.addEventListener('click', () => {
+        loadSpoilerButton.addEventListener("click", () => {
             loadSpoiler(loadSpoilerButton);
         });
 

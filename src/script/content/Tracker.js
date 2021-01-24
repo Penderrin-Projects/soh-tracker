@@ -93,7 +93,7 @@ async function state_New() {
         }
     }
 
-    const options = FileData.get("randomizer_options");
+    const options = FileData.get("options");
     const def_state = {};
     for (const i in options) {
         for (const j in options[i]) {
@@ -123,7 +123,7 @@ async function states_Manage() {
 }
 
 function openDetachedItems() {
-    window.open('/detached/#items', "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
+    window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
 }
 
 function openDiscortJoin() {
@@ -141,8 +141,8 @@ function openSettingsWindow() {
 }
 
 function openRomSettingsWindow() {
-    if (window.RandomizerOptionsWindow) {
-        window.RandomizerOptionsWindow.show();
+    if (window.SavestateOptionsWindow) {
+        window.SavestateOptionsWindow.show();
     }
 }
 

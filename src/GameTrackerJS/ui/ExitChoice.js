@@ -7,7 +7,7 @@ import Badge from "./Badge.js";
 import "./ctxmenu/ExitChoiceContextMenu.js";
 import "./ctxmenu/ExitBindingMenu.js";
 import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
+import Language from "../util/Language.js";
 
 const TPL = new Template(`
 <div class="textarea">

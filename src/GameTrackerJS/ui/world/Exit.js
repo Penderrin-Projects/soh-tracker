@@ -8,7 +8,7 @@ import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/ExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
-import Language from "/script/util/Language.js";
+import Language from "../../util/Language.js";
 import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 function setAllListEntries(list, value = true) {

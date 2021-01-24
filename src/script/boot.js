@@ -1,9 +1,9 @@
 
 import EventBus from "/emcJS/event/EventBus.js";
 import FileData from "/emcJS/data/FileData.js";
-import Language from "/script/util/Language.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import StateInit from "/script/state/StateInit.js";
 
 const FILES = {
@@ -18,7 +18,7 @@ const FILES = {
     "songs":                {path: "/database/songs.json",              type: "jsonc"},
     "settings":             {path: "/database/settings.json",           type: "jsonc"},
     "rulesets":             {path: "/database/rulesets.json",           type: "jsonc"},
-    "randomizer_options":   {path: "/database/randomizer_options.json", type: "jsonc"},
+    "options":              {path: "/database/options.json",            type: "jsonc"},
     "spoiler_options":      {path: "/database/spoiler_options.json",    type: "jsonc"},
     "filter":               {path: "/database/filter.json",             type: "jsonc"},
     "shops":                {path: "/database/shops.json",              type: "jsonc"},
@@ -33,29 +33,10 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
     updateLoadingMessage("load data...");
     await FileData.load(FILES);
     await SettingsStorage.init();
+    await OptionsStorage.init();
 
     updateLoadingMessage("learn languages...");
     await Language.load(SettingsStorage.get("language"));
-
-    updateLoadingMessage("initialize savestate...");
-    StateStorage.init(function() {
-        const options = FileData.get("randomizer_options");
-        const def_state = {};
-        for (const i in options) {
-            for (const j in options[i]) {
-                const value = options[i][j].default;
-                if (Array.isArray(value)) {
-                    const valueSet = new Set(value);
-                    options[i][j].values.forEach(el => {
-                        def_state[el] = valueSet.has(el);
-                    });
-                } else {
-                    def_state[j] = value;
-                }
-            }
-        }
-        return def_state;
-    }());
     
     updateLoadingMessage("initialize states...");
     StateInit.init();

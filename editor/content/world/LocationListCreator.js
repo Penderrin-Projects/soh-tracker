@@ -53,7 +53,7 @@ class LocationListsCreator {
 
         let result = [];
 
-        let randomizer_options = FileData.get("randomizer_options");
+        let randomizer_options = FileData.get("options");
 
         result.push(createDefaultOperatorCategory());
         result.push(createSettingsOperatorCategory(randomizer_options.options, "option"));

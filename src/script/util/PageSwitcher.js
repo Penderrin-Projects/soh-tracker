@@ -1,7 +1,7 @@
 import "/emcJS/ui/navigation/NavBar.js";
 
-const NAV = document.querySelector('emc-navbar');
-const PAGER = document.getElementById('view-pager');
+const NAV = document.querySelector("emc-navbar");
+const PAGER = document.getElementById("view-pager");
 const NAVIGATION = new Map();
 
 class PageSwitcher {

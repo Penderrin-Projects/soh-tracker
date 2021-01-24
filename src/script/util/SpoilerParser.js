@@ -66,7 +66,7 @@ function parseStartingItems(itemsTrue, world, trans) {
             const v = items[i];
 
             if (starting_trans[i] != null) {
-                if (typeof v === 'object' && v !== null) {
+                if (typeof v === "object" && v !== null) {
                     console.warn("Unexpected Array within starting items, please report this!")
                 } else {
                     if (starting_trans[i]["values"][v] === undefined) {
@@ -121,7 +121,7 @@ function parseDungeons(dungeonsTrue, locationsTrue, world, dt, dr, trans) {
             for (const i in locations) {
                 let v = locations[i];
                 if (location_trans[i] != null) {
-                    if (typeof v === 'object' && v !== null) v = v["item"];
+                    if (typeof v === "object" && v !== null) v = v["item"];
 
                     if (item_trans[v] === undefined) {
                         console.warn("[" + i + ": " + v + "] is a invalid value. Please report this bug")
@@ -174,7 +174,7 @@ function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overwor
 
         for (const i in entrances) {
             var v = entrances[i];
-            if (typeof v === 'object' && v !== null) v = entrances[i]["region"];
+            if (typeof v === "object" && v !== null) v = entrances[i]["region"];
             var edgeThere = null;
             var edgeBack = null;
             var node = null;
@@ -188,7 +188,7 @@ function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overwor
                 if (node[v] !== undefined) edgeBack = node[v]
             }
 
-            if (typeof i === 'object' && i !== null) {
+            if (typeof i === "object" && i !== null) {
                 console.warn("Unexpected Array within entrances")
             } else {
                 if (edgeThere === null || edgeBack === null) console.warn("[" + i + ": " + v + "] is a invalid value.")
@@ -425,7 +425,7 @@ function parseLocations(locationsTrue, world, trans) {
             if (location_trans[i] != null) {
                 let v = locations[i];
                 let player = 1;
-                if (typeof v === 'object' && v !== null) {
+                if (typeof v === "object" && v !== null) {
                     if (v["player"] !== undefined) player = v["player"];
                     v = v["item"];
                 }

@@ -6,7 +6,7 @@ import StateStorage from "/script/storage/StateStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
 // more
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";

@@ -1,14 +1,14 @@
 import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Logic from "/script/util/logic/Logic.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
-const LogicsStorage = new IDBStorage('logics');
+const LogicsStorage = new IDBStorage("logics");
 const GraphStorage = new IDBStorage("edges");
-const LogicsStorageGlitched = new IDBStorage('logics_glitched');
+const LogicsStorageGlitched = new IDBStorage("logics_glitched");
 const GraphStorageGlitched = new IDBStorage("edges_glitched");
 
 let logic_rules = "logic_rules_glitchless";
@@ -23,7 +23,7 @@ EventBus.register("randomizer_options", event => {
 });
 // register event for (de-)activate custom logic
 EventBus.register("settings", async event => {
-    if (event.data['use_custom_logic'] != null) {
+    if (event.data["use_custom_logic"] != null) {
         if (use_custom_logic != event.data.use_custom_logic) {
             use_custom_logic = event.data.use_custom_logic;
             LogicViewer.customLogic = !!use_custom_logic;

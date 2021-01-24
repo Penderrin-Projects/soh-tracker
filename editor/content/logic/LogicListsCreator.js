@@ -49,7 +49,7 @@ class LogicListsCreator {
 
         const world = FileData.get("world/marker");
         const items = FileData.get("items");
-        const randomizer_options = FileData.get("randomizer_options");
+        const randomizer_options = FileData.get("options");
         const filter = FileData.get("filter");
         const logic = FileData.get(`logic${!!glitched?"_glitched":""}`);
         let custom_logic = {};
