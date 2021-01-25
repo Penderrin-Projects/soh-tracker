@@ -10,7 +10,7 @@ export default class SettingsSpy extends EventTarget {
         SettingsStorage.addEventListener("change", event => {
             if (event.data[key] != null) {
                 const ev = new Event("value");
-                ev.data = event.data[key].value;
+                ev.data = event.data[key];
                 this.dispatchEvent(ev);
             }
         });

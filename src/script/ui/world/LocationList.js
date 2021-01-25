@@ -154,7 +154,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 // TODO
             }
         });
-        this.registerGlobal(["state", "statechange", "logic", "settings", "randomizer_options", "filter"], event => {
+        this.registerGlobal(["state", "statechange", "logic", "settings", "options", "filter"], event => {
             this.refresh();
         });
         this.registerGlobal("statechange_dungeontype", event => {

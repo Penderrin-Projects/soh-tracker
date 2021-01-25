@@ -57,7 +57,7 @@ export default class AbstractSubArea extends WorldElement {
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
-        this.registerGlobal(["state", "randomizer_options"], event => {
+        this.registerGlobal(["state", "options"], event => {
             if (this.isConnected) {
                 this.refreshList();
             }

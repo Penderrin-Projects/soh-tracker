@@ -4,7 +4,6 @@ import FileData from "/emcJS/data/FileData.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
-import StateInit from "/script/state/StateInit.js";
 
 const FILES = {
     "world":                {path: "/database/world.json",              type: "json"},
@@ -39,6 +38,11 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
     await Language.load(SettingsStorage.get("language"));
     
     updateLoadingMessage("initialize states...");
+    const [
+        StateInit
+    ] = await $import.module([ // eslint-disable-line no-undef
+        "/script/state/StateInit.js"
+    ]);
     StateInit.init();
 }
 

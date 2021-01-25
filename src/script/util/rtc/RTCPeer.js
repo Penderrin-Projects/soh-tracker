@@ -27,7 +27,7 @@ export default class RTCPeer extends EventTarget {
             ],
             whitelist: [
                 /^state::[a-zA-Z0-9_]+$/,
-                "randomizer_options"
+                "options"
             ]
         });
         eventModule.register(event => {

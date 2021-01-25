@@ -12,7 +12,7 @@ export default class StartItemState extends DefaultState {
         /* --- */
         STARTVALUE.set(this, parseInt(StateStorage.read(props.start_settings, 1)));
         /* EVENTS */
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             if (event.data[props.start_settings] != null) {
                 this./*#*/__applyStartValue(event.data[props.start_settings]);
             }

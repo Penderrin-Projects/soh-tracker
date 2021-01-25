@@ -66,7 +66,7 @@ export default class MapSubExit extends WorldElement {
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
-        this.registerGlobal("randomizer_options", event => {
+        this.registerGlobal("options", event => {
             if (this.isConnected) {
                 this.refreshList();
             }

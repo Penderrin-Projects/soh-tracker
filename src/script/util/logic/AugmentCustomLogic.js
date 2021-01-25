@@ -15,7 +15,7 @@ let logic_rules = "logic_rules_glitchless";
 let use_custom_logic = false;
 
 // register event for (de-)activate entrances
-EventBus.register("randomizer_options", event => {
+EventBus.register("options", event => {
     if (event.data["option.logic_rules"] != null && logic_rules != event.data["option.logic_rules"]) {
         logic_rules = event.data["option.logic_rules"];
         update();

@@ -13,13 +13,8 @@ export default class DataStorage extends EventTarget {
         if (old != value) {
             buffer.set(key, value);
             const ev = new Event("change");
-            ev.data = {
-                [key]: {
-                    old,
-                    value,
-                    newValue: value
-                }
-            };
+            ev.changes = {[key]: {oldValue: old, newValue: value}};
+            ev.data = {[key]: value};
             this.dispatchEvent(ev);
         }
     }
@@ -27,21 +22,20 @@ export default class DataStorage extends EventTarget {
     setAll(values) {
         const buffer = BUFFER.get(this);
         const changes = {};
+        const data = {};
         for (const key in values) {
             const value = values[key];
             const old = buffer.get(key);
             if (old != value) {
                 buffer.set(key, value);
-                changes[key] = {
-                    old,
-                    value,
-                    newValue: value
-                };
+                changes[key] = {oldValue: old, newValue: value};
+                data[key] = value;
             }
         }
         if (Object.keys(changes).length) {
             const ev = new Event("change");
-            ev.data = changes;
+            ev.changes = changes;
+            ev.data = data;
             this.dispatchEvent(ev);
         }
     }

@@ -5,6 +5,8 @@ import FilterStorage from "/script/storage/FilterStorage.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import Logic from "./Logic.js";
 
+// TODO register settings event listener
+
 const ACCEPTED_KEY_GROUPS = [
     "dungeon",
     "gerudo",

@@ -84,14 +84,14 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
         TYPE_STATE.set(this, null);
 
         /* event bus */
-        this.registerGlobal(["logic", "randomizer_options"], event => {
+        this.registerGlobal(["logic", "options"], event => {
             const state = this.getState();
             if (state != null) {
                 const list = state.getFilteredList(this.type);
@@ -150,29 +150,29 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get type() {
-        return this.getAttribute('type');
+        return this.getAttribute("type");
     }
 
     set type(val) {
-        this.setAttribute('type', val);
+        this.setAttribute("type", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'type'];
+        return ["ref", "type"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         const state = WorldRegistry.get(this.ref);
                         this.switchState(state);
@@ -184,7 +184,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
                         }
                     }
                     break;
-                case 'type':
+                case "type":
                     {
                         const state = this.getState();
                         if (state != null) {
@@ -213,4 +213,4 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
 
 }
 
-customElements.define('ootrt-list-typebutton', ListButton);
+customElements.define("ootrt-list-typebutton", ListButton);

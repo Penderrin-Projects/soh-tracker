@@ -49,7 +49,7 @@ export default class FilteredState extends VisibilityState {
             const data = new Map(Object.entries(event.data.state));
             this./*#*/__calculateFilter(data);
         });
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             const data = new Map(Object.entries(event.data));
             this./*#*/__calculateFilter(data);
         });

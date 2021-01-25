@@ -16,7 +16,7 @@ export default class AreaState extends WorldElementState {
         ACCESS.set(this, ListLogic.DEFAULT);
         this./*#*/__refreshAccess();
         /* EVENTS */
-        EventBus.register(["logic", "state::location", "randomizer_options", "filter"], event => {
+        EventBus.register(["logic", "state::location", "options", "filter"], event => {
             this./*#*/__refreshAccess();
         });
     }

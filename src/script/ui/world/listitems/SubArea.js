@@ -117,7 +117,7 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerGlobal(["state", "randomizer_options"], event => {
+        this.registerGlobal(["state", "options"], event => {
             if (this.isConnected) {
                 this.refreshList();
             }

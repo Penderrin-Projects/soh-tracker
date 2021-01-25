@@ -16,6 +16,7 @@ class Savestate extends EventTarget {
         OptionsStorage.addEventListener("change", event => {
             const ev = new Event("options");
             ev.data = event.data;
+            ev.changes = event.changes;
             this.dispatchEvent(ev);
         });
     }
@@ -100,6 +101,7 @@ class Savestate extends EventTarget {
                     const ev = new Event("change");
                     ev.category = storageCategory;
                     ev.data = event.data;
+                    ev.changes = event.changes;
                     this.dispatchEvent(ev);
                 }, 0);
             });

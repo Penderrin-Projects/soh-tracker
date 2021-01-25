@@ -496,7 +496,7 @@ class SpoilerParser {
             StateStorage.write(options[multiWorld]);
             StateStorage.writeAllExtra(extra[multiWorld]);
 
-            EventBus.trigger("randomizer_options", options[multiWorld]);
+            EventBus.trigger("options", options[multiWorld]);
         }
     }
 

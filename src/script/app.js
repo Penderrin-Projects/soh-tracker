@@ -6,7 +6,6 @@ import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import StateStorage from "/script/storage/StateStorage.js";
 
 import {loadResources, registerWorker} from "/script/boot.js";
 
@@ -34,7 +33,7 @@ function setDevs(data) {
     try {
         setVersion(await FileLoader.json("version.json"));
         setDevs(await FileLoader.json("devs.json"));
-        // initial boot
+        // ---
         await loadResources(updateLoadingMessage); // eslint-disable-line no-undef
         // ---
         updateLoadingMessage("poke application..."); // eslint-disable-line no-undef
@@ -50,6 +49,13 @@ window.onbeforeunload = function() {
 }
 
 async function init() {
+    updateLoadingMessage("extract recent savestate..."); // eslint-disable-line no-undef
+    const [
+        SavestateHandler
+    ] = await $import.module([ // eslint-disable-line no-undef
+        "/GameTrackerJS/savestate/SavestateHandler.js"
+    ]);
+
     const [
         LogicCaller,
         AugmentExits,
@@ -118,14 +124,12 @@ async function init() {
 
     updateLoadingMessage("initialize components..."); // eslint-disable-line no-undef
     const notePad = document.getElementById("notes-editor");
-    notePad.value = StateStorage.readNotes();
-    EventBus.register("state", function(event) {
-        if (event.data.notes != null) {
-            notePad.value = event.data.notes;
-        }
+    notePad.value = SavestateHandler.getNotes();
+    SavestateHandler.addEventListener("notes", function(event) {
+        notePad.value = event.data;
     });
     notePad.addEventListener("change", function() {
-        StateStorage.writeNotes(notePad.value);
+        SavestateHandler.setNotes(notePad.value);
     });
 
     updateLoadingMessage("initialize settings..."); // eslint-disable-line no-undef

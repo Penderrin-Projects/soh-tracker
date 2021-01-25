@@ -31,7 +31,7 @@ export default class DefaultState extends DataState {
             const data = new Map(Object.entries(event.data.state));
             this./*#*/__calculateActive(data);
         });
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             const data = new Map(Object.entries(event.data));
             this./*#*/__calculateActive(data);
         });

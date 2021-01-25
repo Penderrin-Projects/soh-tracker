@@ -23,7 +23,7 @@ export default class VariableMaxItemState extends DefaultState {
             this./*#*/__applyMaxValue(option);
         }
         /* EVENTS */
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             if (event.data[props.max.option] != null) {
                 this./*#*/__applyMaxValue(event.data[props.max.option]);
             }

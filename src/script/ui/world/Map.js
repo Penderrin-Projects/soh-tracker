@@ -334,9 +334,9 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-        this.shadowRoot.getElementById('back').addEventListener("click", () => {
+        this.shadowRoot.getElementById("back").addEventListener("click", () => {
             this.ref = "overworld"
         });
         // map specifics
@@ -408,9 +408,9 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         this.registerGlobal("location_mode", event => {
             this.mode = event.data.value;
-            this.shadowRoot.getElementById('location-mode').value = this.mode;
+            this.shadowRoot.getElementById("location-mode").value = this.mode;
         });
-        this.registerGlobal(["state", "settings", "randomizer_options", "filter"], () => {
+        this.registerGlobal(["state", "settings", "options", "filter"], () => {
             this.refresh();
         });
         this.registerGlobal("dungeontype", event => {
@@ -432,11 +432,11 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     set ref(val) {
         //this.setAttribute('ref', val);
-        this.setAttribute('ref', "overworld");
+        this.setAttribute("ref", "overworld");
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -457,11 +457,11 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         if (data != null) {
             const areaData = data.areaData;
             // switch map/minimap background
-            const map = this.shadowRoot.getElementById('map');
+            const map = this.shadowRoot.getElementById("map");
             map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             map.style.width = `${areaData.width}px`;
             map.style.height = `${areaData.height}px`;
-            const minimap = this.shadowRoot.getElementById('map-overview');
+            const minimap = this.shadowRoot.getElementById("map-overview");
             minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
             const list = data.getFilteredList();
@@ -498,7 +498,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 }
 
 Panel.registerReference("location-map", HTMLTrackerMap);
-customElements.define('ootrt-map', HTMLTrackerMap);
+customElements.define("ootrt-map", HTMLTrackerMap);
 
 function calculateTooltipPosition(posX, posY, mapW, mapH) {
     const leftP = posX / mapW;

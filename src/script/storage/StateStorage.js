@@ -13,13 +13,13 @@ class StateStorage {
     constructor() {
         Savestate.addEventListener("change", event => {
             if (!event.category) {
-                EventBus.trigger("statechange", event.data);
+                EventBus.trigger("statechange", event.changes);
             } else {
-                EventBus.trigger(`statechange_${event.category}`, event.data);
+                EventBus.trigger(`statechange_${event.category}`, event.changes);
             }
         });
         Savestate.addEventListener("options", event => {
-            EventBus.trigger("statechange", event.data);
+            EventBus.trigger("statechange", event.changes);
         });
     }
 

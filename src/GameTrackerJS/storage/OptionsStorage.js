@@ -14,13 +14,11 @@ class OptionsStorage extends DataStorage {
     constructor() {
         super();
         this.addEventListener("change", event => {
-            const data = {};
-            for (const [key, value] of Object.entries(event.data)) {
-                data[key] = value.value;
-            }
-            EventBus.trigger("randomizer_options", data);
+            setTimeout(() => {
+                EventBus.trigger("options", event.data);
+            }, 0);
         });
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             this.setAll(event.data);
         });
     }

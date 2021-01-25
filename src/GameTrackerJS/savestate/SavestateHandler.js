@@ -91,13 +91,15 @@ class SavestateHandler extends EventTarget {
         Savestate.addEventListener("change", event => {
             const state = Savestate.serialize();
             cacheData(state, true);
-            if (event.category == null) {
+            if (!event.category) {
                 const ev = new Event("change");
                 ev.data = event.data;
+                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             } else {
                 const ev = new Event(`change_${event.category}`);
                 ev.data = event.data;
+                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             }
         });

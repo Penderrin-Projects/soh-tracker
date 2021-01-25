@@ -73,7 +73,7 @@ class HTMLLocationState extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -87,7 +87,7 @@ class HTMLLocationState extends UIEventBusMixin(HTMLElement) {
             "logic",
             "statechange",
             "settings",
-            "randomizer_options",
+            "options",
             "statechange_dungeontype",
             "filter"
         ], () => {
@@ -97,4 +97,4 @@ class HTMLLocationState extends UIEventBusMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-locationstate', HTMLLocationState);
+customElements.define("ootrt-locationstate", HTMLLocationState);
