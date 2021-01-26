@@ -50,7 +50,7 @@ class SavestateConverter {
         return state;
     }
 
-    createEmptyState(defaultData) {
+    createEmptyState(defaultData = {}, defaultOptions = {}) {
         const res = {
             name: "",
             data: {},
@@ -66,6 +66,11 @@ class SavestateConverter {
                 for (const key in defaultData[name]) {
                     res.data[name][key] = defaultData[name][key];
                 }
+            }
+        }
+        if (typeof defaultOptions == "object") {
+            for (const key in defaultOptions) {
+                res.options[key] = defaultOptions[key];
             }
         }
         return res;

@@ -16,7 +16,6 @@ function internalItemChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.item = change.value;
         this./*#*/__setItem(change.value);
     }
 }
@@ -26,7 +25,6 @@ function internalPriceChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.price = change.value;
         this./*#*/__setPrice(change.value);
     }
 }
@@ -36,7 +34,6 @@ function internalBoughtChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.bought = change.value;
         this./*#*/__setBought(change.value);
     }
 }
@@ -46,7 +43,6 @@ function internalNameChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.name = change.value;
         this./*#*/__setName(change.value);
     }
 }

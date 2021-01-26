@@ -1,5 +1,4 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElementState from "./WorldElementState.js";
 import ListLogic from "/script/util/logic/ListLogic.js";
@@ -14,14 +13,14 @@ export default class AreaState extends WorldElementState {
         /* --- */
         AREA_DATA.set(this, areaData);
         ACCESS.set(this, ListLogic.DEFAULT);
-        this./*#*/__refreshAccess();
+        this.refreshAccess();
         /* EVENTS */
         EventBus.register(["logic", "state::location", "options", "filter"], event => {
-            this./*#*/__refreshAccess();
+            this.refreshAccess();
         });
     }
 
-    /*#*/__refreshAccess() {
+    refreshAccess() {
         const access = this.calculateAvailability();
         if (access != null) {
             const old = ACCESS.get(this);
@@ -42,6 +41,25 @@ export default class AreaState extends WorldElementState {
         }
     }
 
+    getList() {
+        const areaData = AREA_DATA.get(this);
+        if (areaData != null) {
+            const list = areaData.list;
+            if (list != null) {
+                const result = [];
+                list.forEach(record => {
+                    const id = `${record.category}/${record.id}`;
+                    const loc = WorldRegistry.get(id);
+                    if (loc != null) {
+                        result.push(record);
+                    }
+                });
+                return result;
+            }
+        }
+        return [];
+    }
+
     getFilteredList() {
         const areaData = AREA_DATA.get(this);
         if (areaData != null) {
@@ -51,14 +69,14 @@ export default class AreaState extends WorldElementState {
                 list.forEach(record => {
                     const id = `${record.category}/${record.id}`;
                     const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
+                    if (loc != null && loc.visible) {
                         result.push(record);
                     }
                 });
                 return result;
             }
         }
-        return AccessStateEnum.UNAVAILABLE;
+        return [];
     }
 
     get areaData() {

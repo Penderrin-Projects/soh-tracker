@@ -1,17 +1,17 @@
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
-import EventBus from "/emcJS/event/EventBus.js";
 import I18n from "/emcJS/i18n/I18n.js";
+import SettingsSpy from "./spy/SettingsSpy.js";
+
+const languageSpy = new SettingsSpy("language");
 
 let languages = null;
 
 class Language {
 
     constructor() {
-        EventBus.register("settings", event => {
-            if (event.data["language"] != null) {
-                I18n.setLanguage(event.data.language);
-            }
+        languageSpy.addEventListener("change", event => {
+            I18n.setLanguage(event.data);
         });
     }
 

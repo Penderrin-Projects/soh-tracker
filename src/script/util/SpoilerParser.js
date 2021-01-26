@@ -1,6 +1,5 @@
-import StateStorage from "/script/storage/StateStorage.js";
 import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/event/EventBus.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 
 const options = {};
 const extra = {};
@@ -493,10 +492,7 @@ class SpoilerParser {
             if (settings["parse.random_settings"]) parseSetting(data["randomized_settings"], multiWorld, trans);
             parseDungeons(data["dungeons"], data["locations"], world, settings["parse.dungeons"], settings["parse.dungeonReward"], trans);
 
-            StateStorage.write(options[multiWorld]);
-            StateStorage.writeAllExtra(extra[multiWorld]);
-
-            EventBus.trigger("options", options[multiWorld]);
+            SavestateHandler.overwrite(extra[multiWorld], options[multiWorld]);
         }
     }
 

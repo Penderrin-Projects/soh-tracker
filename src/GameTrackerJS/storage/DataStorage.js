@@ -2,9 +2,18 @@ const BUFFER = new WeakMap();
 
 export default class DataStorage extends EventTarget {
 
-    constructor() {
+    constructor(values) {
         super();
-        BUFFER.set(this, new Map());
+        const buffer = new Map();
+        BUFFER.set(this, buffer);
+        // ---
+        for (const key in values) {
+            const value = values[key];
+            const old = buffer.get(key);
+            if (old != value) {
+                buffer.set(key, value);
+            }
+        }
     }
 
     set(key, value) {
@@ -52,6 +61,18 @@ export default class DataStorage extends EventTarget {
             res[key] = value;
         }
         return res;
+    }
+
+    delete(key) {
+        const buffer = BUFFER.get(this);
+        const old = buffer.get(key);
+        buffer.delete(key);
+        if (typeof old != "undefined") {
+            const ev = new Event("change");
+            ev.changes = {[key]: {oldValue: old, newValue: undefined}};
+            ev.data = {[key]: undefined};
+            this.dispatchEvent(ev);
+        }
     }
 
     has(key) {

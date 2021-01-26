@@ -2,10 +2,12 @@
     starting point for application
 */
 
+import AsyM from "/emcJS/util/import/AsyM.js";
 import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
+import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 
 import {loadResources, registerWorker} from "/script/boot.js";
 
@@ -29,18 +31,24 @@ function setDevs(data) {
     MemoryStorage.set("devs-contributors", data.contributors);
 }
 
+const spl = document.getElementById("splash").querySelector(".loading");
+function updateLoadingMessage(msg = "loading...") {
+    spl.innerHTML = msg;
+}
+LoadingMessageHandler.registerCallback(updateLoadingMessage);
+
 (async function main() {
     try {
         setVersion(await FileLoader.json("version.json"));
         setDevs(await FileLoader.json("devs.json"));
         // ---
-        await loadResources(updateLoadingMessage); // eslint-disable-line no-undef
+        await loadResources(updateLoadingMessage);
         // ---
-        updateLoadingMessage("poke application..."); // eslint-disable-line no-undef
+        updateLoadingMessage("poke application...");
         await init();
     } catch(err) {
         console.error(err);
-        updateLoadingMessage(err.message.replace(/\n/g, "<br>")); // eslint-disable-line no-undef
+        updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
     }
 }());
 
@@ -49,36 +57,30 @@ window.onbeforeunload = function() {
 }
 
 async function init() {
-    updateLoadingMessage("extract recent savestate..."); // eslint-disable-line no-undef
-    const [
-        SavestateHandler
-    ] = await $import.module([ // eslint-disable-line no-undef
-        "/GameTrackerJS/savestate/SavestateHandler.js"
-    ]);
+    updateLoadingMessage("extract recent savestate...");
+    const [SavestateHandler] = await AsyM.import("/GameTrackerJS/savestate/SavestateHandler.js");
 
     const [
-        LogicCaller,
-        AugmentExits,
-        AugmentCustomLogic
-    ] = await $import.module([ // eslint-disable-line no-undef
-        "/script/util/logic/LogicCaller.js",
+        [AugmentExits],
+        [AugmentCustomLogic]
+    ] = await AsyM.import([
         "/script/util/logic/AugmentExits.js",
-        "/script/util/logic/AugmentCustomLogic.js"
+        "/script/util/logic/AugmentCustomLogic.js",
+        "/script/util/logic/LogicCaller.js"
     ]);
 
-    updateLoadingMessage("build logic data..."); // eslint-disable-line no-undef
+    updateLoadingMessage("build logic data...");
     await AugmentExits.init();
     await AugmentCustomLogic.init();
-    await LogicCaller.init();
 
-    updateLoadingMessage("load visuals..."); // eslint-disable-line no-undef
+    updateLoadingMessage("load visuals...");
     const [
-        EventBus,
-        Logger,
-        SavestateOptionsWindow,
-        TrackerSettingsWindow,
-        SpoilerLogWindow
-    ] = await $import.module([ // eslint-disable-line no-undef
+        [EventBus],
+        [Logger],
+        [SavestateOptionsWindow],
+        [TrackerSettingsWindow],
+        [SpoilerLogWindow]
+    ] = await AsyM.import([
         // consts
         "/emcJS/event/EventBus.js",
         "/emcJS/util/Logger.js",
@@ -102,7 +104,7 @@ async function init() {
     
     await registerWorker();
 
-    updateLoadingMessage("apply logger..."); // eslint-disable-line no-undef
+    updateLoadingMessage("apply logger...");
     if (MemoryStorage.get("version-dev")) {
         const logPanel = document.createElement("div");
         logPanel.setAttribute("slot", "log");
@@ -122,7 +124,7 @@ async function init() {
         // not in dev version
     }
 
-    updateLoadingMessage("initialize components..."); // eslint-disable-line no-undef
+    updateLoadingMessage("initialize components...");
     const notePad = document.getElementById("notes-editor");
     notePad.value = SavestateHandler.getNotes();
     SavestateHandler.addEventListener("notes", function(event) {
@@ -132,13 +134,13 @@ async function init() {
         SavestateHandler.setNotes(notePad.value);
     });
 
-    updateLoadingMessage("initialize settings..."); // eslint-disable-line no-undef
+    updateLoadingMessage("initialize settings...");
     window.TrackerSettingsWindow = new TrackerSettingsWindow();
     window.SavestateOptionsWindow = new SavestateOptionsWindow();
     window.SpoilerLogWindow = new SpoilerLogWindow();
 
-    updateLoadingMessage("add modules..."); // eslint-disable-line no-undef
-    await $import.module([ // eslint-disable-line no-undef
+    updateLoadingMessage("add modules...");
+    await AsyM.import([
         "/script/ui/shops/ShopList.js",
         "/script/ui/songs/SongList.js",
         "/script/ui/exits/ExitList.js",
@@ -146,7 +148,7 @@ async function init() {
         "/script/ui/LayoutContainer.js"
     ]);
 
-    updateLoadingMessage("wake up..."); // eslint-disable-line no-undef
+    updateLoadingMessage("wake up...");
     const spl = document.getElementById("splash");
     if (spl) {
         spl.className = "inactive";

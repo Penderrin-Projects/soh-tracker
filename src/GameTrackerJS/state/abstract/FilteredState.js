@@ -1,12 +1,8 @@
-import EventBus from "/emcJS/event/EventBus.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import LogicExecutor from "../../util/LogicExecutor.js";
 import VisibilityState from "./VisibilityState.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import FilterStorage from "/script/storage/FilterStorage.js";
-
-function valueGetter(key) {
-    return this.get(key);
-}
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 
 function mapToObj(map) {
     const res = {};
@@ -23,8 +19,6 @@ export default class FilteredState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        const stored_data = new Map(Object.entries(StateStorage.getAll()));
         /* FILTER */
         if (props.filter) {
             const filter_values = new Map();
@@ -33,9 +27,9 @@ export default class FilteredState extends VisibilityState {
                 for (const j in props.filter[i]) {
                     if (typeof props.filter[i][j] == "object") {
                         const logicFn = LogicCompiler.compile(props.filter[i][j]);
+                        const value = LogicExecutor.execute(logicFn);
                         filter_logics.set(`${i}/${j}`, logicFn);
-                        const res = !!logicFn(valueGetter.bind(stored_data));
-                        filter_values.set(`${i}/${j}`, res);
+                        filter_values.set(`${i}/${j}`, value);
                     } else {
                         filter_values.set(`${i}/${j}`, !!props.filter[i][j]);
                     }
@@ -45,35 +39,27 @@ export default class FilteredState extends VisibilityState {
             FILTER_LOGICS.set(this, filter_logics);
         }
         /* EVENTS */
-        EventBus.register("state", event => {
-            const data = new Map(Object.entries(event.data.state));
-            this./*#*/__calculateFilter(data);
-        });
-        EventBus.register("options", event => {
-            const data = new Map(Object.entries(event.data));
-            this./*#*/__calculateFilter(data);
-        });
-    }
-    
-    /*#*/__calculateFilter(data) {
-        let changed = false;
-        const filter_values = FILTER.get(this);
-        const filter_logics = FILTER_LOGICS.get(this);
-        filter_logics.forEach((logicFn, key) => {
-            if (typeof logicFn == "function") {
-                const filtered = filter_values.get(key);
-                const res = !!logicFn(valueGetter.bind(data));
-                filter_values.set(key, res);
-                if (filtered != res) {
-                    changed = true;
+        const logicEventManager = new EventTargetManager(LogicExecutor);
+        logicEventManager.set(["reset", "change"], event => {
+            let changed = false;
+            const filter_values = FILTER.get(this);
+            const filter_logics = FILTER_LOGICS.get(this);
+            filter_logics.forEach((logicFn, key) => {
+                if (typeof logicFn == "function") {
+                    const filtered = filter_values.get(key);
+                    const value = LogicExecutor.execute(logicFn);
+                    if (filtered != value) {
+                        filter_values.set(key, value);
+                        changed = true;
+                    }
                 }
+            });
+            if (changed) {
+                const event = new Event("filter");
+                event.data = filter_values;
+                this.dispatchEvent(event);
             }
         });
-        if (changed) {
-            const event = new Event("filter");
-            event.data = filter_values;
-            this.dispatchEvent(event);
-        }
     }
 
     get filter() {

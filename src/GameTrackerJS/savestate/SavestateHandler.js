@@ -174,10 +174,13 @@ class SavestateHandler extends EventTarget {
         return LocalStorage.get(STATE_DIRTY);
     }
 
-    reset(data) {
-        const state = SavestateConverter.createEmptyState(data);
+    reset(data, options) {
         // write state data
-        Savestate.deserialize(state);
+        Savestate.deserialize({
+            data,
+            options
+        });
+        const state = Savestate.serialize();
         cacheData(state, false);
         // trigger event
         const ev = new Event("state");
@@ -189,7 +192,7 @@ class SavestateHandler extends EventTarget {
         this.dispatchEvent(ev);
     }
 
-    overwrite(data) {
+    overwrite(data, options) {
         const state = Savestate.serialize();
         // write data
         if (typeof data == "object") {
@@ -198,6 +201,11 @@ class SavestateHandler extends EventTarget {
                 for (const key in data[name]) {
                     state.data[name][key] = data[name][key];
                 }
+            }
+        }
+        if (typeof defaultOptions == "object") {
+            for (const key in options) {
+                state.options[key] = options[key];
             }
         }
         // write state data

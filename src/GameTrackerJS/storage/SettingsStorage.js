@@ -1,22 +1,31 @@
 import FileData from "/emcJS/data/FileData.js";
-import IDBProxyStorage from "./IDBProxyStorage.js";
+import EventBus from "/emcJS/event/EventBus.js";
+import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
     "list",
     "-list"
 ];
-
+    
 const DEFAULTS = new Map();
+const STORAGE = new IDBStorage("settings");
 
-class SettingsStorage extends IDBProxyStorage {
+class SettingsStorage extends DataStorage {
 
     constructor() {
-        super("settings");
+        super();
+        this.addEventListener("change", event => {
+            setTimeout(() => {
+                EventBus.trigger("settings", event.data);
+            }, 0);
+        });
+        EventBus.register("settings", event => {
+            this.setAll(event.data);
+        });
     }
 
     async init() {
-        await super.init();
-        /* --- */
         const options = FileData.get("settings", {});
         for (const key in options) {
             const opt = options[key];
@@ -29,6 +38,24 @@ class SettingsStorage extends IDBProxyStorage {
                 DEFAULTS.set(key, opt.default);
             }
         }
+        // ---
+        const data = await STORAGE.getAll();
+        super.setAll(data);
+    }
+
+    set(key, value) {
+        STORAGE.set(key, value);
+        super.set(key, value);
+    }
+
+    setAll(values) {
+        STORAGE.setAll(values);
+        super.setAll(values);
+    }
+
+    clear() {
+        STORAGE.clear();
+        super.clear();
     }
 
     get(key, value = DEFAULTS.get(key)) {

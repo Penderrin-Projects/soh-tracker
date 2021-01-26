@@ -4,7 +4,7 @@ import "/emcJS/ui/input/Option.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-option value="n" style="background-image: url('images/dungeontype/undefined.svg')"></emc-option>

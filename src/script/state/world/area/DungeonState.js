@@ -70,15 +70,13 @@ export default class DungeonState extends DefaultState {
         this./*#*/__applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
-        this.addEventListener("type", event => {
-            this.calculateAvailability();
-        });
     }
 
     /*#*/__applyTypeValue(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
+            this.refreshAccess();
             // external
             const event = new Event("type");
             event.data = newValue;

@@ -8,7 +8,7 @@ import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 function setAllListEntries(list, value = true) {
     if (!!list && Array.isArray(list)) {

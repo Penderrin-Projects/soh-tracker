@@ -3,7 +3,7 @@ import "/emcJS/ui/Icon.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
 export default class WorldElement extends BaseClass {

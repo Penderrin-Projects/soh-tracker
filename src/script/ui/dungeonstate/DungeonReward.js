@@ -5,7 +5,7 @@ import FileData from "/emcJS/data/FileData.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/script/ui/items/ItemPicker.js";
 
 const TPL = new Template(`

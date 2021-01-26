@@ -1,5 +1,4 @@
 import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/event/EventBus.js";
 import SettingsStorage from "../../storage/SettingsStorage.js";
 import SettingsWindow from "./SettingsWindow.js";
 import BusyIndicator from "/script/ui/BusyIndicator.js";
@@ -33,7 +32,6 @@ export default class AppSettingsWindow extends SettingsWindow {
             const settings = event.data;
             SettingsStorage.setAll(settings);
             applySettingsChoices(settings);
-            EventBus.trigger("settings", settings);
             BusyIndicator.unbusy();
         });
     }

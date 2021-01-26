@@ -3,7 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 import "./FilterButton.js";
 import StateStorage from "../storage/StateStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 
 const TPL = new Template(`
     <style>
@@ -53,7 +53,7 @@ class FilterMenu extends HTMLElement {
         this.addEventListener("click", event => {
             this.showContextMenu();
         });
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         // generate filters
         const menu = this.shadowRoot.getElementById("menu");
@@ -90,4 +90,4 @@ class FilterMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-filtermenu', FilterMenu);
+customElements.define("ootrt-filtermenu", FilterMenu);

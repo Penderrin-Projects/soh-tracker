@@ -1,4 +1,3 @@
-import FileData from "/emcJS/data/FileData.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";
@@ -92,24 +91,7 @@ async function state_New() {
             return;
         }
     }
-
-    const options = FileData.get("options");
-    const def_state = {};
-    for (const i in options) {
-        for (const j in options[i]) {
-            let v = options[i][j].default;
-            if (Array.isArray(v)) {
-                v = new Set(v);
-                options[i][j].values.forEach(el => {
-                    def_state[el] = v.has(el);
-                });
-            } else {
-                def_state[j] = v;
-            }
-        }
-    }
-
-    StateStorage.reset(def_state);
+    StateStorage.reset();
 }
 
 async function states_Manage() {

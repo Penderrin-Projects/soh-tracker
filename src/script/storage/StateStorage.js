@@ -6,11 +6,21 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
-import Helper from "/emcJS/util/Helper.js";
 
 class StateStorage {
 
     constructor() {
+        SavestateHandler.addEventListener("state", event => {
+            const {data: {"": state, ...extra}, options, notes} = event.data;
+            for (const [key, value] of Object.entries(options)) {
+                state[key] = value;
+            }
+            EventBus.trigger("state", {
+                notes,
+                state,
+                extra
+            });
+        });
         Savestate.addEventListener("change", event => {
             if (!event.category) {
                 EventBus.trigger("statechange", event.changes);
@@ -29,68 +39,26 @@ class StateStorage {
 
     async load(name) {
         SavestateHandler.load(name);
-        {
-            const state = Savestate.serialize();
-            const data = state.data[""];
-            for (const [key, value] of Object.entries(state.options)) {
-                data[key] = value;
-            }
-            const extra = Helper.deepClone(state.data);
-            delete extra[""];
-            EventBus.trigger("state", {
-                notes: state.notes,
-                state: data,
-                extra: extra
-            });
-        }
     }
 
     async setAutosave(time, amount) {
         SavestateHandler.setAutosave(time, amount);
     }
 
-    reset(data, extraData) {
+    reset(data = {}, extraData = {}, options = {}) {
         const newData = {
             ...extraData,
             "": data
         }
-        SavestateHandler.reset(newData);
-        {
-            const state = Savestate.serialize();
-            const data = state.data[""];
-            for (const [key, value] of Object.entries(state.options)) {
-                data[key] = value;
-            }
-            const extra = Helper.deepClone(state.data);
-            delete extra[""];
-            EventBus.trigger("state", {
-                notes: state.notes,
-                state: data,
-                extra: extra
-            });
-        }
+        SavestateHandler.reset(newData, options);
     }
 
-    overwrite(data, extraData) {
+    overwrite(data = {}, extraData = {}, options = {}) {
         const newData = {
             ...extraData,
             "": data
         }
-        SavestateHandler.overwrite(newData);
-        {
-            const state = Savestate.serialize();
-            const data = state.data[""];
-            for (const [key, value] of Object.entries(state.options)) {
-                data[key] = value;
-            }
-            const extra = Helper.deepClone(state.data);
-            delete extra[""];
-            EventBus.trigger("state", {
-                notes: state.notes,
-                state: data,
-                extra: extra
-            });
-        }
+        SavestateHandler.overwrite(newData, options);
     }
 
     getName() {

@@ -413,9 +413,12 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         this.registerGlobal(["state", "settings", "options", "filter"], () => {
             this.refresh();
         });
-        this.registerGlobal("dungeontype", event => {
-            if (this.ref === event.data.name) {
-                this.refresh();
+        this.registerGlobal("statechange_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
             }
         });
     }

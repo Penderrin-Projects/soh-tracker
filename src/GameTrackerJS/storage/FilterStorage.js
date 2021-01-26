@@ -1,0 +1,54 @@
+import FileData from "/emcJS/data/FileData.js";
+import EventBus from "/emcJS/event/EventBus.js";
+import DataStorage from "./DataStorage.js";
+
+const DEFAULTS = new Map();
+
+class FilterStorage extends DataStorage {
+
+    constructor() {
+        super();
+        this.addEventListener("change", event => {
+            setTimeout(() => {
+                EventBus.trigger("filter", event.data);
+            }, 0);
+        });
+        EventBus.register("filter", event => {
+            this.setAll(event.data);
+        });
+    }
+
+    async init() {
+        const options = FileData.get("options", {});
+        for (const key in options) {
+            const opt = options[key];
+            DEFAULTS.set(key, opt.default);
+        }
+    }
+
+    get(key, value = DEFAULTS.get(key)) {
+        if (DEFAULTS.has(key)) {
+            return super.get(key, value);
+        }
+        return value;
+    }
+
+    getAll() {
+        const res = {};
+        for (const [key, value] of DEFAULTS) {
+            res[key] = super.get(key, value);
+        }
+        return res;
+    }
+
+    has(key) {
+        return DEFAULTS.has(key);
+    }
+
+    keys() {
+        return DEFAULTS.keys();
+    }
+
+}
+
+export default new FilterStorage();

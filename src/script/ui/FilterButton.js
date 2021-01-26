@@ -3,9 +3,9 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 import StateStorage from "../storage/StateStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <slot>
@@ -56,7 +56,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -74,37 +74,37 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        const val = this.getAttribute('readonly');
+        const val = this.getAttribute("readonly");
         return !!val && val != "false";
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'ref':
+            case "ref":
                 if (oldValue != newValue) {
                     const data = FileData.get(`filter/${this.ref}`);
                     PERSIST.set(this, data.persist != null && !!data.persist);
@@ -122,7 +122,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                     }
                 }
                 break;
-            case 'value':
+            case "value":
                 if (oldValue != newValue) {
                     const oe = this.querySelector(`.active`);
                     if (oe) {
@@ -132,7 +132,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                     if (ne) {
                         ne.classList.add("active");
                     }
-                    const ev = new Event('change');
+                    const ev = new Event("change");
                     ev.oldValue = oldValue;
                     ev.value = newValue;
                     this.dispatchEvent(ev);
@@ -203,10 +203,10 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-filterbutton', FilterButton);
+customElements.define("ootrt-filterbutton", FilterButton);
 
 function createOption(value, img) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     return opt;

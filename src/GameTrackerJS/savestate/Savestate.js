@@ -54,6 +54,28 @@ class Savestate extends EventTarget {
     get autosave() {
         return autosave;
     }
+
+    getStructure() {
+        return {
+            name,
+            notes,
+            version,
+            timestamp,
+            autosave,
+            options: {},
+            data: {}
+        };
+    }
+
+    purge() {
+        DATA.clear();
+        OptionsStorage.clear();
+        name = "";
+        version = 0;
+        timestamp = new Date();
+        autosave = false;
+        notes = "";
+    }
     
     serialize() {
         const res = {
@@ -72,17 +94,18 @@ class Savestate extends EventTarget {
     }
 
     deserialize(value) {
-        name = value.name.toString();
-        notes = value.notes.toString();
-        version = value.version;
-        timestamp = value.timestamp;
-        autosave = value.autosave;
+        DATA.clear();
+        OptionsStorage.clear();
+        name = value.name?.toString() ?? "";
+        notes = value.notes?.toString() ?? "";
+        version = value.version ?? 0;
+        timestamp = value.timestamp ?? new Date();
+        autosave = value.autosave ?? false;
         OptionsStorage.setAll(value.options ?? {});
         /* --- */
         if (value.data != null) {
             for (const category in value.data) {
                 const dataStorage = this.getData(category);
-                dataStorage.clear();
                 dataStorage.setAll(value.data[category]);
             }
         }
@@ -97,13 +120,11 @@ class Savestate extends EventTarget {
         } else {
             const dataStorage = new DataStorage();
             dataStorage.addEventListener("change", event => {
-                setTimeout(() => {
-                    const ev = new Event("change");
-                    ev.category = storageCategory;
-                    ev.data = event.data;
-                    ev.changes = event.changes;
-                    this.dispatchEvent(ev);
-                }, 0);
+                const ev = new Event("change");
+                ev.category = storageCategory;
+                ev.data = event.data;
+                ev.changes = event.changes;
+                this.dispatchEvent(ev);
             });
             DATA.set(storageCategory, dataStorage);
             return dataStorage;

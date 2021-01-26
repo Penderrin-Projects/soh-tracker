@@ -1,5 +1,5 @@
 /**
- * move to serverside past 2020‑12‑31
+ * move to serverside earliest past 2020‑12‑31
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";

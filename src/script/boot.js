@@ -1,4 +1,4 @@
-
+import AsyM from "/emcJS/util/import/AsyM.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import FileData from "/emcJS/data/FileData.js";
 import Language from "/GameTrackerJS/util/Language.js";
@@ -38,11 +38,7 @@ export async function loadResources(updateLoadingMessage = loadingMessage) {
     await Language.load(SettingsStorage.get("language"));
     
     updateLoadingMessage("initialize states...");
-    const [
-        StateInit
-    ] = await $import.module([ // eslint-disable-line no-undef
-        "/script/state/StateInit.js"
-    ]);
+    const [StateInit] = await AsyM.import("/script/state/StateInit.js");
     StateInit.init();
 }
 

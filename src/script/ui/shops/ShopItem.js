@@ -4,7 +4,7 @@ import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager
 import ShopStates from "/script/state/shop/StateManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div id="image"></div>

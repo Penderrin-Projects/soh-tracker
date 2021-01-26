@@ -158,13 +158,12 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             this.refresh();
         });
         this.registerGlobal("statechange_dungeontype", event => {
-            let data;
             if (event.data != null) {
-                data = event.data[this.ref];
-            }
-            if (data != null) {
-                this.shadowRoot.getElementById("location-version").value = data.newValue;
-                this.refresh();
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.shadowRoot.getElementById("location-version").value = data.newValue;
+                    this.refresh();
+                }
             }
         });
         this.registerGlobal("statechange_area_hint", event => {
