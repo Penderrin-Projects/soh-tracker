@@ -5,7 +5,7 @@
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.14",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.11",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0",
-    "asym": "git+https://bitbucket.org/zidargs/asym.git#1.0.0"
+    "asym": "git+https://bitbucket.org/zidargs/asym.git#1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

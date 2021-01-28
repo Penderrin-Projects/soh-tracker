@@ -136,24 +136,33 @@ function copyFonts(dest = DEV_PATH) {
 function copyScript(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/script/**/*.js`)
         .pipe(filemanager.register(`${SRC_PATH}/script`, `${dest}/script`))
-        .pipe(gulpAsyM("/asym"))
         .pipe(newer(`${dest}/script`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
         .pipe(gulp.dest(`${dest}/script`));
 }
 
 function copyGameTrackerJS(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/GameTrackerJS/**/*.js`)
         .pipe(filemanager.register(`${SRC_PATH}/GameTrackerJS`, `${dest}/GameTrackerJS`))
-        .pipe(gulpAsyM("/asym"))
         .pipe(newer(`${dest}/GameTrackerJS`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
         .pipe(gulp.dest(`${dest}/GameTrackerJS`));
 }
 
 function copyEditorExtension(dest = DEV_PATH) {
     return gulp.src(`${EDT_PATH}/**/*.js`)
         .pipe(filemanager.register(`${EDT_PATH}`, `${dest}/script/content`))
-        .pipe(gulpAsyM("/asym"))
         .pipe(newer(`${dest}/script/content`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
         .pipe(gulp.dest(`${dest}/script/content`));
 }
 

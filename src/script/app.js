@@ -1,19 +1,20 @@
 /*
     starting point for application
 */
-
-import AsyM from "/emcJS/util/import/AsyM.js";
+/* asym-import: off */
+import Import from "/emcJS/util/import/Import.js";
 import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
+import "/emcJS/ui/Paging.js";
+/* asym-import: on */
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 
 import {loadResources, registerWorker} from "/script/boot.js";
 
 import "/script/storage/converter/StateConverter.js";
 
-import "/emcJS/ui/Paging.js";
 
 function setVersion(data) {
     MemoryStorage.set("version-dev", data.dev);
@@ -58,12 +59,12 @@ window.onbeforeunload = function() {
 
 async function init() {
     updateLoadingMessage("extract recent savestate...");
-    const [SavestateHandler] = await AsyM.import("/GameTrackerJS/savestate/SavestateHandler.js");
+    const [SavestateHandler] = await Import.module("/GameTrackerJS/savestate/SavestateHandler.js");
 
     const [
         [AugmentExits],
         [AugmentCustomLogic]
-    ] = await AsyM.import([
+    ] = await Import.module([
         "/script/util/logic/AugmentExits.js",
         "/script/util/logic/AugmentCustomLogic.js",
         "/script/util/logic/LogicCaller.js"
@@ -80,7 +81,7 @@ async function init() {
         [SavestateOptionsWindow],
         [TrackerSettingsWindow],
         [SpoilerLogWindow]
-    ] = await AsyM.import([
+    ] = await Import.module([
         // consts
         "/emcJS/event/EventBus.js",
         "/emcJS/util/Logger.js",
@@ -140,7 +141,7 @@ async function init() {
     window.SpoilerLogWindow = new SpoilerLogWindow();
 
     updateLoadingMessage("add modules...");
-    await AsyM.import([
+    await Import.module([
         "/script/ui/shops/ShopList.js",
         "/script/ui/songs/SongList.js",
         "/script/ui/exits/ExitList.js",
