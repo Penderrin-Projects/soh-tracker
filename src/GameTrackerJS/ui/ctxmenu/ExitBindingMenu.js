@@ -1,29 +1,29 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import SavestateHandler from "../../storage/SavestateHandler.js";
 import Language from "../../util/Language.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 
 const TPL = new Template(`
-<emc-contextmenu id="menu">
-    <emc-listselect id="select"></emc-listselect>
-</emc-contextmenu>
-`);
+    <emc-contextmenu id="menu">
+        <emc-listselect id="select"></emc-listselect>
+    </emc-contextmenu>
+    `);
 
 const STYLE = new GlobalStyle(`
-#select {
-    height: 300px;
-    width: 300px;
-}
-`);
+    #select {
+        height: 300px;
+        width: 300px;
+    }
+    `);
 
 export default class ExitBindingMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -39,7 +39,7 @@ export default class ExitBindingMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        menuEl.addEventListener("close", function() {
+        menuEl.addEventListener("close", () => {
             selectEl.resetSearch();
         });
     }
@@ -68,7 +68,7 @@ export default class ExitBindingMenu extends HTMLElement {
         const selectEl = this.shadowRoot.getElementById("select");
         selectEl.innerHTML = "";
         // retrieve bound
-        const exits = StateStorage.readAllExtra("exits");
+        const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
@@ -103,10 +103,10 @@ export default class ExitBindingMenu extends HTMLElement {
                         const entranceName = Language.translate(`entrance[${value.props.target}]`);
                         if (exit.exitData.bindsTo.length > 1) {
                             const category = `
-                                <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
-                                    ${Language.translate(value.props.type)}
-                                </span>
-                            `;
+                                    <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
+                                        ${Language.translate(value.props.type)}
+                                    </span>
+                                `;
                             opt.innerHTML = `${entranceName}${category}`;
                         } else {
                             opt.innerHTML = entranceName;

@@ -1,5 +1,5 @@
-import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import OptionsResource from "../data/OptionsResource.js";
 import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
@@ -8,6 +8,17 @@ const SET_TYPES = [
 ];
 
 const DEFAULTS = new Map();
+
+for (const [key, value] in Object.entries(OptionsResource.get())) {
+    if (SET_TYPES.indexOf(value.type) >= 0) {
+        const def = new Set(value.default);
+        for (const el of value.values) {
+            DEFAULTS.set(el, def.has(el));
+        }
+    } else {
+        DEFAULTS.set(key, value.default);
+    }
+}
 
 class OptionsStorage extends DataStorage {
 
@@ -21,21 +32,6 @@ class OptionsStorage extends DataStorage {
         EventBus.register("options", event => {
             this.setAll(event.data);
         });
-    }
-
-    async init() {
-        const options = FileData.get("options", {});
-        for (const key in options) {
-            const opt = options[key];
-            if (SET_TYPES.indexOf(opt.type) >= 0) {
-                const def = new Set(opt.default);
-                for (const el of opt.values) {
-                    DEFAULTS.set(el, def.has(el));
-                }
-            } else {
-                DEFAULTS.set(key, opt.default);
-            }
-        }
     }
 
     get(key, value = DEFAULTS.get(key)) {
@@ -63,4 +59,5 @@ class OptionsStorage extends DataStorage {
 
 }
 
-export default new OptionsStorage();
+const storage = new OptionsStorage();
+export default storage;

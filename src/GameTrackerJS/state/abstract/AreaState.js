@@ -1,13 +1,13 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElementState from "./WorldElementState.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
+import ListLogic from "../../util/logic/ListLogic.js";
 
 const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
-
+    
 export default class AreaState extends WorldElementState {
-
+    
     constructor(ref, props, areaData) {
         super(ref, props);
         /* --- */

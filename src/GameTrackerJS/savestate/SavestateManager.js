@@ -1,5 +1,5 @@
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import StateConverter from "/script/storage/StateConverter.js";
+import SavestateConverter from "/script/storage/SavestateConverter.js";
 
 const STORAGE = new IDBStorage("savestates");
 
@@ -29,7 +29,7 @@ class SavestateManager {
     }
 
     async import(data) {
-        data = StateConverter.convert(data);
+        data = SavestateConverter.convert(data);
         data.autosave = false;
         await STORAGE.set(data.name, data);
     }
@@ -40,4 +40,4 @@ class SavestateManager {
 
 }
 
-export default new SavestateManager;
+export default new SavestateManager();

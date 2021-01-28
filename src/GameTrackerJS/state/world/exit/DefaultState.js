@@ -1,11 +1,12 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import SavestateHandler from "../../../storage/SavestateHandler.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
+import Logic from "../../../util/logic/Logic.js";
 import WorldRegistry from "../../../registry/WorldRegistry.js";
 import ExitRegistry from "../../../registry/ExitRegistry.js";
-import EntranceStates from "../entrance/StateManager.js";
 import ExitState from "../../abstract/ExitState.js";
-import Logic from "/script/util/logic/Logic.js";
+import EntranceStates from "../entrance/StateManager.js";
+import "../area/StateManager.js";
 
 const MANAGER = new WeakMap();
 const ACCESS = new WeakMap();
@@ -80,7 +81,7 @@ export default class DefaultState extends ExitState {
         /* --- */
         const logicAccess = props.access.split(" -> ")[0];
         ACCESS.set(this, getLogicAccess(logicAccess));
-        this.value = StateStorage.readExtra("exits", props.access, "");
+        this.value = SavestateHandler.get("exits", props.access, "");
         /* EVENTS */
         EventBus.register("state::exit_binding", internalChange.bind(this));
         EventBus.register("state", event => {
@@ -124,7 +125,7 @@ export default class DefaultState extends ExitState {
         if (value != old) {
             const manager = MANAGER.get(this);
             VALUE.set(this, value);
-            StateStorage.writeExtra("exits", props.access, value);
+            SavestateHandler.set("exits", props.access, value);
             if (value) {
                 const area = getEntranceArea(value);
                 AREA.set(this, area);
@@ -154,7 +155,7 @@ export default class DefaultState extends ExitState {
         value = this./*#*/__setValue(value);
         if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::exit_binding", {ref: this.props.access, value});
+            EventBus.trigger("state::exit_binding", { ref: this.props.access, value });
         }
     }
 

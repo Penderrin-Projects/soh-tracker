@@ -1,7 +1,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import SavestateHandler from "../../../storage/SavestateHandler.js";
+import Logic from "../../../util/logic/Logic.js";
 import WorldElementState from "../../abstract/WorldElementState.js";
-import Logic from "/script/util/logic/Logic.js";
 
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
@@ -59,7 +59,7 @@ export default class DefaultState extends WorldElementState {
         if (value != old) {
             const ref = this.ref;
             VALUE.set(this, value);
-            StateStorage.write(ref, this.value);
+            SavestateHandler.set("", ref, this.value);
             // external
             const event = new Event("value");
             event.data = value;
@@ -74,7 +74,7 @@ export default class DefaultState extends WorldElementState {
         value = this./*#*/__setValue(value);
         if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::location", {ref, value});
+            EventBus.trigger("state::location", { ref, value });
         }
     }
 

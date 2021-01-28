@@ -46,6 +46,7 @@ const newer = require('gulp-newer');
 const autoprefixer = require('gulp-autoprefixer');
 const eslint = require('gulp-eslint');
 const filemanager = require("./file-manager");
+const augmentAsyM = require("./AugmentAsyM");
 
 function copyHTML(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/**/*.html`)
@@ -123,8 +124,17 @@ function copyFonts(dest = DEV_PATH) {
 function copyScript(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/script/**/*.js`)
         .pipe(filemanager.register(`${SRC_PATH}/script`, `${dest}/script`))
+        .pipe(augmentAsyM())
         .pipe(newer(`${dest}/script`))
         .pipe(gulp.dest(`${dest}/script`));
+}
+
+function copyGameTrackerJS(dest = DEV_PATH) {
+    return gulp.src(`${SRC_PATH}/GameTrackerJS/**/*.js`)
+        .pipe(filemanager.register(`${SRC_PATH}/GameTrackerJS`, `${dest}/GameTrackerJS`))
+        .pipe(augmentAsyM())
+        .pipe(newer(`${dest}/GameTrackerJS`))
+        .pipe(gulp.dest(`${dest}/GameTrackerJS`));
 }
 
 function copyEditorExtension(dest = DEV_PATH) {
@@ -132,13 +142,6 @@ function copyEditorExtension(dest = DEV_PATH) {
         .pipe(filemanager.register(`${EDT_PATH}`, `${dest}/script/content`))
         .pipe(newer(`${dest}/script/content`))
         .pipe(gulp.dest(`${dest}/script/content`));
-}
-
-function copyGameTrackerJS(dest = DEV_PATH) {
-    return gulp.src(`${SRC_PATH}/GameTrackerJS/**/*.js`)
-        .pipe(filemanager.register(`${SRC_PATH}/GameTrackerJS`, `${dest}/GameTrackerJS`))
-        .pipe(newer(`${dest}/GameTrackerJS`))
-        .pipe(gulp.dest(`${dest}/GameTrackerJS`));
 }
 
 function copyEmcJS(dest = DEV_PATH) {

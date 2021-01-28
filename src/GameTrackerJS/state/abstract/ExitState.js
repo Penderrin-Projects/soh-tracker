@@ -1,7 +1,7 @@
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import LogicExecutor from "../../util/LogicExecutor.js";
+import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import WorldElementState from "./WorldElementState.js";
 
@@ -17,20 +17,20 @@ export default class ExitState extends WorldElementState {
         EXIT_DATA.set(this, exitData);
         /* ACTIVE */
         if (typeof exitData.active == "object") {
-            const active_logic = LogicCompiler.compile(exitData.active);
-            const value = LogicExecutor.execute(active_logic);
+            const logicFn = LogicCompiler.compile(exitData.active);
+            const value = LogicExecutor.execute(logicFn);
             ACTIVE.set(this, value);
-            ACTIVE_LOGIC.set(this, active_logic);
+            ACTIVE_LOGIC.set(this, logicFn);
         } else {
             ACTIVE.set(this, !!exitData.active);
         }
         /* EVENTS */
         const logicEventManager = new EventTargetManager(LogicExecutor);
         logicEventManager.set(["reset", "change"], event => {
-            const active_logic = ACTIVE_LOGIC.get(this);
-            if (typeof active_logic == "function") {
+            const logicFn = ACTIVE_LOGIC.get(this);
+            if (typeof logicFn == "function") {
                 const active = ACTIVE.get(this);
-                const value = LogicExecutor.execute(active_logic);
+                const value = LogicExecutor.execute(logicFn);
                 if (active != value) {
                     ACTIVE.set(this, value);
                     const event = new Event("active");

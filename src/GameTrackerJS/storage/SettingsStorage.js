@@ -1,15 +1,26 @@
-import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import SettingsResource from "../data/SettingsResource.js";
 import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
     "list",
     "-list"
 ];
-    
+
 const DEFAULTS = new Map();
 const STORAGE = new IDBStorage("settings");
+
+for (const [key, value] in Object.entries(SettingsResource.get())) {
+    if (SET_TYPES.indexOf(value.type) >= 0) {
+        const def = new Set(value.default);
+        for (const el of value.values) {
+            DEFAULTS.set(el, def.has(el));
+        }
+    } else {
+        DEFAULTS.set(key, value.default);
+    }
+}
 
 class SettingsStorage extends DataStorage {
 
@@ -23,24 +34,6 @@ class SettingsStorage extends DataStorage {
         EventBus.register("settings", event => {
             this.setAll(event.data);
         });
-    }
-
-    async init() {
-        const options = FileData.get("settings", {});
-        for (const key in options) {
-            const opt = options[key];
-            if (SET_TYPES.indexOf(opt.type) >= 0) {
-                const def = new Set(opt.default);
-                for (const el of opt.values) {
-                    DEFAULTS.set(el, def.has(el));
-                }
-            } else {
-                DEFAULTS.set(key, opt.default);
-            }
-        }
-        // ---
-        const data = await STORAGE.getAll();
-        super.setAll(data);
     }
 
     set(key, value) {
@@ -83,4 +76,6 @@ class SettingsStorage extends DataStorage {
 
 }
 
-export default new SettingsStorage();
+const storage = new SettingsStorage();
+storage.setAll(await STORAGE.getAll());
+export default storage;

@@ -1,8 +1,12 @@
-import FileData from "/emcJS/data/FileData.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import FilterResource from "../data/FilterResource.js";
 import DataStorage from "./DataStorage.js";
 
 const DEFAULTS = new Map();
+
+for (const [key, value] in Object.entries(FilterResource.get())) {
+    DEFAULTS.set(key, value.default);
+}
 
 class FilterStorage extends DataStorage {
 
@@ -16,14 +20,6 @@ class FilterStorage extends DataStorage {
         EventBus.register("filter", event => {
             this.setAll(event.data);
         });
-    }
-
-    async init() {
-        const options = FileData.get("options", {});
-        for (const key in options) {
-            const opt = options[key];
-            DEFAULTS.set(key, opt.default);
-        }
     }
 
     get(key, value = DEFAULTS.get(key)) {
@@ -51,4 +47,5 @@ class FilterStorage extends DataStorage {
 
 }
 
-export default new FilterStorage();
+const storage = new FilterStorage();
+export default storage;
