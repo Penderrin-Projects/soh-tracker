@@ -11,7 +11,7 @@ const SET_TYPES = [
 const DEFAULTS = new Map();
 const STORAGE = new IDBStorage("settings");
 
-for (const [key, value] in Object.entries(SettingsResource.get())) {
+for (const [key, value] of Object.entries(SettingsResource.get())) {
     if (SET_TYPES.indexOf(value.type) >= 0) {
         const def = new Set(value.default);
         for (const el of value.values) {

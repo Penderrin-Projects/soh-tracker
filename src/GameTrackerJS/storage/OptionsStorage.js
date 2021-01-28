@@ -9,7 +9,7 @@ const SET_TYPES = [
 
 const DEFAULTS = new Map();
 
-for (const [key, value] in Object.entries(OptionsResource.get())) {
+for (const [key, value] of Object.entries(OptionsResource.get())) {
     if (SET_TYPES.indexOf(value.type) >= 0) {
         const def = new Set(value.default);
         for (const el of value.values) {

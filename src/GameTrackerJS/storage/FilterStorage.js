@@ -4,7 +4,7 @@ import DataStorage from "./DataStorage.js";
 
 const DEFAULTS = new Map();
 
-for (const [key, value] in Object.entries(FilterResource.get())) {
+for (const [key, value] of Object.entries(FilterResource.get())) {
     DEFAULTS.set(key, value.default);
 }
 
