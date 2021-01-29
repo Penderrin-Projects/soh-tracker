@@ -84,12 +84,5 @@
         "category": "settings",
         "type": "check",
         "default": false
-    },
-    "erase_all_data": {
-        "category": "settings",
-        "type": "button",
-        "text": "button_erase_data",
-        "url": "uninstall.html?nosw",
-        "target": "_self"
     }
 }

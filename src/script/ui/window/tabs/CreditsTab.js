@@ -1,7 +1,9 @@
+/* asym-import: off */
 import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {

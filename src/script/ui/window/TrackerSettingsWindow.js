@@ -1,8 +1,13 @@
+/* asym-import: off */
 import PopOver from "/emcJS/ui/overlay/PopOver.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import AppSettingsWindow from "/GameTrackerJS/ui/window/AppSettingsWindow.js";
-import "./CreditsTab.js";
-import "./AboutTab.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import AppSettingsWindow from "/GameTrackerJS/ui/window/settings/AppSettingsWindow.js";
+// -------------
+import "./tabs/CreditsTab.js";
+import "./tabs/AboutTab.js";
 
 // TODO bind erase stored data button
 

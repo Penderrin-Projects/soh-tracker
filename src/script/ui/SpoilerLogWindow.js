@@ -6,15 +6,13 @@ import FileSystem from "/emcJS/util/FileSystem.js";
 import "/emcJS/ui/Paging.js";
 
 import StateStorage from "/script/storage/StateStorage.js";
-import BusyIndicator from "/script/ui/BusyIndicator.js";
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
 const settings = new SettingsWindow;
-
-BusyIndicator.setIndicator(document.getElementById("busy-animation"));
 
 const LOAD_SPOILER = new Template(`
     <div id="options-spoiler-wrapper">

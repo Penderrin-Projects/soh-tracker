@@ -1,6 +1,11 @@
-import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: off */
 import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
-import Logic from "/script/util/logic/Logic.js";
+import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// -------------
 
 function changeBinding(values) {
     const changes = [];
@@ -104,15 +109,7 @@ class ExitAugmentor {
 
 }
 
-class AugmentExits {
-
-    init() {
-        const exits = ExitRegistry.getAll();
-        for (const exit of Object.values(exits)) {
-            new ExitAugmentor(exit);
-        }
-    }
-
+const exits = ExitRegistry.getAll();
+for (const exit of Object.values(exits)) {
+    new ExitAugmentor(exit);
 }
-
-export default new AugmentExits();

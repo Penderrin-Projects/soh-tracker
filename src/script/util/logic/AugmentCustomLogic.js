@@ -1,11 +1,17 @@
+/* asym-import: off */
 import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/event/EventBus.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import StateStorage from "/script/storage/StateStorage.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import Logic from "/script/util/logic/Logic.js";
+import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// -------------
+import StateStorage from "/script/storage/StateStorage.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
+// TODO create storage files for these
 const LogicsStorage = new IDBStorage("logics");
 const GraphStorage = new IDBStorage("edges");
 const LogicsStorageGlitched = new IDBStorage("logics_glitched");
@@ -79,14 +85,6 @@ async function update() {
     }
 }
 
-class AugmentCustomLogic {
-
-    async init() {
-        logic_rules = StateStorage.read("option.logic_rules");
-        use_custom_logic = SettingsStorage.get("use_custom_logic");
-        await update();
-    }
-
-}
-
-export default new AugmentCustomLogic();
+logic_rules = StateStorage.read("option.logic_rules");
+use_custom_logic = SettingsStorage.get("use_custom_logic");
+await update();

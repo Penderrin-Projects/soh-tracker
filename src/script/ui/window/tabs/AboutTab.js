@@ -1,5 +1,12 @@
+/* asym-import: off */
 import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import Template from "/emcJS/util/Template.js";
+import Dialog from "/emcJS/ui/overlay/Dialog.js";
+/* asym-import: on */
+
+// GameTrackerJS
+
+// -------------
 import "/script/ui/UpdateHandler.js";
 
 const TPL = new Template(`
@@ -18,6 +25,11 @@ const TPL = new Template(`
         </div>
         <hr>
         <ootrt-updatehandler id="updatehandler"></ootrt-updatehandler>
+        <hr>
+        <div style="padding: 5px;">
+            Erase all app data:
+            <button id="erase-button">erase</button>
+        </div>
     </div>
     <div style="width: 200px; height: 200px; background-image: url('images/logo.svg'); background-size: contain; background-position: left; background-repeat: no-repeat;"></div>
 </div>
@@ -47,6 +59,12 @@ export default class AboutTab extends HTMLElement {
         updatehandler.addEventListener("noconnection", () => {
             const ev = new Event("updaterror");
             this.dispatchEvent(ev);
+        });
+        this.shadowRoot.getElementById("erase-button").addEventListener("click", async () => {
+            const eraseString = await Dialog.prompt("Erase all data", "Warning: All stored data will be lost\nPlease enter \"erase data\" to confirm");
+            if (eraseString == "erase data") {
+                window.location.href = "/uninstall.html?nosw";
+            }
         });
     }
 

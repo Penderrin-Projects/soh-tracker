@@ -3,34 +3,44 @@
 */
 /* asym-import: off */
 import Import from "/emcJS/util/import/Import.js";
-import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
-import FileLoader from "/emcJS/util/FileLoader.js";
-import DateUtil from "/emcJS/util/DateUtil.js";
+import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
+import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Paging.js";
+import "/emcJS/ui/input/TextEditor.js";
+import "/emcJS/ui/LogScreen.js";
+import "/emcJS/ui/Icon.js";
+import "/emcJS/ui/layout/Layout.js";
 /* asym-import: on */
+
+// GameTrackerJS
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
-
-import {loadResources, registerWorker} from "/script/boot.js";
-
+import Language from "/GameTrackerJS/util/Language.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+// -------------
+import VersionData from "/script/data/VersionData.js";
 import "/script/storage/converter/StateConverter.js";
-
-
-function setVersion(data) {
-    MemoryStorage.set("version-dev", data.dev);
-    if (data.dev) {
-        MemoryStorage.set("version-string", `DEV [${data.commit.slice(0, 7)}]`);
-    } else {
-        MemoryStorage.set("version-string", data.version);
-    }
-    MemoryStorage.set("version-date", DateUtil.convert(new Date(data.date), "D.M.Y h:m:s"));
-}
-
-function setDevs(data) {
-    MemoryStorage.set("devs-owner", data.owner);
-    MemoryStorage.set("devs-team", data.team);
-    MemoryStorage.set("devs-contributors", data.contributors);
-}
+import "/script/util/logic/AugmentExits.js";
+import "/script/util/logic/AugmentCustomLogic.js";
+import "/script/util/logic/LogicCaller.js";
+import "/script/content/Tracker.js";
+import "/script/content/EditorChoice.js"
+import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
+import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
+import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
+import "/script/ui/ViewChoice.js";
+import "/script/ui/items/ItemGrid.js";
+import "/script/ui/dungeonstate/DungeonState.js";
+import "/script/ui/world/LocationList.js";
+import "/script/ui/world/Map.js";
+import "/script/ui/LocationStatus.js";
+import "/script/ui/shops/ShopList.js";
+import "/script/ui/songs/SongList.js";
+import "/script/ui/exits/ExitList.js";
+import "/script/ui/multiplayer/Multiplayer.js";
+import "/script/ui/LayoutContainer.js";
 
 const spl = document.getElementById("splash").querySelector(".loading");
 function updateLoadingMessage(msg = "loading...") {
@@ -38,75 +48,16 @@ function updateLoadingMessage(msg = "loading...") {
 }
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
-(async function main() {
-    try {
-        setVersion(await FileLoader.json("version.json"));
-        setDevs(await FileLoader.json("devs.json"));
-        // ---
-        await loadResources(updateLoadingMessage);
-        // ---
-        updateLoadingMessage("poke application...");
-        await init();
-    } catch(err) {
-        console.error(err);
-        updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
-    }
-}());
-
 window.onbeforeunload = function() {
     return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
 }
 
-async function init() {
-    updateLoadingMessage("extract recent savestate...");
-    const [SavestateHandler] = await Import.module("/GameTrackerJS/savestate/SavestateHandler.js");
-
-    const [
-        [AugmentExits],
-        [AugmentCustomLogic]
-    ] = await Import.module([
-        "/script/util/logic/AugmentExits.js",
-        "/script/util/logic/AugmentCustomLogic.js",
-        "/script/util/logic/LogicCaller.js"
-    ]);
-
-    updateLoadingMessage("build logic data...");
-    await AugmentExits.init();
-    await AugmentCustomLogic.init();
-
-    updateLoadingMessage("load visuals...");
-    const [
-        [EventBus],
-        [Logger],
-        [SavestateOptionsWindow],
-        [TrackerSettingsWindow],
-        [SpoilerLogWindow]
-    ] = await Import.module([
-        // consts
-        "/emcJS/event/EventBus.js",
-        "/emcJS/util/Logger.js",
-        "/GameTrackerJS/ui/window/SavestateOptionsWindow.js",
-        "/script/ui/window/TrackerSettingsWindow.js",
-        "/script/ui/SpoilerLogWindow.js",
-        // untracked
-        "/emcJS/ui/input/TextEditor.js",
-        "/emcJS/ui/LogScreen.js",
-        "/emcJS/ui/Icon.js",
-        "/emcJS/ui/layout/Layout.js",
-        "/script/ui/ViewChoice.js",
-        "/script/ui/items/ItemGrid.js",
-        "/script/ui/dungeonstate/DungeonState.js",
-        "/script/ui/world/LocationList.js",
-        "/script/ui/world/Map.js",
-        "/script/ui/LocationStatus.js",
-        "/script/content/Tracker.js",
-        "/script/content/EditorChoice.js"
-    ]);
-    
-    await registerWorker();
-
+try {
     updateLoadingMessage("apply logger...");
-    if (MemoryStorage.get("version-dev")) {
+    // add default log output
+    Logger.addOutput(console);
+    // add log panel
+    if (VersionData.isDev) {
         const logPanel = document.createElement("div");
         logPanel.setAttribute("slot", "log");
         logPanel.dataset.title = "Logger";
@@ -117,15 +68,19 @@ async function init() {
         logPanel.append(logScreen);
         document.getElementById("main-content").append(logPanel);
         Logger.addOutput(logScreen);
-        //Logger.addOutput(console);
         EventBus.register(function(event) {
             Logger.info(JSON.stringify(event), "Event");
         });
-    } else {
-        // not in dev version
     }
 
+    updateLoadingMessage("learn languages...");
+    // load current language
+    await Language.load(SettingsStorage.get("language"));
+
     updateLoadingMessage("initialize components...");
+    // busy indicator
+    BusyIndicator.setIndicator(document.getElementById("busy-animation"));
+    // notepad
     const notePad = document.getElementById("notes-editor");
     notePad.value = SavestateHandler.getNotes();
     SavestateHandler.addEventListener("notes", function(event) {
@@ -134,36 +89,20 @@ async function init() {
     notePad.addEventListener("change", function() {
         SavestateHandler.setNotes(notePad.value);
     });
-
-    updateLoadingMessage("initialize settings...");
-    window.TrackerSettingsWindow = new TrackerSettingsWindow();
-    window.SavestateOptionsWindow = new SavestateOptionsWindow();
-    window.SpoilerLogWindow = new SpoilerLogWindow();
-
-    updateLoadingMessage("add modules...");
-    await Import.module([
-        "/script/ui/shops/ShopList.js",
-        "/script/ui/songs/SongList.js",
-        "/script/ui/exits/ExitList.js",
-        "/script/ui/multiplayer/Multiplayer.js",
-        "/script/ui/LayoutContainer.js"
-    ]);
-
-    updateLoadingMessage("wake up...");
-    const spl = document.getElementById("splash");
-    if (spl) {
-        spl.className = "inactive";
+    // shared worker
+    if ("SharedWorker" in window) {
+        const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
+        EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
     }
-    
-    // hotkeys
-    function openDetached() {
+    // register hotkey - detached window
+    HotkeyHandler.setAction("detached_window", () => {
         window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
-    }
-    HotkeyHandler.setAction("detached_window", openDetached, {
+    }, {
         ctrlKey: true,
         altKey: true,
         key: "i"
     });
+    // register hotkey handler
     window.addEventListener("keydown", function(event) {
         if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
             event.preventDefault();
@@ -171,4 +110,20 @@ async function init() {
             return false;
         }
     });
+
+    updateLoadingMessage("initialize settings...");
+    // windows
+    window.TrackerSettingsWindow = new TrackerSettingsWindow();
+    window.RomOptionsWindow = new RomOptionsWindow();
+    window.SpoilerLogWindow = new SpoilerLogWindow();
+
+    updateLoadingMessage("wake up...");
+    // remove splashscreen
+    const spl = document.getElementById("splash");
+    if (spl) {
+        spl.className = "inactive";
+    }
+} catch(err) {
+    console.error(err);
+    updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
 }
