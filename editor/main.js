@@ -1,6 +1,27 @@
 const { app, protocol, BrowserWindow } = require('electron');
 const fs = require('fs');
 const path = require("path");
+const gulp = require("gulp");
+const gulpAsyM = require("asym/GulpAsyM");
+
+/* BEGIN GULP BOOTSTRAP */
+// TODO
+gulp.parallel(() => {
+    return gulp.src(`../src/script/**/*.js`)
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
+        .pipe(gulp.dest(`./cache/script`));
+}, () => {
+    return gulp.src(`../src/GameTrackerJS/**/*.js`)
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
+        .pipe(gulp.dest(`./cache/GameTrackerJS`));
+});
+/* END GULP BOOTSTRAP */
 
 let OPTIONS = {
     debug: false
