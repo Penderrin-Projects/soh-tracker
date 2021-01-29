@@ -1,4 +1,6 @@
+/* asym-import: off */
 import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
+/* asym-import: on */
 
 const LOGIC_PROCESSOR = new LogicGraph(true);
 

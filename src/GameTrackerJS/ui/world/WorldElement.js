@@ -1,5 +1,7 @@
+/* asym-import: off */
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";

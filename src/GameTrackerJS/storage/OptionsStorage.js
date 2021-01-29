@@ -1,5 +1,7 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import OptionsResource from "../data/OptionsResource.js";
+/* asym-import: on */
+import OptionsResource from "../resource/OptionsResource.js";
 import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
@@ -32,6 +34,16 @@ class OptionsStorage extends DataStorage {
         EventBus.register("options", event => {
             this.setAll(event.data);
         });
+    }
+
+    set(key, value) {
+        // TODO check if value is valid; else set default/remove value
+        super.set(key, value);
+    }
+
+    setAll(values) {
+        // TODO check if values are valid; else set default/remove value
+        super.setAll(values);
     }
 
     get(key, value = DEFAULTS.get(key)) {

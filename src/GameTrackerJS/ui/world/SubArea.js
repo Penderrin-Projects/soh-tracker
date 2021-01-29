@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";

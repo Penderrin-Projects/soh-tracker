@@ -1,6 +1,8 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
@@ -95,7 +97,6 @@ export default class AbstractArea extends WorldElement {
                 state.hint = "";
             }
         });
-
         
         /* mouse events */
         this.addEventListener("click", event => {

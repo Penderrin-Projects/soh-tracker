@@ -1,4 +1,6 @@
+/* asym-import: off */
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";

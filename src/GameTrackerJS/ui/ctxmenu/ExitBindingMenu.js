@@ -1,7 +1,9 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-import SavestateHandler from "../../storage/SavestateHandler.js";
+/* asym-import: on */
+import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
 import ExitRegistry from "../../registry/ExitRegistry.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";

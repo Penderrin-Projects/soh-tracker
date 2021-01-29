@@ -1,4 +1,6 @@
+/* asym-import: off */
 import ClassRegister from "/emcJS/util/ClassRegister.js";
+/* asym-import: on */
 
 const CATEGORIES = new Map();
 

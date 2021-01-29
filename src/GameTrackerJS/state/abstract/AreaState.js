@@ -1,4 +1,6 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
 import WorldRegistry from "../../registry/WorldRegistry.js";
 import WorldElementState from "./WorldElementState.js";
 import ListLogic from "../../util/logic/ListLogic.js";

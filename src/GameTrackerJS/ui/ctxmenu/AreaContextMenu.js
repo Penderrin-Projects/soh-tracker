@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+/* asym-import: on */
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -16,7 +18,7 @@ export default class AreaContextMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         /* --- */
         this.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
@@ -73,4 +75,4 @@ export default class AreaContextMenu extends HTMLElement {
 
 }
 
-customElements.define('gt-ctxmenu-area', AreaContextMenu);
+customElements.define("gt-ctxmenu-area", AreaContextMenu);

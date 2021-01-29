@@ -1,6 +1,8 @@
+/* asym-import: off */
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
 import I18n from "/emcJS/i18n/I18n.js";
+/* asym-import: on */
 import SettingsSpy from "./spy/SettingsSpy.js";
 
 const languageSpy = new SettingsSpy("language");

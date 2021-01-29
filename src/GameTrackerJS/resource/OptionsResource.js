@@ -1,3 +1,3 @@
-import JSONCResourceFile from "../util/JSONCResourceFile.js";
+import JSONCResourceFile from "../data/JSONCResourceFile.js";
 
 export default await JSONCResourceFile.loadSilent("/database/options.json");

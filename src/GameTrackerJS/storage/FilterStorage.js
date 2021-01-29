@@ -1,5 +1,7 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import FilterResource from "../data/FilterResource.js";
+/* asym-import: on */
+import FilterResource from "../resource/FilterResource.js";
 import DataStorage from "./DataStorage.js";
 
 const DEFAULTS = new Map();
@@ -20,6 +22,16 @@ class FilterStorage extends DataStorage {
         EventBus.register("filter", event => {
             this.setAll(event.data);
         });
+    }
+
+    set(key, value) {
+        // TODO check if value is valid; else set default/remove value
+        super.set(key, value);
+    }
+
+    setAll(values) {
+        // TODO check if values are valid; else set default/remove value
+        super.setAll(values);
     }
 
     get(key, value = DEFAULTS.get(key)) {

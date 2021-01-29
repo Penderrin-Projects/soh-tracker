@@ -1,6 +1,8 @@
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
+/* asym-import: on */
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 

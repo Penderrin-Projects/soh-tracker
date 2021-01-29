@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
 
 const TPL = new Template(`
 <div id="container"></div>

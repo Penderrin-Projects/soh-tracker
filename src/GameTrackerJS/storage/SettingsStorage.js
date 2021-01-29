@@ -1,7 +1,8 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import SettingsResource from "../data/SettingsResource.js";
-import DataStorage from "./DataStorage.js";
+/* asym-import: on */
+import SettingsResource from "../resource/SettingsResource.js";
+import IDBProxyStorage from "./IDBProxyStorage.js";
 
 const SET_TYPES = [
     "list",
@@ -9,7 +10,6 @@ const SET_TYPES = [
 ];
 
 const DEFAULTS = new Map();
-const STORAGE = new IDBStorage("settings");
 
 for (const [key, value] of Object.entries(SettingsResource.get())) {
     if (SET_TYPES.indexOf(value.type) >= 0) {
@@ -22,10 +22,10 @@ for (const [key, value] of Object.entries(SettingsResource.get())) {
     }
 }
 
-class SettingsStorage extends DataStorage {
+class SettingsStorage extends IDBProxyStorage {
 
     constructor() {
-        super();
+        super("settings");
         this.addEventListener("change", event => {
             setTimeout(() => {
                 EventBus.trigger("settings", event.data);
@@ -37,18 +37,13 @@ class SettingsStorage extends DataStorage {
     }
 
     set(key, value) {
-        STORAGE.set(key, value);
+        // TODO check if value is valid; else set default/remove value
         super.set(key, value);
     }
 
     setAll(values) {
-        STORAGE.setAll(values);
+        // TODO check if values are valid; else set default/remove value
         super.setAll(values);
-    }
-
-    clear() {
-        STORAGE.clear();
-        super.clear();
     }
 
     get(key, value = DEFAULTS.get(key)) {
@@ -77,5 +72,4 @@ class SettingsStorage extends DataStorage {
 }
 
 const storage = new SettingsStorage();
-storage.setAll(await STORAGE.getAll());
 export default storage;

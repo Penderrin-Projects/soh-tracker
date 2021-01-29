@@ -1,4 +1,6 @@
+/* asym-import: off */
 import Registry from "/emcJS/data/Registry.js";
+/* asym-import: on */
 
 class EntranceRegistry extends Registry {
 

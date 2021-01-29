@@ -1,4 +1,4 @@
-import SavestateHandler from "../../storage/SavestateHandler.js";
+import SavestateHandler from "../../savestate/SavestateHandler.js";
 import OptionsStorage from "../../storage/OptionsStorage.js";
 import SettingsStorage from "../../storage/SettingsStorage.js";
 

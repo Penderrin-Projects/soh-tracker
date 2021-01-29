@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Logger from "/emcJS/util/Logger.js";
-import SavestateHandler from "../../storage/SavestateHandler.js";
+/* asym-import: on */
+import SavestateHandler from "../../savestate/SavestateHandler.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldRegistry from "../../registry/WorldRegistry.js";
 

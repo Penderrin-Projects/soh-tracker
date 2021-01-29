@@ -197,11 +197,29 @@ function copyRTCClient(dest = DEV_PATH) {
         .pipe(gulp.dest(`${dest}/rtc`));
 }
 
-function copySW(dest = DEV_PATH) {
-    return gulp.src(`${SRC_PATH}/sw.js`)
+function copyInitializer(dest = DEV_PATH) {
+    const FILES = [
+        `${SRC_PATH}/sw.js`,
+        `${SRC_PATH}/index.js`
+    ];
+    return gulp.src(FILES)
         .pipe(filemanager.register(SRC_PATH, dest))
         .pipe(newer(dest))
         .pipe(gulp.dest(dest));
+}
+
+function copyDetachedScript(dest = DEV_PATH) {
+    const FILES = [
+        `${SRC_PATH}/detached/index.js`
+    ];
+    return gulp.src(FILES)
+        .pipe(filemanager.register(SRC_PATH, dest))
+        .pipe(newer(dest))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
+        .pipe(gulp.dest(`${dest}/detached`));
 }
 
 function finish(dest = DEV_PATH, done) {
@@ -224,7 +242,8 @@ exports.build = gulp.series(
         copyEmcJS.bind(this, PRD_PATH),
         copyTrackerEditor.bind(this, PRD_PATH),
         copyRTCClient.bind(this, PRD_PATH),
-        copySW.bind(this, PRD_PATH),
+        copyInitializer.bind(this, PRD_PATH),
+        copyDetachedScript.bind(this, PRD_PATH),
         copyChangelog.bind(this, PRD_PATH)
     ),
     finish.bind(this, PRD_PATH)
@@ -245,7 +264,8 @@ exports.buildDev = gulp.series(
         copyEmcJS.bind(this, DEV_PATH),
         copyTrackerEditor.bind(this, DEV_PATH),
         copyRTCClient.bind(this, DEV_PATH),
-        copySW.bind(this, DEV_PATH),
+        copyInitializer.bind(this, DEV_PATH),
+        copyDetachedScript.bind(this, DEV_PATH),
         copyChangelog.bind(this, DEV_PATH)
     ),
     finish.bind(this, DEV_PATH)

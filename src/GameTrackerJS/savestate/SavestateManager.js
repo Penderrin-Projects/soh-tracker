@@ -1,5 +1,7 @@
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import SavestateConverter from "/script/storage/SavestateConverter.js";
+/* asym-import: on */
+import SavestateConverter from "./SavestateConverter.js";
 
 const STORAGE = new IDBStorage("savestates");
 

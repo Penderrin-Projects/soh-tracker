@@ -1,10 +1,12 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
-import DataStorage from "../../storage/DataStorage.js";
-import Language from "../../util/Language.js";
+/* asym-import: on */
+import DataStorage from "../../../storage/DataStorage.js";
+import Language from "../../../util/Language.js";
 import "./SettingsTabContent.js";
 
 const TPL = new Template(`
@@ -156,6 +158,10 @@ export default class SettingsWindow extends Window {
         a.push(this.shadowRoot.getElementById("cancel"));
         a.unshift(this.shadowRoot.getElementById("close"));
         a[a.length - 1].focus();
+    }
+    
+    get storage() {
+        return STORAGE.get(this);
     }
 
     getTab(category) {

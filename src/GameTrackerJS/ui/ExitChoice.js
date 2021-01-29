@@ -1,12 +1,14 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+import SavestateHandler from "../savestate/SavestateHandler.js";
 import ExitRegistry from "../registry/ExitRegistry.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
 import Badge from "./Badge.js";
 import "./ctxmenu/ExitChoiceContextMenu.js";
 import "./ctxmenu/ExitBindingMenu.js";
-import StateStorage from "/script/storage/StateStorage.js";
 import Language from "../util/Language.js";
 
 const TPL = new Template(`
@@ -231,7 +233,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
 
     fillEntranceSelection(access, current = "") {
         // retrieve bound
-        const exits = StateStorage.readAllExtra("exits");
+        const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
         for (const key in exits) {
             const exitKey = ExitRegistry.get(key)

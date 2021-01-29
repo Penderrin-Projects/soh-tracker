@@ -1,5 +1,7 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import SavestateHandler from "../../storage/SavestateHandler.js";
+/* asym-import: on */
+import SavestateHandler from "../../savestate/SavestateHandler.js";
 import AreaState from "../abstract/AreaState.js";
 import "../location/StateManager.js";
 
