@@ -1,11 +1,10 @@
 /* asym-import: off */
-import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
-// -------------
 
 function changeBinding(values) {
     const changes = [];

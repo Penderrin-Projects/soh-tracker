@@ -1,6 +1,7 @@
-/*
-    starting point for application
-*/
+/**
+ * Starting point for Track-OOT
+ */
+
 /* asym-import: off */
 import Import from "/emcJS/util/import/Import.js";
 import Logger from "/emcJS/util/Logger.js";
@@ -19,7 +20,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
-// -------------
+// Track-OOT
 import VersionData from "/script/data/VersionData.js";
 import "/script/storage/converter/StateConverter.js";
 import "/script/util/logic/AugmentExits.js";

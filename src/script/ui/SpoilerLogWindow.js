@@ -1,14 +1,18 @@
 
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import SettingsWindow from "/emcJS/ui/overlay/SettingsWindow.js";
-import FileData from "/emcJS/data/FileData.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/emcJS/ui/Paging.js";
+/* asym-import: on */
 
-import StateStorage from "/script/storage/StateStorage.js";
+// GameTrackerJS
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
 import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
+import StateStorage from "/script/storage/StateStorage.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
@@ -32,7 +36,7 @@ export default class SpoilerLogSettings {
     constructor() {
         settings.addEventListener("submit", function(event) {
             BusyIndicator.busy();
-            const options = FileData.get("spoiler_options");
+            const options = SpoilerOptionsResource.get();
             const settingsData = {};
             for (const i in event.data) {
                 for (const j in event.data[i]) {
@@ -56,7 +60,7 @@ export default class SpoilerLogSettings {
             }
             BusyIndicator.unbusy();
         });
-        const options = FileData.get("spoiler_options");
+        const options = SpoilerOptionsResource.get();
         SettingsBuilder.build(settings, options);
         
         // add preset choice
@@ -76,7 +80,7 @@ export default class SpoilerLogSettings {
     }
 
     show() {
-        const options = FileData.get("spoiler_options");
+        const options = SpoilerOptionsResource.get();
         const res = {};
         for (const i in options) {
             res[i] = res[i] || {};

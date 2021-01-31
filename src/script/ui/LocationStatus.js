@@ -1,9 +1,14 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+// Track-OOT
+import ListLogic from "/script/util/logic/ListLogic.js";
 
 const TPL = new Template(`
 <div class="state">

@@ -5,8 +5,8 @@ import Template from "/emcJS/util/Template.js";
 // GameTrackerJS
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
-// -------------
-import RulesetsResource from "../../resource/RulesetsResource.js";
+// Track-OOT
+import RulesetsResource from "/script/resource/RulesetsResource.js";
 
 const LOAD_RULESET = new Template(`
     <div id="options-preset-wrapper">

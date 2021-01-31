@@ -1,6 +1,11 @@
+/* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+// Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
 export default class RTCPeerClient extends RTCPeer {

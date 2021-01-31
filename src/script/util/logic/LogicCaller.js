@@ -1,10 +1,15 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
-import Logic from "./Logic.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// Track-OOT
+import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 
 // TODO register settings event listener
 
@@ -27,7 +32,7 @@ const DUNGEON_KEY_AMP = {
 const cache = new Map();
 
 function augmentDungeonstate(data) {
-    const dungeonData = FileData.get("dungeonstate/area");
+    const dungeonData = DungeonstateResource.get("area");
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment keys

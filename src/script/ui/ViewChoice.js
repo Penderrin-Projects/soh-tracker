@@ -1,7 +1,9 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import ElementManager from "/emcJS/util/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
+/* asym-import: on */
 
 const TPL = new Template(`
 <slot id="container"></slot>
@@ -90,7 +92,7 @@ export default class ViewChoice extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -135,20 +137,20 @@ export default class ViewChoice extends HTMLElement {
     }
 
     get active() {
-        return this.getAttribute('active');
+        return this.getAttribute("active");
     }
 
     set active(val) {
-        this.setAttribute('active', val);
+        this.setAttribute("active", val);
     }
 
     static get observedAttributes() {
-        return ['active'];
+        return ["active"];
     }
       
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'active':
+            case "active":
                 if (oldValue != newValue) {
                     const container = this.shadowRoot.getElementById("container");
                     if (typeof newValue == "string") {
@@ -171,4 +173,4 @@ export default class ViewChoice extends HTMLElement {
 
 }
 
-customElements.define('ootrt-viewchoice', ViewChoice);
+customElements.define("ootrt-viewchoice", ViewChoice);

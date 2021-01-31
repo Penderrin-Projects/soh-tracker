@@ -1,5 +1,4 @@
 /* asym-import: off */
-import FileData from "/emcJS/data/FileData.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
@@ -7,7 +6,9 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
-// -------------
+// Track-OOT
+import LogicResource from "/script/resource/LogicResource.js";
+import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
@@ -59,7 +60,7 @@ function augmentLogic(logic, customEdges, customLogic) {
 
 async function update() {
     if (logic_rules == "logic_rules_glitchless") {
-        const logic = FileData.get("logic", {edges:{}, logic:{}});
+        const logic = LogicResource.get() ?? {edges:{}, logic:{}};
         if (use_custom_logic) {
             const customEdges = await GraphStorage.getAll();
             const customLogic = await LogicsStorage.getAll();
@@ -71,7 +72,7 @@ async function update() {
         }
         LogicViewer.glitched = false;
     } else {
-        const logic = FileData.get("logic_glitched", {edges:{}, logic:{}});
+        const logic = LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
         if (use_custom_logic) {
             const customEdges = await GraphStorageGlitched.getAll();
             const customLogic = await LogicsStorageGlitched.getAll();

@@ -1,5 +1,7 @@
-import FileData from "/emcJS/data/FileData.js";
+// GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+// Track-OOT
+import OptionsTransResource from "/script/resource/OptionsTransResource.js";
 
 const options = {};
 const extra = {};
@@ -468,7 +470,7 @@ class SpoilerParser {
 
     parse(spoiler, settings) {
         const data = spoiler;
-        const trans = FileData.get("options_trans");
+        const trans = OptionsTransResource.get();
         let multiWorld = settings["parse.multiworld"];
 
         const version = versionChecker(data[":version"]);
