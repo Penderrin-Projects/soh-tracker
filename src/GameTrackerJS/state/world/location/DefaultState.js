@@ -2,6 +2,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import StateStorage from "/script/storage/StateStorage.js";
 import WorldElementState from "../../abstract/WorldElementState.js";
 import Logic from "/script/util/logic/Logic.js";
+import FilterStorage from "/script/storage/FilterStorage.js";
 
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
@@ -41,6 +42,12 @@ export default class DefaultState extends WorldElementState {
         });
     }
 
+    get visible() {
+        const showDone = FilterStorage.get("filter.show_done", "true");
+        const value = VALUE.get(this);
+        return super.visible && (!value || showDone == "true");
+    }
+
     stateLoaded(event) {
         const ref = this.ref;
         // savesatate
@@ -55,11 +62,11 @@ export default class DefaultState extends WorldElementState {
         if (typeof value != "boolean") {
             value = !!value;
         }
-        const old = this.value;
+        const old = VALUE.get(this);
         if (value != old) {
             const ref = this.ref;
             VALUE.set(this, value);
-            StateStorage.write(ref, this.value);
+            StateStorage.write(ref, value);
             // external
             const event = new Event("value");
             event.data = value;
