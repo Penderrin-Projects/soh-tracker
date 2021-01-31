@@ -29,6 +29,17 @@ Application:    Track-OOT
 
 ---
 
+## VERSION 2.0.28
+
+### IMPROVEMENTS
+
+- add show/hide done persisted filter
+- exchange items in essential items
+    - replace kokiri tunic with triforce pieces
+    - replace leather boots with scarecrow song
+
+---
+
 ## VERSION 2.0.27
 
 ### BUGFIXES
