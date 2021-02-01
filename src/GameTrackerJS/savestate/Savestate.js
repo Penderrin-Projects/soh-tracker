@@ -1,5 +1,7 @@
+import FilterResource from "../resource/FilterResource.js";
 import DataStorage from "../storage/DataStorage.js";
 import OptionsStorage from "../storage/OptionsStorage.js";
+import FilterStorage from "../storage/FilterStorage.js";
 
 const DATA = new Map();
 let name = "";
@@ -18,6 +20,23 @@ class Savestate extends EventTarget {
             ev.data = event.data;
             ev.changes = event.changes;
             this.dispatchEvent(ev);
+        });
+        FilterStorage.addEventListener("change", event => {
+            const data = {};
+            const changes = {};
+            for (const key in event.changes) {
+                const props = FilterResource.get(key);
+                if (props.persist) {
+                    data[key] = event.data[key];
+                    changes[key] = event.changes[key];
+                }
+            }
+            if (Object.keys(changes).length) {
+                const ev = new Event("filter");
+                ev.changes = changes;
+                ev.data = data;
+                this.dispatchEvent(ev);
+            }
         });
     }
 

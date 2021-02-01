@@ -45,6 +45,7 @@ export default class DefaultState extends WorldElementState {
     }
 
     get visible() {
+        // TODO remove this; add the filter to visibility property
         const showDone = FilterStorage.get("filter.show_done", "true");
         const value = VALUE.get(this);
         return super.visible && (!value || showDone == "true");

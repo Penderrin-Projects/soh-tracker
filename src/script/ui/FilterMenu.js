@@ -1,9 +1,14 @@
+/* asym-import: off */
 import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+// Track-OOT
 import "./FilterButton.js";
 import StateStorage from "../storage/StateStorage.js";
-import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 
 const TPL = new Template(`
     <style>
