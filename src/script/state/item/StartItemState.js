@@ -1,7 +1,12 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
+// Track-OOT
+import StateStorage from "/script/storage/StateStorage.js";
 
 const STARTVALUE = new WeakMap();
 

@@ -1,6 +1,11 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+// Track-OOT
+import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import StateStorage from "/script/storage/StateStorage.js";
 
 const ITEM = new WeakMap();
@@ -110,7 +115,7 @@ export default class DefaultState extends DataState {
     /*#*/__applyItem() {
         const ref = this.ref;
         const item = ITEM.get(this);
-        const itemData = FileData.get(`shop_items/${item}`);
+        const itemData = ShopItemsResource.get(item);
         ITEM_DATA.set(this, itemData);
         if (itemData != null && itemData.refill) {
             BOUGHT.set(this, false);

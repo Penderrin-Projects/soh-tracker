@@ -1,6 +1,10 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 //import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// Track-OOT
+import ShopsResource from "/script/resource/ShopsResource.js";
 import "./ShopField.js";
 
 //const TPL = new Template(``);
@@ -20,11 +24,11 @@ export default class HTMLTrackerShopList extends HTMLElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         //this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const shops = FileData.get("shops");
+        const shops = ShopsResource.get();
         for (const i in shops) {
             const el = document.createElement("ootrt-shopfield");
             el.ref = i;
@@ -34,4 +38,4 @@ export default class HTMLTrackerShopList extends HTMLElement {
 
 }
 
-customElements.define('ootrt-shoplist', HTMLTrackerShopList);
+customElements.define("ootrt-shoplist", HTMLTrackerShopList);

@@ -1,8 +1,13 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
+// Track-OOT
+import StateStorage from "/script/storage/StateStorage.js";
 
 function getMaxValue(props) {
     let res = 0;
@@ -18,7 +23,7 @@ export default class VariableMaxItemState extends DefaultState {
         super(ref, props, 0, getMaxValue(props));
         /* --- */
         if (props.max.option != null) {
-            const optionProps = FileData.get(`options/${props.max.option}`);
+            const optionProps = OptionsResource.get(props.max.option);
             const option = StateStorage.read(props.max.option, optionProps.default);
             this./*#*/__applyMaxValue(option);
         }

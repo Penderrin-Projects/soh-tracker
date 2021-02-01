@@ -1,6 +1,10 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";

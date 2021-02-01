@@ -69,7 +69,19 @@ class SettingsStorage extends IDBProxyStorage {
         return DEFAULTS.keys();
     }
 
+    static create(name) {
+        return new Promise((resolve, reject) => {
+            const resource = new SettingsStorage(name);
+            resource.addEventListener("load", () => {
+                resolve(resource);
+            });
+            resource.addEventListener("error", () => {
+                resolve(resource);
+            });
+        });
+    }
+
 }
 
-const storage = new SettingsStorage();
+const storage = await SettingsStorage.create();
 export default storage;

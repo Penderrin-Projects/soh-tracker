@@ -1,6 +1,10 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import TabPanel from "/emcJS/ui/layout/panel/TabPanel.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import "/GameTrackerJS/ui/ExitChoice.js";
 
@@ -20,7 +24,7 @@ export default class HTMLTrackerExitList extends TabPanel {
         super();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const exits = FileData.get("world/exit");
+        const exits = WorldResource.get("exit");
         for (const exit in exits) {
             const category = exits[exit].type;
             this.addEntrance(category, exit);

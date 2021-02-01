@@ -1,10 +1,15 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import ShopStates from "/script/state/shop/StateManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import ShopStates from "/script/state/shop/StateManager.js";
+import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
 
 const TPL = new Template(`
 <div id="image"></div>

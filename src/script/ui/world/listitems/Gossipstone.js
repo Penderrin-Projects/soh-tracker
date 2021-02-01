@@ -1,7 +1,12 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import AbstractGossipstone from "../abstract/Gossipstone.js";
 
 const TPL = new Template(`

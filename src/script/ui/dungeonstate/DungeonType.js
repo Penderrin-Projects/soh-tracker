@@ -1,10 +1,15 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
-import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 
 const TPL = new Template(`
 <emc-option value="n" style="background-image: url('images/dungeontype/undefined.svg')"></emc-option>

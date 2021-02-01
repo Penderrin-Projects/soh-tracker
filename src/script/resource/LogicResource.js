@@ -1,3 +1,3 @@
 import JSONCResourceFile from "/GameTrackerJS/data/JSONCResourceFile.js";
 
-export default await JSONCResourceFile.loadSilent("/database/logic.json");
+export default await JSONCResourceFile.create("/database/logic.json");

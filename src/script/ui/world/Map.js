@@ -1,11 +1,14 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-//import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
-//import ListLogic from "/script/util/logic/ListLogic.js";
+// Track-OOT
 import "./mapmarker/Location.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";

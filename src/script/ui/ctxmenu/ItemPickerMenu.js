@@ -1,5 +1,9 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+/* asym-import: on */
+
+// Track-OOT
 import "/script/ui/items/ItemPicker.js";
 
 const TPL = new Template(`

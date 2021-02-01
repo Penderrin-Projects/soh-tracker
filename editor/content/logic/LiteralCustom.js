@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import AbstractElement from "/editors/ui/logic/AbstractElement.js";
+/* asym-import: on */
 
 const TPL_CAPTION = "CUSTOM";
 const TPL_BACKGROUND = "#ffffff";

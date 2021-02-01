@@ -1,8 +1,13 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import AbstractLocation from "../abstract/Location.js";
 
 const TPL = new Template(`

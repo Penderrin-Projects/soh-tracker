@@ -1,7 +1,18 @@
-
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
+/* asym-import: on */
 
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
+import SettingsResource from "/GameTrackerJS/resource/SettingsResource.js";
+// Track-OOT
+import LogicResource from "/script/resource/LogicResource.js";
+import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
+
+// TODO create storage files for these
 const LogicsStorage = new IDBStorage('logics');
 const LogicsStorageGlitched = new IDBStorage('logics_glitched');
 
@@ -38,6 +49,14 @@ const CUSTOM_OPERATOR_GROUP = [
     "location"
 ];
 
+function getLogicData(glitched = false) {
+    if (glitched) {
+        return LogicGlitchedResource.get() ?? {edges:{},logic:{}};
+    } else {
+        return LogicResource.get() ?? {edges:{},logic:{}};
+    }
+}
+
 class LogicListsCreator {
 
     async createLists(glitched = false) {
@@ -47,12 +66,12 @@ class LogicListsCreator {
             operators: []
         };
 
-        const world = FileData.get("world/marker");
-        const items = FileData.get("items");
-        const randomizer_options = FileData.get("options");
-        const tracker_settings = FileData.get("settings");
-        const filter = FileData.get("filter");
-        const logic = FileData.get(`logic${!!glitched?"_glitched":""}`);
+        const world = WorldResource.get("marker");
+        const items = ItemsResource.get();
+        const randomizer_options = OptionsResource.get();
+        const tracker_settings = SettingsResource.get();
+        const filter = FilterResource.get();
+        const logic = getLogicData(glitched);
         let custom_logic = {};
         if (!!glitched) {
             custom_logic = await LogicsStorageGlitched.getAll();

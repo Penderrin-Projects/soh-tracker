@@ -85,7 +85,7 @@ export default class JSONCResourceFile extends EventTarget {
         }
     }
 
-    static loadSilent(path) {
+    static create(path) {
         return new Promise((resolve, reject) => {
             const resource = new JSONCResourceFile(path);
             resource.addEventListener("load", () => {

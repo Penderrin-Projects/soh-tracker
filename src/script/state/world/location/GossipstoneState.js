@@ -1,8 +1,13 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
+// Track-OOT
+import StateStorage from "/script/storage/StateStorage.js";
 
 const HINT = new WeakMap();
 

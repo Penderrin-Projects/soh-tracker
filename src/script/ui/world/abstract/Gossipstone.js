@@ -1,9 +1,15 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/input/SearchSelect.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+// Track-OOT
+import StateStorage from "/script/storage/StateStorage.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import "../../ctxmenu/GossipstoneContextMenu.js";
 
@@ -122,7 +128,7 @@ export default class ListGossipstone extends AbstractLocation {
 }
 
 function getLocationDescriptors() {
-    const marker = FileData.get('world/marker');
+    const marker = WorldResource.get("marker");
     const loc = filterLocations(marker.location);
     const locations = {};
     for (const name in loc) {
@@ -153,11 +159,11 @@ function hintstoneDialog(ref) {
         const item = StateStorage.read(`${ref}.item`, "");
 
         const [areas, subareas, locations] = getLocationDescriptors();
-        const items = Object.keys(FileData.get('items'));
+        const items = Object.keys(ItemsResource.get());
         items.push("WOTH");
         items.push("FOOL");
     
-        const lbl_loc = document.createElement('label');
+        const lbl_loc = document.createElement("label");
         lbl_loc.style.display = "flex";
         lbl_loc.style.justifyContent = "space-between";
         lbl_loc.style.alignItems = "center";
@@ -184,7 +190,7 @@ function hintstoneDialog(ref) {
         slt_loc.value = location;
         lbl_loc.append(slt_loc);
     
-        const lbl_itm = document.createElement('label');
+        const lbl_itm = document.createElement("label");
         lbl_itm.style.display = "flex";
         lbl_itm.style.justifyContent = "space-between";
         lbl_itm.style.alignItems = "center";
@@ -215,7 +221,7 @@ function hintstoneDialog(ref) {
 }
 
 function createOption(value, content) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.innerHTML = content;
     return opt;

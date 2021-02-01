@@ -1,10 +1,10 @@
 /* asym-import: off */
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 // Track-OOT
 import "./FilterButton.js";
@@ -62,7 +62,7 @@ class FilterMenu extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         // generate filters
         const menu = this.shadowRoot.getElementById("menu");
-        const data = FileData.get("filter");
+        const data = FilterResource.get();
         for (const name in data) {
             if (data[name].persist) {
                 const value = StateStorage.read(name, data[name].default);

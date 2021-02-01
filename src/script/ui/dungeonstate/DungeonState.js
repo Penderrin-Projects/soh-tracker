@@ -1,8 +1,14 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import FileData from "/emcJS/data/FileData.js";
-import Language from "/GameTrackerJS/util/Language.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+// Track-OOT
+import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 import "./DungeonReward.js";
 import "./DungeonType.js";
 import "../items/components/Item.js";
@@ -75,14 +81,14 @@ const TPL = new Template(`
 `);
 
 function createItemText(text) {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("text");
     el.innerHTML = text;
     return el;
 }
 
 function createItemPlaceholder() {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("placeholder");
     return el;
 }
@@ -91,10 +97,10 @@ class HTMLTrackerDungeonState extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
-        const dungeonData = FileData.get("dungeonstate/area");
+        const dungeonData = DungeonstateResource.get("area");
         for (const ref in dungeonData) {
             const dData = dungeonData[ref];
             this.shadowRoot.append(createRow(`area/${ref}`, dData));
@@ -107,28 +113,28 @@ class HTMLTrackerDungeonState extends Panel {
     }
 
     get active() {
-        return this.getAttribute('active');
+        return this.getAttribute("active");
     }
 
     set active(val) {
-        this.setAttribute('active', val);
+        this.setAttribute("active", val);
     }
 
     get orientation() {
-        return this.getAttribute('orientation');
+        return this.getAttribute("orientation");
     }
 
     set orientation(val) {
-        this.setAttribute('orientation', val);
+        this.setAttribute("orientation", val);
     }
 
     static get observedAttributes() {
-        return ['active'];
+        return ["active"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'active':
+            case "active":
                 if (oldValue != newValue) {
                     switchActive.call(this, newValue);
                 }
@@ -139,7 +145,7 @@ class HTMLTrackerDungeonState extends Panel {
 }
 
 Panel.registerReference("dungeon-status", HTMLTrackerDungeonState);
-customElements.define('ootrt-dungeonstate', HTMLTrackerDungeonState);
+customElements.define("ootrt-dungeonstate", HTMLTrackerDungeonState);
 
 function switchActive(value) {
     if (typeof value === "string") {
@@ -159,12 +165,12 @@ function switchActive(value) {
 }
 
 function createRow(ref, data) {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("item-row");
     el.classList.add("inactive");
     const types = [];
 
-    const items = FileData.get("items");
+    const items = ItemsResource.get();
 
     //////////////////////////////////
     // title
@@ -212,7 +218,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("item").create(itemData.type, data.map);
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
-        itm.setAttribute('ref', data.map);
+        itm.setAttribute("ref", data.map);
         itm.title = Language.translate(data.map);
         el.append(itm);
         /* register */
@@ -230,7 +236,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("item").create(itemData.type, data.compass);
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
-        itm.setAttribute('ref', data.compass);
+        itm.setAttribute("ref", data.compass);
         itm.title = Language.translate(data.compass);
         el.append(itm);
         /* register */
@@ -244,10 +250,10 @@ function createRow(ref, data) {
     //////////////////////////////////
     // reward
     if (data.boss_reward) {
-        const itm = document.createElement('ootrt-dungeonreward');
+        const itm = document.createElement("ootrt-dungeonreward");
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
-        itm.setAttribute('ref', ref);
+        itm.setAttribute("ref", ref);
         itm.title = Language.translate(ref) + " " + Language.translate("dun_reward");
         el.append(itm);
         /* register */
@@ -261,10 +267,10 @@ function createRow(ref, data) {
     //////////////////////////////////
     // mode
     if (data.hasmq) {
-        const itm = document.createElement('ootrt-dungeontype');
+        const itm = document.createElement("ootrt-dungeontype");
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
-        itm.setAttribute('ref', ref);
+        itm.setAttribute("ref", ref);
         itm.title = Language.translate(ref) + " " + Language.translate("dun_type");
         el.append(itm);
         /* register */
@@ -276,7 +282,7 @@ function createRow(ref, data) {
         el.append(itm);
     }
 
-    el.setAttribute("type", types.join(' '));
+    el.setAttribute("type", types.join(" "));
 
     return el;
 }

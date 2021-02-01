@@ -1,7 +1,11 @@
-import Language from "/GameTrackerJS/util/Language.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";

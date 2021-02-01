@@ -1,6 +1,11 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+// Track-OOT
 import StateStorage from "/script/storage/StateStorage.js";
 
 const TYPE = new WeakMap();

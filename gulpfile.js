@@ -52,6 +52,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const eslint = require('gulp-eslint');
 const filemanager = require("./file-manager");
 const gulpAsyM = require("asym/GulpAsyM");
+//const gulpAsyM = require("../AsyM/GulpAsyM");
 
 function copyAsyM(dest = DEV_PATH) {
     return gulp.src(`${MODULE_PATHS.AsyM}/**/*.js`)

@@ -1,5 +1,5 @@
-import WorldResource from "../../resource/WorldResource.js";
-import AbstractStateManager from "../abstract/StateManager.js";
+import WorldResource from "../../../resource/WorldResource.js";
+import AbstractStateManager from "../../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("exit");

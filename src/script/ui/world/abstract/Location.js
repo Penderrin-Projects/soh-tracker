@@ -1,7 +1,9 @@
+// GameTrackerJS
 import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
-import LogicViewer from "/script/content/logic/LogicViewer.js";
 import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import LogicViewer from "/script/content/logic/LogicViewer.js";
 import "../../ctxmenu/LocationContextMenu.js";
 import "../../ctxmenu/ItemPickerMenu.js";
 

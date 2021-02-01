@@ -1,5 +1,4 @@
 /* asym-import: off */
-import FileData from "/emcJS/data/FileData.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
@@ -7,6 +6,7 @@ import "/emcJS/ui/input/Option.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
@@ -111,7 +111,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
         switch (name) {
             case "ref":
                 if (oldValue != newValue) {
-                    const data = FileData.get(`filter/${this.ref}`);
+                    const data = FilterResource.get(this.ref);
                     PERSIST.set(this, data.persist != null && !!data.persist);
                     this.value = FilterStorage.get(this.ref, data.default);
                     for (const i in data.values) {

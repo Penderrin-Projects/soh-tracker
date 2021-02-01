@@ -1,7 +1,12 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
 import "./ShopItem.js";
 
 const TPL = new Template(`

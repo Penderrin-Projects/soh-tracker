@@ -1,3 +1,4 @@
+// GameTrackerJS
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 

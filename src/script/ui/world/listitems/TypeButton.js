@@ -1,12 +1,17 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`

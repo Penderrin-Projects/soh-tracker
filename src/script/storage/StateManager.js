@@ -1,4 +1,8 @@
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
+/* asym-import: on */
+
+// Track-OOT
 import StateConverter from "/script/storage/StateConverter.js";
 
 const STORAGE = new IDBStorage("savestates");

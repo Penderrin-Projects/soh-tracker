@@ -1,4 +1,4 @@
 import JSONCResourceFile from "../data/JSONCResourceFile.js";
 
-export default await JSONCResourceFile.loadSilent("/database/world.json");
+export default await JSONCResourceFile.create("/database/world.json");
 

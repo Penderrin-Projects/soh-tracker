@@ -1,10 +1,10 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
+import FilterStorage from "../../../storage/FilterStorage.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import Logic from "../../../util/logic/Logic.js";
 import WorldElementState from "../../abstract/WorldElementState.js";
-import FilterStorage from "/script/storage/FilterStorage.js";
 
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();

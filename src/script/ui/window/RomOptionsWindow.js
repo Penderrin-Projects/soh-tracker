@@ -66,4 +66,4 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
 
 }
 
-customElements.define("gt-window-savestateoptions", RomOptionsWindow);
+customElements.define("tootr-window-romoptions", RomOptionsWindow);

@@ -2,7 +2,11 @@
  * @deprecated
  */
 
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";

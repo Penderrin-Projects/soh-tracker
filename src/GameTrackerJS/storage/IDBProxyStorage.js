@@ -109,4 +109,16 @@ export default class IDBProxyStorage extends EventTarget {
         this.dispatchEvent(ev);
     }
 
+    static create(name) {
+        return new Promise((resolve, reject) => {
+            const resource = new IDBProxyStorage(name);
+            resource.addEventListener("load", () => {
+                resolve(resource);
+            });
+            resource.addEventListener("error", () => {
+                resolve(resource);
+            });
+        });
+    }
+
 }

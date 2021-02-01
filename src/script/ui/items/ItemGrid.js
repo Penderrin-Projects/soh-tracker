@@ -1,9 +1,15 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import GridsResource from "/script/resource/GridsResource.js";
 import "./components/Item.js";
 import "./components/ItemKey.js";
 import "./components/InfiniteItem.js";
@@ -56,21 +62,21 @@ function createItem(value, data) {
 }
 
 function createText(value) {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("text");
     el.innerHTML = value;
     return el;
 }
 
 function createIcon(value) {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("icon");
     el.dataset.icon = value;
     return el;
 }
 
 function createEmpty() {
-    const el = document.createElement('DIV');
+    const el = document.createElement("DIV");
     el.classList.add("empty");
     return el;
 }
@@ -79,7 +85,7 @@ class HTMLTrackerItemGrid extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -88,48 +94,48 @@ class HTMLTrackerItemGrid extends Panel {
     connectedCallback() {
         this.setAttribute("data-fontmod", "items");
         if (!this.items && !!this.grid) {
-            this.items = JSON.stringify(FileData.get(`grids/${this.grid}`));
+            this.items = JSON.stringify(GridsResource.get(this.grid));
         }
     }
 
     get grid() {
-        return this.getAttribute('grid');
+        return this.getAttribute("grid");
     }
 
     set grid(val) {
-        this.setAttribute('grid', val);
+        this.setAttribute("grid", val);
     }
 
     get items() {
-        return this.getAttribute('items');
+        return this.getAttribute("items");
     }
 
     set items(val) {
-        this.setAttribute('items', val);
+        this.setAttribute("items", val);
     }
 
     static get observedAttributes() {
-        return ['items', 'grid'];
+        return ["items", "grid"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'grid':
+            case "grid":
                 if (oldValue != newValue) {
                     if (!this.items && !!newValue) {
-                        this.items = JSON.stringify(FileData.get(`grids/${newValue}`));
+                        this.items = JSON.stringify(GridsResource.get(newValue));
                     }
                 }
                 break;
-            case 'items':
+            case "items":
                 if (oldValue != newValue) {
                     const content = this.shadowRoot.getElementById("content");
                     content.innerHTML = "";
                     const config = JSON.parse(newValue);
                     for (const row of config) {
-                        const cnt = document.createElement('div');
+                        const cnt = document.createElement("div");
                         cnt.classList.add("item-row");
-                        const items = FileData.get("items");
+                        const items = ItemsResource.get();
                         for (const element of row) {
                             if (element.type == "item") {
                                 const data = items[element.value];
@@ -152,4 +158,4 @@ class HTMLTrackerItemGrid extends Panel {
 }
 
 Panel.registerReference("item-grid", HTMLTrackerItemGrid);
-customElements.define('ootrt-itemgrid', HTMLTrackerItemGrid);
+customElements.define("ootrt-itemgrid", HTMLTrackerItemGrid);

@@ -1,13 +1,17 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
-// more
+// Track-OOT
+import StateStorage from "/script/storage/StateStorage.js";
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
