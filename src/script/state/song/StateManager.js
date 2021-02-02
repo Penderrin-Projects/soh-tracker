@@ -14,9 +14,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-const stateManager = new StateManager();
-for (const ref in resourceData) {
-    stateManager.get(ref);
-}
-
-export default stateManager;
+export default new StateManager();

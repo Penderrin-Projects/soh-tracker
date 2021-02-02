@@ -5,11 +5,11 @@ import "/emcJS/ui/input/Option.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import "/script/ui/items/ItemPicker.js";
 
@@ -138,7 +138,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
     connectedCallback() {
         super.connectedCallback();
-        this.value = StateStorage.readExtra("dungeonreward", this.ref, "");
+        this.value = SavestateHandler.get("dungeonreward", this.ref, "");
         let el = this;
         while (el.parentElement != null && !el.classList.contains("panel")) {
             el = el.parentElement;

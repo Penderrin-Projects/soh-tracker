@@ -5,9 +5,13 @@ import FilterResource from "../resource/FilterResource.js";
 import DataStorage from "./DataStorage.js";
 
 const DEFAULTS = new Map();
+const PERSISTED = new Set();
 
 for (const [key, value] of Object.entries(FilterResource.get())) {
     DEFAULTS.set(key, value.default);
+    if (value.persist) {
+        PERSISTED.add(key);
+    }
 }
 
 class FilterStorage extends DataStorage {
@@ -18,6 +22,20 @@ class FilterStorage extends DataStorage {
             setTimeout(() => {
                 EventBus.trigger("filter", event.data);
             }, 0);
+            const data = {};
+            const changes = {};
+            for (const key in event.changes) {
+                if (PERSISTED.has(key)) {
+                    data[key] = event.data[key];
+                    changes[key] = event.changes[key];
+                }
+            }
+            if (Object.keys(changes).length) {
+                const ev = new Event("persistedchange");
+                ev.data = data;
+                ev.changes = changes;
+                this.dispatchEvent(ev);
+            }
         });
         EventBus.register("filter", event => {
             this.setAll(event.data);
@@ -55,6 +73,17 @@ class FilterStorage extends DataStorage {
 
     keys() {
         return DEFAULTS.keys();
+    }
+    
+    serialize() {
+        const data = super.serialize();
+        const res = {};
+        for (const [key, value] of Object.entries(data)) {
+            if (PERSISTED.has(key)) {
+                res[key] = value;
+            }
+        }
+        return res;
     }
 
 }

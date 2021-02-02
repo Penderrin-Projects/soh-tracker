@@ -4,12 +4,12 @@ import "/emcJS/ui/input/SearchSelect.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 // Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import "../../ctxmenu/GossipstoneContextMenu.js";
 
@@ -155,8 +155,8 @@ function filterLocations(obj) {
 
 function hintstoneDialog(ref) {
     return new Promise(resolve => {
-        const location = StateStorage.read(`${ref}.location`, "");
-        const item = StateStorage.read(`${ref}.item`, "");
+        const location = SavestateHandler.get("", `${ref}.location`, "");
+        const item = SavestateHandler.get("", `${ref}.item`, "");
 
         const [areas, subareas, locations] = getLocationDescriptors();
         const items = Object.keys(ItemsResource.get());

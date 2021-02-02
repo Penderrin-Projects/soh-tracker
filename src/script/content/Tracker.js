@@ -4,11 +4,12 @@ import Toast from "/emcJS/ui/overlay/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";
 /* asym-import: on */
 
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import LoadWindow from "/GameTrackerJS/ui/window/savestate/LoadWindow.js";
+import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";
+import SaveWindow from "/GameTrackerJS/ui/window/savestate/SaveWindow.js";
 // Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
-import LoadWindow from "/script/ui/savestate/LoadWindow.js";
-import ManageWindow from "/script/ui/savestate/ManageWindow.js";
-import SaveWindow from "/script/ui/savestate/SaveWindow.js";
 import PageSwitcher from "/script/util/PageSwitcher.js";
 
 PageSwitcher.register("main", [{
@@ -60,9 +61,9 @@ PageSwitcher.register("main", [{
 PageSwitcher.switch("main");
 
 async function state_Save() {
-    const activestate = await StateStorage.getName();
+    const activestate = await SavestateHandler.getName();
     if (activestate) {
-        await StateStorage.save();
+        await SavestateHandler.save();
         Toast.show(`Saved "${activestate}" successfully.`);
     } else {
         state_SaveAs();
@@ -70,7 +71,7 @@ async function state_Save() {
 }
 
 async function state_SaveAs() {
-    const activestate = await StateStorage.getName();
+    const activestate = await SavestateHandler.getName();
     const w = new SaveWindow();
     if (activestate) {
         w.show(activestate);
@@ -80,7 +81,7 @@ async function state_SaveAs() {
 }
 
 async function state_Load() {
-    const activestate = await StateStorage.getName()
+    const activestate = await SavestateHandler.getName()
     const w = new LoadWindow();
     if (activestate) {
         w.show(activestate);
@@ -90,16 +91,16 @@ async function state_Load() {
 }
 
 async function state_New() {
-    if (await StateStorage.isDirty()) {
+    if (await SavestateHandler.isDirty()) {
         if (!await Dialog.confirm("Warning, you have unsaved changes.", "Do you want to discard your changes and create a new state?")) {
             return;
         }
     }
-    StateStorage.reset();
+    SavestateHandler.reset();
 }
 
 async function states_Manage() {
-    const activestate = await StateStorage.getName()
+    const activestate = await SavestateHandler.getName()
     const w = new ManageWindow();
     if (activestate) {
         w.show(activestate);

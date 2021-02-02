@@ -3,14 +3,13 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
-// Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 
 const TYPE = new WeakMap();
 
@@ -72,7 +71,7 @@ export default class DungeonState extends DefaultState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        this./*#*/__applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
+        this./*#*/__applyTypeValue(SavestateHandler.get("dungeontype", ref, "n"));
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
     }

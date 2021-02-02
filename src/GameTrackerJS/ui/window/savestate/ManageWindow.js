@@ -5,9 +5,7 @@ import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
 /* asym-import: on */
-
-// Track-OOT
-import StateManager from "/script/storage/StateManager.js";
+import SavestateManager from "../../../savestate/SavestateManager.js";
 
 const TPL = new Template(`
     <style>
@@ -178,17 +176,17 @@ const TPL = new Template(`
 `);
 
 const Q_TAB = [
-    'button:not([tabindex="-1"])',
-    '[href]:not([tabindex="-1"])',
-    'input:not([tabindex="-1"])',
-    'select:not([tabindex="-1"])',
-    'textarea:not([tabindex="-1"])',
-    '[tabindex]:not([tabindex="-1"])'
-].join(',');
+    "button:not([tabindex=\"-1\"])",
+    "[href]:not([tabindex=\"-1\"])",
+    "input:not([tabindex=\"-1\"])",
+    "select:not([tabindex=\"-1\"])",
+    "textarea:not([tabindex=\"-1\"])",
+    "[tabindex]:not([tabindex=\"-1\"])"
+].join(",");
 
 async function fillStates(list) {
     list.innerHTML = "";
-    const states = await StateManager.getStates();
+    const states = await SavestateManager.getStates();
     for (const state in states) {
         list.append(createOption(state, states[state]));
     }
@@ -205,23 +203,23 @@ export default class ManageWindow extends HTMLElement {
             }
             event.stopPropagation();
         }.bind(this);
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
-        const cls = this.shadowRoot.getElementById('close');
+        const cls = this.shadowRoot.getElementById("close");
         cls.onclick = this.close.bind(this);
-        this.shadowRoot.getElementById('focus_catcher_top').onfocus = this.focusLast.bind(this);
-        this.shadowRoot.getElementById('focus_catcher_bottom').onfocus = this.focusFirst.bind(this);
+        this.shadowRoot.getElementById("focus_catcher_top").onfocus = this.focusLast.bind(this);
+        this.shadowRoot.getElementById("focus_catcher_bottom").onfocus = this.focusFirst.bind(this);
         
-        const lst = this.shadowRoot.getElementById('statelist');
-        const snm = this.shadowRoot.getElementById('statename');
+        const lst = this.shadowRoot.getElementById("statelist");
+        const snm = this.shadowRoot.getElementById("statename");
         lst.addEventListener("change", function(event) {
             snm.value = event.newValue;
         });
         
         // DELETE
-        const dlt = this.shadowRoot.getElementById('delete');
-        dlt.onclick = async() => {
+        const dlt = this.shadowRoot.getElementById("delete");
+        dlt.onclick = async () => {
             const stateName = snm.value;
             if (!snm.value) {
                 await Dialog.alert("No state selected", "Please select a state to delete!");
@@ -230,14 +228,14 @@ export default class ManageWindow extends HTMLElement {
             if (!await Dialog.confirm("Warning", `Do you really want to delete "${stateName}"? This can not be undone.`)) {
                 return;
             }
-            await StateManager.delete(stateName);
+            await SavestateManager.delete(stateName);
             Toast.show(`State "${stateName}" deleted.`);
             snm.value = "";
             await fillStates(lst);
         };
         // RENAME
-        const rnm = this.shadowRoot.getElementById('rename');
-        rnm.onclick = async() => {
+        const rnm = this.shadowRoot.getElementById("rename");
+        rnm.onclick = async () => {
             const stateName = snm.value;
             if (!snm.value) {
                 await Dialog.alert("No state selected", "Please select a state to rename!");
@@ -253,21 +251,21 @@ export default class ManageWindow extends HTMLElement {
                     await Dialog.alert("Warning", "The name can not be empty.");
                     continue;
                 }
-                if (await StateManager.exists(name)) {
+                if (await SavestateManager.exists(name)) {
                     if (!await Dialog.confirm("Warning", `The name "${name}" already exists. Do you want to overwrite it?`)) {
                         continue;
                     }
                 }
                 newName = name;
             }
-            await StateManager.rename(stateName, newName);
+            await SavestateManager.rename(stateName, newName);
             Toast.show(`State "${stateName}" renamed to "${newName}".`);
             snm.value = "";
             await fillStates(lst);
         };
         // IMPORT
-        const imp = this.shadowRoot.getElementById('import');
-        imp.onclick = async() => {
+        const imp = this.shadowRoot.getElementById("import");
+        imp.onclick = async () => {
             const res = await FileSystem.load(".json");
             if (res == null || res.data == null || res.data.data == null || res.data.name == null) {
                 await Dialog.alert("Warning", "Did not find any data to import.");
@@ -282,21 +280,21 @@ export default class ManageWindow extends HTMLElement {
                 if (name === "") {
                     await Dialog.alert("Warning", "The state name can not be empty.");
                 }
-                if (await StateManager.exists(name)) {
+                if (await SavestateManager.exists(name)) {
                     if (!await Dialog.confirm("Warning", `The name "${name}" already exists. Do you want to overwrite it?`)) {
                         name = "";
                     }
                 }
             }
             res.data.name = name;
-            await StateManager.import(res.data);
+            await SavestateManager.importSavestate(res.data);
             Toast.show(`State "${name}" imported.`);
             snm.value = "";
             await fillStates(lst);
         };
         // IMPORT STRING
-        const ist = this.shadowRoot.getElementById('import-string');
-        ist.onclick = async() => {
+        const ist = this.shadowRoot.getElementById("import-string");
+        ist.onclick = async () => {
             let data = await Dialog.prompt("Import", "Please enter export string!");
             if (data === false) {
                 return;
@@ -318,35 +316,35 @@ export default class ManageWindow extends HTMLElement {
                 if (name === false) {
                     return;
                 }
-                if (await StateManager.exists(name)) {
+                if (await SavestateManager.exists(name)) {
                     if (!await Dialog.confirm("Warning", `The name "${name}" already exists. Do you want to overwrite it?`)) {
                         name = "";
                     }
                 }
             }
             data.name = name;
-            await StateManager.import(data);
+            await SavestateManager.importSavestate(data);
             Toast.show(`State "${name}" imported.`);
             snm.value = "";
             await fillStates(lst);
         };
         // EXPORT
-        const exp = this.shadowRoot.getElementById('export');
-        exp.onclick = async() => {
+        const exp = this.shadowRoot.getElementById("export");
+        exp.onclick = async () => {
             const stateName = snm.value;
             if (!snm.value) {
                 await Dialog.alert("No state selected", "Please select a state to export!");
                 return;
             }
-            const data = await StateManager.export(stateName);
+            const data = await SavestateManager.exportSavestate(stateName);
             const date = DateUtil.convert(new Date(data.timestamp || 0), "YMDhms");
             FileSystem.save(JSON.stringify(data, " ", 4), `track-oot-state.${stateName}.${date}.json`);
         };
     }
 
     async show(activeState) {
-        const lst = this.shadowRoot.getElementById('statelist');
-        const snm = this.shadowRoot.getElementById('statename');
+        const lst = this.shadowRoot.getElementById("statelist");
+        const snm = this.shadowRoot.getElementById("statename");
         await fillStates(lst);
         if (activeState != null) {
             lst.value = activeState;
@@ -358,31 +356,31 @@ export default class ManageWindow extends HTMLElement {
 
     close() {
         document.body.removeChild(this);
-        this.dispatchEvent(new Event('close'));
+        this.dispatchEvent(new Event("close"));
     }
 
     initialFocus() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById('close'));
+        a.push(this.shadowRoot.getElementById("close"));
         a[0].focus();
     }
 
     focusFirst() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.unshift(this.shadowRoot.getElementById('close'));
+        a.unshift(this.shadowRoot.getElementById("close"));
         a[0].focus();
     }
     
     focusLast() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.unshift(this.shadowRoot.getElementById('close'));
+        a.unshift(this.shadowRoot.getElementById("close"));
         a[a.length - 1].focus();
     }
 
 }
 
 function createOption(key, state) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = key;
     // autosave
     if (state.autosave) {
@@ -417,4 +415,4 @@ function createOption(key, state) {
     return opt;
 }
 
-customElements.define('tootr-state-window-manage', ManageWindow);
+customElements.define("tootr-state-window-manage", ManageWindow);

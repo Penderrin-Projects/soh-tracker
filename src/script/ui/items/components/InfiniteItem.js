@@ -9,6 +9,8 @@ import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "./Item.js";
 
 const TPL = new Template(`
 <div id="value">
@@ -59,9 +61,9 @@ const STYLE = new GlobalStyle(`
 
 function getAlign(value) {
     switch (value) {
-        case 'start':
+        case "start":
             return "flex-start";
-        case 'end':
+        case "end":
             return "flex-end";
         default:
             return "center";
@@ -72,7 +74,7 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -99,53 +101,53 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        return this.getAttribute('readonly');
+        return this.getAttribute("readonly");
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     get halign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set halign(val) {
-        this.setAttribute('halign', val);
+        this.setAttribute("halign", val);
     }
 
     get valign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set valign(val) {
-        this.setAttribute('valign', val);
+        this.setAttribute("valign", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value', 'halign', 'valign'];
+        return ["ref", "value", "halign", "valign"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         // state
                         const state = ItemStates.get(this.ref);
@@ -166,13 +168,13 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
                         }
                     }
                     break;
-                case 'value':
+                case "value":
                     this.shadowRoot.getElementById("value").innerHTML = newValue;
                     break;
-                case 'halign':
+                case "halign":
                     this.shadowRoot.getElementById("value").style.justifyContent = getAlign(newValue);
                     break;
-                case 'valign':
+                case "valign":
                     this.shadowRoot.getElementById("value").style.alignItems = getAlign(newValue);
                     break;
             }
@@ -221,5 +223,5 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
 
 }
 
-UIRegistry.get("item").register('infinite', InfiniteItem);
-customElements.define('ootrt-infiniteitem', InfiniteItem);
+UIRegistry.get("item").register("infinite", InfiniteItem);
+customElements.define("ootrt-infiniteitem", InfiniteItem);

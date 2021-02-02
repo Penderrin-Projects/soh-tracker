@@ -1,7 +1,7 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
-import WorldRegistry from "../../registry/WorldRegistry.js";
+import WorldStateManagers from "../world/StateManagers.js";
 import WorldElementState from "./WorldElementState.js";
 import ListLogic from "../../util/logic/ListLogic.js";
 
@@ -50,8 +50,8 @@ export default class AreaState extends WorldElementState {
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const Manager = WorldStateManagers[record.category];
+                    const loc = Manager.get(record.id);
                     if (loc != null) {
                         result.push(record);
                     }
@@ -69,8 +69,8 @@ export default class AreaState extends WorldElementState {
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const Manager = WorldStateManagers[record.category];
+                    const loc = Manager.get(record.id);
                     if (loc != null && loc.visible) {
                         result.push(record);
                     }

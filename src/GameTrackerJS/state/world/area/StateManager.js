@@ -1,5 +1,6 @@
-import WorldResource from "../../resource/WorldResource.js";
-import AbstractStateManager from "../abstract/StateManager.js";
+import WorldResource from "../../../resource/WorldResource.js";
+import WorldStateManagers from "../StateManagers.js";
+import AbstractStateManager from "../../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("marker/area");
@@ -9,6 +10,7 @@ class StateManager extends AbstractStateManager {
     
     constructor() {
         super(DefaultState, resourceData);
+        WorldStateManagers.area = this;
     }
 
     createState(StateClass, ref, props) {
@@ -18,9 +20,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-const stateManager = new StateManager();
-for (const ref in resourceData) {
-    stateManager.get(ref);
-}
-
-export default stateManager;
+export default new StateManager();

@@ -4,7 +4,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import Logic from "../../../util/logic/Logic.js";
-import WorldRegistry from "../../../registry/WorldRegistry.js";
+import WorldStateManagers from "../StateManagers.js";
 import ExitRegistry from "../../../registry/ExitRegistry.js";
 import ExitState from "../../abstract/ExitState.js";
 import EntranceStates from "../entrance/StateManager.js";
@@ -17,7 +17,9 @@ const AREA = new WeakMap();
 
 function getEntranceArea(value) {
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
-    const area = WorldRegistry.get(entrance.props.area);
+    const [areaCategory, areaId] = entrance.props.area.split("/");
+    const Manager = WorldStateManagers[areaCategory];
+    const area = Manager.get(areaId);
     if (area == null) {
         console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
     }

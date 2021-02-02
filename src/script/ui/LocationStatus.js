@@ -6,7 +6,7 @@ import "/emcJS/ui/input/Option.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import AreaStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
 
 const TPL = new Template(`

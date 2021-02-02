@@ -7,12 +7,12 @@ import "/emcJS/ui/Paging.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
-import StateStorage from "/script/storage/StateStorage.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
@@ -44,11 +44,11 @@ export default class SpoilerLogSettings {
                     if (Array.isArray(v)) {
                         v = new Set(v);
                         options[i][j].values.forEach(el => {
-                            StateStorage.writeExtra("parseSpoiler", el, v.has(el));
+                            SavestateHandler.set("parseSpoiler", el, v.has(el));
                             settingsData[el] = v.has(el);
                         });
                     } else {
-                        StateStorage.writeExtra("parseSpoiler", j, v);
+                        SavestateHandler.set("parseSpoiler", j, v);
                         settingsData[j] = v;
                     }
                 }
@@ -90,13 +90,13 @@ export default class SpoilerLogSettings {
                     const def = new Set(opt.default);
                     const val = [];
                     for (const el of opt.values) {
-                        if (StateStorage.readExtra("parseSpoiler", el, def.has(el))) {
+                        if (SavestateHandler.set("parseSpoiler", el, def.has(el))) {
                             val.push(el);
                         }
                     }
                     res[i][j] = val;
                 } else {
-                    res[i][j] = StateStorage.readExtra("parseSpoiler", j, opt.default);
+                    res[i][j] = SavestateHandler.set("parseSpoiler", j, opt.default);
                 }
             }
         }

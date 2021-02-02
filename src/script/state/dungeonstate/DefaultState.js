@@ -3,10 +3,9 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
-// Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 
 const TYPE = new WeakMap();
 const REWARD = new WeakMap();
@@ -39,12 +38,12 @@ export default class DefaultState extends DataState {
             if (data.areaData.lists == null) {
                 this.type = "v";
             } else {
-                this.type = StateStorage.readExtra("dungeontype", ref, "n");
+                this.type = SavestateHandler.get("dungeontype", ref, "n");
             }
         } else {
             this.type = "v";
         }
-        this.reward = StateStorage.readExtra("dungeonreward", ref, "");
+        this.reward = SavestateHandler.get("dungeonreward", ref, "");
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
         EventBus.register("state::dungeonreward", internalRewardChange.bind(this));
@@ -97,7 +96,7 @@ export default class DefaultState extends DataState {
             const old = this.type;
             if (value != old) {
                 TYPE.set(this, value);
-                StateStorage.writeExtra("dungeontype", ref, value);
+                SavestateHandler.set("dungeontype", ref, value);
                 // external
                 const event = new Event("type");
                 event.data = value;
@@ -127,7 +126,7 @@ export default class DefaultState extends DataState {
             const old = this.reward;
             if (value != old) {
                 REWARD.set(this, value);
-                StateStorage.writeExtra("dungeonreward", ref, value);
+                SavestateHandler.set("dungeonreward", ref, value);
                 // external
                 const event = new Event("reward");
                 event.data = value;

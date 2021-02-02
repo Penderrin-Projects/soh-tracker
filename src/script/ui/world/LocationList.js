@@ -6,12 +6,12 @@ import "/emcJS/ui/input/SwitchButton.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
@@ -214,7 +214,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     this.shadowRoot.getElementById("location-version").ref = newValue;
                     this.shadowRoot.getElementById("vanilla").ref = newValue;
                     this.shadowRoot.getElementById("masterquest").ref = newValue;
-                    this.hint = StateStorage.readExtra("area_hint", newValue, "");
+                    this.hint = SavestateHandler.get("area_hint", newValue, "");
                     this.refresh();
                 }
                 break;

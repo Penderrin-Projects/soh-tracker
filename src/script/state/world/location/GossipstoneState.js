@@ -4,10 +4,9 @@ import Helper from "/emcJS/util/Helper.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
-// Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 
 const HINT = new WeakMap();
 
@@ -25,7 +24,7 @@ export default class GossipstoneState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.hint = StateStorage.readExtra("gossipstone", ref, {location: "", item: ""});
+        this.hint = SavestateHandler.get("gossipstone", ref, {location: "", item: ""});
         /* EVENTS */
         EventBus.register("state::gossipstone", internalHintChange.bind(this));
     }
@@ -51,7 +50,7 @@ export default class GossipstoneState extends DefaultState {
         const old = this.hint;
         if (!Helper.isEqual(old, value)) {
             HINT.set(this, value);
-            StateStorage.writeExtra("gossipstone", ref, value);
+            SavestateHandler.get("gossipstone", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;

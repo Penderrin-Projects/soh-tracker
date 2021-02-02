@@ -4,12 +4,13 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
-import StateStorage from "/script/storage/StateStorage.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
 // TODO create storage files for these
@@ -86,6 +87,6 @@ async function update() {
     }
 }
 
-logic_rules = StateStorage.read("option.logic_rules");
+logic_rules = OptionsStorage.get("option.logic_rules");
 use_custom_logic = SettingsStorage.get("use_custom_logic");
 await update();

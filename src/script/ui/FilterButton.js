@@ -9,8 +9,6 @@ import "/emcJS/ui/input/Option.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
-// Track-OOT
-import StateStorage from "../storage/StateStorage.js";
 
 const TPL = new Template(`
 <slot>
@@ -55,8 +53,6 @@ slot {
 }
 `);
 
-const PERSIST = new WeakMap();
-
 class FilterButton extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
@@ -65,13 +61,12 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        PERSIST.set(this, false);
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
         this.registerGlobal("filter", event => {
-            if (event.data.name == this.ref) {
-                this.value = event.data.value;
+            if (event.data[this.ref] != null) {
+                this.value = event.data[this.ref];
             }
         });
         /* fck iOS */
@@ -112,7 +107,6 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
             case "ref":
                 if (oldValue != newValue) {
                     const data = FilterResource.get(this.ref);
-                    PERSIST.set(this, data.persist != null && !!data.persist);
                     this.value = FilterStorage.get(this.ref, data.default);
                     for (const i in data.values) {
                         let img = data.images;
@@ -160,16 +154,8 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                 }
             }
             if (value != oldValue) {
-                const persist = PERSIST.get(this);
                 this.value = value;
                 FilterStorage.set(this.ref, value);
-                if (persist) {
-                    StateStorage.write(this.ref, value);
-                }
-                this.triggerGlobal("filter", {
-                    name: this.ref,
-                    value: value
-                });
             }
         }
         event.preventDefault();
@@ -190,16 +176,8 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                 }
             }
             if (value != oldValue) {
-                const persist = PERSIST.get(this);
                 this.value = value;
                 FilterStorage.set(this.ref, value);
-                if (persist) {
-                    StateStorage.write(this.ref, value);
-                }
-                this.triggerGlobal("filter", {
-                    name: this.ref,
-                    value: value
-                });
             }
         }
         event.preventDefault();

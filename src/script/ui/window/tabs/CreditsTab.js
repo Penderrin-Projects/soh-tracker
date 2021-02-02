@@ -1,9 +1,11 @@
 /* asym-import: off */
-import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 /* asym-import: on */
+
+// Track-OOT
+import DeveloperData from "/script/data/DeveloperData.js";
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {
@@ -105,12 +107,12 @@ function createSupporterPanel(title, data) {
 }
 
 async function fillCredits(teamList, contributorList, supporterList) {
-    teamList.append(createDevEntry(MemoryStorage.get("devs-owner"), "owner"));
-    const team = MemoryStorage.get("devs-team").sort(sortNames);
+    teamList.append(createDevEntry(DeveloperData.owner, "owner"));
+    const team = DeveloperData.team.sort(sortNames);
     team.forEach(name => {
         teamList.append(createDevEntry(name, "team"));
     });
-    const contributors = MemoryStorage.get("devs-contributors").sort(sortNames);
+    const contributors = DeveloperData.contributors.sort(sortNames);
     contributors.forEach(name => {
         contributorList.append(createDevEntry(name, "contributor"));
     });

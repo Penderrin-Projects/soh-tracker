@@ -1,7 +1,4 @@
-import FilterResource from "../resource/FilterResource.js";
 import DataStorage from "../storage/DataStorage.js";
-import OptionsStorage from "../storage/OptionsStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
 
 const DATA = new Map();
 let name = "";
@@ -11,34 +8,6 @@ let autosave = false;
 let notes = "";
 
 class Savestate extends EventTarget {
-
-    constructor() {
-        super();
-        /* --- */
-        OptionsStorage.addEventListener("change", event => {
-            const ev = new Event("options");
-            ev.data = event.data;
-            ev.changes = event.changes;
-            this.dispatchEvent(ev);
-        });
-        FilterStorage.addEventListener("change", event => {
-            const data = {};
-            const changes = {};
-            for (const key in event.changes) {
-                const props = FilterResource.get(key);
-                if (props.persist) {
-                    data[key] = event.data[key];
-                    changes[key] = event.changes[key];
-                }
-            }
-            if (Object.keys(changes).length) {
-                const ev = new Event("filter");
-                ev.changes = changes;
-                ev.data = data;
-                this.dispatchEvent(ev);
-            }
-        });
-    }
 
     set name(value) {
         name = value.toString();
@@ -88,7 +57,6 @@ class Savestate extends EventTarget {
 
     purge() {
         DATA.clear();
-        OptionsStorage.clear();
         name = "";
         version = 0;
         timestamp = new Date();
@@ -103,7 +71,6 @@ class Savestate extends EventTarget {
             version,
             timestamp,
             autosave,
-            options: OptionsStorage.getAll(),
             data: {}
         };
         for (const [category, dataStorage] of DATA) {
@@ -114,13 +81,11 @@ class Savestate extends EventTarget {
 
     deserialize(value) {
         DATA.clear();
-        OptionsStorage.clear();
         name = value.name?.toString() ?? "";
         notes = value.notes?.toString() ?? "";
         version = value.version ?? 0;
         timestamp = value.timestamp ?? new Date();
         autosave = value.autosave ?? false;
-        OptionsStorage.setAll(value.options ?? {});
         /* --- */
         if (value.data != null) {
             for (const category in value.data) {

@@ -10,12 +10,15 @@ SavestateConverter.register(function(state) {
             "": {},
             ...state.extra
         },
-        options: {}
+        options: {},
+        filter: {}
     };
     
     for (const [key, value] of Object.entries(state.data)) {
         if (key.startsWith("option.") || key.startsWith("skip.")) {
             res.options[key] = value;
+        } else if (key.startsWith("filter.")) {
+            res.filter[key] = value;
         } else {
             res.data[""][key] = value;
         }

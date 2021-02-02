@@ -3,28 +3,27 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
-// Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 
 const ALL_DUNGEONS = [
-    'area/pocket',
-    'area/deku',
-    'area/dodongo',
-    'area/jabujabu',
-    'area/temple_forest',
-    'area/temple_fire',
-    'area/temple_shadow',
-    'area/temple_water',
-    'area/temple_spirit'
+    "area/pocket",
+    "area/deku",
+    "area/dodongo",
+    "area/jabujabu",
+    "area/temple_forest",
+    "area/temple_fire",
+    "area/temple_shadow",
+    "area/temple_water",
+    "area/temple_spirit"
 ];
 
 const DUNGEON = new WeakMap();
 
 function getDisplayDungeon(ref) {
     for (const dungeon of ALL_DUNGEONS) {
-        const rewardValue = StateStorage.readExtra("dungeonreward", dungeon, "");
+        const rewardValue = SavestateHandler.get("dungeonreward", dungeon, "");
         if (rewardValue == ref) {
             return dungeon;
         }

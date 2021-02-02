@@ -91,5 +91,20 @@ export default class DataStorage extends EventTarget {
         const ev = new Event("clear");
         this.dispatchEvent(ev);
     }
+    
+    serialize() {
+        return this.getAll();
+    }
+
+    deserialize(data) {
+        const buffer = BUFFER.get(this);
+        buffer.clear();
+        if (data != null) {
+            for (const key in data) {
+                const value = data[key];
+                buffer.set(value);
+            }
+        }
+    }
 
 }

@@ -3,6 +3,8 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 /* asym-import: on */
+import OptionsStorage from "../storage/OptionsStorage.js";
+import FilterStorage from "../storage/FilterStorage.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 
@@ -85,7 +87,8 @@ class SavestateHandler extends EventTarget {
             ev.data = {
                 notes: state.notes,
                 data: state.data,
-                options: state.options
+                options: state.options,
+                filter: state.filter
             };
             this.dispatchEvent(ev);
         }
@@ -113,7 +116,17 @@ class SavestateHandler extends EventTarget {
             this.dispatchEvent(ev);
         });
         Savestate.addEventListener("options", event => {
+        });
+        OptionsStorage.addEventListener("change", event => {
             const state = Savestate.serialize();
+            state.options = OptionsStorage.serialize();
+            state.filter = FilterStorage.serialize();
+            cacheData(state, true);
+        });
+        FilterStorage.addEventListener("persistedchange", event => {
+            const state = Savestate.serialize();
+            state.options = OptionsStorage.serialize();
+            state.filter = FilterStorage.serialize();
             cacheData(state, true);
         });
     }
@@ -123,6 +136,8 @@ class SavestateHandler extends EventTarget {
         const state = Savestate.serialize();
         state.timestamp = new Date();
         state.autosave = false;
+        state.options = OptionsStorage.serialize();
+        state.filter = FilterStorage.serialize();
         await STORAGE.set(name, state);
         if (autosaveTimeout != null) {
             clearTimeout(autosaveTimeout);
@@ -140,14 +155,18 @@ class SavestateHandler extends EventTarget {
                 autosaveTimeout = setTimeout(autosave, autosaveTime);
             }
             // write state data
-            Savestate.deserialize(state);
+            const {options, filter, ...data} = state;
+            Savestate.deserialize(data);
+            OptionsStorage.deserialize(options);
+            FilterStorage.deserialize(filter);
             cacheData(state, false);
             // trigger event
             const ev = new Event("state");
             ev.data = {
                 notes: state.notes,
                 data: state.data,
-                options: state.options
+                options: state.options,
+                filter: state.filter
             };
             this.dispatchEvent(ev);
         }
@@ -176,26 +195,31 @@ class SavestateHandler extends EventTarget {
         return LocalStorage.get(STATE_DIRTY);
     }
 
-    reset(data, options) {
+    reset(data, options, filter) {
         // write state data
-        Savestate.deserialize({
-            data,
-            options
-        });
+        Savestate.deserialize({data});
+        OptionsStorage.deserialize(options);
+        FilterStorage.deserialize(filter);
+        // cache data
         const state = Savestate.serialize();
+        state.options = OptionsStorage.serialize();
+        state.filter = FilterStorage.serialize();
         cacheData(state, false);
         // trigger event
         const ev = new Event("state");
         ev.data = {
             notes: state.notes,
             data: state.data,
-            options: state.options
+            options: state.options,
+            filter: state.filter
         };
         this.dispatchEvent(ev);
     }
 
-    overwrite(data, options) {
+    overwrite(data, options, filter) {
         const state = Savestate.serialize();
+        const _options = OptionsStorage.serialize();
+        const _filter = FilterStorage.serialize();
         // write data
         if (typeof data == "object") {
             for (const name in data) {
@@ -205,20 +229,28 @@ class SavestateHandler extends EventTarget {
                 }
             }
         }
-        if (typeof defaultOptions == "object") {
+        if (typeof options == "object") {
             for (const key in options) {
-                state.options[key] = options[key];
+                _options[key] = options[key];
+            }
+        }
+        if (typeof filter == "object") {
+            for (const key in filter) {
+                _filter[key] = filter[key];
             }
         }
         // write state data
         Savestate.deserialize(state);
+        OptionsStorage.deserialize(_options);
+        FilterStorage.deserialize(_filter);
         cacheData(state, true);
         // trigger event
         const ev = new Event("state");
         ev.data = {
             notes: state.notes,
             data: state.data,
-            options: state.options
+            options: state.options,
+            filter: state.filter
         };
         this.dispatchEvent(ev);
     }

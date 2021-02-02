@@ -1,4 +1,5 @@
 import WorldResource from "../../../resource/WorldResource.js";
+import WorldStateManagers from "../StateManagers.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
@@ -8,6 +9,7 @@ class StateManager extends AbstractStateManager {
     
     constructor() {
         super(DefaultState, resourceData);
+        WorldStateManagers.location = this;
     }
     
     createState(StateClass, ref, props) {
@@ -16,9 +18,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-const stateManager = new StateManager();
-for (const ref in resourceData) {
-    stateManager.get(ref);
-}
-
-export default stateManager;
+export default new StateManager();

@@ -21,6 +21,15 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 // Track-OOT
+import "/script/state/item/InfiniteItemState.js";
+import "/script/state/item/KeyState.js";
+import "/script/state/item/RewardItemState.js";
+import "/script/state/item/StartItemState.js";
+import "/script/state/item/VariableMaxItemState.js";
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/location/LocationState.js";
+import "/script/state/world/location/GossipstoneState.js";
 import VersionData from "/script/data/VersionData.js";
 import "/script/storage/converter/StateConverter.js";
 import "/script/util/logic/AugmentExits.js";

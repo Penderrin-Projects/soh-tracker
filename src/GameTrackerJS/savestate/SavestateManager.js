@@ -30,13 +30,13 @@ class SavestateManager {
         return await STORAGE.getAll();
     }
 
-    async import(data) {
+    async importSavestate(data) {
         data = SavestateConverter.convert(data);
         data.autosave = false;
         await STORAGE.set(data.name, data);
     }
 
-    async export(name) {
+    async exportSavestate(name) {
         return await STORAGE.get(name, {});
     }
 

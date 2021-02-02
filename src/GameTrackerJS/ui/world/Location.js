@@ -1,7 +1,7 @@
 /* asym-import: off */
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import WorldRegistry from "../../registry/WorldRegistry.js";
+import WorldStateManagers from "../../state/world/StateManagers.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
@@ -121,7 +121,9 @@ export default class AbstractLocation extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const [, stateId] = this.ref.split("/");
+                        const Manager = WorldStateManagers["location"];
+                        const state = Manager.get(stateId);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(newValue);

@@ -3,9 +3,8 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
-// Track-OOT
-import StateStorage from "/script/storage/StateStorage.js";
 
 const NOTES = new WeakMap();
 
@@ -24,7 +23,7 @@ export default class DefaultState extends DataState {
         super(ref, props);
         /* --- */
         if (props.editable) {
-            this.notes = StateStorage.readExtra("songs", ref, props.notes);
+            this.notes = SavestateHandler.get("songs", ref, props.notes);
         } else {
             NOTES.set(this, props.notes);
         }
@@ -56,7 +55,7 @@ export default class DefaultState extends DataState {
                 const old = this.notes;
                 if (value != old) {
                     NOTES.set(this, value);
-                    StateStorage.writeExtra("songs", ref, value);
+                    SavestateHandler.set("songs", ref, value);
                     // external
                     const event = new Event("notes");
                     event.data = value;
