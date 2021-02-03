@@ -8,7 +8,9 @@ import FilterStorage from "../../storage/FilterStorage.js";
 
 const SPECIAL_FILTERS = [
     "access",
-    "!access"
+    "!access",
+    "done",
+    "!done"
 ];
 
 function mapToObj(map) {

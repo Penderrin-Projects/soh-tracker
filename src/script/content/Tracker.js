@@ -128,8 +128,8 @@ function openSettingsWindow() {
 }
 
 function openRomSettingsWindow() {
-    if (window.SavestateOptionsWindow) {
-        window.SavestateOptionsWindow.show();
+    if (window.RomOptionsWindow) {
+        window.RomOptionsWindow.show();
     }
 }
 

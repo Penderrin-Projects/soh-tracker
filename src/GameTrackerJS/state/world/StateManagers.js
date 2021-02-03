@@ -66,7 +66,7 @@ class StateManagers {
         }
     }
 
-    getOVerworld() {
+    getOverworld() {
         return OVERWORLD;
     }
 
@@ -75,8 +75,14 @@ class StateManagers {
     }
 
     get(category, id) {
-        if (category == "overworld" || id == "overworld") {
-            return this.getOVerworld();
+        if (typeof category != "string") {
+            throw new TypeError(`category parameter must be of type "string" but was "${typeof category}"`);
+        }
+        if (typeof id != "string") {
+            throw new TypeError(`id parameter must be of type "string" but was "${typeof id}"`);
+        }
+        if (category == "" || category == "overworld") {
+            return this.getOverworld();
         }
         const Manager = WORLD[category];
         if (Manager != null) {
@@ -87,8 +93,11 @@ class StateManagers {
     }
 
     getByRef(ref) {
-        if (ref == "overworld") {
-            return this.overworld;
+        if (typeof ref != "string") {
+            throw new TypeError(`ref parameter must be of type "string" but was "${typeof ref}"`);
+        }
+        if (ref == "" || ref == "overworld") {
+            return this.getOverworld();
         }
         const [category, id] = ref.split("/");
         return this.get(category, id);

@@ -3,10 +3,10 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 /* asym-import: on */
+import WorldResource from "../../resource/WorldResource.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
-import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 
 const TPL = new Template(`
     <emc-contextmenu id="menu">
@@ -92,18 +92,18 @@ export default class ExitBindingMenu extends HTMLElement {
         const exit = WorldStateManagers.getEntrance(access);
         if (exit != null) {
             selectEl.value = current;
-            const entrances = EntranceStateManager.getAll();
             // add options
-            for (const key in entrances) {
-                const value = entrances[key];
+            const entrances = WorldResource.get("exit");
+            for (const name in entrances) {
+                const value = WorldStateManagers.getEntrance(name);
                 if (access != value.props.target) {
-                    const isActive = value.active || exit.includeInactiveEntrances;
-                    const isActiveAndBinds = isActive && exit.bindsTo.indexOf(value.props.type) >= 0;
-                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.ignoreBound)) {
+                    const isActive = value.active || exit.props.includeInactiveEntrances;
+                    const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
+                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound)) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
                         const entranceName = Language.translate(`entrance[${value.props.target}]`);
-                        if (exit.bindsTo.length > 1) {
+                        if (exit.props.bindsTo.length > 1) {
                             const category = `
                                     <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
                                         ${Language.translate(value.props.type)}

@@ -7,6 +7,12 @@ import "/emcJS/ui/input/SwitchButton.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
