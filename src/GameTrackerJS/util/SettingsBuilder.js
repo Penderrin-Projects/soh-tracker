@@ -12,9 +12,9 @@ function convertValueList(values = [], names = []) {
     if (typeof values == "object") {
         for (const k in values) {
             if (names[k] != null) {
-                opt[values[k]] = Language.translate(names[k]);
+                opt[values[k]] = Language.generateLabel(names[k]);
             } else {
-                opt[values[k]] = Language.translate(values[k]);
+                opt[values[k]] = Language.generateLabel(values[k]);
             }
         }
     }
@@ -27,7 +27,7 @@ class SettingsBuilder {
         for (const key in options) {
             const option = options[key];
             const category = option.category;
-            const label = Language.translate(key);
+            const label = Language.generateLabel(key);
             const min = parseFloat(option.min);
             const max = parseFloat(option.max);
             switch (option.type) {
@@ -50,7 +50,7 @@ class SettingsBuilder {
                     window.addListSelectInput(category, label, key, option.default, true, convertValueList(option.values, option.names));
                     break;
                 case "button":
-                    window.addButton(category, label, key, Language.translate(option.text), alert.bind(window, "not functionality bound"));
+                    window.addButton(category, label, key, Language.generateLabel(option.text), alert.bind(window, "not functionality bound"));
                     break;
             }
         }

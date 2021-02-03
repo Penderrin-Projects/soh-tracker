@@ -124,7 +124,7 @@ export default class AbstractSubArea extends WorldElement {
                         const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(newValue);
+                            Language.applyLabel(textEl, newValue);
                         }
                         this.switchState(state);
                     }

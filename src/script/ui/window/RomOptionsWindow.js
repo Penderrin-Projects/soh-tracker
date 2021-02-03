@@ -27,7 +27,7 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
         loadRulesetWrapper.style.display = "flex";
         loadRulesetWrapper.style.flex = "1";
         const loadRulesetButton = loadRulesetRow.getElementById("load-options-preset");
-        loadRulesetButton.innerHTML = Language.translate("load-preset-button");
+        Language.applyLabel(loadRulesetButton, "load-preset-button");
         
         const selector = loadRulesetRow.getElementById("select-options-preset");
         selector.style.width = "20%";

@@ -171,7 +171,7 @@ export default class SettingsWindow extends Window {
             const container = tab.querySelector(".container");
             return container;
         } else {
-            const tab = categories.addTab(category, Language.translate(category));
+            const tab = categories.addTab(category, Language.generateLabel(category));
             const container = document.createElement("gt-window-settings-tab");
             container.className = "container";
             tab.append(container);

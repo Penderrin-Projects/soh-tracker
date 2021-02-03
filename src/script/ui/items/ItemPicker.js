@@ -48,15 +48,13 @@ const STYLE = new GlobalStyle(`
 function createItem(value) {
     const el = document.createElement("ootrt-selectableitem");
     el.className = "item";
-    el.title = Language.translate(value);
-    el.setAttribute("i18n-tooltip", value);
     el.setAttribute("ref", value);
-    return el;
+    return Language.applyTooltip(el, value);
 }
 
 function createEmpty() {
     const el = document.createElement("DIV");
-    el.classList.add("empty");
+    el.className = "empty";
     return el;
 }
 

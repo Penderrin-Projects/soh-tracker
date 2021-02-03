@@ -42,7 +42,7 @@ export default class HTMLTrackerExitList extends TabPanel {
     }
 
     addTab(category) {
-        return super.addTab(category, Language.translate(category));
+        return super.addTab(category, Language.generateLabel(category));
     }
 
     addEntrance(category, ref) {

@@ -129,7 +129,7 @@ const TPL = new Template(`
         }
     </style>
     <div id="title">
-        <div id="title-text">${Language.translate("hyrule")}</div>
+        <div id="title-text"></div>
         <div id="hint"></div>
         <ootrt-dungeontype id="location-version" class="button" ref="overworld" value="v" readonly="true">
         </ootrt-dungeontype>
@@ -137,9 +137,9 @@ const TPL = new Template(`
         </ootrt-filtermenu>
     </div>
     <div id="body">
-        <ootrt-list-button id="back">(${Language.translate("to overworld")})</ootrt-list-button>
-        <ootrt-list-typebutton type="v" id="vanilla" class="hidden">${Language.translate("vanilla")}</ootrt-list-typebutton>
-        <ootrt-list-typebutton type="mq" id="masterquest" class="hidden">${Language.translate("masterquest")}</ootrt-list-typebutton>
+        <ootrt-list-button id="back"></ootrt-list-button>
+        <ootrt-list-typebutton type="v" id="vanilla" class="hidden"></ootrt-list-typebutton>
+        <ootrt-list-typebutton type="mq" id="masterquest" class="hidden"></ootrt-list-typebutton>
         <div id="list"></div>
     </div>
 `);
@@ -157,6 +157,14 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             event.preventDefault();
             return false;
         });
+        const titleTextEl = this.shadowRoot.getElementById("title-text");
+        const backEl = this.shadowRoot.getElementById("back");
+        const vanillaEl = this.shadowRoot.getElementById("vanilla");
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        Language.applyLabel(titleTextEl, "hyrule");
+        Language.applyLabel(backEl, "(to overworld)");
+        Language.applyLabel(vanillaEl, "vanilla");
+        Language.applyLabel(masterquestEl, "masterquest");
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -216,7 +224,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         switch (name) {
             case "ref":
                 if (oldValue != newValue) {
-                    this.shadowRoot.getElementById("title-text").innerHTML = Language.translate(newValue || "hyrule");
+                    Language.applyLabel(this.shadowRoot.getElementById("title-text"), newValue || "hyrule");
                     this.shadowRoot.getElementById("location-version").ref = newValue;
                     this.shadowRoot.getElementById("vanilla").ref = newValue;
                     this.shadowRoot.getElementById("masterquest").ref = newValue;

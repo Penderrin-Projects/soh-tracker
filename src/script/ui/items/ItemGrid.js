@@ -57,27 +57,26 @@ const STYLE = new GlobalStyle(`
 function createItem(value, data) {
     const el = UIRegistry.get("item").create(data.type, value);
     el.className = "item";
-    el.title = Language.translate(value);
-    return el;
+    return Language.applyTooltip(el, value);
 }
 
 function createText(value) {
     const el = document.createElement("DIV");
-    el.classList.add("text");
+    el.className = "text";
     el.innerHTML = value;
     return el;
 }
 
 function createIcon(value) {
     const el = document.createElement("DIV");
-    el.classList.add("icon");
+    el.className = "icon";
     el.dataset.icon = value;
     return el;
 }
 
 function createEmpty() {
     const el = document.createElement("DIV");
-    el.classList.add("empty");
+    el.className = "empty";
     return el;
 }
 

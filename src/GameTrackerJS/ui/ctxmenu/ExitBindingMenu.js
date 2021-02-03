@@ -9,17 +9,21 @@ import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
 
 const TPL = new Template(`
-    <emc-contextmenu id="menu">
-        <emc-listselect id="select"></emc-listselect>
-    </emc-contextmenu>
-    `);
+<emc-contextmenu id="menu">
+    <emc-listselect id="select"></emc-listselect>
+</emc-contextmenu>
+`);
+
+const CTG_TPL = new Template(`
+<span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
+`);
 
 const STYLE = new GlobalStyle(`
-    #select {
-        height: 300px;
-        width: 300px;
-    }
-    `);
+#select {
+    height: 300px;
+    width: 300px;
+}
+`);
 
 export default class ExitBindingMenu extends HTMLElement {
 
@@ -84,7 +88,7 @@ export default class ExitBindingMenu extends HTMLElement {
         const empty = document.createElement("emc-option");
         empty.value = "";
         const emptyText = document.createElement("span");
-        emptyText.innerHTML = "unbind";
+        Language.applyLabel(emptyText, "unbind");
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
         selectEl.append(empty);
@@ -102,16 +106,14 @@ export default class ExitBindingMenu extends HTMLElement {
                     if (isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound)) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
-                        const entranceName = Language.translate(`entrance[${value.props.target}]`);
+                        const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
                         if (exit.props.bindsTo.length > 1) {
-                            const category = `
-                                    <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
-                                        ${Language.translate(value.props.type)}
-                                    </span>
-                                `;
-                            opt.innerHTML = `${entranceName}${category}`;
+                            const category = CTG_TPL.generate();
+                            Language.applyLabel(category, value.props.type);
+                            opt.append(entranceName);
+                            opt.append(category);
                         } else {
-                            opt.innerHTML = entranceName;
+                            opt.append(entranceName);
                         }
                         selectEl.append(opt);
                     }

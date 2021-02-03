@@ -210,7 +210,7 @@ export default class MapSubExit extends WorldElement {
                         const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
+                            Language.applyLabel(textEl, `exit[${newValue}]`);
                         }
                         this.switchState(state);
                     }
@@ -222,7 +222,7 @@ export default class MapSubExit extends WorldElement {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
+                                    Language.applyLabel(valueEl, `entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }

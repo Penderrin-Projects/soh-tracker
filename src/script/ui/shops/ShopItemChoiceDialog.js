@@ -183,7 +183,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
         const items = ShopItemsResource.get();
         for (const item in items) {
             const values = items[item];
-            this.addTab(Language.translate(values.category), values.category);
+            this.addTab(Language.generateLabel(values.category), values.category);
             this.addItem(values.category, item, values.price || "???");
         }
     }
@@ -318,7 +318,11 @@ export default class HTMLTrackerShopItemChoice extends Window {
             const cb = document.createElement("div");
             cb.className = "category";
             cb.setAttribute("target", id);
-            cb.innerHTML = title;
+            if (title instanceof HTMLElement) {
+                cb.append(title);
+            } else if (typeof title === "string") {
+                cb.innerHTML = title;
+            }
             const cbt = this.shadowRoot.getElementById("categories");
             cbt.append(cb);
         }

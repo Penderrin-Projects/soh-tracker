@@ -184,8 +184,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("item").create(itemData.type, data.keys);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
-        itm.title = Language.translate(data.keys);
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, data.keys));
         /* register */
         types.push("key");
     } else {
@@ -201,8 +200,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("item").create(itemData.type, data.bosskey);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
-        itm.title = Language.translate(data.bosskey);
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, data.bosskey));
         /* register */
         types.push("bosskey");
     } else {
@@ -219,8 +217,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
         itm.setAttribute("ref", data.map);
-        itm.title = Language.translate(data.map);
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, data.map));
         /* register */
         types.push("map");
     } else {
@@ -237,8 +234,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
         itm.setAttribute("ref", data.compass);
-        itm.title = Language.translate(data.compass);
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, data.compass));
         /* register */
         types.push("compass");
     } else {
@@ -254,8 +250,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
         itm.setAttribute("ref", ref);
-        itm.title = Language.translate(ref) + " " + Language.translate("dun_reward");
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, `${ref}_reward`));
         /* register */
         types.push("reward");
     } else {
@@ -271,8 +266,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
         itm.setAttribute("ref", ref);
-        itm.title = Language.translate(ref) + " " + Language.translate("dun_type");
-        el.append(itm);
+        el.append(Language.applyTooltip(itm, `${ref}_type`));
         /* register */
         types.push("type");
     } else {

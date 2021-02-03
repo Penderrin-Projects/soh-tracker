@@ -27,7 +27,7 @@ const LOAD_SPOILER = new Template(`
 async function loadSpoiler(button) {
     spoiler = await FileSystem.load(".json");
     if (!!spoiler && !!spoiler.data) {
-        button.innerHTML = Language.translate("loaded-spoiler-button");
+        Language.applyLabel(button, "loaded-spoiler-button");
     }
 }
 
@@ -55,7 +55,7 @@ export default class SpoilerLogSettings {
             }
             if (!!spoiler && !!spoiler.data) {
                 SpoilerParser.parse(spoiler.data, settingsData);
-                loadSpoilerButton.innerHTML = Language.translate("load-spoiler-button");
+                Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                 spoiler = {};
             }
             BusyIndicator.unbusy();
@@ -69,7 +69,7 @@ export default class SpoilerLogSettings {
         loadSpoilerWrapper.style.display = "flex";
         loadSpoilerWrapper.style.flex = "1";
         const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
-        loadSpoilerButton.innerHTML = Language.translate("load-spoiler-button");
+        Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
 
 
         loadSpoilerButton.addEventListener("click", () => {

@@ -54,7 +54,7 @@ export default class MapLocation extends AbstractLocation {
         mnu_ctx.addEventListener("show_logic", event => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.translate(this.ref);
+                const title = Language.generateLabel(this.ref);
                 LogicViewer.show(state.props.access, title);
             }
         });

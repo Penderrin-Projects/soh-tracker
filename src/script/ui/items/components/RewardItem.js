@@ -189,9 +189,9 @@ export default class RewardItem extends StateDataEventManager(HTMLElement) {
                     break;
                 case "dungeon":
                     if (newValue != "") {
-                        this.shadowRoot.getElementById("value").innerHTML = Language.translate(`${newValue}.short`);
+                        Language.applyLabel(this.shadowRoot.getElementById("value"), `${newValue}.short`);
                     } else {
-                        this.shadowRoot.getElementById("value").innerHTML = "";
+                        Language.applyLabel(this.shadowRoot.getElementById("value"), "");
                     }
                     break;
                 case "halign":

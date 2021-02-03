@@ -193,7 +193,7 @@ const TPL = new Template(`
     <div id="map-wrapper">
         <slot id="map" style="--map-zoom: ${ZOOM_DEF};">
         </slot>
-        <div id="back">(${Language.translate("back")})</div>
+        <div id="back">(${Language.generateLabel("back")})</div>
         <div id="map-settings">
             <div class="buttons">
                 <div id="toggle-button" class="button-wrapper">⇑</div>

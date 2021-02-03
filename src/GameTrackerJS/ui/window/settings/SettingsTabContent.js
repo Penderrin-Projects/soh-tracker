@@ -162,10 +162,7 @@ export default class SettingsTabContent extends HTMLElement {
         input.className = "settings-input";
         input.setAttribute("type", "input");
         for (const value in values) {
-            const opt = document.createElement("option");
-            opt.value = value;
-            opt.innerHTML = values[value];
-            input.append(opt);
+            input.append(generateOption(value, values[value]));
         }
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
@@ -193,10 +190,7 @@ export default class SettingsTabContent extends HTMLElement {
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
         for (const value in values) {
-            const opt = document.createElement("emc-option");
-            opt.value = value;
-            opt.innerHTML = values[value];
-            input.append(opt);
+            input.append(generateEmcOption(value, values[value]));
         }
         el.append(input);
         // events
@@ -219,7 +213,11 @@ export default class SettingsTabContent extends HTMLElement {
         input.className = "settings-button";
         input.setAttribute("type", "button");
         input.dataset.ref = ref;
-        input.innerHTML = text;
+        if (text instanceof HTMLElement) {
+            input.append(text);
+        } else {
+            input.innerHTML = text;
+        }
         if (typeof callback == "function") {
             input.onclick = callback;
         }
@@ -243,8 +241,34 @@ function generateField(label) {
     const el = document.createElement("label");
     el.className = "settings-option";
     const text = document.createElement("span");
-    text.innerHTML = label;
+    if (label instanceof HTMLElement) {
+        text.append(label);
+    } else {
+        text.innerHTML = label;
+    }
     text.className = "option-text";
     el.append(text);
+    return el;
+}
+
+function generateOption(value, label) {
+    const el = document.createElement("option");
+    el.value = value;
+    if (label instanceof HTMLElement) {
+        el.append(label);
+    } else {
+        el.innerHTML = label;
+    }
+    return el;
+}
+
+function generateEmcOption(value, label) {
+    const el = document.createElement("emc-option");
+    el.value = value;
+    if (label instanceof HTMLElement) {
+        el.append(label);
+    } else {
+        el.innerHTML = label;
+    }
     return el;
 }
