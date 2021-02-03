@@ -5,7 +5,7 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
@@ -459,7 +459,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
         //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
         this.innerHTML = "";
-        const data = WorldRegistry.get(this.ref || "overworld");
+        const data = WorldStateManagers.getByRef(this.ref || "overworld");
         if (data != null) {
             const areaData = data.areaData;
             // switch map/minimap background
@@ -475,8 +475,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
                 //btn_vanilla.className = "hidden";
                 //btn_masterquest.className = "hidden";
                 for (const record of list) {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`map-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;

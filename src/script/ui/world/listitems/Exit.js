@@ -8,6 +8,9 @@ import "/emcJS/ui/Icon.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
 <div class="textarea">

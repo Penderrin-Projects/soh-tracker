@@ -1,58 +1,14 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/ExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
 import Language from "../../util/Language.js";
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
-
-function setAllListEntries(list, value = true) {
-    if (!!list && Array.isArray(list)) {
-        for (const entry of list) {
-            const category = entry.category;
-            const id = entry.id;
-            if (category == "location") {
-                const Manager = WorldStateManagers["location"];
-                const state = Manager.get(id);
-                if (state instanceof LocationState) {
-                    state.value = value;
-                }
-            } else if (category == "subarea") {
-                const Manager = WorldStateManagers["subarea"];
-                const subarea = Manager.get(id);
-                if (subarea != null) {
-                    setAllListEntries(subarea.getFilteredList(), value);
-                }
-            } else if (category == "subexit") {
-                const Manager = WorldStateManagers["subexit"];
-                const subexit = Manager.get(id);
-                if (subexit != null) {
-                    const bound = subexit.value;
-                    if (!bound) {
-                        continue;
-                    }
-                    const entrance = ExitRegistry.get(bound);
-                    if (entrance != null) {
-                        const Manager = WorldStateManagers["subarea"];
-                        const subarea = Manager.get(id);
-                        if (subarea != null) {
-                            setAllListEntries(subarea.getFilteredList(), value);
-                        }
-                    }
-                }
-            } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
-            }
-        }
-    }
-}
 
 export default class MapExit extends WorldElement {
 
@@ -103,8 +59,7 @@ export default class MapExit extends WorldElement {
             if (state != null) {
                 const area = state.area;
                 if (area != null) {
-                    const list = area.getFilteredList();
-                    setAllListEntries(list, true);
+                    area.setAllEntries(true);
                 }
             }
         });
@@ -113,8 +68,7 @@ export default class MapExit extends WorldElement {
             if (state != null) {
                 const area = state.area;
                 if (area != null) {
-                    const list = area.getFilteredList();
-                    setAllListEntries(list, false);
+                    area.setAllEntries(false);
                 }
             }
         });
@@ -273,9 +227,7 @@ export default class MapExit extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const [, stateId] = this.ref.split("/");
-                        const Manager = WorldStateManagers["exit"];
-                        const state = Manager.get(stateId);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);

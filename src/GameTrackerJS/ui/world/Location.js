@@ -121,9 +121,7 @@ export default class AbstractLocation extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const [, stateId] = this.ref.split("/");
-                        const Manager = WorldStateManagers["location"];
-                        const state = Manager.get(stateId);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(newValue);

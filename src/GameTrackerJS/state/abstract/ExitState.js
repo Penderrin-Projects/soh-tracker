@@ -4,14 +4,13 @@ import EventBus from "/emcJS/event/EventBus.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 /* asym-import: on */
 import LogicExecutor from "../../util/logic/LogicExecutor.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import WorldElementState from "./WorldElementState.js";
+import FilteredState from "./FilteredState.js";
 
 const EXIT_DATA = new WeakMap();
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
 
-export default class ExitState extends WorldElementState {
+export default class ExitState extends FilteredState {
 
     constructor(ref, props, exitData) {
         super(ref, props);
@@ -43,9 +42,6 @@ export default class ExitState extends WorldElementState {
                 }
             }
         });
-
-        /* register */
-        ExitRegistry.set(props.access, this);
     }
 
     get exitData() {

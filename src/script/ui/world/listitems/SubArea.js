@@ -7,7 +7,7 @@ import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
 import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
@@ -195,8 +195,7 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
             const list = state.getFilteredList();
             if (list != null) {
                 for (const record of list) {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
                 }

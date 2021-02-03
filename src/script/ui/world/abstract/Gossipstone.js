@@ -10,6 +10,7 @@ import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 // Track-OOT
+import "/script/state/world/location/GossipstoneState.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import "../../ctxmenu/GossipstoneContextMenu.js";
 

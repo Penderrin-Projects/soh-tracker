@@ -12,7 +12,7 @@ const STARTVALUE = new WeakMap();
 export default class StartItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, props.max);
+        super(ref, props);
         /* --- */
         STARTVALUE.set(this, parseInt(SavestateHandler.get("", props.start_settings, 1)));
         /* EVENTS */

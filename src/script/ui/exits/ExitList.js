@@ -5,6 +5,9 @@ import TabPanel from "/emcJS/ui/layout/panel/TabPanel.js";
 
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import "/GameTrackerJS/ui/ExitChoice.js";
 
@@ -24,10 +27,17 @@ export default class HTMLTrackerExitList extends TabPanel {
         super();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const exits = WorldResource.get("exit");
-        for (const exit in exits) {
-            const category = exits[exit].type;
-            this.addEntrance(category, exit);
+        const exits = WorldResource.get("marker/exit");
+        for (const name in exits) {
+            const state = WorldStateManagers.get("exit", name);
+            const category = state.exitData.type;
+            this.addEntrance(category, state.ref);
+        }
+        const subexits = WorldResource.get("marker/subexit");
+        for (const name in subexits) {
+            const state = WorldStateManagers.get("subexit", name);
+            const category = state.exitData.type;
+            this.addEntrance(category, state.ref);
         }
     }
 

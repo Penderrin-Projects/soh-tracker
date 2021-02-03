@@ -5,7 +5,7 @@ import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 export default class ItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, props.max);
+        super(ref, props);
     }
 
     get max() {

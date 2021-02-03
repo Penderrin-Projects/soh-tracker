@@ -5,7 +5,6 @@ import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import Logic from "../../../util/logic/Logic.js";
 import WorldStateManagers from "../StateManagers.js";
-import ExitRegistry from "../../../registry/ExitRegistry.js";
 import ExitState from "../../abstract/ExitState.js";
 import EntranceStates from "../entrance/StateManager.js";
 import "../area/StateManager.js";
@@ -17,9 +16,7 @@ const AREA = new WeakMap();
 
 function getEntranceArea(value) {
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
-    const [areaCategory, areaId] = entrance.props.area.split("/");
-    const Manager = WorldStateManagers[areaCategory];
-    const area = Manager.get(areaId);
+    const area = WorldStateManagers.getByRef(entrance.props.area);
     if (area == null) {
         console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
     }
@@ -40,15 +37,15 @@ function internalChange(event) {
             this./*#*/__setValue(change.value);
         } else if (change.value == access) {
             // if this entrance got bound
-            const otherExit = ExitRegistry.get(change.ref);
-            if (otherExit != null && otherExit.exitData.isBiDir) {
+            const otherExit = WorldStateManagers.getEntrance(change.ref);
+            if (otherExit != null && otherExit.isBiDir) {
                 this./*#*/__setValue(change.ref);
             }
         } else if (change.value != "" && change.value == this.value) {
             // if another exit got bound to this ones entrance
             if (!this.exitData.ignoreBound) {
-                const otherExit = ExitRegistry.get(change.ref);
-                if (otherExit != null && !otherExit.exitData.ignoreBound) {
+                const otherExit = WorldStateManagers.getEntrance(change.ref);
+                if (otherExit != null && !otherExit.ignoreBound) {
                     this./*#*/__setValue("");
                 }
             }
@@ -56,8 +53,8 @@ function internalChange(event) {
             // if another entrance got bound to this ones exit
             // if the exit does no longer bind to this
             if (!this.exitData.ignoreBound) {
-                const otherExit = ExitRegistry.get(change.value);
-                if (otherExit == null || !otherExit.exitData.ignoreBound) {
+                const otherExit = WorldStateManagers.getEntrance(change.ref);
+                if (otherExit == null || !otherExit.ignoreBound) {
                     this./*#*/__setValue("");
                 }
             }

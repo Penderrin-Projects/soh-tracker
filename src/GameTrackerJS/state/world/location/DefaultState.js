@@ -1,10 +1,9 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
-import FilterStorage from "../../../storage/FilterStorage.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import Logic from "../../../util/logic/Logic.js";
-import WorldElementState from "../../abstract/WorldElementState.js";
+import FilteredState from "../../abstract/FilteredState.js";
 
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
@@ -18,11 +17,12 @@ function internalChange(event) {
     }
 }
 
-export default class DefaultState extends WorldElementState {
+export default class DefaultState extends FilteredState {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
+        VALUE.set(this, SavestateHandler.get("", ref, false));
         ACCESS.set(this, Logic.getValue(props.access));
         /* EVENTS */
         EventBus.register("state::location", internalChange.bind(this));
@@ -42,13 +42,6 @@ export default class DefaultState extends WorldElementState {
                 }
             }
         });
-    }
-
-    get visible() {
-        // TODO remove this; add the filter to visibility property
-        const showDone = FilterStorage.get("filter.show_done", "true");
-        const value = VALUE.get(this);
-        return super.visible && (!value || showDone == "true");
     }
 
     stateLoaded(event) {

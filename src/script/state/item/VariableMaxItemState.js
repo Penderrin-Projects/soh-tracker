@@ -19,7 +19,7 @@ function getMaxValue(props) {
 export default class VariableMaxItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, getMaxValue(props));
+        super(ref, props, {max: getMaxValue(props)});
         /* --- */
         if (props.max.option != null) {
             const optionProps = OptionsResource.get(props.max.option);

@@ -48,7 +48,7 @@ function internalRewardChange(event) {
 export default class RewardItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, props.max);
+        super(ref, props);
         /* --- */
         this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
         /* EVENTS */

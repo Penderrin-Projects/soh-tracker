@@ -34,12 +34,12 @@ function internalChange(event) {
 
 export default class DefaultState extends DataState {
 
-    constructor(ref, props, min = 0, max = 0) {
+    constructor(ref, props, opt) {
         super(ref, props);
         /* --- */
-        MIN.set(this, parseNumber(min, Number.MIN_SAFE_INTEGER));
-        MAX.set(this, parseNumber(max, Number.MAX_SAFE_INTEGER));
-        this.value = SavestateHandler.get("", ref, 0);
+        MIN.set(this, parseNumber(opt?.min ?? props.min ?? 0, Number.MIN_SAFE_INTEGER));
+        MAX.set(this, parseNumber(opt?.max ?? props.max ?? 0, Number.MAX_SAFE_INTEGER));
+        VALUE.set(this, SavestateHandler.get("", ref, 0));
         /* EVENTS */
         EventBus.register("state::item", internalChange.bind(this));
         EventBus.register("state", event => {

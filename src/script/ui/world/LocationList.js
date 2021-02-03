@@ -8,7 +8,7 @@ import "/emcJS/ui/input/SwitchButton.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
@@ -238,7 +238,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         const btn_vanilla = this.shadowRoot.getElementById("vanilla");
         const btn_masterquest = this.shadowRoot.getElementById("masterquest");
         cnt.innerHTML = "";
-        const data = WorldRegistry.get(this.ref || "overworld");
+        const data = WorldStateManagers.getByRef(this.ref || "overworld");
         if (data != null) {
             const list = data.getFilteredList();
             if (list != null) {
@@ -251,8 +251,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     btn_vanilla.ref = "";
                 }
                 for (const record of list) {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     cnt.append(el);
@@ -277,7 +276,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             if ((!this.ref || this.ref === "overworld")) {
                 titleEl.className = "";
             } else {
-                const data = WorldRegistry.get(this.ref);
+                const data = WorldStateManagers.getByRef(this.ref);
                 if (data != null) {
                     /* access */
                     const access = data.access;

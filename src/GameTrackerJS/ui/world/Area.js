@@ -1,57 +1,13 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import LocationState from "../../state/world/location/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
-
-function setAllListEntries(list, value = true) {
-    if (!!list && Array.isArray(list)) {
-        for (const entry of list) {
-            const category = entry.category;
-            const id = entry.id;
-            if (category == "location") {
-                const Manager = WorldStateManagers["location"];
-                const state = Manager.get(id);
-                if (state instanceof LocationState) {
-                    state.value = value;
-                }
-            } else if (category == "subarea") {
-                const Manager = WorldStateManagers["subarea"];
-                const subarea = Manager.get(id);
-                if (subarea != null) {
-                    setAllListEntries(subarea.getFilteredList(), value);
-                }
-            } else if (category == "subexit") {
-                const Manager = WorldStateManagers["subexit"];
-                const subexit = Manager.get(id);
-                if (subexit != null) {
-                    const bound = subexit.value;
-                    if (!bound) {
-                        continue;
-                    }
-                    const entrance = ExitRegistry.get(bound);
-                    if (entrance != null) {
-                        const Manager = WorldStateManagers["subarea"];
-                        const subarea = Manager.get(id);
-                        if (subarea != null) {
-                            setAllListEntries(subarea.getFilteredList(), value);
-                        }
-                    }
-                }
-            } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
-            }
-        }
-    }
-}
 
 export default class AbstractArea extends WorldElement {
 
@@ -72,15 +28,13 @@ export default class AbstractArea extends WorldElement {
         mnu_ctx.addEventListener("check", event => {
             const state = this.getState();
             if (state != null) {
-                const list = state.getFilteredList();
-                setAllListEntries(list, true);
+                state.setAllEntries(true);
             }
         });
         mnu_ctx.addEventListener("uncheck", event => {
             const state = this.getState();
             if (state != null) {
-                const list = state.getFilteredList();
-                setAllListEntries(list, false);
+                state.setAllEntries(false);
             }
         });
         mnu_ctx.addEventListener("setwoth", event => {
@@ -192,9 +146,7 @@ export default class AbstractArea extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const [, stateId] = this.ref.split("/");
-                        const Manager = WorldStateManagers["area"];
-                        const state = Manager.get(stateId);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(newValue);

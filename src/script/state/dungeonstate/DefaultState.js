@@ -4,7 +4,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 
 const TYPE = new WeakMap();
@@ -33,9 +33,9 @@ export default class DefaultState extends DataState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const data = WorldRegistry.get(ref);
-        if (data != null) {
-            if (data.areaData.lists == null) {
+        const state = WorldStateManagers.getByRef(ref);
+        if (state != null) {
+            if (state.areaData.lists == null) {
                 this.type = "v";
             } else {
                 this.type = SavestateHandler.get("dungeontype", ref, "n");
@@ -56,9 +56,9 @@ export default class DefaultState extends DataState {
         const ref = this.ref;
         if (ref) {
             // type
-            const data = WorldRegistry.get(ref);
-            if (data != null) {
-                if (data.areaData.lists == null) {
+            const state = WorldStateManagers.getByRef(ref);
+            if (state != null) {
+                if (state.areaData.lists == null) {
                     this.type = "v";
                 } else if (event.data.extra.dungeontype != null) {
                     const state = event.data.extra.dungeontype[ref];

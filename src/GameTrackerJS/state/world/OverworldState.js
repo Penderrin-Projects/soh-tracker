@@ -12,6 +12,7 @@ export default class OverworldState {
 
     constructor(areaData) {
         AREA_DATA.set(this, areaData);
+        WorldStateManagers.overworld = this;
     }
 
     getList() {
@@ -21,8 +22,7 @@ export default class OverworldState {
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
-                    const Manager = WorldStateManagers[record.category];
-                    const loc = Manager.get(record.id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     if (loc != null) {
                         result.push(record);
                     }
@@ -40,8 +40,7 @@ export default class OverworldState {
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
-                    const Manager = WorldStateManagers[record.category];
-                    const loc = Manager.get(record.id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     if (!!loc && loc.visible) {
                         result.push(record);
                     }

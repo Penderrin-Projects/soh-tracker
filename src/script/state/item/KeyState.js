@@ -33,7 +33,7 @@ function internalTypeChange(event) {
 export default class KeyState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, getMaxValue(props));
+        super(ref, props, {max: getMaxValue(props)});
         /* --- */
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             const value = SavestateHandler.get("dungeontype", props.related_dungeon, "n");

@@ -3,9 +3,9 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 /* asym-import: on */
+import WorldStateManagers from "../../state/world/StateManagers.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 
 const TPL = new Template(`
@@ -74,8 +74,8 @@ export default class ExitBindingMenu extends HTMLElement {
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
-                const boundExit = ExitRegistry.get(key);
-                if (boundExit == null || !boundExit.exitData.ignoreBound) {
+                const boundExit = WorldStateManagers.getEntrance(key);
+                if (boundExit == null || !boundExit.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
@@ -89,7 +89,7 @@ export default class ExitBindingMenu extends HTMLElement {
         empty.append(emptyText);
         selectEl.append(empty);
         // set choices and value
-        const exit = ExitRegistry.get(access);
+        const exit = WorldStateManagers.getEntrance(access);
         if (exit != null) {
             selectEl.value = current;
             const entrances = EntranceStateManager.getAll();
@@ -97,13 +97,13 @@ export default class ExitBindingMenu extends HTMLElement {
             for (const key in entrances) {
                 const value = entrances[key];
                 if (access != value.props.target) {
-                    const isActive = value.active || exit.exitData.includeInactiveEntrances;
-                    const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
-                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
+                    const isActive = value.active || exit.includeInactiveEntrances;
+                    const isActiveAndBinds = isActive && exit.bindsTo.indexOf(value.props.type) >= 0;
+                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.ignoreBound)) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
                         const entranceName = Language.translate(`entrance[${value.props.target}]`);
-                        if (exit.exitData.bindsTo.length > 1) {
+                        if (exit.bindsTo.length > 1) {
                             const category = `
                                     <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
                                         ${Language.translate(value.props.type)}

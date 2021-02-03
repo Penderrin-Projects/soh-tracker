@@ -6,7 +6,7 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
@@ -64,7 +64,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -97,43 +97,43 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        const val = this.getAttribute('readonly');
+        const val = this.getAttribute("readonly");
         return !!val && val != "false";
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         // state
                         const state = DungeonstateStates.get(this.ref);
                         if (state != null) {
-                            const data = WorldRegistry.get(newValue);
+                            const data = WorldStateManagers.getByRef(newValue);
                             if (data != null) {
                                 if (data.areaData.lists != null) {
                                     this.readonly = false;
@@ -145,7 +145,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
                         this.switchState(state);
                     }
                     break;
-                case 'value':
+                case "value":
                     {
                         const oe = this.shadowRoot.querySelector(`.active`);
                         if (oe) {
@@ -189,4 +189,4 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
 
 }
 
-customElements.define('ootrt-dungeontype', HTMLTrackerDungeonType);
+customElements.define("ootrt-dungeontype", HTMLTrackerDungeonType);

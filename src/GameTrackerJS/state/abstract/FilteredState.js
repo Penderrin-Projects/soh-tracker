@@ -6,6 +6,11 @@ import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import VisibilityState from "./VisibilityState.js";
 import FilterStorage from "../../storage/FilterStorage.js";
 
+const SPECIAL_FILTERS = [
+    "access",
+    "!access"
+];
+
 function mapToObj(map) {
     const res = {};
     map.forEach((v, k) => {
@@ -32,6 +37,10 @@ export default class FilteredState extends VisibilityState {
                         const value = LogicExecutor.execute(logicFn);
                         filter_logics.set(`${i}/${j}`, logicFn);
                         filter_values.set(`${i}/${j}`, value);
+                    } else if (SPECIAL_FILTERS.includes(props.filter[i][j])) {
+                        const logicFn = props.filter[i][j];
+                        filter_logics.set(`${i}/${j}`, logicFn);
+                        filter_values.set(this.executeSpecialFilter(logicFn));
                     } else {
                         filter_values.set(`${i}/${j}`, !!props.filter[i][j]);
                     }
@@ -54,6 +63,13 @@ export default class FilteredState extends VisibilityState {
                         filter_values.set(key, value);
                         changed = true;
                     }
+                } else if (typeof logicFn == "string") {
+                    const filtered = filter_values.get(key);
+                    const value = this.executeSpecialFilter(logicFn);
+                    if (filtered != value) {
+                        filter_values.set(key, value);
+                        changed = true;
+                    }
                 }
             });
             if (changed) {
@@ -62,6 +78,10 @@ export default class FilteredState extends VisibilityState {
                 this.dispatchEvent(event);
             }
         });
+    }
+
+    executeSpecialFilter(name) {
+        return true;
     }
 
     get filter() {

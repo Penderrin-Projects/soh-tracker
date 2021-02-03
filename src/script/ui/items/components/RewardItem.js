@@ -11,6 +11,7 @@ import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
+import "/script/state/item/RewardItemState.js";
 import "./Item.js";
 
 const TPL = new Template(`

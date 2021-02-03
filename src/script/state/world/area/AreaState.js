@@ -1,4 +1,4 @@
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
@@ -11,9 +11,8 @@ export default class AreaState extends DefaultState {
             if (list != null) {
                 const result = [];
                 list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
+                    const state = WorldStateManagers.get(record.category, record.id);
+                    if (state != null && state.visible) {
                         result.push(record);
                     }
                 });

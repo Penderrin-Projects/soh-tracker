@@ -10,6 +10,11 @@ class StateManager extends AbstractStateManager {
         super(DefaultState, resourceData);
     }
 
+    // XXX
+    createState(StateClass, ref, props) {
+        return new StateClass(ref, props);
+    }
+
 }
 
 export default new StateManager();

@@ -6,7 +6,7 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
 import "/GameTrackerJS/ui/Badge.js";
@@ -179,7 +179,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         this.switchState(state);
                         const type_state = DungeonstateStates.get(this.ref);
                         if (type_state != null) {

@@ -2,8 +2,11 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 /* asym-import: on */
+import WorldResource from "../resource/WorldResource.js";
+import WorldStateManagers from "../state/world/StateManagers.js";
+import "../state/world/exit/StateManager.js";
+import "../state/world/subexit/StateManager.js";
 import SavestateHandler from "../savestate/SavestateHandler.js";
-import ExitRegistry from "../registry/ExitRegistry.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
 import Badge from "./Badge.js";
@@ -204,7 +207,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             switch (name) {
                 case "ref":
                     {
-                        const state = ExitRegistry.get(newValue);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             textEl.innerHTML = Language.translate(`exit[${newValue}]`);
@@ -236,13 +239,18 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
         for (const key in exits) {
-            const exitKey = ExitRegistry.get(key)
+            const exitKey = WorldStateManagers.getEntrance(key)
             if (exits[key] == current || exitKey.exitData.type === "special") continue;
             bound.add(exits[key]);
         }
         // add options
-        const exit = ExitRegistry.get(access);
-        const entrances = ExitRegistry.getAll();
+        const exit = WorldStateManagers.getEntrance(access);
+        const entrances = {};
+        const exitEntries = WorldResource.get("marker/exit");
+        for (const name in exitEntries) {
+            const exitEntry = WorldStateManagers.get("exit", name);
+            entrances[name] = exitEntry;
+        }
         const selectEl = this.shadowRoot.getElementById("select");
         selectEl.value = current;
         selectEl.innerHTML = "";
@@ -250,9 +258,8 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         empty.value = "";
         empty.innerHTML = "unbound";
         selectEl.append(empty);
-        for (const key in entrances) {
-            const value = entrances[key];
-            if ((exit.exitData.type === "special" && value.exitData.type !== "dungeon") || (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target))) {
+        for (const [, value] of Object.entries(entrances)) {
+            if ((exit.type === "special" && value.exitData.type !== "dungeon") || (value.active && value.exitData.type == exit.type && !bound.has(value.exitData.target))) {
                 const opt = document.createElement("emc-option");
                 opt.value = value.exitData.target;
                 opt.innerHTML = Language.translate(value.exitData.target);

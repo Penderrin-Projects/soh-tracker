@@ -2,8 +2,8 @@
 import Logger from "/emcJS/util/Logger.js";
 /* asym-import: on */
 import SavestateHandler from "../../savestate/SavestateHandler.js";
+import WorldStateManagers from "../../state/world/StateManagers.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
-import WorldRegistry from "../../registry/WorldRegistry.js";
 
 class ListLogic {
 
@@ -29,29 +29,35 @@ class ListLogic {
             for (const entry of list) {
                 const category = entry.category;
                 const id = entry.id;
-                const ref = `${category}/${id}`;
-                const worldElementState = WorldRegistry.get(ref);
-                if (worldElementState != null && worldElementState.visible) {
-                    if (category == "location") {
-                        if (!SavestateHandler.get("", `${category}/${id}`, 0)) {
+                if (category == "location") {
+                    const state = WorldStateManagers.get("location", id);
+                    if (state != null && state.visible) {
+                        const ref = `${category}/${id}`;
+                        if (!SavestateHandler.get("", ref, 0)) {
                             res.unopened++;
-                            if (worldElementState.access) {
+                            if (state.access) {
                                 res.reachable++;
                             }
                         } else {
                             res.done++;
                         }
-                    } else if (category == "subarea") {
-                        const subareaList = worldElementState.getFilteredList();
+                    }
+                } else if (category == "subarea") {
+                    const state = WorldStateManagers.get("subarea", id);
+                    if (state != null && state.visible) {
+                        const subareaList = state.getFilteredList();
                         if (subareaList != null) {
                             const {done, unopened, reachable} = this.check(subareaList);
                             res.done += done;
                             res.unopened += unopened;
                             res.reachable += reachable;
                         }
-                    } else if (category == "subexit") {
-                        if (worldElementState.area) {
-                            const subareaState = WorldRegistry.get(worldElementState.area);
+                    }
+                } else if (category == "subexit") {
+                    const state = WorldStateManagers.get("subexit", id);
+                    if (state != null && state.visible) {
+                        if (state.area) {
+                            const subareaState = WorldStateManagers.getByRef(state.area);
                             if (subareaState != null) {
                                 const subareaList = subareaState.getFilteredList();
                                 if (subareaList != null) {
@@ -62,13 +68,17 @@ class ListLogic {
                                 }
                             }
                         } else {
-                            if (worldElementState.access) {
+                            if (state.access) {
                                 res.entrances = true;
                             }
                         }
-                    } else {
-                        Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
                     }
+                } else if (category == "area") {
+                    // ignore
+                } else if (category == "exit") {
+                    // ignore
+                } else {
+                    Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
                 }
             }
         }

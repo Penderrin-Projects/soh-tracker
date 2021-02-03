@@ -23,7 +23,6 @@ export default class LocationState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = SavestateHandler.get("", ref, false);
         this.item = SavestateHandler.get("item_location", ref, "");
         /* EVENTS */
         EventBus.register("state::location_item", internalItemChange.bind(this));

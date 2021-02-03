@@ -9,6 +9,8 @@ import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "/script/state/item/StartItemState.js";
 
 const TPL = new Template(`
 <slot id="slot">
