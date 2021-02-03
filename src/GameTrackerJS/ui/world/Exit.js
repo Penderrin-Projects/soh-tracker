@@ -230,7 +230,7 @@ export default class MapExit extends WorldElement {
                         const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            Language.applyLabel(textEl, `exit[${newValue}]`);
+                            Language.applyLabel(textEl, `exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }
