@@ -80,7 +80,10 @@ class SavestateHandler extends EventTarget {
         const initState = LocalStorage.get(PERSISTANCE_NAME);
         if (initState != null) {
             const state = SavestateConverter.convert(initState);
-            Savestate.deserialize(state);
+            const {options, filter, ...data} = state;
+            Savestate.deserialize(data);
+            OptionsStorage.deserialize(options);
+            FilterStorage.deserialize(filter);
             updateTitle();
             // trigger event
             const ev = new Event("state");

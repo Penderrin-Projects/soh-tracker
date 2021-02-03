@@ -102,7 +102,7 @@ export default class DataStorage extends EventTarget {
         if (data != null) {
             for (const key in data) {
                 const value = data[key];
-                buffer.set(value);
+                buffer.set(key, value);
             }
         }
     }

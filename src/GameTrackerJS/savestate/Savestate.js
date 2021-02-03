@@ -90,7 +90,7 @@ class Savestate extends EventTarget {
         if (value.data != null) {
             for (const category in value.data) {
                 const dataStorage = this.getData(category);
-                dataStorage.setAll(value.data[category]);
+                dataStorage.deserialize(value.data[category]);
             }
         }
     }
