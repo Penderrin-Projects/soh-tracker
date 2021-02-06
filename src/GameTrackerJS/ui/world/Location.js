@@ -2,6 +2,7 @@
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import WorldStateManagers from "../../state/world/StateManagers.js";
+import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
@@ -13,24 +14,7 @@ export default class AbstractLocation extends WorldElement {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
-            const state = this.getState();
-            if (state != null) {
-                this.applyAccess(event.data, state.value);
-            } else {
-                this.applyAccess(event.data, false);
-            }
-        });
-        this.registerStateHandler("value", event => {
-            const textEl = this.shadowRoot.getElementById("text");
-            if (textEl != null) {
-                textEl.dataset.checked = event.data;
-                const state = this.getState();
-                if (state != null) {
-                    this.applyAccess(state.access, event.data);
-                } else {
-                    this.applyAccess(false, event.data);
-                }
-            }
+            this.applyAccess(event.data);
         });
 
         /* context menu */
@@ -71,16 +55,17 @@ export default class AbstractLocation extends WorldElement {
         iOSTouchHandler.register(this);
     }
     
-    applyAccess(access, checked) {
+    applyAccess(data) {
         const textEl = this.shadowRoot.getElementById("text");
         const badgeEl = this.shadowRoot.getElementById("badge");
+        const value = AccessStateEnum.getName(data.value).toLowerCase();
         /* access */
         if (textEl != null) {
-            textEl.dataset.state = access ? "available" : "unavailable";
+            textEl.dataset.state = value;
         }
         /* badge */
         if (badgeEl != null) {
-            badgeEl.access = checked ? "opened" : access ? "available" : "unavailable";
+            badgeEl.access = value;
         }
     }
 

@@ -46,14 +46,17 @@ const STYLE = new GlobalStyle(`
     border-radius: 50%;
     cursor: pointer;
 }
+#marker[data-state="opened"] {
+    background-color: var(--location-status-opened-color, #000000);
+}
 #marker[data-state="available"] {
     background-color: var(--location-status-available-color, #000000);
 }
 #marker[data-state="unavailable"] {
     background-color: var(--location-status-unavailable-color, #000000);
 }
-:host([checked="true"]) #marker {
-    background-color: var(--location-status-opened-color, #000000);
+#marker[data-state="possible"] {
+    background-color: var(--location-status-possible-color, #000000);
 }
 #marker:hover {
     box-shadow: 0 0 2px 4px #67ffea;
@@ -95,7 +98,7 @@ export default class MapGossipstone extends AbstractGossipstone {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -103,5 +106,5 @@ export default class MapGossipstone extends AbstractGossipstone {
 
 }
 
-UIRegistry.get("map-location").register('gossipstone', MapGossipstone);
-customElements.define('ootrt-map-gossipstone', MapGossipstone);
+UIRegistry.get("map-location").register("gossipstone", MapGossipstone);
+customElements.define("ootrt-map-gossipstone", MapGossipstone);

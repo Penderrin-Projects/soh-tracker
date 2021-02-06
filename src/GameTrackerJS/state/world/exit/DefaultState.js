@@ -2,6 +2,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import Logic from "../../../util/logic/Logic.js";
 import WorldStateManagers from "../StateManagers.js";
@@ -24,7 +25,21 @@ function getEntranceArea(value) {
 }
 
 function getLogicAccess(access) {
-    return (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+    const res = {
+        done: 0,
+        unopened: 0,
+        reachable: 0,
+        entrances: false,
+        value: AccessStateEnum.OPENED
+    };
+    const reachable = (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+    if (reachable) {
+        res.entrances = true;
+        res.value = AccessStateEnum.AVAILABLE;
+    } else {
+        res.value = AccessStateEnum.UNAVAILABLE;
+    }
+    return res;
 }
 
 function internalChange(event) {

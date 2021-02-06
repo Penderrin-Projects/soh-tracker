@@ -90,8 +90,8 @@ export default class FilteredState extends VisibilityState {
         return mapToObj(FILTER.get(this));
     }
 
-    get visible() {
-        return super.visible && this.filtered;
+    isVisible() {
+        return this.visible && this.filtered;
     }
 
     get filtered() {
