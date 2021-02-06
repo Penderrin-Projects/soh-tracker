@@ -1,7 +1,6 @@
 /* asym-import: off */
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
@@ -117,40 +116,15 @@ export default class MapSubExit extends WorldElement {
     }
     
     applyAccess(data) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
+        super.applyAccess(data);
+        /* entrances */
         const entrancesEl = this.shadowRoot.getElementById("entrances");
-        if (typeof data == "boolean") {
-            /* access */
-            if (textEl != null) {
-                textEl.dataset.state = data ? "available" : "unavailable";
-            }
-            /* badge */
-            if (badgeEl != null) {
-                badgeEl.access = data ? "available" : "unavailable";
-            }
-            /* entrances */
-            if (entrancesEl != null) {
-                entrancesEl.innerHTML = "";
-            }
-        } else {
-            /* access */
-            const value = AccessStateEnum.getName(data.value).toLowerCase();
-            if (textEl != null) {
-                textEl.dataset.state = value;
-            }
-            /* badge */
-            if (badgeEl != null) {
-                badgeEl.access = value;
-            }
-            /* entrances */
-            if (entrancesEl != null) {
-                entrancesEl.innerHTML = "";
-                if (data.entrances) {
-                    const el_icon = document.createElement("img");
-                    el_icon.src = `images/icons/entrance.svg`;
-                    entrancesEl.append(el_icon);
-                }
+        if (entrancesEl != null) {
+            entrancesEl.innerHTML = "";
+            if (data.entrances) {
+                const el_icon = document.createElement("img");
+                el_icon.src = `images/icons/entrance.svg`;
+                entrancesEl.append(el_icon);
             }
         }
     }

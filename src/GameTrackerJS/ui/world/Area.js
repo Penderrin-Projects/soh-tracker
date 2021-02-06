@@ -2,7 +2,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/AreaContextMenu.js";
@@ -81,19 +80,9 @@ export default class AbstractArea extends WorldElement {
     }
     
     applyAccess(data) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
-        const entrancesEl = this.shadowRoot.getElementById("entrances");
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        /* access */
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
-        /* badge */
-        if (badgeEl != null) {
-            badgeEl.access = value;
-        }
+        super.applyAccess(data);
         /* entrances */
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
         if (entrancesEl != null) {
             entrancesEl.innerHTML = "";
             if (data.entrances) {

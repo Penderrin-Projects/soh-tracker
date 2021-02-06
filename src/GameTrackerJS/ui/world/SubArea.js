@@ -1,7 +1,6 @@
 /* asym-import: off */
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubAreaContextMenu.js";
@@ -60,24 +59,14 @@ export default class AbstractSubArea extends WorldElement {
     }
     
     applyAccess(data) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
-        const entrancesEl = this.shadowRoot.getElementById("entrances");
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        /* access */
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
-        /* badge */
-        if (badgeEl != null) {
-            badgeEl.access = value;
-        }
+        super.applyAccess(data);
         /* entrances */
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
         if (entrancesEl != null) {
             entrancesEl.innerHTML = "";
             if (data.entrances) {
                 const el_icon = document.createElement("img");
-                el_icon.src = "images/icons/entrance.svg";
+                el_icon.src = `images/icons/entrance.svg`;
                 entrancesEl.append(el_icon);
             }
         }

@@ -2,6 +2,7 @@
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
+import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
@@ -31,6 +32,20 @@ export default class WorldElement extends BaseClass {
                 badge.typeIcon = state.props.icon ?? defaultIcon;
                 badge.setFilterData(state.filter);
             }
+        }
+    }
+    
+    applyAccess(data) {
+        const value = AccessStateEnum.getName(data.value).toLowerCase();
+        /* access */
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.dataset.state = value;
+        }
+        /* badge */
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        if (badgeEl != null) {
+            badgeEl.access = value;
         }
     }
 
