@@ -13,6 +13,27 @@ export default class WorldElement extends BaseClass {
 
     constructor() {
         super();
+        /* --- */
+        this.registerStateHandler("visible", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
+        this.registerStateHandler("filter", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
@@ -23,6 +44,7 @@ export default class WorldElement extends BaseClass {
             badge.typeIcon = defaultIcon;
             badge.setFilterData({});
         }
+        this.style.display = "none";
     }
 
     applyStateValues(state, defaultIcon) {
@@ -31,6 +53,11 @@ export default class WorldElement extends BaseClass {
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? defaultIcon;
                 badge.setFilterData(state.filter);
+            }
+            if (state.isVisible()) {
+                this.style.display = "";
+            } else {
+                this.style.display = "none";
             }
         }
     }

@@ -172,7 +172,10 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 // TODO
             }
         });
-        this.registerGlobal(["state", "statechange", "logic", "settings", "options", "filter"], event => {
+        this.registerGlobal("logic", event => {
+            this.updateHeader();
+        });
+        this.registerGlobal("state", () => {
             this.refresh();
         });
         this.registerGlobal("statechange_dungeontype", event => {
@@ -254,7 +257,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         cnt.innerHTML = "";
         const data = WorldStateManagers.getByRef(this.ref || "overworld");
         if (data != null) {
-            const list = data.getFilteredList();
+            const list = data.getList();
             if (list != null) {
                 if (btn_vanilla != null) {
                     btn_vanilla.classList.add("hidden");

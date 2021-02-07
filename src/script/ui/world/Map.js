@@ -419,7 +419,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             this.mode = event.data.value;
             this.shadowRoot.getElementById("location-mode").value = this.mode;
         });
-        this.registerGlobal(["state", "settings", "options", "filter"], () => {
+        this.registerGlobal("state", () => {
             this.refresh();
         });
         this.registerGlobal("statechange_dungeontype", event => {
@@ -476,7 +476,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             const minimap = this.shadowRoot.getElementById("map-overview");
             minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            const list = data.getFilteredList();
+            const list = data.getList();
             if (list != null) {
                 //btn_vanilla.className = "hidden";
                 //btn_masterquest.className = "hidden";

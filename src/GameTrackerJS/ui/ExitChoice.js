@@ -89,13 +89,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         this.registerStateHandler("value", event => {
             this.value = event.data;
         });
-        this.registerStateHandler("visible", event => {
-            if (!event.data) {
-                this.style.display = "none";
-            } else {
-                this.style.display = "";
-            }
-        });
 
         /* context menu */
         const mnu_ctx = document.createElement("gt-ctxmenu-exitchoice");
@@ -160,7 +153,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             badge.typeIcon = "images/icons/entrance.svg";
             badge.setFilterData({});
         }
-        this.style.display = "none";
     }
 
     applyStateValues(state) {
@@ -171,11 +163,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
                 badge.setFilterData(state.filter);
-            }
-            if (!state.visible) {
-                this.style.display = "none";
-            } else {
-                this.style.display = "";
             }
         }
     }

@@ -151,6 +151,17 @@ export default class ExitState extends FilteredState {
         });
     }
 
+    executeSpecialFilter(name) {
+        const access = ACCESS.get(this);
+        switch (name) {
+            case "access": return access.value != AccessStateEnum.UNAVAILABLE;
+            case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
+            case "done": return access.value == AccessStateEnum.OPENED;
+            case "!done": return access.value != AccessStateEnum.OPENED;
+        }
+        return super.executeSpecialFilter(name);
+    }
+
     stateLoaded(event) {
         const props = this.props;
         // value

@@ -67,10 +67,10 @@ export default class DefaultState extends FilteredState {
 
     executeSpecialFilter(name) {
         switch (name) {
-            case "access": return !ACCESS.get(this);
-            case "!access": return ACCESS.get(this);
-            case "done": return !VALUE.get(this);
-            case "!done": return VALUE.get(this);
+            case "access": return REACHABLE.get(this);
+            case "!access": return !REACHABLE.get(this);
+            case "done": return VALUE.get(this);
+            case "!done": return !VALUE.get(this);
         }
         return super.executeSpecialFilter(name);
     }

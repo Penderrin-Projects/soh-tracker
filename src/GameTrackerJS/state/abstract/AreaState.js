@@ -11,6 +11,8 @@ const ACCESS = new WeakMap();
 const LIST = new WeakMap();
 const FILTERED_LIST = new WeakMap();
 
+// FIXME on filter change list update is broken
+
 export default class AreaState extends FilteredState {
     
     constructor(ref, props, areaData) {
@@ -26,6 +28,17 @@ export default class AreaState extends FilteredState {
         /*EventBus.register(["logic", "state::location", "options", "filter"], event => {
             this.refreshAccess();
         });*/
+    }
+
+    executeSpecialFilter(name) {
+        const access = ACCESS.get(this);
+        switch (name) {
+            case "access": return access.value != AccessStateEnum.UNAVAILABLE;
+            case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
+            case "done": return access.value == AccessStateEnum.OPENED;
+            case "!done": return access.value != AccessStateEnum.OPENED;
+        }
+        return super.executeSpecialFilter(name);
     }
 
     generateLists() {
@@ -47,17 +60,17 @@ export default class AreaState extends FilteredState {
                         }
                         loc.addEventListener("visible", () => {
                             if (loc.isVisible()) {
-                                filteredEntityList.delete(loc);
-                            } else {
                                 filteredEntityList.set(loc, entityList.get(loc));
+                            } else {
+                                filteredEntityList.delete(loc);
                             }
                             this.refreshAccess();
                         });
                         loc.addEventListener("filter", () => {
                             if (loc.isVisible()) {
-                                filteredEntityList.delete(loc);
-                            } else {
                                 filteredEntityList.set(loc, entityList.get(loc));
+                            } else {
+                                filteredEntityList.delete(loc);
                             }
                             this.refreshAccess();
                         });
