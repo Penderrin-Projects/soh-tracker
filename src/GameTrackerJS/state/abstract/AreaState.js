@@ -1,17 +1,13 @@
 /* asym-import: off */
-//import EventBus from "/emcJS/event/EventBus.js";
+import Helper from "/emcJS/util/Helper.js";
 /* asym-import: on */
-import WorldStateManagers from "../world/StateManagers.js";
 import FilteredState from "./FilteredState.js";
-import ListLogic from "../../util/logic/ListLogic.js";
+import MarkerListHandler from "../../util/MarkerListHandler.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
 const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
-const LIST = new WeakMap();
-const FILTERED_LIST = new WeakMap();
-
-// FIXME on filter change list update is broken
+const LIST_HANDLER = new WeakMap();
 
 export default class AreaState extends FilteredState {
     
@@ -19,19 +15,38 @@ export default class AreaState extends FilteredState {
         super(ref, props);
         /* --- */
         AREA_DATA.set(this, areaData);
-        ACCESS.set(this, ListLogic.DEFAULT);
-        const [entityList, filteredEntityList] = this.generateLists();
-        LIST.set(this, entityList);
-        FILTERED_LIST.set(this, filteredEntityList);
-        this.refreshAccess();
-        /* EVENTS */
-        /*EventBus.register(["logic", "state::location", "options", "filter"], event => {
-            this.refreshAccess();
-        });*/
+        /* --- */
+        const listHandler = this.generateList();
+        ACCESS.set(this, listHandler.access);
+        LIST_HANDLER.set(this, listHandler);
+    }
+
+    setAccess(value) {
+        if (value == null) {
+            value = this.getRawAccess();
+        }
+        const old = ACCESS.get(this);
+        if (!Helper.isEqual(old, value)) {
+            ACCESS.set(this, value);
+            // external
+            const ev = new Event("access");
+            ev.data = value;
+            this.dispatchEvent(ev);
+        }
+    }
+    
+    generateList() {
+        const listHandler = new MarkerListHandler(this.areaData.list);
+        listHandler.addEventListener("access", event => {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+        return listHandler;
     }
 
     executeSpecialFilter(name) {
-        const access = ACCESS.get(this);
+        const access = this.access;
         switch (name) {
             case "access": return access.value != AccessStateEnum.UNAVAILABLE;
             case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
@@ -41,104 +56,14 @@ export default class AreaState extends FilteredState {
         return super.executeSpecialFilter(name);
     }
 
-    generateLists() {
-        const entityList = new Map();
-        const filteredEntityList = new Map();
-        const areaData = AREA_DATA.get(this);
-        if (areaData != null) {
-            const list = areaData.list;
-            if (list != null) {
-                list.forEach(record => {
-                    const loc = WorldStateManagers.get(record.category, record.id);
-                    if (loc != null) {
-                        if (record.category != "area" && record.category != "exit") {
-                            loc.addEventListener("access", event => {
-                                if (loc.isVisible()) {
-                                    this.refreshAccess();
-                                }
-                            });
-                        }
-                        loc.addEventListener("visible", () => {
-                            if (loc.isVisible()) {
-                                filteredEntityList.set(loc, entityList.get(loc));
-                            } else {
-                                filteredEntityList.delete(loc);
-                            }
-                            this.refreshAccess();
-                        });
-                        loc.addEventListener("filter", () => {
-                            if (loc.isVisible()) {
-                                filteredEntityList.set(loc, entityList.get(loc));
-                            } else {
-                                filteredEntityList.delete(loc);
-                            }
-                            this.refreshAccess();
-                        });
-                        entityList.set(loc, record);
-                        if (loc.isVisible()) {
-                            filteredEntityList.set(loc, record);
-                        }
-                    }
-                });
-            }
-        }
-        return [entityList, filteredEntityList];
-    }
-
-    refreshAccess() {
-        const access = this.calculateAvailability();
-        if (access != null) {
-            const old = ACCESS.get(this);
-            if (old != access) {
-                ACCESS.set(this, access);
-                // external
-                const event = new Event("access");
-                event.data = access;
-                this.dispatchEvent(event);
-            }
-        }
-    }
-
-    calculateAvailability() {
-        const list = FILTERED_LIST.get(this);
-        const res = {
-            done: 0,
-            unopened: 0,
-            reachable: 0,
-            entrances: false,
-            value: AccessStateEnum.OPENED
-        };
-        for (const [loc, record] of list) {
-            if (record.category != "area" && record.category != "exit") {
-                const {done, unopened, reachable, entrances} = loc.access;
-                res.done += done;
-                res.unopened += unopened;
-                res.reachable += reachable;
-                res.entrances = res.entrances || entrances;
-            }
-        }
-        if (res.unopened > 0) {
-            if (res.reachable > 0) {
-                if (res.unopened == res.reachable) {
-                    res.value = AccessStateEnum.AVAILABLE;
-                } else {
-                    res.value = AccessStateEnum.POSSIBLE;
-                }
-            } else {
-                res.value = AccessStateEnum.UNAVAILABLE;
-            }
-        }
-        return res;
-    }
-
     getList() {
-        const list = LIST.get(this);
-        return Array.from(list.values());
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.list);
     }
 
     getFilteredList() {
-        const list = FILTERED_LIST.get(this);
-        return Array.from(list.values());
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.filtered);
     }
 
     get areaData() {
@@ -146,12 +71,13 @@ export default class AreaState extends FilteredState {
     }
 
     get access() {
-        return ACCESS.get(this);
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler.access;
     }
 
     setAllEntries(value = true) {
-        const list = FILTERED_LIST.get(this);
-        for (const [loc, record] of list) {
+        const listHandler = LIST_HANDLER.get(this);
+        for (const [loc, record] of listHandler.filtered) {
             if (record.category != "area" && record.category != "exit") {
                 if (record.category == "location") {
                     loc.value = value;
