@@ -27,33 +27,33 @@ export default class MarkerListHandler extends EventTarget {
         if (list != null) {
             list.forEach(record => {
                 const loc = WorldStateManagers.get(record.category, record.id);
-                const eventManager = new EventTargetManager(loc);
                 if (loc != null) {
+                    const eventManager = new EventTargetManager(loc);
                     entityList.set(loc, record);
                     if (loc.isVisible()) {
                         filteredEntityList.set(loc, record);
                     }
-                }
-                if (record.category != "area" && record.category != "exit") {
-                    eventManager.set("access", () => {
-                        if (filteredEntityList.has(loc)) {
-                            this./*#*/__refreshAccess();
+                    if (record.category != "area" && record.category != "exit") {
+                        eventManager.set("access", () => {
+                            if (filteredEntityList.has(loc)) {
+                                this./*#*/__refreshAccess();
+                            }
+                        });
+                    }
+                    eventManager.set(["visible", "filter"], () => {
+                        if (loc.isVisible()) {
+                            if (!filteredEntityList.has(loc)) {
+                                filteredEntityList.set(loc, entityList.get(loc));
+                                this./*#*/__refreshAccess();
+                            }
+                        } else {
+                            if (filteredEntityList.has(loc)) {
+                                filteredEntityList.delete(loc);
+                                this./*#*/__refreshAccess();
+                            }
                         }
                     });
                 }
-                eventManager.set(["visible", "filter"], () => {
-                    if (loc.isVisible()) {
-                        if (!filteredEntityList.has(loc)) {
-                            filteredEntityList.set(loc, entityList.get(loc));
-                            this./*#*/__refreshAccess();
-                        }
-                    } else {
-                        if (filteredEntityList.has(loc)) {
-                            filteredEntityList.delete(loc);
-                            this./*#*/__refreshAccess();
-                        }
-                    }
-                });
             });
         }
         return [entityList, filteredEntityList];
@@ -103,6 +103,19 @@ export default class MarkerListHandler extends EventTarget {
             }
         }
         return res;
+    }
+
+    setAllEntries(value = true) {
+        const list = FILTERED_LIST.get(this);
+        for (const [loc, record] of list) {
+            if (record.category != "area" && record.category != "exit") {
+                if (record.category == "location") {
+                    loc.value = value;
+                } else {
+                    loc.setAllEntries(value);
+                }
+            }
+        }
     }
 
     get access() {

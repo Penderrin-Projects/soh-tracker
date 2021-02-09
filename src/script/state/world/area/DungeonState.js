@@ -113,6 +113,16 @@ export default class DungeonState extends DefaultState {
         return listHandler;
     }
 
+    setAllEntries(value = true) {
+        const type = TYPE.get(this);
+        if (type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            listHandler.setAllEntries(value);
+        } else if (type != "v") {
+            super.setAllEntries(value);
+        }
+    }
+
     /*#*/__applyTypeValue(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
@@ -174,6 +184,14 @@ export default class DungeonState extends DefaultState {
 
     get type() {
         return TYPE.get(this);
+    }
+
+    getAccessV() {
+        return ACCESS.get(this);
+    }
+
+    getAccessMQ() {
+        return ACCESS_MQ.get(this);
     }
 
 }

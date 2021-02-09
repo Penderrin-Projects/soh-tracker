@@ -71,21 +71,12 @@ export default class AreaState extends FilteredState {
     }
 
     get access() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.access;
+        return ACCESS.get(this);
     }
 
     setAllEntries(value = true) {
         const listHandler = LIST_HANDLER.get(this);
-        for (const [loc, record] of listHandler.filtered) {
-            if (record.category != "area" && record.category != "exit") {
-                if (record.category == "location") {
-                    loc.value = value;
-                } else {
-                    loc.setAllEntries(value);
-                }
-            }
-        }
+        listHandler.setAllEntries(value);
     }
 
 }
