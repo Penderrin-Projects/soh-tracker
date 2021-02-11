@@ -1,6 +1,9 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import "/emcJS/ui/input/ListSelect.js";
+import "/emcJS/ui/input/SearchSelect.js";
+import "/emcJS/ui/input/Option.js";
 /* asym-import: on */
 
 const TPL = new Template(`
@@ -158,11 +161,11 @@ export default class SettingsTabContent extends HTMLElement {
 
     addChoiceInput(storage, label, ref, def, values) {
         const el = generateField(label);
-        const input = document.createElement("select");
+        const input = document.createElement("emc-searchselect");
         input.className = "settings-input";
         input.setAttribute("type", "input");
         for (const value in values) {
-            input.append(generateOption(value, values[value]));
+            input.append(generateEmcOption(value, values[value]));
         }
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
@@ -248,17 +251,6 @@ function generateField(label) {
     }
     text.className = "option-text";
     el.append(text);
-    return el;
-}
-
-function generateOption(value, label) {
-    const el = document.createElement("option");
-    el.value = value;
-    if (label instanceof HTMLElement) {
-        el.append(label);
-    } else {
-        el.innerHTML = label;
-    }
     return el;
 }
 

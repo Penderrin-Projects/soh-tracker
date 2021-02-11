@@ -29,6 +29,13 @@
 
     --list-border-top-color: #d4ad5e77;
     --list-border-bottom-color: #795b2077;
+
+    --input-text-color: #000000;
+    --input-back-color: #ffffff;
+    --input-border-color: #000000;
+    --input-button-color: #cccccc;
+    --input-color-hover: #999999;
+    --input-focus-color: #4455ff;
 }
 /*
 ::-webkit-scrollbar {
