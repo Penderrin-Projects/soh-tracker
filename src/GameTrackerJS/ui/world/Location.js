@@ -2,6 +2,7 @@
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import WorldStateManagers from "../../state/world/StateManagers.js";
+import "../../state/world/location/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";

@@ -3,6 +3,11 @@ import Logger from "/emcJS/util/Logger.js";
 /* asym-import: on */
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import WorldStateManagers from "../../state/world/StateManagers.js";
+import "../../state/world/area/StateManager.js";
+import "../../state/world/exit/StateManager.js";
+import "../../state/world/location/StateManager.js";
+import "../../state/world/subarea/StateManager.js";
+import "../../state/world/subexit/StateManager.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
 class ListLogic {

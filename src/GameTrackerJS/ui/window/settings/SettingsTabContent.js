@@ -33,7 +33,7 @@ label.settings-option input[type="checkbox"] {
     margin-right: 10px;
 }
 label.settings-option emc-listselect {
-    height: 300px;
+    maxx-height: 300px;
 }
 label.settings-option .settings-input {
     width: 50%;

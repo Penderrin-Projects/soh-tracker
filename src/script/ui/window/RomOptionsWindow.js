@@ -64,6 +64,10 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
         this.shadowRoot.getElementById("footer").prepend(loadRulesetRow);
     }
 
+    show() {
+        super.show();
+    }
+
 }
 
 customElements.define("tootr-window-romoptions", RomOptionsWindow);

@@ -31,7 +31,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
             }
             updateLoadingMessage("add style...");
             await Inject.css("/style/index.css");
-            updateLoadingMessage("add script...");
+            updateLoadingMessage("load app...");
             await Inject.module("/script/app.js");
         } catch(e) {
             printError(e);

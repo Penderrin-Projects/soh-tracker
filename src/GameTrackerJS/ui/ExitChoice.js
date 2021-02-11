@@ -86,6 +86,26 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("visible", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
+        this.registerStateHandler("filter", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
         this.registerStateHandler("value", event => {
             this.value = event.data;
         });

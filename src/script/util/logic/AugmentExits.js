@@ -5,8 +5,11 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
 
 function changeBinding(values) {
     const changes = [];

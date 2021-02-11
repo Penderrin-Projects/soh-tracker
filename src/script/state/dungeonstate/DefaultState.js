@@ -5,6 +5,11 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 
 const TYPE = new WeakMap();

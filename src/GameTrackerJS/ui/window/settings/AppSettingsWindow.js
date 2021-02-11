@@ -33,7 +33,7 @@ export default class AppSettingsWindow extends SettingsWindow {
         });
     }
 
-    show(category = "settings") {
+    show(category) {
         const values = SettingsStorage.getAll();
         super.show(values, category);
     }

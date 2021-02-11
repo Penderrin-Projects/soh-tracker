@@ -8,6 +8,11 @@ import "/emcJS/ui/Icon.js";
 
 // GameTrackerJS
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";

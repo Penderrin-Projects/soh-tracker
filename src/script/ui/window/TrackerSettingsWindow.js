@@ -30,7 +30,7 @@ export default class TrackerSettingsWindow extends AppSettingsWindow {
                 showUpdatePopup = false;
                 const popover = PopOver.show("A new update is available. Click here to download!", 60);
                 popover.addEventListener("click", () => {
-                    this.show("about");
+                    super.show("about");
                 });
             }
         });
@@ -50,7 +50,7 @@ export default class TrackerSettingsWindow extends AppSettingsWindow {
 
     show() {
         showUpdatePopup = false;
-        super.show("settings");
+        super.show();
     }
 
 }

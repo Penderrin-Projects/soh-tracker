@@ -7,12 +7,17 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div class="textarea">

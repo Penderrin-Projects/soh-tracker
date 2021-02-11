@@ -3,6 +3,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import WorldStateManagers from "../../state/world/StateManagers.js";
+import "../../state/world/exit/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/ExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
