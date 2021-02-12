@@ -38,7 +38,6 @@ const TPL = new Template(`
         :host {
             display: inline-flex;
             flex-direction: column;
-            min-width: 100%;
             min-height: 100%;
             width: 300px;
             height: 300px;

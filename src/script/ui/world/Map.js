@@ -39,7 +39,6 @@ const TPL = new Template(`
         }
         :host {
             display: grid;
-            min-width: 100%;
             min-height: 100%;
             width: 400px;
             height: 200px;
