@@ -150,7 +150,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         });
         /* --- */
         this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
-        this.setTargetEventListener("sublistCollapsible", "value", event => {
+        this.setTargetEventListener("sublistCollapsible", "change", event => {
             const collapsible = event.data;
             if (collapsible != "off") {
                 textEl.classList.add("collapsible");

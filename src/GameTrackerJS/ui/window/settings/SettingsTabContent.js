@@ -35,8 +35,16 @@ label.settings-option input[type="checkbox"] {
 label.settings-option emc-listselect {
     maxx-height: 300px;
 }
-label.settings-option .settings-input {
+ {
     width: 50%;
+}
+label.settings-option .settings-input:focus {
+    box-shadow: 0 0 2px 2px var(--input-focus-color, #06b5ff);
+    outline: none;
+}
+label.settings-option .settings-input:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline: none;
 }
 label.settings-option .option-text {
     display: inline-block;

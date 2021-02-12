@@ -54,7 +54,7 @@ export default class IDBProxyStorage extends EventTarget {
             }
         }
         if (Object.keys(changes).length) {
-            storage.setAll(changes);
+            storage.setAll(data);
             const ev = new Event("change");
             ev.changes = changes;
             ev.data = data;

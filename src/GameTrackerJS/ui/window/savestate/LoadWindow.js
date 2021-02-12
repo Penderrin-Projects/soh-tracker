@@ -7,6 +7,10 @@ import Toast from "/emcJS/ui/overlay/Toast.js";
 import SavestateManager from "../../../savestate/SavestateManager.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 
+/** XXX
+ * Why not simply extend emcjs window?
+ */
+
 const TPL = new Template(`
     <style>
         * {
@@ -70,8 +74,12 @@ const TPL = new Template(`
             overflow: auto;
         }
         :focus {
+            box-shadow: 0 0 2px 2px var(--input-focus-color, #06b5ff);
             outline: none;
-            box-shadow: blue 0 0px 3px 4px;
+        }
+        :focus:not(:focus-visible) {
+            box-shadow: none;
+            outline: none;
         }
         #close {
             display: flex;
@@ -90,8 +98,12 @@ const TPL = new Template(`
             background-color: red;
         }
         #close:focus {
-            outline: none;
             box-shadow: inset red 0 0px 3px 4px;
+            outline: none;
+        }
+        #close:focus:not(:focus-visible) {
+            box-shadow: none;
+            outline: none;
         }
         #footer,
         .button {

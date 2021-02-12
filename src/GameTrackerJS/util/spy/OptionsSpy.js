@@ -9,8 +9,9 @@ export default class OptionsSpy extends EventTarget {
         KEY.set(this, key);
         OptionsStorage.addEventListener("change", event => {
             if (event.data[key] != null) {
-                const ev = new Event("value");
+                const ev = new Event("change");
                 ev.data = event.data[key];
+                ev.change = event.changes[key];
                 this.dispatchEvent(ev);
             }
         });

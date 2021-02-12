@@ -85,7 +85,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         }
         /* --- */
         this.switchTarget("colorBlind", colorBlindSpy);
-        this.setTargetEventListener("colorBlind", "value", event => {
+        this.setTargetEventListener("colorBlind", "change", event => {
             const accessEl = this.shadowRoot.getElementById("access");
             if (accessEl != null) {
                 if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
