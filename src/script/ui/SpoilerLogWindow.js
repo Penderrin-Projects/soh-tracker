@@ -58,18 +58,16 @@ export default class SpoilerLogWindow extends SettingsWindow {
             const options = SpoilerOptionsResource.get();
             const settingsData = {};
             for (const i in event.data) {
-                for (const j in event.data[i]) {
-                    let v = event.data[i][j];
-                    if (Array.isArray(v)) {
-                        v = new Set(v);
-                        options[i][j].values.forEach(el => {
-                            SavestateHandler.set("parseSpoiler", el, v.has(el));
-                            settingsData[el] = v.has(el);
-                        });
-                    } else {
-                        SavestateHandler.set("parseSpoiler", j, v);
-                        settingsData[j] = v;
-                    }
+                let v = event.data[i];
+                if (Array.isArray(v)) {
+                    v = new Set(v);
+                    options[i].values.forEach(el => {
+                        SavestateHandler.set("parseSpoiler", el, v.has(el));
+                        settingsData[el] = v.has(el);
+                    });
+                } else {
+                    SavestateHandler.set("parseSpoiler", i, v);
+                    settingsData[i] = v;
                 }
             }
             if (!!spoiler && !!spoiler.data) {
@@ -85,21 +83,14 @@ export default class SpoilerLogWindow extends SettingsWindow {
         const options = SpoilerOptionsResource.get();
         const res = {};
         for (const i in options) {
-            res[i] = res[i] || {};
-            for (const j in options[i]) {
-                const opt = options[i][j];
-                if (opt.type === "list") {
-                    const def = new Set(opt.default);
-                    const val = [];
-                    for (const el of opt.values) {
-                        if (SavestateHandler.set("parseSpoiler", el, def.has(el))) {
-                            val.push(el);
-                        }
-                    }
-                    res[i][j] = val;
-                } else {
-                    res[i][j] = SavestateHandler.set("parseSpoiler", j, opt.default);
+            const opt = options[i];
+            if (opt.type === "list") {
+                const def = new Set(opt.default);
+                for (const el of opt.values) {
+                    res[el] = SavestateHandler.get("parseSpoiler", el, def.has(el));
                 }
+            } else {
+                res[i] = SavestateHandler.get("parseSpoiler", i, opt.default);
             }
         }
         super.show(res);
