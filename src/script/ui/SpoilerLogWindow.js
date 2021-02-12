@@ -33,7 +33,7 @@ async function loadSpoiler(button) {
 export default class SpoilerLogWindow extends SettingsWindow {
 
     constructor() {
-        super();
+        super("Spoiler parser");
         /* --- */
         const options = SpoilerOptionsResource.get();
         SettingsBuilder.build(this, options);
