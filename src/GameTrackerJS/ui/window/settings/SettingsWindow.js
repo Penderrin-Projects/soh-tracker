@@ -219,11 +219,11 @@ export default class SettingsWindow extends Window {
         }
     }
 
-    addListSelectInput(category, label, ref, def, multimode, values) {
+    addListSelectInput(category, label, ref, def, multiple, values) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addListSelectInput(storage, label, ref, def, multimode, values);
+            panel.addListSelectInput(storage, label, ref, def, multiple, values);
         }
     }
 

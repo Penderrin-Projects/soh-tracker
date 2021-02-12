@@ -4,6 +4,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/ListSelect.js";
 import "/emcJS/ui/input/SearchSelect.js";
 import "/emcJS/ui/input/Option.js";
+import "/emcJS/ui/input/InputWrapper.js";
 /* asym-import: on */
 
 const TPL = new Template(`
@@ -33,10 +34,10 @@ label.settings-option input[type="checkbox"] {
     margin-right: 10px;
 }
 label.settings-option emc-listselect {
-    maxx-height: 300px;
+    max-height: 300px;
 }
- {
-    width: 50%;
+label.settings-option .settings-input:not([type="checkbox"]) {
+    flex: 1;
 }
 label.settings-option .settings-input:focus {
     box-shadow: 0 0 2px 2px var(--input-focus-color, #06b5ff);
@@ -68,13 +69,12 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addStringInput(storage, label, ref, def) {
-        const el = generateField(label);
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "text");
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -90,7 +90,6 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addNumberInput(storage, label, ref, def, min, max) {
-        const el = generateField(label);
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "number");
@@ -102,7 +101,7 @@ export default class SettingsTabContent extends HTMLElement {
             input.setAttribute("max", max);
         }
         input.dataset.ref = ref;
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -118,7 +117,6 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addRangeInput(storage, label, ref, def, min, max) {
-        const el = generateField(label);
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "range");
@@ -130,7 +128,7 @@ export default class SettingsTabContent extends HTMLElement {
             input.setAttribute("max", max);
         }
         input.dataset.ref = ref;
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -146,13 +144,12 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addCheckInput(storage, label, ref, def) {
-        const el = generateField(label);
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "checkbox");
         input.checked = !!storage.get(ref, !!def);
         input.dataset.ref = ref;
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -168,7 +165,6 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addChoiceInput(storage, label, ref, def, values) {
-        const el = generateField(label);
         const input = document.createElement("emc-searchselect");
         input.className = "settings-input";
         input.setAttribute("type", "input");
@@ -177,7 +173,7 @@ export default class SettingsTabContent extends HTMLElement {
         }
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -192,18 +188,17 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addListSelectInput(storage, label, ref, def, multimode, values) {
-        const el = generateField(label);
+    addListSelectInput(storage, label, ref, def, multiple, values) {
         const input = document.createElement("emc-listselect");
         input.className = "settings-input";
         input.setAttribute("type", "list");
-        input.multimode = multimode;
+        input.multiple = multiple;
         input.value = storage.get(ref, def);
         input.dataset.ref = ref;
         for (const value in values) {
             input.append(generateEmcOption(value, values[value]));
         }
-        el.append(input);
+        const el = generateField(label, input);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -219,7 +214,6 @@ export default class SettingsTabContent extends HTMLElement {
     }
 
     addButton(label, ref, text = "", callback = null) {
-        const el = generateField(label);
         const input = document.createElement("button");
         input.className = "settings-button";
         input.setAttribute("type", "button");
@@ -232,7 +226,7 @@ export default class SettingsTabContent extends HTMLElement {
         if (typeof callback == "function") {
             input.onclick = callback;
         }
-        el.append(input);
+        const el = generateField(label, input);
         // add element
         const container = this.shadowRoot.getElementById("container");
         container.append(el);
@@ -248,7 +242,7 @@ export default class SettingsTabContent extends HTMLElement {
 
 customElements.define("gt-window-settings-tab", SettingsTabContent);
 
-function generateField(label) {
+function generateField(label, input) {
     const el = document.createElement("label");
     el.className = "settings-option";
     const text = document.createElement("span");
@@ -259,6 +253,9 @@ function generateField(label) {
     }
     text.className = "option-text";
     el.append(text);
+    const inputWrapper = document.createElement("emc-input-wrapper");
+    inputWrapper.append(input);
+    el.append(inputWrapper);
     return el;
 }
 
