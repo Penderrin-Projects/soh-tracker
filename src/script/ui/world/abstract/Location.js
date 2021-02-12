@@ -1,7 +1,10 @@
+// GameTrackerJS
 import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import "/script/state/world/location/LocationState.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
-import Language from "/script/util/Language.js";
 import "../../ctxmenu/LocationContextMenu.js";
 import "../../ctxmenu/ItemPickerMenu.js";
 
@@ -51,7 +54,7 @@ export default class MapLocation extends AbstractLocation {
         mnu_ctx.addEventListener("show_logic", event => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.translate(this.ref);
+                const title = Language.generateLabel(this.ref);
                 LogicViewer.show(state.props.access, title);
             }
         });

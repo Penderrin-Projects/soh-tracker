@@ -1,10 +1,12 @@
+/* asym-import: off */
 import {registerMixin} from "/emcJS/util/Mixin.js";
+/* asym-import: on */
 import DataState from "../../state/abstract/DataState.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
 
-export default registerMixin((superclass) => class extends superclass {
+export default registerMixin((superclass) => class StateDataEventManager extends superclass {
 
     constructor(...args) {
         super(...args);

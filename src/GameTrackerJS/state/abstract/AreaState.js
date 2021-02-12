@@ -1,64 +1,69 @@
-import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: off */
+import Helper from "/emcJS/util/Helper.js";
+/* asym-import: on */
+import FilteredState from "./FilteredState.js";
+import MarkerListHandler from "../../util/MarkerListHandler.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
-import WorldRegistry from "../../registry/WorldRegistry.js";
-import WorldElementState from "./WorldElementState.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
 
 const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
+const LIST_HANDLER = new WeakMap();
 
-export default class AreaState extends WorldElementState {
-
+export default class AreaState extends FilteredState {
+    
     constructor(ref, props, areaData) {
         super(ref, props);
         /* --- */
         AREA_DATA.set(this, areaData);
-        ACCESS.set(this, ListLogic.DEFAULT);
-        this./*#*/__refreshAccess();
-        /* EVENTS */
-        EventBus.register(["logic", "state::location", "randomizer_options", "filter"], event => {
-            this./*#*/__refreshAccess();
+        /* --- */
+        const listHandler = this.generateList();
+        ACCESS.set(this, listHandler.access);
+        LIST_HANDLER.set(this, listHandler);
+    }
+
+    setAccess(value) {
+        if (value == null) {
+            value = this.getRawAccess();
+        }
+        const old = ACCESS.get(this);
+        if (!Helper.isEqual(old, value)) {
+            ACCESS.set(this, value);
+            // external
+            const ev = new Event("access");
+            ev.data = value;
+            this.dispatchEvent(ev);
+        }
+    }
+    
+    generateList() {
+        const listHandler = new MarkerListHandler(this.areaData.list);
+        listHandler.addEventListener("access", event => {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
         });
+        return listHandler;
     }
 
-    /*#*/__refreshAccess() {
-        const access = this.calculateAvailability();
-        if (access != null) {
-            const old = ACCESS.get(this);
-            if (old != access) {
-                ACCESS.set(this, access);
-                // external
-                const event = new Event("access");
-                event.data = access;
-                this.dispatchEvent(event);
-            }
+    executeSpecialFilter(name) {
+        const access = this.access;
+        switch (name) {
+            case "access": return access.value != AccessStateEnum.UNAVAILABLE;
+            case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
+            case "done": return access.value == AccessStateEnum.OPENED;
+            case "!done": return access.value != AccessStateEnum.OPENED;
         }
+        return super.executeSpecialFilter(name);
     }
 
-    calculateAvailability() {
-        const list = this.getFilteredList();
-        if (list != null) {
-            return ListLogic.check(list);
-        }
+    getList() {
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.list);
     }
 
     getFilteredList() {
-        const areaData = AREA_DATA.get(this);
-        if (areaData != null) {
-            const list = areaData.list;
-            if (list != null) {
-                const result = [];
-                list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
-                        result.push(record);
-                    }
-                });
-                return result;
-            }
-        }
-        return AccessStateEnum.UNAVAILABLE;
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.filtered);
     }
 
     get areaData() {
@@ -67,6 +72,11 @@ export default class AreaState extends WorldElementState {
 
     get access() {
         return ACCESS.get(this);
+    }
+
+    setAllEntries(value = true) {
+        const listHandler = LIST_HANDLER.get(this);
+        listHandler.setAllEntries(value);
     }
 
 }

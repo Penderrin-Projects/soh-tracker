@@ -1,5 +1,7 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 import EventBusModuleGeneric from "/emcJS/event/module/EventBusModuleGeneric.js";
+/* asym-import: on */
 
 const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();
@@ -27,7 +29,7 @@ export default class RTCPeer extends EventTarget {
             ],
             whitelist: [
                 /^state::[a-zA-Z0-9_]+$/,
-                "randomizer_options"
+                "options"
             ]
         });
         eventModule.register(event => {

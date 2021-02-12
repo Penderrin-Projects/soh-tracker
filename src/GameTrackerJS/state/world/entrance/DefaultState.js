@@ -1,11 +1,9 @@
+/* asym-import: off */
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
-import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+/* asym-import: on */
+import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import DataState from "../../abstract/DataState.js";
-
-function valueGetter(key) {
-    return this.get(key);
-}
 
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
@@ -14,41 +12,30 @@ export default class DefaultState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-
         /* ACTIVE */
         if (typeof props.active == "object") {
-            const stored_data = new Map(Object.entries(StateStorage.getAll()));
-            const active_logic = LogicCompiler.compile(props.active);
-            ACTIVE.set(this, !!active_logic(valueGetter.bind(stored_data)));
-            ACTIVE_LOGIC.set(this, active_logic);
+            const logicFn = LogicCompiler.compile(props.active);
+            const value = LogicExecutor.execute(logicFn);
+            ACTIVE.set(this, value);
+            ACTIVE_LOGIC.set(this, logicFn);
         } else {
             ACTIVE.set(this, !!props.active);
         }
-
         /* EVENTS */
-        EventBus.register("state", event => {
-            const data = new Map(Object.entries(event.data.state));
-            this./*#*/__calculateActive(data);
-        });
-        EventBus.register("randomizer_options", event => {
-            const data = new Map(Object.entries(event.data));
-            this./*#*/__calculateActive(data);
-        });
-    }
-    
-    /*#*/__calculateActive(data) {
-        const active_logic = ACTIVE_LOGIC.get(this);
-        if (typeof active_logic == "function") {
-            const active = ACTIVE.get(this);
-            const value = !!active_logic(valueGetter.bind(data));
-            if (active != value) {
-                ACTIVE.set(this, value);
-                const event = new Event("active");
-                event.data = value;
-                this.dispatchEvent(event);
+        const logicEventManager = new EventTargetManager(LogicExecutor);
+        logicEventManager.set(["reset", "change"], event => {
+            const logicFn = ACTIVE_LOGIC.get(this);
+            if (typeof logicFn == "function") {
+                const visible = ACTIVE.get(this);
+                const value = LogicExecutor.execute(logicFn);
+                if (visible != value) {
+                    ACTIVE.set(this, value);
+                    const event = new Event("active");
+                    event.data = value;
+                    this.dispatchEvent(event);
+                }
             }
-        }
+        });
     }
 
     get active() {

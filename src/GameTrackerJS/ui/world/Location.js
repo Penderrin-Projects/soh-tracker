@@ -1,9 +1,12 @@
+/* asym-import: off */
 import "/emcJS/ui/Icon.js";
-import WorldRegistry from "../../registry/WorldRegistry.js";
+/* asym-import: on */
+import WorldStateManagers from "../../state/world/StateManagers.js";
+import "../../state/world/location/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
-import Language from "/script/util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+import Language from "../../util/Language.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class AbstractLocation extends WorldElement {
 
@@ -11,24 +14,7 @@ export default class AbstractLocation extends WorldElement {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
-            const state = this.getState();
-            if (state != null) {
-                this.applyAccess(event.data, state.value);
-            } else {
-                this.applyAccess(event.data, false);
-            }
-        });
-        this.registerStateHandler("value", event => {
-            const textEl = this.shadowRoot.getElementById("text");
-            if (textEl != null) {
-                textEl.dataset.checked = event.data;
-                const state = this.getState();
-                if (state != null) {
-                    this.applyAccess(state.access, event.data);
-                } else {
-                    this.applyAccess(false, event.data);
-                }
-            }
+            this.applyAccess(event.data);
         });
 
         /* context menu */
@@ -68,19 +54,6 @@ export default class AbstractLocation extends WorldElement {
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
-    
-    applyAccess(access, checked) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
-        /* access */
-        if (textEl != null) {
-            textEl.dataset.state = access ? "available" : "unavailable";
-        }
-        /* badge */
-        if (badgeEl != null) {
-            badgeEl.access = checked ? "opened" : access ? "available" : "unavailable";
-        }
-    }
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/location.svg");
@@ -103,26 +76,26 @@ export default class AbstractLocation extends WorldElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(newValue);
+                            Language.applyLabel(textEl, newValue);
                         }
                         this.switchState(state);
                     }

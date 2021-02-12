@@ -1,8 +1,13 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import AbstractLocation from "../abstract/Location.js";
 
 const TPL = new Template(`
@@ -40,14 +45,17 @@ const STYLE = new GlobalStyle(`
     border-radius: 50%;
     cursor: pointer;
 }
+#marker[data-state="opened"] {
+    background-color: var(--location-status-opened-color, #000000);
+}
 #marker[data-state="available"] {
     background-color: var(--location-status-available-color, #000000);
 }
 #marker[data-state="unavailable"] {
     background-color: var(--location-status-unavailable-color, #000000);
 }
-:host([checked="true"]) #marker {
-    background-color: var(--location-status-opened-color, #000000);
+#marker[data-state="possible"] {
+    background-color: var(--location-status-possible-color, #000000);
 }
 #marker:hover {
     box-shadow: 0 0 2px 4px #67ffea;
@@ -88,49 +96,49 @@ export default class MapLocation extends AbstractLocation {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
     }
 
     get left() {
-        return this.getAttribute('left');
+        return this.getAttribute("left");
     }
 
     set left(val) {
-        this.setAttribute('left', val);
+        this.setAttribute("left", val);
     }
 
     get top() {
-        return this.getAttribute('top');
+        return this.getAttribute("top");
     }
 
     set top(val) {
-        this.setAttribute('top', val);
+        this.setAttribute("top", val);
     }
 
     get tooltip() {
-        return this.getAttribute('tooltip');
+        return this.getAttribute("tooltip");
     }
 
     set tooltip(val) {
-        this.setAttribute('tooltip', val);
+        this.setAttribute("tooltip", val);
     }
 
     static get observedAttributes() {
-        return [...super.observedAttributes, 'left', 'top', 'tooltip'];
+        return [...super.observedAttributes, "left", "top", "tooltip"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'top':
-                case 'left':
+                case "top":
+                case "left":
                     this.style.left = `${this.left}px`;
                     this.style.top = `${this.top}px`;
                     break;
-                case 'tooltip':
+                case "tooltip":
                     {
                         const tooltip = this.shadowRoot.getElementById("tooltip");
                         tooltip.position = newValue;
@@ -143,4 +151,4 @@ export default class MapLocation extends AbstractLocation {
 }
 
 UIRegistry.set("map-location", new UIRegistry(MapLocation));
-customElements.define('ootrt-map-location', MapLocation);
+customElements.define("ootrt-map-location", MapLocation);

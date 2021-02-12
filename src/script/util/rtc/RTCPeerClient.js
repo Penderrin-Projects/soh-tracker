@@ -1,17 +1,12 @@
+/* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import RTCPeer from "/script/util/rtc/RTCPeer.js";
+/* asym-import: on */
 
-function setState(data) {
-    const buffer = {};
-    for (const i in data.extra) {
-        if (!i.endsWith("Names")) {
-            buffer[i] =  data.extra[i];
-        }
-    }
-    StateStorage.reset(data.state, buffer);
-}
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+// Track-OOT
+import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
 export default class RTCPeerClient extends RTCPeer {
 
@@ -29,7 +24,7 @@ export default class RTCPeerClient extends RTCPeer {
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
             this.silent = true;
-            setState(msg.data);
+            SavestateHandler.reset(msg.data.data, msg.data.options);
             this.silent = false;
         } else {
             super.rtcMessageHandler(key, msg);

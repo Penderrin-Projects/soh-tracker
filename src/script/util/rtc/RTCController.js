@@ -1,8 +1,12 @@
+/* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import RTCClient from "/rtc/RTCClient.js";
-import RTCPeerHost from "./RTCPeerHost.js";
-import RTCPeerClient from "./RTCPeerClient.js";
+/* asym-import: on */
+
+// Track-OOT
+import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
+import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
 
 // TODO create listentry editor for using custom stun/turn server config
 

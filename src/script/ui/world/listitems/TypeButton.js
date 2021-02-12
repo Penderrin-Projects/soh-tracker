@@ -1,13 +1,23 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -84,14 +94,14 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
         TYPE_STATE.set(this, null);
 
         /* event bus */
-        this.registerGlobal(["logic", "randomizer_options"], event => {
+        this.registerGlobal(["logic", "options"], event => {
             const state = this.getState();
             if (state != null) {
                 const list = state.getFilteredList(this.type);
@@ -150,31 +160,31 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get type() {
-        return this.getAttribute('type');
+        return this.getAttribute("type");
     }
 
     set type(val) {
-        this.setAttribute('type', val);
+        this.setAttribute("type", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'type'];
+        return ["ref", "type"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         this.switchState(state);
                         const type_state = DungeonstateStates.get(this.ref);
                         if (type_state != null) {
@@ -184,7 +194,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
                         }
                     }
                     break;
-                case 'type':
+                case "type":
                     {
                         const state = this.getState();
                         if (state != null) {
@@ -213,4 +223,4 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
 
 }
 
-customElements.define('ootrt-list-typebutton', ListButton);
+customElements.define("ootrt-list-typebutton", ListButton);

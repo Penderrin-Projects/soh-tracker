@@ -1,21 +1,29 @@
-import FileData from "/emcJS/data/FileData.js";
-import EventBus from "/emcJS/event/EventBus.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import Logic from "/script/util/logic/Logic.js";
+import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// Track-OOT
+import LogicResource from "/script/resource/LogicResource.js";
+import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 
-const LogicsStorage = new IDBStorage('logics');
+// TODO create storage files for these
+const LogicsStorage = new IDBStorage("logics");
 const GraphStorage = new IDBStorage("edges");
-const LogicsStorageGlitched = new IDBStorage('logics_glitched');
+const LogicsStorageGlitched = new IDBStorage("logics_glitched");
 const GraphStorageGlitched = new IDBStorage("edges_glitched");
 
 let logic_rules = "logic_rules_glitchless";
 let use_custom_logic = false;
 
 // register event for (de-)activate entrances
-EventBus.register("randomizer_options", event => {
+EventBus.register("options", event => {
     if (event.data["option.logic_rules"] != null && logic_rules != event.data["option.logic_rules"]) {
         logic_rules = event.data["option.logic_rules"];
         update();
@@ -23,7 +31,7 @@ EventBus.register("randomizer_options", event => {
 });
 // register event for (de-)activate custom logic
 EventBus.register("settings", async event => {
-    if (event.data['use_custom_logic'] != null) {
+    if (event.data["use_custom_logic"] != null) {
         if (use_custom_logic != event.data.use_custom_logic) {
             use_custom_logic = event.data.use_custom_logic;
             LogicViewer.customLogic = !!use_custom_logic;
@@ -53,7 +61,7 @@ function augmentLogic(logic, customEdges, customLogic) {
 
 async function update() {
     if (logic_rules == "logic_rules_glitchless") {
-        const logic = FileData.get("logic", {edges:{}, logic:{}});
+        const logic = LogicResource.get() ?? {edges:{}, logic:{}};
         if (use_custom_logic) {
             const customEdges = await GraphStorage.getAll();
             const customLogic = await LogicsStorage.getAll();
@@ -65,7 +73,7 @@ async function update() {
         }
         LogicViewer.glitched = false;
     } else {
-        const logic = FileData.get("logic_glitched", {edges:{}, logic:{}});
+        const logic = LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
         if (use_custom_logic) {
             const customEdges = await GraphStorageGlitched.getAll();
             const customLogic = await LogicsStorageGlitched.getAll();
@@ -79,14 +87,6 @@ async function update() {
     }
 }
 
-class AugmentCustomLogic {
-
-    async init() {
-        logic_rules = StateStorage.read("option.logic_rules");
-        use_custom_logic = SettingsStorage.get("use_custom_logic");
-        await update();
-    }
-
-}
-
-export default new AugmentCustomLogic();
+logic_rules = OptionsStorage.get("option.logic_rules");
+use_custom_logic = SettingsStorage.get("use_custom_logic");
+await update();

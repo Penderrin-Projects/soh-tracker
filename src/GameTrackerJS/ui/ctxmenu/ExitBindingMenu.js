@@ -1,15 +1,21 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import EntranceStateManager from "../../state/world/entrance/StateManager.js";
+/* asym-import: on */
+import WorldResource from "../../resource/WorldResource.js";
+import WorldStateManagers from "../../state/world/StateManagers.js";
+import SavestateHandler from "../../savestate/SavestateHandler.js";
+import Language from "../../util/Language.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
     <emc-listselect id="select"></emc-listselect>
 </emc-contextmenu>
+`);
+
+const CTG_TPL = new Template(`
+<span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -23,7 +29,7 @@ export default class ExitBindingMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -39,7 +45,7 @@ export default class ExitBindingMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        menuEl.addEventListener("close", function() {
+        menuEl.addEventListener("close", () => {
             selectEl.resetSearch();
         });
     }
@@ -68,12 +74,12 @@ export default class ExitBindingMenu extends HTMLElement {
         const selectEl = this.shadowRoot.getElementById("select");
         selectEl.innerHTML = "";
         // retrieve bound
-        const exits = StateStorage.readAllExtra("exits");
+        const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
-                const boundExit = ExitRegistry.get(key);
-                if (boundExit == null || !boundExit.exitData.ignoreBound) {
+                const boundExit = WorldStateManagers.getEntrance(key);
+                if (boundExit == null || !boundExit.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
@@ -82,34 +88,32 @@ export default class ExitBindingMenu extends HTMLElement {
         const empty = document.createElement("emc-option");
         empty.value = "";
         const emptyText = document.createElement("span");
-        emptyText.innerHTML = "unbind";
+        Language.applyLabel(emptyText, "unbind");
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
         selectEl.append(empty);
         // set choices and value
-        const exit = ExitRegistry.get(access);
+        const exit = WorldStateManagers.getEntrance(access);
         if (exit != null) {
             selectEl.value = current;
-            const entrances = EntranceStateManager.getAll();
             // add options
-            for (const key in entrances) {
-                const value = entrances[key];
+            const entrances = WorldResource.get("exit");
+            for (const name in entrances) {
+                const value = WorldStateManagers.getEntrance(name);
                 if (access != value.props.target) {
-                    const isActive = value.active || exit.exitData.includeInactiveEntrances;
-                    const isActiveAndBinds = isActive && exit.exitData.bindsTo.indexOf(value.props.type) >= 0;
-                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.exitData.ignoreBound)) {
+                    const isActive = value.active || exit.props.includeInactiveEntrances;
+                    const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
+                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound)) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
-                        const entranceName = Language.translate(`entrance[${value.props.target}]`);
-                        if (exit.exitData.bindsTo.length > 1) {
-                            const category = `
-                                <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;">
-                                    ${Language.translate(value.props.type)}
-                                </span>
-                            `;
-                            opt.innerHTML = `${entranceName}${category}`;
+                        const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
+                        if (exit.props.bindsTo.length > 1) {
+                            const category = CTG_TPL.generate();
+                            Language.applyLabel(category, value.props.type);
+                            opt.append(entranceName);
+                            opt.append(category);
                         } else {
-                            opt.innerHTML = entranceName;
+                            opt.append(entranceName);
                         }
                         selectEl.append(opt);
                     }

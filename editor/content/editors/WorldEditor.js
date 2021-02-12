@@ -1,10 +1,14 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Helper from "/emcJS/util/Helper.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/editors/modules/world/Editor.js";
+/* asym-import: on */
 
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+// Track-OOT
 import WorldListsCreator from "../world/WorldListsCreator.js";
 
 const AREA_TYPES = [
@@ -33,7 +37,7 @@ const LOCATION_ONLY_FILTER = [
 ];
 
 async function createMarkerDetailConfig(category, types, accessValues = [""]) {
-    const filter = FileData.get("filter");
+    const filter = FilterResource.get();
     const res = {
         "type": {
             "title": "Type",
@@ -81,7 +85,7 @@ export default async function() {
         // TODO
         let lists = await WorldListsCreator.createLists();
         worldEditor.loadList(lists);
-        worldEditor.setData(FileData.get("world"));
+        worldEditor.setData(WorldResource.get());
     }
     await refreshWorldEditor();
     // events
@@ -98,7 +102,7 @@ export default async function() {
             "content": "SAVE WORLD",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
-                const world = Helper.elevate(patch, "/", FileData.get("world", {}));
+                const world = Helper.elevate(patch, "/", WorldResource.get());
                 FileSystem.save(JSON.stringify(world, " ", 4), "world.json");
             }
         },{

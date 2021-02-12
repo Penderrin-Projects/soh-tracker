@@ -1,6 +1,10 @@
-
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 
 let DataStorage = new IDBStorage("world");
 
@@ -38,7 +42,7 @@ class WorldListsCreator {
 
     async createLists() {
 
-        const world = FileData.get("world");
+        const world = WorldResource.get();
         const custom_data = await DataStorage.getAll();
 
         const result = {
@@ -58,7 +62,7 @@ class WorldListsCreator {
 
     async createOperators() {
         const result = [];
-        const randomizer_options = FileData.get("randomizer_options");
+        const randomizer_options = OptionsResource.get();
         result.push(createDefaultOperatorCategory());
         result.push(createSettingsOperatorCategory(randomizer_options.options, "option"));
         return result;

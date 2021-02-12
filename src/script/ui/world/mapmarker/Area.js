@@ -1,11 +1,18 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 
 const TPL = new Template(`
@@ -126,7 +133,7 @@ export default class MapArea extends AbstractArea {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -154,44 +161,44 @@ export default class MapArea extends AbstractArea {
     }
 
     get left() {
-        return this.getAttribute('left');
+        return this.getAttribute("left");
     }
 
     set left(val) {
-        this.setAttribute('left', val);
+        this.setAttribute("left", val);
     }
 
     get top() {
-        return this.getAttribute('top');
+        return this.getAttribute("top");
     }
 
     set top(val) {
-        this.setAttribute('top', val);
+        this.setAttribute("top", val);
     }
 
     get tooltip() {
-        return this.getAttribute('tooltip');
+        return this.getAttribute("tooltip");
     }
 
     set tooltip(val) {
-        this.setAttribute('tooltip', val);
+        this.setAttribute("tooltip", val);
     }
 
     static get observedAttributes() {
-        return [...super.observedAttributes, 'left', 'top', 'tooltip'];
+        return [...super.observedAttributes, "left", "top", "tooltip"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
-            case 'top':
-            case 'left':
+            case "top":
+            case "left":
                 if (oldValue != newValue) {
                     this.style.left = `${this.left}px`;
                     this.style.top = `${this.top}px`;
                 }
                 break;
-            case 'tooltip':
+            case "tooltip":
                 if (oldValue != newValue) {
                     const tooltip = this.shadowRoot.getElementById("tooltip");
                     tooltip.position = newValue;
@@ -203,4 +210,4 @@ export default class MapArea extends AbstractArea {
 }
 
 UIRegistry.set("map-area", new UIRegistry(MapArea));
-customElements.define('ootrt-marker-area', MapArea);
+customElements.define("ootrt-marker-area", MapArea);

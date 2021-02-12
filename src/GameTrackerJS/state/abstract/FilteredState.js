@@ -1,12 +1,17 @@
-import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: off */
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+/* asym-import: on */
+import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import VisibilityState from "./VisibilityState.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import FilterStorage from "/script/storage/FilterStorage.js";
+import FilterStorage from "../../storage/FilterStorage.js";
 
-function valueGetter(key) {
-    return this.get(key);
-}
+const SPECIAL_FILTERS = [
+    "access",
+    "!access",
+    "done",
+    "!done"
+];
 
 function mapToObj(map) {
     const res = {};
@@ -23,21 +28,35 @@ export default class FilteredState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        const stored_data = new Map(Object.entries(StateStorage.getAll()));
         /* FILTER */
         if (props.filter) {
             const filter_values = new Map();
             const filter_logics = new Map();
             for (const i in props.filter) {
+                const filterValue = FilterStorage.get(i);
                 for (const j in props.filter[i]) {
-                    if (typeof props.filter[i][j] == "object") {
-                        const logicFn = LogicCompiler.compile(props.filter[i][j]);
+                    const filterProp = props.filter[i][j];
+                    if (typeof filterProp == "object") {
+                        const logicFn = LogicCompiler.compile(filterProp);
                         filter_logics.set(`${i}/${j}`, logicFn);
-                        const res = !!logicFn(valueGetter.bind(stored_data));
-                        filter_values.set(`${i}/${j}`, res);
-                    } else {
-                        filter_values.set(`${i}/${j}`, !!props.filter[i][j]);
+                        if (j == filterValue) {
+                            const value = LogicExecutor.execute(logicFn);
+                            filter_values.set(i, value);
+                        }
+                    } else if (SPECIAL_FILTERS.includes(filterProp)) {
+                        filter_logics.set(`${i}/${j}`, filterProp);
+                        if (j == filterValue) {
+                            const value = this.executeSpecialFilter(filterProp);
+                            filter_values.set(i, value);
+                        }
+                    } else if (filterProp != null) {
+                        const value = !!filterProp;
+                        filter_logics.set(`${i}/${j}`, value);
+                        if (j == filterValue) {
+                            filter_values.set(i, value);
+                        }
+                    } else if (j == filterValue) {
+                        filter_values.set(i, true);
                     }
                 }
             }
@@ -45,58 +64,87 @@ export default class FilteredState extends VisibilityState {
             FILTER_LOGICS.set(this, filter_logics);
         }
         /* EVENTS */
-        EventBus.register("state", event => {
-            const data = new Map(Object.entries(event.data.state));
-            this./*#*/__calculateFilter(data);
-        });
-        EventBus.register("randomizer_options", event => {
-            const data = new Map(Object.entries(event.data));
-            this./*#*/__calculateFilter(data);
-        });
-    }
-    
-    /*#*/__calculateFilter(data) {
-        let changed = false;
-        const filter_values = FILTER.get(this);
-        const filter_logics = FILTER_LOGICS.get(this);
-        filter_logics.forEach((logicFn, key) => {
-            if (typeof logicFn == "function") {
-                const filtered = filter_values.get(key);
-                const res = !!logicFn(valueGetter.bind(data));
-                filter_values.set(key, res);
-                if (filtered != res) {
-                    changed = true;
-                }
+        FilterStorage.addEventListener("change", event => {
+            let changed = false;
+            for (const [key, value] of Object.entries(event.data)) {
+                changed = changed || this./*#*/__checkFilter(key, value);
+            }
+            if (changed) {
+                const event = new Event("filter");
+                event.data = FILTER.get(this);
+                this.dispatchEvent(event);
             }
         });
-        if (changed) {
-            const event = new Event("filter");
-            event.data = filter_values;
-            this.dispatchEvent(event);
+        const logicEventManager = new EventTargetManager(LogicExecutor);
+        logicEventManager.set(["reset", "change"], event => {
+            const changed = this./*#*/__checkAllFilter()
+            if (changed) {
+                const event = new Event("filter");
+                event.data = FILTER.get(this);
+                this.dispatchEvent(event);
+            }
+        });
+    }
+
+    /*#*/__checkFilter(id, value) {
+        const filter_values = FILTER.get(this);
+        const oVal = filter_values.get(id);
+        const nVal = this./*#*/__executeFilter(`${id}/${value}`);
+        if (oVal != nVal) {
+            filter_values.set(id, nVal);
+            return true;
         }
+        return false;
+    }
+
+    /*#*/__checkAllFilter() {
+        let changed = false;
+        const filter_values = FILTER.get(this);
+        for (const [id, oVal] of filter_values) {
+            const value = FilterStorage.get(id);
+            const nVal = this./*#*/__executeFilter(`${id}/${value}`);
+            if (oVal != nVal) {
+                filter_values.set(id, nVal);
+                changed = true;
+            }
+        }
+        return changed;
+    }
+
+    /*#*/__executeFilter(name) {
+        const filter_logics = FILTER_LOGICS.get(this);
+        const logicFn = filter_logics.get(name);
+        if (typeof logicFn == "function") {
+            return LogicExecutor.execute(logicFn);
+        } else if (typeof logicFn == "string") {
+            return this.executeSpecialFilter(logicFn);
+        } else if (logicFn != null) {
+            return !!logicFn;
+        }
+        return true;
+    }
+
+    executeSpecialFilter(name) {
+        return true;
     }
 
     get filter() {
         return mapToObj(FILTER.get(this));
     }
 
-    get visible() {
-        return super.visible && this.filtered;
+    isVisible() {
+        return this.visible && !this.filtered;
     }
 
     get filtered() {
         const activeFilter = FilterStorage.getAll();
-        const values = FILTER.get(this);
+        const filter_values = FILTER.get(this);
         for (const filter in activeFilter) {
-            const value = activeFilter[filter];
-            const name = `${filter}/${value}`;
-            if (!!value && values.has(name)) {
-                if (!values.get(name)) {
-                    return false;
-                }
+            if (filter_values.has(filter) && !filter_values.get(filter)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 }

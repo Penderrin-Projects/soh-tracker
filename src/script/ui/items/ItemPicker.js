@@ -1,8 +1,13 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-import Language from "/script/util/Language.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import GridsResource from "/script/resource/GridsResource.js";
 import "./components/SelectableItem.js";
 
 const TPL = new Template(`
@@ -41,17 +46,15 @@ const STYLE = new GlobalStyle(`
 `);
 
 function createItem(value) {
-    const el = document.createElement('ootrt-selectableitem');
+    const el = document.createElement("ootrt-selectableitem");
     el.className = "item";
-    el.title = Language.translate(value);
-    el.setAttribute('i18n-tooltip', value);
-    el.setAttribute('ref', value);
-    return el;
+    el.setAttribute("ref", value);
+    return Language.applyTooltip(el, value);
 }
 
 function createEmpty() {
-    const el = document.createElement('DIV');
-    el.classList.add("empty");
+    const el = document.createElement("DIV");
+    el.className = "empty";
     return el;
 }
 
@@ -59,7 +62,7 @@ class HTMLTrackerItemPicker extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -68,52 +71,52 @@ class HTMLTrackerItemPicker extends Panel {
     connectedCallback() {
         this.setAttribute("data-fontmod", "items");
         if (!this.items && !!this.grid) {
-            this.items = JSON.stringify(FileData.get(`grids/${this.grid}`));
+            this.items = JSON.stringify(GridsResource.get(this.grid));
         }
     }
 
     get grid() {
-        return this.getAttribute('grid');
+        return this.getAttribute("grid");
     }
 
     set grid(val) {
-        this.setAttribute('grid', val);
+        this.setAttribute("grid", val);
     }
 
     get items() {
-        return this.getAttribute('items');
+        return this.getAttribute("items");
     }
 
     set items(val) {
-        this.setAttribute('items', val);
+        this.setAttribute("items", val);
     }
 
     static get observedAttributes() {
-        return ['items', 'grid'];
+        return ["items", "grid"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'grid':
+            case "grid":
                 if (oldValue != newValue) {
                     if (!this.items && !!newValue) {
-                        this.items = JSON.stringify(FileData.get(`grids/${newValue}`));
+                        this.items = JSON.stringify(GridsResource.get(newValue));
                     }
                 }
                 break;
-            case 'items':
+            case "items":
                 if (oldValue != newValue) {
                     const content = this.shadowRoot.getElementById("content");
                     content.innerHTML = "";
                     const config = JSON.parse(newValue);
                     for (const row of config) {
-                        const cnt = document.createElement('div');
+                        const cnt = document.createElement("div");
                         cnt.classList.add("item-row");
                         for (const element of row) {
                             if (element.type == "item") {
                                 const item = createItem(element.value);
                                 item.addEventListener("select", event => {
-                                    this.dispatchEvent(new CustomEvent('pick', { detail: event.item }));
+                                    this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
                                     event.preventDefault();
                                     return false;
                                 });
@@ -131,4 +134,4 @@ class HTMLTrackerItemPicker extends Panel {
 
 }
 
-customElements.define('ootrt-itempicker', HTMLTrackerItemPicker);
+customElements.define("ootrt-itempicker", HTMLTrackerItemPicker);

@@ -1,6 +1,9 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import AreaState from "../../abstract/AreaState.js";
+import "../location/StateManager.js";
 
 const HINT = new WeakMap();
 
@@ -18,7 +21,7 @@ export default class DefaultState extends AreaState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        this.hint = StateStorage.readExtra("area_hint", ref, "");
+        this.hint = SavestateHandler.get("area_hint", ref, "");
         /* EVENTS */
         EventBus.register("state::area_hint", internalHintChange.bind(this));
         EventBus.register("state", event => {
@@ -44,7 +47,7 @@ export default class DefaultState extends AreaState {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            StateStorage.writeExtra("area_hint", ref, value);
+            SavestateHandler.set("area_hint", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;
@@ -59,7 +62,7 @@ export default class DefaultState extends AreaState {
         value = this./*#*/__setHint(value);
         if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::area_hint", {ref, value});
+            EventBus.trigger("state::area_hint", { ref, value });
         }
     }
 

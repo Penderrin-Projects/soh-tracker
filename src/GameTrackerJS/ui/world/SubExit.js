@@ -1,51 +1,13 @@
-import Logger from "/emcJS/util/Logger.js";
+/* asym-import: off */
 import "/emcJS/ui/Icon.js";
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
-import WorldRegistry from "../../registry/WorldRegistry.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import LocationState from "../../state/world/location/DefaultState.js";
+/* asym-import: on */
+import WorldStateManagers from "../../state/world/StateManagers.js";
+import "../../state/world/subexit/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
-import Language from "/script/util/Language.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
-
-function setAllListEntries(list, value = true) {
-    if (!!list && Array.isArray(list)) {
-        for (const entry of list) {
-            const category = entry.category;
-            const id = entry.id;
-            if (category == "location") {
-                const state = WorldRegistry.get(`location/${id}`);
-                if (state instanceof LocationState) {
-                    state.value = value;
-                }
-            } else if (category == "subarea") {
-                const subarea = WorldRegistry.get(`subarea/${id}`);
-                if (subarea != null) {
-                    setAllListEntries(subarea.getFilteredList(), value);
-                }
-            } else if (category == "subexit") {
-                const subexit = WorldRegistry.get(`subexit/${id}`);
-                if (subexit != null) {
-                    const bound = subexit.value;
-                    if (!bound) {
-                        continue;
-                    }
-                    const entrance = ExitRegistry.get(bound);
-                    if (entrance != null) {
-                        const subarea = WorldRegistry.get(entrance.exitData.area);
-                        if (subarea != null) {
-                            setAllListEntries(subarea.getFilteredList(), value);
-                        }
-                    }
-                }
-            } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
-            }
-        }
-    }
-}
+import Language from "../../util/Language.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class MapSubExit extends WorldElement {
 
@@ -66,7 +28,7 @@ export default class MapSubExit extends WorldElement {
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
-        this.registerGlobal("randomizer_options", event => {
+        this.registerGlobal("options", event => {
             if (this.isConnected) {
                 this.refreshList();
             }
@@ -107,8 +69,7 @@ export default class MapSubExit extends WorldElement {
             if (state != null) {
                 const area = state.area;
                 if (area != null) {
-                    const list = area.getFilteredList();
-                    setAllListEntries(list, true);
+                    area.setAllEntries(true);
                 }
             }
         });
@@ -117,8 +78,7 @@ export default class MapSubExit extends WorldElement {
             if (state != null) {
                 const area = state.area;
                 if (area != null) {
-                    const list = area.getFilteredList();
-                    setAllListEntries(list, false);
+                    area.setAllEntries(false);
                 }
             }
         });
@@ -157,40 +117,15 @@ export default class MapSubExit extends WorldElement {
     }
     
     applyAccess(data) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
+        super.applyAccess(data);
+        /* entrances */
         const entrancesEl = this.shadowRoot.getElementById("entrances");
-        if (typeof data == "boolean") {
-            /* access */
-            if (textEl != null) {
-                textEl.dataset.state = data ? "available" : "unavailable";
-            }
-            /* badge */
-            if (badgeEl != null) {
-                badgeEl.access = data ? "available" : "unavailable";
-            }
-            /* entrances */
-            if (entrancesEl != null) {
-                entrancesEl.innerHTML = "";
-            }
-        } else {
-            /* access */
-            const value = AccessStateEnum.getName(data.value).toLowerCase();
-            if (textEl != null) {
-                textEl.dataset.state = value;
-            }
-            /* badge */
-            if (badgeEl != null) {
-                badgeEl.access = value;
-            }
-            /* entrances */
-            if (entrancesEl != null) {
-                entrancesEl.innerHTML = "";
-                if (data.entrances) {
-                    const el_icon = document.createElement("img");
-                    el_icon.src = `images/icons/entrance.svg`;
-                    entrancesEl.append(el_icon);
-                }
+        if (entrancesEl != null) {
+            entrancesEl.innerHTML = "";
+            if (data.entrances) {
+                const el_icon = document.createElement("img");
+                el_icon.src = `images/icons/entrance.svg`;
+                entrancesEl.append(el_icon);
             }
         }
     }
@@ -247,10 +182,10 @@ export default class MapSubExit extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(`exit[${state.props.access}]`);
+                            Language.applyLabel(textEl, `exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }
@@ -262,7 +197,7 @@ export default class MapSubExit extends WorldElement {
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
+                                    Language.applyLabel(valueEl, `entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }

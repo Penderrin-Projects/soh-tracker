@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+/* asym-import: on */
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -12,7 +14,7 @@ export default class ExitContextMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         /* --- */
         this.shadowRoot.getElementById("menu-associate").addEventListener("click", event => {
@@ -48,4 +50,4 @@ export default class ExitContextMenu extends HTMLElement {
 
 }
 
-customElements.define('gt-ctxmenu-exitchoice', ExitContextMenu);
+customElements.define("gt-ctxmenu-exitchoice", ExitContextMenu);

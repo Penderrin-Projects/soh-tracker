@@ -1,7 +1,12 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import LogicUIAbstractElement from "/editors/ui/logic/AbstractElement.js";
+/* asym-import: on */
+
+// Track-OOT
+import LogicResource from "/script/resource/LogicResource.js";
+import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 
 function extractLogic(data, customData, ref) {
     const res = [];
@@ -30,7 +35,7 @@ function extractLogic(data, customData, ref) {
 }
 
 async function getNormalLogic(ref, custom) {
-    const data = FileData.get('logic', {});
+    const data = LogicResource.get();
     if (!!custom) {
         const LogicsStorage = new IDBStorage('logics');
         const customData = await LogicsStorage.getAll();
@@ -41,7 +46,7 @@ async function getNormalLogic(ref, custom) {
 }
 
 async function getGlitchedLogic(ref, custom) {
-    const data = FileData.get('logic_glitched', {});
+    const data = LogicGlitchedResource.get();
     if (!!custom) {
         const LogicsStorage = new IDBStorage('logics_glitched');
         const customData = await LogicsStorage.getAll();

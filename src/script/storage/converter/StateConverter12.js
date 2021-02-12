@@ -1,13 +1,10 @@
 /**
- * move to serverside past TBD
+ * move to serverside earliest past TBD
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
-const TEST_ITEM = /location\/[^.]+\.g_[^.]+\.item/;
-const TEST_LOCATION = /location\/[^.]+\.g_[^.]+\.location/;
-
-StateConverter.register(function(state) {
+SavestateConverter.register(function(state) {
     const res = {
         data: {},
         extra: state.extra,
@@ -59,3 +56,6 @@ StateConverter.register(function(state) {
     res.extra.shops = extra_shops;
     return res;
 });
+
+const TEST_ITEM = /location\/[^.]+\.g_[^.]+\.item/;
+const TEST_LOCATION = /location\/[^.]+\.g_[^.]+\.location/;

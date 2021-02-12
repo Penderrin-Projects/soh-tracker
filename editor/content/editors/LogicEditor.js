@@ -1,15 +1,25 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
-
 import "/editors/modules/logic/Editor.js";
+/* asym-import: on */
 
+import LogicResource from "/script/resource/LogicResource.js";
+import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicViewer from "../logic/LogicViewer.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import "../logic/LiteralCustom.js";
 import "../logic/LiteralMixin.js";
 import "../logic/LiteralFunction.js";
+
+function getLogicData(glitched = false) {
+    if (glitched) {
+        return LogicGlitchedResource.get() ?? {edges:{},logic:{}};
+    } else {
+        return LogicResource.get() ?? {edges:{},logic:{}};
+    }
+}
 
 export default async function(glitched = false) {
     let postfix = "";
@@ -24,7 +34,7 @@ export default async function(glitched = false) {
         const lists = await LogicListsCreator.createLists(glitched);
         logicEditor.loadOperators(lists.operators);
         logicEditor.loadList(lists.logics);
-        const logic = FileData.get(`logic${postfix}`, {edges:{},logic:{}});
+        const logic = getLogicData(glitched);
         const intLogic = {};
         for (const i in logic.edges) {
             for (const j in logic.edges[i]) {
@@ -52,7 +62,7 @@ export default async function(glitched = false) {
         "submenu": [{
             "content": "SAVE LOGIC",
             "handler": async () => {
-                const logic = FileData.get(`logic${postfix}`, {edges:{}, logic:{}});
+                const logic = getLogicData(glitched);
                 const patch = await LogicsStorage.getAll();
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {

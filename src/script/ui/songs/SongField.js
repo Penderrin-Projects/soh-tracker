@@ -1,8 +1,13 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import Language from "/script/util/Language.js";
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
 import SongStateManager from "/script/state/song/StateManager.js"
 import "./SongStave.js";
 import "./SongBuilder.js";
@@ -52,7 +57,7 @@ const STYLE = new GlobalStyle(`
 function editSong(event) {
     const builder = document.createElement("ootrt-songbuilder");
     builder.value = this.shadowRoot.getElementById("stave").value;
-    const d = new Dialog({title: Language.translate(this.ref), submit: true, cancel: true});
+    const d = new Dialog({title: Language.generateLabel(this.ref), submit: true, cancel: true});
     d.addEventListener("submit", function(result) {
         if (result) {
             const state = this.getState();
@@ -69,7 +74,7 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -114,15 +119,15 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -130,7 +135,7 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
             const state = SongStateManager.get(this.ref);
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                titleEl.innerHTML = Language.translate(newValue);
+                Language.applyLabel(titleEl, newValue);
             }
             this.switchState(state);
         }
@@ -138,4 +143,4 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
 
 }
 
-customElements.define('ootrt-songfield', HTMLTrackerSongField);
+customElements.define("ootrt-songfield", HTMLTrackerSongField);

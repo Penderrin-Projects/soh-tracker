@@ -1,9 +1,18 @@
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
@@ -141,7 +150,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         });
         /* --- */
         this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
-        this.setTargetEventListener("sublistCollapsible", "value", event => {
+        this.setTargetEventListener("sublistCollapsible", "change", event => {
             const collapsible = event.data;
             if (collapsible != "off") {
                 textEl.classList.add("collapsible");
@@ -189,8 +198,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
                 const list = area.getFilteredList();
                 if (list != null) {
                     for (const record of list) {
-                        const id = `${record.category}/${record.id}`;
-                        const loc = WorldRegistry.get(id);
+                        const loc = WorldStateManagers.get(record.category, record.id);
                         const uiReg = UIRegistry.get(`list-${record.category}`);
                         this.append(uiReg.create(loc.props.type, loc.ref));
                     }

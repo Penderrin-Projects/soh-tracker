@@ -1,11 +1,16 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-import FileData from "/emcJS/data/FileData.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 import "/script/ui/items/ItemPicker.js";
 
 const TPL = new Template(`
@@ -81,7 +86,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -91,7 +96,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
         /* context menu */
         const mnu_itm = document.createElement("div");
-        mnu_itm.attachShadow({mode: 'open'});
+        mnu_itm.attachShadow({mode: "open"});
         mnu_itm.shadowRoot.append(TPL_MNU_ITM.generate());
         const mnu_itm_el = mnu_itm.shadowRoot.getElementById("menu");
         MNU_ITM.set(this, mnu_itm);
@@ -133,7 +138,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
     connectedCallback() {
         super.connectedCallback();
-        this.value = StateStorage.readExtra("dungeonreward", this.ref, "");
+        this.value = SavestateHandler.get("dungeonreward", this.ref, "");
         let el = this;
         while (el.parentElement != null && !el.classList.contains("panel")) {
             el = el.parentElement;
@@ -157,35 +162,35 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         // state
                         const state = DungeonstateStates.get(this.ref);
                         if (state != null) {
                             this.append(createOption("", "/images/items/unknown.png"));
-                            const items = FileData.get("items");
+                            const items = ItemsResource.get();
                             for (let i = 0; i < REWARDS.length; ++i) {
                                 const name = REWARDS[i];
                                 let j = items[name].images;
@@ -201,7 +206,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
                         this.switchState(state);
                     }
                     break;
-                case 'value':
+                case "value":
                     {
                         const oe = this.querySelector(`.active`);
                         if (oe) {
@@ -234,10 +239,10 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
 }
 
-customElements.define('ootrt-dungeonreward', HTMLTrackerDungeonReward);
+customElements.define("ootrt-dungeonreward", HTMLTrackerDungeonReward);
 
 function createOption(value, img) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     return opt;

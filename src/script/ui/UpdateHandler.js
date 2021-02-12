@@ -1,4 +1,6 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
+/* asym-import: on */
 
 const TPL = new Template(`
     <div id="update-check" style="padding: 5px;">
@@ -30,8 +32,8 @@ export default class UpdateHandler extends HTMLElement {
 
     constructor() {
         super();
-        if ('serviceWorker' in navigator) {
-            this.attachShadow({mode: 'open'});
+        if ("serviceWorker" in navigator) {
+            this.attachShadow({mode: "open"});
             this.shadowRoot.append(TPL.generate());
 
             const prog = this.shadowRoot.getElementById("update-progress");
@@ -44,7 +46,7 @@ export default class UpdateHandler extends HTMLElement {
             const running = this.shadowRoot.getElementById("update-running");
             const finished = this.shadowRoot.getElementById("update-finished");
 
-            navigator.serviceWorker.addEventListener('message', (event) => {
+            navigator.serviceWorker.addEventListener("message", (event) => {
                 if (event.data.type == "state") {
                     switch (event.data.msg) {
                         case "update_available":
@@ -54,7 +56,7 @@ export default class UpdateHandler extends HTMLElement {
                             unavail.style.display = "none";
                             running.style.display = "none";
                             finished.style.display = "none";
-                            this.dispatchEvent(new Event('updateavailable'));
+                            this.dispatchEvent(new Event("updateavailable"));
                             break;
                         case "update_unavailable":
                             check.style.display = "none";
@@ -92,7 +94,7 @@ export default class UpdateHandler extends HTMLElement {
                     unavail.style.display = "block";
                     running.style.display = "none";
                     finished.style.display = "none";
-                    this.dispatchEvent(new Event('noconnection'));
+                    this.dispatchEvent(new Event("noconnection"));
                 }
             
                 this.shadowRoot.getElementById("check-update").onclick = function() {
@@ -127,7 +129,7 @@ export default class UpdateHandler extends HTMLElement {
     }
 
     checkUpdate() {
-        if ('serviceWorker' in navigator) {
+        if ("serviceWorker" in navigator) {
             navigator.serviceWorker.getRegistration().then(function(registration) {
                 registration.active.postMessage("check");
             });
@@ -136,4 +138,4 @@ export default class UpdateHandler extends HTMLElement {
 
 }
 
-customElements.define('ootrt-updatehandler', UpdateHandler);
+customElements.define("ootrt-updatehandler", UpdateHandler);

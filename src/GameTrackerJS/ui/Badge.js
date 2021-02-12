@@ -1,8 +1,10 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+import FilterResource from "../resource/FilterResource.js";
 import SettingsSpy from "../util/spy/SettingsSpy.js";
 
 const colorBlindSpy = new SettingsSpy("color_blind_mode");
@@ -72,7 +74,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const filter = FileData.get("filter");
+        const filter = FilterResource.get();
         for (const name in filter) {
             const value = filter[name];
             if (value.badge) {
@@ -83,7 +85,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         }
         /* --- */
         this.switchTarget("colorBlind", colorBlindSpy);
-        this.setTargetEventListener("colorBlind", "value", event => {
+        this.setTargetEventListener("colorBlind", "change", event => {
             const accessEl = this.shadowRoot.getElementById("access");
             if (accessEl != null) {
                 if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
@@ -147,7 +149,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
 
     setFilterData(data) {
         if (data != null) {
-            const filter = FileData.get("filter");
+            const filter = FilterResource.get();
             for (const name in filter) {
                 const value = filter[name];
                 if (value.badge) {

@@ -1,8 +1,13 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/Window.js";
-import FileData from "/emcJS/data/FileData.js";
-import Language from "/script/util/Language.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import "./ShopEditItem.js";
 
 const TPL = new Template(`
@@ -109,17 +114,17 @@ ootrt-shopedititem.active {
 `);
 
 const Q_TAB = [
-    'button:not([tabindex="-1"])',
-    '[href]:not([tabindex="-1"])',
-    'input:not([tabindex="-1"])',
-    'select:not([tabindex="-1"])',
-    'textarea:not([tabindex="-1"])',
-    '[tabindex]:not([tabindex="-1"])'
-].join(',');
+    "button:not([tabindex=\"-1\"])",
+    "[href]:not([tabindex=\"-1\"])",
+    "input:not([tabindex=\"-1\"])",
+    "select:not([tabindex=\"-1\"])",
+    "textarea:not([tabindex=\"-1\"])",
+    "[tabindex]:not([tabindex=\"-1\"])"
+].join(",");
 
 async function settingsSubmit() {
-    const ev = new Event('submit');
-    const priceEl = this.shadowRoot.getElementById('price');
+    const ev = new Event("submit");
+    const priceEl = this.shadowRoot.getElementById("price");
     const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.value}"]`);
     if (el) {
         ev.item = el.ref;
@@ -145,15 +150,15 @@ export default class HTMLTrackerShopItemChoice extends Window {
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const window = this.shadowRoot.getElementById('window');
-        this.shadowRoot.getElementById('body').innerHTML = "";
-        this.shadowRoot.getElementById('body').append(els.getElementById('panel_about'));
-        const ctgrs = els.getElementById('categories');
-        window.insertBefore(ctgrs, this.shadowRoot.getElementById('body'));
-        window.append(els.getElementById('footer'));
+        const window = this.shadowRoot.getElementById("window");
+        this.shadowRoot.getElementById("body").innerHTML = "";
+        this.shadowRoot.getElementById("body").append(els.getElementById("panel_about"));
+        const ctgrs = els.getElementById("categories");
+        window.insertBefore(ctgrs, this.shadowRoot.getElementById("body"));
+        window.append(els.getElementById("footer"));
 
         ctgrs.onclick = (event) => {
-            const t = event.target.getAttribute('target');
+            const t = event.target.getAttribute("target");
             if (t) {
                 this.active = t;
                 event.preventDefault();
@@ -161,51 +166,51 @@ export default class HTMLTrackerShopItemChoice extends Window {
             }
         }
 
-        const sbm = this.shadowRoot.getElementById('submit');
+        const sbm = this.shadowRoot.getElementById("submit");
         if (!!options.submit && typeof options.submit === "string") {
             sbm.innerHTML = options.submit;
             sbm.setAttribute("title", options.submit);
         }
         sbm.onclick = settingsSubmit.bind(this);
 
-        const ccl = this.shadowRoot.getElementById('cancel');
+        const ccl = this.shadowRoot.getElementById("cancel");
         if (!!options.cancel && typeof options.cancel === "string") {
             ccl.innerHTML = options.cancel;
             ccl.setAttribute("title", options.cancel);
         }
         ccl.onclick = () => this.close();
         
-        const items = FileData.get("shop_items");
+        const items = ShopItemsResource.get();
         for (const item in items) {
             const values = items[item];
-            this.addTab(Language.translate(values.category), values.category);
+            this.addTab(Language.generateLabel(values.category), values.category);
             this.addItem(values.category, item, values.price || "???");
         }
     }
 
     get active() {
-        return this.getAttribute('active');
+        return this.getAttribute("active");
     }
 
     set active(val) {
-        this.setAttribute('active', val);
+        this.setAttribute("active", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     static get observedAttributes() {
-        return ['active', 'value'];
+        return ["active", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'active':
+            case "active":
                 if (oldValue != newValue) {
                     const ol = this.shadowRoot.getElementById(`panel_${oldValue}`);
                     if (ol != null) {
@@ -225,7 +230,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
                     }
                 }
                 break;
-            case 'value':
+            case "value":
                 if (oldValue != newValue) {
                     const ol = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${oldValue}"]`);
                     if (ol != null) {
@@ -240,7 +245,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
                             this.active = parent.dataset.ref;
                         }
                         // price
-                        const priceEl = this.shadowRoot.getElementById('price');
+                        const priceEl = this.shadowRoot.getElementById("price");
                         if (!isNaN(parseInt(nl.price))) {
                             priceEl.value = nl.price;
                             priceEl.readOnly = true;
@@ -272,49 +277,53 @@ export default class HTMLTrackerShopItemChoice extends Window {
         if (category) {
             this.active = category;
         } else if (!this.active) {
-            const ctg = this.shadowRoot.getElementById('categories').children;
+            const ctg = this.shadowRoot.getElementById("categories").children;
             if (ctg.length) {
-                this.active = ctg[0].getAttribute('target')
+                this.active = ctg[0].getAttribute("target")
             }
         }
     }
 
     initialFocus() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById('submit'));
-        a.push(this.shadowRoot.getElementById('cancel'));
-        a.push(this.shadowRoot.getElementById('close'));
+        a.push(this.shadowRoot.getElementById("submit"));
+        a.push(this.shadowRoot.getElementById("cancel"));
+        a.push(this.shadowRoot.getElementById("close"));
         a[0].focus();
     }
 
     focusFirst() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById('submit'));
-        a.push(this.shadowRoot.getElementById('cancel'));
-        a.unshift(this.shadowRoot.getElementById('close'));
+        a.push(this.shadowRoot.getElementById("submit"));
+        a.push(this.shadowRoot.getElementById("cancel"));
+        a.unshift(this.shadowRoot.getElementById("close"));
         a[0].focus();
     }
     
     focusLast() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById('submit'));
-        a.push(this.shadowRoot.getElementById('cancel'));
-        a.unshift(this.shadowRoot.getElementById('close'));
+        a.push(this.shadowRoot.getElementById("submit"));
+        a.push(this.shadowRoot.getElementById("cancel"));
+        a.unshift(this.shadowRoot.getElementById("close"));
         a[a.length - 1].focus();
     }
 
     addTab(title, id) {
         if (!this.shadowRoot.getElementById(`panel_${id}`)) {
-            const pnl = document.createElement('div');
+            const pnl = document.createElement("div");
             pnl.className = "panel";
             pnl.id = `panel_${id}`;
             pnl.dataset.ref = id;
-            this.shadowRoot.getElementById('body').append(pnl);
-            const cb = document.createElement('div');
+            this.shadowRoot.getElementById("body").append(pnl);
+            const cb = document.createElement("div");
             cb.className = "category";
-            cb.setAttribute('target', id);
-            cb.innerHTML = title;
-            const cbt = this.shadowRoot.getElementById('categories');
+            cb.setAttribute("target", id);
+            if (title instanceof HTMLElement) {
+                cb.append(title);
+            } else if (typeof title === "string") {
+                cb.innerHTML = title;
+            }
+            const cbt = this.shadowRoot.getElementById("categories");
             cbt.append(cb);
         }
     }
@@ -329,4 +338,4 @@ export default class HTMLTrackerShopItemChoice extends Window {
 
 }
 
-customElements.define('ootrt-shopitemchoice', HTMLTrackerShopItemChoice);
+customElements.define("ootrt-shopitemchoice", HTMLTrackerShopItemChoice);

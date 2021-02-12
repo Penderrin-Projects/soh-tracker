@@ -1,11 +1,14 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/input/Option.js";
-import StateStorage from "../storage/StateStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <slot>
@@ -50,23 +53,20 @@ slot {
 }
 `);
 
-const PERSIST = new WeakMap();
-
 class FilterButton extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        PERSIST.set(this, false);
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
         this.registerGlobal("filter", event => {
-            if (event.data.name == this.ref) {
-                this.value = event.data.value;
+            if (event.data[this.ref] != null) {
+                this.value = event.data[this.ref];
             }
         });
         /* fck iOS */
@@ -74,40 +74,39 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        const val = this.getAttribute('readonly');
+        const val = this.getAttribute("readonly");
         return !!val && val != "false";
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'ref':
+            case "ref":
                 if (oldValue != newValue) {
-                    const data = FileData.get(`filter/${this.ref}`);
-                    PERSIST.set(this, data.persist != null && !!data.persist);
+                    const data = FilterResource.get(this.ref);
                     this.value = FilterStorage.get(this.ref, data.default);
                     for (const i in data.values) {
                         let img = data.images;
@@ -122,7 +121,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                     }
                 }
                 break;
-            case 'value':
+            case "value":
                 if (oldValue != newValue) {
                     const oe = this.querySelector(`.active`);
                     if (oe) {
@@ -132,7 +131,7 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                     if (ne) {
                         ne.classList.add("active");
                     }
-                    const ev = new Event('change');
+                    const ev = new Event("change");
                     ev.oldValue = oldValue;
                     ev.value = newValue;
                     this.dispatchEvent(ev);
@@ -155,16 +154,8 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                 }
             }
             if (value != oldValue) {
-                const persist = PERSIST.get(this);
                 this.value = value;
                 FilterStorage.set(this.ref, value);
-                if (persist) {
-                    StateStorage.write(this.ref, value);
-                }
-                this.triggerGlobal("filter", {
-                    name: this.ref,
-                    value: value
-                });
             }
         }
         event.preventDefault();
@@ -185,16 +176,8 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
                 }
             }
             if (value != oldValue) {
-                const persist = PERSIST.get(this);
                 this.value = value;
                 FilterStorage.set(this.ref, value);
-                if (persist) {
-                    StateStorage.write(this.ref, value);
-                }
-                this.triggerGlobal("filter", {
-                    name: this.ref,
-                    value: value
-                });
             }
         }
         event.preventDefault();
@@ -203,10 +186,10 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-filterbutton', FilterButton);
+customElements.define("ootrt-filterbutton", FilterButton);
 
 function createOption(value, img) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     return opt;

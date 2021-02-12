@@ -1,18 +1,22 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import Dialog from "/emcJS/ui/Dialog.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
-
 import "/editors/modules/properties/Editor.js";
+/* asym-import: on */
 
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+// Track-OOT
+import LogicResource from "/script/resource/LogicResource.js";
 import LocationListsCreator from "../locations/LocationListsCreator.js";
 
 export default async function(editorChoice) {
     let DataStorage = new IDBStorage("locations");
     let locationEditor = document.createElement("ted-properties-editor");
 
-    let filter = FileData.get("filter");
-    let logic = FileData.get("logic/edges");
+    let filter = FilterResource.get();
+    let logic = LogicResource.get("edges");
 
     let locations = new Set();
 
@@ -62,7 +66,7 @@ export default async function(editorChoice) {
         let lists = await LocationListsCreator.createLists();
         locationEditor.loadList(lists);
         let intData = {};
-        let data = FileData.get("world", {});
+        let data = WorldResource.get();
         for (let name in data) {
             intData[name] = {};
             for (let key in data[name]) {
@@ -96,7 +100,7 @@ export default async function(editorChoice) {
         "submenu": [{
             "content": "SAVE DATA",
             "handler": async () => {
-                let data = FileData.get("world", {});
+                let data = WorldResource.get();
                 let patch = await DataStorage.getAll();
                 for (let name in patch) {
                     if (data[name] == null) {

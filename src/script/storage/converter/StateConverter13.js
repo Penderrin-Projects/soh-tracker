@@ -1,10 +1,10 @@
 /**
- * move to serverside past TBD
+ * move to serverside earliest past TBD
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
-StateConverter.register(function(state) {
+SavestateConverter.register(function(state) {
     const res = {
         data: state.data,
         extra: {},
@@ -81,5 +81,5 @@ const translation = {
     "region.dmc_upper_local -> region.crater_mountain_gateway": "region.crater_to_mountain_entrance -> region.crater_mountain_gateway",
     "region.dmc_lower_local -> region.crater_goron_gateway": "region.crater_to_goron_entrance -> region.crater_goron_gateway",
     "region.death_mountain_summit -> region.crater_mountain_gateway": "region.mountain_to_crater_entrance -> region.crater_mountain_gateway",
-    "region.gc_darunias_chamber -> region.crater_goron_gateway": "region.goron_to_crater_entrance -> region.crater_goron_gateway",
+    "region.gc_darunias_chamber -> region.crater_goron_gateway": "region.goron_to_crater_entrance -> region.crater_goron_gateway"
 };

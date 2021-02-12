@@ -1,6 +1,9 @@
+/* asym-import: off */
 import "/editors/EditorChoice.js";
-import PageSwitcher from "/script/util/PageSwitcher.js";
+/* asym-import: on */
 
+// Track-OOT
+import PageSwitcher from "/script/util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";
 //import createWorldEditor from "./editors/WorldEditor.js";
 

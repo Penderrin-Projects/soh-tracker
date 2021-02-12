@@ -1,17 +1,7 @@
-const PROPS = new WeakMap();
+const PROPDATA = new WeakMap();
 const DEFAULT_STATE = new WeakMap();
 const CLASSES = new WeakMap();
 const INSTANCES = new WeakMap();
-
-function getProps(inst, ref) {
-    const props = PROPS.get(inst);
-    if (props == null) {
-        const newProps = inst.initData();
-        PROPS.set(inst, newProps);
-        return newProps[ref];
-    }
-    return props[ref];
-}
 
 export default class StateManager {
 
@@ -24,7 +14,7 @@ export default class StateManager {
         }
         /* --- */
         DEFAULT_STATE.set(this, DefaultState);
-        PROPS.set(this, props);
+        PROPDATA.set(this, props);
         CLASSES.set(this, new Map());
         INSTANCES.set(this, new Map());
     }
@@ -38,7 +28,8 @@ export default class StateManager {
         if (ref == null) {
             throw new Error("the reference must not be null");
         }
-        return getProps(this, ref) != null;
+        const propdata = PROPDATA.get(this);
+        return propdata[ref] != null;
     }
 
     get(ref) {
@@ -49,7 +40,8 @@ export default class StateManager {
         if (instances.has(ref)) {
             return instances.get(ref);
         }
-        const props = getProps(this, ref);
+        const propdata = PROPDATA.get(this);
+        const props = propdata[ref];
         if (props != null) {
             const classes = CLASSES.get(this);
             if (classes.has(props.type)) {
@@ -77,10 +69,6 @@ export default class StateManager {
             res[key] = value;
         }
         return res;
-    }
-
-    initData() {
-        throw new Error("can not initialize data in abstract method");
     }
 
 }

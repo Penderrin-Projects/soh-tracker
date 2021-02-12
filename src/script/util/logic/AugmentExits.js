@@ -1,6 +1,15 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
-import Logic from "/script/util/logic/Logic.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
 
 function changeBinding(values) {
     const changes = [];
@@ -104,15 +113,8 @@ class ExitAugmentor {
 
 }
 
-class AugmentExits {
-
-    init() {
-        const exits = ExitRegistry.getAll();
-        for (const exit of Object.values(exits)) {
-            new ExitAugmentor(exit);
-        }
-    }
-
+const exits = WorldResource.get("marker/exit");
+for (const name in exits) {
+    const exit = WorldStateManagers.get("exit", name);
+    new ExitAugmentor(exit);
 }
-
-export default new AugmentExits();

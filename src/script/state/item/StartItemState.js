@@ -1,5 +1,9 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 
@@ -8,11 +12,11 @@ const STARTVALUE = new WeakMap();
 export default class StartItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, props.max);
+        super(ref, props);
         /* --- */
-        STARTVALUE.set(this, parseInt(StateStorage.read(props.start_settings, 1)));
+        STARTVALUE.set(this, parseInt(SavestateHandler.get("", props.start_settings, 1)));
         /* EVENTS */
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             if (event.data[props.start_settings] != null) {
                 this./*#*/__applyStartValue(event.data[props.start_settings]);
             }

@@ -1,10 +1,15 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
 import ShopStates from "/script/state/shop/StateManager.js";
-import Language from "/script/util/Language.js";
 import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div id="image"></div>
@@ -104,14 +109,14 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                titleEl.innerHTML = Language.translate(event.data);
+                Language.applyLabel(titleEl, event.data);
             }
             const state = this.getState();
             const imageEl = this.shadowRoot.getElementById("image");
@@ -213,7 +218,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             // title
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                titleEl.innerHTML = Language.translate(state.item);
+                Language.applyLabel(titleEl, state.item);
             }
             // image
             const imageEl = this.shadowRoot.getElementById("image");
@@ -247,7 +252,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
     /*#*/__editItem(event) {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(Language.translate(this.ref));
+            const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));
             d.value = state.item;
             d.addEventListener("submit", function(result) {
                 if (result) {
@@ -263,15 +268,15 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -283,4 +288,4 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
 
 }
 
-customElements.define('ootrt-shopitem', HTMLTrackerShopItem);
+customElements.define("ootrt-shopitem", HTMLTrackerShopItem);

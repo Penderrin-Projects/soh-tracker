@@ -1,103 +1,64 @@
-/*
-    starting point for application
-*/
+/**
+ * Starting point for Track-OOT
+ */
 
-import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
-import FileLoader from "/emcJS/util/FileLoader.js";
-import DateUtil from "/emcJS/util/DateUtil.js";
+/* asym-import: off */
+import Import from "/emcJS/util/import/Import.js";
+import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import StateStorage from "/script/storage/StateStorage.js";
-
-import {loadResources, registerWorker} from "/script/boot.js";
-
-import "/script/storage/converter/StateConverter.js";
-
+import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Paging.js";
+import "/emcJS/ui/input/TextEditor.js";
+import "/emcJS/ui/LogScreen.js";
+import "/emcJS/ui/Icon.js";
+import "/emcJS/ui/layout/Layout.js";
+/* asym-import: on */
 
-function setVersion(data) {
-    MemoryStorage.set("version-dev", data.dev);
-    if (data.dev) {
-        MemoryStorage.set("version-string", `DEV [${data.commit.slice(0, 7)}]`);
-    } else {
-        MemoryStorage.set("version-string", data.version);
-    }
-    MemoryStorage.set("version-date", DateUtil.convert(new Date(data.date), "D.M.Y h:m:s"));
+// GameTrackerJS
+import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+// Track-OOT
+import VersionData from "/script/data/VersionData.js";
+import "/script/storage/converter/StateConverter.js";
+import "/script/util/logic/AugmentExits.js";
+import "/script/util/logic/AugmentCustomLogic.js";
+import "/script/util/logic/LogicCaller.js";
+import "/script/content/Tracker.js";
+import "/script/content/EditorChoice.js"
+import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
+import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
+import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
+import "/script/ui/ViewChoice.js";
+import "/script/ui/items/ItemGrid.js";
+import "/script/ui/dungeonstate/DungeonState.js";
+import "/script/ui/world/LocationList.js";
+import "/script/ui/world/Map.js";
+import "/script/ui/LocationStatus.js";
+import "/script/ui/shops/ShopList.js";
+import "/script/ui/songs/SongList.js";
+import "/script/ui/exits/ExitList.js";
+import "/script/ui/multiplayer/Multiplayer.js";
+import "/script/ui/LayoutContainer.js";
+
+const spl = document.getElementById("splash").querySelector(".loading");
+function updateLoadingMessage(msg = "loading...") {
+    spl.innerHTML = msg;
 }
-
-function setDevs(data) {
-    MemoryStorage.set("devs-owner", data.owner);
-    MemoryStorage.set("devs-team", data.team);
-    MemoryStorage.set("devs-contributors", data.contributors);
-}
-
-(async function main() {
-    try {
-        setVersion(await FileLoader.json("version.json"));
-        setDevs(await FileLoader.json("devs.json"));
-        // initial boot
-        await loadResources(updateLoadingMessage); // eslint-disable-line no-undef
-        // ---
-        updateLoadingMessage("poke application..."); // eslint-disable-line no-undef
-        await init();
-    } catch(err) {
-        console.error(err);
-        updateLoadingMessage(err.message.replace(/\n/g, "<br>")); // eslint-disable-line no-undef
-    }
-}());
+LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
 window.onbeforeunload = function() {
     return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
 }
 
-async function init() {
-    const [
-        LogicCaller,
-        AugmentExits,
-        AugmentCustomLogic
-    ] = await $import.module([ // eslint-disable-line no-undef
-        "/script/util/logic/LogicCaller.js",
-        "/script/util/logic/AugmentExits.js",
-        "/script/util/logic/AugmentCustomLogic.js"
-    ]);
-
-    updateLoadingMessage("build logic data..."); // eslint-disable-line no-undef
-    await AugmentExits.init();
-    await AugmentCustomLogic.init();
-    await LogicCaller.init();
-
-    updateLoadingMessage("load visuals..."); // eslint-disable-line no-undef
-    const [
-        EventBus,
-        Logger,
-        TrackerSettingsWindow,
-        RandomizerOptionsWindow,
-        SpoilerLogWindow
-    ] = await $import.module([ // eslint-disable-line no-undef
-        // consts
-        "/emcJS/event/EventBus.js",
-        "/emcJS/util/Logger.js",
-        "/script/ui/TrackerSettingsWindow.js",
-        "/script/ui/RandomizerOptionsWindow.js",
-        "/script/ui/SpoilerLogWindow.js",
-        // untracked
-        "/emcJS/ui/input/TextEditor.js",
-        "/emcJS/ui/LogScreen.js",
-        "/emcJS/ui/Icon.js",
-        "/emcJS/ui/layout/Layout.js",
-        "/script/ui/ViewChoice.js",
-        "/script/ui/items/ItemGrid.js",
-        "/script/ui/dungeonstate/DungeonState.js",
-        "/script/ui/world/LocationList.js",
-        "/script/ui/world/Map.js",
-        "/script/ui/LocationStatus.js",
-        "/script/content/Tracker.js",
-        "/script/content/EditorChoice.js"
-    ]);
-    
-    await registerWorker();
-
-    updateLoadingMessage("apply logger..."); // eslint-disable-line no-undef
-    if (MemoryStorage.get("version-dev")) {
+try {
+    updateLoadingMessage("apply logger...");
+    // add default log output
+    Logger.addOutput(console);
+    // add log panel
+    if (VersionData.isDev) {
         const logPanel = document.createElement("div");
         logPanel.setAttribute("slot", "log");
         logPanel.dataset.title = "Logger";
@@ -108,55 +69,41 @@ async function init() {
         logPanel.append(logScreen);
         document.getElementById("main-content").append(logPanel);
         Logger.addOutput(logScreen);
-        //Logger.addOutput(console);
         EventBus.register(function(event) {
             Logger.info(JSON.stringify(event), "Event");
         });
-    } else {
-        // not in dev version
     }
 
-    updateLoadingMessage("initialize components..."); // eslint-disable-line no-undef
+    updateLoadingMessage("learn languages...");
+    // load current language
+    await Language.load(SettingsStorage.get("language"));
+
+    updateLoadingMessage("initialize components...");
+    // busy indicator
+    BusyIndicator.setIndicator(document.getElementById("busy-animation"));
+    // notepad
     const notePad = document.getElementById("notes-editor");
-    notePad.value = StateStorage.readNotes();
-    EventBus.register("state", function(event) {
-        if (event.data.notes != null) {
-            notePad.value = event.data.notes;
-        }
+    notePad.value = SavestateHandler.getNotes();
+    SavestateHandler.addEventListener("notes", function(event) {
+        notePad.value = event.data;
     });
     notePad.addEventListener("change", function() {
-        StateStorage.writeNotes(notePad.value);
+        SavestateHandler.setNotes(notePad.value);
     });
-
-    updateLoadingMessage("initialize settings..."); // eslint-disable-line no-undef
-    window.TrackerSettingsWindow = new TrackerSettingsWindow();
-    window.RandomizerOptionsWindow = new RandomizerOptionsWindow();
-    window.SpoilerLogWindow = new SpoilerLogWindow();
-
-    updateLoadingMessage("add modules..."); // eslint-disable-line no-undef
-    await $import.module([ // eslint-disable-line no-undef
-        "/script/ui/shops/ShopList.js",
-        "/script/ui/songs/SongList.js",
-        "/script/ui/exits/ExitList.js",
-        "/script/ui/multiplayer/Multiplayer.js",
-        "/script/ui/LayoutContainer.js"
-    ]);
-
-    updateLoadingMessage("wake up..."); // eslint-disable-line no-undef
-    const spl = document.getElementById("splash");
-    if (spl) {
-        spl.className = "inactive";
+    // shared worker
+    if ("SharedWorker" in window) {
+        const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
+        EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
     }
-    
-    // hotkeys
-    function openDetached() {
+    // register hotkey - detached window
+    HotkeyHandler.setAction("detached_window", () => {
         window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
-    }
-    HotkeyHandler.setAction("detached_window", openDetached, {
+    }, {
         ctrlKey: true,
         altKey: true,
         key: "i"
     });
+    // register hotkey handler
     window.addEventListener("keydown", function(event) {
         if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
             event.preventDefault();
@@ -164,4 +111,20 @@ async function init() {
             return false;
         }
     });
+
+    updateLoadingMessage("initialize settings...");
+    // windows
+    window.TrackerSettingsWindow = new TrackerSettingsWindow();
+    window.RomOptionsWindow = new RomOptionsWindow();
+    window.SpoilerLogWindow = new SpoilerLogWindow();
+
+    updateLoadingMessage("wake up...");
+    // remove splashscreen
+    const spl = document.getElementById("splash");
+    if (spl) {
+        spl.className = "inactive";
+    }
+} catch(err) {
+    console.error(err);
+    updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
 }

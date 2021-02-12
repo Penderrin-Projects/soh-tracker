@@ -1,19 +1,15 @@
-import FileData from "/emcJS/data/FileData.js";
+import WorldResource from "../../../resource/WorldResource.js";
+import WorldStateManagers from "../StateManagers.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
+const resourceData = WorldResource.get("exit");
+
 class StateManager extends AbstractStateManager {
-
-    constructor() {
-        super(DefaultState);
-    }
-
-    createState(StateClass, ref, props) {
-        return new StateClass(ref, props);
-    }
     
-    initData() {
-        return FileData.get("world/exit");
+    constructor() {
+        super(DefaultState, resourceData);
+        WorldStateManagers.entrance = this;
     }
 
 }

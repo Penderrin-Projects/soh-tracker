@@ -1,11 +1,20 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-//import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Language from "/script/util/Language.js";
-//import ListLogic from "/script/util/logic/ListLogic.js";
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
 import "./mapmarker/Location.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
@@ -184,7 +193,7 @@ const TPL = new Template(`
     <div id="map-wrapper">
         <slot id="map" style="--map-zoom: ${ZOOM_DEF};">
         </slot>
-        <div id="back">(${Language.translate("back")})</div>
+        <div id="back">(${Language.generateLabel("back")})</div>
         <div id="map-settings">
             <div class="buttons">
                 <div id="toggle-button" class="button-wrapper">⇑</div>
@@ -334,9 +343,9 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-        this.shadowRoot.getElementById('back').addEventListener("click", () => {
+        this.shadowRoot.getElementById("back").addEventListener("click", () => {
             this.ref = "overworld"
         });
         // map specifics
@@ -408,14 +417,17 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         this.registerGlobal("location_mode", event => {
             this.mode = event.data.value;
-            this.shadowRoot.getElementById('location-mode').value = this.mode;
+            this.shadowRoot.getElementById("location-mode").value = this.mode;
         });
-        this.registerGlobal(["state", "settings", "randomizer_options", "filter"], () => {
+        this.registerGlobal("state", () => {
             this.refresh();
         });
-        this.registerGlobal("dungeontype", event => {
-            if (this.ref === event.data.name) {
-                this.refresh();
+        this.registerGlobal("statechange_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
             }
         });
     }
@@ -432,11 +444,11 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     set ref(val) {
         //this.setAttribute('ref', val);
-        this.setAttribute('ref', "overworld");
+        this.setAttribute("ref", "overworld");
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -453,24 +465,23 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
         //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
         this.innerHTML = "";
-        const data = WorldRegistry.get(this.ref || "overworld");
+        const data = WorldStateManagers.getByRef(this.ref || "overworld");
         if (data != null) {
             const areaData = data.areaData;
             // switch map/minimap background
-            const map = this.shadowRoot.getElementById('map');
+            const map = this.shadowRoot.getElementById("map");
             map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             map.style.width = `${areaData.width}px`;
             map.style.height = `${areaData.height}px`;
-            const minimap = this.shadowRoot.getElementById('map-overview');
+            const minimap = this.shadowRoot.getElementById("map-overview");
             minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            const list = data.getFilteredList();
+            const list = data.getList();
             if (list != null) {
                 //btn_vanilla.className = "hidden";
                 //btn_masterquest.className = "hidden";
                 for (const record of list) {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const loc = WorldStateManagers.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`map-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;
@@ -498,7 +509,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 }
 
 Panel.registerReference("location-map", HTMLTrackerMap);
-customElements.define('ootrt-map', HTMLTrackerMap);
+customElements.define("ootrt-map", HTMLTrackerMap);
 
 function calculateTooltipPosition(posX, posY, mapW, mapH) {
     const leftP = posX / mapW;

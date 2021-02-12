@@ -1,13 +1,16 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ExitRegistry from "../registry/ExitRegistry.js";
+/* asym-import: on */
+import WorldStateManagers from "../state/world/StateManagers.js";
+import "../state/world/exit/StateManager.js";
+import "../state/world/subexit/StateManager.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
 import Badge from "./Badge.js";
 import "./ctxmenu/ExitChoiceContextMenu.js";
 import "./ctxmenu/ExitBindingMenu.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
+import Language from "../util/Language.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -83,15 +86,28 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("visible", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
+        this.registerStateHandler("filter", event => {
+            const state = this.getState();
+            if (state != null) {
+                if (state.isVisible()) {
+                    this.style.display = "";
+                } else {
+                    this.style.display = "none";
+                }
+            }
+        });
         this.registerStateHandler("value", event => {
             this.value = event.data;
-        });
-        this.registerStateHandler("visible", event => {
-            if (!event.data) {
-                this.style.display = "none";
-            } else {
-                this.style.display = "";
-            }
         });
 
         /* context menu */
@@ -157,7 +173,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             badge.typeIcon = "images/icons/entrance.svg";
             badge.setFilterData({});
         }
-        this.style.display = "none";
     }
 
     applyStateValues(state) {
@@ -168,11 +183,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
                 badge.setFilterData(state.filter);
-            }
-            if (!state.visible) {
-                this.style.display = "none";
-            } else {
-                this.style.display = "";
             }
         }
     }
@@ -202,10 +212,10 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             switch (name) {
                 case "ref":
                     {
-                        const state = ExitRegistry.get(newValue);
+                        const state = WorldStateManagers.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(`exit[${newValue}]`);
+                            Language.applyLabel(textEl, `exit[${state.props.access}]`);
                         }
                         this.switchState(state);
                     }
@@ -217,7 +227,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
                             const valueEl = this.shadowRoot.getElementById("value");
                             if (valueEl != null) {
                                 if (newValue) {
-                                    valueEl.innerHTML = Language.translate(`entrance[${newValue}]`);
+                                    Language.applyLabel(valueEl, `entrance[${newValue}]`);
                                 } else {
                                     valueEl.innerHTML = "";
                                 }
@@ -225,36 +235,6 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
                         }
                     }
                     break;
-            }
-        }
-    }
-
-    fillEntranceSelection(access, current = "") {
-        // retrieve bound
-        const exits = StateStorage.readAllExtra("exits");
-        const bound = new Set();
-        for (const key in exits) {
-            const exitKey = ExitRegistry.get(key)
-            if (exits[key] == current || exitKey.exitData.type === "special") continue;
-            bound.add(exits[key]);
-        }
-        // add options
-        const exit = ExitRegistry.get(access);
-        const entrances = ExitRegistry.getAll();
-        const selectEl = this.shadowRoot.getElementById("select");
-        selectEl.value = current;
-        selectEl.innerHTML = "";
-        const empty = document.createElement("emc-option");
-        empty.value = "";
-        empty.innerHTML = "unbound";
-        selectEl.append(empty);
-        for (const key in entrances) {
-            const value = entrances[key];
-            if ((exit.exitData.type === "special" && value.exitData.type !== "dungeon") || (value.active && value.exitData.type == exit.exitData.type && !bound.has(value.exitData.target))) {
-                const opt = document.createElement("emc-option");
-                opt.value = value.exitData.target;
-                opt.innerHTML = Language.translate(value.exitData.target);
-                selectEl.append(opt);
             }
         }
     }

@@ -1,10 +1,12 @@
 {
     "language": {
+        "category": "settings",
         "type": "choice",
         "default": "en_us",
         "values": "I18n.languages"
     },
     "font": {
+        "category": "settings",
         "type": "choice",
         "default": "font_default",
         "values": [
@@ -18,6 +20,7 @@
         ]
     },
     "layout": {
+        "category": "settings",
         "type": "choice",
         "default": "map-compact",
         "values": [
@@ -37,10 +40,12 @@
         ]
     },
     "color_blind_mode": {
+        "category": "settings",
         "type": "check",
         "default": true
     },
     "sublist_collapsible": {
+        "category": "settings",
         "type": "choice",
         "default": "start_expanded",
         "values": [
@@ -50,35 +55,34 @@
         ]
     },
     "item_size": {
+        "category": "settings",
         "type": "-range",
         "min": 32,
         "max": 64,
         "default": 40
     },
     "autosave_time": {
+        "category": "settings",
         "type": "number",
         "min": 0,
         "max": 120,
         "default": 10
     },
     "autosave_amount": {
+        "category": "settings",
         "type": "number",
         "min": 1,
         "max": 10,
         "default": 4
     },
     "unknown_dungeon_need_both": {
+        "category": "settings",
         "type": "check",
         "default": false
     },
     "use_custom_logic": {
+        "category": "settings",
         "type": "check",
         "default": false
-    },
-    "erase_all_data": {
-        "type": "button",
-        "text": "button_erase_data",
-        "url": "uninstall.html?nosw",
-        "target": "_self"
     }
 }

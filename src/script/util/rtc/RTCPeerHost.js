@@ -1,29 +1,29 @@
+/* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
 import EventBusSubset from "/emcJS/event/EventBusSubset.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+// Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
 function getState() {
-    const state = StateStorage.getAll();
-    const extra = StateStorage.readAllExtra();
-    const res = {};
-    for (const i in extra) {
-        if (i != "shops") {
-            res[i] = extra[i];
-        } else {
-            res[i] = {};
-            for (const j in extra[i]) {
-                if (!j.endsWith(".name")) {
-                    res[i][j] = extra[i][j];
-                }
-            }
+    SavestateHandler.getAll();
+    const state = SavestateHandler.getAll();
+    const options = OptionsStorage.getAll();
+    const shops = {};
+    for (const i in state.shops) {
+        if (!i.endsWith(".name")) {
+            shops[i] = state.shops[i];
         }
     }
     return {
-        state: state,
-        extra: res
+        data: {...state, shops},
+        options
     };
 }
 

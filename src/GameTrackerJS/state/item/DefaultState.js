@@ -1,6 +1,8 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+import SavestateHandler from "../../savestate/SavestateHandler.js";
 import DataState from "../abstract/DataState.js";
-import StateStorage from "/script/storage/StateStorage.js";
 
 const VALUE = new WeakMap();
 const MAX = new WeakMap();
@@ -32,12 +34,12 @@ function internalChange(event) {
 
 export default class DefaultState extends DataState {
 
-    constructor(ref, props, min = 0, max = 0) {
+    constructor(ref, props, opt) {
         super(ref, props);
         /* --- */
-        MIN.set(this, parseNumber(min, Number.MIN_SAFE_INTEGER));
-        MAX.set(this, parseNumber(max, Number.MAX_SAFE_INTEGER));
-        this.value = StateStorage.read(ref, 0);
+        MIN.set(this, parseNumber(opt?.min ?? props.min ?? 0, Number.MIN_SAFE_INTEGER));
+        MAX.set(this, parseNumber(opt?.max ?? props.max ?? 0, Number.MAX_SAFE_INTEGER));
+        VALUE.set(this, SavestateHandler.get("", ref, 0));
         /* EVENTS */
         EventBus.register("state::item", internalChange.bind(this));
         EventBus.register("state", event => {
@@ -117,7 +119,7 @@ export default class DefaultState extends DataState {
             const old = this.value;
             if (value != old) {
                 VALUE.set(this, value);
-                StateStorage.write(ref, value);
+                SavestateHandler.set("", ref, value);
                 // external
                 const event = new Event("value");
                 event.data = value;

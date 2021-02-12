@@ -1,7 +1,12 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
 import AbstractGossipstone from "../abstract/Gossipstone.js";
 
 const TPL = new Template(`
@@ -54,14 +59,17 @@ const STYLE = new GlobalStyle(`
     align-items: center;
     color: #ffffff;
 }
+#text[data-state="opened"] {
+    color: var(--location-status-opened-color, #000000);
+}
 #text[data-state="available"] {
     color: var(--location-status-available-color, #000000);
 }
 #text[data-state="unavailable"] {
     color: var(--location-status-unavailable-color, #000000);
 }
-#text[data-checked="true"] {
-    color: var(--location-status-opened-color, #000000);
+#text[data-state="possible"] {
+    color: var(--location-status-possible-color, #000000);
 }
 #item {
     margin-left: 5px;
@@ -78,7 +86,7 @@ export default class ListGossipstone extends AbstractGossipstone {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -86,5 +94,5 @@ export default class ListGossipstone extends AbstractGossipstone {
 
 }
 
-UIRegistry.get("list-location").register('gossipstone', ListGossipstone);
-customElements.define('ootrt-list-gossipstone', ListGossipstone);
+UIRegistry.get("list-location").register("gossipstone", ListGossipstone);
+customElements.define("ootrt-list-gossipstone", ListGossipstone);

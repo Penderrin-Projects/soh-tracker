@@ -11,7 +11,8 @@ const EDT_PATH = path.resolve(__dirname, "./editor/content");
 const MODULE_PATHS = {
     emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
     trackerEditor: path.resolve(__dirname, "node_modules/jseditors/src"),
-    RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src")
+    RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src"),
+    AsyM: path.resolve(__dirname, "node_modules/asym/src"),
 };
 
 function fileExists(filename) {
@@ -36,6 +37,10 @@ if (process.argv.indexOf('-nolocal') < 0) {
     if (fileExists(RTCClient)) {
         MODULE_PATHS.RTCClient = RTCClient;
     }
+    let asyM = path.resolve(__dirname, '../AsyM/src');
+    if (fileExists(asyM)) {
+        MODULE_PATHS.AsyM = asyM;
+    }
 }
 
 const gulp = require("gulp");
@@ -46,6 +51,15 @@ const newer = require('gulp-newer');
 const autoprefixer = require('gulp-autoprefixer');
 const eslint = require('gulp-eslint');
 const filemanager = require("./file-manager");
+const gulpAsyM = require("asym/GulpAsyM");
+//const gulpAsyM = require("../AsyM/GulpAsyM");
+
+function copyAsyM(dest = DEV_PATH) {
+    return gulp.src(`${MODULE_PATHS.AsyM}/**/*.js`)
+        .pipe(filemanager.register(MODULE_PATHS.AsyM, `${dest}/asym`))
+        .pipe(newer(`${dest}/asym`))
+        .pipe(gulp.dest(`${dest}/asym`));
+}
 
 function copyHTML(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/**/*.html`)
@@ -124,21 +138,33 @@ function copyScript(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/script/**/*.js`)
         .pipe(filemanager.register(`${SRC_PATH}/script`, `${dest}/script`))
         .pipe(newer(`${dest}/script`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
         .pipe(gulp.dest(`${dest}/script`));
-}
-
-function copyEditorExtension(dest = DEV_PATH) {
-    return gulp.src(`${EDT_PATH}/**/*.js`)
-        .pipe(filemanager.register(`${EDT_PATH}`, `${dest}/script/content`))
-        .pipe(newer(`${dest}/script/content`))
-        .pipe(gulp.dest(`${dest}/script/content`));
 }
 
 function copyGameTrackerJS(dest = DEV_PATH) {
     return gulp.src(`${SRC_PATH}/GameTrackerJS/**/*.js`)
         .pipe(filemanager.register(`${SRC_PATH}/GameTrackerJS`, `${dest}/GameTrackerJS`))
         .pipe(newer(`${dest}/GameTrackerJS`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
         .pipe(gulp.dest(`${dest}/GameTrackerJS`));
+}
+
+function copyEditorExtension(dest = DEV_PATH) {
+    return gulp.src(`${EDT_PATH}/**/*.js`)
+        .pipe(filemanager.register(`${EDT_PATH}`, `${dest}/script/content`))
+        .pipe(newer(`${dest}/script/content`))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
+        .pipe(gulp.dest(`${dest}/script/content`));
 }
 
 function copyEmcJS(dest = DEV_PATH) {
@@ -172,11 +198,29 @@ function copyRTCClient(dest = DEV_PATH) {
         .pipe(gulp.dest(`${dest}/rtc`));
 }
 
-function copySW(dest = DEV_PATH) {
-    return gulp.src(`${SRC_PATH}/sw.js`)
+function copyInitializer(dest = DEV_PATH) {
+    const FILES = [
+        `${SRC_PATH}/sw.js`,
+        `${SRC_PATH}/index.js`
+    ];
+    return gulp.src(FILES)
         .pipe(filemanager.register(SRC_PATH, dest))
         .pipe(newer(dest))
         .pipe(gulp.dest(dest));
+}
+
+function copyDetachedScript(dest = DEV_PATH) {
+    const FILES = [
+        `${SRC_PATH}/detached/index.js`
+    ];
+    return gulp.src(FILES)
+        .pipe(filemanager.register(SRC_PATH, dest))
+        .pipe(newer(dest))
+        .pipe(gulpAsyM({
+            path: "/asym",
+            alike: /Import\.module/
+        }))
+        .pipe(gulp.dest(`${dest}/detached`));
 }
 
 function finish(dest = DEV_PATH, done) {
@@ -186,6 +230,7 @@ function finish(dest = DEV_PATH, done) {
 
 exports.build = gulp.series(
     gulp.parallel(
+        copyAsyM.bind(this, PRD_PATH),
         copyHTML.bind(this, PRD_PATH),
         copyJSON.bind(this, PRD_PATH),
         copyI18N.bind(this, PRD_PATH),
@@ -198,7 +243,8 @@ exports.build = gulp.series(
         copyEmcJS.bind(this, PRD_PATH),
         copyTrackerEditor.bind(this, PRD_PATH),
         copyRTCClient.bind(this, PRD_PATH),
-        copySW.bind(this, PRD_PATH),
+        copyInitializer.bind(this, PRD_PATH),
+        copyDetachedScript.bind(this, PRD_PATH),
         copyChangelog.bind(this, PRD_PATH)
     ),
     finish.bind(this, PRD_PATH)
@@ -206,6 +252,7 @@ exports.build = gulp.series(
 
 exports.buildDev = gulp.series(
     gulp.parallel(
+        copyAsyM.bind(this, DEV_PATH),
         copyHTML.bind(this, DEV_PATH),
         copyJSON.bind(this, DEV_PATH),
         copyI18N.bind(this, DEV_PATH),
@@ -218,7 +265,8 @@ exports.buildDev = gulp.series(
         copyEmcJS.bind(this, DEV_PATH),
         copyTrackerEditor.bind(this, DEV_PATH),
         copyRTCClient.bind(this, DEV_PATH),
-        copySW.bind(this, DEV_PATH),
+        copyInitializer.bind(this, DEV_PATH),
+        copyDetachedScript.bind(this, DEV_PATH),
         copyChangelog.bind(this, DEV_PATH)
     ),
     finish.bind(this, DEV_PATH)

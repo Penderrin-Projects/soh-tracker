@@ -1,5 +1,7 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
 
 const TPL = new Template(`
 <slot></slot>
@@ -19,11 +21,11 @@ export default class ContextMenuCatcher extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
     }
 
 }
 
-customElements.define('gt-ctxmenucatcher', ContextMenuCatcher);
+customElements.define("gt-ctxmenucatcher", ContextMenuCatcher);

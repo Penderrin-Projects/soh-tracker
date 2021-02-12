@@ -1,5 +1,9 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
@@ -19,8 +23,7 @@ export default class LocationState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.value = StateStorage.read(ref, false);
-        this.item = StateStorage.readExtra("item_location", ref, "");
+        this.item = SavestateHandler.get("item_location", ref, "");
         /* EVENTS */
         EventBus.register("state::location_item", internalItemChange.bind(this));
     }
@@ -42,7 +45,7 @@ export default class LocationState extends DefaultState {
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);
-            StateStorage.writeExtra("item_location", ref, value);
+            SavestateHandler.set("item_location", ref, value);
             // external
             const event = new Event("item");
             event.data = value;
