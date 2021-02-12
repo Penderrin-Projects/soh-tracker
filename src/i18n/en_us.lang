@@ -76,6 +76,7 @@ location/deku.c_basement=Basement Chest
 location/deku.c_slingshot=Slingshot Chest
 location/deku.c_slingshot_side=Slingshot Room Side Chest
 location/deku.c_gohma=Gohma
+# LOCATIONS - DEKU MQ
 location/deku_mq.c_lobby=Lobby Chest
 location/deku_mq.c_slingshot=Slingshot Chest
 location/deku_mq.c_slingshot_back=Slingshot Room Back
@@ -95,6 +96,7 @@ location/dodongo.c_bomb_bag=Bomb Bag Chest
 location/dodongo.c_end_bridge=End of Bridge Chest
 location/dodongo.c_chest_above_dodongo=Chest Above King Dodongo
 location/dodongo.c_dodongo=King Dodongo
+# LOCATIONS - DODONGO MQ
 location/dodongo_mq.c_map=Map Chest
 location/dodongo_mq.c_compass=Compass Chest
 location/dodongo_mq.c_gohma_larva_room=Gohma Larva Room
@@ -111,6 +113,7 @@ location/jabujabu.c_boomerang=Boomerang Chest
 location/jabujabu.c_map=Map Chest
 location/jabujabu.c_compass=Compass Chest
 location/jabujabu.c_barinade=Barinade
+# LOCATIONS - JABU JABU MQ
 location/jabujabu_mq.c_map=Map Chest
 location/jabujabu_mq.c_entry_side_chest=Entry Room Side Chest
 location/jabujabu_mq.c_second_room_lower_chest=Second Room Lower Chest
@@ -141,6 +144,7 @@ location/temple_forest.c_poe_red=Red Poe Chest
 location/temple_forest.c_poe_blue=Blue Poe Chest
 location/temple_forest.c_near_boss=Near Boss Chest
 location/temple_forest.c_phantomganon=Phantom Ganon
+# LOCATIONS - TEMPLE FOREST MQ
 location/temple_forest_mq.c_entrance=First Chest
 location/temple_forest_mq.c_behind_lobby=Chest Behind Lobby
 location/temple_forest_mq.c_boss_key=Boss Key Chest
@@ -173,6 +177,7 @@ location/temple_fire.c_compass=Compass Chest
 location/temple_fire.c_highest_goron=Highest Goron Chest
 location/temple_fire.c_hammer=Megaton Hammer Chest
 location/temple_fire.c_volvagia=Volvagia
+# LOCATIONS - TEMPLE FIRE MQ
 location/temple_fire_mq.c_chest_near_boss=Chest Near Boss
 location/temple_fire_mq.c_megaton_hammer=Megaton Hammer Chest
 location/temple_fire_mq.c_map=Map Chest
@@ -201,6 +206,7 @@ location/temple_water.c_cracked_wall=Cracked Wall Chest
 location/temple_water.c_dark_link=Dark Link Chest
 location/temple_water.c_river=River Chest
 location/temple_water.c_morpha=Morpha
+# LOCATIONS - TEMPLE WATER MQ
 location/temple_water_mq.c_map=Map Chest
 location/temple_water_mq.c_central_pillar=Central Pillar Chest
 location/temple_water_mq.c_compass=Compass Chest
@@ -230,6 +236,7 @@ location/temple_shadow.c_spike_walls=Spike Walls Left Chest
 location/temple_shadow.c_boss_key=Boss Key Chest
 location/temple_shadow.c_hidden_floormaster=Hidden Floormaster Chest
 location/temple_shadow.c_bongobongo=Bongo Bongo
+# LOCATIONS - TEMPLE SHADOW MQ
 location/temple_shadow_mq.c_compass=Compass Chest
 location/temple_shadow_mq.c_boots=Hover Boots Chest
 location/temple_shadow_mq.c_map=Map Chest
@@ -275,6 +282,7 @@ location/temple_spirit.c_hallway_right_invisible=Hallway Right Invisible Chest
 location/temple_spirit.c_boss_key=Boss Key Chest
 location/temple_spirit.c_topmost=Topmost Chest
 location/temple_spirit.c_twinrova=Twinrova
+# LOCATIONS - TEMPLE SPIRIT MQ
 location/temple_spirit_mq.c_entrance_front_left=Entrance Front Left Chest
 location/temple_spirit_mq.c_entrance_back_left=Entrance Back Left Chest
 location/temple_spirit_mq.c_entrance_back_right=Entrance Back Right Chest
@@ -318,6 +326,7 @@ location/castle_ganon.c_light_trail_invisible_enemies=Light Trial Invisible Enem
 location/castle_ganon.c_light_trial_lullaby=Light Trial Lullaby Chest
 location/castle_ganon.c_boss_key=Boss Key Chest
 location/castle_ganon.c_boss=Ganon Fight
+# LOCATIONS - GANON MQ
 location/castle_ganon_mq.c_forest_trial_first=Forest Trial First Chest
 location/castle_ganon_mq.c_forest_trial_second=Forest Trial Second Chest
 location/castle_ganon_mq.c_forest_trial_key=Forest Trial Freestanding Key
@@ -487,6 +496,7 @@ location/well.c_underwater_left=Underwater Left Chest
 location/well.c_basement_ches=Basement Chest
 location/well.c_locked_pits=Locked Pits
 location/well.c_behind_right_grate=Behind Right Grate
+# LOCATIONS - WELL MQ
 location/well_mq.c_compass_chest=Compass Chest
 location/well_mq.c_map_chest=Map Chest
 location/well_mq.c_lens_chest=Lens of Truth Chest
@@ -500,6 +510,7 @@ location/ice_cavern.c_compass=Compass Chest
 location/ice_cavern.c_hp=Heart Piece
 location/ice_cavern.c_boots=Iron Boots Chest
 area/ice_cavern_mq=Ice Cavern
+# LOCATIONS - ICE MQ
 location/ice_cavern_mq.c_map=Map Chest
 location/ice_cavern_mq.c_compass=Compass Chest
 location/ice_cavern_mq.c_hp=Heart Piece
@@ -1025,7 +1036,7 @@ option.skip_child_zelda=Skip Child Zelda
 option.shuffle_owls=Shuffle Owl Drops
 option.shuffle_warps=Shuffle Song Warps
 option.shuffle_spawns=Shuffle Spawn Locations
-option.sun_song_skulltuta=Force Night Skulltutas to require Sun Song
+option.sun_song_skulltuta=Force Night Skulltulas to require Sun Song
 
 option.keysanity_small_old=Unused
 option.keysanity_boss_old=Unused
@@ -1439,6 +1450,7 @@ vanilla=Vanilla
 masterquest=Master Quest
 area/pocket=Pocket
 area/pocket.short=FREE
+skulltula=Skulltula
 item=Item
 location=Location
 back=back
@@ -1453,6 +1465,7 @@ grotto=Grotto Exits
 interior=Interior Exits
 overworld_exit=Overworld Exits
 special=Special Exits
+
 ## dungeons
 exit[region.deku_tree_entrance\u0020->\u0020region.deku_tree_gateway]=Deku Tree Entrance
 entrance[region.deku_tree_gateway\u0020->\u0020region.deku_tree_entrance]=Deku Tree
