@@ -1,7 +1,6 @@
 
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import SettingsWindow from "/emcJS/ui/overlay/SettingsWindow.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/emcJS/ui/Paging.js";
 /* asym-import: on */
@@ -11,12 +10,12 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
 import Language from "/GameTrackerJS/util/Language.js";
+import SettingsWindow from "/GameTrackerJS/ui/window/settings/SettingsWindow.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
-const settings = new SettingsWindow;
 
 const LOAD_SPOILER = new Template(`
     <div id="options-spoiler-wrapper">
@@ -31,10 +30,30 @@ async function loadSpoiler(button) {
     }
 }
 
-export default class SpoilerLogSettings {
+export default class SpoilerLogWindow extends SettingsWindow {
 
     constructor() {
-        settings.addEventListener("submit", function(event) {
+        super();
+        /* --- */
+        const options = SpoilerOptionsResource.get();
+        SettingsBuilder.build(this, options);
+        
+        // add preset choice
+        const loadSpoilerRow = LOAD_SPOILER.generate();
+        const loadSpoilerWrapper = loadSpoilerRow.getElementById("options-spoiler-wrapper");
+        loadSpoilerWrapper.style.display = "flex";
+        loadSpoilerWrapper.style.flex = "1";
+        const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
+        Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
+
+
+        loadSpoilerButton.addEventListener("click", () => {
+            loadSpoiler(loadSpoilerButton);
+        });
+
+        this.shadowRoot.getElementById("footer").prepend(loadSpoilerRow);
+        /* --- */
+        this.addEventListener("submit", function(event) {
             BusyIndicator.busy();
             const options = SpoilerOptionsResource.get();
             const settingsData = {};
@@ -60,23 +79,6 @@ export default class SpoilerLogSettings {
             }
             BusyIndicator.unbusy();
         });
-        const options = SpoilerOptionsResource.get();
-        SettingsBuilder.build(settings, options);
-        
-        // add preset choice
-        const loadSpoilerRow = LOAD_SPOILER.generate();
-        const loadSpoilerWrapper = loadSpoilerRow.getElementById("options-spoiler-wrapper");
-        loadSpoilerWrapper.style.display = "flex";
-        loadSpoilerWrapper.style.flex = "1";
-        const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
-        Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
-
-
-        loadSpoilerButton.addEventListener("click", () => {
-            loadSpoiler(loadSpoilerButton);
-        });
-
-        settings.shadowRoot.getElementById("footer").prepend(loadSpoilerRow)
     }
 
     show() {
@@ -100,7 +102,9 @@ export default class SpoilerLogSettings {
                 }
             }
         }
-        settings.show(res/*, Object.keys(options)[0]*/);
+        super.show(res);
     }
 
 }
+
+customElements.define("tootr-window-spoilerlog", SpoilerLogWindow);
