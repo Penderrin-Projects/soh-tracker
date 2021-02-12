@@ -8,7 +8,12 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 // Track-OOT
 import "/script/state/world/area/AreaState.js";
 import "/script/state/world/area/DungeonState.js";
