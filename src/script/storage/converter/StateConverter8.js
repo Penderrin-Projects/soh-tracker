@@ -3,6 +3,7 @@
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+import "./StateConverter7.js";
 
 SavestateConverter.register(function(state) {
     const res = {

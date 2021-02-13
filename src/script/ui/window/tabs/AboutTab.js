@@ -4,9 +4,8 @@ import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 /* asym-import: on */
 
-// GameTrackerJS
-
-// -------------
+// Track-OOT
+import VersionData from "/script/data/VersionData.js";
 import "/script/ui/UpdateHandler.js";
 
 const TPL = new Template(`
@@ -49,8 +48,8 @@ export default class AboutTab extends HTMLElement {
         this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         /* --- */
-        this.shadowRoot.getElementById("tracker-version").innerHTML = MemoryStorage.get("version-string");
-        this.shadowRoot.getElementById("tracker-date").innerHTML = MemoryStorage.get("version-date");
+        this.shadowRoot.getElementById("tracker-version").innerHTML = VersionData.version;
+        this.shadowRoot.getElementById("tracker-date").innerHTML = VersionData.date;
         const updatehandler = this.shadowRoot.getElementById("updatehandler");
         updatehandler.addEventListener("updateavailable", () => {
             const ev = new Event("updateavailable");
