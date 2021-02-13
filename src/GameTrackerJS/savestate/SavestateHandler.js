@@ -7,6 +7,7 @@ import OptionsStorage from "../storage/OptionsStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
+import BusyIndicator from "../ui/BusyIndicator.js";
 
 const PERSISTANCE_NAME = "savestate";
 const STATE_DIRTY = "state_dirty";
@@ -151,6 +152,7 @@ class SavestateHandler extends EventTarget {
     }
 
     async load(name) {
+        await BusyIndicator.busy();
         if (await STORAGE.has(name)) {
             const state = SavestateConverter.convert(await STORAGE.get(name));
             if (autosaveTimeout != null) {
@@ -173,6 +175,7 @@ class SavestateHandler extends EventTarget {
             };
             this.dispatchEvent(ev);
         }
+        await BusyIndicator.unbusy();
     }
 
     async setAutosave(time, amount) {
@@ -198,7 +201,8 @@ class SavestateHandler extends EventTarget {
         return LocalStorage.get(STATE_DIRTY);
     }
 
-    reset(data, options, filter) {
+    async reset(data, options, filter) {
+        await BusyIndicator.busy();
         // write state data
         Savestate.deserialize({data});
         OptionsStorage.deserialize(options);
@@ -217,9 +221,11 @@ class SavestateHandler extends EventTarget {
             filter: state.filter
         };
         this.dispatchEvent(ev);
+        await BusyIndicator.unbusy();
     }
 
-    overwrite(data, options, filter) {
+    async overwrite(data, options, filter) {
+        await BusyIndicator.busy();
         const state = Savestate.serialize();
         const _options = OptionsStorage.serialize();
         const _filter = FilterStorage.serialize();
@@ -256,6 +262,7 @@ class SavestateHandler extends EventTarget {
             filter: state.filter
         };
         this.dispatchEvent(ev);
+        await BusyIndicator.unbusy();
     }
 
     /* NOTES */

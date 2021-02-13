@@ -53,8 +53,8 @@ export default class SpoilerLogWindow extends SettingsWindow {
 
         this.shadowRoot.getElementById("footer").prepend(loadSpoilerRow);
         /* --- */
-        this.addEventListener("submit", function(event) {
-            BusyIndicator.busy();
+        this.addEventListener("submit", async (event) => {
+            await BusyIndicator.busy();
             const options = SpoilerOptionsResource.get();
             const settingsData = {};
             for (const i in event.data) {
@@ -75,7 +75,7 @@ export default class SpoilerLogWindow extends SettingsWindow {
                 Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                 spoiler = {};
             }
-            BusyIndicator.unbusy();
+            await BusyIndicator.unbusy();
         });
     }
 

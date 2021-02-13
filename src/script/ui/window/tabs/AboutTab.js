@@ -1,7 +1,7 @@
 /* asym-import: off */
-import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import "/emcJS/ui/input/InputWrapper.js";
 /* asym-import: on */
 
 // Track-OOT
@@ -20,24 +20,39 @@ const TPL = new Template(`
             <span id="tracker-date">01.01.2019 00:00:00</span>
         </div>
         <div style="padding: 5px;">
-            <a href="CHANGELOG.MD" target="_BLANK">see the changelog</a>
-        </div>
-        <hr>
-        <ootrt-updatehandler id="updatehandler"></ootrt-updatehandler>
-        <hr>
-        <div style="padding: 5px;">
-            Erase all app data:
-            <button id="erase-button">erase</button>
+            <emc-input-wrapper>
+                <a href="CHANGELOG.MD" target="_BLANK">see the changelog</a>
+            </emc-input-wrapper>
         </div>
     </div>
-    <div style="width: 200px; height: 200px; background-image: url('images/logo.svg'); background-size: contain; background-position: left; background-repeat: no-repeat;"></div>
+    <div style="width: 100px; height: 100px; margin: 10px; background-image: url('images/logo.svg'); background-size: contain; background-position: left; background-repeat: no-repeat;"></div>
+</div>
+<hr>
+<div>
+    <ootrt-updatehandler id="updatehandler"></ootrt-updatehandler>
+    <hr>
+    <div style="padding: 5px;">
+        Erase all app data:
+        <br>
+        <emc-input-wrapper>
+            <button id="erase-button">erase</button>
+        </emc-input-wrapper>
+    </div>
 </div>
 <hr>
 <div>
     Please be aware, that the logic of this tracker (mostly) follows the randomizer logic.<br>
     This is due to the fact, that the logic of the randomizer is a good estimation of the logic of the game itself.<br>
-    If the tracker acts weird, please <a href="https://bitbucket.org/zidargs/track-oot/issues" target="_blank" rel="noreferrer">report the error!</a><br><br>
-    You can also report via Discord ▶ <a href="https://discord.gg/wgFVtuv" target="_blank" rel="noreferrer">Join my Discord!</a><br><br>
+    If the tracker acts weird, please 
+    <emc-input-wrapper>
+        <a href="https://bitbucket.org/zidargs/track-oot/issues" target="_blank" rel="noreferrer">report the error!</a>
+    </emc-input-wrapper>
+    <br><br>
+    You can also report via Discord ▶ 
+    <emc-input-wrapper>
+        <a href="https://discord.gg/wgFVtuv" target="_blank" rel="noreferrer">Join my Discord!</a>
+    </emc-input-wrapper>
+    <br><br>
 </div>
 `);
 

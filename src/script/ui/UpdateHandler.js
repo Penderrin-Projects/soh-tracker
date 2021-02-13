@@ -1,5 +1,6 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
+import "/emcJS/ui/input/InputWrapper.js";
 /* asym-import: on */
 
 const TPL = new Template(`
@@ -7,12 +8,19 @@ const TPL = new Template(`
         checking for new version...
     </div>
     <div id="update-available" style="padding: 5px; display: none;">
-        newer version found <button id="download-update">download</button>
+        newer version found
         <br>
-        <a href="CHANGELOG.MD?nosw" target="_BLANK">see the changelog</a>
+        <emc-input-wrapper>
+            <button id="download-update">download</button>
+            <a href="CHANGELOG.MD?nosw" target="_BLANK">see the changelog</a>
+        </emc-input-wrapper>
     </div>
     <div id="update-unavailable" style="padding: 5px; display: none;">
-        already up to date <button id="check-update">check again</button>
+        already up to date 
+        <br>
+        <emc-input-wrapper>
+            <button id="check-update">check again</button>
+        </emc-input-wrapper>
     </div>
     <div id="update-running" style="padding: 5px; display: none;">
         <progress id="update-progress" value="0" max="0"></progress>
@@ -20,11 +28,17 @@ const TPL = new Template(`
     </div>
     <div id="update-finished" style="padding: 5px; display: none;">
         you need to reload for the new version to apply...
-        <button onclick="window.location.reload()">reload now</button>
+        <br>
+        <emc-input-wrapper>
+            <button onclick="window.location.reload()">reload now</button>
+        </emc-input-wrapper>
     </div>
     <div id="update-force" style="padding: 5px; display: none;">
-        if files seem corrupt, you can try to 
-        <button id="download-forced">force download</button>
+        if files seem corrupt, you can try this
+        <br>
+        <emc-input-wrapper>
+            <button id="download-forced">force download</button>
+        </emc-input-wrapper>
     </div>
 `);
 

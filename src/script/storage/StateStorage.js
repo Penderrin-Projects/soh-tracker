@@ -15,7 +15,7 @@ class StateStorage {
 
     constructor() {
         SavestateHandler.addEventListener("state", event => {
-            const {data: {"": state, ...extra}, options, notes} = event.data;
+            const {data: {"": state = {}, ...extra}, options, notes} = event.data;
             for (const [key, value] of Object.entries(options)) {
                 state[key] = value;
             }

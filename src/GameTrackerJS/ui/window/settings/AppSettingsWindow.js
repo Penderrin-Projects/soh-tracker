@@ -24,12 +24,12 @@ export default class AppSettingsWindow extends SettingsWindow {
         const options = SettingsResource.get();
         SettingsBuilder.build(this, options);
         /* --- */
-        this.addEventListener("submit", function(event) {
-            BusyIndicator.busy();
+        this.addEventListener("submit", async (event) => {
+            await BusyIndicator.busy();
             const settings = event.data;
             SettingsStorage.setAll(settings);
             applySettingsChoices(settings);
-            BusyIndicator.unbusy();
+            await BusyIndicator.unbusy();
         });
     }
 

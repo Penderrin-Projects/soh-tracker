@@ -12,11 +12,11 @@ export default class SavestateOptionsWindow extends SettingsWindow {
         const options = OptionsResource.get();
         SettingsBuilder.build(this, options);
         /* --- */
-        this.addEventListener("submit", function(event) {
-            BusyIndicator.busy();
+        this.addEventListener("submit", async (event) => {
+            await BusyIndicator.busy();
             const settings = event.data;
             OptionsStorage.setAll(settings);
-            BusyIndicator.unbusy();
+            await BusyIndicator.unbusy();
         });
     }
 
