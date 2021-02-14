@@ -17,6 +17,9 @@ import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
 import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 

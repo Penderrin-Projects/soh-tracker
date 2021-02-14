@@ -17,6 +17,8 @@ import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 
 const TPL = new Template(`

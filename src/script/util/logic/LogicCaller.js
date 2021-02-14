@@ -31,6 +31,10 @@ const DUNGEON_KEY_AMP = {
 
 const cache = new Map();
 
+Logic.addEventListener("change", event => {
+    EventBus.trigger("logic", event.data);
+});
+
 function augmentDungeonstate(data) {
     const dungeonData = DungeonstateResource.get("area");
     const res = {};
@@ -74,10 +78,7 @@ function init() {
         cache.set(key, value);
     }
     const augmentedData = augmentDungeonstate(data);
-    const res = Logic.execute(augmentedData, "region.root");
-    if (Object.keys(res).length > 0) {
-        EventBus.trigger("logic", res);
-    }
+    Logic.execute(augmentedData, "region.root");
 }
 
 function onChange(event) {
@@ -90,10 +91,7 @@ function onChange(event) {
     }
     if (Object.keys(changes).length > 0) {
         const augmentedData = augmentDungeonstate(changes);
-        const res = Logic.execute(augmentedData, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
+        Logic.execute(augmentedData, "region.root");
     }
 }
 

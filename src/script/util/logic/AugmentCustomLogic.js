@@ -4,7 +4,6 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
@@ -67,10 +66,7 @@ async function update() {
             const customLogic = await LogicsStorage.getAll();
             augmentLogic(logic, customEdges, customLogic);
         }
-        const res = Logic.setLogic(logic, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
+        Logic.setLogic(logic, "region.root");
         LogicViewer.glitched = false;
     } else {
         const logic = LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
@@ -79,10 +75,7 @@ async function update() {
             const customLogic = await LogicsStorageGlitched.getAll();
             augmentLogic(logic, customEdges, customLogic);
         }
-        const res = Logic.setLogic(logic, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
+        Logic.setLogic(logic, "region.root");
         LogicViewer.glitched = true;
     }
 }

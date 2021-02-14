@@ -11,6 +11,9 @@ import "/GameTrackerJS/state/world/location/StateManager.js";
 import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+// Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 const TYPE = new WeakMap();
 const REWARD = new WeakMap();

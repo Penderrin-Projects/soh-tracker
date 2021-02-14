@@ -3,26 +3,45 @@ import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
 /* asym-import: on */
 
 const LOGIC_PROCESSOR = new LogicGraph(true);
+const CALL_TIMERS = new Map();
 
-class TrackerLogic {
+class TrackerLogic extends EventTarget {
 
     setLogic(logic, root) {
         if (logic) {
             LOGIC_PROCESSOR.clearGraph();
             LOGIC_PROCESSOR.load(logic);
             if (root != null) {
-                return LOGIC_PROCESSOR.traverse(root);
+                if (!CALL_TIMERS.has(root)) {
+                    CALL_TIMERS.set(root, setTimeout(() => {
+                        const data = LOGIC_PROCESSOR.traverse(root);
+                        if (Object.keys(data).length > 0) {
+                            const ev = new Event("change");
+                            ev.data = data;
+                            this.dispatchEvent(ev);
+                        }
+                        CALL_TIMERS.delete(root);
+                    }, 0));
+                }
             }
         }
-        return [];
     }
 
     clearTranslations(root) {
         LOGIC_PROCESSOR.clearTranslations();
         if (root != null) {
-            return LOGIC_PROCESSOR.traverse(root);
+            if (!CALL_TIMERS.has(root)) {
+                CALL_TIMERS.set(root, setTimeout(() => {
+                    const data = LOGIC_PROCESSOR.traverse(root);
+                    if (Object.keys(data).length > 0) {
+                        const ev = new Event("change");
+                        ev.data = data;
+                        this.dispatchEvent(ev);
+                    }
+                    CALL_TIMERS.delete(root);
+                }, 0));
+            }
         }
-        return [];
     }
 
     setTranslation(translations, root) {
@@ -32,19 +51,37 @@ class TrackerLogic {
             }
         }
         if (root != null) {
-            return LOGIC_PROCESSOR.traverse(root);
+            if (!CALL_TIMERS.has(root)) {
+                CALL_TIMERS.set(root, setTimeout(() => {
+                    const data = LOGIC_PROCESSOR.traverse(root);
+                    if (Object.keys(data).length > 0) {
+                        const ev = new Event("change");
+                        ev.data = data;
+                        this.dispatchEvent(ev);
+                    }
+                    CALL_TIMERS.delete(root);
+                }, 0));
+            }
         }
-        return [];
     }
 
     execute(data, root) {
         if (data) {
             LOGIC_PROCESSOR.setAll(data);
             if (root != null) {
-                return LOGIC_PROCESSOR.traverse(root);
+                if (!CALL_TIMERS.has(root)) {
+                    CALL_TIMERS.set(root, setTimeout(() => {
+                        const data = LOGIC_PROCESSOR.traverse(root);
+                        if (Object.keys(data).length > 0) {
+                            const ev = new Event("change");
+                            ev.data = data;
+                            this.dispatchEvent(ev);
+                        }
+                        CALL_TIMERS.delete(root);
+                    }, 0));
+                }
             }
         }
-        return [];
     }
 
     reset() {

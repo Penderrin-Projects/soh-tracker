@@ -19,6 +19,8 @@ import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";
 import "./listitems/Location.js";

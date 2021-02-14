@@ -193,20 +193,35 @@ export default class SettingsTabContent extends HTMLElement {
         input.className = "settings-input";
         input.setAttribute("type", "list");
         input.multiple = multiple;
-        input.value = storage.get(ref, def);
         input.dataset.ref = ref;
+        const valueCache = new Set();
         for (const value in values) {
             input.append(generateEmcOption(value, values[value]));
+            if (storage.get(value, def.includes(value))) {
+                valueCache.add(value);
+            }
+            // events
+            storage.addEventListener("change", event => {
+                if (event.data[value] != null) {
+                    if (event.data[value]) {
+                        valueCache.add(value);
+                    } else {
+                        valueCache.delete(value);
+                    }
+                    input.value = Array.from(valueCache);
+                }
+            });
         }
+        input.value = Array.from(valueCache);
         const el = generateField(label, input);
         // events
-        storage.addEventListener("change", event => {
-            if (event.data[ref] != null) {
-                input.value = event.data[ref];
-            }
-        });
         input.addEventListener("change", event => {
-            storage.set(ref, input.value);
+            const data = new Set(input.value);
+            const res = {};
+            for (const value in values) {
+                res[value] = data.has(value);
+            }
+            storage.setAll(res);
         });
         // add element
         const container = this.shadowRoot.getElementById("container");

@@ -1,7 +1,3 @@
-/* asym-import: off */
-import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
@@ -10,6 +6,9 @@ import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 function changeBinding(values) {
     const changes = [];
@@ -38,10 +37,7 @@ function changeBinding(values) {
         }
     }
     if (changes.length) {
-        const res = Logic.setTranslation(changes, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
+        Logic.setTranslation(changes, "region.root");
     }
 }
 

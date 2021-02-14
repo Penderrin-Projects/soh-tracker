@@ -15,6 +15,8 @@ import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 import "./mapmarker/Location.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
