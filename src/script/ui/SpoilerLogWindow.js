@@ -55,23 +55,9 @@ export default class SpoilerLogWindow extends SettingsWindow {
         /* --- */
         this.addEventListener("submit", async (event) => {
             await BusyIndicator.busy();
-            const options = SpoilerOptionsResource.get();
-            const settingsData = {};
-            for (const i in event.data) {
-                let v = event.data[i];
-                if (Array.isArray(v)) {
-                    v = new Set(v);
-                    options[i].values.forEach(el => {
-                        SavestateHandler.set("parseSpoiler", el, v.has(el));
-                        settingsData[el] = v.has(el);
-                    });
-                } else {
-                    SavestateHandler.set("parseSpoiler", i, v);
-                    settingsData[i] = v;
-                }
-            }
+            SavestateHandler.set("parseSpoiler", event.data);
             if (!!spoiler && !!spoiler.data) {
-                SpoilerParser.parse(spoiler.data, settingsData);
+                SpoilerParser.parse(spoiler.data, event.data);
                 Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                 spoiler = {};
             }

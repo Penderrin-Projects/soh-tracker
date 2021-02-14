@@ -95,6 +95,15 @@ class Savestate extends EventTarget {
         }
     }
 
+    overwrite(data) {
+        if (data != null) {
+            for (const category in data) {
+                const dataStorage = this.getData(category);
+                dataStorage.overwrite(data[category]);
+            }
+        }
+    }
+
     /* DATA */
 
     getData(category) {

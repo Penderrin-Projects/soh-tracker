@@ -226,32 +226,14 @@ class SavestateHandler extends EventTarget {
 
     async overwrite(data, options, filter) {
         await BusyIndicator.busy();
-        const state = Savestate.serialize();
-        const _options = OptionsStorage.serialize();
-        const _filter = FilterStorage.serialize();
-        // write data
-        if (typeof data == "object") {
-            for (const name in data) {
-                state.data[name] = {};
-                for (const key in data[name]) {
-                    state.data[name][key] = data[name][key];
-                }
-            }
-        }
-        if (typeof options == "object") {
-            for (const key in options) {
-                _options[key] = options[key];
-            }
-        }
-        if (typeof filter == "object") {
-            for (const key in filter) {
-                _filter[key] = filter[key];
-            }
-        }
         // write state data
-        Savestate.deserialize(state);
-        OptionsStorage.deserialize(_options);
-        FilterStorage.deserialize(_filter);
+        Savestate.overwrite({data});
+        OptionsStorage.overwrite(options);
+        FilterStorage.overwrite(filter);
+        // cache data
+        const state = Savestate.serialize();
+        state.options = OptionsStorage.serialize();
+        state.filter = FilterStorage.serialize();
         cacheData(state, true);
         // trigger event
         const ev = new Event("state");
