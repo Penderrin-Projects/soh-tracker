@@ -50,7 +50,8 @@ export default class RTCPeerHost extends RTCPeer {
         const eventTargetManager = new EventTargetManager(rtcClient);
         EVENT_TARGET_MANAGER.set(this, eventTargetManager);
 
-        eventTargetManager.set(["disconnect", "closed", "failed"], key => {
+        eventTargetManager.set(["disconnect", "closed", "failed"], event => {
+            const key = event.remoteID;
             const clients = CLIENTS.get(this);
             const spectators = SPECTATORS.get(this);
             const reverseLookup = REV_LOOKUP.get(this);
