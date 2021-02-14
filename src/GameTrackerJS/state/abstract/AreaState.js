@@ -22,25 +22,22 @@ export default class AreaState extends FilteredState {
     }
 
     setAccess(value) {
-        if (value == null) {
-            value = this.getRawAccess();
-        }
-        const old = ACCESS.get(this);
-        if (!Helper.isEqual(old, value)) {
-            ACCESS.set(this, value);
-            // external
-            const ev = new Event("access");
-            ev.data = value;
-            this.dispatchEvent(ev);
+        if (value != null) {
+            const old = ACCESS.get(this);
+            if (!Helper.isEqual(old, value)) {
+                ACCESS.set(this, value);
+                // external
+                const ev = new Event("access");
+                ev.data = value;
+                this.dispatchEvent(ev);
+            }
         }
     }
     
     generateList() {
         const listHandler = new MarkerListHandler(this.areaData.list);
         listHandler.addEventListener("access", event => {
-            const ev = new Event("access");
-            ev.data = event.data;
-            this.dispatchEvent(ev);
+            this.setAccess(event.data);
         });
         return listHandler;
     }

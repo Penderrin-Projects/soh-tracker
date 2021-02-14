@@ -1,6 +1,7 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
 /* asym-import: on */
@@ -143,6 +144,8 @@ const TPL = new Template(`
     </div>
 `);
 
+const AREA_EVENT_MANAGER = new WeakMap();
+
 class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
@@ -164,9 +167,16 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         Language.applyLabel(backEl, "(to overworld)");
         Language.applyLabel(vanillaEl, "vanilla");
         Language.applyLabel(masterquestEl, "masterquest");
+        /* --- */
+        const areaEventManager = new EventTargetManager();
+        AREA_EVENT_MANAGER.set(this, areaEventManager);
+        areaEventManager.set("access", event => {
+            this.updateHeader();
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
+            areaEventManager
             if (event.data.focus) {
                 // TODO
             }
@@ -250,13 +260,15 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     refresh() {
         // TODO do not use specialized code. make generic
+        const areaEventManager = AREA_EVENT_MANAGER.get(this);
         const cnt = this.shadowRoot.getElementById("list");
         const btn_vanilla = this.shadowRoot.getElementById("vanilla");
         const btn_masterquest = this.shadowRoot.getElementById("masterquest");
         cnt.innerHTML = "";
-        const data = WorldStateManagers.getByRef(this.ref || "overworld");
-        if (data != null) {
-            const list = data.getList();
+        const areaState = WorldStateManagers.getByRef(this.ref || "overworld");
+        if (areaState != null) {
+            areaEventManager.switchTarget(areaState);
+            const list = areaState.getList();
             if (list != null) {
                 if (btn_vanilla != null) {
                     btn_vanilla.classList.add("hidden");
