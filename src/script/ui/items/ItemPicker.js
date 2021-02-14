@@ -45,10 +45,11 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-function createItem(value) {
+function createItem(value, onSelect) {
     const el = document.createElement("ootrt-selectableitem");
     el.className = "item";
     el.setAttribute("ref", value);
+    el.addEventListener("select", onSelect);
     return Language.applyTooltip(el, value);
 }
 
@@ -114,8 +115,7 @@ class HTMLTrackerItemPicker extends Panel {
                         cnt.classList.add("item-row");
                         for (const element of row) {
                             if (element.type == "item") {
-                                const item = createItem(element.value);
-                                item.addEventListener("select", event => {
+                                const item = createItem(element.value, event => {
                                     this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
                                     event.preventDefault();
                                     return false;
