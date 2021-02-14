@@ -230,7 +230,7 @@ export default class SaveWindow extends HTMLElement {
                 await Dialog.alert("State name is empty", "Please enter a name to save the state or select an existing state to overwrite it!");
                 return;
             }
-            if (await SavestateHandler.exists(stateName)) {
+            if (await SavestateManager.exists(stateName)) {
                 if (!await Dialog.confirm("State already exists", "Do you want to overwrite the selected state?")) {
                     return;
                 }
