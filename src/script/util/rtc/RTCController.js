@@ -114,28 +114,24 @@ class RTCController extends EventTarget {
 
     join(name, pass, version) {
         return new Promise(function(resolve) {
-            rtcClientEventManager.set("failed", async () => {
+            rtcClientEventManager.set(["closed", "failed"], async () => {
                 await Dialog.alert("Connection failed", "Something went wrong connecting to the host.\nPlease try again later!");
-                rtcClientEventManager.delete("failed");
+                rtcClientEventManager.clear();
                 resolve(false);
             });
-
             rtcClient.connect(name, pass, version).then(async res => {
                 if (res.success === true) {
                     rtcClient.setMessageHandler("data", async function(key, msg) {
                         if (msg.type == "name") {
                             if (msg.data.success) {
-                                rtcClientEventManager.delete("failed");
-                                rtcClientEventManager.set("closed", async (key) => {
-                                    await Dialog.alert("Disconnected from host", "The connection to the host closed unexpectedly.");
-                                });
+                                rtcClientEventManager.clear();
                                 rtcPeer = new RTCPeerClient(rtcClient, msg.data.name);
                                 rtcPeerEventManager.switchTarget(rtcPeer);
                                 resolve(true);
                             } else {
                                 await Dialog.alert("Username taken", `The username "${msg.data.name}" is already taken.\nPlease choose another one!`);
                                 if (!await promptPeerName(msg.data.name)) {
-                                    rtcClientEventManager.delete("failed");
+                                    rtcClientEventManager.clear();
                                     resolve(false);
                                 }
                             }
@@ -143,13 +139,13 @@ class RTCController extends EventTarget {
                     });
                     rtcClientEventManager.set("connected", async (key) => {
                         if (!await promptPeerName("")) {
-                            rtcClientEventManager.delete("failed");
+                            rtcClientEventManager.clear();
                             resolve(false);
                         }
                     });
                 } else {
                     await Dialog.alert("Connection refused", res.error);
-                    rtcClientEventManager.delete("failed");
+                    rtcClientEventManager.clear();
                     resolve(false);
                 }
             });

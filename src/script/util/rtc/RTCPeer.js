@@ -6,7 +6,7 @@ import EventBusModuleGeneric from "/emcJS/event/module/EventBusModuleGeneric.js"
 const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();
 const USERNAME = new WeakMap();
-const SILENT = new WeakMap();
+const MUTED = new WeakMap();
 
 export default class RTCPeer extends EventTarget {
 
@@ -14,7 +14,7 @@ export default class RTCPeer extends EventTarget {
         super();
         RTC.set(this, rtcClient);
         USERNAME.set(this, username);
-        SILENT.set(this, false);
+        MUTED.set(this, 0);
 
         /* RTC */
         rtcClient.setMessageHandler("data", (key, msg) => {
@@ -33,7 +33,7 @@ export default class RTCPeer extends EventTarget {
             ]
         });
         eventModule.register(event => {
-            if (!this.silent) {
+            if (!this.isMuted()) {
                 rtcClient.send("data", {
                     type: "event",
                     data: event
@@ -47,12 +47,26 @@ export default class RTCPeer extends EventTarget {
         return USERNAME.get(this);
     }
 
-    set silent(value) {
-        SILENT.set(this, !!value);
+    mute() {
+        const muted = MUTED.get(this);
+        if (muted > 0) {
+            MUTED.set(this, muted + 1);
+        } else {
+            MUTED.set(this, 1);
+        }
     }
 
-    get silent() {
-        return SILENT.get(this);
+    unmute() {
+        const muted = MUTED.get(this);
+        if (muted > 1) {
+            MUTED.set(this, muted - 1);
+        } else {
+            MUTED.set(this, 0);
+        }
+    }
+
+    isMuted() {
+        return !!MUTED.get(this);
     }
 
     async disconnect() {
@@ -64,13 +78,13 @@ export default class RTCPeer extends EventTarget {
         EventBus.removeModule(eventModule);
     }
 
-    rtcMessageHandler(key, msg) {
+    async rtcMessageHandler(key, msg) {
         if (msg.type == "event") {
             const eventModule = EVENT_MODULE.get(this);
             if (EventBus.checkLists(eventModule, msg.data.name)) {
-                this.silent = true;
+                this.mute();
                 eventModule.trigger(msg.data.name, msg.data.data);
-                this.silent = false;
+                this.unmute();
                 return true;
             }
             return false;

@@ -1,6 +1,7 @@
 /* asym-import: off */
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 /* asym-import: on */
 
 // GameTrackerJS
@@ -8,9 +9,29 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
+const EVENT_TARGET_MANAGER = new WeakMap();
+
 export default class RTCPeerClient extends RTCPeer {
 
-    rtcMessageHandler(key, msg) {
+    constructor(rtcClient, username, version) {
+        super(rtcClient, username, version);
+        
+        /* RTC */
+        const eventTargetManager = new EventTargetManager(rtcClient);
+        EVENT_TARGET_MANAGER.set(this, eventTargetManager);
+        eventTargetManager.set(["closed", "failed"], async (key) => {
+            await Dialog.alert("Disconnected from host", "The connection to the host closed unexpectedly.");
+        });
+    }
+
+    async disconnect() {
+        await super.disconnect();
+        /* EVENTS */
+        const eventTargetManager = EVENT_TARGET_MANAGER.get(this);
+        eventTargetManager.clear();
+    }
+
+    async rtcMessageHandler(key, msg) {
         if (msg.type == "join") {
             Toast.show(`Multiplayer: "${msg.data}" joined`);
         } else if (msg.type == "leave") {
@@ -23,11 +44,11 @@ export default class RTCPeerClient extends RTCPeer {
             ev.data = msg.data;
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
-            this.silent = true;
-            SavestateHandler.reset(msg.data.data, msg.data.options);
-            this.silent = false;
+            this.mute();
+            await SavestateHandler.reset(msg.data.data, msg.data.options);
+            this.unmute();
         } else {
-            super.rtcMessageHandler(key, msg);
+            await super.rtcMessageHandler(key, msg);
         }
     }
 

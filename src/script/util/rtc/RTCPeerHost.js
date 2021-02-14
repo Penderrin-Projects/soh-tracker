@@ -50,7 +50,7 @@ export default class RTCPeerHost extends RTCPeer {
         const eventTargetManager = new EventTargetManager(rtcClient);
         EVENT_TARGET_MANAGER.set(this, eventTargetManager);
 
-        eventTargetManager.set("disconnect", key => {
+        eventTargetManager.set(["disconnect", "closed", "failed"], key => {
             const clients = CLIENTS.get(this);
             const spectators = SPECTATORS.get(this);
             const reverseLookup = REV_LOOKUP.get(this);
@@ -104,7 +104,6 @@ export default class RTCPeerHost extends RTCPeer {
     }
 
     async disconnect() {
-        //await this.close();
         await super.disconnect();
         /* clean up */
         const clients = CLIENTS.get(this);
@@ -144,7 +143,7 @@ export default class RTCPeerHost extends RTCPeer {
         }
     }
 
-    rtcMessageHandler(key, msg) {
+    async rtcMessageHandler(key, msg) {
         const rtcClient = RTC.get(this);
         if (msg.type == "name") {
             const reverseLookup = REV_LOOKUP.get(this);
@@ -189,7 +188,7 @@ export default class RTCPeerHost extends RTCPeer {
             }
         } else if (msg.type == "event") {
             const clients = CLIENTS.get(this);
-            if (clients.has(key) && super.rtcMessageHandler(key, msg)) {
+            if (clients.has(key) && await super.rtcMessageHandler(key, msg)) {
                 rtcClient.sendButOne("data", key, msg);
             }
         }
