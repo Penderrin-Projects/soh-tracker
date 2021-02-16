@@ -40,17 +40,33 @@ function augmentDungeonstate(data) {
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment keys
-        if (dData.keys && data[dData.keys] != null) {
-            if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
-                res[dData.keys] = 9999;
-            } else if (DUNGEON_KEY_AMP[ref] != null && !cache.get("option.keysanity_small")) {
-                res[dData.keys] = data[dData.keys] + DUNGEON_KEY_AMP[ref];
+        if (dData.keys) {
+            if (data["option.track_keys"] != null) {
+                if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
+                    res[dData.keys] = 9999;
+                } else if (DUNGEON_KEY_AMP[ref] != null && !cache.get("option.keysanity_small")) {
+                    res[dData.keys] = (cache.get(dData.keys) ?? 0) + DUNGEON_KEY_AMP[ref];
+                } else {
+                    res[dData.keys] = cache.get(dData.keys) ?? 0;
+                }
+            } else if (data[dData.keys] != null && cache.get("option.track_keys")) {
+                if (DUNGEON_KEY_AMP[ref] != null && !cache.get("option.keysanity_small")) {
+                    res[dData.keys] = (cache.get(dData.keys) ?? 0) + DUNGEON_KEY_AMP[ref];
+                } else {
+                    res[dData.keys] = cache.get(dData.keys) ?? 0;
+                }
             }
         }
         // augment bosskeys
-        if (dData.bosskey && data[dData.bosskey] != null) {
-            if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cache.get("option.track_bosskeys")) {
-                res[dData.bosskey] = 9999;
+        if (dData.bosskey) {
+            if (data["option.track_bosskeys"] != null) {
+                if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cache.get("option.track_bosskeys")) {
+                    res[dData.bosskey] = 9999;
+                } else {
+                    res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
+                }
+            } else if (data[dData.bosskey] != null && cache.get("option.track_bosskeys")) {
+                res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
             }
         }
         // augment dungeontypes
