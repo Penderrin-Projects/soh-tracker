@@ -99,6 +99,8 @@ class SavestateHandler extends EventTarget {
         /* --- */
         Savestate.addEventListener("change", event => {
             const state = Savestate.serialize();
+            state.options = OptionsStorage.serialize();
+            state.filter = FilterStorage.serialize();
             cacheData(state, true);
             if (!event.category) {
                 const ev = new Event("change");
@@ -114,6 +116,8 @@ class SavestateHandler extends EventTarget {
         });
         Savestate.addEventListener("notes", event => {
             const state = Savestate.serialize();
+            state.options = OptionsStorage.serialize();
+            state.filter = FilterStorage.serialize();
             cacheData(state, true);
             const ev = new Event("notes");
             ev.data = event.data;
