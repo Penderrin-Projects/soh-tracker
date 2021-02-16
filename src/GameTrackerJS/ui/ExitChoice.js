@@ -171,6 +171,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             badge.typeIcon = "images/icons/entrance.svg";
             badge.setFilterData({});
         }
+        this.style.display = "none";
     }
 
     applyStateValues(state) {
@@ -181,6 +182,11 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
                 badge.setFilterData(state.filter);
+            }
+            if (state.isVisible()) {
+                this.style.display = "";
+            } else {
+                this.style.display = "none";
             }
         }
     }
