@@ -14,7 +14,6 @@ import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/world/LocationList.js";
 import "/script/ui/world/Map.js";
 
-
 try {
     // load layout
     const conf = decodeURI(window.location.hash.slice(1));

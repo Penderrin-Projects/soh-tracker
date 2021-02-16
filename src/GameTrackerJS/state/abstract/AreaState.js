@@ -39,6 +39,13 @@ export default class AreaState extends FilteredState {
         listHandler.addEventListener("access", event => {
             this.setAccess(event.data);
         });
+        listHandler.addEventListener("change", event => {
+            if (event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        });
         return listHandler;
     }
 

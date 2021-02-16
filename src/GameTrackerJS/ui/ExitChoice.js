@@ -2,9 +2,7 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 /* asym-import: on */
-import WorldStateManagers from "../state/world/StateManagers.js";
-import "../state/world/exit/StateManager.js";
-import "../state/world/subexit/StateManager.js";
+import WorldStateManager from "../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
 import Badge from "./Badge.js";
@@ -212,7 +210,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManagers.getByRef(this.ref);
+                        const state = WorldStateManager.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, `exit[${state.props.access}]`);

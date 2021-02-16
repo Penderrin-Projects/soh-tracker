@@ -15,12 +15,11 @@ import "/GameTrackerJS/state/world/location/StateManager.js";
 import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
@@ -175,6 +174,9 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         areaEventManager.set("access", event => {
             this.updateHeader();
         });
+        areaEventManager.set("list_update", event => {
+            this.refresh();
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -267,7 +269,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         const btn_vanilla = this.shadowRoot.getElementById("vanilla");
         const btn_masterquest = this.shadowRoot.getElementById("masterquest");
         cnt.innerHTML = "";
-        const areaState = WorldStateManagers.getByRef(this.ref || "overworld");
+        const areaState = WorldStateManager.getByRef(this.ref || "overworld");
         if (areaState != null) {
             areaEventManager.switchTarget(areaState);
             const list = areaState.getList();
@@ -281,7 +283,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     btn_vanilla.ref = "";
                 }
                 for (const record of list) {
-                    const loc = WorldStateManagers.get(record.category, record.id);
+                    const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     cnt.append(el);
@@ -306,7 +308,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             if ((!this.ref || this.ref === "overworld")) {
                 titleEl.className = "";
             } else {
-                const data = WorldStateManagers.getByRef(this.ref);
+                const data = WorldStateManager.getByRef(this.ref);
                 if (data != null) {
                     /* access */
                     const access = data.access;

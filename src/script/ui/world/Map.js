@@ -1,11 +1,12 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/OverworldState.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
@@ -15,8 +16,7 @@ import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
@@ -340,6 +340,8 @@ function overviewSelect(event, map) {
     return false;
 }
 
+const AREA_EVENT_MANAGER = new WeakMap();
+
 class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
@@ -412,6 +414,12 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             event.preventDefault();
             return false;
         });
+        /* --- */
+        const areaEventManager = new EventTargetManager();
+        AREA_EVENT_MANAGER.set(this, areaEventManager);
+        areaEventManager.set("list_update", event => {
+            this.refresh();
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -465,10 +473,12 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         // TODO do not use specialized code. make generic
         //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
         //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
+        const areaEventManager = AREA_EVENT_MANAGER.get(this);
         this.innerHTML = "";
-        const data = WorldStateManagers.getByRef(this.ref || "overworld");
-        if (data != null) {
-            const areaData = data.areaData;
+        const areaState = WorldStateManager.getByRef(this.ref || "overworld");
+        if (areaState != null) {
+            areaEventManager.switchTarget(areaState);
+            const areaData = areaState.areaData;
             // switch map/minimap background
             const map = this.shadowRoot.getElementById("map");
             map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
@@ -477,12 +487,12 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             const minimap = this.shadowRoot.getElementById("map-overview");
             minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            const list = data.getList();
+            const list = areaState.getList();
             if (list != null) {
                 //btn_vanilla.className = "hidden";
                 //btn_masterquest.className = "hidden";
                 for (const record of list) {
-                    const loc = WorldStateManagers.get(record.category, record.id);
+                    const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`map-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;

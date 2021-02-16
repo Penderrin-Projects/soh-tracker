@@ -7,7 +7,7 @@ import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 
 // GameTrackerJS
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -18,8 +18,7 @@ import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
 import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 
 const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 
@@ -203,7 +202,7 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
             const list = state.getFilteredList();
             if (list != null) {
                 for (const record of list) {
-                    const loc = WorldStateManagers.get(record.category, record.id);
+                    const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
                 }

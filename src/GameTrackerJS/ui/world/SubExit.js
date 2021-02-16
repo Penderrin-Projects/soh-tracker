@@ -1,8 +1,7 @@
 /* asym-import: off */
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import WorldStateManagers from "../../state/world/StateManagers.js";
-import "../../state/world/subexit/StateManager.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
@@ -182,7 +181,7 @@ export default class MapSubExit extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManagers.getByRef(this.ref);
+                        const state = WorldStateManager.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, `exit[${state.props.access}]`);

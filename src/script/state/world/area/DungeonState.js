@@ -95,6 +95,13 @@ export default class DungeonState extends DefaultState {
                 this.setAccess(acc);
             }
         });
+        listHandler.addEventListener("change", event => {
+            if (this.type == "v" && event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        });
         return listHandler;
     }
     
@@ -108,6 +115,13 @@ export default class DungeonState extends DefaultState {
                 const acc_v = ACCESS.get(this);
                 const acc = getAccessNeutral(acc_v, event.data);
                 this.setAccess(acc);
+            }
+        });
+        listHandler.addEventListener("change", event => {
+            if (this.type == "mq" && event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
             }
         });
         return listHandler;

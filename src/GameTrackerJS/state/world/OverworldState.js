@@ -46,17 +46,24 @@ class OverworldState extends EventTarget {
         listHandler.addEventListener("access", event => {
             this.setAccess(event.data);
         });
+        listHandler.addEventListener("change", event => {
+            if (event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        });
         return listHandler;
     }
 
     getList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.list);
+        return listHandler.list;
     }
 
     getFilteredList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.filtered);
+        return listHandler.filtered;
     }
 
     get areaData() {

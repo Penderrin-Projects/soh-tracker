@@ -1,14 +1,14 @@
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
 import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 
 function changeBinding(values) {
     const changes = [];
@@ -111,6 +111,6 @@ class ExitAugmentor {
 
 const exits = WorldResource.get("marker/exit");
 for (const name in exits) {
-    const exit = WorldStateManagers.get("exit", name);
+    const exit = WorldStateManager.get("exit", name);
     new ExitAugmentor(exit);
 }

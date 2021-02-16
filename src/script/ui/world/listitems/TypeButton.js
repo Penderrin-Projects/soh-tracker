@@ -6,7 +6,7 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -17,8 +17,7 @@ import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 
 const TPL = new Template(`
@@ -186,7 +185,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManagers.getByRef(this.ref);
+                        const state = WorldStateManager.getByRef(this.ref);
                         this.switchState(state);
                         const type_state = DungeonstateStates.get(this.ref);
                         if (type_state != null) {

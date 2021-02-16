@@ -9,8 +9,7 @@ import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 
 const TPL = new Template(`
 <div class="textarea">

@@ -215,7 +215,7 @@ function copyDetachedScript(dest = DEV_PATH) {
     ];
     return gulp.src(FILES)
         .pipe(filemanager.register(SRC_PATH, dest))
-        .pipe(newer(dest))
+        .pipe(newer(`${dest}/detached`))
         .pipe(gulpAsyM({
             path: "/asym",
             alike: /Import\.module/

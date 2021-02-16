@@ -4,16 +4,10 @@ import EventBus from "/emcJS/event/EventBus.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
-import "/GameTrackerJS/state/world/area/StateManager.js";
-import "/GameTrackerJS/state/world/exit/StateManager.js";
-import "/GameTrackerJS/state/world/location/StateManager.js";
-import "/GameTrackerJS/state/world/subarea/StateManager.js";
-import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
-import "/script/state/world/area/DungeonState.js";
+import "/script/state/world/CustomWorldStates.js";
 
 const TYPE = new WeakMap();
 const REWARD = new WeakMap();
@@ -41,7 +35,7 @@ export default class DefaultState extends DataState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const state = WorldStateManagers.getByRef(ref);
+        const state = WorldStateManager.getByRef(ref);
         if (state != null) {
             if (state.areaData.lists == null) {
                 this.type = "v";
@@ -64,7 +58,7 @@ export default class DefaultState extends DataState {
         const ref = this.ref;
         if (ref) {
             // type
-            const state = WorldStateManagers.getByRef(ref);
+            const state = WorldStateManager.getByRef(ref);
             if (state != null) {
                 if (state.areaData.lists == null) {
                     this.type = "v";

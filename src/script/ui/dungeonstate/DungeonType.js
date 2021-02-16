@@ -6,7 +6,7 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import WorldStateManagers from "/GameTrackerJS/state/world/StateManagers.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
@@ -133,7 +133,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
                         // state
                         const state = DungeonstateStates.get(this.ref);
                         if (state != null) {
-                            const data = WorldStateManagers.getByRef(newValue);
+                            const data = WorldStateManager.getByRef(newValue);
                             if (data != null) {
                                 if (data.areaData.lists != null) {
                                     this.readonly = false;

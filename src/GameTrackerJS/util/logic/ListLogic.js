@@ -2,7 +2,7 @@
 import Logger from "/emcJS/util/Logger.js";
 /* asym-import: on */
 import SavestateHandler from "../../savestate/SavestateHandler.js";
-import WorldStateManagers from "../../state/world/StateManagers.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/area/StateManager.js";
 import "../../state/world/exit/StateManager.js";
 import "../../state/world/location/StateManager.js";
@@ -35,7 +35,7 @@ class ListLogic {
                 const category = entry.category;
                 const id = entry.id;
                 if (category == "location") {
-                    const state = WorldStateManagers.get("location", id);
+                    const state = WorldStateManager.get("location", id);
                     if (state != null && state.visible) {
                         const ref = `${category}/${id}`;
                         if (!SavestateHandler.get("", ref, 0)) {
@@ -48,7 +48,7 @@ class ListLogic {
                         }
                     }
                 } else if (category == "subarea") {
-                    const state = WorldStateManagers.get("subarea", id);
+                    const state = WorldStateManager.get("subarea", id);
                     if (state != null && state.visible) {
                         const subareaList = state.getFilteredList();
                         if (subareaList != null) {
@@ -59,10 +59,10 @@ class ListLogic {
                         }
                     }
                 } else if (category == "subexit") {
-                    const state = WorldStateManagers.get("subexit", id);
+                    const state = WorldStateManager.get("subexit", id);
                     if (state != null && state.visible) {
                         if (state.area) {
-                            const subareaState = WorldStateManagers.getByRef(state.area);
+                            const subareaState = WorldStateManager.getByRef(state.area);
                             if (subareaState != null) {
                                 const subareaList = subareaState.getFilteredList();
                                 if (subareaList != null) {

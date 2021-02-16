@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 /* asym-import: on */
 import WorldResource from "../../resource/WorldResource.js";
-import WorldStateManagers from "../../state/world/StateManagers.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
 
@@ -78,7 +78,7 @@ export default class ExitBindingMenu extends HTMLElement {
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
-                const boundExit = WorldStateManagers.getEntrance(key);
+                const boundExit = WorldStateManager.getEntrance(key);
                 if (boundExit == null || !boundExit.ignoreBound) {
                     bound.add(exits[key]);
                 }
@@ -93,13 +93,13 @@ export default class ExitBindingMenu extends HTMLElement {
         empty.append(emptyText);
         selectEl.append(empty);
         // set choices and value
-        const exit = WorldStateManagers.getEntrance(access);
+        const exit = WorldStateManager.getEntrance(access);
         if (exit != null) {
             selectEl.value = current;
             // add options
             const entrances = WorldResource.get("exit");
             for (const name in entrances) {
-                const value = WorldStateManagers.getEntrance(name);
+                const value = WorldStateManager.getEntrance(name);
                 if (access != value.props.target) {
                     const isActive = value.active || exit.props.includeInactiveEntrances;
                     const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;

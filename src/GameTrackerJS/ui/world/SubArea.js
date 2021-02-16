@@ -1,7 +1,7 @@
 /* asym-import: off */
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
-import WorldStateManagers from "../../state/world/StateManagers.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubAreaContextMenu.js";
 import Language from "../../util/Language.js";
@@ -110,7 +110,7 @@ export default class AbstractSubArea extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManagers.getByRef(this.ref);
+                        const state = WorldStateManager.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, newValue);
