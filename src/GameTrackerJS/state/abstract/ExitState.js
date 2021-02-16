@@ -50,14 +50,14 @@ function internalChange(event) {
         } else if (change.value == access) {
             // if this entrance got bound
             const otherExit = WorldStateManagers.getEntrance(change.ref);
-            if (otherExit != null && otherExit.isBiDir) {
+            if (otherExit != null && otherExit.props.isBiDir) {
                 this./*#*/__setValue(change.ref);
             }
         } else if (change.value != "" && change.value == this.value) {
             // if another exit got bound to this ones entrance
             if (!this.exitData.ignoreBound) {
                 const otherExit = WorldStateManagers.getEntrance(change.ref);
-                if (otherExit != null && !otherExit.ignoreBound) {
+                if (otherExit != null && !otherExit.props.ignoreBound) {
                     this./*#*/__setValue("");
                 }
             }
@@ -66,7 +66,7 @@ function internalChange(event) {
             // if the exit does no longer bind to this
             if (!this.exitData.ignoreBound) {
                 const otherExit = WorldStateManagers.getEntrance(change.ref);
-                if (otherExit == null || !otherExit.ignoreBound) {
+                if (otherExit == null || !otherExit.props.ignoreBound) {
                     this./*#*/__setValue("");
                 }
             }

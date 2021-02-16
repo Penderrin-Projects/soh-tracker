@@ -79,7 +79,7 @@ export default class ExitBindingMenu extends HTMLElement {
         for (const key in exits) {
             if (exits[key] != current) {
                 const boundExit = WorldStateManager.getEntrance(key);
-                if (boundExit == null || !boundExit.ignoreBound) {
+                if (boundExit == null || !boundExit.props.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
