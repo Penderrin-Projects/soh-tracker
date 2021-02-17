@@ -62,7 +62,7 @@ class ListLogic {
                     const state = WorldStateManager.get("subexit", id);
                     if (state != null && state.visible) {
                         if (state.area) {
-                            const subareaState = WorldStateManager.getByRef(state.area);
+                            const subareaState = WorldStateManager.getByRef(state.area.ref);
                             if (subareaState != null) {
                                 const subareaList = subareaState.getFilteredList();
                                 if (subareaList != null) {

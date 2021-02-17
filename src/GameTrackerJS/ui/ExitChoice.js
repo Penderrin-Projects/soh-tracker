@@ -181,7 +181,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             const badge = this.shadowRoot.getElementById("badge");
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
-                badge.setFilterData(state.filter);
+                badge.setFilterData(state.props.filter);
             }
             if (state.isVisible()) {
                 this.style.display = "";

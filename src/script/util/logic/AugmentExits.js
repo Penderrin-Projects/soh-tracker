@@ -114,3 +114,8 @@ for (const name in exits) {
     const exit = WorldStateManager.get("exit", name);
     new ExitAugmentor(exit);
 }
+const subexits = WorldResource.get("marker/subexit");
+for (const name in subexits) {
+    const subexit = WorldStateManager.get("subexit", name);
+    new ExitAugmentor(subexit);
+}

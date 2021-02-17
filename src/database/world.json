@@ -9403,12 +9403,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9429,12 +9429,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9456,12 +9456,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9483,12 +9483,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9510,12 +9510,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9537,12 +9537,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9564,12 +9564,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9591,12 +9591,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9617,12 +9617,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9643,12 +9643,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9669,12 +9669,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9695,12 +9695,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9721,12 +9721,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9747,12 +9747,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9773,12 +9773,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9799,12 +9799,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9825,12 +9825,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9851,12 +9851,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9877,12 +9877,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9903,12 +9903,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9929,12 +9929,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9955,12 +9955,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -9981,12 +9981,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10007,12 +10007,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10033,12 +10033,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10060,12 +10060,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10087,12 +10087,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10113,12 +10113,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10139,12 +10139,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10165,12 +10165,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10191,12 +10191,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10217,12 +10217,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10243,12 +10243,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10269,12 +10269,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10295,12 +10295,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10321,12 +10321,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10347,12 +10347,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10373,12 +10373,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10399,12 +10399,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10426,12 +10426,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10452,12 +10452,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10478,12 +10478,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10504,12 +10504,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10531,12 +10531,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10557,12 +10557,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10583,12 +10583,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10610,12 +10610,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10637,12 +10637,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10664,12 +10664,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10691,12 +10691,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10717,12 +10717,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10743,12 +10743,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10769,12 +10769,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10797,12 +10797,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10824,12 +10824,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10851,12 +10851,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10879,12 +10879,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10907,12 +10907,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10934,12 +10934,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10961,12 +10961,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -10988,12 +10988,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11015,12 +11015,12 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11042,12 +11042,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11063,12 +11063,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11084,12 +11084,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11105,12 +11105,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11126,12 +11126,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11147,12 +11147,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11168,12 +11168,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11189,12 +11189,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11210,12 +11210,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11231,12 +11231,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11252,12 +11252,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11273,12 +11273,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11294,12 +11294,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11315,12 +11315,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11336,12 +11336,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11357,12 +11357,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11378,12 +11378,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11399,12 +11399,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11420,12 +11420,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11441,12 +11441,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11462,12 +11462,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11483,12 +11483,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11504,12 +11504,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11525,12 +11525,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11546,12 +11546,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11567,12 +11567,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11588,12 +11588,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11609,12 +11609,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11630,12 +11630,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -11651,12 +11651,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": false,
-                        "adult": false
+                        "child": true,
+                        "adult": true
                     },
                     "filter.time": {
-                        "day": false,
-                        "night": false
+                        "day": true,
+                        "night": true
                     },
                     "filter.show_done": {
                         "false": "!done"

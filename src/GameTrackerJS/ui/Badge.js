@@ -50,6 +50,22 @@ const ACCESS_VALUES = [
     "possible"
 ];
 
+function getFilterImage(name, filter, data) {
+    if (filter.badge) {
+        if (Array.isArray(filter.badge)) {
+            const current = data[name];
+            for (const entry of filter.badge) {
+                if (entry.values == null || Object.entries(entry.values).every(([key, value]) => current[key] == value)) {
+                    return entry.image ?? "";
+                }
+            }
+            return filter.images[filter.values.indexOf(filter.default)];
+        } else {
+            return filter.images[getLoneFilterIndex(name, filter, data)];
+        }
+    }
+}
+
 function getLoneFilterIndex(name, filter, data) {
     const def = filter.values.indexOf(filter.default);
     let current = def;
@@ -95,9 +111,6 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
                 }
             }
         });
-    }
-
-    onColorBlindModeChanged(value) {
     }
 
     get typeIcon() {
@@ -154,8 +167,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
                 const value = filter[name];
                 if (value.badge) {
                     const el = this.shadowRoot.getElementById(`badge-${name}`);
-                    const act = getLoneFilterIndex(name, value, data);
-                    el.src = value.images[act];
+                    el.src = getFilterImage(name, value, data);
                 }
             }
         }

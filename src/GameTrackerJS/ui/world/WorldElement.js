@@ -52,7 +52,7 @@ export default class WorldElement extends BaseClass {
             const badge = this.shadowRoot.getElementById("badge");
             if (badge instanceof Badge) {
                 badge.typeIcon = state.props.icon ?? defaultIcon;
-                badge.setFilterData(state.filter);
+                badge.setFilterData(state.props.filter);
             }
             if (state.isVisible()) {
                 this.style.display = "";
