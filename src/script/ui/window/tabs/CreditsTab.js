@@ -78,6 +78,13 @@ function sortNames(a, b) {
     return 1;
 }
 
+function sortTiers([, a], [, b]) {
+    if (a.value > b.value) {
+        return -1;
+    }
+    return 1;
+}
+
 function createDevEntry(name, type) {
     const el = document.createElement("li");
     el.classList.add("name");
@@ -127,8 +134,8 @@ async function fillCredits(teamList, contributorList, supporterList) {
     } catch(err) {
         console.error(err);
     }
-    for (const name in supporters) {
-        const el = createSupporterPanel(name, supporters[name]);
+    for (const [key, value] of Object.entries(supporters).sort(sortTiers)) {
+        const el = createSupporterPanel(key, value);
         if (el != null) {
             supporterList.append(el);
         }
