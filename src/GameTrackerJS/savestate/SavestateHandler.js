@@ -45,7 +45,7 @@ async function removeOverflowAutosaves() {
         }
     }
     autoKeys.sort(sortStates);
-    while (autoKeys.length >= autosaveMax) {
+    while (autoKeys.length > 0 && autoKeys.length >= autosaveMax) {
         const key = autoKeys.pop();
         if (saves[key].autosave) {
             await STORAGE.delete(key);

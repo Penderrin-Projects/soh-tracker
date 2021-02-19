@@ -16,7 +16,10 @@ class SavestateConverter {
     }
 
     convert(state) {
-        const version = state.version || 0;
+        if (state.version == 0 && state.data != null) {
+            state.version = 17;
+        }
+        const version = state.version ?? 0;
         if (version < OFFSET) {
             // TODO show error to user and link to converter page
         }

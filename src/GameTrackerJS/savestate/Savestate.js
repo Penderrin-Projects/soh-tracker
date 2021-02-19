@@ -1,8 +1,9 @@
 import DataStorage from "../storage/DataStorage.js";
+import SavestateConverter from "./SavestateConverter.js";
 
 const DATA = new Map();
 let name = "";
-let version = 0;
+let version = SavestateConverter.version;
 let timestamp = new Date();
 let autosave = false;
 let notes = "";
@@ -58,7 +59,7 @@ class Savestate extends EventTarget {
     purge() {
         DATA.clear();
         name = "";
-        version = 0;
+        version = SavestateConverter.version;
         timestamp = new Date();
         autosave = false;
         notes = "";
@@ -83,7 +84,7 @@ class Savestate extends EventTarget {
         DATA.clear();
         name = value.name?.toString() ?? "";
         notes = value.notes?.toString() ?? "";
-        version = value.version ?? 0;
+        version = value.version ?? SavestateConverter.version;
         timestamp = value.timestamp ?? new Date();
         autosave = value.autosave ?? false;
         /* --- */
