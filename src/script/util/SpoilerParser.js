@@ -494,7 +494,7 @@ class SpoilerParser {
             if (settings["parse.random_settings"]) parseSetting(data["randomized_settings"], multiWorld, trans);
             parseDungeons(data["dungeons"], data["locations"], world, settings["parse.dungeons"], settings["parse.dungeonReward"], trans);
 
-            SavestateHandler.overwrite(extra[multiWorld], options[multiWorld]);
+            SavestateHandler.overwrite({data: extra[multiWorld], options: options[multiWorld]});
         }
     }
 
