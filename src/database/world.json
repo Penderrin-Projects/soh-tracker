@@ -314,12 +314,6 @@
                         "category": "subarea"
                     },
                     {
-                        "id": "kokiri.c_saria_ocarina",
-                        "x": 0,
-                        "y": 0,
-                        "category": "location"
-                    },
-                    {
                         "id": "kokiri.storm_grotto",
                         "x": 0,
                         "y": 0,
@@ -1222,6 +1216,12 @@
             "height": 0,
             "lists": {
                 "v": [
+                    {
+                        "id": "kokiri.c_saria_ocarina",
+                        "x": 0,
+                        "y": 0,
+                        "category": "location"
+                    },
                     {
                         "id": "woods.c_skull_kid",
                         "x": 0,
@@ -13242,7 +13242,7 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": true,
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {
@@ -30185,7 +30185,7 @@
                 },
                 "filter": {
                     "filter.era": {
-                        "child": true,
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {

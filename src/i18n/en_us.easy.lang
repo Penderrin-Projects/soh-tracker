@@ -1354,9 +1354,9 @@ shop.goron=Goron Shop
 shop.zora=Zora Shop
 shop.bombchu=Bombchu Shop
 shop.basar_child=Castletown Bazaar
-shop.magic_child=Castletown Magic Shop
+shop.magic_child=Castletown Potion Shop
 shop.basar_adult=Kakariko Bazaar
-shop.magic_adult=Kakariko Magic Shop
+shop.magic_adult=Kakariko Potion Shop
 
 # SHOPS - ITEMS
 item.heart_1=Heart
