@@ -45,7 +45,7 @@ export default class RTCPeerClient extends RTCPeer {
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
             this.mute();
-            await SavestateHandler.reset(msg.data.data, msg.data.options);
+            await SavestateHandler.reset({data: msg.data.data, options: msg.data.options});
             this.unmute();
         } else {
             await super.rtcMessageHandler(key, msg);

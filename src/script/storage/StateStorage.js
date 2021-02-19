@@ -54,7 +54,7 @@ class StateStorage {
             ...extraData,
             "": data
         }
-        SavestateHandler.reset(newData, options);
+        SavestateHandler.reset({data: newData, options});
     }
 
     overwrite(data = {}, extraData = {}, options = {}) {
@@ -62,7 +62,7 @@ class StateStorage {
             ...extraData,
             "": data
         }
-        SavestateHandler.overwrite(newData, options);
+        SavestateHandler.overwrite({data: newData, options});
     }
 
     getName() {

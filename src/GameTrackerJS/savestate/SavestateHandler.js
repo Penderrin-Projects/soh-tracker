@@ -204,8 +204,12 @@ class SavestateHandler extends EventTarget {
     isDirty() {
         return LocalStorage.get(STATE_DIRTY);
     }
-
-    async reset(data, options, filter) {
+    
+    /**
+     * Resets the state and initializes the savestate, options and filter with the given data, handling it as a stateload
+     * @param {Object} stateData an Object containing data for savestate, options and filter
+     */
+    async reset({data = {}, options = {}, filter = {}}) {
         await BusyIndicator.busy();
         // write state data
         Savestate.deserialize({data});
@@ -228,7 +232,11 @@ class SavestateHandler extends EventTarget {
         await BusyIndicator.unbusy();
     }
 
-    async overwrite(data, options, filter) {
+    /**
+     * Overwrites the savestate, options and filter with the given data, handling it as a stateload
+     * @param {Object} stateData an Object containing data for savestate, options and filter
+     */
+    async overwrite({data = {}, options = {}, filter = {}}) {
         await BusyIndicator.busy();
         // write state data
         Savestate.overwrite({data});
