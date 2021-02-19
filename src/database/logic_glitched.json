@@ -30925,7 +30925,7 @@
                 "type": "mixin",
                 "el": "mixin.is_adult[adult]"
             },
-            "region.kak_potion_shop_back_entrance[adult]": {
+            "region.kak_potion_shop_back[adult]": {
                 "type": "mixin",
                 "el": "mixin.is_adult[adult]"
             },

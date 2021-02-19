@@ -39147,7 +39147,7 @@
                 "type": "mixin",
                 "el": "mixin.is_adult[adult]"
             },
-            "region.kak_potion_shop_back[adult]": {
+            "region.kak_potion_shop_back_entrance[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -46036,7 +46036,7 @@
             }
         },
         "region.zoras_domain[child]": {
-            "region.river_domain_gateway[child]": {
+            "region.domain_river_gateway[child]": {
                 "type": "true"
             },
             "region.domain_lake_gateway[child]": {
@@ -46271,7 +46271,7 @@
             }
         },
         "region.zoras_domain[adult]": {
-            "region.river_domain_gateway[adult]": {
+            "region.domain_river_gateway[adult]": {
                 "type": "true"
             },
             "region.zd_behind_king_zora[adult]": {
