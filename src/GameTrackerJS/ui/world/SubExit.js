@@ -1,7 +1,9 @@
 /* asym-import: off */
+import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import AreaState from "../../state/world/area/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
@@ -86,7 +88,13 @@ export default class MapSubExit extends WorldElement {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
-                if (area == null) {
+                if (area != null) {
+                    if (area instanceof AreaState) {
+                        EventBus.trigger("location_change", {
+                            name: area.ref
+                        });
+                    }
+                } else {
                     const mnu_ext = this.getContextMenu("exitbinding");
                     mnu_ext.fillEntranceSelection(state.props.access, state.value);
                     mnu_ext.setValue(state.value);
