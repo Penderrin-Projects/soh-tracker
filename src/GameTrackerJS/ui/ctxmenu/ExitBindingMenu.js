@@ -15,7 +15,7 @@ const TPL = new Template(`
 `);
 
 const CTG_TPL = new Template(`
-<span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
+<span style="color:#00000057;font-style:italic;font-size:0.8em;"></span>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -107,13 +107,12 @@ export default class ExitBindingMenu extends HTMLElement {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
                         const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
+                        opt.append(entranceName);
                         if (exit.props.bindsTo.length > 1) {
-                            const category = CTG_TPL.generate();
-                            Language.applyLabel(category, value.props.type);
-                            opt.append(entranceName);
+                            const category = CTG_TPL.generate().children[0];
+                            const categoryName = Language.generateLabel(value.props.type);
+                            category.append(categoryName);
                             opt.append(category);
-                        } else {
-                            opt.append(entranceName);
                         }
                         selectEl.append(opt);
                     }
