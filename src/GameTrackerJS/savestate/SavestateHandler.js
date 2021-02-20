@@ -239,7 +239,7 @@ class SavestateHandler extends EventTarget {
     async overwrite({data = {}, options = {}, filter = {}} = {}) {
         await BusyIndicator.busy();
         // write state data
-        Savestate.overwrite({data});
+        Savestate.overwrite(data);
         OptionsStorage.overwrite(options);
         FilterStorage.overwrite(filter);
         // cache data
