@@ -157,6 +157,11 @@
         "type": "check",
         "default": false
     },
+    "option.mixed_entrance_pool": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "option.trade_sequence_start_item": {
         "category": "options",
         "type": "choice",

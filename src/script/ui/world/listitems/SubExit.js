@@ -19,6 +19,7 @@ import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
+import "../../ctxmenu/ExitBindingMenu.js";
 
 const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 
@@ -136,6 +137,8 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
+        /* --- */
+        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
         /* --- */
         const textEl = this.shadowRoot.getElementById("text");
         const listEl = this.shadowRoot.getElementById("list");

@@ -101,19 +101,16 @@ export default class ExitBindingMenu extends HTMLElement {
             for (const name in entrances) {
                 const value = WorldStateManager.getEntrance(name);
                 if (access != value.props.target) {
-                    const isActive = value.active || exit.props.includeInactiveEntrances;
-                    const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
-                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound)) {
+                    const isBindable = this.checkBindable(value, exit, bound);
+                    if (isBindable) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
                         const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
                         opt.append(entranceName);
-                        if (exit.props.bindsTo.length > 1) {
-                            const category = CTG_TPL.generate().children[0];
-                            const categoryName = Language.generateLabel(value.props.type);
-                            category.append(categoryName);
-                            opt.append(category);
-                        }
+                        const category = CTG_TPL.generate().children[0];
+                        const categoryName = Language.generateLabel(value.props.type);
+                        category.append(categoryName);
+                        opt.append(category);
                         selectEl.append(opt);
                     }
                 }
@@ -121,6 +118,12 @@ export default class ExitBindingMenu extends HTMLElement {
         } else {
             selectEl.value = "";
         }
+    }
+
+    checkBindable(value, exit, bound) {
+        const isActive = value.active || exit.props.includeInactiveEntrances;
+        const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
+        return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);
     }
 
 }
