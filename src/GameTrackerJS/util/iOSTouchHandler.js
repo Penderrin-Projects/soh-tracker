@@ -2,7 +2,7 @@
  * Thinking different does not always work better...
  */
 
-const force = true;
+const force = false;
 const isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) ||
 (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)) &&
 !window.MSStream;
