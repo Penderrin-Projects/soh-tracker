@@ -115,7 +115,7 @@ export default class ExitBindingMenu extends HTMLElement {
                         opt.value = value.props.target;
                         const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
                         opt.append(entranceName);
-                        const category = CTG_TPL.generate().children[0];
+                        const category = CTG_TPL.generate(0);
                         const categoryName = Language.generateLabel(value.props.type);
                         category.append(categoryName);
                         opt.append(category);

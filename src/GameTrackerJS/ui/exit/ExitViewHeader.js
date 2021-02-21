@@ -5,12 +5,19 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 /* asym-import: on */
 
 const TPL = new Template(`
-<div id="types">
+<div id="searchbar">
     <emc-input-wrapper>
         <button type="">
             <emc-i18n-label i18n-key="exit.type.all" i18n-value="All"></emc-i18n-label>
         </button>
     </emc-input-wrapper>
+    <div id="types">
+        <emc-input-wrapper>
+            <button type="">
+                <emc-i18n-label i18n-key="exit.type.all" i18n-value="All"></emc-i18n-label>
+            </button>
+        </emc-input-wrapper>
+    </div>
 </div>
 `);
 
@@ -22,12 +29,19 @@ const STYLE = new GlobalStyle(`
 :host {
 
 }
-#types {
+#searchbar {
     flex-shrink: 0;
     padding: 5px;
     overflow-x: auto;
     overflow-y: none;
     border-bottom: solid 2px #cccccc;
+}
+#types {
+    flex-shrink: 0;
+    padding: 5px;
+    overflow-x: auto;
+    overflow-y: none;
+    border-left: solid 2px #cccccc;
 }
 `);
 

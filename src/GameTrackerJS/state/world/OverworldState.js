@@ -63,7 +63,7 @@ class OverworldState extends EventTarget {
 
     getFilteredList() {
         const listHandler = LIST_HANDLER.get(this);
-        return listHandler.filtered;
+        return listHandler.filteredList;
     }
 
     get areaData() {
