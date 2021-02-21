@@ -1,10 +1,17 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "/script/state/item/KeyState.js";
+import "./Item.js";
 
 const TPL = new Template(`
 <slot id="slot">
@@ -67,9 +74,9 @@ const STYLE = new GlobalStyle(`
 
 function getAlign(value) {
     switch (value) {
-        case 'start':
+        case "start":
             return "flex-start";
-        case 'end':
+        case "end":
             return "flex-end";
         default:
             return "center";
@@ -80,7 +87,7 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -111,53 +118,53 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        return this.getAttribute('readonly');
+        return this.getAttribute("readonly");
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     get halign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set halign(val) {
-        this.setAttribute('halign', val);
+        this.setAttribute("halign", val);
     }
 
     get valign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set valign(val) {
-        this.setAttribute('valign', val);
+        this.setAttribute("valign", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value', 'halign', 'valign'];
+        return ["ref", "value", "halign", "valign"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
                         // state
                         const state = ItemStates.get(this.ref);
@@ -178,13 +185,13 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
                         }
                     }
                     break;
-                case 'halign':
+                case "halign":
                     this.shadowRoot.getElementById("slot").style.setProperty("--halign", getAlign(newValue));
                     break;
-                case 'valign':
+                case "valign":
                     this.shadowRoot.getElementById("slot").style.setProperty("--valign", getAlign(newValue));
                     break;
-                case 'value':
+                case "value":
                     {
                         const activeEl = this.querySelector(".active");
                         if (activeEl != null) {
@@ -292,11 +299,11 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
 
 }
 
-UIRegistry.get("item").register('key', ItemKey);
-customElements.define('ootrt-itemkey', ItemKey);
+UIRegistry.get("item").register("key", ItemKey);
+customElements.define("ootrt-itemkey", ItemKey);
 
 function createOption(value, img, data, max_value) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     if (value == 0 && !data.always_active) {

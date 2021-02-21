@@ -7,7 +7,8 @@ export interface WorldFile {
     overworld: MapData,
     area: {
         [key: string]: MapDataSpecial
-    },    subarea: {
+    },
+    subarea: {
         [key: string]: MapData
     },
     exit: ExitDataList,

@@ -1,8 +1,22 @@
 /**
- * move to serverside past 2021‑05‑16
+ * move to serverside earliest past 2021‑05‑16
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+import "./StateConverter0.js";
+
+SavestateConverter.register(function(state) {
+    const res = {
+        data: {},
+        autosave: state.autosave,
+        timestamp: state.timestamp,
+        name: state.name
+    };
+    for (const i of Object.keys(state.data)) {
+        res.data[translation[i] || i] = state.data[i];
+    }
+    return res;
+});
 
 const translation = {
     "overworld": "area.overworld",
@@ -1008,16 +1022,3 @@ const translation = {
     "dungeonRewards.training_grounds": "dungeonRewards.area.training_grounds",
     "dungeonRewards.castle_ganon": "dungeonRewards.area.castle_ganon"
 };
-
-StateConverter.register(function(state) {
-    const res = {
-        data: {},
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
-    };
-    for (const i of Object.keys(state.data)) {
-        res.data[translation[i] || i] = state.data[i];
-    }
-    return res;
-});

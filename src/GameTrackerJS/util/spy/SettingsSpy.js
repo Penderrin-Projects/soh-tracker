@@ -1,5 +1,4 @@
-import EventBus from "/emcJS/event/EventBus.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
+import SettingsStorage from "../../storage/SettingsStorage.js";
 
 const KEY = new WeakMap();
 
@@ -8,10 +7,11 @@ export default class SettingsSpy extends EventTarget {
     constructor(key) {
         super();
         KEY.set(this, key);
-        EventBus.register("settings", async event => {
+        SettingsStorage.addEventListener("change", event => {
             if (event.data[key] != null) {
-                const ev = new Event("value");
+                const ev = new Event("change");
                 ev.data = event.data[key];
+                ev.change = event.changes[key];
                 this.dispatchEvent(ev);
             }
         });

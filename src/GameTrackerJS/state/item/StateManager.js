@@ -1,15 +1,18 @@
-import FileData from "/emcJS/data/FileData.js";
+import ItemsRecource from "../../resource/ItemsResource.js";
 import AbstractStateManager from "../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
+
+const resourceData = ItemsRecource.get();
 
 class StateManager extends AbstractStateManager {
 
     constructor() {
-        super(DefaultState);
+        super(DefaultState, resourceData);
     }
-    
-    initData() {
-        return FileData.get("items");
+
+    // XXX
+    createState(StateClass, ref, props) {
+        return new StateClass(ref, props);
     }
 
 }

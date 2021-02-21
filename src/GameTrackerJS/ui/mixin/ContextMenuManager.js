@@ -1,26 +1,48 @@
-const MENUS = new WeakMap();
+/* asym-import: off */
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import {createMixin} from "/emcJS/util/Mixin.js";
+/* asym-import: on */
+import ContextMenuCatcher from "../ContextMenuCatcher.js";
 
-export default (CLAZZ) => class extends CLAZZ {
+const MENUS = new WeakMap();
+const EVENT_MANAGERS = new WeakMap();
+
+export default createMixin((superclass) => class ContextMenuManager extends superclass {
 
     constructor(...args) {
         super(...args);
         MENUS.set(this, new Map());
+        EVENT_MANAGERS.set(this, new Map());
     }
 
     setContextMenu(name, menu) {
         const menus = MENUS.get(this);
+        const eventManagers = EVENT_MANAGERS.get(this);
         if (this.isConnected) {
             if (menus.has(name)) {
                 const oldMenu = menus.get(name);
                 oldMenu.remove();
             }
             let el = this;
-            while (el.parentElement != null && !el.classList.contains("panel")) {
-                el = el.parentElement;
+            while (!(el instanceof ContextMenuCatcher)) {
+                if (el.parentElement != null) {
+                    el = el.parentElement;
+                } else if (el.getRootNode() != null && el.getRootNode().host != null) {
+                    el = el.getRootNode().host;
+                } else {
+                    break;
+                }
             }
             el.append(menu);
         }
         menus.set(name, menu);
+        if (!eventManagers.has(name)) {
+            const manager = new EventTargetManager(menu);
+            eventManagers.set(name, manager);
+        } else {
+            const manager = eventManagers.get(name);
+            manager.switchTarget(menu);
+        }
     }
 
     getContextMenu(name) {
@@ -28,13 +50,31 @@ export default (CLAZZ) => class extends CLAZZ {
         return menus.get(name);
     }
 
+    addContextMenuHandler(name, event, handler) {
+        const eventManagers = EVENT_MANAGERS.get(this);
+        if (!eventManagers.has(name)) {
+            const manager = new EventTargetManager();
+            manager.set(event, handler);
+            eventManagers.set(name, manager);
+        } else {
+            const manager = eventManagers.get(name);
+            manager.set(event, handler);
+        }
+    }
+
     connectedCallback() {
         if (super.connectedCallback) {
             super.connectedCallback();
         }
         let el = this;
-        while (el.parentElement != null && !el.classList.contains("panel")) {
-            el = el.parentElement;
+        while (!(el instanceof ContextMenuCatcher)) {
+            if (el.parentElement != null) {
+                el = el.parentElement;
+            } else if (el.getRootNode() != null && el.getRootNode().host != null) {
+                el = el.getRootNode().host;
+            } else {
+                break;
+            }
         }
         const menus = MENUS.get(this);
         for (const [, menu] of menus) {
@@ -52,4 +92,4 @@ export default (CLAZZ) => class extends CLAZZ {
         }
     }
 
-}
+});

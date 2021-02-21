@@ -20,38 +20,7 @@
             return false;
         });
     </script>
-    <script type="module">
-        import EventBus from "/emcJS/event/EventBus.js";
-        import FileData from "/emcJS/data/FileData.js";
-        import "/emcJS/ui/layout/Layout.js";
-        import "/script/ui/items/ItemGrid.js";
-        import "/script/ui/dungeonstate/DungeonState.js";
-        import "/script/ui/world/LocationList.js";
-        import "/script/ui/world/Map.js";
-        
-        import {loadResources, registerWorker} from "/script/boot.js";
-
-        (async function main() {
-
-            await loadResources();
-            await registerWorker();
-
-            let conf = decodeURI(window.location.hash.slice(1));
-            let layout = FileData.get(`layouts/${conf}`);
-
-            if (!!layout) {
-                let el = document.getElementById("layout");
-                el.loadLayout(layout);
-                let waw = window.outerWidth - window.innerWidth;
-                let wah = window.outerHeight - window.innerHeight;
-                window.resizeTo(waw + el.clientWidth, wah + el.clientHeight);
-            }
-            
-            EventBus.trigger("detached-window-created", {});
-
-        }());
-
-    </script>
+    <script type="module" src="/detached/index.js"></script>
     <style>
         body {
             margin: 0;

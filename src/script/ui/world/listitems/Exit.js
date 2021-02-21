@@ -1,9 +1,16 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
+import "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -106,13 +113,14 @@ export default class ListExit extends AbstractExit {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
     }
 
 }
 
 UIRegistry.set("list-exit", new UIRegistry(ListExit));
-customElements.define('ootrt-list-exit', ListExit);
+customElements.define("ootrt-list-exit", ListExit);

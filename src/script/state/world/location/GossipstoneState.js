@@ -1,6 +1,10 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
@@ -11,7 +15,7 @@ function internalHintChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.hint = change.value;
+        this./*#*/__setHint(change.value);
     }
 }
 
@@ -20,7 +24,7 @@ export default class GossipstoneState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        this.hint = StateStorage.readExtra("gossipstone", ref, {location: "", item: ""});
+        this.hint = SavestateHandler.get("gossipstone", ref, {location: "", item: ""});
         /* EVENTS */
         EventBus.register("state::gossipstone", internalHintChange.bind(this));
     }
@@ -32,7 +36,7 @@ export default class GossipstoneState extends DefaultState {
         this.hint = event.data.state[ref];
     }
 
-    set hint(value) {
+    /*#*/__setHint(value) {
         const ref = this.ref;
         if (typeof value != "object" || Array.isArray(value)) {
             value = {location: "", item: ""}
@@ -46,11 +50,20 @@ export default class GossipstoneState extends DefaultState {
         const old = this.hint;
         if (!Helper.isEqual(old, value)) {
             HINT.set(this, value);
-            StateStorage.writeExtra("gossipstone", ref, value);
+            SavestateHandler.get("gossipstone", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set hint(value) {
+        const ref = this.ref;
+        const old = this.reward;
+        value = this./*#*/__setHint(value);
+        if (value != null && !Helper.isEqual(old, value)) {
             // internal
             EventBus.trigger("state::gossipstone", {ref, value});
         }

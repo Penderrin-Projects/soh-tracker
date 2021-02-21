@@ -1,12 +1,10 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import AccessStateEnum from "../../../enum/AccessStateEnum.js";
-import WorldRegistry from "../../../registry/WorldRegistry.js";
-import StateWorld from "../../abstract/StateWorld.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
+/* asym-import: on */
+import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import AreaState from "../../abstract/AreaState.js";
+import "../location/StateManager.js";
 
-const AREA_DATA = new WeakMap();
-const ACCESS = new WeakMap();
 const HINT = new WeakMap();
 
 function internalHintChange(event) {
@@ -14,41 +12,21 @@ function internalHintChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.hint = change.value;
+        this./*#*/__setHint(change.value);
     }
 }
 
-export default class DefaultState extends StateWorld {
+export default class DefaultState extends AreaState {
 
     constructor(ref, props, areaData) {
-        super(ref, props);
+        super(ref, props, areaData);
         /* --- */
-        AREA_DATA.set(this, areaData);
-        ACCESS.set(this, ListLogic.DEFAULT);
-        this.hint = StateStorage.readExtra("area_hint", ref, "");
-        this.refreshAccess();
+        this.hint = SavestateHandler.get("area_hint", ref, "");
         /* EVENTS */
         EventBus.register("state::area_hint", internalHintChange.bind(this));
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
-        EventBus.register(["logic", "state::location", "randomizer_options", "filter"], event => {
-            this.refreshAccess();
-        });
-    }
-
-    /*#*/refreshAccess() {
-        const access = this.calculateAvailability();
-        if (access != null) {
-            const old = ACCESS.get(this);
-            if (old != access) {
-                ACCESS.set(this, access);
-                // external
-                const event = new Event("access");
-                event.data = access;
-                this.dispatchEvent(event);
-            }
-        }
     }
 
     stateLoaded(event) {
@@ -61,41 +39,7 @@ export default class DefaultState extends StateWorld {
         }
     }
 
-    calculateAvailability() {
-        const list = this.getFilteredList();
-        if (list != null) {
-            return ListLogic.check(list);
-        }
-    }
-
-    getFilteredList() {
-        const areaData = AREA_DATA.get(this);
-        if (areaData != null) {
-            const list = areaData.list;
-            if (list != null) {
-                const result = [];
-                list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
-                        result.push(record);
-                    }
-                });
-                return result;
-            }
-        }
-        return AccessStateEnum.UNAVAILABLE;
-    }
-
-    get areaData() {
-        return AREA_DATA.get(this);
-    }
-
-    get access() {
-        return ACCESS.get(this);
-    }
-
-    set hint(value) {
+    /*#*/__setHint(value) {
         const ref = this.ref;
         if (typeof value != "string" || (value != "woth" && value != "barren")) {
             value = "";
@@ -103,13 +47,22 @@ export default class DefaultState extends StateWorld {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            StateStorage.writeExtra("area_hint", ref, value);
+            SavestateHandler.set("area_hint", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;
             this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set hint(value) {
+        const ref = this.ref;
+        const old = this.hint;
+        value = this./*#*/__setHint(value);
+        if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::area_hint", {ref, value});
+            EventBus.trigger("state::area_hint", { ref, value });
         }
     }
 

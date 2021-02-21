@@ -1,20 +1,21 @@
 
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import SettingsWindow from "/emcJS/ui/overlay/SettingsWindow.js";
-import FileData from "/emcJS/data/FileData.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/emcJS/ui/Paging.js";
+/* asym-import: on */
 
-import StateStorage from "/script/storage/StateStorage.js";
-import BusyIndicator from "/script/ui/BusyIndicator.js";
-import SettingsBuilder from "/script/util/SettingsBuilder.js";
-import Language from "/script/util/Language.js";
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import SettingsWindow from "/GameTrackerJS/ui/window/settings/SettingsWindow.js";
+// Track-OOT
+import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
 import SpoilerParser from "/script/util/SpoilerParser.js";
 
 let spoiler = {};
-const settings = new SettingsWindow;
-
-BusyIndicator.setIndicator(document.getElementById("busy-animation"));
 
 const LOAD_SPOILER = new Template(`
     <div id="options-spoiler-wrapper">
@@ -25,41 +26,17 @@ const LOAD_SPOILER = new Template(`
 async function loadSpoiler(button) {
     spoiler = await FileSystem.load(".json");
     if (!!spoiler && !!spoiler.data) {
-        button.innerHTML = Language.translate('loaded-spoiler-button');
+        Language.applyLabel(button, "loaded-spoiler-button");
     }
 }
 
-export default class SpoilerLogSettings {
+export default class SpoilerLogWindow extends SettingsWindow {
 
     constructor() {
-        settings.addEventListener('submit', function(event) {
-            BusyIndicator.busy();
-            const options = FileData.get("spoiler_options");
-            const settingsData = {};
-            for (const i in event.data) {
-                for (const j in event.data[i]) {
-                    let v = event.data[i][j];
-                    if (Array.isArray(v)) {
-                        v = new Set(v);
-                        options[i][j].values.forEach(el => {
-                            StateStorage.writeExtra("parseSpoiler", el, v.has(el));
-                            settingsData[el] = v.has(el);
-                        });
-                    } else {
-                        StateStorage.writeExtra("parseSpoiler", j, v);
-                        settingsData[j] = v;
-                    }
-                }
-            }
-            if (!!spoiler && !!spoiler.data) {
-                SpoilerParser.parse(spoiler.data, settingsData);
-                loadSpoilerButton.innerHTML = Language.translate('load-spoiler-button');
-                spoiler = {};
-            }
-            BusyIndicator.unbusy();
-        });
-        const options = FileData.get("spoiler_options");
-        SettingsBuilder.build(settings, options);
+        super("Spoiler parser");
+        /* --- */
+        const options = SpoilerOptionsResource.get();
+        SettingsBuilder.build(this, options);
         
         // add preset choice
         const loadSpoilerRow = LOAD_SPOILER.generate();
@@ -67,38 +44,44 @@ export default class SpoilerLogSettings {
         loadSpoilerWrapper.style.display = "flex";
         loadSpoilerWrapper.style.flex = "1";
         const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
-        loadSpoilerButton.innerHTML = Language.translate('load-spoiler-button');
+        Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
 
 
-        loadSpoilerButton.addEventListener('click', () => {
+        loadSpoilerButton.addEventListener("click", () => {
             loadSpoiler(loadSpoilerButton);
         });
 
-        settings.shadowRoot.getElementById("footer").prepend(loadSpoilerRow)
+        this.shadowRoot.getElementById("footer").prepend(loadSpoilerRow);
+        /* --- */
+        this.addEventListener("submit", async (event) => {
+            await BusyIndicator.busy();
+            SavestateHandler.set("parseSpoiler", event.data);
+            if (!!spoiler && !!spoiler.data) {
+                SpoilerParser.parse(spoiler.data, event.data);
+                Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
+                spoiler = {};
+            }
+            await BusyIndicator.unbusy();
+        });
     }
 
     show() {
-        const options = FileData.get("spoiler_options");
+        const options = SpoilerOptionsResource.get();
         const res = {};
         for (const i in options) {
-            res[i] = res[i] || {};
-            for (const j in options[i]) {
-                const opt = options[i][j];
-                if (opt.type === "list") {
-                    const def = new Set(opt.default);
-                    const val = [];
-                    for (const el of opt.values) {
-                        if (StateStorage.readExtra("parseSpoiler", el, def.has(el))) {
-                            val.push(el);
-                        }
-                    }
-                    res[i][j] = val;
-                } else {
-                    res[i][j] = StateStorage.readExtra("parseSpoiler", j, opt.default);
+            const opt = options[i];
+            if (opt.type === "list") {
+                const def = new Set(opt.default);
+                for (const el of opt.values) {
+                    res[el] = SavestateHandler.get("parseSpoiler", el, def.has(el));
                 }
+            } else {
+                res[i] = SavestateHandler.get("parseSpoiler", i, opt.default);
             }
         }
-        settings.show(res/*, Object.keys(options)[0]*/);
+        super.show(res);
     }
 
 }
+
+customElements.define("tootr-window-spoilerlog", SpoilerLogWindow);

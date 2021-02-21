@@ -1,25 +1,21 @@
-import FileData from "/emcJS/data/FileData.js";
+import WorldResource from "../../../resource/WorldResource.js";
+import WorldStateManagers from "../StateManagers.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
 import DefaultState from "./DefaultState.js";
 
-let DATA = null;
+const resourceData = WorldResource.get("marker/subarea");
+const DATA = WorldResource.get("subarea");
 
 class StateManager extends AbstractStateManager {
-
+    
     constructor() {
-        super(DefaultState);
+        super(DefaultState, resourceData);
+        WorldStateManagers.subarea = this;
     }
 
     createState(StateClass, ref, props) {
         const data = DATA[ref];
         return new StateClass(`subarea/${ref}`, props, data);
-    }
-    
-    initData() {
-        if (DATA == null) {
-            DATA = FileData.get("world/subarea");
-        }
-        return FileData.get("world/marker/subarea");
     }
 
 }

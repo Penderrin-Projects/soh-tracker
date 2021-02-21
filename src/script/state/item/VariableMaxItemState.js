@@ -1,6 +1,10 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 
@@ -15,22 +19,22 @@ function getMaxValue(props) {
 export default class VariableMaxItemState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, 0, getMaxValue(props));
+        super(ref, props, {max: getMaxValue(props)});
         /* --- */
         if (props.max.option != null) {
-            const optionProps = FileData.get(`randomizer_options/options/${props.max.option}`);
-            const option = StateStorage.read(props.max.option, optionProps.default);
-            this.applyMaxValue(option);
+            const optionProps = OptionsResource.get(props.max.option);
+            const option = SavestateHandler.get("", props.max.option, optionProps.default);
+            this./*#*/__applyMaxValue(option);
         }
         /* EVENTS */
-        EventBus.register("randomizer_options", event => {
+        EventBus.register("options", event => {
             if (event.data[props.max.option] != null) {
-                this.applyMaxValue(event.data[props.max.option]);
+                this./*#*/__applyMaxValue(event.data[props.max.option]);
             }
         });
     }
 
-    /*#*/applyMaxValue(newValue) {
+    /*#*/__applyMaxValue(newValue) {
         const props = this.props;
         if (props.max.values[newValue] != null) {
             super.max = props.max.values[newValue];
@@ -43,7 +47,7 @@ export default class VariableMaxItemState extends DefaultState {
         super.stateLoaded(event);
         // settings
         if (event.data.state[props.max.values] != null) {
-            this.applyMaxValue(event.data.state[props.max.values]);
+            this./*#*/__applyMaxValue(event.data.state[props.max.values]);
         }
     }
 

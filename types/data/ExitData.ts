@@ -32,6 +32,11 @@ export interface ExitData {
      */
     active: true | false | Logic,
     /**
+     * define if the entrance is bidirectional, making the tracker bind
+     * backwards nodes in addition to the forward ones
+     */
+    isBiDir: true | false,
+    /**
      * ignores if entrances are marked as inactive, so they can still be bound
      */
     includeInactiveEntrances: true | false,

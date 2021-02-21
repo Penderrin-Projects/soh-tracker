@@ -1,55 +1,16 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import Logger from "/emcJS/util/Logger.js";
 import "/emcJS/ui/Icon.js";
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
-import WorldRegistry from "../../registry/WorldRegistry.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import LocationState from "../../state/world/location/DefaultState.js";
+/* asym-import: on */
+import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/AreaContextMenu.js";
-import Language from "/script/util/Language.js";
+import Language from "../../util/Language.js";
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
-
-function setAllListEntries(list, value = true) {
-    if (!!list && Array.isArray(list)) {
-        for (const entry of list) {
-            const category = entry.category;
-            const id = entry.id;
-            if (category == "location") {
-                const state = WorldRegistry.get(`location/${id}`);
-                if (state instanceof LocationState) {
-                    state.value = value;
-                }
-            } else if (category == "subarea") {
-                const subarea = WorldRegistry.get(`subarea/${id}`);
-                if (subarea != null) {
-                    setAllListEntries(subarea.getFilteredList(), value);
-                }
-            } else if (category == "subexit") {
-                const subexit = WorldRegistry.get(`subexit/${id}`);
-                if (subexit != null) {
-                    const bound = subexit.value;
-                    if (!bound) {
-                        continue;
-                    }
-                    const entrance = ExitRegistry.get(bound);
-                    if (entrance != null) {
-                        const subarea = WorldRegistry.get(entrance.exitData.area);
-                        if (subarea != null) {
-                            setAllListEntries(subarea.getFilteredList(), value);
-                        }
-                    }
-                }
-            } else {
-                Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "Area");
-            }
-        }
-    }
-}
 
 export default class AbstractArea extends WorldElement {
 
-    constructor(type) {
+    constructor() {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
@@ -60,42 +21,37 @@ export default class AbstractArea extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("gt-ctxmenu-area");
-        this.setContextMenu("main", mnu_ctx);
-        
-        mnu_ctx.addEventListener("check", event => {
+        this.setContextMenu("main", document.createElement("gt-ctxmenu-area"));
+        this.addContextMenuHandler("main", "check", event => {
             const state = this.getState();
             if (state != null) {
-                const list = state.getFilteredList();
-                setAllListEntries(list, true);
+                state.setAllEntries(true);
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addContextMenuHandler("main", "uncheck", event => {
             const state = this.getState();
             if (state != null) {
-                const list = state.getFilteredList();
-                setAllListEntries(list, false);
+                state.setAllEntries(false);
             }
         });
-        mnu_ctx.addEventListener("setwoth", event => {
+        this.addContextMenuHandler("main", "setwoth", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "woth";
             }
         });
-        mnu_ctx.addEventListener("setbarren", event => {
+        this.addContextMenuHandler("main", "setbarren", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "barren";
             }
         });
-        mnu_ctx.addEventListener("clearhint", event => {
+        this.addContextMenuHandler("main", "clearhint", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "";
             }
         });
-
         
         /* mouse events */
         this.addEventListener("click", event => {
@@ -107,6 +63,7 @@ export default class AbstractArea extends WorldElement {
             return false;
         });
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getContextMenu("main");
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();
@@ -122,19 +79,9 @@ export default class AbstractArea extends WorldElement {
     }
     
     applyAccess(data) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const badgeEl = this.shadowRoot.getElementById("badge");
-        const entrancesEl = this.shadowRoot.getElementById("entrances");
-        const value = AccessStateEnum.getName(data.value).toLowerCase();
-        /* access */
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
-        /* badge */
-        if (badgeEl != null) {
-            badgeEl.access = value;
-        }
+        super.applyAccess(data);
         /* entrances */
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
         if (entrancesEl != null) {
             entrancesEl.innerHTML = "";
             if (data.entrances) {
@@ -163,39 +110,39 @@ export default class AbstractArea extends WorldElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get hint() {
-        return this.getAttribute('hint');
+        return this.getAttribute("hint");
     }
 
     set hint(val) {
-        this.setAttribute('hint', val);
+        this.setAttribute("hint", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'hint'];
+        return ["ref", "hint"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'ref':
+                case "ref":
                     {
-                        const state = WorldRegistry.get(this.ref);
+                        const state = WorldStateManager.getByRef(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
-                            textEl.innerHTML = Language.translate(newValue);
+                            Language.applyLabel(textEl, newValue);
                         }
                         this.switchState(state);
                     }
                     break;
-                case 'hint':
+                case "hint":
                     {
                         const hintEl = this.shadowRoot.getElementById("hint");
                         if (hintEl != null) {

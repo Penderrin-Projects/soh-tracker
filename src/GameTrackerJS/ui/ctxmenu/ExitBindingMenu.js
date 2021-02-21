@@ -1,16 +1,22 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
-import ExitRegistry from "../../registry/ExitRegistry.js";
-import EntranceStateManager from "../../state/world/entrance/StateManager.js";
+/* asym-import: on */
+import WorldResource from "../../resource/WorldResource.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
+import SavestateHandler from "../../savestate/SavestateHandler.js";
+import Language from "../../util/Language.js";
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
     <emc-listselect id="select"></emc-listselect>
 </emc-contextmenu>
+`);
+
+const CTG_TPL = new Template(`
+<span style="color:#00000057;font-style:italic;font-size:0.8em;"></span>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -24,7 +30,7 @@ export default class ExitBindingMenu extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -40,7 +46,7 @@ export default class ExitBindingMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
-        menuEl.addEventListener("close", function() {
+        menuEl.addEventListener("close", () => {
             selectEl.resetSearch();
         });
         
@@ -76,39 +82,45 @@ export default class ExitBindingMenu extends HTMLElement {
         const selectEl = this.shadowRoot.getElementById("select");
         selectEl.innerHTML = "";
         // retrieve bound
-        const exits = StateStorage.readAllExtra("exits");
+        const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
-                const boundExit = ExitRegistry.get(key);
-                if (boundExit != null && boundExit.exitData.type != 'special') {
+                const boundExit = WorldStateManager.getEntrance(key);
+                if (boundExit == null || !boundExit.props.ignoreBound) {
                     bound.add(exits[key]);
                 }
             }
         }
         // add empty
-        const empty = document.createElement('emc-option');
+        const empty = document.createElement("emc-option");
         empty.value = "";
-        const emptyText = document.createElement('span');
-        emptyText.innerHTML = "unbind";
+        const emptyText = document.createElement("span");
+        Language.applyLabel(emptyText, "unbind");
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
         selectEl.append(empty);
         // set choices and value
-        const exit = ExitRegistry.get(access);
+        const exit = WorldStateManager.getEntrance(access);
         if (exit != null) {
             selectEl.value = current;
-            const entrances = EntranceStateManager.getAll();
             // add options
-            for (const key in entrances) {
-                const value = entrances[key];
-                const isActiveAndType = value.active && value.props.type == exit.exitData.type;
-                const isSpecial = (exit.exitData.type === 'special' && value.props.type !== 'dungeon');
-                if ((isActiveAndType || isSpecial) && !bound.has(value.props.target)) {
-                    const opt = document.createElement('emc-option');
-                    opt.value = value.props.target;
-                    opt.innerHTML = Language.translate(value.props.target);
-                    selectEl.append(opt);
+            const entrances = WorldResource.get("exit");
+            for (const name in entrances) {
+                const value = WorldStateManager.getEntrance(name);
+                if (access != value.props.target) {
+                    const isBindable = this.checkBindable(value, exit, bound);
+                    if (isBindable) {
+                        const opt = document.createElement("emc-option");
+                        opt.value = value.props.target;
+                        const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
+                        opt.append(entranceName);
+                        const category = CTG_TPL.generate().children[0];
+                        const categoryName = Language.generateLabel(value.props.type);
+                        category.append(categoryName);
+                        opt.append(category);
+                        selectEl.append(opt);
+                    }
                 }
             }
         } else {
@@ -116,6 +128,12 @@ export default class ExitBindingMenu extends HTMLElement {
         }
     }
 
+    checkBindable(value, exit, bound) {
+        const isActive = value.active || exit.props.includeInactiveEntrances;
+        const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
+        return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);
+    }
+
 }
 
-customElements.define('gt-ctxmenu-exitbinding', ExitBindingMenu);
+customElements.define("gt-ctxmenu-exitbinding", ExitBindingMenu);

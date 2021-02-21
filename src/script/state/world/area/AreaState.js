@@ -1,25 +1,22 @@
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import MarkerListHandler from "/GameTrackerJS/util/MarkerListHandler.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 export default class AreaState extends DefaultState {
-
-    getFilteredList() {
-        const areaData = this.areaData;
-        if (areaData != null) {
-            const list = areaData.lists["v"];
-            if (list != null) {
-                const result = [];
-                list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
-                        result.push(record);
-                    }
-                });
-                return result;
+    
+    generateList() {
+        const listHandler = new MarkerListHandler(this.areaData.lists["v"]);
+        listHandler.addEventListener("access", event => {
+            this.setAccess(event.data);
+        });
+        listHandler.addEventListener("change", event => {
+            if (event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
             }
-        }
+        });
+        return listHandler;
     }
 
 }

@@ -1,181 +1,121 @@
-import EventBus from "/emcJS/event/EventBus.js";
-import ExitRegistry from "/GameTrackerJS/registry/ExitRegistry.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Logic from "/script/util/logic/Logic.js";
+// GameTrackerJS
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
 
-const OPTIONS = {
-    "option.shuffle_grottos": false,
-    "option.shuffle_dungeons": false,
-    "option.shuffle_overworld": false,
-    "option.shuffle_owl": false,
-    "option.shuffle_warps": false,
-    "option.shuffle_spawns": false,
-    "option.entrance_shuffle_interior": "entrance_shuffle_off"
-};
-const exit_binding = {};
-
-function applyEntranceChanges(changes, edgeThere, edgeBack) {
-    if (exit_binding[edgeThere] == edgeBack) return;
-    const exitEntry = ExitRegistry.get(edgeThere);
-    if (exitEntry == null) {
-        console.error(`missing exit: ${edgeThere}`);
+function changeBinding(values) {
+    const changes = [];
+    if (Array.isArray(values)) {
+        for (const {from, to} of values) {
+            const [source, target] = from.split(" -> ");
+            if (!to) {
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
+            } else {
+                const [reroute] = to.split(" -> ");
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            }
+        }
     } else {
-        if (!exitEntry.active) return;
-        const [source, target] = edgeThere.split(" -> ");
-        const entranceEntry = ExitRegistry.get(edgeBack);
-        if (entranceEntry != null) {
-            if (!entranceEntry.active || (exitEntry.exitData.type != entranceEntry.exitData.type && exitEntry.exitData.type !== 'special')) return;
-            const [reroute, entrance] = edgeBack.split(" -> ");
-            if (exit_binding[edgeThere]) {
-                StateStorage.writeExtra("exits", exit_binding[edgeThere], "");
-            }
-            //if (!!exit_binding[edgeBack]) {
-            //    StateStorage.writeExtra("exits", exit_binding[edgeBack], "");
-            //}
-            if (exitEntry.exitData.type !== 'special') {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: `${source}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-                changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: `${source}[adult]`});
-                exit_binding[edgeThere] = edgeBack;
-                exit_binding[edgeBack] = edgeThere;
-                //StateStorage.writeExtra("exits", edgeBack, edgeThere);
-            } else {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-                exit_binding[edgeThere] = edgeBack;
-            }
+        const {from, to} = values;
+        const [source, target] = from.split(" -> ");
+        if (!to) {
+            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
+            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
         } else {
-            //if (!!exit_binding[edgeThere]) {
-            //    StateStorage.writeExtra("exits", exit_binding[edgeThere], "");
-            //}
-            edgeBack = exit_binding[edgeThere];
-            const [reroute, entrance] = edgeBack.split(" -> ");
-            if (exitEntry.exitData.type !== 'special') {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
-                changes.push({source: `${reroute}[child]`, target: `${entrance}[child]`, reroute: "[child]"});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
-                changes.push({source: `${reroute}[adult]`, target: `${entrance}[adult]`, reroute: "[adult]"});
-                exit_binding[edgeThere] = "";
-                exit_binding[edgeBack] = "";
-            } else {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: "[child]"});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: "[adult]"});
-                exit_binding[edgeThere] = "";
-            }
+            const [reroute] = to.split(" -> ");
+            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
         }
-    }
-}
-
-function update(force) {
-    const changes = [];
-    for (const exit in exit_binding) {
-        if (!exit) continue;
-        const exitEntry = ExitRegistry.get(exit);
-        if (exitEntry != null) {
-            const [source, target] = exit.split(" -> ");
-            if (exitEntry.active) {
-                const reroute = exit_binding[exit].split(" -> ")[0];
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-            } else {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${target}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${target}[adult]`});
-            }
-        } else {
-            throw Error("Entrance association error: data may be stale");
-        }
-    }
-    if (force || changes.length) {
-        const res = Logic.setTranslation(changes, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
-    }
-}
-
-// register event on state change
-EventBus.register("state", event => {
-    let changed = false;
-    const exits = ExitRegistry.getAll();
-    for (const exit in exits) {
-        if (event.data.extra.exits != null && event.data.extra.exits[exit] != null) {
-            const edgeBack = event.data.extra.exits[exit];
-            if (exit_binding[exit] != edgeBack) {
-                const entrance = exit_binding[exit];
-                if (entrance) {
-                    exit_binding[entrance] = "";
-                }
-                exit_binding[exit] = edgeBack;
-                exit_binding[edgeBack] = exit;
-                changed = true;
-            }
-        } else if (exit_binding[exit]) {
-            const back = exit_binding[exit];
-            exit_binding[exit] = "";
-            exit_binding[back] = "";
-            changed = true;
-        }
-    }
-    if (changed) {
-        update(true);
-    }
-});
-
-// register event for (de-)activate entrances
-EventBus.register("randomizer_options", event => {
-    let changed = false;
-    for (const key in OPTIONS) {
-        if (event.data[key] != null && OPTIONS[key] != event.data[key]) {
-            OPTIONS[key] = event.data[key];
-            changed = true;
-        }
-    }
-    if (changed) {
-        update(true);
-    }
-});
-
-// register event on exit target change
-EventBus.register("statechange_exits", event => {
-    const changes = [];
-    for (const edgeThere in event.data) {
-        if (!edgeThere) continue;
-        const edgeBack = event.data[edgeThere].newValue;
-        applyEntranceChanges(changes, edgeThere, edgeBack);
     }
     if (changes.length) {
-        const res = Logic.setTranslation(changes, "region.root");
-        if (Object.keys(res).length > 0) {
-            EventBus.trigger("logic", res);
-        }
+        Logic.setTranslation(changes, "region.root");
     }
-});
+}
 
-class AugmentExits {
+const EXIT = new WeakMap();
 
-    init() {
-        const bound = StateStorage.readAllExtra("exits");
-        const exits = ExitRegistry.getAll();
-        for (const exit in exits) {
-            const entrance = bound[exit] || "";
-            exit_binding[exit] = entrance;
-            if (entrance && exit.type !== 'special') {
-                exit_binding[entrance] = exit;
-            } else {
-                const tExit = exits[exit].exitData.target;
-                const tEntrance = bound[tExit] || "";
-                exit_binding[tExit] = tEntrance;
+class ExitAugmentor {
+
+    constructor(exit) {
+        EXIT.set(this, exit);
+        // change active
+        exit.addEventListener("active", () => {
+            this.changeActive();
+        });
+        // change value
+        exit.addEventListener("value", () => {
+            this.changeValue();
+        });
+        // init
+        this.changeActive();
+    }
+
+    changeActive() {
+        const exit = EXIT.get(this);
+        const access = exit.props.access;
+        const bindingChange = [];
+        if (exit.active) {
+            bindingChange.push({
+                from: access,
+                to: exit.value
+            });
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: access
+                });
+            }
+        } else {
+            bindingChange.push({
+                from: access,
+                to: null
+            });
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: null
+                });
             }
         }
-        for (const key in OPTIONS) {
-            OPTIONS[key] = StateStorage.read(key);
+        changeBinding(bindingChange);
+    }
+
+    changeValue() {
+        const exit = EXIT.get(this);
+        const access = exit.props.access;
+        if (exit.active) {
+            const bindingChange = [{
+                from: access,
+                to: exit.value
+            }];
+            if (exit.exitData.isBiDir) {
+                bindingChange.push({
+                    from: exit.value,
+                    to: access
+                });
+            }
+            changeBinding(bindingChange);
         }
-        setTimeout(async function() {
-            update(true)
-        }, 0);
     }
 
 }
 
-export default new AugmentExits();
+const exits = WorldResource.get("marker/exit");
+for (const name in exits) {
+    const exit = WorldStateManager.get("exit", name);
+    new ExitAugmentor(exit);
+}
+const subexits = WorldResource.get("marker/subexit");
+for (const name in subexits) {
+    const subexit = WorldStateManager.get("subexit", name);
+    new ExitAugmentor(subexit);
+}

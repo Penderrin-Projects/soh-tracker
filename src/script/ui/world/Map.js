@@ -1,11 +1,22 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-//import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Language from "/script/util/Language.js";
-//import ListLogic from "/script/util/logic/ListLogic.js";
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
@@ -30,7 +41,6 @@ const TPL = new Template(`
         }
         :host {
             display: grid;
-            min-width: 100%;
             min-height: 100%;
             width: 400px;
             height: 200px;
@@ -184,7 +194,7 @@ const TPL = new Template(`
     <div id="map-wrapper">
         <slot id="map" style="--map-zoom: ${ZOOM_DEF};">
         </slot>
-        <div id="back">(${Language.translate("back")})</div>
+        <div id="back">(${Language.generateLabel("back")})</div>
         <div id="map-settings">
             <div class="buttons">
                 <div id="toggle-button" class="button-wrapper">⇑</div>
@@ -330,13 +340,15 @@ function overviewSelect(event, map) {
     return false;
 }
 
+const AREA_EVENT_MANAGER = new WeakMap();
+
 class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-        this.shadowRoot.getElementById('back').addEventListener("click", () => {
+        this.shadowRoot.getElementById("back").addEventListener("click", () => {
             this.ref = "overworld"
         });
         // map specifics
@@ -402,20 +414,29 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
             event.preventDefault();
             return false;
         });
+        /* --- */
+        const areaEventManager = new EventTargetManager();
+        AREA_EVENT_MANAGER.set(this, areaEventManager);
+        areaEventManager.set("list_update", event => {
+            this.refresh();
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
         });
         this.registerGlobal("location_mode", event => {
             this.mode = event.data.value;
-            this.shadowRoot.getElementById('location-mode').value = this.mode;
+            this.shadowRoot.getElementById("location-mode").value = this.mode;
         });
-        this.registerGlobal(["state", "settings", "randomizer_options", "filter"], () => {
+        this.registerGlobal("state", () => {
             this.refresh();
         });
-        this.registerGlobal("dungeontype", event => {
-            if (this.ref === event.data.name) {
-                this.refresh();
+        this.registerGlobal("statechange_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
             }
         });
     }
@@ -432,11 +453,11 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     set ref(val) {
         //this.setAttribute('ref', val);
-        this.setAttribute('ref', "overworld");
+        this.setAttribute("ref", "overworld");
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -452,25 +473,26 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         // TODO do not use specialized code. make generic
         //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
         //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
+        const areaEventManager = AREA_EVENT_MANAGER.get(this);
         this.innerHTML = "";
-        const data = WorldRegistry.get(this.ref || "overworld");
-        if (data != null) {
-            const areaData = data.areaData;
+        const areaState = WorldStateManager.getByRef(this.ref || "overworld");
+        if (areaState != null) {
+            areaEventManager.switchTarget(areaState);
+            const areaData = areaState.areaData;
             // switch map/minimap background
-            const map = this.shadowRoot.getElementById('map');
+            const map = this.shadowRoot.getElementById("map");
             map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             map.style.width = `${areaData.width}px`;
             map.style.height = `${areaData.height}px`;
-            const minimap = this.shadowRoot.getElementById('map-overview');
+            const minimap = this.shadowRoot.getElementById("map-overview");
             minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            const list = data.getFilteredList();
+            const list = areaState.getList();
             if (list != null) {
                 //btn_vanilla.className = "hidden";
                 //btn_masterquest.className = "hidden";
                 for (const record of list) {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
+                    const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`map-${record.category}`);
                     const el = uiReg.create(loc.props.type, loc.ref);
                     el.left = record.x;
@@ -498,7 +520,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 }
 
 Panel.registerReference("location-map", HTMLTrackerMap);
-customElements.define('ootrt-map', HTMLTrackerMap);
+customElements.define("ootrt-map", HTMLTrackerMap);
 
 function calculateTooltipPosition(posX, posY, mapW, mapH) {
     const leftP = posX / mapW;

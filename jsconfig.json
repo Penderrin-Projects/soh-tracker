@@ -12,13 +12,16 @@
                 "./GameTrackerJS/*"
             ],
             "/emcJS/*": [
-                "../../emcJS/src/*"
+                "../../emcJS/src/*",
+                "../node_modules/emcjs/src/*"
             ],
             "/editors/*": [
-                "../../JSEditors/*"
+                "../../JSEditors/src/*",
+                "../node_modules/jseditors/src/*"
             ],
             "/rtc/*": [
-                "../../RTCClient/*"
+                "../../RTCClient/src/*",
+                "../node_modules/rtcclient/src/*"
             ]
         }
     }

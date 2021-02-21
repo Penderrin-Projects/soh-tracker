@@ -1,6 +1,8 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateData from "../abstract/StateData.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+import SavestateHandler from "../../savestate/SavestateHandler.js";
+import DataState from "../abstract/DataState.js";
 
 const VALUE = new WeakMap();
 const MAX = new WeakMap();
@@ -26,18 +28,18 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.value = change.value ?? 0;
+        this./*#*/__setValue(change.value);
     }
 }
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
-    constructor(ref, props, min = 0, max = 0) {
+    constructor(ref, props, opt) {
         super(ref, props);
         /* --- */
-        MIN.set(this, parseNumber(min, Number.MIN_SAFE_INTEGER));
-        MAX.set(this, parseNumber(max, Number.MAX_SAFE_INTEGER));
-        this.value = StateStorage.read(ref, 0);
+        MIN.set(this, parseNumber(opt?.min ?? props.min ?? 0, Number.MIN_SAFE_INTEGER));
+        MAX.set(this, parseNumber(opt?.max ?? props.max ?? 0, Number.MAX_SAFE_INTEGER));
+        VALUE.set(this, SavestateHandler.get("", ref, 0));
         /* EVENTS */
         EventBus.register("state::item", internalChange.bind(this));
         EventBus.register("state", event => {
@@ -103,7 +105,7 @@ export default class DefaultState extends StateData {
         return MAX.get(this);
     }
 
-    set value(value) {
+    /*#*/__setValue(value) {
         const ref = this.ref;
         value = parseNumber(value);
         if (value != null) {
@@ -117,14 +119,23 @@ export default class DefaultState extends StateData {
             const old = this.value;
             if (value != old) {
                 VALUE.set(this, value);
-                StateStorage.write(ref, value);
+                SavestateHandler.set("", ref, value);
                 // external
                 const event = new Event("value");
                 event.data = value;
                 this.dispatchEvent(event);
-                // internal
-                EventBus.trigger("state::item", {ref, value});
             }
+            return value;
+        }
+    }
+
+    set value(value) {
+        const ref = this.ref;
+        const old = this.value;
+        value = this./*#*/__setValue(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::item", {ref, value});
         }
     }
 

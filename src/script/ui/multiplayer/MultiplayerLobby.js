@@ -1,6 +1,11 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
+import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import RTCController from "/script/util/RTCController.js";
+/* asym-import: on */
+
+// Track-OOT
+import RTCController from "/script/util/rtc/RTCController.js";
 import "./MPRoom.js";
 
 const TPL = new Template(`
@@ -80,7 +85,7 @@ class HTMLMultiplayerLobby extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const host_name = this.shadowRoot.getElementById("host_name");
@@ -92,9 +97,9 @@ class HTMLMultiplayerLobby extends HTMLElement {
 
         host_button.addEventListener("click", async function() {
             if (host_name.value) {
-                const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value);
+                const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value, MemoryStorage.get("version-string", 0));
                 if (res) {
-                    this.dispatchEvent(new Event('host'));
+                    this.dispatchEvent(new Event("host"));
                 }
             }
         }.bind(this));
@@ -104,12 +109,12 @@ class HTMLMultiplayerLobby extends HTMLElement {
             let res;
             if (!!el.pass && el.pass != "false") {
                 const pass = await Dialog.prompt("password required", "please enter password");
-                res = await RTCController.connect(el.name, pass);
+                res = await RTCController.join(el.name, pass, MemoryStorage.get("version-string", 0));
             } else {
-                res = await RTCController.connect(el.name);
+                res = await RTCController.join(el.name, "", MemoryStorage.get("version-string", 0));
             }
             if (res) {
-                this.dispatchEvent(new Event('join'));
+                this.dispatchEvent(new Event("join"));
             }
         }.bind(this);
 
@@ -122,6 +127,7 @@ class HTMLMultiplayerLobby extends HTMLElement {
                     el.name = inst.name;
                     el.pass = inst.pass;
                     el.desc = inst.desc;
+                    el.version = inst.version;
                     el.addEventListener("click", connect);
                     this.append(el);
                 }.bind(this));
@@ -136,4 +142,4 @@ class HTMLMultiplayerLobby extends HTMLElement {
 
 }
 
-customElements.define('ootrt-multiplayerlobby', HTMLMultiplayerLobby);
+customElements.define("ootrt-multiplayerlobby", HTMLMultiplayerLobby);

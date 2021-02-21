@@ -1,6 +1,10 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateData from "/GameTrackerJS/state/abstract/StateData.js";
-import StateStorage from "/script/storage/StateStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 
 const NOTES = new WeakMap();
 
@@ -9,17 +13,17 @@ function internalChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.notes = change.value;
+        this./*#*/__setNotes(change.value);
     }
 }
 
-export default class DefaultState extends StateData {
+export default class DefaultState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
         if (props.editable) {
-            this.notes = StateStorage.readExtra("songs", ref, props.notes);
+            this.notes = SavestateHandler.get("songs", ref, props.notes);
         } else {
             NOTES.set(this, props.notes);
         }
@@ -44,22 +48,31 @@ export default class DefaultState extends StateData {
         }
     }
 
-    set notes(value) {
+    /*#*/__setNotes(value) {
         if (this.props.editable) {
             const ref = this.ref;
             if (typeof value == "string") {
                 const old = this.notes;
                 if (value != old) {
                     NOTES.set(this, value);
-                    StateStorage.writeExtra("songs", ref, value);
+                    SavestateHandler.set("songs", ref, value);
                     // external
                     const event = new Event("notes");
                     event.data = value;
                     this.dispatchEvent(event);
-                    // internal
-                    EventBus.trigger("state::song", {ref, value});
                 }
+                return value;
             }
+        }
+    }
+        
+    set notes(value) {
+        const ref = this.ref;
+        const old = this.hint;
+        value = this./*#*/__setNotes(value);
+        if (value != null && value != old) {
+            // internal
+            EventBus.trigger("state::song", {ref, value});
         }
     }
 

@@ -1,12 +1,19 @@
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
+import "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -104,10 +111,11 @@ export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
     }
     
     applyAccess(data) {
@@ -145,44 +153,44 @@ export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
     }
 
     get left() {
-        return this.getAttribute('left');
+        return this.getAttribute("left");
     }
 
     set left(val) {
-        this.setAttribute('left', val);
+        this.setAttribute("left", val);
     }
 
     get top() {
-        return this.getAttribute('top');
+        return this.getAttribute("top");
     }
 
     set top(val) {
-        this.setAttribute('top', val);
+        this.setAttribute("top", val);
     }
 
     get tooltip() {
-        return this.getAttribute('tooltip');
+        return this.getAttribute("tooltip");
     }
 
     set tooltip(val) {
-        this.setAttribute('tooltip', val);
+        this.setAttribute("tooltip", val);
     }
 
     static get observedAttributes() {
-        return [...super.observedAttributes, 'left', 'top', 'tooltip'];
+        return [...super.observedAttributes, "left", "top", "tooltip"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
-            case 'top':
-            case 'left':
+            case "top":
+            case "left":
                 if (oldValue != newValue) {
                     this.style.left = `${this.left}px`;
                     this.style.top = `${this.top}px`;
                 }
                 break;
-            case 'tooltip':
+            case "tooltip":
                 if (oldValue != newValue) {
                     const tooltip = this.shadowRoot.getElementById("tooltip");
                     tooltip.position = newValue;
@@ -194,4 +202,4 @@ export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
 }
 
 UIRegistry.set("map-subexit", new UIRegistry(MapSubExit));
-customElements.define('ootrt-marker-subexit', MapSubExit);
+customElements.define("ootrt-marker-subexit", MapSubExit);

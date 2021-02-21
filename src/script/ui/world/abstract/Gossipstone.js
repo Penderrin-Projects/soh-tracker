@@ -1,11 +1,23 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
+import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/input/SearchSelect.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+// Track-OOT
+import "/script/state/world/location/GossipstoneState.js";
 import LogicViewer from "/script/content/logic/LogicViewer.js";
 import "../../ctxmenu/GossipstoneContextMenu.js";
+
+const CTG_TPL = new Template(`
+<span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
+`);
 
 // TODO
 
@@ -49,7 +61,7 @@ export default class ListGossipstone extends AbstractLocation {
         mnu_ctx.addEventListener("show_logic", event => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.translate(this.ref);
+                const title = Language.generateLabel(this.ref);
                 LogicViewer.show(state.props.access, title);
             }
         });
@@ -82,17 +94,17 @@ export default class ListGossipstone extends AbstractLocation {
                 // location
                 if (locationEl != null) {
                     if (hint.location) {
-                        locationEl.innerHTML = Language.translate(hint.location);
+                        Language.applyLabel(locationEl, hint.location);
                     } else {
-                        locationEl.innerHTML = "";
+                        Language.applyLabel(locationEl, "");
                     }
                 }
                 // item
                 if (itemEl != null) {
                     if (hint.item) {
-                        itemEl.innerHTML = Language.translate(hint.item);
+                        Language.applyLabel(itemEl, hint.item);
                     } else {
-                        itemEl.innerHTML = "";
+                        Language.applyLabel(itemEl, "");
                     }
                 }
             }
@@ -122,7 +134,7 @@ export default class ListGossipstone extends AbstractLocation {
 }
 
 function getLocationDescriptors() {
-    const marker = FileData.get('world/marker');
+    const marker = WorldResource.get("marker");
     const loc = filterLocations(marker.location);
     const locations = {};
     for (const name in loc) {
@@ -149,58 +161,62 @@ function filterLocations(obj) {
 
 function hintstoneDialog(ref) {
     return new Promise(resolve => {
-        const location = StateStorage.read(`${ref}.location`, "");
-        const item = StateStorage.read(`${ref}.item`, "");
+        const location = SavestateHandler.get("", `${ref}.location`, "");
+        const item = SavestateHandler.get("", `${ref}.item`, "");
 
         const [areas, subareas, locations] = getLocationDescriptors();
-        const items = Object.keys(FileData.get('items'));
+        const items = Object.keys(ItemsResource.get());
         items.push("WOTH");
         items.push("FOOL");
     
-        const lbl_loc = document.createElement('label');
+        const lbl_loc = document.createElement("label");
         lbl_loc.style.display = "flex";
         lbl_loc.style.justifyContent = "space-between";
         lbl_loc.style.alignItems = "center";
         lbl_loc.style.padding = "5px";
-        lbl_loc.innerHTML = Language.translate("location");
+        Language.applyLabel(lbl_loc, "location");
         const slt_loc = document.createElement("emc-searchselect");
-        slt_loc.append(createOption("", "[" + Language.translate("empty") + "]"));
+        // add empty
+        slt_loc.append(createEmptyOption());
+        // set choices
         for (const loc of areas) {
             const id = `area/${loc}`;
-            slt_loc.append(createOption(id, `${Language.translate(id)} [area]`));
+            slt_loc.append(createLocationOption(id, "area"));
         }
         for (const loc of subareas) {
             const id = `subarea/${loc}`;
-            slt_loc.append(createOption(id, `${Language.translate(id)} [subarea]`));
+            slt_loc.append(createLocationOption(id, "subarea"));
         }
         for (const type in locations) {
             const data = locations[type];
             for (const loc of data) {
                 const id = `location/${loc}`;
-                slt_loc.append(createOption(id, `${Language.translate(id)} [${type}]`));
+                slt_loc.append(createLocationOption(id, type));
             }
         }
         slt_loc.style.width = "300px";
         slt_loc.value = location;
         lbl_loc.append(slt_loc);
     
-        const lbl_itm = document.createElement('label');
+        const lbl_itm = document.createElement("label");
         lbl_itm.style.display = "flex";
         lbl_itm.style.justifyContent = "space-between";
         lbl_itm.style.alignItems = "center";
         lbl_itm.style.padding = "5px";
-        lbl_itm.innerHTML = Language.translate("item");
+        Language.applyLabel(lbl_itm, "item");
         const slt_itm = document.createElement("emc-searchselect");
-        slt_itm.append(createOption("", "[" + Language.translate("empty") + "]"));
+        // add empty
+        slt_itm.append(createEmptyOption());
+        // set choices
         for (let j = 0; j < items.length; ++j) {
             const itm = items[j];
-            slt_itm.append(createOption(itm, Language.translate(itm)));
+            slt_itm.append(createItemOption(itm));
         }
         slt_itm.style.width = "300px";
         slt_itm.value = item;
         lbl_itm.append(slt_itm);
         
-        const d = new Dialog({title: Language.translate(ref), submit: true, cancel: true});
+        const d = new Dialog({title: Language.generateLabel(ref), submit: true, cancel: true});
         d.onsubmit = function(result) {
             if (result) {
                 resolve({item: slt_itm.value, location: slt_loc.value});
@@ -214,9 +230,31 @@ function hintstoneDialog(ref) {
     });
 }
 
-function createOption(value, content) {
-    const opt = document.createElement('emc-option');
-    opt.value = value;
-    opt.innerHTML = content;
-    return opt;
+function createEmptyOption() {
+    const el = document.createElement("emc-option");
+    el.value = "";
+    const text = document.createElement("span");
+    Language.applyLabel(text, "empty");
+    text.style.fontStyle = "italic";
+    el.append(text);
+    return el;
+}
+
+function createLocationOption(id, type) {
+    const el = document.createElement("emc-option");
+    el.value = id;
+    const name = Language.generateLabel(id);
+    const category = CTG_TPL.generate();
+    Language.applyLabel(category, type);
+    el.append(name);
+    el.append(category);
+    return el;
+}
+
+function createItemOption(id) {
+    const el = document.createElement("emc-option");
+    el.value = id;
+    const name = Language.generateLabel(id);
+    el.append(name);
+    return el;
 }

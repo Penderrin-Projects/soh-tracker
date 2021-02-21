@@ -1,6 +1,11 @@
-import FileData from "/emcJS/data/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import Language from "/script/util/Language.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 
 const TPL = new Template(`
     <style>
@@ -55,63 +60,63 @@ export default class HTMLTrackerShopEditItem extends HTMLElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get price() {
-        return this.getAttribute('price');
+        return this.getAttribute("price");
     }
 
     set price(val) {
-        this.setAttribute('price', val);
+        this.setAttribute("price", val);
     }
 
     get checked() {
-        return this.getAttribute('checked');
+        return this.getAttribute("checked");
     }
 
     set checked(val) {
-        this.setAttribute('checked', val);
+        this.setAttribute("checked", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'price', 'checked'];
+        return ["ref", "price", "checked"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'ref':
+            case "ref":
                 if (oldValue != newValue) {
-                    this.shadowRoot.getElementById("title").innerHTML = Language.translate(newValue);
+                    Language.applyLabel(this.shadowRoot.getElementById("title"), newValue);
                     if (!!this.checked && this.checked == "true") {
                         this.shadowRoot.getElementById("image").style.backgroundImage = `url("/images/items/sold_out.png")`;
                     } else {
-                        const img = FileData.get("shop_items")[this.ref].image;
-                        this.shadowRoot.getElementById("image").style.backgroundImage = `url("${img}")`;
+                        const shop_item = ShopItemsResource.get(this.ref);
+                        this.shadowRoot.getElementById("image").style.backgroundImage = `url("${shop_item.image}")`;
                     }
                 }
                 break;
-            case 'price':
+            case "price":
                 if (oldValue != newValue) {
                     this.shadowRoot.getElementById("price").innerHTML = newValue;
                 }
                 break;
-            case 'checked':
+            case "checked":
                 if (oldValue != newValue) {
                     if (!!this.checked && this.checked == "true") {
                         this.shadowRoot.getElementById("image").style.backgroundImage = `url("/images/items/sold_out.png")`;
                     } else {
-                        const img = FileData.get("shop_items")[this.ref].image;
-                        this.shadowRoot.getElementById("image").style.backgroundImage = `url("${img}")`;
+                        const shop_item = ShopItemsResource.get(this.ref);
+                        this.shadowRoot.getElementById("image").style.backgroundImage = `url("${shop_item.image}")`;
                     }
                 }
                 break;
@@ -120,4 +125,4 @@ export default class HTMLTrackerShopEditItem extends HTMLElement {
 
 }
 
-customElements.define('ootrt-shopedititem', HTMLTrackerShopEditItem);
+customElements.define("ootrt-shopedititem", HTMLTrackerShopEditItem);

@@ -1,9 +1,12 @@
-import StateData from "../../state/abstract/StateData.js";
+/* asym-import: off */
+import {createMixin} from "/emcJS/util/Mixin.js";
+/* asym-import: on */
+import DataState from "../../state/abstract/DataState.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
 
-export default (CLAZZ) => class extends CLAZZ {
+export default createMixin((superclass) => class StateDataEventManager extends superclass {
 
     constructor(...args) {
         super(...args);
@@ -21,7 +24,7 @@ export default (CLAZZ) => class extends CLAZZ {
                 });
             });
         }
-        if (newTarget instanceof StateData) {
+        if (newTarget instanceof DataState) {
             TARGET.set(this, newTarget);
             if (this.isConnected) {
                 subs.forEach(function(fns, name) {
@@ -119,4 +122,4 @@ export default (CLAZZ) => class extends CLAZZ {
         // empty
     }
 
-}
+});

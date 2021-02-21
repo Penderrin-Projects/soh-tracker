@@ -1,5 +1,9 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -72,7 +76,7 @@ export default class ListButton extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -83,4 +87,4 @@ export default class ListButton extends HTMLElement {
 
 }
 
-customElements.define('ootrt-list-button', ListButton);
+customElements.define("ootrt-list-button", ListButton);

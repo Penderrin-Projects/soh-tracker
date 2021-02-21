@@ -1,0 +1,167 @@
+/* asym-import: off */
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import Helper from "/emcJS/util/Helper.js";
+/* asym-import: on */
+import WorldStateManagers from "../state/world/StateManagers.js";
+import AccessStateEnum from "../enum/AccessStateEnum.js";
+
+const ACCESS = new WeakMap();
+const LIST = new WeakMap();
+const FILTERED_LIST = new WeakMap();
+
+export default class MarkerListHandler extends EventTarget {
+
+    constructor(list) {
+        super();
+        /* --- */
+        ACCESS.set(this, {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            entrances: false,
+            value: AccessStateEnum.OPENED
+        });
+        setTimeout(() => {
+            this./*#*/__createLists(list);
+            this./*#*/__refreshAccess();
+        }, 0);
+    }
+
+    /*#*/__createLists(list) {
+        const entityList = new Map();
+        const filteredEntityList = new Map();
+        if (list != null) {
+            list.forEach(record => {
+                const loc = WorldStateManagers.get(record.category, record.id);
+                if (loc != null) {
+                    entityList.set(loc, record);
+                    if (loc.isVisible()) {
+                        filteredEntityList.set(loc, record);
+                    }
+                }
+            });
+        }
+        /* --- */
+        for (const [loc, record] of entityList) {
+            const eventManager = new EventTargetManager(loc);
+            if (record.category != "area" && record.category != "exit") {
+                eventManager.set("access", () => {
+                    if (filteredEntityList.has(loc)) {
+                        this./*#*/__refreshAccess();
+                    }
+                });
+            }
+            eventManager.set(["visible", "filter"], () => {
+                if (loc.isVisible()) {
+                    if (!filteredEntityList.has(loc)) {
+                        filteredEntityList.set(loc, entityList.get(loc));
+                        this./*#*/__refreshAccess();
+                        // external
+                        const ev = new Event("change");
+                        ev.filtered = this.filtered;
+                        this.dispatchEvent(ev);
+                    }
+                } else {
+                    if (filteredEntityList.has(loc)) {
+                        filteredEntityList.delete(loc);
+                        this./*#*/__refreshAccess();
+                        // external
+                        const ev = new Event("change");
+                        ev.filtered = this.filtered;
+                        this.dispatchEvent(ev);
+                    }
+                }
+            });
+        }
+        /* --- */
+        LIST.set(this, entityList);
+        FILTERED_LIST.set(this, filteredEntityList);
+        // external
+        const ev = new Event("change");
+        ev.list = this.list;
+        ev.filtered = this.filtered;
+        this.dispatchEvent(ev);
+    }
+
+    /*#*/__refreshAccess() {
+        const access = this./*#*/__calculateAvailability();
+        if (access != null) {
+            const old = ACCESS.get(this);
+            if (!Helper.isEqual(old, access)) {
+                ACCESS.set(this, access);
+                // external
+                const event = new Event("access");
+                event.data = access;
+                this.dispatchEvent(event);
+            }
+        }
+    }
+
+    /*#*/__calculateAvailability() {
+        const list = FILTERED_LIST.get(this);
+        const res = {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            entrances: false,
+            value: AccessStateEnum.OPENED
+        };
+        for (const [loc, record] of list) {
+            if (record.category != "area" && record.category != "exit") {
+                const {done, unopened, reachable, entrances} = loc.access;
+                res.done += done;
+                res.unopened += unopened;
+                res.reachable += reachable;
+                res.entrances = res.entrances || entrances;
+            }
+        }
+        if (res.unopened > 0) {
+            if (res.reachable > 0) {
+                if (res.unopened == res.reachable) {
+                    res.value = AccessStateEnum.AVAILABLE;
+                } else {
+                    res.value = AccessStateEnum.POSSIBLE;
+                }
+            } else {
+                res.value = AccessStateEnum.UNAVAILABLE;
+            }
+        }
+        return res;
+    }
+
+    setAllEntries(value = true) {
+        const list = FILTERED_LIST.get(this);
+        for (const [loc, record] of list) {
+            if (record.category != "area" && record.category != "exit") {
+                if (record.category == "location") {
+                    loc.value = value;
+                } else {
+                    loc.setAllEntries(value);
+                }
+            }
+        }
+    }
+
+    get access() {
+        return ACCESS.get(this);
+    }
+
+    get list() {
+        const list = LIST.get(this);
+        if (list != null) {
+            return Array.from(list.values());
+        } else {
+            return [];
+        }
+    }
+
+    get filtered() {
+        const list = FILTERED_LIST.get(this);
+        if (list != null) {
+            return Array.from(list.values());
+        } else {
+            return [];
+        }
+    }
+
+}

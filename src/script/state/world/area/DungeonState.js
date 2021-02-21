@@ -1,13 +1,19 @@
+/* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import SettingsStorage from "/script/storage/SettingsStorage.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import WorldRegistry from "/GameTrackerJS/registry/WorldRegistry.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import MarkerListHandler from "/GameTrackerJS/util/MarkerListHandler.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
 
 const TYPE = new WeakMap();
+const LIST_HANDLER = new WeakMap();
+const ACCESS = new WeakMap();
+const ACCESS_MQ = new WeakMap();
 
 function getAccessNeutralBoth(res_v, res_m) {
     if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
@@ -58,7 +64,7 @@ function internalTypeChange(event) {
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this.applyTypeValue(change.value || "n");
+        this./*#*/__applyTypeValue(change.value || "n");
     }
 }
 
@@ -67,18 +73,87 @@ export default class DungeonState extends DefaultState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        this.applyTypeValue(StateStorage.readExtra("dungeontype", ref, "n"));
+        ACCESS.set(this, super.access);
+        const listHandler = this.generateMQList();
+        ACCESS_MQ.set(this, listHandler.access);
+        LIST_HANDLER.set(this, listHandler);
+        /* --- */
+        this./*#*/__applyTypeValue(SavestateHandler.get("dungeontype", ref, "n"));
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
-        this.addEventListener("type", event => {
-            this.calculateAvailability();
+    }
+    
+    generateList() {
+        const listHandler = new MarkerListHandler(this.areaData.lists["v"]);
+        listHandler.addEventListener("access", event => {
+            ACCESS.set(this, event.data);
+            if (this.type == "v") {
+                this.setAccess(event.data);
+            } else if (this.type != "mq") {
+                const acc_mq = ACCESS_MQ.get(this);
+                const acc = getAccessNeutral(event.data, acc_mq);
+                this.setAccess(acc);
+            }
         });
+        listHandler.addEventListener("change", event => {
+            if (this.type == "v" && event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        });
+        return listHandler;
+    }
+    
+    generateMQList() {
+        const listHandler = new MarkerListHandler(this.areaData.lists["mq"]);
+        listHandler.addEventListener("access", event => {
+            ACCESS_MQ.set(this, event.data);
+            if (this.type == "mq") {
+                this.setAccess(event.data);
+            } else if (this.type != "v") {
+                const acc_v = ACCESS.get(this);
+                const acc = getAccessNeutral(acc_v, event.data);
+                this.setAccess(acc);
+            }
+        });
+        listHandler.addEventListener("change", event => {
+            if (this.type == "mq" && event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        });
+        return listHandler;
     }
 
-    /*#*/applyTypeValue(newValue) {
+    setAllEntries(value = true) {
+        const type = TYPE.get(this);
+        if (type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            listHandler.setAllEntries(value);
+        } else if (type != "v") {
+            super.setAllEntries(value);
+        }
+    }
+
+    /*#*/__applyTypeValue(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
+            // access
+            if (newValue == "v") {
+                const acc_v = ACCESS.get(this);
+                this.setAccess(acc_v);
+            } else if (newValue == "mq") {
+                const acc_mq = ACCESS_MQ.get(this);
+                this.setAccess(acc_mq);
+            } else {
+                const acc_v = ACCESS.get(this);
+                const acc_mq = ACCESS_MQ.get(this);
+                const acc = getAccessNeutral(acc_v, acc_mq);
+                this.setAccess(acc);
+            }
             // external
             const event = new Event("type");
             event.data = newValue;
@@ -92,65 +167,45 @@ export default class DungeonState extends DefaultState {
         if (props["maxmq"] != null && props["related_dungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this.type = types[props.related_dungeon];
+                this./*#*/__applyTypeValue(types[props.related_dungeon]);
             } else {
-                this.type = "n";
+                this./*#*/__applyTypeValue("n");
             }
         }
         // savesatate
         super.stateLoaded(event);
     }
 
-    calculateAvailability() {
-        const type = TYPE.get(this);
-        if (type == "n") {
-            let res;
-            const listV = this.getFilteredList("v");
-            if (listV != null) {
-                res = ListLogic.check(listV);
-            }
-            const listM = this.getFilteredList("mq");
-            if (listM != null) {
-                const resM = ListLogic.check(listM);
-                if (res != null) {
-                    res = getAccessNeutral(res, resM);
-                } else {
-                    res = resM;
-                }
-            }
-            return res;
-        } else {
-            const list = this.getFilteredList();
-            if (list != null) {
-                const res = ListLogic.check(list);
-                if (res != null) {
-                    return res;
-                }
-            }
+    getList(type = this.type) {
+        if (type == "v") {
+            return super.getList();
         }
-        return ListLogic.DEFAULT;
+        if (type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            return Array.from(listHandler.list);
+        }
     }
 
     getFilteredList(type = this.type) {
-        const areaData = this.areaData;
-        if (areaData != null) {
-            const list = areaData.lists[type];
-            if (list != null) {
-                const result = [];
-                list.forEach(record => {
-                    const id = `${record.category}/${record.id}`;
-                    const loc = WorldRegistry.get(id);
-                    if (!!loc && loc.visible) {
-                        result.push(record);
-                    }
-                });
-                return result;
-            }
+        if (type == "v") {
+            return super.getFilteredList();
+        }
+        if (type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            return Array.from(listHandler.filtered);
         }
     }
 
     get type() {
         return TYPE.get(this);
+    }
+
+    getAccessV() {
+        return ACCESS.get(this);
+    }
+
+    getAccessMQ() {
+        return ACCESS_MQ.get(this);
     }
 
 }

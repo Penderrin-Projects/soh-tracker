@@ -1,7 +1,12 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import Language from "/script/util/Language.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
 import "./ShopItem.js";
 
 const TPL = new Template(`
@@ -47,28 +52,28 @@ export default class HTMLTrackerShopField extends UIEventBusMixin(HTMLElement) {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const title = this.shadowRoot.getElementById("title-text");
-            title.innerHTML = Language.translate(newValue);
+            Language.applyLabel(title, newValue);
             for (let i = 0; i < 8; ++i) {
                 const el = this.shadowRoot.getElementById(`slot${i}`);
                 el.ref = `${newValue}/${i}`;
@@ -78,4 +83,4 @@ export default class HTMLTrackerShopField extends UIEventBusMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-shopfield', HTMLTrackerShopField);
+customElements.define("ootrt-shopfield", HTMLTrackerShopField);

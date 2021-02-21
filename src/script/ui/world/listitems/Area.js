@@ -1,9 +1,15 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
+/* asym-import: on */
+
+// GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -96,7 +102,7 @@ export default class ListArea extends AbstractArea {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -105,4 +111,4 @@ export default class ListArea extends AbstractArea {
 }
 
 UIRegistry.set("list-area", new UIRegistry(ListArea));
-customElements.define('ootrt-list-area', ListArea);
+customElements.define("ootrt-list-area", ListArea);

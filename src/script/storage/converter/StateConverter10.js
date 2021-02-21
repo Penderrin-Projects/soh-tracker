@@ -1,10 +1,11 @@
 /**
- * move to serverside past TBD
+ * move to serverside earliest past TBD
  */
 
-import StateConverter from "../StateConverter.js";
+import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
+import "./StateConverter9.js";
 
-StateConverter.register(function(state) {
+SavestateConverter.register(function(state) {
     const res = {
         data: state.data,
         extra: {},
