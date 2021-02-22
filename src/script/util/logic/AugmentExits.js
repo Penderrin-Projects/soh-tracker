@@ -1,5 +1,6 @@
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
@@ -9,6 +10,10 @@ import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
+
+SavestateHandler.addEventListener("reset", event => {
+    Logic.clearTranslations();
+});
 
 function changeBinding(values) {
     const changes = [];

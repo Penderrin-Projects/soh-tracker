@@ -2,7 +2,7 @@
 import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
 /* asym-import: on */
 
-const LOGIC_PROCESSOR = new LogicGraph(true);
+const LOGIC_PROCESSOR = new LogicGraph("extended");
 const CALL_TIMERS = new Map();
 
 class TrackerLogic extends EventTarget {
