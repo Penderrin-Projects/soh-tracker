@@ -5826,6 +5826,25 @@
                 }
             ]
         },
+        "kakariko.windmill_dampe": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "list": [
+                {
+                    "id": "kakariko.c_windmill_hp",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.c_song_storm",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
         "kakariko.shop_magic": {
             "background": "",
             "width": 0,
@@ -5931,6 +5950,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "location"
+                },
+                {
+                    "id": "kakariko.windmill_dampe",
+                    "x": 0,
+                    "y": 0,
+                    "category": "subarea"
                 }
             ]
         },
@@ -12454,6 +12479,29 @@
                         "el": "option.entrance_shuffle_interior",
                         "value": "entrance_shuffle_all"
                     }
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/interior.svg"
+            },
+            "kakariko.windmill_dampe": {
+                "type": "interior",
+                "access": "logic.subarea.kakariko.windmill",
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_all"
                 },
                 "filter": {
                     "filter.era": {
