@@ -7,7 +7,6 @@ import "/editors/modules/logic/Editor.js";
 
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
-import LogicViewer from "../logic/LogicViewer.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import "../logic/LiteralCustom.js";
 import "../logic/LiteralMixin.js";
@@ -15,22 +14,21 @@ import "../logic/LiteralFunction.js";
 
 function getLogicData(glitched = false) {
     if (glitched) {
-        return LogicGlitchedResource.get() ?? {edges:{},logic:{}};
+        return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
     } else {
-        return LogicResource.get() ?? {edges:{},logic:{}};
+        return LogicResource.get() ?? {edges:{}, logic:{}};
     }
 }
 
 export default async function(glitched = false) {
     let postfix = "";
-    if (!!glitched) {
+    if (glitched) {
         postfix = "_glitched";
     }
     const LogicsStorage = new IDBStorage(`logics${postfix}`);
     const logicEditor = document.createElement("jse-logic-editor");
     // refresh
     async function refreshLogicEditor() {
-        LogicViewer.glitched = glitched;
         const lists = await LogicListsCreator.createLists(glitched);
         logicEditor.loadOperators(lists.operators);
         logicEditor.loadList(lists.logics);
@@ -77,7 +75,7 @@ export default async function(glitched = false) {
                 }
                 FileSystem.save(JSON.stringify(logic, " ", 4), `logic${postfix}.json`);
             }
-        },{
+        }, {
             "content": "LOAD PATCH",
             "handler": async () => {
                 const res = await FileSystem.load(".json");
@@ -99,10 +97,10 @@ export default async function(glitched = false) {
                     //logicEditor.reset();
                 }
             }
-        },{
+        }, {
             "content": "SAVE PATCH",
             "handler": async () => {
-                const logic = {edges:{},logic:{}};
+                const logic = {edges:{}, logic:{}};
                 const patch = await LogicsStorage.getAll();
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {
@@ -117,46 +115,39 @@ export default async function(glitched = false) {
                 }
                 FileSystem.save(JSON.stringify(logic, " ", 4), `logic${postfix}.${(new Date).valueOf()}.json`);
             }
-        },{
+        }, {
             "content": "REMOVE PATCH",
             "handler": async () => {
                 await LogicsStorage.clear();
                 await refreshLogicEditor();
                 //logicEditor.reset();
             }
-        },{
+        }, {
             "content": "EXIT EDITOR",
             "handler": () => {
                 logicEditor.reset();
-                const event = new Event('close');
+                const event = new Event("close");
                 logicEditor.dispatchEvent(event);
             }
         }]
-    },{
+    }, {
         "content": "CREATE MIXIN",
         "handler": async () => {
             const name = await Dialog.prompt("Create Mixin", "please enter a name");
             if (typeof name == "string") {
-                const el = {
-                    "ref": `mixin.${name}`,
-                    "category": "mixin",
-                    "content": `mixin.${name}`
-                };
-                for (const i of lists.logics) {
-                    if (i.type == "group" && i.caption == "mixin") {
-                        i.children.push(el);
-                        break;
-                    }
-                }
-                logicEditor.loadList(lists.logics);
+                const logic = await LogicsStorage.getAll();
+                logic.logic[name] = {};
+                await LogicsStorage.setAll(logic);
+                await refreshLogicEditor();
+                //logicEditor.reset();
             }
         }
     }];
 
     return {
-        name: `Logic${!!glitched?" Glitched":""}`,
+        name: `Logic${glitched ? " Glitched" : ""}`,
         panel: logicEditor,
         navigation: NAV,
         refreshFn: refreshLogicEditor
     }
-};
+}

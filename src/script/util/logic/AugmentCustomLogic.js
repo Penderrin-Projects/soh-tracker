@@ -10,7 +10,6 @@ import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
-import LogicViewer from "/script/content/logic/LogicViewer.js";
 
 // TODO create storage files for these
 const LogicsStorage = new IDBStorage("logics");
@@ -33,7 +32,6 @@ EventBus.register("settings", async event => {
     if (event.data["use_custom_logic"] != null) {
         if (use_custom_logic != event.data.use_custom_logic) {
             use_custom_logic = event.data.use_custom_logic;
-            LogicViewer.customLogic = !!use_custom_logic;
             update();
         }
     }
@@ -67,7 +65,6 @@ async function update() {
             augmentLogic(logic, customEdges, customLogic);
         }
         Logic.setLogic(logic, "region.root");
-        LogicViewer.glitched = false;
     } else {
         const logic = LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
         if (use_custom_logic) {
@@ -76,7 +73,6 @@ async function update() {
             augmentLogic(logic, customEdges, customLogic);
         }
         Logic.setLogic(logic, "region.root");
-        LogicViewer.glitched = true;
     }
 }
 
