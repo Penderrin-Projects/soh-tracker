@@ -214,31 +214,30 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "ref":
-                    {
-                        const state = WorldStateManager.getByRef(this.ref);
-                        const textEl = this.shadowRoot.getElementById("text");
-                        if (textEl != null) {
-                            Language.applyLabel(textEl, `exit[${state.props.access}]`);
-                        }
-                        this.switchState(state);
+                case "ref": {
+                    const state = WorldStateManager.getByRef(this.ref);
+                    const textEl = this.shadowRoot.getElementById("text");
+                    if (textEl != null) {
+                        Language.applyLabel(textEl, `exit[${state.props.access}]`);
                     }
-                    break;
-                case "value":
-                    {
-                        const state = this.getState();
-                        if (state != null) {
-                            const valueEl = this.shadowRoot.getElementById("value");
-                            if (valueEl != null) {
-                                if (newValue) {
-                                    Language.applyLabel(valueEl, `entrance[${newValue}]`);
-                                } else {
-                                    valueEl.innerHTML = "";
-                                }
+                    this.switchState(state);
+                } break;
+                case "value": {
+                    const state = this.getState();
+                    if (state != null) {
+                        const valueEl = this.shadowRoot.getElementById("value");
+                        if (valueEl != null) {
+                            if (newValue) {
+                                Language.applyLabel(valueEl, `entrance[${newValue}]`);
+                            } else {
+                                valueEl.innerHTML = "";
                             }
                         }
                     }
-                    break;
+                    const event = new Event("change");
+                    event.value = newValue;
+                    this.dispatchEvent(event);
+                } break;
             }
         }
     }

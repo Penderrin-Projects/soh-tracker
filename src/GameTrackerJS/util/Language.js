@@ -44,12 +44,9 @@ class Language {
         return Object.keys(languages);
     }
 
-    /**
-     * @deprecated
-     */
     translate(index) {
         if (!index) return "";
-        return I18n.translate(index);
+        return I18n.get(index);
     }
 
     generateLabel(key, value) {

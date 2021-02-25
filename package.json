@@ -3,7 +3,7 @@
   "author": "Denis Peters (ZidArgs)",
   "dependencies": {
     "asym": "git+https://bitbucket.org/zidargs/asym.git#1.0.8",
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.27",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.28",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.12",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },

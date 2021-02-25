@@ -8,6 +8,7 @@ import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import AbstractGossipstone from "../abstract/Gossipstone.js";
+import "./Location.js";
 
 const TPL = new Template(`
 <div class="textarea">
