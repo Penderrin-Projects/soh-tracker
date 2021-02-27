@@ -13,6 +13,9 @@ import WorldStateManagers from "../world/StateManagers.js";
 import EntranceStates from "../world/entrance/StateManager.js";
 
 function getEntranceArea(value) {
+    if (value == "") {
+        return null;
+    }
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
     if (entrance == null) {
         console.error(`exit "${value}" not found`);

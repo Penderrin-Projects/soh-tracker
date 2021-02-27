@@ -134,10 +134,9 @@ export default class ExitList extends HTMLElement {
         const tokenizer = this.shadowRoot.getElementById("tokenizer");
         const unbound = this.shadowRoot.getElementById("unbound");
         const strict = this.shadowRoot.getElementById("strict");
-        const all = this.querySelectorAll(`gt-exitchoice`);
         const actCat = new Set(tokenizer.value);
         const regEx = new SearchAnd(search.value);
-        all.forEach(el => {
+        for (const el of this.children) {
             if (el) {
                 let isVisible = true;
                 if (actCat.size > 0) {
@@ -164,14 +163,14 @@ export default class ExitList extends HTMLElement {
                         const transVal = Language.translate(el.getAttribute("searchRef"));
                         if (transVal.match(regEx)) {
                             el.style.display = "";
-                            return;
+                            continue;
                         }
                     }
                 }
                 el.style.display = "none";
                 el.classList.remove("marked");
             }
-        });
+        }
     }
 
     addCategory(category) {
