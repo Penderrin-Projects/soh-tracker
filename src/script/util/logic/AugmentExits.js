@@ -19,30 +19,30 @@ function changeBinding(values) {
     const changes = [];
     if (Array.isArray(values)) {
         for (const {from, to} of values) {
-            const [source, target] = from.split(" -> ");
-            if (!to) {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
-            } else {
-                const [reroute] = to.split(" -> ");
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-            }
+            applyBinding(changes, from, to);
         }
     } else {
         const {from, to} = values;
-        const [source, target] = from.split(" -> ");
+        applyBinding(changes, from, to);
+    }
+    if (changes.length) {
+        Logic.setTranslation(changes, "region.root");
+    }
+}
+
+function applyBinding(changes, from, to) {
+    const [source, target] = from.split(" -> ");
+    if (source && target) {
         if (!to) {
             changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
             changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
         } else {
             const [reroute] = to.split(" -> ");
-            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            if (reroute) {
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            }
         }
-    }
-    if (changes.length) {
-        Logic.setTranslation(changes, "region.root");
     }
 }
 

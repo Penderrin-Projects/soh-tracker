@@ -14,9 +14,14 @@ import EntranceStates from "../world/entrance/StateManager.js";
 
 function getEntranceArea(value) {
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
+    if (entrance == null) {
+        console.error(`exit "${value}" not found`);
+        return null;
+    }
     const area = WorldStateManagers.getByRef(entrance.props.area);
     if (area == null) {
         console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
+        return null;
     }
     return area;
 }
@@ -183,26 +188,16 @@ export default class ExitState extends FilteredState {
             const manager = MANAGER.get(this);
             VALUE.set(this, value);
             SavestateHandler.set("exits", props.access, value);
-            if (value) {
-                const area = getEntranceArea(value);
-                AREA.set(this, area);
-                manager.switchState(area);
-                // external
-                const ev = new Event("access");
-                ev.data = area.access;
-                this.dispatchEvent(ev);
-            } else {
-                AREA.set(this, null);
-                manager.switchState(null);
-                // external
-                const ev = new Event("access");
-                ev.data = ACCESS.get(this);
-                this.dispatchEvent(ev);
-            }
+            const area = getEntranceArea(value);
+            AREA.set(this, area);
+            manager.switchState(area);
             // external
-            const event = new Event("value");
-            event.data = value;
-            this.dispatchEvent(event);
+            const ev = new Event("access");
+            ev.data = area?.access ?? ACCESS.get(this);
+            this.dispatchEvent(ev);
+            const ev2 = new Event("value");
+            ev2.data = value;
+            this.dispatchEvent(ev2);
         }
         return value;
     }
