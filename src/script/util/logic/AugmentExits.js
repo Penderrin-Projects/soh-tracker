@@ -11,8 +11,19 @@ import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 
-SavestateHandler.addEventListener("reset", event => {
+const AUGMENTORS = new Set();
+
+SavestateHandler.addEventListener("state", event => {
     Logic.clearTranslations();
+    const initTransalation = [];
+    if (event.data.data["exits"] != null) {
+        for (const [key, value] of Object.entries(event.data.data["exits"])) {
+            applyBinding(initTransalation, key, value);
+        }
+    }
+    if (initTransalation.length) {
+        Logic.setTranslation(initTransalation, "region.root");
+    }
 });
 
 function changeBinding(values) {
@@ -117,10 +128,10 @@ class ExitAugmentor {
 const exits = WorldResource.get("marker/exit");
 for (const name in exits) {
     const exit = WorldStateManager.get("exit", name);
-    new ExitAugmentor(exit);
+    AUGMENTORS.add(new ExitAugmentor(exit));
 }
 const subexits = WorldResource.get("marker/subexit");
 for (const name in subexits) {
     const subexit = WorldStateManager.get("subexit", name);
-    new ExitAugmentor(subexit);
+    AUGMENTORS.add(new ExitAugmentor(subexit));
 }
