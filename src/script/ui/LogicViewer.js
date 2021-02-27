@@ -42,7 +42,7 @@ function extractLogic(data, customData, ref) {
 
 async function getNormalLogic(ref) {
     const data = LogicResource.get();
-    if (customLogicSpy.value) {
+    if (customLogicSpy.getValue()) {
         const LogicsStorage = new IDBStorage("logics");
         const customData = await LogicsStorage.getAll();
         return extractLogic(data, customData, ref);
@@ -53,7 +53,7 @@ async function getNormalLogic(ref) {
 
 async function getGlitchedLogic(ref) {
     const data = LogicGlitchedResource.get();
-    if (customLogicSpy.value) {
+    if (customLogicSpy.getValue()) {
         const LogicsStorage = new IDBStorage("logics_glitched");
         const customData = await LogicsStorage.getAll();
         return extractLogic(data, customData, ref);
@@ -63,10 +63,10 @@ async function getGlitchedLogic(ref) {
 }
 
 async function getLogic(ref) {
-    if (logicRulesSpy.value == "logic_rules_glitchless") {
+    if (logicRulesSpy.getValue() == "logic_rules_glitchless") {
         return getNormalLogic(ref);
     }
-    if (logicRulesSpy.value == "logic_rules_glitched") {
+    if (logicRulesSpy.getValue() == "logic_rules_glitched") {
         return getGlitchedLogic(ref);
     }
     return [];

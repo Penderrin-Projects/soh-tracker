@@ -5,7 +5,7 @@ import SettingsSpy from "../spy/SettingsSpy.js";
 
 const logicDebugSpy = new SettingsSpy("debug_logic");
 
-const LOGIC_PROCESSOR = new LogicGraph(logicDebugSpy.value != "off" && logicDebugSpy.value);
+const LOGIC_PROCESSOR = new LogicGraph(logicDebugSpy.getValue() != "off" && logicDebugSpy.getValue());
 const CALL_TIMERS = new Map();
 
 logicDebugSpy.addEventListener("change", event => {

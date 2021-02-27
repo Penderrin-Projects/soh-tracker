@@ -168,7 +168,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
                 listEl.classList.remove("collapsible");
             }
         });
-        const collapsible = sublistCollapsibleSpy.value;
+        const collapsible = sublistCollapsibleSpy.getValue();
         if (collapsible != "off") {
             textEl.classList.add("collapsible");
             listEl.classList.add("collapsible");
