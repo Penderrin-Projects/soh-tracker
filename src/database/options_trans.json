@@ -1432,7 +1432,6 @@
                 "DMC Central Local":                "region.dmc_central_local -> region.bolero_of_fire_warp",
                 "Sacred Forest Meadow":             "region.sacred_forest_meadow -> region.minuet_of_forest_warp",
                 "Graveyard Warp Pad Region":        "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp",
-                "Temple of Time":                   "region.temple_of_time -> region.prelude_of_light_warp",
                 "Desert Colossus":                  "region.desert_colossus -> region.requiem_of_spirit_warp",
                 "Lake Hylia":                       "region.lake_hylia -> region.serenade_of_water_warp",
                 "Hyrule Field":                     "region.hyrule_field -> region.hf_tektite_grotto_entrance",
@@ -1462,7 +1461,8 @@
                 "GV Fortress Side":                 "region.gv_fortress_side -> region.gv_storms_grotto_entrance",
                 "GV Grotto Ledge":                  "region.gv_grotto_ledge -> region.gv_octorok_grotto_entrance",
                 "Gerudo Fortress":                  "region.gerudo_fortress -> region.gf_storms_grotto_entrance",
-                "GF Outside Gate ":                 "region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway"
+                "GF Outside Gate ":                 "region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway",
+                "Castle Grounds":                   "region.grounds_market_gateway -> region.market_grounds_gateway"
             }
         }
     },
@@ -2656,6 +2656,7 @@
         "Biggoron Sword": "item.sword_biggoron",
         "Bolero of Fire": "item.warp_fire",
         "Bomb Bag": "item.bombs",
+        "Bombchus": "item.bombchu",
         "Bombchus (10)": "item.bombchu",
         "Bombchus (20)": "item.bombchu",
         "Bombchus (5)": "item.bombchu",
