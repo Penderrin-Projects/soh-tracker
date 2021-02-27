@@ -73,6 +73,15 @@ const STYLE = new GlobalStyle(`
     color: #ffffff;
     align-items: center;
 }
+@media (max-width: 1000px) {
+    :host {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pointer {
+        display: none;
+    }
+}
 `);
 
 

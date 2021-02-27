@@ -30,8 +30,10 @@ const TPL = new Template(`
         <emc-i18n-label i18n-key="show_unbound_only" i18n-value="Unbound only"></emc-i18n-label>
     </label>
 </div>
-<slot>
-</slot>
+<div id="scroll-container">
+    <slot>
+    </slot>
+</div>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -39,10 +41,18 @@ const STYLE = new GlobalStyle(`
     position: relative;
     box-sizing: border-box;
 }
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 #searchbar {
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
+    flex-wrap: wrap;
     align-items: center;
     overflow-x: none;
     overflow-y: none;
@@ -57,6 +67,7 @@ const STYLE = new GlobalStyle(`
     flex-shrink: 0;
     flex-basis: 500px;
     width: 500px;
+    max-width: calc(100vw - 10px);
     padding: 5px;
 }
 label {
@@ -67,6 +78,14 @@ label {
     --input-text-color: #ffffff;
     --input-back-color: #000000;
     --input-border-color: #ffffff;
+}
+#scroll-container {
+    flex: 1;
+    overflow: auto;
+}
+::slotted(*) {
+    border-bottom: solid 1px var(--list-border-bottom-color, #000000);
+    border-top: solid 1px var(--list-border-top-color, #000000);
 }
 `);
 
