@@ -105,6 +105,9 @@ export default class DataStorage extends EventTarget {
                 buffer.set(key, value);
             }
         }
+        const ev = new Event("reset");
+        ev.data = this.getAll();
+        this.dispatchEvent(ev);
     }
 
     overwrite(data) {

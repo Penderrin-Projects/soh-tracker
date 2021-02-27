@@ -6,8 +6,9 @@ import WorldStateManagers from "../state/world/StateManagers.js";
 import AccessStateEnum from "../enum/AccessStateEnum.js";
 
 const ACCESS = new WeakMap();
-const LIST = new WeakMap();
-const FILTERED_LIST = new WeakMap();
+const LIST_RAW = new WeakMap();
+const LIST_RESOLVED = new WeakMap();
+const LIST_FILTERED = new WeakMap();
 
 export default class MarkerListHandler extends EventTarget {
 
@@ -21,6 +22,7 @@ export default class MarkerListHandler extends EventTarget {
             entrances: false,
             value: AccessStateEnum.OPENED
         });
+        LIST_RAW.set(this, list);
         setTimeout(() => {
             this./*#*/__createLists(list);
             this./*#*/__refreshAccess();
@@ -74,8 +76,8 @@ export default class MarkerListHandler extends EventTarget {
             });
         }
         /* --- */
-        LIST.set(this, entityList);
-        FILTERED_LIST.set(this, filteredEntityList);
+        LIST_RESOLVED.set(this, entityList);
+        LIST_FILTERED.set(this, filteredEntityList);
         // external
         const ev = new Event("change");
         ev.list = this.list;
@@ -98,7 +100,7 @@ export default class MarkerListHandler extends EventTarget {
     }
 
     /*#*/__calculateAvailability() {
-        const list = FILTERED_LIST.get(this);
+        const list = LIST_FILTERED.get(this);
         const res = {
             done: 0,
             unopened: 0,
@@ -130,7 +132,7 @@ export default class MarkerListHandler extends EventTarget {
     }
 
     setAllEntries(value = true) {
-        const list = FILTERED_LIST.get(this);
+        const list = LIST_FILTERED.get(this);
         for (const [loc, record] of list) {
             if (record.category != "area" && record.category != "exit") {
                 if (record.category == "location") {
@@ -146,8 +148,8 @@ export default class MarkerListHandler extends EventTarget {
         return ACCESS.get(this);
     }
 
-    get list() {
-        const list = LIST.get(this);
+    get rawList() {
+        const list = LIST_RAW.get(this);
         if (list != null) {
             return Array.from(list.values());
         } else {
@@ -155,8 +157,17 @@ export default class MarkerListHandler extends EventTarget {
         }
     }
 
-    get filtered() {
-        const list = FILTERED_LIST.get(this);
+    get list() {
+        const list = LIST_RESOLVED.get(this);
+        if (list != null) {
+            return Array.from(list.values());
+        } else {
+            return [];
+        }
+    }
+
+    get filteredList() {
+        const list = LIST_FILTERED.get(this);
         if (list != null) {
             return Array.from(list.values());
         } else {

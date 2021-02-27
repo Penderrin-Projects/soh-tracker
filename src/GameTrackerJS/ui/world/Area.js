@@ -10,7 +10,7 @@ import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class AbstractArea extends WorldElement {
 
-    constructor(type) {
+    constructor() {
         super();
         /* --- */
         this.registerStateHandler("access", event => {
@@ -21,34 +21,32 @@ export default class AbstractArea extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("gt-ctxmenu-area");
-        this.setContextMenu("main", mnu_ctx);
-        
-        mnu_ctx.addEventListener("check", event => {
+        this.setContextMenu("main", document.createElement("gt-ctxmenu-area"));
+        this.addContextMenuHandler("main", "check", event => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(true);
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addContextMenuHandler("main", "uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(false);
             }
         });
-        mnu_ctx.addEventListener("setwoth", event => {
+        this.addContextMenuHandler("main", "setwoth", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "woth";
             }
         });
-        mnu_ctx.addEventListener("setbarren", event => {
+        this.addContextMenuHandler("main", "setbarren", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "barren";
             }
         });
-        mnu_ctx.addEventListener("clearhint", event => {
+        this.addContextMenuHandler("main", "clearhint", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "";
@@ -65,6 +63,7 @@ export default class AbstractArea extends WorldElement {
             return false;
         });
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getContextMenu("main");
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();

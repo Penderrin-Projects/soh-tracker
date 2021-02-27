@@ -84,5 +84,15 @@
         "category": "settings",
         "type": "check",
         "default": false
+    },
+    "debug_logic": {
+        "category": "debug",
+        "type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "on",
+            "extended"
+        ]
     }
 }

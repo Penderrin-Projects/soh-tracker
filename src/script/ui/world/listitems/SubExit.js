@@ -19,6 +19,7 @@ import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
+import "../../ctxmenu/ExitBindingMenu.js";
 
 const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 
@@ -137,6 +138,8 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
+        /* --- */
         const textEl = this.shadowRoot.getElementById("text");
         const listEl = this.shadowRoot.getElementById("list");
         textEl.addEventListener("click", (event) => {
@@ -165,7 +168,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
                 listEl.classList.remove("collapsible");
             }
         });
-        const collapsible = sublistCollapsibleSpy.value;
+        const collapsible = sublistCollapsibleSpy.getValue();
         if (collapsible != "off") {
             textEl.classList.add("collapsible");
             listEl.classList.add("collapsible");

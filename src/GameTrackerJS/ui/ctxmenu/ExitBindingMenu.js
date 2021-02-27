@@ -7,6 +7,7 @@ import WorldResource from "../../resource/WorldResource.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import Language from "../../util/Language.js";
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -15,7 +16,7 @@ const TPL = new Template(`
 `);
 
 const CTG_TPL = new Template(`
-<span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
+<span style="color:#00000057;font-style:italic;font-size:0.8em;"></span>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -48,6 +49,13 @@ export default class ExitBindingMenu extends HTMLElement {
         menuEl.addEventListener("close", () => {
             selectEl.resetSearch();
         });
+        
+        /* fck iOS */
+        iOSTouchHandler.register(this.shadowRoot.getElementById("menu"), true);
+        const all = this.shadowRoot.querySelectorAll(".item");
+        for (const el of all) {
+            iOSTouchHandler.register(el);
+        }
     }
 
     show(posX, posY) {
@@ -101,20 +109,16 @@ export default class ExitBindingMenu extends HTMLElement {
             for (const name in entrances) {
                 const value = WorldStateManager.getEntrance(name);
                 if (access != value.props.target) {
-                    const isActive = value.active || exit.props.includeInactiveEntrances;
-                    const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
-                    if (isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound)) {
+                    const isBindable = this.checkBindable(value, exit, bound);
+                    if (isBindable) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
                         const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
-                        if (exit.props.bindsTo.length > 1) {
-                            const category = CTG_TPL.generate();
-                            Language.applyLabel(category, value.props.type);
-                            opt.append(entranceName);
-                            opt.append(category);
-                        } else {
-                            opt.append(entranceName);
-                        }
+                        opt.append(entranceName);
+                        const category = CTG_TPL.generate(0);
+                        const categoryName = Language.generateLabel(value.props.type);
+                        category.append(categoryName);
+                        opt.append(category);
                         selectEl.append(opt);
                     }
                 }
@@ -122,6 +126,12 @@ export default class ExitBindingMenu extends HTMLElement {
         } else {
             selectEl.value = "";
         }
+    }
+
+    checkBindable(value, exit, bound) {
+        const isActive = value.active || exit.props.includeInactiveEntrances;
+        const isActiveAndBinds = isActive && exit.props.bindsTo.indexOf(value.props.type) >= 0;
+        return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);
     }
 
 }

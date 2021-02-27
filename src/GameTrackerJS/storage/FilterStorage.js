@@ -86,6 +86,18 @@ class FilterStorage extends DataStorage {
         return res;
     }
 
+    deserialize(data) {
+        const res = {};
+        for (const [key, value] of DEFAULTS) {
+            if (PERSISTED.has(key)) {
+                res[key] = data[key] ?? value;
+            } else {
+                res[key] = super.get(key, value);
+            }
+        }
+        super.deserialize(res);
+    }
+
 }
 
 const storage = new FilterStorage();

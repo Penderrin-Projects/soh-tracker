@@ -2,13 +2,13 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 /* asym-import: on */
-import WorldStateManager from "../state/world/WorldStateManager.js";
-import StateDataEventManagerMixin from "./mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "./mixin/ContextMenuManager.js";
-import Badge from "./Badge.js";
-import "./ctxmenu/ExitChoiceContextMenu.js";
-import "./ctxmenu/ExitBindingMenu.js";
-import Language from "../util/Language.js";
+import WorldStateManager from "../../state/world/WorldStateManager.js";
+import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
+import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
+import Badge from "../Badge.js";
+import "../ctxmenu/ExitChoiceContextMenu.js";
+import "../ctxmenu/ExitBindingMenu.js";
+import Language from "../../util/Language.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -73,10 +73,19 @@ const STYLE = new GlobalStyle(`
     color: #ffffff;
     align-items: center;
 }
+@media (max-width: 1000px) {
+    :host {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pointer {
+        display: none;
+    }
+}
 `);
 
 
-export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
 
     constructor() {
         super();
@@ -109,20 +118,18 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("gt-ctxmenu-exitchoice");
-        this.setContextMenu("main", mnu_ctx);
-
-        const mnu_ext = document.createElement("gt-ctxmenu-exitbinding");
-        this.setContextMenu("exitbinding", mnu_ext);
-
-        mnu_ext.addEventListener("change", event => {
+        this.setContextMenu("main", document.createElement("gt-ctxmenu-exitchoice"));
+        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
+        this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;
             }
         });
-        mnu_ctx.addEventListener("associate", event => {
+        this.addContextMenuHandler("main", "associate", event => {
             const state = this.getState();
+            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
                 mnu_ext.setValue(state.value);
@@ -133,7 +140,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
-        mnu_ctx.addEventListener("deassociate", event => {
+        this.addContextMenuHandler("main", "deassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
@@ -146,6 +153,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             if (state != null) {
                 const area = state.area;
                 if (area == null) {
+                    const mnu_ext = this.getContextMenu("exitbinding");
                     mnu_ext.fillEntranceSelection(state.props.access, state.value);
                     mnu_ext.setValue(state.value);
                     mnu_ext.show(event.clientX, event.clientY);
@@ -156,6 +164,7 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
             return false;
         });
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getContextMenu("main");
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();
@@ -214,35 +223,34 @@ export default class HTMLTrackerExitChoice extends ContextMenuManagerMixin(State
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "ref":
-                    {
-                        const state = WorldStateManager.getByRef(this.ref);
-                        const textEl = this.shadowRoot.getElementById("text");
-                        if (textEl != null) {
-                            Language.applyLabel(textEl, `exit[${state.props.access}]`);
-                        }
-                        this.switchState(state);
+                case "ref": {
+                    const state = WorldStateManager.getByRef(this.ref);
+                    const textEl = this.shadowRoot.getElementById("text");
+                    if (textEl != null) {
+                        Language.applyLabel(textEl, `exit[${state.props.access}]`);
                     }
-                    break;
-                case "value":
-                    {
-                        const state = this.getState();
-                        if (state != null) {
-                            const valueEl = this.shadowRoot.getElementById("value");
-                            if (valueEl != null) {
-                                if (newValue) {
-                                    Language.applyLabel(valueEl, `entrance[${newValue}]`);
-                                } else {
-                                    valueEl.innerHTML = "";
-                                }
+                    this.switchState(state);
+                } break;
+                case "value": {
+                    const state = this.getState();
+                    if (state != null) {
+                        const valueEl = this.shadowRoot.getElementById("value");
+                        if (valueEl != null) {
+                            if (newValue) {
+                                Language.applyLabel(valueEl, `entrance[${newValue}]`);
+                            } else {
+                                valueEl.innerHTML = "";
                             }
                         }
                     }
-                    break;
+                    const event = new Event("change");
+                    event.value = newValue;
+                    this.dispatchEvent(event);
+                } break;
             }
         }
     }
 
 }
 
-customElements.define("gt-exitchoice", HTMLTrackerExitChoice);
+customElements.define("gt-exitchoice", ExitChoice);

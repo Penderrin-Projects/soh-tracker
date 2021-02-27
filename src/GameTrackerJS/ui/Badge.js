@@ -148,7 +148,7 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
                     {
                         const accessEl = this.shadowRoot.getElementById("access");
                         if (accessEl != null) {
-                            if (colorBlindSpy.value && ACCESS_VALUES.indexOf(newValue) >= 0) {
+                            if (colorBlindSpy.getValue() && ACCESS_VALUES.indexOf(newValue) >= 0) {
                                 accessEl.src = `images/icons/access_${newValue}.svg`;
                             } else {
                                 accessEl.src = "";

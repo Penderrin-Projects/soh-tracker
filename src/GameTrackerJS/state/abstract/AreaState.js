@@ -35,7 +35,8 @@ export default class AreaState extends FilteredState {
     }
     
     generateList() {
-        const listHandler = new MarkerListHandler(this.areaData.list);
+        const list = this.areaData.list;
+        const listHandler = new MarkerListHandler(list);
         listHandler.addEventListener("access", event => {
             this.setAccess(event.data);
         });
@@ -60,6 +61,11 @@ export default class AreaState extends FilteredState {
         return super.executeSpecialFilter(name);
     }
 
+    getRawList() {
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.rawList);
+    }
+
     getList() {
         const listHandler = LIST_HANDLER.get(this);
         return Array.from(listHandler.list);
@@ -67,7 +73,7 @@ export default class AreaState extends FilteredState {
 
     getFilteredList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.filtered);
+        return Array.from(listHandler.filteredList);
     }
 
     get areaData() {

@@ -152,8 +152,8 @@ export default class LocationState extends UIEventBusMixin(HTMLElement) {
                     this.updateStates();
                 });
                 /* --- */
-                const listV = area.getList("v");
-                const listMQ = area.getList("mq");
+                const listV = area.getRawList("v");
+                const listMQ = area.getRawList("mq");
                 for (const entry of listV) {
                     usedLocations.add(entry.id);
                 }

@@ -1,62 +1,25 @@
-/* asym-import: off */
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import TabPanel from "/emcJS/ui/layout/panel/TabPanel.js";
-/* asym-import: on */
-
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import "/GameTrackerJS/state/world/exit/StateManager.js";
-import "/GameTrackerJS/state/world/subexit/StateManager.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import "/GameTrackerJS/ui/ExitChoice.js";
+import ExitList from "/GameTrackerJS/ui/exit/ExitList.js";
+// Track-OOT
+import "./ExitChoice.js";
 
-const STYLE = new GlobalStyle(`
-:host {
-    --category-color: white;
-    --category-background-color: black;
-    --category-hover-color: gray;
-    --category-marked-color: black;
-    --category-marked-background-color: white;
-}
-`);
+export default class HTMLTrackerExitList extends ExitList {
 
-export default class HTMLTrackerExitList extends TabPanel {
     
-    constructor() {
-        super();
-        STYLE.apply(this.shadowRoot);
-        /* --- */
-        const exits = WorldResource.get("marker/exit");
-        for (const name in exits) {
-            const state = WorldStateManager.get("exit", name);
-            const category = state.exitData.type;
-            this.addEntrance(category, state.ref);
-        }
-        const subexits = WorldResource.get("marker/subexit");
-        for (const name in subexits) {
-            const state = WorldStateManager.get("subexit", name);
-            const category = state.exitData.type;
-            this.addEntrance(category, state.ref);
-        }
-    }
-
-    addTab(category) {
-        return super.addTab(category, Language.generateLabel(category));
-    }
-
-    addEntrance(category, ref) {
-        const el = document.createElement("gt-exitchoice");
-        el.ref = ref;
-        const panel = this.getTab(category);
-        if (panel != null) {
-            if (category !== "not_seen") {
-                panel.append(el);
+    addEntrance(state) {
+        if (state.exitData.type !== "not_seen") {
+            const el = document.createElement("ootrt-exitchoice");
+            el.ref = state.ref;
+            el.setAttribute("searchRef", `exit[${state.props.access}]`);
+            el.setAttribute("type", state.exitData.type);
+            el.setAttribute("categories", JSON.stringify(state.props.categories));
+            for (const cat of state.props.categories) {
+                this.addCategory(cat);
             }
-        } else {
-            if (category !== "not_seen") {
-                this.addTab(category).append(el);
-            }
+            el.addEventListener("change", event => {
+                this.calculateItems();
+            });
+            this.append(el);
         }
     }
 

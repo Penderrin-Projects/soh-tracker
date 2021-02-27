@@ -17,16 +17,14 @@ export default class AbstractLocation extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("gt-ctxmenu-location");
-        this.setContextMenu("main", mnu_ctx);
-
-        mnu_ctx.addEventListener("check", event => {
+        this.setContextMenu("main", document.createElement("gt-ctxmenu-location"));
+        this.addContextMenuHandler("main", "check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addContextMenuHandler("main", "uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
@@ -44,6 +42,7 @@ export default class AbstractLocation extends WorldElement {
             return false;
         });
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getContextMenu("main");
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();

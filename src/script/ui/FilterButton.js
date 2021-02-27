@@ -8,6 +8,7 @@ import "/emcJS/ui/input/Option.js";
 // GameTrackerJS
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+import FilterSpy from "/GameTrackerJS/util/spy/FilterSpy.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
@@ -53,6 +54,8 @@ slot {
 }
 `);
 
+const FILTER_SPY = new WeakMap();
+
 class FilterButton extends UIEventBusMixin(HTMLElement) {
 
     constructor() {
@@ -64,11 +67,11 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
-        this.registerGlobal("filter", event => {
-            if (event.data[this.ref] != null) {
-                this.value = event.data[this.ref];
-            }
+        const filterSpy = new FilterSpy();
+        filterSpy.addEventListener("change", event => {
+            this.value = event.data;
         });
+        FILTER_SPY.set(this, filterSpy);
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
@@ -107,7 +110,9 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
             case "ref":
                 if (oldValue != newValue) {
                     const data = FilterResource.get(this.ref);
-                    this.value = FilterStorage.get(this.ref, data.default);
+                    const filterSpy = FILTER_SPY.get(this);
+                    filterSpy.setKey(this.ref);
+                    this.value = filterSpy.getValue();
                     for (const i in data.values) {
                         let img = data.images;
                         if (Array.isArray(img)) {

@@ -12,7 +12,7 @@ import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 // Track-OOT
 import "/script/state/world/location/GossipstoneState.js";
-import LogicViewer from "/script/content/logic/LogicViewer.js";
+import LogicViewer from "/script/ui/LogicViewer.js";
 import "../../ctxmenu/GossipstoneContextMenu.js";
 
 const CTG_TPL = new Template(`

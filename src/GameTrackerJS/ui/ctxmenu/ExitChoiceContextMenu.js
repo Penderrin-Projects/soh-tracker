@@ -2,6 +2,7 @@
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
 /* asym-import: on */
+import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <emc-contextmenu id="menu">
@@ -31,6 +32,13 @@ export default class ExitContextMenu extends HTMLElement {
             event.preventDefault();
             return false;
         });
+        
+        /* fck iOS */
+        iOSTouchHandler.register(this.shadowRoot.getElementById("menu"), true);
+        const all = this.shadowRoot.querySelectorAll(".item");
+        for (const el of all) {
+            iOSTouchHandler.register(el);
+        }
     }
 
     show(posX, posY) {

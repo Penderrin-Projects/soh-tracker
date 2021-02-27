@@ -1,5 +1,6 @@
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
@@ -10,34 +11,49 @@ import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 
+const AUGMENTORS = new Set();
+
+SavestateHandler.addEventListener("state", event => {
+    Logic.clearTranslations();
+    const initTransalation = [];
+    if (event.data.data["exits"] != null) {
+        for (const [key, value] of Object.entries(event.data.data["exits"])) {
+            applyBinding(initTransalation, key, value);
+        }
+    }
+    if (initTransalation.length) {
+        Logic.setTranslation(initTransalation, "region.root");
+    }
+});
+
 function changeBinding(values) {
     const changes = [];
     if (Array.isArray(values)) {
         for (const {from, to} of values) {
-            const [source, target] = from.split(" -> ");
-            if (!to) {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
-            } else {
-                const [reroute] = to.split(" -> ");
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
-            }
+            applyBinding(changes, from, to);
         }
     } else {
         const {from, to} = values;
-        const [source, target] = from.split(" -> ");
+        applyBinding(changes, from, to);
+    }
+    if (changes.length) {
+        Logic.setTranslation(changes, "region.root");
+    }
+}
+
+function applyBinding(changes, from, to) {
+    const [source, target] = from.split(" -> ");
+    if (source && target) {
         if (!to) {
             changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
             changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
         } else {
             const [reroute] = to.split(" -> ");
-            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            if (reroute) {
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+            }
         }
-    }
-    if (changes.length) {
-        Logic.setTranslation(changes, "region.root");
     }
 }
 
@@ -112,10 +128,10 @@ class ExitAugmentor {
 const exits = WorldResource.get("marker/exit");
 for (const name in exits) {
     const exit = WorldStateManager.get("exit", name);
-    new ExitAugmentor(exit);
+    AUGMENTORS.add(new ExitAugmentor(exit));
 }
 const subexits = WorldResource.get("marker/subexit");
 for (const name in subexits) {
     const subexit = WorldStateManager.get("subexit", name);
-    new ExitAugmentor(subexit);
+    AUGMENTORS.add(new ExitAugmentor(subexit));
 }

@@ -8,3 +8,4 @@ yarn.lock
 .idea
 package-lock.json
 backup.json
+editor/info.log

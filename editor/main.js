@@ -1,27 +1,11 @@
-const { app, protocol, BrowserWindow } = require('electron');
-const fs = require('fs');
+const { app, protocol, BrowserWindow } = require("electron");
+const fs = require("fs");
 const path = require("path");
-const gulp = require("gulp");
-const gulpAsyM = require("asym/GulpAsyM");
+//const { augmentFile } = require("AsyM/Augmentor");
+const { augmentFile } = require("../../AsyM/Augmentor.js");
+const { startServer } = require("./server.js");
 
-/* BEGIN GULP BOOTSTRAP */
-// TODO
-gulp.parallel(() => {
-    return gulp.src(`../src/script/**/*.js`)
-        .pipe(gulpAsyM({
-            path: "/asym",
-            alike: /Import\.module/
-        }))
-        .pipe(gulp.dest(`./cache/script`));
-}, () => {
-    return gulp.src(`../src/GameTrackerJS/**/*.js`)
-        .pipe(gulpAsyM({
-            path: "/asym",
-            alike: /Import\.module/
-        }))
-        .pipe(gulp.dest(`./cache/GameTrackerJS`));
-});
-/* END GULP BOOTSTRAP */
+const __dirnameUnix = __dirname.replace(/\\/g, "/");
 
 let OPTIONS = {
     debug: false
@@ -59,16 +43,40 @@ console.log(MODULE_PATHS);
 
 function createWindow() {
     protocol.interceptFileProtocol("file", (request, callback) => {
-        let url = request.url.replace(/file\:\/+(:?[a-z]\:)?/i, "");
-        url = url.replace(__dirname, "");
-        url = url.replace(/^\/?src\//i, "../src/");
-        url = url.replace(/^\/?images\//i, "../src/images/");
-        url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
-        url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
-        url = path.join(__dirname, ".", url);
-        url = path.normalize(url);
-        callback({path: url});
+        console.log("-------------------");
+        let url = request.url.replace(/file\:\/+/i, "");
+        console.log(url);
+        if (!url.startsWith(__dirnameUnix)) {
+            url = url.replace(/(:?[a-z]\:)?/i, "");
+        }
+        console.log(url);
+        url = url.replace(__dirnameUnix, "");
+        console.log(url);
+        if (url.startsWith("/script/") || url.startsWith("/GameTrackerJS/")) {
+            url = path.join(__dirnameUnix, ".", `../src${url}`);
+            console.log(url);
+            const content = fs.readFileSync(url);
+            const data = augmentFile(content.toString(), {path: "/asym"});
+            callback({
+                data,
+                statusCode: 200,
+                mimeType: "text/javascript"
+            });
+        } else {
+            url = url.replace(/^\/?asym\//i, "../node_modules/asym/src/");
+            url = url.replace(/^\/?src\//i, "../src/");
+            url = url.replace(/^\/?images\//i, "../src/images/");
+            // url = url.replace(/^\/?script\//i, "../src/script/");
+            // url = url.replace(/^\/?GameTrackerJS\//i, "../src/GameTrackerJS/");
+            url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
+            url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
+            url = path.join(__dirnameUnix, ".", url);
+            url = path.normalize(url);
+            console.log(url);
+            callback({path: url});
+        }
     });
+
     let win = new BrowserWindow({
         width: 800,
         height: 700,
@@ -82,7 +90,7 @@ function createWindow() {
     });
     win.maximize();
     win.setMenu(null);
-    win.loadFile("/index.html");
+    win.loadURL("http://localhost:4242");
     if (!!OPTIONS.debug) {
         win.toggleDevTools();
     }
@@ -94,7 +102,12 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow);
+
+
+app.on('ready', async () => {
+    await startServer();
+    createWindow();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

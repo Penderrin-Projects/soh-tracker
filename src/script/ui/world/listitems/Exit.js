@@ -10,6 +10,7 @@ import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
+import "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -116,6 +117,7 @@ export default class ListExit extends AbstractExit {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
     }
 
 }

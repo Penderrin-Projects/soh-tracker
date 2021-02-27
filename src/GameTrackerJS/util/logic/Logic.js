@@ -1,9 +1,16 @@
 /* asym-import: off */
 import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
 /* asym-import: on */
+import SettingsSpy from "../spy/SettingsSpy.js";
 
-const LOGIC_PROCESSOR = new LogicGraph(true);
+const logicDebugSpy = new SettingsSpy("debug_logic");
+
+const LOGIC_PROCESSOR = new LogicGraph(logicDebugSpy.getValue() != "off" && logicDebugSpy.getValue());
 const CALL_TIMERS = new Map();
+
+logicDebugSpy.addEventListener("change", event => {
+    LOGIC_PROCESSOR.debug = event.data != "off" && event.data;
+});
 
 class TrackerLogic extends EventTarget {
 

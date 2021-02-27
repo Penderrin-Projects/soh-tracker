@@ -1,12 +1,18 @@
-"use strict";
-
-const fs = require('fs');
+const fs = require("fs");
 const path = require("path");
+const gulp = require("gulp");
+const htmlmin = require("gulp-htmlmin");
+const jsonminify = require("gulp-jsonminify");
+const svgo = require("gulp-svgo");
+const newer = require("gulp-newer");
+const autoprefixer = require("gulp-autoprefixer");
+const filemanager = require("./file-manager.js");
+const gulpAsyM = require("asym/GulpAsyM");
+//const gulpAsyM = require("../AsyM/GulpAsyM.js");
 
 const SRC_PATH = path.resolve(__dirname, "./src");
 const DEV_PATH = path.resolve(__dirname, "./dev");
 const PRD_PATH = path.resolve(__dirname, "./prod");
-const EDT_PATH = path.resolve(__dirname, "./editor/content");
 
 const MODULE_PATHS = {
     emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
@@ -42,17 +48,6 @@ if (process.argv.indexOf('-nolocal') < 0) {
         MODULE_PATHS.AsyM = asyM;
     }
 }
-
-const gulp = require("gulp");
-const htmlmin = require('gulp-htmlmin');
-const jsonminify = require('gulp-jsonminify');
-const svgo = require('gulp-svgo');
-const newer = require('gulp-newer');
-const autoprefixer = require('gulp-autoprefixer');
-const eslint = require('gulp-eslint');
-const filemanager = require("./file-manager");
-const gulpAsyM = require("asym/GulpAsyM");
-//const gulpAsyM = require("../AsyM/GulpAsyM");
 
 function copyAsyM(dest = DEV_PATH) {
     return gulp.src(`${MODULE_PATHS.AsyM}/**/*.js`)
@@ -156,17 +151,6 @@ function copyGameTrackerJS(dest = DEV_PATH) {
         .pipe(gulp.dest(`${dest}/GameTrackerJS`));
 }
 
-function copyEditorExtension(dest = DEV_PATH) {
-    return gulp.src(`${EDT_PATH}/**/*.js`)
-        .pipe(filemanager.register(`${EDT_PATH}`, `${dest}/script/content`))
-        .pipe(newer(`${dest}/script/content`))
-        .pipe(gulpAsyM({
-            path: "/asym",
-            alike: /Import\.module/
-        }))
-        .pipe(gulp.dest(`${dest}/script/content`));
-}
-
 function copyEmcJS(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.emcJS}/**/*.js`,
@@ -238,7 +222,6 @@ exports.build = gulp.series(
         copyCSS.bind(this, PRD_PATH),
         copyFonts.bind(this, PRD_PATH),
         copyScript.bind(this, PRD_PATH),
-        copyEditorExtension.bind(this, PRD_PATH),
         copyGameTrackerJS.bind(this, PRD_PATH),
         copyEmcJS.bind(this, PRD_PATH),
         copyTrackerEditor.bind(this, PRD_PATH),
@@ -260,7 +243,6 @@ exports.buildDev = gulp.series(
         copyCSS.bind(this, DEV_PATH),
         copyFonts.bind(this, DEV_PATH),
         copyScript.bind(this, DEV_PATH),
-        copyEditorExtension.bind(this, DEV_PATH),
         copyGameTrackerJS.bind(this, DEV_PATH),
         copyEmcJS.bind(this, DEV_PATH),
         copyTrackerEditor.bind(this, DEV_PATH),
@@ -275,6 +257,6 @@ exports.buildDev = gulp.series(
 exports.watch = function () {
     return gulp.watch(
         `${SRC_PATH}/**/*`,
-        exports.build
+        build
     );
 }

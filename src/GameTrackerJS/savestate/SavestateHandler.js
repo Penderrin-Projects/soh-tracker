@@ -87,6 +87,7 @@ class SavestateHandler extends EventTarget {
             FilterStorage.deserialize(filter);
             updateTitle();
             // trigger event
+            this.dispatchEvent(new Event("reset"));
             const ev = new Event("state");
             ev.data = {
                 notes: state.notes,
@@ -170,6 +171,7 @@ class SavestateHandler extends EventTarget {
             FilterStorage.deserialize(filter);
             cacheData(state, false);
             // trigger event
+            this.dispatchEvent(new Event("reset"));
             const ev = new Event("state");
             ev.data = {
                 notes: state.notes,
@@ -221,6 +223,7 @@ class SavestateHandler extends EventTarget {
         state.filter = FilterStorage.serialize();
         cacheData(state, false);
         // trigger event
+        this.dispatchEvent(new Event("reset"));
         const ev = new Event("state");
         ev.data = {
             notes: state.notes,

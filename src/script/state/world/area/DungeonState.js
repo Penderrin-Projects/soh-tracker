@@ -176,6 +176,16 @@ export default class DungeonState extends DefaultState {
         super.stateLoaded(event);
     }
 
+    getRawList(type = this.type) {
+        if (type == "v") {
+            return super.getRawList();
+        }
+        if (type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            return Array.from(listHandler.rawList);
+        }
+    }
+
     getList(type = this.type) {
         if (type == "v") {
             return super.getList();
@@ -192,7 +202,7 @@ export default class DungeonState extends DefaultState {
         }
         if (type == "mq") {
             const listHandler = LIST_HANDLER.get(this);
-            return Array.from(listHandler.filtered);
+            return Array.from(listHandler.filteredList);
         }
     }
 

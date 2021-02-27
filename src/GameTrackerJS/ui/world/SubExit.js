@@ -1,7 +1,9 @@
 /* asym-import: off */
+import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 /* asym-import: on */
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import AreaState from "../../state/world/area/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/SubExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
@@ -34,20 +36,19 @@ export default class MapSubExit extends WorldElement {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("gt-ctxmenu-exit");
-        this.setContextMenu("main", mnu_ctx);
-        
-        const mnu_ext = document.createElement("gt-ctxmenu-exitbinding");
-        this.setContextMenu("exitbinding", mnu_ext);
+        this.setContextMenu("main", document.createElement("gt-ctxmenu-exit"));
+        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
 
-        mnu_ext.addEventListener("change", event => {
+        this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;
             }
         });
-        mnu_ctx.addEventListener("associate", event => {
+        this.addContextMenuHandler("main", "associate", event => {
             const state = this.getState();
+            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
                 mnu_ext.setValue(state.value);
@@ -57,13 +58,13 @@ export default class MapSubExit extends WorldElement {
             }
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
-        mnu_ctx.addEventListener("deassociate", event => {
+        this.addContextMenuHandler("main", "deassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
             }
         });
-        mnu_ctx.shadowRoot.getElementById("menu-check").addEventListener("click", event => {
+        this.addContextMenuHandler("main", "check", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -72,7 +73,7 @@ export default class MapSubExit extends WorldElement {
                 }
             }
         });
-        mnu_ctx.shadowRoot.getElementById("menu-uncheck").addEventListener("click", event => {
+        this.addContextMenuHandler("main", "uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -87,7 +88,14 @@ export default class MapSubExit extends WorldElement {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
-                if (area == null) {
+                if (area != null) {
+                    if (area instanceof AreaState) {
+                        EventBus.trigger("location_change", {
+                            name: area.ref
+                        });
+                    }
+                } else {
+                    const mnu_ext = this.getContextMenu("exitbinding");
                     mnu_ext.fillEntranceSelection(state.props.access, state.value);
                     mnu_ext.setValue(state.value);
                     mnu_ext.show(event.clientX, event.clientY);
@@ -98,6 +106,7 @@ export default class MapSubExit extends WorldElement {
             return false;
         });
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getContextMenu("main");
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();
