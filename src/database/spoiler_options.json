@@ -67,7 +67,11 @@
         "values": [
             "parse.entro_dungeons",
             "parse.entro_grottos",
-            "parse.entro_indoors"
+            "parse.entro_indoors",
+            "parse.entro_overworld",
+            "parse.entro_owls",
+            "parse.entro_spawns",
+            "parse.entro_warps"
         ],
         "default": []
     }
