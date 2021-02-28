@@ -1,5 +1,3 @@
-import OptionsStorage from "../../storage/OptionsStorage.js";
-
 const STORAGE = new WeakMap();
 const KEY = new WeakMap();
 
@@ -18,7 +16,12 @@ export default class DataStorageSpy extends EventTarget {
                 this.dispatchEvent(ev);
             }
         });
-        storage.addEventListener("reset", event => {
+        storage.addEventListener("clear", event => {
+            const ev = new Event("change");
+            ev.data = null;
+            this.dispatchEvent(ev);
+        });
+        storage.addEventListener("load", event => {
             const key = KEY.get(this);
             if (key != null && event.data[key] != null) {
                 const ev = new Event("change");

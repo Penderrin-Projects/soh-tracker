@@ -88,8 +88,7 @@ export default class DataStorage extends EventTarget {
     clear() {
         const buffer = BUFFER.get(this);
         buffer.clear();
-        const ev = new Event("clear");
-        this.dispatchEvent(ev);
+        this.dispatchEvent(new Event("clear"));
     }
     
     serialize() {
@@ -105,7 +104,7 @@ export default class DataStorage extends EventTarget {
                 buffer.set(key, value);
             }
         }
-        const ev = new Event("reset");
+        const ev = new Event("load");
         ev.data = this.getAll();
         this.dispatchEvent(ev);
     }
@@ -118,6 +117,9 @@ export default class DataStorage extends EventTarget {
                 buffer.set(key, value);
             }
         }
+        const ev = new Event("load");
+        ev.data = this.getAll();
+        this.dispatchEvent(ev);
     }
 
 }
