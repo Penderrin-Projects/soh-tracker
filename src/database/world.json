@@ -11794,7 +11794,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.kakariko_grotto": {
                 "type": "interior",
@@ -11819,7 +11819,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.castle_entrance_grotto": {
                 "type": "interior",
@@ -11844,7 +11844,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.valley_grotto": {
                 "type": "interior",
@@ -11869,7 +11869,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_fence_grotto": {
                 "type": "interior",
@@ -11894,7 +11894,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_open_grotto": {
                 "type": "interior",
@@ -11919,7 +11919,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.little_forest_grotto": {
                 "type": "interior",
@@ -11944,7 +11944,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "kokiri.storm_grotto": {
                 "type": "interior",
@@ -11969,7 +11969,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "woods.near_goron_grotto": {
                 "type": "interior",
@@ -11994,7 +11994,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "woods.near_meadow_grotto": {
                 "type": "interior",
@@ -12019,7 +12019,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "woods.theatre_grotto": {
                 "type": "interior",
@@ -12069,7 +12069,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "meadow.storms_grotto": {
                 "type": "interior",
@@ -12094,7 +12094,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "castle_town.guard_tower": {
                 "type": "interior",
@@ -12284,12 +12284,14 @@
                 "icon": "images/icons/interior.svg"
             },
             "lonlon.open_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.lonlon.open_grotto",
                 "visible": {
-                    "type": "state",
-                    "el": "option.entrance_shuffle_interior",
-                    "value": "entrance_shuffle_off"
+                    "type": "not",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shuffle_grottos"
+                    }
                 },
                 "filter": {
                     "filter.era": {
@@ -12304,7 +12306,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "castle.fairy_young": {
                 "type": "interior",
@@ -12352,7 +12354,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "castle.fairy_adult": {
                 "type": "interior",
@@ -12541,7 +12543,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "kakariko.redead_grotto": {
                 "type": "interior",
@@ -12566,7 +12568,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "graveyard.shield_grave": {
                 "type": "interior",
@@ -12591,7 +12593,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "graveyard.redead_grave": {
                 "type": "interior",
@@ -12616,7 +12618,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "graveyard.dampes_grave": {
                 "type": "interior",
@@ -12641,7 +12643,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "graveyard.royal_grave": {
                 "type": "interior",
@@ -12666,7 +12668,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "mountain.fairy_fountain": {
                 "type": "interior",
@@ -12714,7 +12716,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "mountain.bomb_grotto": {
                 "type": "interior",
@@ -12739,7 +12741,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "crater.fairy_fountain": {
                 "type": "interior",
@@ -12787,7 +12789,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "crater.crater_bomb_grotto": {
                 "type": "interior",
@@ -12812,7 +12814,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "goron.grotto": {
                 "type": "interior",
@@ -12837,7 +12839,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "river.storms_grotto": {
                 "type": "interior",
@@ -12862,7 +12864,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "river.open_grotto": {
                 "type": "interior",
@@ -12887,7 +12889,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "fountain.fairy_fountain": {
                 "type": "interior",
@@ -12981,7 +12983,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "gerudo_valley.storms_grotto": {
                 "type": "interior",
@@ -13006,7 +13008,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "desert.fairy_fountain": {
                 "type": "interior",
@@ -13054,7 +13056,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.fairy_grotto": {
                 "type": "interior",
