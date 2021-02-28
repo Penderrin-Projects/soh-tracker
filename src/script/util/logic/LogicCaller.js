@@ -94,6 +94,7 @@ function init() {
         cache.set(key, value);
     }
     const augmentedData = augmentDungeonstate(data);
+    Logic.reset();
     Logic.execute(augmentedData, "region.root");
 }
 

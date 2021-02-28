@@ -3,6 +3,7 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 /* asym-import: on */
+import "../storage/SettingsStorage.js";
 import OptionsStorage from "../storage/OptionsStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
 import Savestate from "./Savestate.js";
@@ -80,6 +81,7 @@ class SavestateHandler extends EventTarget {
         /* --- */
         const initState = LocalStorage.get(PERSISTANCE_NAME);
         if (initState != null) {
+            this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(initState);
             const {options, filter, ...data} = state;
             Savestate.deserialize(data);
@@ -96,6 +98,7 @@ class SavestateHandler extends EventTarget {
                 filter: state.filter
             };
             this.dispatchEvent(ev);
+            this.dispatchEvent(new Event("afterload"));
         }
         /* --- */
         Savestate.addEventListener("change", event => {
@@ -159,6 +162,7 @@ class SavestateHandler extends EventTarget {
     async load(name) {
         await BusyIndicator.busy();
         if (await STORAGE.has(name)) {
+            this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(await STORAGE.get(name));
             if (autosaveTimeout != null) {
                 clearTimeout(autosaveTimeout);
@@ -180,6 +184,7 @@ class SavestateHandler extends EventTarget {
                 filter: state.filter
             };
             this.dispatchEvent(ev);
+            this.dispatchEvent(new Event("afterload"));
         }
         await BusyIndicator.unbusy();
     }
@@ -213,6 +218,7 @@ class SavestateHandler extends EventTarget {
      */
     async reset({data = {}, options = {}, filter = {}} = {}) {
         await BusyIndicator.busy();
+        this.dispatchEvent(new Event("beforeload"));
         // write state data
         Savestate.deserialize({data});
         OptionsStorage.deserialize(options);
@@ -232,6 +238,7 @@ class SavestateHandler extends EventTarget {
             filter: state.filter
         };
         this.dispatchEvent(ev);
+        this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
     }
 
@@ -241,6 +248,7 @@ class SavestateHandler extends EventTarget {
      */
     async overwrite({data = {}, options = {}, filter = {}} = {}) {
         await BusyIndicator.busy();
+        this.dispatchEvent(new Event("beforeload"));
         // write state data
         Savestate.overwrite(data);
         OptionsStorage.overwrite(options);
@@ -259,6 +267,7 @@ class SavestateHandler extends EventTarget {
             filter: state.filter
         };
         this.dispatchEvent(ev);
+        this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
     }
 

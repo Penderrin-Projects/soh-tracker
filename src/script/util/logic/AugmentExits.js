@@ -13,17 +13,21 @@ import "/script/state/world/CustomWorldStates.js";
 
 const AUGMENTORS = new Set();
 
-SavestateHandler.addEventListener("state", event => {
+function initTranslations() {
     Logic.clearTranslations();
     const initTransalation = [];
-    if (event.data.data["exits"] != null) {
-        for (const [key, value] of Object.entries(event.data.data["exits"])) {
-            applyBinding(initTransalation, key, value);
+    for (const entry of AUGMENTORS) {
+        if (entry.exit.active) {
+            applyBinding(initTransalation, entry.exit.props.access, entry.exit.value);
         }
     }
     if (initTransalation.length) {
         Logic.setTranslation(initTransalation, "region.root");
     }
+}
+
+SavestateHandler.addEventListener("afterload", event => {
+    initTranslations();
 });
 
 function changeBinding(values) {
@@ -123,6 +127,10 @@ class ExitAugmentor {
         }
     }
 
+    get exit() {
+        return EXIT.get(this);
+    }
+
 }
 
 const exits = WorldResource.get("marker/exit");
@@ -135,3 +143,4 @@ for (const name in subexits) {
     const subexit = WorldStateManager.get("subexit", name);
     AUGMENTORS.add(new ExitAugmentor(subexit));
 }
+initTranslations();

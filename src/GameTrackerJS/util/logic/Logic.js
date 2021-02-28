@@ -53,9 +53,7 @@ class TrackerLogic extends EventTarget {
 
     setTranslation(translations, root) {
         if (Array.isArray(translations)) {
-            for (const t of translations) {
-                LOGIC_PROCESSOR.setTranslation(t.source, t.target, t.reroute);
-            }
+            LOGIC_PROCESSOR.setAllTranslations(translations);
         }
         if (root != null) {
             if (!CALL_TIMERS.has(root)) {
