@@ -1,7 +1,7 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
-import AreaState from "../../abstract/AreaState.js";
+import AreaState from "../abstract/AreaState.js";
 import "../location/StateManager.js";
 
 export default class DefaultState extends AreaState {

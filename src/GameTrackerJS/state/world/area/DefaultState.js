@@ -2,7 +2,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
-import AreaState from "../../abstract/AreaState.js";
+import AreaState from "../abstract/AreaState.js";
 import "../location/StateManager.js";
 
 const HINT = new WeakMap();
