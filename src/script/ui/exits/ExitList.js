@@ -10,7 +10,7 @@ export default class HTMLTrackerExitList extends ExitList {
         if (state.exitData.type !== "not_seen") {
             const el = document.createElement("ootrt-exitchoice");
             el.ref = state.ref;
-            el.setAttribute("searchRef", `exit[${state.props.access}]`);
+            el.setAttribute("access", state.props.access);
             el.setAttribute("type", state.exitData.type);
             el.setAttribute("categories", JSON.stringify(state.props.categories));
             for (const cat of state.props.categories) {

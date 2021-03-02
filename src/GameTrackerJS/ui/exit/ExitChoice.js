@@ -44,7 +44,7 @@ const STYLE = new GlobalStyle(`
 .textarea {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex: 1;
     height: 50px;
     margin: 2px;
@@ -69,9 +69,11 @@ const STYLE = new GlobalStyle(`
 }
 #text {
     display: flex;
-    flex: 1;
-    color: #ffffff;
     align-items: center;
+}
+#text,
+#value {
+    color: var(--page-text-color, #ffffff);
 }
 @media (max-width: 1000px) {
     :host {
@@ -81,6 +83,12 @@ const STYLE = new GlobalStyle(`
     .pointer {
         display: none;
     }
+}
+:host(.markname) #text,
+:host(.markvalue) #value {
+    color: var(--page-background-color, #000000);
+    background-color: var(--page-text-color, #ffffff);
+    outline: 2px solid var(--page-text-color, #ffffff);
 }
 `);
 

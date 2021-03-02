@@ -135,7 +135,6 @@ export default class ExitList extends HTMLElement {
         const unbound = this.shadowRoot.getElementById("unbound");
         const strict = this.shadowRoot.getElementById("strict");
         const actCat = new Set(tokenizer.value);
-        const regEx = new SearchAnd(search.value);
         for (const el of this.children) {
             if (el) {
                 let isVisible = true;
@@ -160,15 +159,29 @@ export default class ExitList extends HTMLElement {
                 }
                 if (isVisible) {
                     if (!el.value || !unbound.checked) {
-                        const transVal = Language.translate(el.getAttribute("searchRef"));
-                        if (transVal.match(regEx)) {
+                        if (search.value) {
+                            const regEx = new SearchAnd(search.value);
+                            const transAccess = Language.translate(`exit[${el.getAttribute("access")}]`);
+                            const transValue = Language.translate(`entrance[${el.getAttribute("value")}]`);
+                            const transAccessRes = transAccess.match(regEx);
+                            const transValueRes = transValue.match(regEx);
+                            el.classList.toggle("markname", transAccessRes);
+                            el.classList.toggle("markvalue", transValueRes);
+                            if (transAccessRes || transValueRes) {
+                                el.style.display = "";
+                                continue;
+                            }
+                        } else {
+                            el.classList.remove("markname");
+                            el.classList.remove("markvalue");
                             el.style.display = "";
                             continue;
                         }
                     }
                 }
+                el.classList.remove("markname");
+                el.classList.remove("markvalue");
                 el.style.display = "none";
-                el.classList.remove("marked");
             }
         }
     }
@@ -188,7 +201,7 @@ export default class ExitList extends HTMLElement {
     addEntrance(state) {
         const el = document.createElement("gt-exitchoice");
         el.ref = state.ref;
-        el.setAttribute("searchRef", `exit[${state.props.access}]`);
+        el.setAttribute("access", state.props.access);
         el.setAttribute("type", state.exitData.type);
         el.setAttribute("categories", JSON.stringify(state.props.categories));
         for (const cat of state.props.categories) {
