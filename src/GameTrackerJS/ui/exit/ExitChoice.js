@@ -208,20 +208,20 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         }
     }
 
-    get ref() {
-        return this.getAttribute("ref");
-    }
-
     set ref(val) {
         this.setAttribute("ref", val);
     }
 
-    get value() {
-        return this.getAttribute("value");
+    get ref() {
+        return this.getAttribute("ref");
     }
 
     set value(val) {
         this.setAttribute("value", val);
+    }
+
+    get value() {
+        return this.getAttribute("value");
     }
 
     static get observedAttributes() {

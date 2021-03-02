@@ -87,6 +87,9 @@ label {
     border-bottom: solid 1px var(--list-border-bottom-color, #000000);
     border-top: solid 1px var(--list-border-top-color, #000000);
 }
+::slotted(.hidden) {
+    display: none;
+}
 `);
 
 const CATEGORIES = new WeakMap();
@@ -168,20 +171,20 @@ export default class ExitList extends HTMLElement {
                             el.classList.toggle("markname", transAccessRes);
                             el.classList.toggle("markvalue", transValueRes);
                             if (transAccessRes || transValueRes) {
-                                el.style.display = "";
+                                el.classList.remove("hidden");
                                 continue;
                             }
                         } else {
                             el.classList.remove("markname");
                             el.classList.remove("markvalue");
-                            el.style.display = "";
+                            el.classList.remove("hidden");
                             continue;
                         }
                     }
                 }
                 el.classList.remove("markname");
                 el.classList.remove("markvalue");
-                el.style.display = "none";
+                el.classList.add("hidden");
             }
         }
     }
