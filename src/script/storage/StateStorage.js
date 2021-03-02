@@ -14,8 +14,8 @@ import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 class StateStorage {
 
     constructor() {
-        SavestateHandler.addEventListener("state", event => {
-            const {data: {"": state = {}, ...extra}, options, notes} = event.data;
+        SavestateHandler.addEventListener("load", event => {
+            const {data: {"": state = {}, ...extra}, options, notes} = event.state;
             for (const [key, value] of Object.entries(options)) {
                 state[key] = value;
             }

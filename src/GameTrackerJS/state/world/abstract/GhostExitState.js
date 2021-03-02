@@ -2,9 +2,9 @@
 import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 import WorldStateManagers from "../StateManagers.js";
-import ExitState from "../abstract/ExitState.js";
+import ExitState from "./ExitState.js";
 
-export default class DefaultState extends ExitState {
+export default class GhostExitState extends ExitState {
 
     constructor(ref, props, exitData) {
         super(ref, props, exitData);
@@ -14,18 +14,8 @@ export default class DefaultState extends ExitState {
         });
     }
 
-    set value(value) {
-        const oldValue = this.value;
-        super.value = value;
-        const newValue = this.value;
-        if (newValue != null && newValue != oldValue) {
-            // internal
-            EventBus.trigger("state::exit_binding", { ref: this.props.access, value: newValue });
-        }
-    }
-
-    get value() {
-        return super.value;
+    onStateLoad(state) {
+        // nothing
     }
 
     /*#*/__internalChange(event) {

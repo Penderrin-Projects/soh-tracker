@@ -2,8 +2,7 @@
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import ExitState from "/GameTrackerJS/state/world/exit/DefaultState.js";
-import SubexitState from "/GameTrackerJS/state/world/subexit/DefaultState.js";
+import GhostExitState from "/GameTrackerJS/state/world/abstract/GhostExitState.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -137,18 +136,17 @@ class ExitAugmentor {
 
 // scoped init
 {
-    const NEEDED_REVERSE_EXITS = new Map();
-    const NEEDED_REVERSE_SUBEXITS = new Map();
+    const NEEDED_REVERSE = new Map();
 
     const exits = WorldResource.get("marker/exit");
     for (const name in exits) {
         const exit = WorldStateManager.get("exit", name);
         AUGMENTORS.add(new ExitAugmentor(exit));
         // reverse exits
-        if (NEEDED_REVERSE_EXITS.has(exit.props.access)) {
-            NEEDED_REVERSE_EXITS.delete(exit.props.access);
+        if (NEEDED_REVERSE.has(exit.props.access)) {
+            NEEDED_REVERSE.delete(exit.props.access);
         } else {
-            NEEDED_REVERSE_EXITS.set(exit.props.access.split(" -> ").reverse().join(" -> "), exit);
+            NEEDED_REVERSE.set(exit.props.access.split(" -> ").reverse().join(" -> "), exit);
         }
     }
     const subexits = WorldResource.get("marker/subexit");
@@ -156,20 +154,16 @@ class ExitAugmentor {
         const subexit = WorldStateManager.get("subexit", name);
         AUGMENTORS.add(new ExitAugmentor(subexit));
         // reverse subexits
-        if (NEEDED_REVERSE_SUBEXITS.has(subexit.props.access)) {
-            NEEDED_REVERSE_SUBEXITS.delete(subexit.props.access);
+        if (NEEDED_REVERSE.has(subexit.props.access)) {
+            NEEDED_REVERSE.delete(subexit.props.access);
         } else {
-            NEEDED_REVERSE_SUBEXITS.set(subexit.props.access.split(" -> ").reverse().join(" -> "), subexit);
+            NEEDED_REVERSE.set(subexit.props.access.split(" -> ").reverse().join(" -> "), subexit);
         }
     }
 
-    for (const [access, exit] of NEEDED_REVERSE_EXITS) {
-        const ghost_exit = new ExitState(`${exit.ref}_reverse`, {...exit.props, access}, exit.exitData);
+    for (const [access, exit] of NEEDED_REVERSE) {
+        const ghost_exit = new GhostExitState(`${exit.ref}_reverse`, {...exit.props, access}, exit.exitData);
         AUGMENTORS.add(new ExitAugmentor(ghost_exit));
-    }
-    for (const [access, subexit] of NEEDED_REVERSE_SUBEXITS) {
-        const ghost_subexit = new SubexitState(`${subexit.ref}_reverse`, {...subexit.props, access}, subexit.exitData);
-        AUGMENTORS.add(new ExitAugmentor(ghost_subexit));
     }
 
     initTranslations();

@@ -117,7 +117,7 @@ class LogicCaller {
     constructor() {
         init();
         /* EVENTS */
-        SavestateHandler.addEventListener("state", init);
+        SavestateHandler.addEventListener("load", init);
         SavestateHandler.addEventListener("change", onChange);
         SavestateHandler.addEventListener("change_dungeonstate", onChange);
         OptionsStorage.addEventListener("change", onChange);

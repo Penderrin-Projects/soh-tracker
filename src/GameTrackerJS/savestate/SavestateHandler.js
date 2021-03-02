@@ -90,8 +90,8 @@ class SavestateHandler extends EventTarget {
             updateTitle();
             // trigger event
             this.dispatchEvent(new Event("reset"));
-            const ev = new Event("state");
-            ev.data = {
+            const ev = new Event("load");
+            ev.state = {
                 notes: state.notes,
                 data: state.data,
                 options: state.options,
@@ -176,8 +176,8 @@ class SavestateHandler extends EventTarget {
             cacheData(state, false);
             // trigger event
             this.dispatchEvent(new Event("reset"));
-            const ev = new Event("state");
-            ev.data = {
+            const ev = new Event("load");
+            ev.state = {
                 notes: state.notes,
                 data: state.data,
                 options: state.options,
@@ -230,8 +230,8 @@ class SavestateHandler extends EventTarget {
         cacheData(state, false);
         // trigger event
         this.dispatchEvent(new Event("reset"));
-        const ev = new Event("state");
-        ev.data = {
+        const ev = new Event("load");
+        ev.state = {
             notes: state.notes,
             data: state.data,
             options: state.options,
@@ -259,8 +259,8 @@ class SavestateHandler extends EventTarget {
         state.filter = FilterStorage.serialize();
         cacheData(state, true);
         // trigger event
-        const ev = new Event("state");
-        ev.data = {
+        const ev = new Event("load");
+        ev.state = {
             notes: state.notes,
             data: state.data,
             options: state.options,

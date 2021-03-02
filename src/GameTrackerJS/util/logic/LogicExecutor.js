@@ -45,7 +45,7 @@ class LogicExecutor extends EventTarget {
         /* --- */
         iInit();
         /* EVENTS */
-        SavestateHandler.addEventListener("state", iInit);
+        SavestateHandler.addEventListener("load", iInit);
         SavestateHandler.addEventListener("change", iOnChange);
         OptionsStorage.addEventListener("change", iOnChange);
         SettingsStorage.addEventListener("change", iOnChange);
