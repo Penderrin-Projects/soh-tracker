@@ -137,12 +137,16 @@ export default class ExitState extends WorldState {
     }
 
     beforeStateLoad() {
+        const manager = MANAGER.get(this);
         VALUE.set(this, "");
+        AREA.set(this, null);
+        manager.switchState();
     }
 
     onStateLoad(state) {
         const props = this.props;
         // value
+        // TODO better load like on init(?)
         this.value = state?.data?.["exits"]?.[props.access] ?? "";
     }
 
