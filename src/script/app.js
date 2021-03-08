@@ -32,6 +32,7 @@ import "/script/content/EditorChoice.js"
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
+import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import "/script/ui/ViewChoice.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
@@ -118,12 +119,23 @@ try {
     window.TrackerSettingsWindow = new TrackerSettingsWindow();
     window.RomOptionsWindow = new RomOptionsWindow();
     window.SpoilerLogWindow = new SpoilerLogWindow();
+    window.NewGameWindow = new NewGameWindow();
+    window.NewGameWindow.addEventListener("close", event => {
+        SavestateHandler.set("meta", "init_window_shown", true);
+    });
 
     updateLoadingMessage("wake up...");
     // remove splashscreen
     const spl = document.getElementById("splash");
     if (spl) {
         spl.className = "inactive";
+    }
+
+    if (!SavestateHandler.get("meta", "init_window_shown", false)) {
+        const showInitWindow = SettingsStorage.get("show_state_init_window");
+        if (showInitWindow && window.NewGameWindow) {
+            window.NewGameWindow.show();
+        }
     }
 } catch(err) {
     console.error(err);

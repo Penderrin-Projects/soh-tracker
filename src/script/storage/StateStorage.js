@@ -10,6 +10,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 class StateStorage {
 
@@ -24,6 +25,12 @@ class StateStorage {
                 state,
                 extra
             });
+            if (extra.meta == null || !extra.meta["init_window_shown"]) {
+                const showInitWindow = SettingsStorage.get("show_state_init_window");
+                if (showInitWindow && window.NewGameWindow) {
+                    window.NewGameWindow.show();
+                }
+            }
         });
         Savestate.addEventListener("change", event => {
             if (!event.category) {

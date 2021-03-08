@@ -94,5 +94,10 @@
             "on",
             "extended"
         ]
+    },
+    "show_state_init_window": {
+        "category": "settings",
+        "type": "check",
+        "default": true
     }
 }
