@@ -86,7 +86,7 @@ class FilterStorage extends DataStorage {
         return res;
     }
 
-    deserialize(data) {
+    deserialize(data = {}) {
         const res = {};
         for (const [key, value] of DEFAULTS) {
             if (PERSISTED.has(key)) {
