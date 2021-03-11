@@ -9,14 +9,13 @@ import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
-import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import "/script/state/world/area/AreaState.js";
 import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
-<emc-option value="n" style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
-<emc-option value="v" style="background-image: url('images/icons/dungeontype_vanilla.svg')"></emc-option>
-<emc-option value="mq" style="background-image: url('images/icons/dungeontype_masterquest.svg')"></emc-option>
+<emc-option value="" style="background-image: url('images/icons/area_nohint.svg')"></emc-option>
+<emc-option value="woth" style="background-image: url('images/icons/area_woth.svg')"></emc-option>
+<emc-option value="barren" style="background-image: url('images/icons/area_barren.svg')"></emc-option>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -62,7 +61,7 @@ slot {
 }
 `);
 
-class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
+class HTMLTrackerDungeonHint extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
@@ -70,7 +69,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("type", event => {
+        this.registerStateHandler("hint", event => {
             this.value = event.data;
         });
         this.addEventListener("click", event => this.next(event));
@@ -84,17 +83,17 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
         // state
         const state = this.getState();
         if (state != null) {
-            this.value = state.type;
+            this.value = state.hint;
         }
     }
 
     applyDefaultValues() {
-        this.value = "v";
+        this.value = "";
     }
 
     applyStateValues(state) {
         if (state != null) {
-            this.value = state.type;
+            this.value = state.hint;
         }
     }
 
@@ -133,17 +132,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
                 case "ref":
                     {
                         // state
-                        const state = DungeonstateStates.get(newValue);
-                        if (state != null) {
-                            const data = WorldStateManager.getByRef(newValue);
-                            if (data != null) {
-                                if (data.areaData.lists != null) {
-                                    this.readonly = false;
-                                } else {
-                                    this.readonly = true;
-                                }
-                            }
-                        }
+                        const state = WorldStateManager.getByRef(newValue);
                         this.switchState(state);
                     }
                     break;
@@ -167,10 +156,10 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                if (state.type == "v") {
-                    state.type = "mq";
+                if (state.hint == "woth") {
+                    state.hint = "barren";
                 } else {
-                    state.type = "v";
+                    state.hint = "woth";
                 }
             }
         }
@@ -182,7 +171,7 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                state.type = "n";
+                state.hint = "";
             }
         }
         event.preventDefault();
@@ -191,4 +180,4 @@ class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
 
 }
 
-customElements.define("ootrt-dungeontype", HTMLTrackerDungeonType);
+customElements.define("ootrt-dungeonhint", HTMLTrackerDungeonHint);

@@ -187,7 +187,7 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
                 case "ref":
                     {
                         // state
-                        const state = DungeonstateStates.get(this.ref);
+                        const state = DungeonstateStates.get(newValue);
                         if (state != null) {
                             this.append(createOption("", "/images/items/unknown.png"));
                             const items = ItemsResource.get();

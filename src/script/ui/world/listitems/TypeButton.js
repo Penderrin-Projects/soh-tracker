@@ -25,7 +25,7 @@ const TPL = new Template(`
     <div id="text">
         <slot></slot>
     </div>
-    <gt-badge id="badge" type-icon="images/dungeontype/undefined.svg"></gt-badge>
+    <gt-badge id="badge" type-icon="images/icons/dungeontype_undefined.svg"></gt-badge>
 </div>
 `);
 
@@ -209,11 +209,11 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
                         const badgeEl = this.shadowRoot.getElementById("badge");
                         if (badgeEl != null) {
                             if (newValue == "v") {
-                                badgeEl.typeIcon = "images/dungeontype/vanilla.svg";
+                                badgeEl.typeIcon = "images/icons/dungeontype_vanilla.svg";
                             } else if (newValue == "mq") {
-                                badgeEl.typeIcon = "images/dungeontype/masterquest.svg";
+                                badgeEl.typeIcon = "images/icons/dungeontype_masterquest.svg";
                             } else {
-                                badgeEl.typeIcon = "images/dungeontype/undefined.svg";
+                                badgeEl.typeIcon = "images/icons/dungeontype_undefined.svg";
                             }
                         }
                     }

@@ -11,6 +11,7 @@ import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 import "./DungeonReward.js";
 import "./DungeonType.js";
+import "./DungeonHint.js";
 import "../items/components/Item.js";
 import "../items/components/ItemKey.js";
 import "../items/components/InfiniteItem.js";
@@ -47,13 +48,11 @@ const TPL = new Template(`
             display: block;
             padding: 2px;
         }
-        ootrt-dungeonreward,
-        ootrt-dungeontype {
+        .dungeon-status {
             display: block;
             padding: 5px;
         }
-        ootrt-dungeonreward:hover,
-        ootrt-dungeontype:hover {
+        .dungeon-status:hover {
             padding: 2px;
         }
         div.text {
@@ -247,6 +246,7 @@ function createRow(ref, data) {
     // reward
     if (data.boss_reward) {
         const itm = document.createElement("ootrt-dungeonreward");
+        itm.classList.add("dungeon-status");
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
         itm.setAttribute("ref", ref);
@@ -260,9 +260,10 @@ function createRow(ref, data) {
         el.append(itm);
     }
     //////////////////////////////////
-    // mode
+    // type
     if (data.hasmq) {
         const itm = document.createElement("ootrt-dungeontype");
+        itm.classList.add("dungeon-status");
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
         itm.setAttribute("ref", ref);
@@ -273,6 +274,23 @@ function createRow(ref, data) {
         const itm = createItemPlaceholder();
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
+        el.append(itm);
+    }
+    //////////////////////////////////
+    // type
+    if (data.hint) {
+        const itm = document.createElement("ootrt-dungeonhint");
+        itm.classList.add("dungeon-status");
+        itm.classList.add("inactive");
+        itm.setAttribute("type", "hint");
+        itm.setAttribute("ref", ref);
+        el.append(Language.applyTooltip(itm, `${ref}_hint`));
+        /* register */
+        types.push("hint");
+    } else {
+        const itm = createItemPlaceholder();
+        itm.classList.add("inactive");
+        itm.setAttribute("type", "hint");
         el.append(itm);
     }
 
