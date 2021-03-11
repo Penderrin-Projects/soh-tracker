@@ -143,7 +143,7 @@
             "hasmq": true,
             "boss_reward": false
         },
-        "gerudo_fortress": {
+        "gerudo": {
             "title": "GF",
             "color": "#ffb47d",
             "keys": "item.key_small_gerudo",
