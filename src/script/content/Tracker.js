@@ -5,6 +5,7 @@ import "/emcJS/ui/navigation/NavBar.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import LoadWindow from "/GameTrackerJS/ui/window/savestate/LoadWindow.js";
 import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";
@@ -122,20 +123,23 @@ function openPatreon() {
 }
 
 function openSettingsWindow() {
-    if (window.TrackerSettingsWindow) {
-        window.TrackerSettingsWindow.show();
+    const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");
+    if (trackerSettingsWindow) {
+        trackerSettingsWindow.show();
     }
 }
 
 function openRomSettingsWindow() {
-    if (window.RomOptionsWindow) {
-        window.RomOptionsWindow.show();
+    const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
+    if (romOptionsWindow) {
+        romOptionsWindow.show();
     }
 }
 
 function openSpoilerSettingsWindow() {
-    if (window.SpoilerLogWindow) {
-        window.SpoilerLogWindow.show();
+    const spoilerLogWindow = GlobalContext.get("SpoilerLogWindow");
+    if (spoilerLogWindow) {
+        spoilerLogWindow.show();
     }
 }
 function showEditors() {

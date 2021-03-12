@@ -7,6 +7,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
@@ -27,8 +28,11 @@ class StateStorage {
             });
             if (extra.meta == null || !extra.meta["init_window_shown"]) {
                 const showInitWindow = SettingsStorage.get("show_state_init_window");
-                if (showInitWindow && window.NewGameWindow) {
-                    window.NewGameWindow.show();
+                if (showInitWindow) {
+                    const newGameWindow = GlobalContext.get("NewGameWindow");
+                    if (newGameWindow) {
+                        newGameWindow.show();
+                    }
                 }
             }
         });

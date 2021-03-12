@@ -15,6 +15,7 @@ import "/emcJS/ui/layout/Layout.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
@@ -116,13 +117,16 @@ try {
 
     updateLoadingMessage("initialize settings...");
     // windows
-    window.TrackerSettingsWindow = new TrackerSettingsWindow();
-    window.RomOptionsWindow = new RomOptionsWindow();
-    window.SpoilerLogWindow = new SpoilerLogWindow();
-    window.NewGameWindow = new NewGameWindow();
-    window.NewGameWindow.addEventListener("close", event => {
-        SavestateHandler.set("meta", "init_window_shown", true);
-    });
+    {
+        GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
+        GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
+        GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        const newGameWindow = new NewGameWindow();
+        newGameWindow.addEventListener("close", event => {
+            SavestateHandler.set("meta", "init_window_shown", true);
+        });
+        GlobalContext.set("NewGameWindow", newGameWindow);
+    }
 
     updateLoadingMessage("wake up...");
     // remove splashscreen
@@ -133,8 +137,11 @@ try {
 
     if (!SavestateHandler.get("meta", "init_window_shown", false)) {
         const showInitWindow = SettingsStorage.get("show_state_init_window");
-        if (showInitWindow && window.NewGameWindow) {
-            window.NewGameWindow.show();
+        if (showInitWindow) {
+            const newGameWindow = GlobalContext.get("NewGameWindow");
+            if (newGameWindow) {
+                newGameWindow.show();
+            }
         }
     }
 } catch(err) {

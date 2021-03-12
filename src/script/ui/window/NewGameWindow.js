@@ -7,6 +7,7 @@ import "/emcJS/ui/input/ListSelect.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 const TPL = new Template(`
@@ -77,24 +78,26 @@ export default class NewGameWindow extends Window {
         const footer = FOOTER.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const window = this.shadowRoot.getElementById("window");
-        const body = this.shadowRoot.getElementById("body");
-        body.innerHTML = "";
-        body.append(els);
-        window.append(footer);
+        const windowEl = this.shadowRoot.getElementById("window");
+        const bodyEl = this.shadowRoot.getElementById("body");
+        bodyEl.innerHTML = "";
+        bodyEl.append(els);
+        windowEl.append(footer);
         /* --- */
         const romSettingsButton = this.shadowRoot.getElementById("open-options-button");
         romSettingsButton.addEventListener("click", event => {
             this.close();
-            if (window.RomOptionsWindow) {
-                window.RomOptionsWindow.show();
+            const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
+            if (romOptionsWindow) {
+                romOptionsWindow.show();
             }
         });
         const uploadSpoilerButton = this.shadowRoot.getElementById("uplaod-spoiler-button");
         uploadSpoilerButton.addEventListener("click", event => {
             this.close();
-            if (window.SpoilerLogWindow) {
-                window.SpoilerLogWindow.show();
+            const spoilerLogWindow = GlobalContext.get("SpoilerLogWindow");
+            if (spoilerLogWindow) {
+                spoilerLogWindow.show();
             }
         });
     }
