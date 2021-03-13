@@ -2,7 +2,7 @@
 import Helper from "/emcJS/util/Helper.js";
 /* asym-import: on */
 import FilteredState from "../../abstract/FilteredState.js";
-import MarkerListHandler from "../../../util/MarkerListHandler.js";
+import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 
 const AREA_DATA = new WeakMap();
@@ -81,7 +81,7 @@ export default class AreaState extends FilteredState {
     }
 
     get access() {
-        return ACCESS.get(this);
+        return ACCESS.get(this) ?? defaultMarkerAccess;
     }
 
     setAllEntries(value = true) {

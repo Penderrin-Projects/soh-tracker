@@ -9,6 +9,7 @@ import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import WorldState from "./WorldState.js";
+import {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
 import WorldStateManagers from "../StateManagers.js";
 import EntranceStates from "../entrance/StateManager.js";
 
@@ -126,12 +127,14 @@ export default class ExitState extends WorldState {
     }
 
     executeSpecialFilter(name) {
-        const access = ACCESS.get(this);
-        switch (name) {
-            case "access": return access.value != AccessStateEnum.UNAVAILABLE;
-            case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
-            case "done": return access.value == AccessStateEnum.OPENED;
-            case "!done": return access.value != AccessStateEnum.OPENED;
+        const access = ACCESS.get(this) ?? defaultMarkerAccess;
+        if (access != null) {
+            switch (name) {
+                case "access": return access.value != AccessStateEnum.UNAVAILABLE;
+                case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
+                case "done": return access.value == AccessStateEnum.OPENED;
+                case "!done": return access.value != AccessStateEnum.OPENED;
+            }
         }
         return super.executeSpecialFilter(name);
     }
@@ -159,7 +162,7 @@ export default class ExitState extends WorldState {
         if (area != null) {
             return area.access;
         }
-        return ACCESS.get(this);
+        return ACCESS.get(this) ?? defaultMarkerAccess;
     }
 
     get area() {

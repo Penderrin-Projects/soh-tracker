@@ -10,18 +10,22 @@ const LIST_RAW = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
 const LIST_FILTERED = new WeakMap();
 
+const DEFAULT_ACCESS = {
+    done: 0,
+    unopened: 0,
+    reachable: 0,
+    entrances: false,
+    value: AccessStateEnum.OPENED
+};
+
+export const defaultAccess = DEFAULT_ACCESS;
+
 export default class MarkerListHandler extends EventTarget {
 
     constructor(list) {
         super();
         /* --- */
-        ACCESS.set(this, {
-            done: 0,
-            unopened: 0,
-            reachable: 0,
-            entrances: false,
-            value: AccessStateEnum.OPENED
-        });
+        ACCESS.set(this, DEFAULT_ACCESS);
         LIST_RAW.set(this, list);
         setTimeout(() => {
             this./*#*/__createLists(list);
