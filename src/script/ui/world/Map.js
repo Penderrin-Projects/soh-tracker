@@ -18,11 +18,12 @@ import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
+import "./mapmarker/Gossipstone.js";
+import "./mapmarker/ShopSlot.js";
 import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
 import "./mapmarker/Exit.js";
 import "./mapmarker/SubExit.js";
-import "./mapmarker/Gossipstone.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
 

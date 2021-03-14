@@ -1,10 +1,10 @@
 /* asym-import: off */
-import ClassRegister from "/emcJS/util/ClassRegister.js";
+import ClassRegistry from "/emcJS/util/ClassRegistry.js";
 /* asym-import: on */
 
 const CATEGORIES = new Map();
 
-export default class UIRegistry extends ClassRegister {
+export default class UIRegistry extends ClassRegistry {
 
     create(type, ref = "") {
         const el = super.create(type);

@@ -495,32 +495,44 @@
     "item.warp_forest": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_forest.png"
+        "label": "Min",
+        "images": "/images/items/warp_forest.png",
+        "valign": "end"
     },
     "item.warp_fire": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_fire.png"
+        "label": "Bol",
+        "images": "/images/items/warp_fire.png",
+        "valign": "end"
     },
     "item.warp_water": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_water.png"
+        "label": "Ser",
+        "images": "/images/items/warp_water.png",
+        "valign": "end"
     },
     "item.warp_shadow": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_shadow.png"
+        "label": "Noc",
+        "images": "/images/items/warp_shadow.png",
+        "valign": "end"
     },
     "item.warp_spirit": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_spirit.png"
+        "label": "Req",
+        "images": "/images/items/warp_spirit.png",
+        "valign": "end"
     },
     "item.warp_light": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/warp_light.png"
+        "label": "Pre",
+        "images": "/images/items/warp_light.png",
+        "valign": "end"
     },
     "item.stone_forest": {
         "type": "dungeonreward",

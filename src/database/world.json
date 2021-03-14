@@ -320,6 +320,12 @@
                         "category": "subarea"
                     },
                     {
+                        "id": "kokiri.shop",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
                         "id": "kokiri.s_know_it_all_brothers_child_night",
                         "x": 0,
                         "y": 0,
@@ -5357,7 +5363,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "kokiri.kokiri_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "kokiri.storm_grotto": {
             "background": "",
@@ -28918,6 +28949,94 @@
                     }
                 },
                 "icon": "images/icons/chest.svg"
+            },
+            "kokiri.kokiri_shop_8": {
+                "type": "shopslot",
+                "access": "logic.location.kokiri.m_shop_8",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kokiri.kokiri_shop_6": {
+                "type": "shopslot",
+                "access": "logic.location.kokiri.m_shop_6",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kokiri.kokiri_shop_7": {
+                "type": "shopslot",
+                "access": "logic.location.kokiri.m_shop_7",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kokiri.kokiri_shop_5": {
+                "type": "shopslot",
+                "access": "logic.location.kokiri.m_shop_5",
+                "visible": true,
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
             }
         },
         "subexit": {

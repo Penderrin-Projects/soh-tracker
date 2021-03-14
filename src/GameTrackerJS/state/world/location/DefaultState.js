@@ -1,5 +1,6 @@
 /* asym-import: off */
 import EventBus from "/emcJS/event/EventBus.js";
+import Helper from "/emcJS/util/Helper.js";
 /* asym-import: on */
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import Logic from "../../../util/logic/Logic.js";
@@ -76,11 +77,11 @@ export default class DefaultState extends FilteredState {
     }
 
     refreshAccess() {
-        const value = VALUE.get(this);
+        const value = this.value;
         const reachable = REACHABLE.get(this);
         const access = getAccessValue(value, reachable);
         const old = ACCESS.get(this);
-        if (access != old) {
+        if (!Helper.isEqual(access, old)) {
             ACCESS.set(this, access);
             // external
             const ev = new Event("access");

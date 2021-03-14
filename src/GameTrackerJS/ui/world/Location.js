@@ -55,21 +55,13 @@ export default class AbstractLocation extends WorldElement {
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/location.svg");
-        const textEl = this.shadowRoot.getElementById("text");
-        if (textEl != null) {
-            textEl.dataset.checked = false;
-            textEl.dataset.state = "unavailable";
-        }
+        this.applyAccess("unavailable");
     }
 
     applyStateValues(state) {
         super.applyStateValues(state, "images/icons/location.svg");
         if (state != null) {
-            const textEl = this.shadowRoot.getElementById("text");
-            if (textEl != null) {
-                textEl.dataset.checked = state.value;
-            }
-            this.applyAccess(state.access, state.value);
+            this.applyAccess(state.access);
         }
     }
 

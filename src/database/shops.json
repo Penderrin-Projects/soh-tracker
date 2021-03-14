@@ -1,34 +1,42 @@
 {
     "shop.kokiri": [
         {
+            "ref": "location/kokiri.kokiri_shop_8",
             "item": "item.heart_1",
             "price": 10
         },
         {
+            "ref": "location/kokiri.kokiri_shop_6",
             "item": "item.arrows_10",
             "price": 20
         },
         {
+            "ref": "location/kokiri.kokiri_shop_2",
             "item": "item.nuts_5",
             "price": 15
         },
         {
+            "ref": "location/kokiri.kokiri_shop_4",
             "item": "item.stick_1",
             "price": 10
         },
         {
+            "ref": "location/kokiri.kokiri_shop_7",
             "item": "item.arrows_30",
             "price": 60
         },
         {
+            "ref": "location/kokiri.kokiri_shop_5",
             "item": "item.seeds_30",
             "price": 30
         },
         {
+            "ref": "location/kokiri.kokiri_shop_1",
             "item": "item.shield_kokiri_1",
             "price": 40
         },
         {
+            "ref": "location/kokiri.kokiri_shop_3",
             "item": "item.nuts_10",
             "price": 30
         }

@@ -7,6 +7,7 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
+import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
 const ITEM = new WeakMap();
 const PRICE = new WeakMap();
@@ -69,6 +70,10 @@ export default class DefaultState extends DataState {
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
+        /* --- */
+        if (props.ref != null) {
+            ShopLocationRegistry.set(props.ref, this);
+        }
     }
 
     stateLoaded(event) {
@@ -126,11 +131,7 @@ export default class DefaultState extends DataState {
             if (bought) {
                 ICON.set(this, "/images/items/sold_out.png");
             } else {
-                if (itemData != null) {
-                    ICON.set(this, itemData.image);
-                } else {
-                    ICON.set(this, "/images/items/unknown.png");
-                }
+                ICON.set(this, itemData?.image ?? "/images/items/unknown.png");
             }
         }
     }

@@ -308,6 +308,8 @@ function createOption(value, img, data, max_value) {
     if (data.counting) {
         if (Array.isArray(data.counting)) {
             opt.innerHTML = data.counting[value];
+        } else if (typeof data.counting == "string") {
+            opt.innerHTML = data.counting;
         } else {
             if (value > 0 || data.always_active) {
                 opt.innerHTML = value;
@@ -318,6 +320,12 @@ function createOption(value, img, data, max_value) {
             if (value >= max_value || !isNaN(mark) && value >= mark) {
                 opt.classList.add("mark");
             }
+        }
+    } else if (data.label) {
+        if (Array.isArray(data.label)) {
+            opt.innerHTML = data.label[value];
+        } else if (typeof data.label == "string") {
+            opt.innerHTML = data.label;
         }
     }
     // radial-gradient(ellipse at center, rgb(24, 241, 21) 0%,rgb(24, 241, 21) 45%,rgba(0,255,255,0) 72%,rgba(0,255,255,0) 87%)

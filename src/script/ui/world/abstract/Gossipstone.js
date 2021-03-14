@@ -21,7 +21,7 @@ const CTG_TPL = new Template(`
 
 // TODO
 
-export default class ListGossipstone extends AbstractLocation {
+export default class Gossipstone extends AbstractLocation {
 
     constructor() {
         super();

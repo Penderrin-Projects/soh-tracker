@@ -72,7 +72,7 @@ function getAlign(value) {
     }
 }
 
-export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
+export default class Item extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
@@ -90,17 +90,23 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
     }
 
     applyDefaultValues() {
-        super.applyDefaultValues("images/icons/area.svg");
-        const textEl = this.shadowRoot.getElementById("text");
-        if (textEl != null) {
-            textEl.dataset.state = "unavailable";
-        }
-        this.hint = "";
+        this.style.backgroundImage = "";
+        this.halign = "center";
+        this.valign = "center";
+        this.value = 0;
     }
 
     applyStateValues(state) {
         if (state != null) {
-            this.value = state.value;
+            if (state.props.counting) {
+                this.value = state.value;
+            } else if (state.props.label) {
+                if (Array.isArray(state.props.label)) {
+                    this.value = state.props.label[state.value];
+                } else if (typeof state.props.label == "string") {
+                    this.value = state.props.label;
+                }
+            }
             const data = state.props;
             // settings
             if (data.halign != null) {
@@ -181,9 +187,25 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
                         }
                     }
                     break;
-                case "value":
-                    this.shadowRoot.getElementById("value").innerHTML = newValue;
-                    break;
+                case "value": {
+                    const valueEl = this.shadowRoot.getElementById("value");
+                    const state = this.getState();
+                    if (state.props.counting) {
+                        if (Array.isArray(state.props.counting)) {
+                            valueEl.innerHTML = state.props.counting[newValue];
+                        } else if (typeof state.props.counting == "string") {
+                            valueEl.innerHTML = state.props.counting;
+                        } else {
+                            valueEl.innerHTML = newValue;
+                        }
+                    } else if (state.props.label) {
+                        if (Array.isArray(state.props.label)) {
+                            valueEl.innerHTML = state.props.label[newValue];
+                        } else {
+                            valueEl.innerHTML = state.props.label;
+                        }
+                    }
+                } break;
                 case "halign":
                     this.shadowRoot.getElementById("value").style.justifyContent = getAlign(newValue);
                     break;
@@ -236,4 +258,4 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
 
 }
 
-customElements.define("ootrt-infiniteitem", InfiniteItem);
+customElements.define("ootrt-infiniteitem", Item);

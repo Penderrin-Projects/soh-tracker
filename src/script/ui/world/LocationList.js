@@ -24,11 +24,12 @@ import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
 import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
+import "./listitems/Gossipstone.js";
+import "./listitems/ShopSlot.js";
 import "./listitems/Area.js";
 import "./listitems/SubArea.js";
 import "./listitems/Exit.js";
 import "./listitems/SubExit.js";
-import "./listitems/Gossipstone.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
 
