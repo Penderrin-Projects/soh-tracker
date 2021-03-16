@@ -6,9 +6,7 @@ import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopStates from "/script/state/shop/StateManager.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
-// TODO add property to detect custom item
-// TODO only show item if it is custom
-// TODO set as done if custom item is a default shop item
+// TODO only show item if it is not a refill item
 
 const SHOP_STATE = new WeakMap();
 

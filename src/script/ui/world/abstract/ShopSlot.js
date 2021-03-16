@@ -4,8 +4,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import "/script/state/world/location/LocationState.js";
-import "../../ctxmenu/LocationContextMenu.js";
-import "../../ctxmenu/ItemPickerMenu.js";
+import "../../ctxmenu/ShopSlotContextMenu.js";
 import ShopItemChoiceDialog from "../../shops/ShopItemChoiceDialog.js";
 
 export default class ShopSlot extends AbstractLocation {
@@ -14,11 +13,14 @@ export default class ShopSlot extends AbstractLocation {
         super();
         /* --- */
         this.registerStateHandler("item", event => {
-            this.applyItem(event.data);
+            this.applyItem();
+        });
+        this.registerStateHandler("bought", event => {
+            this.applyItem();
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-location");
+        const mnu_ctx = document.createElement("ootrt-ctxmenu-shopslot");
         this.setContextMenu("main", mnu_ctx);
 
         mnu_ctx.addEventListener("check", event => {
@@ -35,12 +37,6 @@ export default class ShopSlot extends AbstractLocation {
         });
         mnu_ctx.addEventListener("associate", event => {
             this./*#*/__editItem(event)
-        });
-        mnu_ctx.addEventListener("disassociate", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.item = "";
-            }
         });
         
         /* mouse events */
@@ -62,13 +58,14 @@ export default class ShopSlot extends AbstractLocation {
         this.applyItem(state.item);
     }
 
-    applyItem(item = "") {
+    applyItem() {
+        const state = this.getState();
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
             itemEl.innerHTML = "";
-            if (item) {
+            if (state.item) {
                 const el_icon = document.createElement("img");
-                const itemData = ShopItemsResource.get(item);
+                const itemData = ShopItemsResource.get(state.item);
                 el_icon.src = itemData?.image ?? "/images/items/unknown.png";
                 itemEl.append(el_icon);
             }

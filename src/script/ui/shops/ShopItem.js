@@ -105,6 +105,19 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+function getIcon(itemData, bought) {
+    if (itemData == null) {
+        return "/images/items/unknown.png";
+    }
+    if (itemData.refill) {
+        return itemData.image;
+    }
+    if (bought) {
+        return "/images/items/sold_out.png";
+    }
+    return itemData.image ?? "/images/items/unknown.png";
+}
+
 export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLElement) {
     
     constructor() {
@@ -118,29 +131,10 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             if (titleEl != null) {
                 Language.applyLabel(titleEl, event.data);
             }
-            const state = this.getState();
-            const imageEl = this.shadowRoot.getElementById("image");
-            if (imageEl != null) {
-                imageEl.style.backgroundImage = `url("${state.icon}")`;
-            }
-            // mark
-            const mark = state.mark;
-            if (mark) {
-                if (typeof mark == "string") {
-                    this.dataset.mark = mark;
-                } else {
-                    this.dataset.mark = "";
-                }
-            } else {
-                delete document.body.dataset.mark;
-            }
+            this./*#*/__applyItem();
         });
         this.registerStateHandler("bought", event => {
-            const state = this.getState();
-            const imageEl = this.shadowRoot.getElementById("image");
-            if (imageEl != null) {
-                imageEl.style.backgroundImage = `url("${state.icon}")`;
-            }
+            this./*#*/__applyItem();
         });
         this.registerStateHandler("price", event => {
             const priceEl = this.shadowRoot.getElementById("price");
@@ -197,7 +191,7 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         // image
         const imageEl = this.shadowRoot.getElementById("image");
         if (imageEl != null) {
-            imageEl.style.backgroundImage = `url("/images/items/sold_out.png")`;
+            imageEl.style.backgroundImage = `url("/images/items/unknown.png")`;
         }
         // cost
         const priceEl = this.shadowRoot.getElementById("price");
@@ -220,11 +214,8 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             if (titleEl != null) {
                 Language.applyLabel(titleEl, state.item);
             }
-            // image
-            const imageEl = this.shadowRoot.getElementById("image");
-            if (imageEl != null) {
-                imageEl.style.backgroundImage = `url("${state.icon}")`;
-            }
+            // item
+            this./*#*/__applyItem();
             // cost
             const priceEl = this.shadowRoot.getElementById("price");
             if (priceEl != null) {
@@ -235,17 +226,34 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             if (nameEl != null) {
                 nameEl.value = state.name;
             }
-            // mark
-            const mark = state.mark;
-            if (mark) {
-                if (typeof mark == "string") {
-                    this.dataset.mark = mark;
-                } else {
-                    this.dataset.mark = "";
-                }
-            } else {
-                delete document.body.dataset.mark;
+        }
+    }
+
+    /*#*/__applyItem() {
+        const state = this.getState();
+        const itemData = state.itemData;
+        const imageEl = this.shadowRoot.getElementById("image");
+        if (itemData != null) {
+            // icon
+            const imageEl = this.shadowRoot.getElementById("image");
+            if (imageEl != null) {
+                const icon = getIcon(itemData, state.bought);
+                imageEl.style.backgroundImage = `url("${icon}")`;
             }
+            // mark
+            const mark = itemData.mark;
+            if (typeof mark == "string") {
+                this.dataset.mark = mark;
+            } else {
+                this.dataset.mark = "";
+            }
+        } else {
+            // icon
+            if (imageEl != null) {
+                imageEl.style.backgroundImage = `url("/images/items/unknown.png")`;
+            }
+            // mark
+            delete document.body.dataset.mark;
         }
     }
 

@@ -1514,7 +1514,25 @@
                         "category": "subexit"
                     },
                     {
+                        "id": "castle_town.shop_bombchu",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
                         "id": "castle_town.shop_bazaar",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subexit"
+                    },
+                    {
+                        "id": "castle_town.shop_bazaar",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
+                        "id": "castle_town.shop_magic",
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
@@ -1523,7 +1541,7 @@
                         "id": "castle_town.shop_magic",
                         "x": 0,
                         "y": 0,
-                        "category": "subexit"
+                        "category": "subarea"
                     },
                     {
                         "id": "castle_town.shop_mask",
@@ -1871,10 +1889,22 @@
                         "category": "subexit"
                     },
                     {
+                        "id": "kakariko.shop_bazaar",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
                         "id": "kakariko.shop_magic",
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "kakariko.shop_magic",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
                     },
                     {
                         "id": "kakariko.shop_magic_back",
@@ -2363,6 +2393,12 @@
                         "category": "subexit"
                     },
                     {
+                        "id": "goron.shop",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
+                    },
+                    {
                         "id": "goron.grotto",
                         "x": 0,
                         "y": 0,
@@ -2430,6 +2466,12 @@
                         "x": 0,
                         "y": 0,
                         "category": "subexit"
+                    },
+                    {
+                        "id": "zoras.shop",
+                        "x": 0,
+                        "y": 0,
+                        "category": "subarea"
                     },
                     {
                         "id": "zoras.storms_grotto",
@@ -5552,7 +5594,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "castle_town.shop_magic_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "castle_town.minigame_treasure": {
             "background": "",
@@ -5571,7 +5638,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "castle_town.shop_bombchu_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "castle_town.back_house": {
             "background": "",
@@ -5583,7 +5675,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "castle_town.shop_bazaar_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "castle_town.minigame_shooting": {
             "background": "",
@@ -5823,7 +5940,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "kakariko.shop_bazaar_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "kakariko.minigame_shooting": {
             "background": "",
@@ -5880,7 +6022,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "kakariko.shop_magic_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "kakariko.open_grotto": {
             "background": "",
@@ -6096,7 +6263,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "goron.goron_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "goron.grotto": {
             "background": "",
@@ -6171,7 +6363,32 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "list": []
+            "list": [
+                {
+                    "id": "zoras.zoras_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
         },
         "zoras.storms_grotto": {
             "background": "",
@@ -13168,7 +13385,7 @@
             "kokiri.shop": {
                 "type": "interior",
                 "access": "logic.subarea.kokiri.shop",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13225,15 +13442,15 @@
             "castle_town.shop_magic": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_magic",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
-                        "adult": true
+                        "adult": false
                     },
                     "filter.time": {
                         "day": true,
-                        "night": true
+                        "night": false
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -13244,14 +13461,14 @@
             "castle_town.shop_bombchu": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_bombchu",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
-                        "adult": true
+                        "adult": false
                     },
                     "filter.time": {
-                        "day": true,
+                        "day": false,
                         "night": true
                     },
                     "filter.show_done": {
@@ -13282,15 +13499,15 @@
             "castle_town.shop_bazaar": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_bazaar",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
-                        "adult": true
+                        "adult": false
                     },
                     "filter.time": {
                         "day": true,
-                        "night": true
+                        "night": false
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -13339,15 +13556,15 @@
             "kakariko.shop_bazaar": {
                 "type": "interior",
                 "access": "logic.subarea.kakariko.shop_bazaar",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
-                        "child": true,
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {
                         "day": true,
-                        "night": true
+                        "night": false
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -13358,15 +13575,15 @@
             "kakariko.shop_magic": {
                 "type": "interior",
                 "access": "logic.subarea.kakariko.shop_magic",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
-                        "child": true,
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {
                         "day": true,
-                        "night": true
+                        "night": false
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -13380,12 +13597,12 @@
                 "visible": false,
                 "filter": {
                     "filter.era": {
-                        "child": true,
+                        "child": false,
                         "adult": true
                     },
                     "filter.time": {
                         "day": true,
-                        "night": true
+                        "night": false
                     },
                     "filter.show_done": {
                         "false": "!done"
@@ -13415,7 +13632,7 @@
             "goron.shop": {
                 "type": "interior",
                 "access": "logic.subarea.goron.shop",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13453,7 +13670,7 @@
             "zoras.shop": {
                 "type": "interior",
                 "access": "logic.subarea.zoras.shop",
-                "visible": false,
+                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -28953,29 +29170,14 @@
             "kokiri.kokiri_shop_8": {
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_8",
-                "visible": true,
-                "filter": {
-                    "filter.era": {
-                        "child": true,
-                        "adult": true
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
                     },
-                    "filter.time": {
-                        "day": true,
-                        "night": true
-                    },
-                    "filter.chests": {
-                        "false": false
-                    },
-                    "filter.show_done": {
-                        "false": "!done"
-                    }
+                    "value": 1
                 },
-                "icon": "images/icons/shops.svg"
-            },
-            "kokiri.kokiri_shop_6": {
-                "type": "shopslot",
-                "access": "logic.location.kokiri.m_shop_6",
-                "visible": true,
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -28997,7 +29199,43 @@
             "kokiri.kokiri_shop_7": {
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_7",
-                "visible": true,
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kokiri.kokiri_shop_6": {
+                "type": "shopslot",
+                "access": "logic.location.kokiri.m_shop_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -29019,7 +29257,826 @@
             "kokiri.kokiri_shop_5": {
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_5",
-                "visible": true,
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_bazaar_8": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_bazaar_7": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_bazaar_6": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_bazaar_5": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_magic_8": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop2_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_magic_7": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop2_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_magic_6": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop2_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "kakariko.shop_magic_5": {
+                "type": "shopslot",
+                "access": "logic.location.kakariko.m_shop2_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bazaar_8": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bazaar_7": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bazaar_6": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bazaar_5": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_magic_8": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop2_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_magic_7": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop2_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_magic_6": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop2_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_magic_5": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop2_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bombchu_8": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop3_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bombchu_7": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop3_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bombchu_6": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop3_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "castle_town.shop_bombchu_5": {
+                "type": "shopslot",
+                "access": "logic.location.castle_town.m_shop3_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "goron.goron_shop_8": {
+                "type": "shopslot",
+                "access": "logic.location.goron.m_shop_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "goron.goron_shop_7": {
+                "type": "shopslot",
+                "access": "logic.location.goron.m_shop_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "goron.goron_shop_6": {
+                "type": "shopslot",
+                "access": "logic.location.goron.m_shop_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "goron.goron_shop_5": {
+                "type": "shopslot",
+                "access": "logic.location.goron.m_shop_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "zoras.zoras_shop_8": {
+                "type": "shopslot",
+                "access": "logic.location.zoras.m_shop_8",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 1
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "zoras.zoras_shop_7": {
+                "type": "shopslot",
+                "access": "logic.location.zoras.m_shop_7",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 2
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "zoras.zoras_shop_6": {
+                "type": "shopslot",
+                "access": "logic.location.zoras.m_shop_6",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 3
+                },
+                "filter": {
+                    "filter.era": {
+                        "child": true,
+                        "adult": true
+                    },
+                    "filter.time": {
+                        "day": true,
+                        "night": true
+                    },
+                    "filter.chests": {
+                        "false": false
+                    },
+                    "filter.show_done": {
+                        "false": "!done"
+                    }
+                },
+                "icon": "images/icons/shops.svg"
+            },
+            "zoras.zoras_shop_5": {
+                "type": "shopslot",
+                "access": "logic.location.zoras.m_shop_5",
+                "visible": {
+                    "type": "min",
+                    "el": {
+                        "type": "value",
+                        "el": "option.shopsanity"
+                    },
+                    "value": 4
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
