@@ -28056,7 +28056,7 @@
                 "type": "mixin",
                 "el": "mixin.is_child[child]"
             },
-            "region.market_bombchu_bowling[child]": {
+            "region.market_bombchu_bowling_entrance[child]": {
                 "type": "mixin",
                 "el": "mixin.is_child[child]"
             },
@@ -28076,7 +28076,7 @@
                 "type": "mixin",
                 "el": "mixin.is_child[child]"
             },
-            "region.market_man_in_green_house_entrance[child]": {
+            "region.market_man_in_green_house[child]": {
                 "type": "mixin",
                 "el": "mixin.is_child[child]"
             },
@@ -28316,6 +28316,9 @@
             },
             "region.root_exits[adult]": {
                 "type": "true"
+            },
+            "region.beyond_door_of_time[adult]": {
+                "type": "true"
             }
         },
         "region.beyond_door_of_time[adult]": {
@@ -28365,6 +28368,9 @@
                 ]
             },
             "region.root_exits[child]": {
+                "type": "true"
+            },
+            "region.beyond_door_of_time[child]": {
                 "type": "true"
             }
         },
@@ -36857,8 +36863,8 @@
                         "value": "doors_open_zora_both"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin.deliver_letter[child]"
+                        "type": "value",
+                        "el": "logic.location.deliver_letter"
                     },
                     {
                         "type": "and",
@@ -37043,8 +37049,8 @@
                         "value": "doors_open_zora_both"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin.deliver_letter[adult]"
+                        "type": "value",
+                        "el": "logic.location.deliver_letter"
                     },
                     {
                         "type": "mixin",
@@ -54799,32 +54805,6 @@
                 "el": "filter.time",
                 "value": "night"
             }
-        },
-        "mixin.deliver_letter[child]": {
-            "type": "and",
-            "el": [
-                {
-                    "type": "mixin",
-                    "el": "mixin.can_become_child[child]"
-                },
-                {
-                    "type": "value",
-                    "el": "item.zora_letter"
-                }
-            ]
-        },
-        "mixin.deliver_letter[adult]": {
-            "type": "and",
-            "el": [
-                {
-                    "type": "mixin",
-                    "el": "mixin.can_become_child[adult]"
-                },
-                {
-                    "type": "value",
-                    "el": "item.zora_letter"
-                }
-            ]
         },
         "mixin.can_play_ocarina[child]": {
             "type": "or",
