@@ -187,6 +187,13 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
                     {
                         const state = WorldStateManager.getByRef(this.ref);
                         this.switchState(state);
+                        if (state != null) {
+                            const list = state.getFilteredList(this.type);
+                            if (list != null) {
+                                const access = ListLogic.check(list);
+                                this.applyAccess(access);
+                            }
+                        }
                         const type_state = DungeonstateStates.get(this.ref);
                         if (type_state != null) {
                             TYPE_STATE.set(this, type_state);

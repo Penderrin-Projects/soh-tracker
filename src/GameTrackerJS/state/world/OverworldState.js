@@ -42,7 +42,7 @@ class OverworldState extends EventTarget {
     }
     
     generateList() {
-        const listHandler = new MarkerListHandler(this.areaData.list);
+        const listHandler = new MarkerListHandler(this.areaData.list, "");
         listHandler.addEventListener("access", event => {
             this.setAccess(event.data);
         });

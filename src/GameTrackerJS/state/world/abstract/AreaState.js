@@ -1,12 +1,8 @@
-/* asym-import: off */
-import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
 import FilteredState from "../../abstract/FilteredState.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 
 const AREA_DATA = new WeakMap();
-const ACCESS = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
 export default class AreaState extends FilteredState {
@@ -17,30 +13,19 @@ export default class AreaState extends FilteredState {
         AREA_DATA.set(this, areaData);
         /* --- */
         const listHandler = this.generateList();
-        ACCESS.set(this, listHandler.access);
         LIST_HANDLER.set(this, listHandler);
-    }
-
-    setAccess(value) {
-        if (value != null) {
-            const old = ACCESS.get(this);
-            if (!Helper.isEqual(old, value)) {
-                ACCESS.set(this, value);
-                // external
-                const ev = new Event("access");
-                ev.data = value;
-                this.dispatchEvent(ev);
-            }
-        }
     }
     
     generateList() {
         const list = this.areaData.list;
-        const listHandler = new MarkerListHandler(list);
+        const listHandler = new MarkerListHandler(list, this.ref);
         listHandler.addEventListener("access", event => {
-            this.setAccess(event.data);
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
         });
         listHandler.addEventListener("change", event => {
+            this.checkAllFilter();
             if (event.list != null) {
                 const ev = new Event("list_update");
                 ev.data = event.list;
@@ -81,7 +66,8 @@ export default class AreaState extends FilteredState {
     }
 
     get access() {
-        return ACCESS.get(this) ?? defaultMarkerAccess;
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler?.access ?? defaultMarkerAccess;
     }
 
     setAllEntries(value = true) {

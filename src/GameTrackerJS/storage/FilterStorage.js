@@ -14,14 +14,24 @@ for (const [key, value] of Object.entries(FilterResource.get())) {
     }
 }
 
+let debounce_timeout = null;
+let debounce_data = {};
+
 class FilterStorage extends DataStorage {
 
     constructor() {
         super();
         this.addEventListener("change", event => {
-            setTimeout(() => {
-                EventBus.trigger("filter", event.data);
-            }, 0);
+            if (debounce_timeout != null) {
+                clearTimeout(debounce_timeout);
+            }
+            for (const [key, value] of Object.entries(event.data)) {
+                debounce_data[key] = value;
+            }
+            debounce_timeout = setTimeout(() => {
+                EventBus.trigger("filter", debounce_data);
+                debounce_data = {};
+            }, 100);
             const data = {};
             const changes = {};
             for (const key in event.changes) {

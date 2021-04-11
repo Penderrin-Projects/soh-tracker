@@ -7,13 +7,11 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import MarkerListHandler from "/GameTrackerJS/util/MarkerListHandler.js";
+import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/MarkerListHandler.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const TYPE = new WeakMap();
 const LIST_HANDLER = new WeakMap();
-const ACCESS = new WeakMap();
-const ACCESS_MQ = new WeakMap();
 
 function getAccessNeutralBoth(res_v, res_m) {
     if (res_v.value == AccessStateEnum.UNAVAILABLE || res_m.value == AccessStateEnum.UNAVAILABLE) {
@@ -73,9 +71,7 @@ export default class DungeonState extends DefaultState {
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
         /* --- */
-        ACCESS.set(this, super.access);
         const listHandler = this.generateMQList();
-        ACCESS_MQ.set(this, listHandler.access);
         LIST_HANDLER.set(this, listHandler);
         /* --- */
         this./*#*/__applyTypeValue(SavestateHandler.get("dungeontype", ref, "n"));
@@ -84,44 +80,56 @@ export default class DungeonState extends DefaultState {
     }
     
     generateList() {
-        const listHandler = new MarkerListHandler(this.areaData.lists["v"]);
+        const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
-            ACCESS.set(this, event.data);
             if (this.type == "v") {
-                this.setAccess(event.data);
+                const ev = new Event("access");
+                ev.data = event.data;
+                this.dispatchEvent(ev);
             } else if (this.type != "mq") {
-                const acc_mq = ACCESS_MQ.get(this);
+                const acc_mq = this.getAccessMQ();
                 const acc = getAccessNeutral(event.data, acc_mq);
-                this.setAccess(acc);
+                const ev = new Event("access");
+                ev.data = acc;
+                this.dispatchEvent(ev);
             }
         });
         listHandler.addEventListener("change", event => {
-            if (this.type == "v" && event.list != null) {
-                const ev = new Event("list_update");
-                ev.data = event.list;
-                this.dispatchEvent(ev);
+            if (this.type != "mq") {
+                this.checkAllFilter();
+                if (event.list != null) {
+                    const ev = new Event("list_update");
+                    ev.data = event.list;
+                    this.dispatchEvent(ev);
+                }
             }
         });
         return listHandler;
     }
     
     generateMQList() {
-        const listHandler = new MarkerListHandler(this.areaData.lists["mq"]);
+        const listHandler = new MarkerListHandler(this.areaData.lists["mq"], `${this.ref}/mq`);
         listHandler.addEventListener("access", event => {
-            ACCESS_MQ.set(this, event.data);
             if (this.type == "mq") {
-                this.setAccess(event.data);
+                const ev = new Event("access");
+                ev.data = event.data;
+                this.dispatchEvent(ev);
             } else if (this.type != "v") {
-                const acc_v = ACCESS.get(this);
+                const acc_v = this.getAccessV();
                 const acc = getAccessNeutral(acc_v, event.data);
-                this.setAccess(acc);
+                const ev = new Event("access");
+                ev.data = acc;
+                this.dispatchEvent(ev);
             }
         });
         listHandler.addEventListener("change", event => {
-            if (this.type == "mq" && event.list != null) {
-                const ev = new Event("list_update");
-                ev.data = event.list;
-                this.dispatchEvent(ev);
+            if (this.type != "v") {
+                this.checkAllFilter();
+                if (event.list != null) {
+                    const ev = new Event("list_update");
+                    ev.data = event.list;
+                    this.dispatchEvent(ev);
+                }
             }
         });
         return listHandler;
@@ -141,19 +149,6 @@ export default class DungeonState extends DefaultState {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
-            // access
-            if (newValue == "v") {
-                const acc_v = ACCESS.get(this);
-                this.setAccess(acc_v);
-            } else if (newValue == "mq") {
-                const acc_mq = ACCESS_MQ.get(this);
-                this.setAccess(acc_mq);
-            } else {
-                const acc_v = ACCESS.get(this);
-                const acc_mq = ACCESS_MQ.get(this);
-                const acc = getAccessNeutral(acc_v, acc_mq);
-                this.setAccess(acc);
-            }
             // external
             const event = new Event("type");
             event.data = newValue;
@@ -210,12 +205,28 @@ export default class DungeonState extends DefaultState {
         return TYPE.get(this);
     }
 
+    get access() {
+        if (this.type == "v") {
+            return super.access;
+        } else if (this.type == "mq") {
+            const listHandler = LIST_HANDLER.get(this);
+            return listHandler?.access ?? defaultMarkerAccess;
+        } else {
+            const listHandler = LIST_HANDLER.get(this);
+            const acc_v = super.access;
+            const acc_mq = listHandler?.access ?? defaultMarkerAccess;
+            const acc = getAccessNeutral(acc_v, acc_mq);
+            return acc;
+        }
+    }
+
     getAccessV() {
-        return ACCESS.get(this);
+        return super.access;
     }
 
     getAccessMQ() {
-        return ACCESS_MQ.get(this);
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler.access ?? defaultMarkerAccess;
     }
 
 }

@@ -1,7 +1,6 @@
 /* asym-import: off */
 import Logger from "/emcJS/util/Logger.js";
 /* asym-import: on */
-import SavestateHandler from "../../savestate/SavestateHandler.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/area/StateManager.js";
 import "../../state/world/exit/StateManager.js";
@@ -37,15 +36,10 @@ class ListLogic {
                 if (category == "location") {
                     const state = WorldStateManager.get("location", id);
                     if (state != null && state.visible) {
-                        const ref = `${category}/${id}`;
-                        if (!SavestateHandler.get("", ref, 0)) {
-                            res.unopened++;
-                            if (state.access) {
-                                res.reachable++;
-                            }
-                        } else {
-                            res.done++;
-                        }
+                        const {done, unopened, reachable} = state.access;
+                        res.done += done;
+                        res.unopened += unopened;
+                        res.reachable += reachable;
                     }
                 } else if (category == "subarea") {
                     const state = WorldStateManager.get("subarea", id);

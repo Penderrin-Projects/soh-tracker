@@ -200,7 +200,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         if (state != null) {
             const area = state.area;
             if (area != null) {
-                const list = area.getFilteredList();
+                const list = area.getList();
                 if (list != null) {
                     for (const record of list) {
                         const loc = WorldStateManager.get(record.category, record.id);

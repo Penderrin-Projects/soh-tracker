@@ -199,7 +199,7 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
         this.innerHTML = ""; // TODO use ElementManager
         const state = this.getState();
         if (state != null) {
-            const list = state.getFilteredList();
+            const list = state.getList();
             if (list != null) {
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);

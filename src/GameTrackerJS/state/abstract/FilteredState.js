@@ -42,21 +42,29 @@ export default class FilteredState extends VisibilityState {
                         if (j == filterValue) {
                             const value = LogicExecutor.execute(logicFn);
                             filter_values.set(i, value);
+                        } else {
+                            filter_values.set(i, false);
                         }
                     } else if (SPECIAL_FILTERS.includes(filterProp)) {
                         filter_logics.set(`${i}/${j}`, filterProp);
                         if (j == filterValue) {
                             const value = this.executeSpecialFilter(filterProp);
                             filter_values.set(i, value);
+                        } else {
+                            filter_values.set(i, false);
                         }
                     } else if (filterProp != null) {
                         const value = !!filterProp;
                         filter_logics.set(`${i}/${j}`, value);
                         if (j == filterValue) {
                             filter_values.set(i, value);
+                        } else {
+                            filter_values.set(i, false);
                         }
                     } else if (j == filterValue) {
                         filter_values.set(i, true);
+                    } else {
+                        filter_values.set(i, false);
                     }
                 }
             }
@@ -65,50 +73,34 @@ export default class FilteredState extends VisibilityState {
         }
         /* EVENTS */
         FilterStorage.addEventListener("change", event => {
-            let changed = false;
-            for (const [key, value] of Object.entries(event.data)) {
-                changed = changed || this./*#*/__checkFilter(key, value);
-            }
-            if (changed) {
-                const event = new Event("filter");
-                event.data = FILTER.get(this);
-                this.dispatchEvent(event);
-            }
+            this.checkAllFilter();
         });
         const logicEventManager = new EventTargetManager(LogicExecutor);
         logicEventManager.set(["reset", "change"], event => {
-            const changed = this./*#*/__checkAllFilter()
-            if (changed) {
-                const event = new Event("filter");
-                event.data = FILTER.get(this);
-                this.dispatchEvent(event);
-            }
+            this.checkAllFilter();
         });
+        /* --- */
+        setTimeout(() => {
+            this.checkAllFilter();
+        }, 0);
     }
 
-    /*#*/__checkFilter(id, value) {
+    checkAllFilter() {
         const filter_values = FILTER.get(this);
-        const oVal = filter_values.get(id);
-        const nVal = this./*#*/__executeFilter(`${id}/${value}`);
-        if (oVal != nVal) {
-            filter_values.set(id, nVal);
-            return true;
-        }
-        return false;
-    }
-
-    /*#*/__checkAllFilter() {
-        let changed = false;
-        const filter_values = FILTER.get(this);
+        const changes = {};
         for (const [id, oVal] of filter_values) {
             const value = FilterStorage.get(id);
             const nVal = this./*#*/__executeFilter(`${id}/${value}`);
             if (oVal != nVal) {
                 filter_values.set(id, nVal);
-                changed = true;
+                changes[id] = nVal;
             }
         }
-        return changed;
+        if (Object.keys(changes).length) {
+            const event = new Event("filter");
+            event.data = changes;
+            this.dispatchEvent(event);
+        }
     }
 
     /*#*/__executeFilter(name) {

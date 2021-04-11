@@ -5,11 +5,14 @@ import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 export default class AreaState extends DefaultState {
     
     generateList() {
-        const listHandler = new MarkerListHandler(this.areaData.lists["v"]);
+        const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
-            this.setAccess(event.data);
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
         });
         listHandler.addEventListener("change", event => {
+            this.checkAllFilter();
             if (event.list != null) {
                 const ev = new Event("list_update");
                 ev.data = event.list;

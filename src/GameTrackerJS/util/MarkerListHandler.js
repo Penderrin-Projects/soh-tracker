@@ -5,6 +5,7 @@ import Helper from "/emcJS/util/Helper.js";
 import WorldStateManagers from "../state/world/StateManagers.js";
 import AccessStateEnum from "../enum/AccessStateEnum.js";
 
+const REF = new WeakMap();
 const ACCESS = new WeakMap();
 const LIST_RAW = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
@@ -22,15 +23,14 @@ export const defaultAccess = DEFAULT_ACCESS;
 
 export default class MarkerListHandler extends EventTarget {
 
-    constructor(list) {
+    constructor(list, ref) {
         super();
         /* --- */
         ACCESS.set(this, DEFAULT_ACCESS);
         LIST_RAW.set(this, list);
-        setTimeout(() => {
-            this./*#*/__createLists(list);
-            this./*#*/__refreshAccess();
-        }, 0);
+        REF.set(this, ref);
+        this./*#*/__createLists(list);
+        this./*#*/__refreshAccess();
     }
 
     /*#*/__createLists(list) {
@@ -64,7 +64,7 @@ export default class MarkerListHandler extends EventTarget {
                         this./*#*/__refreshAccess();
                         // external
                         const ev = new Event("change");
-                        ev.filtered = this.filtered;
+                        ev.filtered = this.filteredList;
                         this.dispatchEvent(ev);
                     }
                 } else {
@@ -73,7 +73,7 @@ export default class MarkerListHandler extends EventTarget {
                         this./*#*/__refreshAccess();
                         // external
                         const ev = new Event("change");
-                        ev.filtered = this.filtered;
+                        ev.filtered = this.filteredList;
                         this.dispatchEvent(ev);
                     }
                 }
@@ -85,7 +85,7 @@ export default class MarkerListHandler extends EventTarget {
         // external
         const ev = new Event("change");
         ev.list = this.list;
-        ev.filtered = this.filtered;
+        ev.filtered = this.filteredList;
         this.dispatchEvent(ev);
     }
 
@@ -146,6 +146,10 @@ export default class MarkerListHandler extends EventTarget {
                 }
             }
         }
+    }
+
+    get ref() {
+        return REF.get(this);
     }
 
     get access() {
