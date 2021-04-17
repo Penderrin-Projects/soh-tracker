@@ -29,6 +29,75 @@
             `;
         </script>
         <script type="module" src="/index.js"></script>
+        <script>
+            function emergencyDLStates() {
+                function openDB(name) {
+                    return new Promise(function(resolve, reject) {
+                        const request = indexedDB.open(name);
+                        request.onupgradeneeded = function(event) {
+                            const db = request.result;
+                            if (!db.objectStoreNames.contains("data")) {
+                                db.createObjectStore("data");
+                            }
+                        };
+                        request.onsuccess = function() {
+                            resolve(request.result);
+                        };
+                        request.onerror = function(e) {
+                            reject(e);
+                        }
+                    });
+                }
+                async function getStoreReadonly(name) {
+                    const storage = await openDB(name);
+                    return storage.transaction("data", "readonly").objectStore("data");
+                }
+                function getAll(filter) {
+                    return new Promise(async function(resolve, reject) {
+                        const transaction = await getStoreReadonly("savestates");
+                        const request = transaction.openCursor();
+                        const res = {};
+                        request.onsuccess = function(e) {
+                            const el = e.target.result;
+                            if (el) {
+                                res[el.key] = el.value;
+                                el.continue();
+                            } else {
+                                if (typeof filter == "string") {
+                                    resolve(res.filter(key => key.startsWith(filter)));
+                                } else {
+                                    resolve(res);
+                                }
+                            }
+                        };
+                        request.onerror = function(e) {
+                            reject(e);
+                        }
+                    }.bind(this));
+                }
+                const dl = document.createElement("a");
+                dl.style.position = "absolute !important";
+                dl.style.display = "none !important";
+                dl.style.opacity = "0 !important";
+                dl.style.visibility = "hidden !important";
+                function save(data, fileName) {
+                    const url = window.URL.createObjectURL(new Blob([data], {type: "octet/stream"}));
+                    dl.href = url;
+                    dl.download = fileName;
+                    document.body.append(dl);
+                    dl.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(dl);
+                }
+                !async function() {
+                    const files = await getAll();
+                    for (const key in files) {
+                        const file = files[key];
+                        save(JSON.stringify(file), `${key}.json`);
+                    }
+                }();
+            }
+        </script>
         <style>
             *:not(emc-dialog) {
                 box-sizing: border-box;
@@ -101,6 +170,13 @@
                 If this happens to you, you can try this:<br>
                 <div class="controls">
                     <button id="splash-refresh" onclick="window.location.reload(true)">REFRESH PAGE</button>
+                </div>
+            </div>
+            <div class="info">
+                Safestates emergency backup<br>
+                Download all savestates in storage:<br>
+                <div class="controls">
+                    <button id="splash-refresh" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
                 </div>
             </div>
         </div>
