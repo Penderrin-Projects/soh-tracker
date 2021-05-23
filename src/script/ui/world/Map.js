@@ -85,6 +85,12 @@ const TPL = new Template(`
         #map-settings.active {
             bottom: 0;
         }
+        #map-options-body {
+            display: contents;
+        }
+        #map-options-body.hidden {
+            display: none;
+        }
         .buttons {
             position: absolute;
             display: flex;
@@ -112,6 +118,7 @@ const TPL = new Template(`
             border-radius: 10px;
         }
         #toggle-button {
+            border: none;
             cursor: pointer;
         }
         .map-options {
@@ -195,10 +202,15 @@ const TPL = new Template(`
     <div id="map-wrapper">
         <slot id="map" style="--map-zoom: ${ZOOM_DEF};">
         </slot>
+        <!--
+            FIXME
+            label is not a string but a html element
+            better append dynamically later
+        --->
         <div id="back">(${Language.generateLabel("back")})</div>
         <div id="map-settings">
             <div class="buttons">
-                <div id="toggle-button" class="button-wrapper">⇑</div>
+                <button id="toggle-button" class="button-wrapper">⇑</button>
                 <!--
                 <div class="button-wrapper">
                     <emc-switchbutton id="location-mode" class="button" value="filter.unknown">
@@ -220,15 +232,17 @@ const TPL = new Template(`
                     </ootrt-filtermenu>
                 </div>
             </div>
-            <div class="map-options">
-                <span class="slidetext">- / +</span>
-                <input type="range" min="${ZOOM_MIN}" max="${ZOOM_MAX}" value="${ZOOM_DEF}" class="slider" id="map-scale-slider">
-            </div>
-            <div class="map-options">
-                <label><input type="checkbox" id="map-fixed" /> Map fixed</label>
-            </div>
-            <div id="map-overview">
-                <div id="map-viewport">
+            <div id="map-options-body" class="hidden">
+                <div class="map-options">
+                    <span class="slidetext">- / +</span>
+                    <input type="range" min="${ZOOM_MIN}" max="${ZOOM_MAX}" value="${ZOOM_DEF}" class="slider" id="map-scale-slider">
+                </div>
+                <div class="map-options">
+                    <label><input type="checkbox" id="map-fixed" /> Map fixed</label>
+                </div>
+                <div id="map-overview">
+                    <div id="map-viewport">
+                    </div>
                 </div>
             </div>
         </div>
@@ -403,14 +417,19 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         const settings = this.shadowRoot.getElementById("map-settings");
         const toggle = this.shadowRoot.getElementById("toggle-button");
+        const optionsBody = this.shadowRoot.getElementById("map-options-body");
         toggle.addEventListener("click", function(event) {
             if (settings.classList.contains("active")) {
                 settings.classList.remove("active");
                 toggle.innerHTML = "⇑";
+                setTimeout(() => {
+                    optionsBody.classList.add("hidden");
+                }, 1000);
             } else {
                 mapContainBoundaries(map, map.parentNode);
                 settings.classList.add("active");
                 toggle.innerHTML = "⇓";
+                optionsBody.classList.remove("hidden");
             }
             event.preventDefault();
             return false;

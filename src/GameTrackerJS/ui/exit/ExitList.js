@@ -3,6 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import SearchAnd from "/emcJS/util/search/SearchAnd.js";
 import "/emcJS/ui/input/SearchField.js";
+import "/emcJS/ui/input/SearchSelect.js";
 import "/emcJS/ui/input/TokenSelect.js";
 import "/emcJS/ui/input/InputWrapper.js";
 /* asym-import: on */
@@ -15,20 +16,37 @@ import "./ExitChoice.js";
 
 const TPL = new Template(`
 <div id="searchbar">
-    <emc-input-search id="search"></emc-input-search>
-    <emc-tokenselect id="tokenizer"></emc-tokenselect>
-    <label>
-        <emc-input-wrapper>
-            <input type="checkbox" id="strict" class="settings-input" checked>
-        </emc-input-wrapper>
-        <emc-i18n-label i18n-key="strict_categories" i18n-value="Strict categories"></emc-i18n-label>
-    </label>
-    <label>
-        <emc-input-wrapper>
-            <input type="checkbox" id="unbound" class="settings-input">
-        </emc-input-wrapper>
-        <emc-i18n-label i18n-key="show_unbound_only" i18n-value="Unbound only"></emc-i18n-label>
-    </label>
+    <div class="search-group">
+        <emc-input-search id="search"></emc-input-search>
+        <emc-searchselect id="search-mode">
+            <emc-option value="both">
+                <emc-i18n-label i18n-key="search_mode_both" i18n-value="Exit and bound entrance"></emc-i18n-label>
+            </emc-option>
+            <emc-option value="access">
+                <emc-i18n-label i18n-key="search_mode_value" i18n-value="Exit only"></emc-i18n-label>
+            </emc-option>
+            <emc-option value="value">
+                <emc-i18n-label i18n-key="search_mode_access" i18n-value="Bound entrance only"></emc-i18n-label>
+            </emc-option>
+        </emc-searchselect>
+    </div>
+    <div class="search-group">
+        <emc-tokenselect id="tokenizer"></emc-tokenselect>
+        <label>
+            <emc-input-wrapper">
+                <input type="checkbox" id="strict" class="settings-input" checked>
+            </emc-input-wrapper>
+            <emc-i18n-label i18n-key="strict_categories" i18n-value="Strict categories"></emc-i18n-label>
+        </label>
+    </div>
+    <div class="search-group">
+        <label>
+            <emc-input-wrapper>
+                <input type="checkbox" id="unbound" class="settings-input">
+            </emc-input-wrapper>
+            <emc-i18n-label i18n-key="show_unbound_only" i18n-value="Unbound only"></emc-i18n-label>
+        </label>
+    </div>
 </div>
 <div id="scroll-container">
     <slot>
@@ -58,17 +76,27 @@ const STYLE = new GlobalStyle(`
     overflow-y: none;
     border-bottom: solid 2px #cccccc;
 }
-#searchbar > * {
+#searchbar > *:not(.search-group) {
     margin: 5px;
+}
+.search-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    padding: 5px;
+}
+#search,
+#search-mode,
+#tokenizer {
+    width: 500px;
 }
 #search,
 #tokenizer {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 500px;
-    width: 500px;
     max-width: calc(100vw - 10px);
     padding: 5px;
+    flex: 0 0 0%;
 }
 label {
     display: flex;
@@ -118,6 +146,10 @@ export default class ExitList extends HTMLElement {
         search.addEventListener("change", event => {
             this.calculateItems();
         }, true);
+        const searchMode = this.shadowRoot.getElementById("search-mode");
+        searchMode.addEventListener("change", event => {
+            this.calculateItems();
+        }, true);
         const tokenizer = this.shadowRoot.getElementById("tokenizer");
         tokenizer.addEventListener("change", event => {
             this.calculateItems();
@@ -134,6 +166,7 @@ export default class ExitList extends HTMLElement {
     
     calculateItems() {
         const search = this.shadowRoot.getElementById("search");
+        const searchMode = this.shadowRoot.getElementById("search-mode");
         const tokenizer = this.shadowRoot.getElementById("tokenizer");
         const unbound = this.shadowRoot.getElementById("unbound");
         const strict = this.shadowRoot.getElementById("strict");
@@ -163,11 +196,12 @@ export default class ExitList extends HTMLElement {
                 if (isVisible) {
                     if (!el.value || !unbound.checked) {
                         if (search.value) {
+                            const mode = searchMode.value;
                             const regEx = new SearchAnd(search.value);
                             const transAccess = Language.translate(`exit[${el.getAttribute("access")}]`);
                             const transValue = Language.translate(`entrance[${el.getAttribute("value")}]`);
-                            const transAccessRes = transAccess.match(regEx);
-                            const transValueRes = transValue.match(regEx);
+                            const transAccessRes = mode != "value" && transAccess.match(regEx);
+                            const transValueRes = mode != "access" && transValue.match(regEx);
                             el.classList.toggle("markname", transAccessRes);
                             el.classList.toggle("markvalue", transValueRes);
                             if (transAccessRes || transValueRes) {
