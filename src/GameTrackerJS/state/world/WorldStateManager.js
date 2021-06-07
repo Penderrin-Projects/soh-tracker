@@ -14,10 +14,15 @@ const WORLD = {
     subexit: SubexitStateManager
 };
 
+let overworldState = null;
+
 class WorldStateManager {
 
     getOverworld() {
-        return OverworldState;
+        if (overworldState == null) {
+            overworldState = new OverworldState();
+        }
+        return overworldState;
     }
 
     getEntrance(id) {

@@ -81,30 +81,32 @@ export default class DefaultState extends DataState {
             // item
             const item = SavestateHandler.get("shops", `${ref}.item`);
             if (item != null) {
-                this.item = item;
+                const itemData = ShopItemsResource.get(item);
+                ITEM_DATA.set(this, itemData);
+                observableData.set("item", item);
             } else {
-                observableData.set("item", this.props.item);
                 const defItemData = ShopItemsResource.get(this.props.item);
                 ITEM_DATA.set(this, defItemData);
+                observableData.set("item", this.props.item);
             }
             // price
             const price = SavestateHandler.get("shops", `${ref}.price`);
             if (price != null) {
-                this.price = price;
+                observableData.set("price", price);
             } else {
                 observableData.set("price", this.props.price);
             }
             // bought
             const bought = SavestateHandler.get("shops", `${ref}.bought`);
             if (bought != null) {
-                this.bought = bought;
+                observableData.set("bought", bought);
             } else {
                 observableData.set("bought", false);
             }
             // name
             const name = SavestateHandler.get("shops", `${ref}.name`);
             if (name != null) {
-                this.name = name;
+                observableData.set("name", name);
             } else {
                 observableData.set("name", "");
             }
@@ -131,34 +133,38 @@ export default class DefaultState extends DataState {
                 // item
                 const item = event.data.extra.shops[`${ref}.item`];
                 if (item != null) {
-                    this.item = item;
+                    const itemData = ShopItemsResource.get(item);
+                    ITEM_DATA.set(this, itemData);
+                    observableData.set("item", item);
                 } else {
-                    observableData.set("item", this.props.item);
                     const defItemData = ShopItemsResource.get(this.props.item);
                     ITEM_DATA.set(this, defItemData);
+                    observableData.set("item", this.props.item);
                 }
                 // price
                 const price = event.data.extra.shops[`${ref}.price`];
                 if (price != null) {
-                    this.price = price;
+                    observableData.set("price", price);
                 } else {
                     observableData.set("price", this.props.price);
                 }
                 // bought
                 const bought = event.data.extra.shops[`${ref}.bought`];
                 if (bought != null) {
-                    this.bought = bought;
+                    observableData.set("bought", bought);
                 } else {
                     observableData.set("bought", false);
                 }
                 // name
                 const name = event.data.extra.shops[`${ref}.name`];
                 if (name != null) {
-                    this.name = name;
+                    observableData.set("name", name);
                 } else {
                     observableData.set("name", "");
                 }
             } else {
+                const defItemData = ShopItemsResource.get(this.props.item);
+                ITEM_DATA.set(this, defItemData);
                 observableData.set("item", this.props.item);
                 observableData.set("price", this.props.price);
                 observableData.set("bought", false);

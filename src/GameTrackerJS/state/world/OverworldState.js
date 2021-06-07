@@ -14,7 +14,7 @@ const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
-class OverworldState extends EventTarget {
+export default class OverworldState extends EventTarget {
 
     constructor() {
         super();
@@ -75,5 +75,3 @@ class OverworldState extends EventTarget {
     }
 
 }
-
-export default new OverworldState();
