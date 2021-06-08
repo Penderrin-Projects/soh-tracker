@@ -80,9 +80,11 @@ export default class ExitState extends WorldState {
             ACCESS.set(this, getLogicAccess(logicAccess));
             const value = SavestateHandler.get("exits", props.access, "")
             VALUE.set(this, value);
-            const area = getEntranceArea(value);
-            AREA.set(this, area);
-            manager.switchState(area);
+            setTimeout(() => {
+                const area = getEntranceArea(value);
+                AREA.set(this, area);
+                manager.switchState(area);
+            }, 0);
         }
         /* ACTIVE */
         if (typeof exitData.active == "object") {
