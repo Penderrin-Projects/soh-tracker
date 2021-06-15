@@ -4,6 +4,33 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.0.28
+
+### IMPROVEMENTS
+
+- add show/hide done persisted filter
+- exchange items in essential items
+    - replace kokiri tunic with triforce pieces
+    - replace leather boots with scarecrow song
+
+---
+
+## VERSION 2.0.27
+
+### BUGFIXES
+
+- fix english translation for option.keysanity_small
+
+---
+
+## VERSION 2.0.26
+
+### IMPROVEMENTS
+
+- added ocarina of time check
+
+---
+
 ## VERSION 2.0.25
 
 ### BUGFIXES
