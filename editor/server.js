@@ -33,14 +33,16 @@ const PATH_MATCHES = [
 ];
  
 const server = http.createServer((request, response) => {
+    console.log(request);
     return handler(request, response, {
         "public": `${__dirname}/web`,
-        "redirects": [
-            { "source": "/asym", "destination": "../../node_modules/asym/src" },
-            { "source": "/src", "destination": "../../src/" },
-            { "source": "/images", "destination": "../../src/images/" },
-            { "source": "/emcjs", "destination": MODULE_PATHS.emcJS },
-            { "source": "/editors", "destination": MODULE_PATHS.trackerEditor },
+        "rewrites": [
+            { "source": "/src/:path", "destination": "../src/:path" },
+            { "source": "/images/:path", "destination": "../src/images/:path" },
+            { "source": "/script/:path", "destination": "../src/script/:path" },
+            { "source": "/GameTrackerJS/:path", "destination": "../src/GameTrackerJS/:path" },
+            { "source": "/emcjs/:path", "destination": `${MODULE_PATHS.emcJS}/:path` },
+            { "source": "/editors/:path", "destination": `${MODULE_PATHS.trackerEditor}/:path` },
         ]
     });
 });

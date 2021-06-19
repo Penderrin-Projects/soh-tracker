@@ -1,8 +1,6 @@
 const { app, protocol, BrowserWindow } = require("electron");
 const fs = require("fs");
 const path = require("path");
-//const { augmentFile } = require("AsyM/Augmentor");
-const { augmentFile } = require("../../AsyM/Augmentor.js");
 const { startServer } = require("./server.js");
 
 const __dirnameUnix = __dirname.replace(/\\/g, "/");
@@ -52,29 +50,18 @@ function createWindow() {
         console.log(url);
         url = url.replace(__dirnameUnix, "");
         console.log(url);
-        if (url.startsWith("/script/") || url.startsWith("/GameTrackerJS/")) {
-            url = path.join(__dirnameUnix, ".", `../src${url}`);
-            console.log(url);
-            const content = fs.readFileSync(url);
-            const data = augmentFile(content.toString(), {path: "/asym"});
-            callback({
-                data,
-                statusCode: 200,
-                mimeType: "text/javascript"
-            });
-        } else {
-            url = url.replace(/^\/?asym\//i, "../node_modules/asym/src/");
-            url = url.replace(/^\/?src\//i, "../src/");
-            url = url.replace(/^\/?images\//i, "../src/images/");
-            // url = url.replace(/^\/?script\//i, "../src/script/");
-            // url = url.replace(/^\/?GameTrackerJS\//i, "../src/GameTrackerJS/");
-            url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
-            url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
-            url = path.join(__dirnameUnix, ".", url);
-            url = path.normalize(url);
-            console.log(url);
-            callback({path: url});
-        }
+        /* redirects */
+        url = url.replace(/^\/?src\//i, "../src/");
+        url = url.replace(/^\/?database\//i, "../src/database/");
+        url = url.replace(/^\/?images\//i, "../src/images/");
+        url = url.replace(/^\/?script\//i, "../src/script/");
+        url = url.replace(/^\/?GameTrackerJS\//i, "../src/GameTrackerJS/");
+        url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
+        url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
+        url = path.join(__dirnameUnix, ".", url);
+        url = path.normalize(url);
+        console.log(url);
+        callback({path: url});
     });
 
     let win = new BrowserWindow({
@@ -90,7 +77,8 @@ function createWindow() {
     });
     win.maximize();
     win.setMenu(null);
-    win.loadURL("http://localhost:4242");
+    //win.loadURL("http://localhost:4242");
+    win.loadFile("./web/index.html");
     if (!!OPTIONS.debug) {
         win.toggleDevTools();
     }
@@ -105,7 +93,7 @@ function createWindow() {
 
 
 app.on('ready', async () => {
-    await startServer();
+    //await startServer();
     createWindow();
 });
 
