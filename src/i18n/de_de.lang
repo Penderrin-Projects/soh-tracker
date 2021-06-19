@@ -4,6 +4,19 @@
 
 language=Sprache (Neustart erforderlich)
 
+# INTERFACE
+on=an
+off=aus
+extended=erweitert
+sublist_collapsible=Einklappbare unterlisten
+start_expanded=starte ausgeklappt
+start_collapsed=starte eingeklappt
+debug_logic=Logic debugger
+debug=Debug Optionen
+credits=Credits
+about=Über
+show_state_init_window=Zeige state initialisierungs Dialog
+
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
 subarea/spawns=Spawn Ausgänge
@@ -15,14 +28,7 @@ area/gerudo_valley=Gerudo-Tal
 area/lake=Hyliasee
 area/overworld=Weltkarte
 area/colossus=Wüstenkoloss
-location/kokiri.c_sword=Kokiri Schwert
-location/kokiri.c_midos_house_1=Midos Haus - Truhe 1
-location/kokiri.c_midos_house_2=Midos Haus - Truhe 2
-location/kokiri.c_midos_house_3=Midos Haus - Truhe 3
-location/kokiri.c_midos_house_4=Midos Haus - Truhe 4
-location/kokiri.c_saria_ocarina=Sarias Okarina auf Brücke
 time_ocarina=Okarina der Zeit
-location/kokiri.c_storm_grotto=Kokiri Sturmgrotte
 location/hyrule_field.c_ocarina_of_time=Okarina der Zeit
 location/hyrule_field.c_song_of_time=Hymne der Zeit
 location/hyrule_field.c_hyrule_north_grotto=Hylianische Steppe - Nördliche Grotte
@@ -48,6 +54,21 @@ location/river.c_zora_hp_1=Zora-Fluss - Herzteil 1
 location/river.c_zora_hp_2=Zora-Fluss - Herzteil 2
 location/river.c_zora_grotto=Zora-Fluss - Grotte
 location/desert.c_bombchu_wasteland=Fliegender Krabbelmienen Händler
+
+
+# LOCATIONS - KOKIRI
+location/kokiri.c_sword=Kokiri Schwert
+location/kokiri.c_midos_house_1=Midos Haus - Truhe 1
+location/kokiri.c_midos_house_2=Midos Haus - Truhe 2
+location/kokiri.c_midos_house_3=Midos Haus - Truhe 3
+location/kokiri.c_midos_house_4=Midos Haus - Truhe 4
+location/kokiri.c_saria_ocarina=Sarias Okarina auf Brücke
+location/kokiri.c_storm_grotto=Kokiri Sturmgrotte
+
+location/kokiri.kokiri_shop_8=Kokiri Laden links - oben links
+location/kokiri.kokiri_shop_7=Kokiri Laden links - unten links
+location/kokiri.kokiri_shop_6=Kokiri Laden links - oben rechts
+location/kokiri.kokiri_shop_5=Kokiri Laden links - unten rechts
 
 # LOCATIONS - LONLON
 area/lonlon=Lon Lon-Farm
@@ -363,6 +384,19 @@ location/castle_town.c_ganon_fairy=Ganons Schloss - Fee
 location/castle_town.c_warp=Kantate des Lichts
 location/castle_town.c_light_arrows=Lichtpfeile
 
+location/castle_town.shop_bombchu_8=Krabbelminenladen links - oben links
+location/castle_town.shop_bombchu_7=Krabbelminenladen links - unten links
+location/castle_town.shop_bombchu_6=Krabbelminenladen links - oben rechts
+location/castle_town.shop_bombchu_5=Krabbelminenladen links - unten rechts
+location/castle_town.shop_bazaar_8=Stadt Hyrule Basar links - oben links
+location/castle_town.shop_bazaar_7=Stadt Hyrule Basar links - unten links
+location/castle_town.shop_bazaar_6=Stadt Hyrule Basar links - oben rechts
+location/castle_town.shop_bazaar_5=Stadt Hyrule Basar links - unten rechts
+location/castle_town.shop_magic_8=Stadt Hyrule Magieladen links - oben links
+location/castle_town.shop_magic_7=Stadt Hyrule Magieladen links - unten links
+location/castle_town.shop_magic_6=Stadt Hyrule Magieladen links - oben rechts
+location/castle_town.shop_magic_5=Stadt Hyrule Magieladen links - unten rechts
+
 # LOCATIONS - KAKARIKO
 area/kakariko=Kakariko Dorf
 area/graveyard=Friedhof
@@ -390,6 +424,15 @@ location/kakariko.c_skulltula_30=Skulltula Haus 30
 location/kakariko.c_skulltula_40=Skulltula Haus 40
 location/kakariko.c_skulltula_50=Skulltula Haus 50
 
+location/kakariko.shop_bazaar_8=Kakariko Basar links - top links
+location/kakariko.shop_bazaar_7=Kakariko Basar links - unten links
+location/kakariko.shop_bazaar_6=Kakariko Basar links - top rechts
+location/kakariko.shop_bazaar_5=Kakariko Basar links - unten rechts
+location/kakariko.shop_magic_8=Kakariko Magieladen links - top links
+location/kakariko.shop_magic_7=Kakariko Magieladen links - unten links
+location/kakariko.shop_magic_6=Kakariko Magieladen links - top rechts
+location/kakariko.shop_magic_5=Kakariko Magieladen links - unten rechts
+
 # LOCATIONS - GORON
 area/goron=Goronia
 location/goron.c_maze_left=Fels-Labyrinth Links
@@ -400,6 +443,11 @@ location/goron.c_little_link=Link der Gorone
 location/goron.c_spinning_pot_hp=Drehender Krug Herzteil
 location/goron.c_darunia=Darunias Tanz
 location/goron.c_medigoron=Medi-Goron (Langschwert)
+
+location/goron.goron_shop_8=Goronia Laden left - oben left
+location/goron.goron_shop_7=Goronia Laden left - unten left
+location/goron.goron_shop_6=Goronia Laden left - oben rechts
+location/goron.goron_shop_5=Goronia Laden left - unten rechts
 
 # LOCATIONS - MOUNTAIN
 area/mountain=Gebirgspfad
@@ -437,6 +485,11 @@ location/zoras.c_fairy=Zora-Quelle Fee
 location/zoras.c_ice=Eisberg Herzteil
 location/zoras.c_underwater=Herzteil unter Wasser
 location/zoras.c_king_zora=Zora-König auftauen
+
+location/zoras.zoras_shop_8=Zora Reich Laden links - oben links
+location/zoras.zoras_shop_7=Zora Reich Laden links - unten links
+location/zoras.zoras_shop_6=Zora Reich Laden links - oben rechts
+location/zoras.zoras_shop_5=Zora Reich Laden links - unten rechts
 
 # LOCATIONS - TRAINING
 area/training_grounds=Gerudo Trainingsarena
@@ -1038,8 +1091,13 @@ option.shuffle_warps=Shuffle Song Warps (Currently only used in Biggoron Bolero 
 option.shuffle_spawns=Shuffle Spawn Locations
 option.sun_song_skulltuta=Alle Nacht-Skulltulas benötigen das Lied der Sonne
 
-option.keysanity_small_old=Unused
-option.keysanity_boss_old=Unused
+option.keysanity_small_old=Unbenutzt
+option.keysanity_boss_old=Unbenutzt
+
+option.shopsanity=Shopsanity slots
+
+entrance_randomizer=Eingänge zufällig
+option.mixed_entrance_pool=Einganstypen mischen
 
 # SETTINGS - SKIPS
 skip.lens_required=Auge der Wahrheit Vorraussetzung
@@ -1346,10 +1404,13 @@ parse.random_settings=Randomizer-Einstellungen aus Spoilerlog laden
 parse.dungeons=Dungeon-Typen aus Spoilerlog laden
 parse.dungeonReward=Dungeon-Belohnungen aus Spoilerlog laden
 parse.entro_dungeons=Randomized-Dungeons im Tracker setzen
-parse.entro_grottos=Set Randomized-Grottos  im Tracker setzen
-parse.entro_indoors=Set Randomized Indoor Areas  im Tracker setzen
-parse.entro_overworld=Set Randomized Overworld Areas  im Tracker setzen
+parse.entro_grottos=Set Randomized-Grottos im Tracker setzen
+parse.entro_indoors=Set Randomized Indoor Areas im Tracker setzen
+parse.entro_overworld=Set Randomized Overworld Areas im Tracker setzen
 parse.multiworld=Die zu lesende Multiworld-Welt
+parse.entro_owls=Zufällige Eulenflüge setzen
+parse.entro_spawns=Zufällige Spawns setzen
+parse.entro_warps=Zufällige Teleportationsziele setzen
 
 # SHOPS
 shop.kokiri=Kokiri Laden

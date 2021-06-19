@@ -4,6 +4,19 @@
 
 language=Language (needs restart)
 
+# INTERFACE
+on=on
+off=off
+extended=extended
+sublist_collapsible=Collapsible sublists
+start_expanded=start expanded
+start_collapsed=start collapsed
+debug_logic=Logic debugger
+debug=Debug options
+credits=Credits
+about=About
+show_state_init_window=Show state init dialog on new state
+
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
 subarea/spawns=Spawn Exits
@@ -15,14 +28,7 @@ area/gerudo_valley=Gerudo Valley
 area/lake=Lake Hylia
 area/overworld=Overworld
 area/colossus=Desert Colossus
-location/kokiri.c_sword=Kokiri Sword Chest
-location/kokiri.c_midos_house_1=Mido Chest 1
-location/kokiri.c_midos_house_2=Mido Chest 2
-location/kokiri.c_midos_house_3=Mido Chest 3
-location/kokiri.c_midos_house_4=Mido Chest 4
-location/kokiri.c_saria_ocarina=Saria's Ocarina
 time_ocarina=Ocarina of Time
-location/kokiri.c_storm_grotto=Kokiri Song of Storms Grotto
 location/hyrule_field.c_ocarina_of_time=Ocarina of Time
 location/hyrule_field.c_song_of_time=Song of Time
 location/hyrule_field.c_hyrule_north_grotto=Hyrule Field North Grotto
@@ -48,6 +54,21 @@ location/river.c_zora_hp_1=Zora River Freestanding Item 1
 location/river.c_zora_hp_2=Zora River Freestanding Item 2
 location/river.c_zora_grotto=Zora River Grotto
 location/desert.c_bombchu_wasteland=Bombchu Carpet Salesman
+
+
+# LOCATIONS - KOKIRI
+location/kokiri.c_sword=Kokiri Sword Chest
+location/kokiri.c_midos_house_1=Mido Chest 1
+location/kokiri.c_midos_house_2=Mido Chest 2
+location/kokiri.c_midos_house_3=Mido Chest 3
+location/kokiri.c_midos_house_4=Mido Chest 4
+location/kokiri.c_saria_ocarina=Saria's Ocarina
+location/kokiri.c_storm_grotto=Kokiri Song of Storms Grotto
+
+location/kokiri.kokiri_shop_8=Kokiri Shop Left - Top Left
+location/kokiri.kokiri_shop_7=Kokiri Shop Left - Bottom Left
+location/kokiri.kokiri_shop_6=Kokiri Shop Left - Top Right
+location/kokiri.kokiri_shop_5=Kokiri Shop Left - Bottom Right
 
 # LOCATIONS - LONLON
 area/lonlon=Lon Lon Ranch
@@ -326,6 +347,7 @@ location/castle_ganon.c_light_trail_invisible_enemies=Light Trial Invisible Enem
 location/castle_ganon.c_light_trial_lullaby=Light Trial Lullaby Chest
 location/castle_ganon.c_boss_key=Stalfos Chest
 location/castle_ganon.c_boss=Ganon Fight
+# LOCATIONS - GANON MQ
 location/castle_ganon_mq.c_forest_trial_first=Forest Trial First Chest
 location/castle_ganon_mq.c_forest_trial_second=Forest Trial Second Chest
 location/castle_ganon_mq.c_forest_trial_key=Forest Trial Freestanding Key
@@ -362,6 +384,19 @@ location/castle_town.c_ganon_fairy=Ganon's Castle Fairy
 location/castle_town.c_warp=Prelude of Light
 location/castle_town.c_light_arrows=Light Arrows
 
+location/castle_town.shop_bombchu_8=Bombchu Shop Left - Top Left
+location/castle_town.shop_bombchu_7=Bombchu Shop Left - Bottom Left
+location/castle_town.shop_bombchu_6=Bombchu Shop Left - Top Right
+location/castle_town.shop_bombchu_5=Bombchu Shop Left - Bottom Right
+location/castle_town.shop_bazaar_8=Child Bazaar Left - Top Left
+location/castle_town.shop_bazaar_7=Child Bazaar Left - Bottom Left
+location/castle_town.shop_bazaar_6=Child Bazaar Left - Top Right
+location/castle_town.shop_bazaar_5=Child Bazaar Left - Bottom Right
+location/castle_town.shop_magic_8=Child Potion Shop Left - Top Left
+location/castle_town.shop_magic_7=Child Potion Shop Left - Bottom Left
+location/castle_town.shop_magic_6=Child Potion Shop Left - Top Right
+location/castle_town.shop_magic_5=Child Potion Shop Left - Bottom Right
+
 # LOCATIONS - KAKARIKO
 area/kakariko=Kakariko Village
 area/graveyard=Graveyard
@@ -389,6 +424,15 @@ location/kakariko.c_skulltula_30=Skulltula House 30
 location/kakariko.c_skulltula_40=Skulltula House 40
 location/kakariko.c_skulltula_50=Skulltula House 50
 
+location/kakariko.shop_bazaar_8=Adult Bazaar Left - Top Left
+location/kakariko.shop_bazaar_7=Adult Bazaar Left - Bottom Left
+location/kakariko.shop_bazaar_6=Adult Bazaar Left - Top Right
+location/kakariko.shop_bazaar_5=Adult Bazaar Left - Bottom Right
+location/kakariko.shop_magic_8=Adult Potion Shop Left - Top Left
+location/kakariko.shop_magic_7=Adult Potion Shop Left - Bottom Left
+location/kakariko.shop_magic_6=Adult Potion Shop Left - Top Right
+location/kakariko.shop_magic_5=Adult Potion Shop Left - Bottom Right
+
 # LOCATIONS - GORON
 area/goron=Goron City
 location/goron.c_maze_left=Left Boulder Maze Chest
@@ -399,6 +443,11 @@ location/goron.c_little_link=Link the Goron
 location/goron.c_spinning_pot_hp=Spinning Pot Freestanding Item
 location/goron.c_darunia=Darunia's Joy
 location/goron.c_medigoron=Medi-Goron
+
+location/goron.goron_shop_8=Goron Shop Left - Top Left
+location/goron.goron_shop_7=Goron Shop Left - Bottom Left
+location/goron.goron_shop_6=Goron Shop Left - Top Right
+location/goron.goron_shop_5=Goron Shop Left - Bottom Right
 
 # LOCATIONS - MOUNTAIN
 area/mountain=Death Mountain
@@ -436,6 +485,11 @@ location/zoras.c_fairy=Fairy Fountain
 location/zoras.c_ice=Iceberg Freestanding Item
 location/zoras.c_underwater=Underwater Freestanding Item
 location/zoras.c_king_zora=King Zora Thawed
+
+location/zoras.zoras_shop_8=Zora Shop Left - Top Left
+location/zoras.zoras_shop_7=Zora Shop Left - Bottom Left
+location/zoras.zoras_shop_6=Zora Shop Left - Top Right
+location/zoras.zoras_shop_5=Zora Shop Left - Bottom Right
 
 # LOCATIONS - TRAINING
 area/training_grounds=Gerudo Training Grounds
@@ -1040,6 +1094,11 @@ option.sun_song_skulltuta=Force Night Skulltutas to require Sun Song
 option.keysanity_small_old=Unused
 option.keysanity_boss_old=Unused
 
+option.shopsanity=Shopsanity slots
+
+entrance_randomizer=Entrance randomization
+option.mixed_entrance_pool=Mixed entrance pool
+
 # SETTINGS - SKIPS
 skip.lens_required=Lens of Truth requirement
 tricks=Tricks
@@ -1216,11 +1275,14 @@ skip.water_central_gs_fw=Water Temple Central Pillar GS with Farore's Wind
 
 # SETTINGS - SEQUENCE BREAKS
 skip.ground_jump=Enable Bomb Bag Ground Jumping
-skip.invisible_ocarina=Enable Invisible Ocarina Glitch (Put Away or Backflip)
+skip.invisible_ocarina=Enable Ocarina Items (Put Away method - safe)
+skip.invisible_ocarina_midair=Enable Ocarina Items (Midair method - warning: will overwrite items if done incorrectly)
 skip.navi_dive=Enable Navi Diving
 skip.lab_hovers=Enable Bottle Diving with Hover Boots
 skip.underwater_chests_openable=Underwater Chests openable with Iron Boots and Hookshot
 skip.lost_woods_allow_pedestal_clip=Clip into Lost Woods Pedestal to Zora's River
+skip.king_zora_child=Ledge cancel backflip past King Zora as child
+skip.king_zora_adult=Jumpslash past King Zora as adult
 skip.well_entry_isg=Infinite Sword Glitch Entry into Well
 skip.shadow_temple_entry_hookshot=Enter Shadow Temple with Hookshot, No Nocturne or Fire Source
 skip.shadow_temple_clip=Clip Through Cage to Shadow Temple Boat
@@ -1346,7 +1408,9 @@ parse.entro_grottos=Set Randomized Grottos
 parse.entro_indoors=Set Randomized Indoor Areas
 parse.entro_overworld=Set Randomized Overworld Areas
 parse.multiworld=Your Multiworld World
-
+parse.entro_owls=Set Randomized Owl Flights
+parse.entro_spawns=Set Randomized Spawns
+parse.entro_warps=Set Randomized Warp Targets
 
 # SHOPS
 shop.kokiri=Kokiri Shop
@@ -1447,6 +1511,7 @@ vanilla=Vanilla
 masterquest=Master Quest
 area/pocket=Pocket
 area/pocket.short=FREE
+skulltula=Skulltula
 item=Item
 location=Location
 back=back
@@ -1461,6 +1526,7 @@ grotto=Grotto Exits
 interior=Interior Exits
 overworld_exit=Overworld Exits
 special=Special Exits
+
 ## dungeons
 exit[region.deku_tree_entrance\u0020->\u0020region.deku_tree_gateway]=Deku Tree Entrance
 entrance[region.deku_tree_gateway\u0020->\u0020region.deku_tree_entrance]=Deku Tree

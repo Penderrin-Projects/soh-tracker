@@ -50,7 +50,16 @@ export default class MarkerListHandler extends EventTarget {
         /* --- */
         for (const [loc, record] of entityList) {
             const eventManager = new EventTargetManager(loc);
-            if (record.category != "area" && record.category != "exit") {
+            // if (!record.props.nofollow) {
+            //     eventManager.set("access", () => {
+            //         if (filteredEntityList.has(loc)) {
+            //             this./*#*/__refreshAccess();
+            //         }
+            //     });
+            // }
+            if (record.category == "area") {
+                // ignore
+            } else {
                 eventManager.set("access", () => {
                     if (filteredEntityList.has(loc)) {
                         this./*#*/__refreshAccess();
@@ -113,7 +122,26 @@ export default class MarkerListHandler extends EventTarget {
             value: AccessStateEnum.OPENED
         };
         for (const [loc, record] of list) {
-            if (record.category != "area" && record.category != "exit") {
+            // if (!record.props.nofollow) {
+            //     const {done, unopened, reachable, entrances} = loc.access;
+            //     res.done += done;
+            //     res.unopened += unopened;
+            //     res.reachable += reachable;
+            //     res.entrances = res.entrances || entrances;
+            // } else if (record.category == "exit") {
+            //     if (!loc.area) {
+            //         const {entrances} = loc.access;
+            //         res.entrances = res.entrances || entrances;
+            //     }
+            // }
+            if (record.category == "area") {
+                // ignore
+            } else if (record.category == "exit") {
+                if (!loc.area) {
+                    const {entrances} = loc.access;
+                    res.entrances = res.entrances || entrances;
+                }
+            } else {
                 const {done, unopened, reachable, entrances} = loc.access;
                 res.done += done;
                 res.unopened += unopened;

@@ -13385,7 +13385,11 @@
             "kokiri.shop": {
                 "type": "interior",
                 "access": "logic.subarea.kokiri.shop",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13442,7 +13446,11 @@
             "castle_town.shop_magic": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_magic",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13461,7 +13469,11 @@
             "castle_town.shop_bombchu": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_bombchu",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13499,7 +13511,11 @@
             "castle_town.shop_bazaar": {
                 "type": "interior",
                 "access": "logic.subarea.castle_town.shop_bazaar",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13556,7 +13572,11 @@
             "kakariko.shop_bazaar": {
                 "type": "interior",
                 "access": "logic.subarea.kakariko.shop_bazaar",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -13575,7 +13595,11 @@
             "kakariko.shop_magic": {
                 "type": "interior",
                 "access": "logic.subarea.kakariko.shop_magic",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": false,
@@ -13632,7 +13656,11 @@
             "goron.shop": {
                 "type": "interior",
                 "access": "logic.subarea.goron.shop",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,
@@ -13670,7 +13698,11 @@
             "zoras.shop": {
                 "type": "interior",
                 "access": "logic.subarea.zoras.shop",
-                "visible": true,
+                "visible": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_off"
+                },
                 "filter": {
                     "filter.era": {
                         "child": true,

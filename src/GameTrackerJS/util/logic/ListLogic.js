@@ -44,6 +44,7 @@ class ListLogic {
                 } else if (category == "subarea") {
                     const state = WorldStateManager.get("subarea", id);
                     if (state != null && state.visible) {
+                        // if (!state.props.nofollow) {
                         const subareaList = state.getFilteredList();
                         if (subareaList != null) {
                             const {done, unopened, reachable} = this.check(subareaList);
@@ -51,13 +52,16 @@ class ListLogic {
                             res.unopened += unopened;
                             res.reachable += reachable;
                         }
+                        // }
                     }
                 } else if (category == "subexit") {
                     const state = WorldStateManager.get("subexit", id);
                     if (state != null && state.visible) {
                         if (state.area) {
+                            // if (!state.props.nofollow) {
                             const subareaState = WorldStateManager.getByRef(state.area.ref);
                             if (subareaState != null) {
+                                // if (!subareaState.props.nofollow) {
                                 const subareaList = subareaState.getFilteredList();
                                 if (subareaList != null) {
                                     const {done, unopened, reachable} = this.check(subareaList);
@@ -65,7 +69,9 @@ class ListLogic {
                                     res.unopened += unopened;
                                     res.reachable += reachable;
                                 }
+                                // }
                             }
+                            // }
                         } else {
                             if (state.access) {
                                 res.entrances = true;
@@ -75,7 +81,11 @@ class ListLogic {
                 } else if (category == "area") {
                     // ignore
                 } else if (category == "exit") {
-                    // ignore
+                    const state = WorldStateManager.get("exit", id);
+                    const {reachable} = state.access;
+                    if (!state.area && !!reachable) {
+                        res.entrances = true;
+                    }
                 } else {
                     Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
                 }
