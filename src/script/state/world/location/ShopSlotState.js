@@ -40,6 +40,7 @@ export default class ShopSlotState extends DefaultState {
                 this.dispatchEvent(ev);
             });
         }
+        this.refreshAccess();
     }
 
     set value(value) {
