@@ -6,6 +6,7 @@ import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
 /* asym-import: on */
 import SavestateManager from "../../../savestate/SavestateManager.js";
+import SavestateHandler from "../../../savestate/SavestateHandler.js";
 
 /** XXX
  * Why not simply extend emcjs window?
@@ -302,6 +303,17 @@ export default class ManageWindow extends HTMLElement {
             await SavestateManager.importSavestate(res.data);
             Toast.show(`State "${name}" imported.`);
             snm.value = "";
+            
+            // load
+            if (await Dialog.confirm("Load imported state?", "Do you want to load the newly imported state?\nUnsafed changes will be lost!")) {
+                await SavestateHandler.load(name);
+                Toast.show(`State "${name}" loaded.`);
+                this.dispatchEvent(new Event("submit"));
+                this.close();
+                return;
+            }
+
+            // repaint
             await fillStates(lst);
         };
         // IMPORT STRING

@@ -3,6 +3,7 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 /* asym-import: on */
+import VersionData from "../data/VersionData.js";
 import "../storage/SettingsStorage.js";
 import OptionsStorage from "../storage/OptionsStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
@@ -59,6 +60,8 @@ async function autosave() {
         const tmp = Object.assign({}, Savestate.serialize());
         tmp.timestamp = new Date();
         tmp.autosave = true;
+        tmp.app_version = VersionData.versionString;
+        tmp.user_agent = VersionData.userAgent;
         await STORAGE.set(`${DateUtil.convert(new Date(tmp.timestamp), "YMDhms")}_${tmp.name}`, tmp);
         await removeOverflowAutosaves();
     }
@@ -150,6 +153,8 @@ class SavestateHandler extends EventTarget {
         state.autosave = false;
         state.options = OptionsStorage.serialize();
         state.filter = FilterStorage.serialize();
+        state.app_version = VersionData.versionString;
+        state.user_agent = VersionData.userAgent;
         await STORAGE.set(name, state);
         if (autosaveTimeout != null) {
             clearTimeout(autosaveTimeout);

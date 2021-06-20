@@ -1,9 +1,10 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import MemoryStorage from "/emcJS/storage/MemoryStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 /* asym-import: on */
 
+// GameTrackerJS
+import VersionData from "/GameTrackerJS/data/VersionData.js";
 // Track-OOT
 import RTCController from "/script/util/rtc/RTCController.js";
 import "./MPRoom.js";
@@ -97,7 +98,7 @@ class HTMLMultiplayerLobby extends HTMLElement {
 
         host_button.addEventListener("click", async function() {
             if (host_name.value) {
-                const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value, MemoryStorage.get("version-string", 0));
+                const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value, VersionData.version);
                 if (res) {
                     this.dispatchEvent(new Event("host"));
                 }
@@ -109,9 +110,9 @@ class HTMLMultiplayerLobby extends HTMLElement {
             let res;
             if (!!el.pass && el.pass != "false") {
                 const pass = await Dialog.prompt("password required", "please enter password");
-                res = await RTCController.join(el.name, pass, MemoryStorage.get("version-string", 0));
+                res = await RTCController.join(el.name, pass, VersionData.version);
             } else {
-                res = await RTCController.join(el.name, "", MemoryStorage.get("version-string", 0));
+                res = await RTCController.join(el.name, "", VersionData.version);
             }
             if (res) {
                 this.dispatchEvent(new Event("join"));

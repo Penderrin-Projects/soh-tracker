@@ -43,6 +43,10 @@ export default class ShopSlotState extends DefaultState {
         this.refreshAccess();
     }
 
+    stateLoaded(event) {
+        // ignore
+    }
+
     set value(value) {
         const shopState = SHOP_STATE.get(this);
         if (shopState != null) {

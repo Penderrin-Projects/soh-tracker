@@ -4,8 +4,9 @@ import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/input/InputWrapper.js";
 /* asym-import: on */
 
+// GameTrackerJS
+import VersionData from "/GameTrackerJS/data/VersionData.js";
 // Track-OOT
-import VersionData from "/script/data/VersionData.js";
 import "/script/ui/UpdateHandler.js";
 
 const TPL = new Template(`

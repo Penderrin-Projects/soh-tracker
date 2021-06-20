@@ -15,6 +15,7 @@ import "/emcJS/ui/layout/Layout.js";
 /* asym-import: on */
 
 // GameTrackerJS
+import VersionData from "/GameTrackerJS/data/VersionData.js";
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
@@ -22,7 +23,6 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 // Track-OOT
-import VersionData from "/script/data/VersionData.js";
 import "/script/storage/converter/StateConverter.js";
 import "/script/storage/StateStorage.js";
 import "/script/util/logic/AugmentExits.js";
