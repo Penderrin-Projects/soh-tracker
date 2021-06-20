@@ -1,6 +1,7 @@
 /* asym-import: off */
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 /* asym-import: on */
+import VersionData from "../data/VersionData.js";
 import SavestateConverter from "./SavestateConverter.js";
 
 const STORAGE = new IDBStorage("savestates");
@@ -33,11 +34,16 @@ class SavestateManager {
     async importSavestate(data) {
         data = SavestateConverter.convert(data);
         data.autosave = false;
+        data.app_version = VersionData.versionString;
+        data.user_agent = VersionData.userAgent;
         await STORAGE.set(data.name, data);
     }
 
     async exportSavestate(name) {
-        return await STORAGE.get(name, {});
+        const data = await STORAGE.get(name, {});
+        data.app_version = VersionData.versionString;
+        data.user_agent = VersionData.userAgent;
+        return data;
     }
 
 }

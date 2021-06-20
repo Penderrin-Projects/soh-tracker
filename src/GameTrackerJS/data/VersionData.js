@@ -8,7 +8,8 @@ async function getData() {
     const res = {
         dev: false,
         version: 0,
-        date: new Date(0)
+        date: new Date(0),
+        versionString: ""
     };
     try {
         const resourceData = await FileLoader.json("/version.json");
@@ -22,6 +23,7 @@ async function getData() {
     } catch(err) {
         console.error("Could not load version file", err);
     }
+    res.versionString = `${res.version} (${res.date})`;
     return res;
 }
 
@@ -41,12 +43,12 @@ class VersionData extends EventTarget {
         return Helper.deepClone(DATA.date);
     }
 
-    get userAgent() {
-        return navigator.userAgent;
+    get versionString() {
+        return Helper.deepClone(DATA.versionString);
     }
 
-    get versionString() {
-        return `${this.version} (${this.date})`;
+    get userAgent() {
+        return navigator.userAgent;
     }
 
 }
