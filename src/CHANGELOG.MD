@@ -4,7 +4,7 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.1.0 (DEV)
+## VERSION 2.1.0
 
 ### PERFORMANCE
 
@@ -54,6 +54,7 @@ Application:    Track-OOT
     - mixed pool
 - add option to skip epona race as adult
     - needed for entrance randomizer
+- update logic to ootr dev 6.0.57
 
 ### NETWORKING
 

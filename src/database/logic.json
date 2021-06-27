@@ -2305,17 +2305,7 @@
                 "type": "true"
             },
             "region.dmc_upper_local[child]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin.is_child[child]"
-                    },
-                    {
-                        "type": "value",
-                        "el": "skip.fewer_tunic_requirements"
-                    }
-                ]
+                "type": "true"
             }
         },
         "region.crater_mountain_gateway[adult]": {
@@ -2323,17 +2313,7 @@
                 "type": "true"
             },
             "region.dmc_upper_local[adult]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "skip.fewer_tunic_requirements"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "function.can_use(item.tunic_fire)[adult]"
-                    }
-                ]
+                "type": "true"
             }
         },
         "region.river_domain_gateway[child]": {
@@ -10073,25 +10053,8 @@
                                                     ]
                                                 },
                                                 {
-                                                    "type": "or",
-                                                    "el": [
-                                                        {
-                                                            "type": "not",
-                                                            "el": {
-                                                                "type": "state",
-                                                                "el": "option.damage_multiplier",
-                                                                "value": "damage_multiplier_ohko"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "value",
-                                                            "el": "item.fairy"
-                                                        },
-                                                        {
-                                                            "type": "mixin",
-                                                            "el": "function.can_use(item.magic_nayru)[child]"
-                                                        }
-                                                    ]
+                                                    "type": "mixin",
+                                                    "el": "mixin.can_take_damage[child]"
                                                 }
                                             ]
                                         }
@@ -10141,25 +10104,8 @@
                                                     "el": "function.can_use(item.magic_din)[adult]"
                                                 },
                                                 {
-                                                    "type": "or",
-                                                    "el": [
-                                                        {
-                                                            "type": "not",
-                                                            "el": {
-                                                                "type": "state",
-                                                                "el": "option.damage_multiplier",
-                                                                "value": "damage_multiplier_ohko"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "value",
-                                                            "el": "item.fairy"
-                                                        },
-                                                        {
-                                                            "type": "mixin",
-                                                            "el": "function.can_use(item.magic_nayru)[adult]"
-                                                        }
-                                                    ]
+                                                    "type": "mixin",
+                                                    "el": "mixin.can_take_damage[adult]"
                                                 }
                                             ]
                                         }
@@ -10269,25 +10215,8 @@
                                 ]
                             },
                             {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "state",
-                                            "el": "option.damage_multiplier",
-                                            "value": "damage_multiplier_ohko"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "el": "item.fairy"
-                                    },
-                                    {
-                                        "type": "mixin",
-                                        "el": "function.can_use(item.magic_nayru)[child]"
-                                    }
-                                ]
+                                "type": "mixin",
+                                "el": "mixin.can_take_damage[child]"
                             }
                         ]
                     }
@@ -10735,25 +10664,8 @@
                                                     ]
                                                 },
                                                 {
-                                                    "type": "or",
-                                                    "el": [
-                                                        {
-                                                            "type": "not",
-                                                            "el": {
-                                                                "type": "state",
-                                                                "el": "option.damage_multiplier",
-                                                                "value": "damage_multiplier_ohko"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "value",
-                                                            "el": "item.fairy"
-                                                        },
-                                                        {
-                                                            "type": "mixin",
-                                                            "el": "function.can_use(item.magic_nayru)[child]"
-                                                        }
-                                                    ]
+                                                    "type": "mixin",
+                                                    "el": "mixin.can_take_damage[child]"
                                                 }
                                             ]
                                         }
@@ -10803,25 +10715,8 @@
                                                     "el": "function.can_use(item.magic_din)[adult]"
                                                 },
                                                 {
-                                                    "type": "or",
-                                                    "el": [
-                                                        {
-                                                            "type": "not",
-                                                            "el": {
-                                                                "type": "state",
-                                                                "el": "option.damage_multiplier",
-                                                                "value": "damage_multiplier_ohko"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "value",
-                                                            "el": "item.fairy"
-                                                        },
-                                                        {
-                                                            "type": "mixin",
-                                                            "el": "function.can_use(item.magic_nayru)[adult]"
-                                                        }
-                                                    ]
+                                                    "type": "mixin",
+                                                    "el": "mixin.can_take_damage[adult]"
                                                 }
                                             ]
                                         }
@@ -10935,25 +10830,8 @@
                                 ]
                             },
                             {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "state",
-                                            "el": "option.damage_multiplier",
-                                            "value": "damage_multiplier_ohko"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "el": "item.fairy"
-                                    },
-                                    {
-                                        "type": "mixin",
-                                        "el": "function.can_use(item.magic_nayru)[adult]"
-                                    }
-                                ]
+                                "type": "mixin",
+                                "el": "mixin.can_take_damage[adult]"
                             }
                         ]
                     }
@@ -18056,25 +17934,8 @@
                                                         "el": "mixin.can_jumpslash[child]"
                                                     },
                                                     {
-                                                        "type": "or",
-                                                        "el": [
-                                                            {
-                                                                "type": "not",
-                                                                "el": {
-                                                                    "type": "state",
-                                                                    "el": "option.damage_multiplier",
-                                                                    "value": "damage_multiplier_ohko"
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "value",
-                                                                "el": "item.fairy"
-                                                            },
-                                                            {
-                                                                "type": "mixin",
-                                                                "el": "function.can_use(item.magic_nayru)[child]"
-                                                            }
-                                                        ]
+                                                        "type": "mixin",
+                                                        "el": "mixin.can_take_damage[child]"
                                                     }
                                                 ]
                                             }
@@ -18284,25 +18145,8 @@
                                                         "el": "mixin.can_jumpslash[adult]"
                                                     },
                                                     {
-                                                        "type": "or",
-                                                        "el": [
-                                                            {
-                                                                "type": "not",
-                                                                "el": {
-                                                                    "type": "state",
-                                                                    "el": "option.damage_multiplier",
-                                                                    "value": "damage_multiplier_ohko"
-                                                                }
-                                                            },
-                                                            {
-                                                                "type": "value",
-                                                                "el": "item.fairy"
-                                                            },
-                                                            {
-                                                                "type": "mixin",
-                                                                "el": "function.can_use(item.magic_nayru)[adult]"
-                                                            }
-                                                        ]
+                                                        "type": "mixin",
+                                                        "el": "mixin.can_take_damage[adult]"
                                                     }
                                                 ]
                                             }
@@ -24362,25 +24206,8 @@
                                 ]
                             },
                             {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "state",
-                                            "el": "option.damage_multiplier",
-                                            "value": "damage_multiplier_ohko"
-                                        }
-                                    },
-                                    {
-                                        "type": "value",
-                                        "el": "item.fairy"
-                                    },
-                                    {
-                                        "type": "mixin",
-                                        "el": "function.can_use(item.magic_nayru)[adult]"
-                                    }
-                                ]
+                                "type": "mixin",
+                                "el": "mixin.can_take_damage[adult]"
                             }
                         ]
                     }
@@ -33883,25 +33710,8 @@
                         "el": "function.can_use(item.boots_hover)[adult]"
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "state",
-                                    "el": "option.damage_multiplier",
-                                    "value": "damage_multiplier_ohko"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "item.fairy"
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "function.can_use(item.magic_nayru)[adult]"
-                            }
-                        ]
+                        "type": "mixin",
+                        "el": "mixin.can_take_damage[adult]"
                     }
                 ]
             },
@@ -38408,25 +38218,8 @@
                                         ]
                                     },
                                     {
-                                        "type": "or",
-                                        "el": [
-                                            {
-                                                "type": "not",
-                                                "el": {
-                                                    "type": "state",
-                                                    "el": "option.damage_multiplier",
-                                                    "value": "damage_multiplier_ohko"
-                                                }
-                                            },
-                                            {
-                                                "type": "value",
-                                                "el": "item.fairy"
-                                            },
-                                            {
-                                                "type": "mixin",
-                                                "el": "function.can_use(item.magic_nayru)[child]"
-                                            }
-                                        ]
+                                        "type": "mixin",
+                                        "el": "mixin.can_take_damage[child]"
                                     }
                                 ]
                             }
@@ -38625,25 +38418,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "not",
-                                                        "el": {
-                                                            "type": "state",
-                                                            "el": "option.damage_multiplier",
-                                                            "value": "damage_multiplier_ohko"
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item.fairy"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "function.can_use(item.magic_nayru)[child]"
-                                                    }
-                                                ]
+                                                "type": "mixin",
+                                                "el": "mixin.can_take_damage[child]"
                                             }
                                         ]
                                     }
@@ -38867,25 +38643,8 @@
                                                 ]
                                             },
                                             {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "not",
-                                                        "el": {
-                                                            "type": "state",
-                                                            "el": "option.damage_multiplier",
-                                                            "value": "damage_multiplier_ohko"
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item.fairy"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "function.can_use(item.magic_nayru)[adult]"
-                                                    }
-                                                ]
+                                                "type": "mixin",
+                                                "el": "mixin.can_take_damage[adult]"
                                             }
                                         ]
                                     }
@@ -41473,25 +41232,8 @@
                         }
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "state",
-                                    "el": "option.damage_multiplier",
-                                    "value": "damage_multiplier_ohko"
-                                }
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "function.can_use(item.magic_nayru)[child]"
-                            },
-                            {
-                                "type": "value",
-                                "el": "item.fairy"
-                            }
-                        ]
+                        "type": "mixin",
+                        "el": "mixin.can_take_damage[child]"
                     }
                 ]
             },
@@ -41841,20 +41583,8 @@
                         "type": "or",
                         "el": [
                             {
-                                "type": "not",
-                                "el": {
-                                    "type": "state",
-                                    "el": "option.damage_multiplier",
-                                    "value": "damage_multiplier_ohko"
-                                }
-                            },
-                            {
                                 "type": "mixin",
-                                "el": "function.can_use(item.magic_nayru)[adult]"
-                            },
-                            {
-                                "type": "value",
-                                "el": "item.fairy"
+                                "el": "mixin.can_take_damage[adult]"
                             },
                             {
                                 "type": "mixin",
@@ -58766,25 +58496,8 @@
                                 "type": "and",
                                 "el": [
                                     {
-                                        "type": "or",
-                                        "el": [
-                                            {
-                                                "type": "not",
-                                                "el": {
-                                                    "type": "state",
-                                                    "el": "option.damage_multiplier",
-                                                    "value": "damage_multiplier_ohko"
-                                                }
-                                            },
-                                            {
-                                                "type": "value",
-                                                "el": "item.fairy"
-                                            },
-                                            {
-                                                "type": "mixin",
-                                                "el": "function.can_use(item.magic_nayru)[child]"
-                                            }
-                                        ]
+                                        "type": "mixin",
+                                        "el": "mixin.can_take_damage[child]"
                                     },
                                     {
                                         "type": "or",
@@ -59060,25 +58773,8 @@
                                 "type": "and",
                                 "el": [
                                     {
-                                        "type": "or",
-                                        "el": [
-                                            {
-                                                "type": "not",
-                                                "el": {
-                                                    "type": "state",
-                                                    "el": "option.damage_multiplier",
-                                                    "value": "damage_multiplier_ohko"
-                                                }
-                                            },
-                                            {
-                                                "type": "value",
-                                                "el": "item.fairy"
-                                            },
-                                            {
-                                                "type": "mixin",
-                                                "el": "function.can_use(item.magic_nayru)[adult]"
-                                            }
-                                        ]
+                                        "type": "mixin",
+                                        "el": "mixin.can_take_damage[adult]"
                                     },
                                     {
                                         "type": "or",
@@ -59174,20 +58870,8 @@
                                                 "el": "function.has_projectile(adult)[adult]"
                                             },
                                             {
-                                                "type": "not",
-                                                "el": {
-                                                    "type": "state",
-                                                    "el": "option.damage_multiplier",
-                                                    "value": "damage_multiplier_ohko"
-                                                }
-                                            },
-                                            {
-                                                "type": "value",
-                                                "el": "item.fairy"
-                                            },
-                                            {
                                                 "type": "mixin",
-                                                "el": "function.can_use(item.magic_nayru)[adult]"
+                                                "el": "mixin.can_take_damage[adult]"
                                             }
                                         ]
                                     }
@@ -62512,7 +62196,7 @@
                     "type": "value",
                     "el": "item.key_small_water"
                 },
-                "value": 5
+                "value": 4
             }
         },
         "region.water_temple_highest_water_level[adult]": {
@@ -62522,7 +62206,7 @@
                     "type": "value",
                     "el": "item.key_small_water"
                 },
-                "value": 5
+                "value": 4
             },
             "logic.location.temple_water.c_morpha": {
                 "type": "and",
@@ -62920,7 +62604,7 @@
                                             "type": "value",
                                             "el": "item.key_small_water"
                                         },
-                                        "value": 6
+                                        "value": 5
                                     },
                                     {
                                         "type": "mixin",
@@ -62958,7 +62642,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 5
+                        "value": 4
                     },
                     {
                         "type": "or",
@@ -63463,7 +63147,7 @@
                                                             "type": "value",
                                                             "el": "item.key_small_water"
                                                         },
-                                                        "value": 6
+                                                        "value": 5
                                                     },
                                                     {
                                                         "type": "mixin",
@@ -63546,7 +63230,7 @@
                                                                     "type": "value",
                                                                     "el": "item.key_small_water"
                                                                 },
-                                                                "value": 6
+                                                                "value": 5
                                                             },
                                                             {
                                                                 "type": "or",
@@ -63595,7 +63279,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 6
+                                "value": 5
                             },
                             {
                                 "type": "value",
@@ -63671,7 +63355,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 6
+                                "value": 5
                             },
                             {
                                 "type": "value",
@@ -63729,7 +63413,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 6
+                                "value": 5
                             },
                             {
                                 "type": "or",
@@ -63814,7 +63498,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 6
+                                "value": 5
                             },
                             {
                                 "type": "or",
@@ -63978,7 +63662,7 @@
                                             "type": "value",
                                             "el": "item.key_small_water"
                                         },
-                                        "value": 6
+                                        "value": 5
                                     },
                                     {
                                         "type": "mixin",
@@ -64005,7 +63689,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 6
+                        "value": 5
                     },
                     {
                         "type": "mixin",
@@ -66125,6 +65809,48 @@
                             "el": "item.song_time"
                         }
                     ]
+                }
+            ]
+        },
+        "mixin.can_take_damage[child]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "not",
+                    "el": {
+                        "type": "state",
+                        "el": "option.damage_multiplier",
+                        "value": "damage_multiplier_ohko"
+                    }
+                },
+                {
+                    "type": "value",
+                    "el": "item.fairy"
+                },
+                {
+                    "type": "mixin",
+                    "el": "function.can_use(item.magic_nayru)[child]"
+                }
+            ]
+        },
+        "mixin.can_take_damage[adult]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "not",
+                    "el": {
+                        "type": "state",
+                        "el": "option.damage_multiplier",
+                        "value": "damage_multiplier_ohko"
+                    }
+                },
+                {
+                    "type": "value",
+                    "el": "item.fairy"
+                },
+                {
+                    "type": "mixin",
+                    "el": "function.can_use(item.magic_nayru)[adult]"
                 }
             ]
         },
