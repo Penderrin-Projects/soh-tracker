@@ -11,7 +11,13 @@ import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 
-// TODO register settings event listener
+/**
+ * resources
+ * logic augmentation: /ItemPool.py
+ */
+
+// TODO differenciate between vanilla keys and mq keys
+// for example write keys to ${ref}_v and ${ref}_mq to reflect each type
 
 const ACCEPTED_KEY_GROUPS = [
     "dungeon",
@@ -24,37 +30,70 @@ const ACCEPTED_BOSSKEY_GROUPS = [
     "ganon"
 ];
 
-const DUNGEON_KEY_AMP = {
-    "temple_fire": 1,
-    "temple_water": 1
-};
-
 const cache = new Map();
+
+function renameKeys(src = {}, prefix = "") {
+    const res = {};
+    for (const [key, value] of Object.entries(src)) {
+        res[`${prefix}${key}`] = value;
+    }
+    return res;
+}
+
+function augmentKeys(ref, type, keys) {
+    if (!cache.get("option.keysanity_small")) {
+        if (ref == "temple_spirit" && type == "mq") {
+            return keys + 3;
+        }
+        if (ref == "temple_fire" && type == "v") {
+            return keys + 1;
+        }
+    } else {
+        // nothing
+    }
+    if (ref == "temple_water" && type == "v") {
+        return keys + 1;
+    }
+    return keys;
+}
 
 Logic.addEventListener("change", event => {
     EventBus.trigger("logic", event.data);
 });
 
-function augmentDungeonstate(data) {
+function augmentData(data) {
     const dungeonData = DungeonstateResource.get("area");
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
+        // augment dungeontypes
+        let updateKeys = false;
+        const dTypeKey = `dungeontype.area/${ref}`;
+        if (data[dTypeKey] != null) {
+            updateKeys = true;
+            if (dData.hasmq) {
+                if (data[dTypeKey] === "") {
+                    res[dTypeKey] = "n";
+                } else {
+                    res[dTypeKey] = data[dTypeKey];
+                }
+            } else {
+                res[dTypeKey] = "v";
+            }
+        }
         // augment keys
         if (dData.keys) {
             if (data["option.track_keys"] != null) {
                 if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
                     res[dData.keys] = 9999;
-                } else if (DUNGEON_KEY_AMP[ref] != null && !cache.get("option.keysanity_small")) {
-                    res[dData.keys] = (cache.get(dData.keys) ?? 0) + DUNGEON_KEY_AMP[ref];
+                    updateKeys = false;
                 } else {
-                    res[dData.keys] = cache.get(dData.keys) ?? 0;
+                    updateKeys = true;
                 }
-            } else if (data[dData.keys] != null && cache.get("option.track_keys")) {
-                if (DUNGEON_KEY_AMP[ref] != null && !cache.get("option.keysanity_small")) {
-                    res[dData.keys] = (cache.get(dData.keys) ?? 0) + DUNGEON_KEY_AMP[ref];
-                } else {
-                    res[dData.keys] = cache.get(dData.keys) ?? 0;
-                }
+            } else if (data[dData.keys] != null) {
+                updateKeys = true;
+            }
+            if (updateKeys) {
+                res[dData.keys] = augmentKeys(ref, res[dTypeKey] ?? cache.get(dTypeKey), cache.get(dData.keys) ?? 0);
             }
         }
         // augment bosskeys
@@ -69,22 +108,29 @@ function augmentDungeonstate(data) {
                 res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
             }
         }
-        // augment dungeontypes
-        const dTypeKey = `dungeontype.${ref}`;
-        if (dData.hasmq && data[dTypeKey] === "") {
-            data[dTypeKey] = "n";
-        }
     }
+    // ---
     return {
         ...data,
         ...res
     }
 }
 
+function augmentReachables(data) {
+    // augment epona
+    if (data["option.skip_epona_race"] != null) {
+        if (data["option.skip_epona_race"]) {
+            Logic.addReachable("event.epona");
+        } else {
+            Logic.deleteReachable("event.epona");
+        }
+    }
+}
+
 function init() {
     const data = {
         ...SavestateHandler.getAll(""),
-        ...SavestateHandler.getAll("dungeonstate"),
+        ...renameKeys(SavestateHandler.getAll("dungeontype"), "dungeontype."),
         ...SettingsStorage.getAll(),
         ...OptionsStorage.getAll(),
         ...FilterStorage.getAll()
@@ -93,21 +139,23 @@ function init() {
     for (const [key, value] of Object.entries(data)) {
         cache.set(key, value);
     }
-    const augmentedData = augmentDungeonstate(data);
+    const augmentedData = augmentData(data);
     Logic.reset();
+    augmentReachables(augmentedData);
     Logic.execute(augmentedData, "region.root");
 }
 
-function onChange(event) {
+function changeData(newData) {
     const changes = {};
-    for (const [key, value] of Object.entries(event.data)) {
+    for (const [key, value] of Object.entries(newData)) {
         if (cache.get(key) != value) {
             changes[key] = value;
             cache.set(key, value);
         }
     }
     if (Object.keys(changes).length > 0) {
-        const augmentedData = augmentDungeonstate(changes);
+        const augmentedData = augmentData(changes);
+        augmentReachables(augmentedData);
         Logic.execute(augmentedData, "region.root");
     }
 }
@@ -117,12 +165,12 @@ class LogicCaller {
     constructor() {
         init();
         /* EVENTS */
-        SavestateHandler.addEventListener("load", init);
-        SavestateHandler.addEventListener("change", onChange);
-        SavestateHandler.addEventListener("change_dungeonstate", onChange);
-        OptionsStorage.addEventListener("change", onChange);
-        SettingsStorage.addEventListener("change", onChange);
-        FilterStorage.addEventListener("change", onChange);
+        SavestateHandler.addEventListener("load",               event => init());
+        SavestateHandler.addEventListener("change",             event => changeData(event.data));
+        SavestateHandler.addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
+        OptionsStorage  .addEventListener("change",             event => changeData(event.data));
+        SettingsStorage .addEventListener("change",             event => changeData(event.data));
+        FilterStorage   .addEventListener("change",             event => changeData(event.data));
     }
 
 }

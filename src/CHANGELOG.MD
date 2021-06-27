@@ -6,26 +6,61 @@ Application:    Track-OOT
 
 ## VERSION 2.1.0 (DEV)
 
-### IMPROVEMENTS
+### PERFORMANCE
 
-- performance boost
-  - use proxy objects for readonly storages in filedata
-  - create state handlers for ui elements
+- use asynchronous modules for better bootstrapping
+- use proxy objects for readonly states (fast access)
+- create state handlers for ui elements (one state for n elements)
+- generalize ui behaviours
+- reduced logic file sizes
+- add internal state handling for settings dialogs
+- make location lists trigger parents instead of the other way
+    - bottom-up instead of top-down approach
+
+### UX, A11Y & I18N
+
 - added accessability icons for world access values
-    - add settings entry to control behaviour
-- added categories to exits/entrances panel
+    - add settings entry to en-/disable
+- added filter and search options to exitpanel
+- added categroy info and search to entrance contextmenu
 - make shop items editable one by one
 - added shop item color frames
   - gold for non-refill items
   - red to reflect junk
 - added a special type button for choosing v/mq in locationlist
-- added overworld, owl drops, spawns, and song warps to entrance rando
-- reduced logic file sizes
+- hide sublists when they are empty
 - make sublists collapsible
     - add settings entry to control behaviour
         - if sublistst collapse is active
         - if subliststs start expanded or collapsed
-- hide sublists when they are empty
+- generate translation labels for dynamic translation
+- rework dialog design to be more consistent
+
+### SAVESTATE
+
+- change savestate format to enable better change compatibility
+- add load state dialog after state import
+- add app version & browser/os version information to 
+- add state initialization dialog
+
+### OOTR 6.0
+
+- added entrance randomizer options
+    - overworld
+    - interiors
+    - owl drops
+    - spawns (child/adult)
+    - song warps
+    - mixed pool
+- add option to skip epona race as adult
+    - needed for entrance randomizer
+
+### NETWORKING
+
+- fix networking to not fall into race conditions
+- fix networking being too talkative until freezing the application
+- fix networking to handle disconnects properly
+- add app version check system
 
 ---
 

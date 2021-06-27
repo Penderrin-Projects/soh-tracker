@@ -14,8 +14,8 @@ import "/script/state/world/CustomWorldStates.js";
 
 const AUGMENTORS = new Set();
 
-function initTranslations() {
-    Logic.clearTranslations();
+function initRedirects() {
+    Logic.clearRedirects();
     const initTransalation = [];
     for (const entry of AUGMENTORS) {
         if (entry.exit.active) {
@@ -23,12 +23,12 @@ function initTranslations() {
         }
     }
     if (initTransalation.length) {
-        Logic.setTranslation(initTransalation, "region.root");
+        Logic.setRedirect(initTransalation, "region.root");
     }
 }
 
 SavestateHandler.addEventListener("afterload", event => {
-    initTranslations();
+    initRedirects();
 });
 
 function changeBinding(values) {
@@ -42,7 +42,7 @@ function changeBinding(values) {
         applyBinding(changes, from, to);
     }
     if (changes.length) {
-        Logic.setTranslation(changes, "region.root");
+        Logic.setRedirect(changes, "region.root");
     }
 }
 
@@ -166,5 +166,5 @@ class ExitAugmentor {
         AUGMENTORS.add(new ExitAugmentor(ghost_exit));
     }
 
-    initTranslations();
+    initRedirects();
 }

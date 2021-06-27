@@ -32,6 +32,11 @@
         "type": "check",
         "default": false
     },
+    "option.skip_epona_race": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "option.free_scarecrow": {
         "category": "options",
         "type": "check",

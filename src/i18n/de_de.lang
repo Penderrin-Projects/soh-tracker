@@ -1086,6 +1086,7 @@ option.stone_count_bridge=Benötigte Steine für Regenbogenbrücke
 option.medallion_count_bridge=Benötigte Medaillen  für Regenbogenbrücke
 option.dungeon_count_bridge=Benötigte abgeschlossene Tempel für Regenbogenbrücke
 option.skip_child_zelda=Zelda überspringen
+option.skip_epona_race=Epona-Rennen überspringen
 option.shuffle_owls=Shuffle Owl Drops
 option.shuffle_warps=Shuffle Song Warps (Currently only used in Biggoron Bolero Skip)
 option.shuffle_spawns=Shuffle Spawn Locations

@@ -71,7 +71,8 @@ const STYLE = new GlobalStyle(`
     flex-direction: row;
     flex-shrink: 0;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow-x: none;
     overflow-y: none;
     border-bottom: solid 2px #cccccc;
@@ -84,7 +85,6 @@ const STYLE = new GlobalStyle(`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 100%;
     padding: 5px;
 }
 #search,

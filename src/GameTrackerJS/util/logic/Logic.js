@@ -34,8 +34,8 @@ class TrackerLogic extends EventTarget {
         }
     }
 
-    clearTranslations(root) {
-        LOGIC_PROCESSOR.clearTranslations();
+    clearRedirects(root) {
+        LOGIC_PROCESSOR.clearRedirects();
         if (root != null) {
             if (!CALL_TIMERS.has(root)) {
                 CALL_TIMERS.set(root, setTimeout(() => {
@@ -51,9 +51,9 @@ class TrackerLogic extends EventTarget {
         }
     }
 
-    setTranslation(translations, root) {
-        if (Array.isArray(translations)) {
-            LOGIC_PROCESSOR.setAllTranslations(translations);
+    setRedirect(redirects, root) {
+        if (Array.isArray(redirects)) {
+            LOGIC_PROCESSOR.setAllRedirects(redirects);
         }
         if (root != null) {
             if (!CALL_TIMERS.has(root)) {
@@ -68,6 +68,18 @@ class TrackerLogic extends EventTarget {
                 }, 0));
             }
         }
+    }
+
+    addReachable(target) {
+        LOGIC_PROCESSOR.addReachable(target);
+    }
+
+    deleteReachable(target) {
+        LOGIC_PROCESSOR.deleteReachable(target);
+    }
+
+    clearReachables() {
+        LOGIC_PROCESSOR.clearReachables();
     }
 
     execute(data, root) {

@@ -39,7 +39,7 @@ console.log({
     NOLOCAL, NOCOMPRESS, REBUILD, TLA
 });
 
-if (NOLOCAL) {
+if (!NOLOCAL) {
     let emcJS = path.resolve(__dirname, '../emcJS/src');
     if (fileExists(emcJS)) {
         MODULE_PATHS.emcJS = emcJS;
