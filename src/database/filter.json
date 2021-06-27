@@ -1,7 +1,6 @@
 {
     "filter.era": {
         "choice": true,
-        "badge": true,
         "persist": false,
         "default": "",
         "values": [
@@ -13,11 +12,29 @@
             "/images/icons/era_both.svg",
             "/images/icons/era_child.svg",
             "/images/icons/era_adult.svg"
-        ]
+        ],
+        "badge": [{
+            "values": {
+                "child": true,
+                "adult": true
+            },
+            "image": "/images/icons/era_both.svg"
+        },{
+            "values": {
+                "child": true
+            },
+            "image": "/images/icons/era_child.svg"
+        },{
+            "values": {
+                "adult": true
+            },
+            "image": "/images/icons/era_adult.svg"
+        },{
+            "image": "/images/icons/era_none.svg"
+        }]
     },
     "filter.era_apply": {
         "choice": true,
-        "badge": false,
         "persist": true,
         "default": "loose",
         "values": [
@@ -27,11 +44,11 @@
         "images": [
             "/images/icons/era_apply_loose.svg",
             "/images/icons/era_apply_force.svg"
-        ]
+        ],
+        "badge": false
     },
     "filter.time": {
         "choice": false,
-        "badge": true,
         "persist": false,
         "default": "",
         "values": [
@@ -43,11 +60,29 @@
             "/images/icons/time_always.svg",
             "/images/icons/time_day.svg",
             "/images/icons/time_night.svg"
-        ]
+        ],
+        "badge": [{
+            "values": {
+                "day": true,
+                "night": true
+            },
+            "image": "/images/icons/time_always.svg"
+        },{
+            "values": {
+                "day": true
+            },
+            "image": "/images/icons/time_day.svg"
+        },{
+            "values": {
+                "night": true
+            },
+            "image": "/images/icons/time_night.svg"
+        },{
+            "image": "/images/icons/time_never.svg"
+        }]
     },
     "filter.chests": {
         "choice": true,
-        "badge": false,
         "persist": true,
         "default": "true",
         "values": [
@@ -57,11 +92,11 @@
         "images": [
             "/images/icons/chest.svg",
             "/images/icons/chest_no.svg"
-        ]
+        ],
+        "badge": false
     },
     "filter.skulltulas": {
         "choice": true,
-        "badge": false,
         "persist": true,
         "default": "true",
         "values": [
@@ -73,11 +108,11 @@
             "/images/icons/skulltula.svg",
             "/images/icons/skulltula_dungeons.svg",
             "/images/icons/skulltula_no.svg"
-        ]
+        ],
+        "badge": false
     },
     "filter.gossipstones": {
         "choice": true,
-        "badge": false,
         "persist": true,
         "default": "false",
         "values": [
@@ -87,11 +122,11 @@
         "images": [
             "/images/icons/gossipstone.svg",
             "/images/icons/gossipstone_no.svg"
-        ]
+        ],
+        "badge": false
     },
     "filter.show_done": {
         "choice": true,
-        "badge": false,
         "persist": true,
         "default": "true",
         "values": [
@@ -101,6 +136,7 @@
         "images": [
             "/images/icons/opened_visible.svg",
             "/images/icons/opened_invisible.svg"
-        ]
+        ],
+        "badge": false
     }
 }

@@ -1,49 +1,28 @@
-import FileData from "/emcJS/storage/FileData.js";
-import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
-
+// GameTrackerJS
+import ExitList from "/GameTrackerJS/ui/exit/ExitList.js";
+// Track-OOT
 import "./ExitChoice.js";
 
-const TPL = new Template(`
-    <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
-        :host {
-            display: block;
-        }
-    </style>
-`);
+export default class HTMLTrackerExitList extends ExitList {
 
-export default class HTMLTrackerExitList extends EventBusSubsetMixin(Panel) {
     
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.append(TPL.generate());
-
-        const exits = FileData.get("world/exit");
-        for (const exit in exits) {
-            const el = document.createElement('ootrt-exitchoice');
-            el.ref = exit;
-            this.shadowRoot.append(el);
+    addEntrance(state) {
+        if (state.exitData.type !== "not_seen") {
+            const el = document.createElement("ootrt-exitchoice");
+            el.ref = state.ref;
+            el.setAttribute("access", state.props.access);
+            el.setAttribute("type", state.exitData.type);
+            el.setAttribute("categories", JSON.stringify(state.props.categories));
+            for (const cat of state.props.categories) {
+                this.addCategory(cat);
+            }
+            el.addEventListener("change", event => {
+                this.calculateItems();
+            });
+            this.append(el);
         }
-
-        /* event bus */
-        this.registerGlobal("state", event => {
-            if (event.data.state["option.entrance_shuffle"] != null) {
-                this.active = event.data.state["option.entrance_shuffle"]
-            }
-        });
-        this.registerGlobal("randomizer_options", event => {
-            if (event.data["option.entrance_shuffle"] != null) {
-                this.active = event.data["option.entrance_shuffle"]
-            }
-        });
     }
 
 }
 
-customElements.define('ootrt-exitlist', HTMLTrackerExitList);
+customElements.define("ootrt-exitlist", HTMLTrackerExitList);

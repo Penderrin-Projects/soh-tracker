@@ -1,13 +1,29 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-import Language from "/script/util/Language.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
-import "./mapmarker/Area.js";
-import "./mapmarker/Exit.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import Language from "/GameTrackerJS/util/Language.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
 import "./mapmarker/Gossipstone.js";
+import "./mapmarker/ShopSlot.js";
+import "./mapmarker/Area.js";
+import "./mapmarker/SubArea.js";
+import "./mapmarker/Exit.js";
+import "./mapmarker/SubExit.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
 
@@ -26,7 +42,6 @@ const TPL = new Template(`
         }
         :host {
             display: grid;
-            min-width: 100%;
             min-height: 100%;
             width: 400px;
             height: 200px;
@@ -70,6 +85,12 @@ const TPL = new Template(`
         #map-settings.active {
             bottom: 0;
         }
+        #map-options-body {
+            display: contents;
+        }
+        #map-options-body.hidden {
+            display: none;
+        }
         .buttons {
             position: absolute;
             display: flex;
@@ -97,6 +118,7 @@ const TPL = new Template(`
             border-radius: 10px;
         }
         #toggle-button {
+            border: none;
             cursor: pointer;
         }
         .map-options {
@@ -180,10 +202,15 @@ const TPL = new Template(`
     <div id="map-wrapper">
         <slot id="map" style="--map-zoom: ${ZOOM_DEF};">
         </slot>
-        <div id="back">(${Language.translate("back")})</div>
+        <!--
+            FIXME
+            label is not a string but a html element
+            better append dynamically later
+        --->
+        <div id="back">(${Language.generateLabel("back")})</div>
         <div id="map-settings">
             <div class="buttons">
-                <div id="toggle-button" class="button-wrapper">⇑</div>
+                <button id="toggle-button" class="button-wrapper">⇑</button>
                 <!--
                 <div class="button-wrapper">
                     <emc-switchbutton id="location-mode" class="button" value="filter.unknown">
@@ -205,15 +232,17 @@ const TPL = new Template(`
                     </ootrt-filtermenu>
                 </div>
             </div>
-            <div class="map-options">
-                <span class="slidetext">- / +</span>
-                <input type="range" min="${ZOOM_MIN}" max="${ZOOM_MAX}" value="${ZOOM_DEF}" class="slider" id="map-scale-slider">
-            </div>
-            <div class="map-options">
-                <label><input type="checkbox" id="map-fixed" /> Map fixed</label>
-            </div>
-            <div id="map-overview">
-                <div id="map-viewport">
+            <div id="map-options-body" class="hidden">
+                <div class="map-options">
+                    <span class="slidetext">- / +</span>
+                    <input type="range" min="${ZOOM_MIN}" max="${ZOOM_MAX}" value="${ZOOM_DEF}" class="slider" id="map-scale-slider">
+                </div>
+                <div class="map-options">
+                    <label><input type="checkbox" id="map-fixed" /> Map fixed</label>
+                </div>
+                <div id="map-overview">
+                    <div id="map-viewport">
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,19 +355,15 @@ function overviewSelect(event, map) {
     return false;
 }
 
-class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
+const AREA_EVENT_MANAGER = new WeakMap();
+
+class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-        /*this.shadowRoot.getElementById('location-mode').addEventListener("change", event => {
-            this.mode = event.newValue;
-            this.triggerGlobal("location_mode", {
-                value: this.mode
-            });
-        });*/
-        this.shadowRoot.getElementById('back').addEventListener("click", () => {
+        this.shadowRoot.getElementById("back").addEventListener("click", () => {
             this.ref = "overworld"
         });
         // map specifics
@@ -392,17 +417,28 @@ class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
         });
         const settings = this.shadowRoot.getElementById("map-settings");
         const toggle = this.shadowRoot.getElementById("toggle-button");
+        const optionsBody = this.shadowRoot.getElementById("map-options-body");
         toggle.addEventListener("click", function(event) {
             if (settings.classList.contains("active")) {
                 settings.classList.remove("active");
                 toggle.innerHTML = "⇑";
+                setTimeout(() => {
+                    optionsBody.classList.add("hidden");
+                }, 1000);
             } else {
                 mapContainBoundaries(map, map.parentNode);
                 settings.classList.add("active");
                 toggle.innerHTML = "⇓";
+                optionsBody.classList.remove("hidden");
             }
             event.preventDefault();
             return false;
+        });
+        /* --- */
+        const areaEventManager = new EventTargetManager();
+        AREA_EVENT_MANAGER.set(this, areaEventManager);
+        areaEventManager.set("list_update", event => {
+            this.refresh();
         });
         /* event bus */
         this.registerGlobal("location_change", event => {
@@ -410,26 +446,23 @@ class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
         });
         this.registerGlobal("location_mode", event => {
             this.mode = event.data.value;
-            this.shadowRoot.getElementById('location-mode').value = this.mode;
+            this.shadowRoot.getElementById("location-mode").value = this.mode;
         });
-        this.registerGlobal(["state", "settings", "randomizer_options", "filter"], () => {
-            if (this.ref == "overworld") {
-                this.refreshFilter();
-            }
+        this.registerGlobal("state", () => {
             this.refresh();
         });
-        this.registerGlobal("dungeontype", event => {
-            if (this.ref === event.data.name) {
-                this.refresh();
+        this.registerGlobal("statechange_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
             }
         });
     }
 
     connectedCallback() {
         super.connectedCallback();
-        if (this.ref == "overworld") {
-            this.refreshFilter();
-        }
         this.refresh();
     }
 
@@ -440,19 +473,11 @@ class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
 
     set ref(val) {
         //this.setAttribute('ref', val);
-        this.setAttribute('ref', "overworld");
-    }
-
-    get mode() {
-        return this.getAttribute('mode') || "filter.unknown";
-    }
-
-    set mode(val) {
-        this.setAttribute('mode', val);
+        this.setAttribute("ref", "overworld");
     }
 
     static get observedAttributes() {
-        return ['ref', 'mode'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -464,86 +489,58 @@ class HTMLTrackerMap extends EventBusSubsetMixin(Panel) {
         }
     }
 
-    refreshFilter() {
-        /*
-        let modeEl = this.shadowRoot.getElementById('location-mode');
-        let opts = modeEl.querySelectorAll("[data-filter]");
-        let first = "filter.unknown";
-        let change = false;
-        for (let opt of opts) {
-            if (FilterStorage.get(opt.dataset.filter) != "false") {
-                // LEGACY
-                opt.removeAttribute("disabled");
-                if (first == "filter.unknown") {
-                    first = opt.dataset.filter;
-                }
-                if (this.mode == "filter.unknown") {
-                    change = true;
-                }
-            } else {
-                // LEGACY
-                opt.setAttribute("disabled", true);
-                if (this.mode == opt.dataset.filter) {
-                    change = true;
-                }
-            }
-        }
-        if (change) {
-            modeEl.value = first;
-            this.setAttribute('mode', first);
-        }
-        */
-    }
-
-    async refresh() {
+    refresh() {
         // TODO do not use specialized code. make generic
-        const dType = "v";//this.shadowRoot.getElementById("location-version").value;
+        //const btn_vanilla = this.shadowRoot.getElementById('vanilla');
+        //const btn_masterquest = this.shadowRoot.getElementById('masterquest');
+        const areaEventManager = AREA_EVENT_MANAGER.get(this);
         this.innerHTML = "";
-        const data = FileData.get(`world/${this.ref}`);
-        if (data) {
+        const areaState = WorldStateManager.getByRef(this.ref || "overworld");
+        if (areaState != null) {
+            areaEventManager.switchTarget(areaState);
+            const areaData = areaState.areaData;
             // switch map/minimap background
-            const map = this.shadowRoot.getElementById('map');
-            map.style.backgroundImage = `url("/images/maps/${data.background}")`;
-            map.style.width = `${data.width}px`;
-            map.style.height = `${data.height}px`;
-            const minimap = this.shadowRoot.getElementById('map-overview');
-            minimap.style.backgroundImage = `url("/images/maps/${data.background}")`;
+            const map = this.shadowRoot.getElementById("map");
+            map.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
+            map.style.width = `${areaData.width}px`;
+            map.style.height = `${areaData.height}px`;
+            const minimap = this.shadowRoot.getElementById("map-overview");
+            minimap.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
             // fill map
-            if (dType == "n") {
-                //const data_v = data.lists.v;
-                //const data_m = data.lists.mq;
-                // TODO add dungeonType initialization choice
-                //btn_vanilla.className = VALUE_STATES[res_v.value];
-                //btn_masterquest.className = VALUE_STATES[res_m.value];
-            } else {
-                data.lists[dType].forEach(record => {
-                    if (this.ref == "overworld" && this.mode == "filter.gossipstones") {
-                        // LEGACY
-                        if (record.type == "area" || record.type == "entrance") {
-                            return;
-                        }
-                    }
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.mapMarker;
-                        if (this.ref == "overworld" && !!el.dataset.mode && el.dataset.mode != this.mode) {
-                            // LEGACY
-                            return;
-                        }
-                        el.left = record.x;
-                        el.top = record.y;
-                        el.tooltip = calculateTooltipPosition(record.x, record.y, data.width, data.height);
-                        this.append(el);
-                    }
-                });
-            }
+            const list = areaState.getList();
+            if (list != null) {
+                //btn_vanilla.className = "hidden";
+                //btn_masterquest.className = "hidden";
+                for (const record of list) {
+                    const loc = WorldStateManager.get(record.category, record.id);
+                    const uiReg = UIRegistry.get(`map-${record.category}`);
+                    const el = uiReg.create(loc.props.type, loc.ref);
+                    el.left = record.x;
+                    el.top = record.y;
+                    el.tooltip = calculateTooltipPosition(record.x, record.y, areaData.width, areaData.height);
+                    this.append(el);
+                }
+            }/* else {
+                const listV = data.getFilteredList("v");
+                if (listV != null) {
+                    const res = ListLogic.check(listV);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_vanilla.className = value;
+                }
+                const listM = data.getFilteredList("mq");
+                if (listM != null) {
+                    const res = ListLogic.check(listM);
+                    const value = AccessStateEnum.getName(res.value).toLowerCase();
+                    btn_masterquest.className = value;
+                }
+            }*/
         }
     }
 
 }
 
 Panel.registerReference("location-map", HTMLTrackerMap);
-customElements.define('ootrt-map', HTMLTrackerMap);
+customElements.define("ootrt-map", HTMLTrackerMap);
 
 function calculateTooltipPosition(posX, posY, mapW, mapH) {
     const leftP = posX / mapW;

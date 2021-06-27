@@ -7,3 +7,5 @@ yarn.lock
 *.zip
 .idea
 package-lock.json
+backup.json
+editor/info.log

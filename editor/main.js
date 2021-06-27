@@ -1,6 +1,9 @@
-const { app, protocol, BrowserWindow } = require('electron');
-const fs = require('fs');
+const { app, protocol, BrowserWindow } = require("electron");
+const fs = require("fs");
 const path = require("path");
+const { startServer } = require("./server.js");
+
+const __dirnameUnix = __dirname.replace(/\\/g, "/");
 
 let OPTIONS = {
     debug: false
@@ -10,8 +13,8 @@ if (process.argv.indexOf('-debug') >= 1) {
 }
 
 const MODULE_PATHS = {
-    emcJS: "../node_modules/emcjs/",
-    trackerEditor: "../node_modules/jseditors/"
+    emcJS: "../node_modules/emcjs/src/",
+    trackerEditor: "../node_modules/jseditors/src/"
 };
 
 function fileExists(filename) {
@@ -24,13 +27,13 @@ function fileExists(filename) {
 }
 
 if (process.argv.indexOf('-nolocal') < 0) {
-    let emcJS = path.resolve(__dirname, '../../emcJS');
+    let emcJS = path.resolve(__dirname, '../../emcJS/src');
     if (fileExists(emcJS)) {
-        MODULE_PATHS.emcJS = '../../emcJS/';
+        MODULE_PATHS.emcJS = '../../emcJS/src/';
     }
-    let trackerEditor = path.resolve(__dirname, '../../JSEditors');
+    let trackerEditor = path.resolve(__dirname, '../../JSEditors/src');
     if (fileExists(trackerEditor)) {
-        MODULE_PATHS.trackerEditor = '../../JSEditors/';
+        MODULE_PATHS.trackerEditor = '../../JSEditors/src/';
     }
 }
 
@@ -38,16 +41,29 @@ console.log(MODULE_PATHS);
 
 function createWindow() {
     protocol.interceptFileProtocol("file", (request, callback) => {
-        let url = request.url.replace(/file\:\/+(:?[a-z]\:)?/i, "");
-        url = url.replace(__dirname, "");
+        console.log("-------------------");
+        let url = request.url.replace(/file\:\/+/i, "");
+        console.log(url);
+        if (!url.startsWith(__dirnameUnix)) {
+            url = url.replace(/(:?[a-z]\:)?/i, "");
+        }
+        console.log(url);
+        url = url.replace(__dirnameUnix, "");
+        console.log(url);
+        /* redirects */
         url = url.replace(/^\/?src\//i, "../src/");
+        url = url.replace(/^\/?database\//i, "../src/database/");
         url = url.replace(/^\/?images\//i, "../src/images/");
+        url = url.replace(/^\/?script\//i, "../src/script/");
+        url = url.replace(/^\/?GameTrackerJS\//i, "../src/GameTrackerJS/");
         url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
         url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
-        url = path.join(__dirname, ".", url);
+        url = path.join(__dirnameUnix, ".", url);
         url = path.normalize(url);
+        console.log(url);
         callback({path: url});
     });
+
     let win = new BrowserWindow({
         width: 800,
         height: 700,
@@ -61,7 +77,8 @@ function createWindow() {
     });
     win.maximize();
     win.setMenu(null);
-    win.loadFile("/index.html");
+    //win.loadURL("http://localhost:4242");
+    win.loadFile("./web/index.html");
     if (!!OPTIONS.debug) {
         win.toggleDevTools();
     }
@@ -73,7 +90,12 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow);
+
+
+app.on('ready', async () => {
+    //await startServer();
+    createWindow();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

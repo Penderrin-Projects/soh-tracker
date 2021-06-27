@@ -1,22 +1,37 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
+import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import Language from "/script/util/Language.js";
-import MarkerRegistry from "/script/util/world/MarkerRegistry.js";
-import ListLogic from "/script/util/logic/ListLogic.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import "/GameTrackerJS/state/world/OverworldState.js";
+import "/GameTrackerJS/state/world/area/StateManager.js";
+import "/GameTrackerJS/state/world/exit/StateManager.js";
+import "/GameTrackerJS/state/world/location/StateManager.js";
+import "/GameTrackerJS/state/world/subarea/StateManager.js";
+import "/GameTrackerJS/state/world/subexit/StateManager.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
-import "./listitems/Area.js";
-import "./listitems/Exit.js";
+import "./listitems/TypeButton.js";
 import "./listitems/Location.js";
 import "./listitems/Gossipstone.js";
+import "./listitems/ShopSlot.js";
+import "./listitems/Area.js";
+import "./listitems/SubArea.js";
+import "./listitems/Exit.js";
+import "./listitems/SubExit.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
-
-const SettingsStorage = new IDBStorage('settings');
 
 const TPL = new Template(`
     <style>
@@ -27,7 +42,6 @@ const TPL = new Template(`
         :host {
             display: inline-flex;
             flex-direction: column;
-            min-width: 100%;
             min-height: 100%;
             width: 300px;
             height: 300px;
@@ -88,7 +102,8 @@ const TPL = new Template(`
             width: 25px;
             height: 25px;
         }
-        ootrt-list-button {
+        ootrt-list-button,
+        ootrt-list-typebutton {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -98,10 +113,12 @@ const TPL = new Template(`
             padding: 5px;
         }
         ootrt-list-button:hover,
+        ootrt-list-typebutton:hover,
         #list > *:hover {
             background-color: var(--main-hover-color, #ffffff32);
         }
         ootrt-list-button.hidden,
+        ootrt-list-typebutton.hidden,
         :host(:not([ref])) #back,
         :host([ref="overworld"]) #back {
             display: none;
@@ -115,7 +132,7 @@ const TPL = new Template(`
         }
     </style>
     <div id="title">
-        <div id="title-text">${Language.translate("hyrule")}</div>
+        <div id="title-text"></div>
         <div id="hint"></div>
         <ootrt-dungeontype id="location-version" class="button" ref="overworld" value="v" readonly="true">
         </ootrt-dungeontype>
@@ -123,54 +140,66 @@ const TPL = new Template(`
         </ootrt-filtermenu>
     </div>
     <div id="body">
-        <ootrt-list-button id="back">(${Language.translate("back")})</ootrt-list-button>
-        <ootrt-list-button id="vanilla" class="hidden">${Language.translate("vanilla")}</ootrt-list-button>
-        <ootrt-list-button id="masterquest" class="hidden">${Language.translate("masterquest")}</ootrt-list-button>
+        <ootrt-list-button id="back"></ootrt-list-button>
+        <ootrt-list-typebutton type="v" id="vanilla" class="hidden"></ootrt-list-typebutton>
+        <ootrt-list-typebutton type="mq" id="masterquest" class="hidden"></ootrt-list-typebutton>
         <div id="list"></div>
     </div>
 `);
 
-const VALUE_STATES = [
-    "opened",
-    "unavailable",
-    "possible",
-    "available"
-];
+const AREA_EVENT_MANAGER = new WeakMap();
 
-class HTMLTrackerLocationList extends EventBusSubsetMixin(Panel) {
+class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         this.attributeChangedCallback("", "");
-        this.shadowRoot.getElementById('back').addEventListener("click", event => {
+        this.shadowRoot.getElementById("back").addEventListener("click", event => {
             this.ref = "overworld";
             event.stopPropagation();
             event.preventDefault();
             return false;
         });
-        this.shadowRoot.getElementById('vanilla').addEventListener("click", event => {
-            StateStorage.writeExtra("dungeontype", this.ref, 'v');
+        const titleTextEl = this.shadowRoot.getElementById("title-text");
+        const backEl = this.shadowRoot.getElementById("back");
+        const vanillaEl = this.shadowRoot.getElementById("vanilla");
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        Language.applyLabel(titleTextEl, "hyrule");
+        Language.applyLabel(backEl, "(to overworld)");
+        Language.applyLabel(vanillaEl, "vanilla");
+        Language.applyLabel(masterquestEl, "masterquest");
+        /* --- */
+        const areaEventManager = new EventTargetManager();
+        AREA_EVENT_MANAGER.set(this, areaEventManager);
+        areaEventManager.set("access", event => {
+            this.updateHeader();
         });
-        this.shadowRoot.getElementById('masterquest').addEventListener("click", event => {
-            StateStorage.writeExtra("dungeontype", this.ref, 'mq');
+        areaEventManager.set("list_update", event => {
+            this.refresh();
         });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
+            areaEventManager
+            if (event.data.focus) {
+                // TODO
+            }
         });
-        this.registerGlobal(["state", "statechange", "logic", "settings", "randomizer_options", "filter"], event => {
+        this.registerGlobal("logic", event => {
+            this.updateHeader();
+        });
+        this.registerGlobal("state", () => {
             this.refresh();
         });
-        this.registerGlobal("statechange_dungeontype", event => {
-            let data;
+        this.registerGlobal("state::dungeontype", event => {
             if (event.data != null) {
-                data = event.data[this.ref];
-            }
-            if (data != null) {
-                this.shadowRoot.getElementById("location-version").value = data.newValue;
-                this.refresh();
+                const data = event.data;
+                if (data.ref == this.ref) {
+                    this.shadowRoot.getElementById("location-version").value = data.value;
+                    this.refresh();
+                }
             }
         });
         this.registerGlobal("statechange_area_hint", event => {
@@ -182,6 +211,8 @@ class HTMLTrackerLocationList extends EventBusSubsetMixin(Panel) {
                 this.hint = data.newValue;
             }
         });
+        /* fck iOS */
+        iOSTouchHandler.register(this.shadowRoot.getElementById("body"));
     }
 
     connectedCallback() {
@@ -190,38 +221,38 @@ class HTMLTrackerLocationList extends EventBusSubsetMixin(Panel) {
     }
 
     get ref() {
-        return this.getAttribute('ref') || "overworld";
+        return this.getAttribute("ref") || "overworld";
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get hint() {
-        return this.getAttribute('hint');
+        return this.getAttribute("hint");
     }
 
     set hint(val) {
-        this.setAttribute('hint', val);
+        this.setAttribute("hint", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'hint'];
+        return ["ref", "hint"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case 'ref':
+            case "ref":
                 if (oldValue != newValue) {
-                    this.shadowRoot.getElementById("title-text").innerHTML = Language.translate(newValue || "hyrule");
+                    Language.applyLabel(this.shadowRoot.getElementById("title-text"), newValue || "hyrule");
                     this.shadowRoot.getElementById("location-version").ref = newValue;
-                    this.shadowRoot.getElementById('vanilla').ref = newValue;
-                    this.shadowRoot.getElementById('masterquest').ref = newValue;
-                    this.hint = StateStorage.readExtra("area_hint", newValue, "");
+                    this.shadowRoot.getElementById("vanilla").ref = newValue;
+                    this.shadowRoot.getElementById("masterquest").ref = newValue;
+                    this.hint = SavestateHandler.get("area_hint", newValue, "");
                     this.refresh();
                 }
                 break;
-            case 'hint':
+            case "hint":
                 if (oldValue != newValue) {
                     const hintEl = this.shadowRoot.getElementById("hint");
                     hintEl.innerHTML = "";
@@ -237,65 +268,62 @@ class HTMLTrackerLocationList extends EventBusSubsetMixin(Panel) {
 
     refresh() {
         // TODO do not use specialized code. make generic
+        const areaEventManager = AREA_EVENT_MANAGER.get(this);
         const cnt = this.shadowRoot.getElementById("list");
-        let dType = this.shadowRoot.getElementById("location-version").value;
-        const btn_vanilla = this.shadowRoot.getElementById('vanilla');
-        const btn_masterquest = this.shadowRoot.getElementById('masterquest');
+        const btn_vanilla = this.shadowRoot.getElementById("vanilla");
+        const btn_masterquest = this.shadowRoot.getElementById("masterquest");
         cnt.innerHTML = "";
-        const data = FileData.get(`world/${this.ref || "overworld"}`);
-        if (data) {
-            if (data.lists.mq == null) {
-                dType = "v";
-            }
-            if (dType == "n") {
-                const data_v = data.lists.v;
-                const data_m = data.lists.mq;
-                const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
-                const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
-                btn_vanilla.className = VALUE_STATES[res_v.value];
-                btn_masterquest.className = VALUE_STATES[res_m.value];
+        const areaState = WorldStateManager.getByRef(this.ref || "overworld");
+        if (areaState != null) {
+            areaEventManager.switchTarget(areaState);
+            const list = areaState.getList();
+            if (list != null) {
+                if (btn_vanilla != null) {
+                    btn_vanilla.classList.add("hidden");
+                    btn_vanilla.ref = "";
+                }
+                if (btn_masterquest != null) {
+                    btn_masterquest.classList.add("hidden");
+                    btn_vanilla.ref = "";
+                }
+                for (const record of list) {
+                    const loc = WorldStateManager.get(record.category, record.id);
+                    const uiReg = UIRegistry.get(`list-${record.category}`);
+                    const el = uiReg.create(loc.props.type, loc.ref);
+                    cnt.append(el);
+                }
             } else {
-                btn_vanilla.className = "hidden";
-                btn_masterquest.className = "hidden";
-                data.lists[dType].forEach(record => {
-                    const loc = MarkerRegistry.get(`${record.category}/${record.id}`);
-                    if (!!loc && loc.visible()) {
-                        const el = loc.listItem;
-                        cnt.append(el);
-                    }
-                });
+                if (btn_vanilla != null) {
+                    btn_vanilla.classList.remove("hidden");
+                    btn_vanilla.ref = this.ref;
+                }
+                if (btn_masterquest != null) {
+                    btn_masterquest.classList.remove("hidden");
+                    btn_vanilla.ref = this.ref;
+                }
             }
+            this.updateHeader();
         }
-        this.updateHeader();
     }
 
     async updateHeader() {
-        // TODO do not use specialized code. make generic
-        if ((!this.ref || this.ref === "overworld")) {
-            this.shadowRoot.querySelector('#title').className = "";
-        } else {
-            const dType = this.shadowRoot.getElementById("location-version").value;
-            let header_value = 1;
-            if (dType == "n") {
-                const data_v = FileData.get(`world/${this.ref}/lists/v`);
-                const data_m = FileData.get(`world/${this.ref}/lists/mq`);
-                const res_v = ListLogic.check(data_v.filter(ListLogic.filterUnusedChecks));
-                const res_m = ListLogic.check(data_m.filter(ListLogic.filterUnusedChecks));
-                if (await SettingsStorage.get("unknown_dungeon_need_both", false)) {
-                    header_value = Math.min(res_v.value, res_m.value);
-                } else {
-                    header_value = Math.max(res_v.value, res_m.value);
-                }
+        const titleEl = this.shadowRoot.querySelector("#title");
+        if (titleEl != null) {
+            if ((!this.ref || this.ref === "overworld")) {
+                titleEl.className = "";
             } else {
-                const data = FileData.get(`world/${this.ref}/lists/${dType}`);
-                const res = ListLogic.check(data.filter(ListLogic.filterUnusedChecks));
-                header_value = res.value;
+                const data = WorldStateManager.getByRef(this.ref);
+                if (data != null) {
+                    /* access */
+                    const access = data.access;
+                    const value = AccessStateEnum.getName(access.value).toLowerCase();
+                    titleEl.className = value;
+                }
             }
-            this.shadowRoot.querySelector('#title').className = VALUE_STATES[header_value];
         }
     }
     
 }
 
 Panel.registerReference("location-list", HTMLTrackerLocationList);
-customElements.define('ootrt-locationlist', HTMLTrackerLocationList);
+customElements.define("ootrt-locationlist", HTMLTrackerLocationList);

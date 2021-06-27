@@ -14,12 +14,89 @@
         <link rel="icon" type="image/svg+xml" href="/images/logo.svg" sizes="any">
         <link rel="apple-touch-icon" href="/images/favicons/default_192.png">
         <link rel="manifest" href="/manifest.json">
-        <script src="/script/import.js"></script>
         <script>
             window.addEventListener('contextmenu', function() {
                 event.preventDefault();
                 return false;
             });
+        </script>
+        <script nomodule defer>
+            const spl = document.getElementById("splash").querySelector('.loading');
+            spl.innerHTML = `
+                This website uses ECMAScript modules.<br>
+                Your Browser does not support them.<br>
+                Please use a compatible Browser like Chrome, Edge (Blink), Firefox or Safari.
+            `;
+        </script>
+        <script type="module" src="/index.js"></script>
+        <script>
+            function emergencyDLStates() {
+                function openDB(name) {
+                    return new Promise(function(resolve, reject) {
+                        const request = indexedDB.open(name);
+                        request.onupgradeneeded = function(event) {
+                            const db = request.result;
+                            if (!db.objectStoreNames.contains("data")) {
+                                db.createObjectStore("data");
+                            }
+                        };
+                        request.onsuccess = function() {
+                            resolve(request.result);
+                        };
+                        request.onerror = function(e) {
+                            reject(e);
+                        }
+                    });
+                }
+                async function getStoreReadonly(name) {
+                    const storage = await openDB(name);
+                    return storage.transaction("data", "readonly").objectStore("data");
+                }
+                function getAll(filter) {
+                    return new Promise(async function(resolve, reject) {
+                        const transaction = await getStoreReadonly("savestates");
+                        const request = transaction.openCursor();
+                        const res = {};
+                        request.onsuccess = function(e) {
+                            const el = e.target.result;
+                            if (el) {
+                                res[el.key] = el.value;
+                                el.continue();
+                            } else {
+                                if (typeof filter == "string") {
+                                    resolve(res.filter(key => key.startsWith(filter)));
+                                } else {
+                                    resolve(res);
+                                }
+                            }
+                        };
+                        request.onerror = function(e) {
+                            reject(e);
+                        }
+                    }.bind(this));
+                }
+                const dl = document.createElement("a");
+                dl.style.position = "absolute !important";
+                dl.style.display = "none !important";
+                dl.style.opacity = "0 !important";
+                dl.style.visibility = "hidden !important";
+                function save(data, fileName) {
+                    const url = window.URL.createObjectURL(new Blob([data], {type: "octet/stream"}));
+                    dl.href = url;
+                    dl.download = fileName;
+                    document.body.append(dl);
+                    dl.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(dl);
+                }
+                !async function() {
+                    const files = await getAll();
+                    for (const key in files) {
+                        const file = files[key];
+                        save(JSON.stringify(file), `${key}.json`);
+                    }
+                }();
+            }
         </script>
         <style>
             *:not(emc-dialog) {
@@ -95,99 +172,13 @@
                     <button id="splash-refresh" onclick="window.location.reload(true)">REFRESH PAGE</button>
                 </div>
             </div>
+            <div class="info">
+                Safestates emergency backup<br>
+                Download all savestates in storage:<br>
+                <div class="controls">
+                    <button id="splash-refresh" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
+                </div>
+            </div>
         </div>
-        <script>
-            "use strict";
-            const spl = document.getElementById("splash").querySelector('.loading');
-            function updateLoadingMessage(msg = "loading...") {
-                spl.innerHTML = msg;
-            }
-            function printError(msg = "Error", url = "index", line = 1, col = 1, error) {
-                //alert(`${msg}\n${url}:${line}`);
-                updateLoadingMessage(msg);
-                console.error(`${msg}\n${url}:${line}`);
-                return false;
-            }
-            window.onerror = printError;
-
-            if(document.head.createShadowRoot || document.head.attachShadow) {
-                let max_files = 0;
-                let load_files = 0;
-
-                async function startApp() {
-                    try {
-                        updateLoadingMessage("load framework...");
-                        if ('serviceWorker' in navigator) {
-                            navigator.serviceWorker.removeEventListener('message', swStateRecieve);
-                        }
-                        updateLoadingMessage("add structure...");
-                        const r = await $import.html("/content/app.html");
-                        while (r.length > 0) {
-                            document.body.append(r[0]);
-                        }
-                        updateLoadingMessage("add style...");
-                        await $import.addStyle("/style/index.css");
-                        updateLoadingMessage("add script...");
-                        await $import.addModule("/script/app.js");
-                    } catch(e) {
-                        printError(e);
-                    }
-                }
-
-                function swStateRecieve(event) {
-                    if (event.data.type == "state") {
-                        switch(event.data.msg) {
-                            case "start":
-                                startApp();
-                                break;
-                            case "need_download":
-                                load_files = 0;
-                                max_files = event.data.value;
-                                updateLoadingMessage(`installing, please wait... 0/${max_files}`);
-                                break;
-                            case "file_downloaded":
-                                updateLoadingMessage(`installing, please wait... ${++load_files}/${max_files}`);
-                                break;
-                        }
-                    }
-                }
-                
-                updateLoadingMessage("loading...");
-
-                if ('serviceWorker' in navigator) {
-                    const refBtn = document.getElementById("splash-refresh");
-                    refBtn.innerHTML = "FORCE DOWNLOAD";
-                    refBtn.onclick = function() {
-                        caches.keys().then(function(names) {
-                            for (const name of names) {
-                                caches.delete(name);
-                            }
-                            window.location.reload();
-                        });
-                    };
-                    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                        updateLoadingMessage("call servant...");
-                        function callSW() {
-                            if (!registration.active) {
-                                setTimeout(callSW, 10);
-                                return;
-                            }
-                            navigator.serviceWorker.addEventListener('message', swStateRecieve);
-                            registration.active.postMessage("start");
-                        }
-                        callSW();
-                    }, function(err) {
-                        updateLoadingMessage("ServiceWorker registration failed");
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-                } else {
-                    updateLoadingMessage("start without service...");
-                    startApp();
-                }
-            } else {
-                updateLoadingMessage("I am sorry, but this page uses Shadow DOM...<br>This script detected, that the Browser you are using does not support this feature yet.");
-            }
-                
-        </script>
     </body>
 </html>

@@ -1,7 +1,6 @@
 {
-    "entries": [
-        {
-            "ref": "area/pocket",
+    "area": {
+        "pocket": {
             "title": "Link",
             "color": "#ffffff",
             "keys": false,
@@ -10,11 +9,11 @@
             "bosskey_group": "dungeon",
             "map": false,
             "compass": false,
+            "hint": false,
             "hasmq": false,
             "boss_reward": true
         },
-        {
-            "ref": "area/deku",
+        "deku": {
             "title": "DT",
             "color": "#92ff92",
             "keys": false,
@@ -23,11 +22,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_deku",
             "compass": "item.compass_deku",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/dodongo",
+        "dodongo": {
             "title": "DC",
             "color": "#ff6a6a",
             "keys": false,
@@ -36,11 +35,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_dodongo",
             "compass": "item.compass_dodongo",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/jabujabu",
+        "jabujabu": {
             "title": "JB",
             "color": "#8be4f3",
             "keys": false,
@@ -49,11 +48,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_jabujabu",
             "compass": "item.compass_jabujabu",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/temple_forest",
+        "temple_forest": {
             "title": "FoT",
             "color": "#1bf11b",
             "keys": "item.key_small_forest",
@@ -62,11 +61,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_temple_forest",
             "compass": "item.compass_temple_forest",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/temple_fire",
+        "temple_fire": {
             "title": "FiT",
             "color": "#ff3c3c",
             "keys": "item.key_small_fire",
@@ -75,11 +74,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_temple_fire",
             "compass": "item.compass_temple_fire",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/temple_water",
+        "temple_water": {
             "title": "WT",
             "color": "#7cb6ff",
             "keys": "item.key_small_water",
@@ -88,11 +87,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_temple_water",
             "compass": "item.compass_temple_water",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/temple_shadow",
+        "temple_shadow": {
             "title": "ShT",
             "color": "#d967fd",
             "keys": "item.key_small_shadow",
@@ -101,11 +100,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_temple_shadow",
             "compass": "item.compass_temple_shadow",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/temple_spirit",
+        "temple_spirit": {
             "title": "SpT",
             "color": "#ffcd71",
             "keys": "item.key_small_spirit",
@@ -114,11 +113,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_temple_spirit",
             "compass": "item.compass_temple_spirit",
+            "hint": true,
             "hasmq": true,
             "boss_reward": true
         },
-        {
-            "ref": "area/well",
+        "well": {
             "title": "BotW",
             "color": "#ff99ff",
             "keys": "item.key_small_well",
@@ -127,11 +126,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_well",
             "compass": "item.compass_well",
+            "hint": true,
             "hasmq": true,
             "boss_reward": false
         },
-        {
-            "ref": "area/ice_cavern",
+        "ice_cavern": {
             "title": "IC",
             "color": "#abfdf5",
             "keys": false,
@@ -140,11 +139,11 @@
             "bosskey_group": "dungeon",
             "map": "item.dungeon_map_ice",
             "compass": "item.compass_ice",
+            "hint": true,
             "hasmq": true,
             "boss_reward": false
         },
-        {
-            "ref": "area/gerudo_fortress",
+        "gerudo": {
             "title": "GF",
             "color": "#ffb47d",
             "keys": "item.key_small_gerudo",
@@ -153,11 +152,11 @@
             "bosskey_group": "gerudo",
             "map": false,
             "compass": false,
+            "hint": true,
             "hasmq": false,
             "boss_reward": false
         },
-        {
-            "ref": "area/training_grounds",
+        "training_grounds": {
             "title": "GTG",
             "color": "#ffffa4",
             "keys": "item.key_small_training",
@@ -166,11 +165,11 @@
             "bosskey_group": "dungeon",
             "map": false,
             "compass": false,
+            "hint": true,
             "hasmq": true,
             "boss_reward": false
         },
-        {
-            "ref": "area/castle_ganon",
+        "castle_ganon": {
             "title": "GC",
             "color": "#969696",
             "keys": "item.key_small_ganon",
@@ -179,8 +178,9 @@
             "bosskey_group": "ganon",
             "map": false,
             "compass": false,
+            "hint": true,
             "hasmq": true,
             "boss_reward": false
         }
-    ]
+    }
 }

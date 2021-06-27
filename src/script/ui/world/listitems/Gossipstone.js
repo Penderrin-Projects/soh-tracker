@@ -1,166 +1,99 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Language from "/script/util/Language.js";
-import ListLocation from "./Location.js";
+import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import "/GameTrackerJS/ui/Badge.js";
+// Track-OOT
+import AbstractGossipstone from "../abstract/Gossipstone.js";
+import "./Location.js";
 
 const TPL = new Template(`
-    <div id="hintlocation" class="textarea"></div>
-    <div id="hintitem" class="textarea"></div>
+<div class="textarea">
+    <div id="text"></div>
+    <div id="item"></div>
+    <gt-badge id="badge"></gt-badge>
+</div>
+<div id="hintlocation" class="textarea"></div>
+<div id="hintitem" class="textarea"></div>
 `);
 
-export default class ListGossipstone extends ListLocation {
+const STYLE = new GlobalStyle(`
+* {
+    position: relative;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+}
+:host(:hover) {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+.textarea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 35px;
+    word-break: break-word;
+}
+.textarea:empty {
+    display: none;
+}
+.textarea + .textarea {
+    margin-top: 5px;
+}
+#text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    color: #ffffff;
+}
+#text[data-state="opened"] {
+    color: var(--location-status-opened-color, #000000);
+}
+#text[data-state="available"] {
+    color: var(--location-status-available-color, #000000);
+}
+#text[data-state="unavailable"] {
+    color: var(--location-status-unavailable-color, #000000);
+}
+#text[data-state="possible"] {
+    color: var(--location-status-possible-color, #000000);
+}
+#item {
+    margin-left: 5px;
+}
+.menu-tip {
+    font-size: 0.7em;
+    color: #777777;
+    margin-left: 15px;
+    float: right;
+}
+`);
+
+export default class ListGossipstone extends AbstractGossipstone {
 
     constructor() {
-        super("gossipstone");
+        super();
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-        const location = StateStorage.read(`${this.ref}.location`, "");
-        const item = StateStorage.read(`${this.ref}.item`, "");
-        if (!!location && !!item) {
-            this.shadowRoot.getElementById("hintlocation").innerHTML = Language.translate(location);
-            this.shadowRoot.getElementById("hintitem").innerHTML = Language.translate(item);
-        } else {
-            this.shadowRoot.getElementById("hintlocation").innerHTML = "";
-            this.shadowRoot.getElementById("hintitem").innerHTML = "";
-        }
-    }
-
-    set checked(val) {
-        super.checked = val;
-        if (val) {
-            const location = StateStorage.read(`${this.ref}.location`, "");
-            const item = StateStorage.read(`${this.ref}.item`, "");
-            this.shadowRoot.getElementById("hintlocation").innerHTML = Language.translate(location);
-            this.shadowRoot.getElementById("hintitem").innerHTML = Language.translate(item);
-        } else {
-            this.shadowRoot.getElementById("hintlocation").innerHTML = "";
-            this.shadowRoot.getElementById("hintitem").innerHTML = "";
-        }
-    }
-
-    get checked() {
-        return super.checked;
-    }
-
-    check() {
-        hintstoneDialog(this.ref).then(r => {
-            if (r) {
-                const data = {};
-                data[this.ref] = true;
-                data[`${this.ref}.location`] = r.location;
-                data[`${this.ref}.item`] = r.item;
-                StateStorage.write(data);
-                super.check();
-            }
-        });
+        STYLE.apply(this.shadowRoot);
+        /* --- */
     }
 
 }
 
-ListLocation.registerType('gossipstone', ListGossipstone);
-customElements.define('ootrt-list-gossipstone', ListGossipstone);
-
-function getLocationDescriptors() {
-    const marker = FileData.get('world/marker');
-    const loc = filterLocations(marker.location);
-    const locations = {};
-    for (const name in loc) {
-        const data = loc[name];
-        locations[data.type] = locations[data.type] || [];
-        locations[data.type].push(name);
-    }
-    return [
-        Object.keys(marker.area),
-        Object.keys(marker.subarea),
-        locations
-    ];
-}
-
-function filterLocations(obj) {
-    const result = {};
-    for (const key in obj) {
-        if (!!obj[key] && obj[key] != "gossipstone") {
-            result[key] = obj[key];
-        }
-    }
-    return result;
-}
-
-function hintstoneDialog(ref) {
-    return new Promise(resolve => {
-        const location = StateStorage.read(`${ref}.location`, "");
-        const item = StateStorage.read(`${ref}.item`, "");
-
-        const [areas, subareas, locations] = getLocationDescriptors();
-        const items = Object.keys(FileData.get('items'));
-        items.push("WOTH");
-        items.push("FOOL");
-    
-        const lbl_loc = document.createElement('label');
-        lbl_loc.style.display = "flex";
-        lbl_loc.style.justifyContent = "space-between";
-        lbl_loc.style.alignItems = "center";
-        lbl_loc.style.padding = "5px";
-        lbl_loc.innerHTML = Language.translate("location");
-        const slt_loc = document.createElement("emc-searchselect");
-        slt_loc.append(createOption("", "[" + Language.translate("empty") + "]"));
-        for (const loc of areas) {
-            const id = `area/${loc}`;
-            slt_loc.append(createOption(id, `${Language.translate(id)} [area]`));
-        }
-        for (const loc of subareas) {
-            const id = `subarea/${loc}`;
-            slt_loc.append(createOption(id, `${Language.translate(id)} [subarea]`));
-        }
-        for (const type in locations) {
-            const data = locations[type];
-            for (const loc of data) {
-                const id = `location/${loc}`;
-                slt_loc.append(createOption(id, `${Language.translate(id)} [${type}]`));
-            }
-        }
-        slt_loc.style.width = "300px";
-        slt_loc.value = location;
-        lbl_loc.append(slt_loc);
-    
-        const lbl_itm = document.createElement('label');
-        lbl_itm.style.display = "flex";
-        lbl_itm.style.justifyContent = "space-between";
-        lbl_itm.style.alignItems = "center";
-        lbl_itm.style.padding = "5px";
-        lbl_itm.innerHTML = Language.translate("item");
-        const slt_itm = document.createElement("emc-searchselect");
-        slt_itm.append(createOption("", "[" + Language.translate("empty") + "]"));
-        for (let j = 0; j < items.length; ++j) {
-            const itm = items[j];
-            slt_itm.append(createOption(itm, Language.translate(itm)));
-        }
-        slt_itm.style.width = "300px";
-        slt_itm.value = item;
-        lbl_itm.append(slt_itm);
-        
-        const d = new Dialog({title: Language.translate(ref), submit: true, cancel: true});
-        d.onsubmit = function(result) {
-            if (result) {
-                resolve({item: slt_itm.value, location: slt_loc.value});
-            } else {
-                resolve(false);
-            }
-        };
-        d.append(lbl_loc);
-        d.append(lbl_itm);
-        d.show();
-    });
-}
-
-function createOption(value, content) {
-    const opt = document.createElement('emc-option');
-    opt.value = value;
-    opt.innerHTML = content;
-    return opt;
-}
+UIRegistry.get("list-location").register("gossipstone", ListGossipstone);
+customElements.define("ootrt-list-gossipstone", ListGossipstone);

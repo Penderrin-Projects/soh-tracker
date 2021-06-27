@@ -1,7 +1,8 @@
 {
     "extends": "eslint:recommended",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
-        "ecmaVersion": 2020,
+        "ecmaVersion": 2021,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": false,
@@ -60,7 +61,11 @@
         ],
         "space-before-function-paren": [
             "error",
-            "never"
+            {
+                "anonymous": "never",
+                "named": "never",
+                "asyncArrow": "always"
+            }
         ],
         "space-before-blocks": [
             "error",
@@ -107,6 +112,13 @@
                 "classes": "always"
             }
         ],
-        "space-infix-ops": "error"
+        "space-infix-ops": "error",
+        "quotes": [
+            "error",
+            "double",
+            {
+                "allowTemplateLiterals": true
+            }
+        ]
     }
 }

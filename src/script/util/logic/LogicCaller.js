@@ -1,8 +1,23 @@
-import FileData from "/emcJS/storage/FileData.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
-import FilterStorage from "/script/storage/FilterStorage.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import Logic from "./Logic.js";
+/* asym-import: off */
+import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+// Track-OOT
+import DungeonstateResource from "/script/resource/DungeonstateResource.js";
+
+/**
+ * resources
+ * logic augmentation: /ItemPool.py
+ */
+
+// TODO differenciate between vanilla keys and mq keys
+// for example write keys to ${ref}_v and ${ref}_mq to reflect each type
 
 const ACCEPTED_KEY_GROUPS = [
     "dungeon",
@@ -15,182 +30,147 @@ const ACCEPTED_BOSSKEY_GROUPS = [
     "ganon"
 ];
 
-let cached_values = {};
+const cache = new Map();
 
-EventBus.register("state", event => {
-    cached_values = {};
+function renameKeys(src = {}, prefix = "") {
+    const res = {};
+    for (const [key, value] of Object.entries(src)) {
+        res[`${prefix}${key}`] = value;
+    }
+    return res;
+}
+
+function augmentKeys(ref, type, keys) {
+    if (!cache.get("option.keysanity_small")) {
+        if (ref == "temple_spirit" && type == "mq") {
+            return keys + 3;
+        }
+        if (ref == "temple_fire" && type == "v") {
+            return keys + 1;
+        }
+    } else {
+        // nothing
+    }
+    if (ref == "temple_water" && type == "v") {
+        return keys + 1;
+    }
+    return keys;
+}
+
+Logic.addEventListener("change", event => {
+    EventBus.trigger("logic", event.data);
+});
+
+function augmentData(data) {
+    const dungeonData = DungeonstateResource.get("area");
+    const res = {};
+    for (const [ref, dData] of Object.entries(dungeonData)) {
+        // augment dungeontypes
+        let updateKeys = false;
+        const dTypeKey = `dungeontype.area/${ref}`;
+        if (data[dTypeKey] != null) {
+            updateKeys = true;
+            if (dData.hasmq) {
+                if (data[dTypeKey] === "") {
+                    res[dTypeKey] = "n";
+                } else {
+                    res[dTypeKey] = data[dTypeKey];
+                }
+            } else {
+                res[dTypeKey] = "v";
+            }
+        }
+        // augment keys
+        if (dData.keys) {
+            if (data["option.track_keys"] != null) {
+                if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
+                    res[dData.keys] = 9999;
+                    updateKeys = false;
+                } else {
+                    updateKeys = true;
+                }
+            } else if (data[dData.keys] != null) {
+                updateKeys = true;
+            }
+            if (updateKeys) {
+                res[dData.keys] = augmentKeys(ref, res[dTypeKey] ?? cache.get(dTypeKey), cache.get(dData.keys) ?? 0);
+            }
+        }
+        // augment bosskeys
+        if (dData.bosskey) {
+            if (data["option.track_bosskeys"] != null) {
+                if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cache.get("option.track_bosskeys")) {
+                    res[dData.bosskey] = 9999;
+                } else {
+                    res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
+                }
+            } else if (data[dData.bosskey] != null && cache.get("option.track_bosskeys")) {
+                res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
+            }
+        }
+    }
+    // ---
+    return {
+        ...data,
+        ...res
+    }
+}
+
+function augmentReachables(data) {
+    // augment epona
+    if (data["option.skip_epona_race"] != null) {
+        if (data["option.skip_epona_race"]) {
+            Logic.addReachable("event.epona");
+        } else {
+            Logic.deleteReachable("event.epona");
+        }
+    }
+}
+
+function init() {
+    const data = {
+        ...SavestateHandler.getAll(""),
+        ...renameKeys(SavestateHandler.getAll("dungeontype"), "dungeontype."),
+        ...SettingsStorage.getAll(),
+        ...OptionsStorage.getAll(),
+        ...FilterStorage.getAll()
+    };
+    cache.clear();
+    for (const [key, value] of Object.entries(data)) {
+        cache.set(key, value);
+    }
+    const augmentedData = augmentData(data);
     Logic.reset();
-    const filter = FilterStorage.getAll();
-    const data = Object.assign(filter, event.data.state);
-    // dungeonstate
-    const dungeonData = FileData.get("dungeonstate/entries");
-    cached_values["option.track_keys"] = !!data["option.track_keys"];
-    cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
-        // keys - value caching
-        if (dData.keys) {
-            cached_values[dData.keys] = data[dData.keys] || 0;
-            if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
-                data[dData.keys] = 9999;
-            }
-        }
-        if (dData.bosskey) {
-            cached_values[dData.bosskey] = data[dData.bosskey] || 0;
-            if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cached_values["option.track_bosskeys"]) {
-                data[dData.bosskey] = 9999;
-            }
-        }
-        // dungeon types
-        if (dData.hasmq) {
-            if (event.data.extra.dungeontype != null) {
-                const state = event.data.extra.dungeontype[dData.ref];
-                if (state != null && state != "") {
-                    data[`dungeontype.${dData.ref}`] = state;
-                } else {
-                    data[`dungeontype.${dData.ref}`] = "n";
-                }
-            }
-        }
-    }
-    // ---------------------------------------------------------
-    const res = Logic.execute(data, "region.root");
-    if (Object.keys(res).length > 0) {
-        EventBus.trigger("logic", res);
-    }
-});
+    augmentReachables(augmentedData);
+    Logic.execute(augmentedData, "region.root");
+}
 
-EventBus.register("statechange", event => {
-    const changed = {};
-    for (const i in event.data) {
-        changed[i] = event.data[i].newValue;
-    }
-    // keys - cache values
-    const dungeonData = FileData.get("dungeonstate/entries");
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
-        if (dData.keys && changed[dData.keys] != null) {
-            cached_values[dData.keys] = changed[dData.keys];
-        }
-        if (dData.bosskey && changed[dData.bosskey] != null) {
-            cached_values[dData.bosskey] = changed[dData.bosskey];
+function changeData(newData) {
+    const changes = {};
+    for (const [key, value] of Object.entries(newData)) {
+        if (cache.get(key) != value) {
+            changes[key] = value;
+            cache.set(key, value);
         }
     }
-    // keys - apply values
-    if (changed["option.track_keys"] != null && cached_values["option.track_keys"] != changed["option.track_keys"]) {
-        cached_values["option.track_keys"] = changed["option.track_keys"];
+    if (Object.keys(changes).length > 0) {
+        const augmentedData = augmentData(changes);
+        augmentReachables(augmentedData);
+        Logic.execute(augmentedData, "region.root");
     }
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
-        if (dData.keys) {
-            if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
-                changed[dData.keys] = 9999;
-            } else {
-                changed[dData.keys] = cached_values[dData.keys] || 0;
-            }
-        }
-    }
-    // bosskeys - apply values
-    if (changed["option.track_bosskeys"] != null && cached_values["option.track_bosskeys"] != changed["option.track_bosskeys"]) {
-        cached_values["option.track_bosskeys"] = changed["option.track_bosskeys"];
-    }
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
-        if (dData.bosskey) {
-            if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cached_values["option.track_bosskeys"]) {
-                changed[dData.bosskey] = 9999;
-            } else {
-                changed[dData.bosskey] = cached_values[dData.bosskey] || 0;
-            }
-        }
-    }
-    // ---------------------------------------------------------
-    const res = Logic.execute(changed, "region.root");
-    if (Object.keys(res).length > 0) {
-        EventBus.trigger("logic", res);
-    }
-});
-
-EventBus.register("statechange_dungeontype", event => {
-    const changed = {};
-    for (const i in event.data) {
-        changed[i] = event.data[i].newValue;
-    }
-    // dungeonstate
-    const dungeonData = FileData.get("dungeonstate/entries");
-    for (let i = 0; i < dungeonData.length; ++i) {
-        const dData = dungeonData[i];
-        // dungeon types
-        if (dData.hasmq) {
-            if (event.data.dungeontype != null) {
-                const state = event.data.dungeontype[dData.ref];
-                if (state != null && state != "") {
-                    changed[`dungeontype.${dData.ref}`] = state;
-                } else {
-                    changed[`dungeontype.${dData.ref}`] = "n";
-                }
-            }
-        }
-    }
-    // ---------------------------------------------------------
-    const res = Logic.execute(changed, "region.root");
-    if (Object.keys(res).length > 0) {
-        EventBus.trigger("logic", res);
-    }
-});
-
-EventBus.register("filter", event => {
-    const data = {};
-    data[event.data.name] = event.data.value;
-    const res = Logic.execute(data, "region.root");
-    if (Object.keys(res).length > 0) {
-        EventBus.trigger("logic", res);
-    }
-});
+}
 
 class LogicCaller {
 
-    async init() {
-        try {
-            const randoLogic = FileData.get("logic", {edges:{}, logic:{}});
-            //LOGIC_PROCESSOR.clearLogic();
-            Logic.setLogic(randoLogic);
-            const data = StateStorage.getAll();
-            // keys - value caching
-            const dungeonData = FileData.get("dungeonstate/entries");
-            cached_values["option.track_keys"] = !!data["option.track_keys"];
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
-                if (dData.keys) {
-                    cached_values[dData.keys] = data[dData.keys] || 0;
-                    if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cached_values["option.track_keys"]) {
-                        data[dData.keys] = 9999;
-                    }
-                }
-            }
-            cached_values["option.track_bosskeys"] = !!data["option.track_bosskeys"];
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
-                if (dData.bosskey) {
-                    cached_values[dData.bosskey] = data[dData.bosskey] || 0;
-                    if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cached_values["option.track_bosskeys"]) {
-                        data[dData.bosskey] = 9999;
-                    }
-                }
-            }
-            // dungeon types
-            for (let i = 0; i < dungeonData.length; ++i) {
-                const dData = dungeonData[i];
-                if (dData.hasmq) {
-                    data[`dungeontype.${dData.ref}`] = StateStorage.readExtra("dungeontype", dData.ref, "n");
-                }
-            }
-            // ---------------------------------------------------------
-            Logic.execute(data, "region.root");
-        } catch(err) {
-            console.error(err);
-            window.alert(err.message);
-        }
+    constructor() {
+        init();
+        /* EVENTS */
+        SavestateHandler.addEventListener("load",               event => init());
+        SavestateHandler.addEventListener("change",             event => changeData(event.data));
+        SavestateHandler.addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
+        OptionsStorage  .addEventListener("change",             event => changeData(event.data));
+        SettingsStorage .addEventListener("change",             event => changeData(event.data));
+        FilterStorage   .addEventListener("change",             event => changeData(event.data));
     }
 
 }

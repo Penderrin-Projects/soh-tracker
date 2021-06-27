@@ -1,5 +1,9 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
+/* asym-import: on */
+
+// Track-OOT
+import SongsResource from "/script/resource/SongsResource.js";
 import "./SongField.js";
 
 const TPL = new Template(`
@@ -18,9 +22,9 @@ export default class HTMLTrackerSongList extends HTMLElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
-        const songs = FileData.get("songs");
+        const songs = SongsResource.get();
         for (const i in songs) {
             const el = document.createElement("ootrt-songfield");
             el.ref = i;
@@ -30,4 +34,4 @@ export default class HTMLTrackerSongList extends HTMLElement {
 
 }
 
-customElements.define('ootrt-songlist', HTMLTrackerSongList);
+customElements.define("ootrt-songlist", HTMLTrackerSongList);

@@ -1,8 +1,17 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-import ItemStates from "/script/state/ItemStates.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "/script/state/item/KeyState.js";
+import "./Item.js";
 
 const TPL = new Template(`
 <slot id="slot">
@@ -65,30 +74,27 @@ const STYLE = new GlobalStyle(`
 
 function getAlign(value) {
     switch (value) {
-        case 'start':
+        case "start":
             return "flex-start";
-        case 'end':
+        case "end":
             return "flex-end";
         default:
             return "center";
     }
 }
 
-const FN_VALUE = new WeakMap();
-const FN_TYPE = new WeakMap();
-
-export default class Item extends HTMLElement {
+export default class ItemKey extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        FN_VALUE.set(this, event => {
+        this.registerStateHandler("value", event => {
             this.value = event.data;
         });
-        FN_TYPE.set(this, event => {
+        this.registerStateHandler("type", event => {
             this.fillItemChoices();
         });
         this.addEventListener("click", event => this.next(event));
@@ -97,83 +103,105 @@ export default class Item extends HTMLElement {
         iOSTouchHandler.register(this);
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.value;
+            this.fillItemChoices();
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
+    }
+
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        return this.getAttribute('readonly');
+        return this.getAttribute("readonly");
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     get halign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set halign(val) {
-        this.setAttribute('halign', val);
+        this.setAttribute("halign", val);
     }
 
     get valign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set valign(val) {
-        this.setAttribute('valign', val);
+        this.setAttribute("valign", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value', 'halign', 'valign'];
+        return ["ref", "value", "halign", "valign"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
             switch (name) {
-                case 'ref':
-                    // state
-                    if (oldValue != null) {
-                        const oldState = ItemStates.get(oldValue);
-                        oldState.removeEventListener("value", FN_VALUE.get(this));
-                        oldState.removeEventListener("type", FN_TYPE.get(this));
+                case "ref":
+                    {
+                        // state
+                        const state = ItemStates.get(this.ref);
+                        this.switchState(state);
+                        if (state != null) {
+                            if (this.isConnected) {
+                                this.value = state.value;
+                            }
+                            const data = state.props;
+                            // settings
+                            if (data.halign != null) {
+                                this.halign = data.halign;
+                            }
+                            if (data.valign != null) {
+                                this.valign = data.valign;
+                            }
+                            this.fillItemChoices();
+                        }
                     }
-                    state.addEventListener("value", FN_VALUE.get(this));
-                    state.addEventListener("type", FN_TYPE.get(this));
-                    this.value = state.value;
-                    // settings
-                    if (data.halign != null) {
-                        this.halign = data.halign;
-                    }
-                    if (data.valign != null) {
-                        this.valign = data.valign;
-                    }
-                    this.fillItemChoices();
                     break;
-                case 'halign':
+                case "halign":
                     this.shadowRoot.getElementById("slot").style.setProperty("--halign", getAlign(newValue));
                     break;
-                case 'valign':
+                case "valign":
                     this.shadowRoot.getElementById("slot").style.setProperty("--valign", getAlign(newValue));
                     break;
-                case 'value':
-                    this.querySelector(`.active`)?.classList.remove("active");
-                    this.querySelector(`[value="${newValue}"]`)?.classList.add("active");
+                case "value":
+                    {
+                        const activeEl = this.querySelector(".active");
+                        if (activeEl != null) {
+                            activeEl.classList.remove("active");
+                        }
+                        const newEl = this.querySelector(`[value="${newValue}"]`);
+                        if (newEl != null) {
+                            newEl.classList.add("active");
+                        }
+                    }
                     break;
             }
         }
@@ -201,32 +229,32 @@ export default class Item extends HTMLElement {
 
     next(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
-
-            const oldValue = state.value;
-            let value = oldValue;
-            
-            if ((event.shiftKey || event.ctrlKey)) {
-                if (data.alternate_counting) {
-                    for (let i = 0; i < data.alternate_counting.length; ++i) {
-                        let alt = parseInt(data.alternate_counting[i]);
-                        if (isNaN(alt)) {
-                            alt = 0;
+            const state = this.getState();
+            if (state != null) {
+                const data = state.props;
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    if (data.alternate_counting) {
+                        for (let i = 0; i < data.alternate_counting.length; ++i) {
+                            let alt = parseInt(data.alternate_counting[i]);
+                            if (isNaN(alt)) {
+                                alt = 0;
+                            }
+                            if (alt > oldValue) {
+                                value = data.alternate_counting[i];
+                                break;
+                            }
                         }
-                        if (alt > oldValue) {
-                            value = data.alternate_counting[i];
-                            break;
-                        }
+                    } else {
+                        value = parseInt(data.max);
                     }
                 } else {
-                    value = parseInt(data.max);
+                    value++;
                 }
-            } else {
-                value++;
-            }
-            if (value != oldValue) {
-                state.value = value;
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -236,32 +264,32 @@ export default class Item extends HTMLElement {
 
     prev(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if ((event.shiftKey || event.ctrlKey)) {
-                if (data.alternate_counting) {
-                    for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
-                        let alt = parseInt(data.alternate_counting[i]);
-                        if (isNaN(alt)) {
-                            alt = data.max;
+            const state = this.getState();
+            if (state != null) {
+                const data = state.props;
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    if (data.alternate_counting) {
+                        for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
+                            let alt = parseInt(data.alternate_counting[i]);
+                            if (isNaN(alt)) {
+                                alt = data.max;
+                            }
+                            if (alt < parseInt(oldValue)) {
+                                value = data.alternate_counting[i];
+                                break;
+                            }
                         }
-                        if (alt < parseInt(oldValue)) {
-                            value = data.alternate_counting[i];
-                            break;
-                        }
+                    } else {
+                        value = 0;
                     }
                 } else {
-                    value = 0;
+                    value--;
                 }
-            } else {
-                value--;
-            }
-            if (value != oldValue) {
-                state.value = value;
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -271,10 +299,11 @@ export default class Item extends HTMLElement {
 
 }
 
-customElements.define('ootrt-itemkey', Item);
+UIRegistry.get("item").register("key", ItemKey);
+customElements.define("ootrt-itemkey", ItemKey);
 
 function createOption(value, img, data, max_value) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     if (value == 0 && !data.always_active) {

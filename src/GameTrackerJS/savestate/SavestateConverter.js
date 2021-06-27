@@ -1,0 +1,90 @@
+const CONVERTER_FN = [];
+let OFFSET = 0;
+
+class SavestateConverter {
+
+    set offset(value) {
+        OFFSET = Math.max(parseInt(value) || 0, 0);
+    }
+
+    get offset() {
+        return OFFSET;
+    }
+
+    get version() {
+        return OFFSET + CONVERTER_FN.length;
+    }
+
+    convert(state) {
+        if (state.version == 0 && state.data != null) {
+            state.version = 17;
+        }
+        const version = state.version ?? 0;
+        if (version < OFFSET) {
+            // TODO show error to user and link to converter page
+        }
+        if (state["data"] == null) {
+            state = {data: state};
+        }
+        const name = state.name || "";
+        const timestamp = state.timestamp || new Date();
+        const autosave = state.autosave || new Date();
+        const notes = state.notes || "";
+        if (version < this.version) {
+            for (let i = version; i < this.version; ++i) {
+                const fn = CONVERTER_FN[i - OFFSET];
+                if (typeof fn == "function") {
+                    const newState = fn(state);
+                    if (newState.options == null) {
+                        newState.options = state.options;
+                    }
+                    if (newState.data == null) {
+                        newState.data = state.data;
+                    }
+                    state = newState;
+                }
+            }
+            state.name = name;
+            state.timestamp = timestamp;
+            state.autosave = autosave;
+            state.notes = notes;
+            state.version = this.version;
+        }
+        return state;
+    }
+
+    createEmptyState(defaultData = {}, defaultOptions = {}) {
+        const res = {
+            name: "",
+            data: {},
+            options: {},
+            notes: "",
+            autosave: false,
+            timestamp: new Date(),
+            version: this.version
+        };
+        if (typeof defaultData == "object") {
+            for (const name in defaultData) {
+                res.data[name] = {};
+                for (const key in defaultData[name]) {
+                    res.data[name][key] = defaultData[name][key];
+                }
+            }
+        }
+        if (typeof defaultOptions == "object") {
+            for (const key in defaultOptions) {
+                res.options[key] = defaultOptions[key];
+            }
+        }
+        return res;
+    }
+
+    register(conv) {
+        if (typeof conv == "function") {
+            CONVERTER_FN.push(conv);
+        }
+    }
+
+}
+
+export default new SavestateConverter();

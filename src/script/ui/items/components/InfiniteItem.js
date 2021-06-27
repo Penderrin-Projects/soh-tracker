@@ -1,8 +1,17 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ItemStates from "/script/state/ItemStates.js";
 import "/emcJS/ui/input/Option.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import "/script/state/item/InfiniteItemState.js";
+import "./Item.js";
 
 const TPL = new Template(`
 <div id="value">
@@ -53,26 +62,24 @@ const STYLE = new GlobalStyle(`
 
 function getAlign(value) {
     switch (value) {
-        case 'start':
+        case "start":
             return "flex-start";
-        case 'end':
+        case "end":
             return "flex-end";
         default:
             return "center";
     }
 }
 
-const FN_VALUE = new WeakMap();
-
-class InfiniteItem extends HTMLElement {
+export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        FN_VALUE.set(this, event => {
+        this.registerStateHandler("value", event => {
             this.value = event.data;
         });
         this.addEventListener("click", event => this.next(event));
@@ -81,79 +88,94 @@ class InfiniteItem extends HTMLElement {
         iOSTouchHandler.register(this);
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.value;
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
+    }
+
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        return this.getAttribute('readonly');
+        return this.getAttribute("readonly");
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     get halign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set halign(val) {
-        this.setAttribute('halign', val);
+        this.setAttribute("halign", val);
     }
 
     get valign() {
-        return this.getAttribute('halign');
+        return this.getAttribute("halign");
     }
 
     set valign(val) {
-        this.setAttribute('valign', val);
+        this.setAttribute("valign", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value', 'halign', 'valign'];
+        return ["ref", "value", "halign", "valign"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ItemStates.get(this.ref);
-            const data = state.props;
             switch (name) {
-                case 'ref':
-                    // state
-                    if (oldValue != null) {
-                        const oldState = ItemStates.get(oldValue);
-                        oldState.removeEventListener("value", FN_VALUE.get(this));
+                case "ref":
+                    {
+                        // state
+                        const state = ItemStates.get(this.ref);
+                        this.switchState(state);
+                        if (state != null) {
+                            if (this.isConnected) {
+                                this.value = state.value;
+                            }
+                            const data = state.props;
+                            // settings
+                            if (data.halign != null) {
+                                this.halign = data.halign;
+                            }
+                            if (data.valign != null) {
+                                this.valign = data.valign;
+                            }
+                            this.style.backgroundImage = `url("${data.images}")`;
+                        }
                     }
-                    state.addEventListener("value", FN_VALUE.get(this));
-                    this.value = state.value;
-                    // settings
-                    if (data.halign != null) {
-                        this.halign = data.halign;
-                    }
-                    if (data.valign != null) {
-                        this.valign = data.valign;
-                    }
-                    this.style.backgroundImage = `url("${data.images}")`;
                     break;
-                case 'value':
+                case "value":
                     this.shadowRoot.getElementById("value").innerHTML = newValue;
                     break;
-                case 'halign':
+                case "halign":
                     this.shadowRoot.getElementById("value").style.justifyContent = getAlign(newValue);
                     break;
-                case 'valign':
+                case "valign":
                     this.shadowRoot.getElementById("value").style.alignItems = getAlign(newValue);
                     break;
             }
@@ -162,16 +184,16 @@ class InfiniteItem extends HTMLElement {
 
     next(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if (value < 9999) {
-                value++;
-            }
-            if (value != oldValue) {
-                state.value = value;
+            const state = this.getState();
+            if (state != null) {
+                const oldValue = state.value;
+                let value = oldValue;
+                if (value < 9999) {
+                    value++;
+                }
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -181,18 +203,18 @@ class InfiniteItem extends HTMLElement {
 
     prev(event) {
         if (!this.readonly) {
-            const state = ItemStates.get(this.ref);
-
-            const oldValue = state.value;
-            let value = oldValue;
-
-            if ((event.shiftKey || event.ctrlKey)) {
-                value = 0;
-            } else if (value > 0) {
-                value--;
-            }
-            if (value != oldValue) {
-                state.value = value;
+            const state = this.getState();
+            if (state != null) {
+                const oldValue = state.value;
+                let value = oldValue;
+                if ((event.shiftKey || event.ctrlKey)) {
+                    value = 0;
+                } else if (value > 0) {
+                    value--;
+                }
+                if (value != oldValue) {
+                    state.value = value;
+                }
             }
         }
         if (!event) return;
@@ -202,4 +224,5 @@ class InfiniteItem extends HTMLElement {
 
 }
 
-customElements.define('ootrt-infiniteitem', InfiniteItem);
+UIRegistry.get("item").register("infinite", InfiniteItem);
+customElements.define("ootrt-infiniteitem", InfiniteItem);

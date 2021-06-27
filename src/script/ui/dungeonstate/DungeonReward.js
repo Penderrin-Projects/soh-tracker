@@ -1,10 +1,16 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
 import "/emcJS/ui/input/Option.js";
-import FileData from "/emcJS/storage/FileData.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import "/script/ui/items/ItemPicker.js";
 
 const TPL = new Template(`
@@ -76,41 +82,21 @@ const REWARDS = [
 ];
 const TAKEN_REWARDS = new Map();
 
-function stateChanged(event) {
-    if (event.data.extra.dungeonreward != null) {
-        const value = event.data.extra.dungeonreward[this.ref];
-        if (value != null) {
-            this.value = value;
-        } else {
-            this.value = "";
-        }
-    } else {
-        this.value = "";
-    }
-}
-
-function dungeonRewardUpdate(event) {
-    let data;
-    if (event.data != null) {
-        data = event.data[this.ref];
-    }
-    if (data != null) {
-        this.value = data.newValue;
-    }
-}
-
-class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
+class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("reward", event => {
+            this.value = event.data;
+        });
 
         /* context menu */
         const mnu_itm = document.createElement("div");
-        mnu_itm.attachShadow({mode: 'open'});
+        mnu_itm.attachShadow({mode: "open"});
         mnu_itm.shadowRoot.append(TPL_MNU_ITM.generate());
         const mnu_itm_el = mnu_itm.shadowRoot.getElementById("menu");
         MNU_ITM.set(this, mnu_itm);
@@ -118,9 +104,9 @@ class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
 
         mnu_itm.shadowRoot.getElementById("item-picker").addEventListener("pick", event => {
             const value = event.detail;
-            if (value != this.value) {
-                this.value = value;
-                StateStorage.writeExtra("dungeonreward", this.ref, value);
+            const state = this.getState();
+            if (state != null) {
+                state.reward = value;
             }
             event.preventDefault();
             return false;
@@ -128,24 +114,23 @@ class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
         
         /* mouse events */
         this.addEventListener("click", event => {
-            mnu_itm_picker.items = JSON.stringify([REWARDS.filter(el => !TAKEN_REWARDS.has(el)).map(el => {
-                return {
-                    "type": "item",
-                    "value": el,
-                    "visible": true
-                };
-            })]);
-            /* --- */
-            mnu_itm_el.show(event.clientX, event.clientY);
+            const filteredRewards = REWARDS.filter(el => !TAKEN_REWARDS.has(el));
+            if (filteredRewards.length) {
+                mnu_itm_picker.items = JSON.stringify([filteredRewards.map(el => {
+                    return {
+                        "type": "item",
+                        "value": el,
+                        "visible": true
+                    };
+                })]);
+                /* --- */
+                mnu_itm_el.show(event.clientX, event.clientY);
+            }
             event.stopPropagation();
             event.preventDefault();
             return false;
         });
         this.addEventListener("contextmenu", event => this.revert(event));
-
-        /* event bus */
-        this.registerGlobal("state", stateChanged.bind(this));
-        this.registerGlobal("statechange_dungeonreward", dungeonRewardUpdate.bind(this));
 
         /* fck iOS */
         iOSTouchHandler.register(this);
@@ -153,7 +138,7 @@ class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
 
     connectedCallback() {
         super.connectedCallback();
-        this.value = StateStorage.readExtra("dungeonreward", this.ref, "");
+        this.value = SavestateHandler.get("dungeonreward", this.ref, "");
         let el = this;
         while (el.parentElement != null && !el.classList.contains("panel")) {
             el = el.parentElement;
@@ -166,72 +151,87 @@ class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
         MNU_ITM.get(this).remove();
     }
 
+    applyDefaultValues() {
+        this.value = "";
+    }
+
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.reward;
+        }
+    }
+
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'ref':
-                if (oldValue != newValue) {
-                    if (newValue === "") {
-                        this.innerHTML = "";
-                    } else if (oldValue === null || oldValue === undefined || oldValue === "") {
-                        this.append(createOption("", "/images/items/unknown.png"));
-                        const items = FileData.get("items");
-                        for (let i = 0; i < REWARDS.length; ++i) {
-                            const name = REWARDS[i];
-                            let j = items[name].images;
-                            if (Array.isArray(j)) {
-                                j = j[0];
+        if (oldValue != newValue) {
+            switch (name) {
+                case "ref":
+                    {
+                        // state
+                        const state = DungeonstateStates.get(newValue);
+                        if (state != null) {
+                            this.append(createOption("", "/images/items/unknown.png"));
+                            const items = ItemsResource.get();
+                            for (let i = 0; i < REWARDS.length; ++i) {
+                                const name = REWARDS[i];
+                                let j = items[name].images;
+                                if (Array.isArray(j)) {
+                                    j = j[0];
+                                }
+                                this.append(createOption(name, j));
                             }
-                            this.append(createOption(name, j));
                         }
-                        this.value = StateStorage.readExtra("dungeonreward", newValue, "");
+                        if (newValue === "") {
+                            this.innerHTML = "";
+                        }
+                        this.switchState(state);
                     }
-                }
-                break;
-            case 'value':
-                if (oldValue != newValue) {
-                    const oe = this.querySelector(`.active`);
-                    if (oe) {
-                        oe.classList.remove("active");
+                    break;
+                case "value":
+                    {
+                        const oe = this.querySelector(`.active`);
+                        if (oe) {
+                            oe.classList.remove("active");
+                        }
+                        const ne = this.querySelector(`[value="${newValue}"]`);
+                        if (ne) {
+                            ne.classList.add("active");
+                        }
+                        if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
+                            TAKEN_REWARDS.delete(oldValue);
+                        }
+                        if (newValue != "") {
+                            TAKEN_REWARDS.set(newValue, this);
+                        }
                     }
-                    const ne = this.querySelector(`[value="${newValue}"]`);
-                    if (ne) {
-                        ne.classList.add("active");
-                    }
-                    if (oldValue != "" && TAKEN_REWARDS.get(oldValue) == this) {
-                        TAKEN_REWARDS.delete(oldValue);
-                    }
-                    if (newValue != "") {
-                        TAKEN_REWARDS.set(newValue, this);
-                    }
-                }
-                break;
+                    break;
+            }
         }
     }
 
     revert(ev) {
-        if (this.value != "") {
-            this.value = "";
-            StateStorage.writeExtra("dungeonreward", this.ref, "");
+        const state = this.getState();
+        if (state != null) {
+            state.reward = "";
         }
         ev.preventDefault();
         return false;
@@ -239,10 +239,10 @@ class HTMLTrackerDungeonReward extends EventBusSubsetMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-dungeonreward', HTMLTrackerDungeonReward);
+customElements.define("ootrt-dungeonreward", HTMLTrackerDungeonReward);
 
 function createOption(value, img) {
-    const opt = document.createElement('emc-option');
+    const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     return opt;

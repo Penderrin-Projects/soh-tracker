@@ -1,15 +1,22 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import EventBusSubsetMixin from "/emcJS/mixins/EventBusSubset.js";
 import "/emcJS/ui/input/Option.js";
-import StateStorage from "/script/storage/StateStorage.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// Track-OOT
+import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
+import "/script/state/world/area/AreaState.js";
+import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
-<emc-option value="n" style="background-image: url('images/dungeontype/undefined.svg')"></emc-option>
-<emc-option value="v" style="background-image: url('images/dungeontype/vanilla.svg')"></emc-option>
-<emc-option value="mq" style="background-image: url('images/dungeontype/masterquest.svg')"></emc-option>
+<emc-option value="n" style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
+<emc-option value="v" style="background-image: url('images/icons/dungeontype_vanilla.svg')"></emc-option>
+<emc-option value="mq" style="background-image: url('images/icons/dungeontype_masterquest.svg')"></emc-option>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -55,124 +62,117 @@ slot {
 }
 `);
 
-function stateChanged(event) {
-    if (this.ref) {
-        const area = FileData.get(`world/${this.ref}/lists`);
-        let value = "v";
-        if (area["mq"] != null) {
-            value = "n";
-        }
-        if (event.data.extra.dungeontype != null) {
-            const state = event.data.extra.dungeontype[this.ref];
-            if (typeof state != "undefined" && state != "") {
-                value = state;
-            }
-        }
-        this.value = value;
-    } else {
-        this.value = "n";
-    }
-}
-
-function dungeonTypeUpdate(event) {
-    let data;
-    if (event.data != null) {
-        data = event.data[this.ref];
-    }
-    if (data != null) {
-        this.value = data.newValue;
-    }
-}
-
-class HTMLTrackerDungeonType extends EventBusSubsetMixin(HTMLElement) {
+class HTMLTrackerDungeonType extends StateDataEventManager(HTMLElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("type", event => {
+            this.value = event.data;
+        });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
-        /* event bus */
-        this.registerGlobal("state", stateChanged.bind(this));
-        this.registerGlobal("statechange_dungeontype", dungeonTypeUpdate.bind(this));
         /* fck iOS */
         iOSTouchHandler.register(this);
     }
 
+    connectedCallback() {
+        super.connectedCallback();
+        // state
+        const state = this.getState();
+        if (state != null) {
+            this.value = state.type;
+        }
+    }
+
+    applyDefaultValues() {
+        this.value = "v";
+    }
+
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.type;
+        }
+    }
+
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     get readonly() {
-        const val = this.getAttribute('readonly');
+        const val = this.getAttribute("readonly");
         return !!val && val != "false";
     }
 
     set readonly(val) {
-        this.setAttribute('readonly', val);
+        this.setAttribute("readonly", val);
     }
 
     static get observedAttributes() {
-        return ['ref', 'value'];
+        return ["ref", "value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'ref':
-                if (oldValue != newValue) {
-                    if (newValue) {
-                        const area = FileData.get(`world/${this.ref}/lists`);
-                        let value = "v";
-                        let readonly = true;
-                        if (area["mq"] != null) {
-                            value = StateStorage.readExtra("dungeontype", newValue, "n");
-                            readonly = false;
+        if (oldValue != newValue) {
+            switch (name) {
+                case "ref":
+                    {
+                        // state
+                        const state = DungeonstateStates.get(newValue);
+                        if (state != null) {
+                            const data = WorldStateManager.getByRef(newValue);
+                            if (data != null) {
+                                if (data.areaData.lists != null) {
+                                    this.readonly = false;
+                                } else {
+                                    this.readonly = true;
+                                }
+                            }
                         }
-                        this.value = value;
-                        this.readonly = readonly;
-                    } else {
-                        this.value = "n";
-                        this.readonly = true;
+                        this.switchState(state);
                     }
-                }
-                break;
-            case 'value':
-                if (oldValue != newValue) {
-                    const oe = this.shadowRoot.querySelector(`.active`);
-                    if (oe) {
-                        oe.classList.remove("active");
+                    break;
+                case "value":
+                    {
+                        const oe = this.shadowRoot.querySelector(`.active`);
+                        if (oe) {
+                            oe.classList.remove("active");
+                        }
+                        const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`);
+                        if (ne) {
+                            ne.classList.add("active");
+                        }
                     }
-                    const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`);
-                    if (ne) {
-                        ne.classList.add("active");
-                    }
-                }
-                break;
+                    break;
+            }
         }
     }
 
     next(event) {
         if (!this.readonly) {
-            if (this.value == 'v') {
-                this.value = 'mq';
-            } else {
-                this.value = 'v';
+            const state = this.getState();
+            if (state != null) {
+                if (state.type == "v") {
+                    state.type = "mq";
+                } else {
+                    state.type = "v";
+                }
             }
-            StateStorage.writeExtra("dungeontype", this.ref, this.value);
         }
         event.preventDefault();
         return false;
@@ -180,8 +180,10 @@ class HTMLTrackerDungeonType extends EventBusSubsetMixin(HTMLElement) {
 
     revert(event) {
         if (!this.readonly) {
-            this.value = "n";
-            StateStorage.writeExtra("dungeontype", this.ref, 'n');
+            const state = this.getState();
+            if (state != null) {
+                state.type = "n";
+            }
         }
         event.preventDefault();
         return false;
@@ -189,4 +191,4 @@ class HTMLTrackerDungeonType extends EventBusSubsetMixin(HTMLElement) {
 
 }
 
-customElements.define('ootrt-dungeontype', HTMLTrackerDungeonType);
+customElements.define("ootrt-dungeontype", HTMLTrackerDungeonType);

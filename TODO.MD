@@ -1,29 +1,13 @@
 
 ### FIX MAJOR BUGS
 
-- app is unresponsive sometimes
-    - lots of stuff getting calculated on changes
-    - cache data, only calculate minimum
-    - see if logic execution can get outsourced into webworker thread
-        - maybe even calculate list logic there
-    - see if we can only update where needed
-    - do less filedata calls
-
-- multiplayer bugs
-    - item count can get desynced if two peers click at the same time
-        - increase + increase (?)
-        - decrease + decrease (?)
-        - increase + decrease (?)
-    - shop bought marker not synced (?)
+- 
 
 ---
 
 ### FIX MINOR BUGS
 
-- load icon from marker config
-
-- search in contextmenu
-    - subset search does not work all times
+- 
 
 ---
 
@@ -108,10 +92,6 @@ to:
     - 1 list with deactivated elements
     - 1 list with activated elements
     - buttons for (de-)activating elements
-
-- make unified listitems/mapmarkers abstract class
-    - make overwritable update state/aviability function (called on connected callback)
-    - removes the need to explicitly have all functions present on all listitems/mapmarkers
     
 - add tooltips to location badges
 
@@ -127,12 +107,6 @@ to:
 ### REQUESTS
 
 - optionally increase skully token count with ticking off skullies
-
-- better color choices
-    - add theming to custom-elements
-
-- remove zora letter if not used (fountain open)
-    - make invisible
 
 - on network play make location- and mode change (locationlist/map) synchronize optional
 

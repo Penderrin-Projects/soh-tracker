@@ -1,6 +1,10 @@
+/* asym-import: off */
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ItemStates from "/script/state/ItemStates.js";
-import iOSTouchHandler from "/script/util/iOSTouchHandler.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
+import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const STYLE = new GlobalStyle(`
 * {
@@ -25,11 +29,11 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-class HTMLTrackerSelectableItem extends HTMLElement {
+export default class HTMLTrackerSelectableItem extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.addEventListener("click", event => this.select(event));
@@ -38,15 +42,15 @@ class HTMLTrackerSelectableItem extends HTMLElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     static get observedAttributes() {
-        return ['ref'];
+        return ["ref"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -54,7 +58,7 @@ class HTMLTrackerSelectableItem extends HTMLElement {
             const state = ItemStates.get(this.ref);
             const data = state.props;
             switch (name) {
-                case 'ref':
+                case "ref":
                     if (Array.isArray(data.images)) {
                         this.style.backgroundImage = `url("${data.images[0]}")`;
                     } else {
@@ -78,4 +82,4 @@ class HTMLTrackerSelectableItem extends HTMLElement {
 
 }
 
-customElements.define('ootrt-selectableitem', HTMLTrackerSelectableItem);
+customElements.define("ootrt-selectableitem", HTMLTrackerSelectableItem);

@@ -1,6 +1,7 @@
-import StateStorage from "/script/storage/StateStorage.js";
-import FileData from "/emcJS/storage/FileData.js";
-import EventBus from "/emcJS/util/events/EventBus.js";
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+// Track-OOT
+import OptionsTransResource from "/script/resource/OptionsTransResource.js";
 
 const options = {};
 const extra = {};
@@ -66,7 +67,7 @@ function parseStartingItems(itemsTrue, world, trans) {
             const v = items[i];
 
             if (starting_trans[i] != null) {
-                if (typeof v === 'object' && v !== null) {
+                if (typeof v === "object" && v !== null) {
                     console.warn("Unexpected Array within starting items, please report this!")
                 } else {
                     if (starting_trans[i]["values"][v] === undefined) {
@@ -99,7 +100,7 @@ function parseDungeons(dungeonsTrue, locationsTrue, world, dt, dr, trans) {
         }
 
         if (dt) {
-            const data = {};
+            const datat = {};
             for (const i in dungeons) {
                 const v = dungeons[i];
                 if (dungeon_trans[i] != null) {
@@ -109,25 +110,24 @@ function parseDungeons(dungeonsTrue, locationsTrue, world, dt, dr, trans) {
                         if (dungeon_trans[i]["values"][v] === undefined) {
                             console.warn("[" + i + ": " + v + "] is a invalid value. Please report this bug")
                         } else {
-                            data["area/" + dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
+                            datat["area/" + dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
                         }
                     }
                 }
             }
-            extra[w]["dungeontype"] = data;
+            extra[w]["dungeontype"] = datat;
         }
         if (dr) {
             const data = {};
             for (const i in locations) {
                 let v = locations[i];
                 if (location_trans[i] != null) {
-                    if (typeof v === 'object' && v !== null) v = v["item"];
+                    if (typeof v === "object" && v !== null) v = v["item"];
 
                     if (item_trans[v] === undefined) {
                         console.warn("[" + i + ": " + v + "] is a invalid value. Please report this bug")
                     } else {
                         data["area/" + location_trans[i]] = item_trans[v];
-                        if (location_trans[i] === "pocket") data[location_trans[i]] = item_trans[v];
                     }
                 }
             }
@@ -160,11 +160,11 @@ function parseTrials(trialsTrue, world, trans) {
     }
 }
 
-function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overworld, trans) {
-    const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld} = trans.entrances.entrances;
-    const {exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld} = trans.entrances.exits;
-    const entrance = {entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld}
-    const exit = {exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld}
+function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overworld, owls, spawns, warps, trans) {
+    const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps} = trans.entrances.entrances;
+    const {exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld, exit_extras} = trans.entrances.exits;
+    const entrance = {entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld, entro_owls: entro_owls, entro_spawns: entro_spawns, entro_warps: entro_warps}
+    const exit = {exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld, exit_extra: exit_extras}
 
     let entrances = entrancesTrue;
 
@@ -173,11 +173,15 @@ function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overwor
         const exits = {};
 
         for (const i in entrances) {
-            var v = entrances[i];
-            if (typeof v === 'object' && v !== null) v = entrances[i]["region"];
-            var edgeThere = null;
-            var edgeBack = null;
-            var node = null;
+            let v = entrances[i];
+            if (typeof v === "object" && v !== null)
+                if(entro_overworld[i] !== undefined)
+                    v = entrances[i]["region"] + " -> " + entrances[i]["from"];
+                else
+                    v = entrances[i]["region"];
+            let edgeThere = null;
+            let edgeBack = null;
+            let node = null;
 
             for (const ent in entrance) {
                 node = entrance[ent]
@@ -188,7 +192,7 @@ function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overwor
                 if (node[v] !== undefined) edgeBack = node[v]
             }
 
-            if (typeof i === 'object' && i !== null) {
+            if (typeof i === "object" && i !== null) {
                 console.warn("Unexpected Array within entrances")
             } else {
                 if (edgeThere === null || edgeBack === null) console.warn("[" + i + ": " + v + "] is a invalid value.")
@@ -202,15 +206,18 @@ function parseEntrances(entrancesTrue, world, dungeon, grottos, indoors, overwor
                     if (indoors) {
                         if (entro_simple[i] === edgeThere || entro_indoors[i] === edgeThere) exits[edgeThere] = edgeBack;
                     }
-                    /*if (overworld) {
-                        if(typeof v === 'object' && v !== null) {
-                            v = v["region"] + " -> " + v["from"];
-                        }
-                        if (entro_overworld[i] === undefined || exit_overworld[v] === undefined) {
-                        } else {
-                            exits[exit_overworld[v]] = entro_overworld[i];
-                        }
-                    }*/
+                    if (overworld) {
+                        if (entro_overworld[i] === edgeThere) exits[edgeThere] = edgeBack;
+                    }
+                    if (owls) {
+                        if (entro_owls[i] === edgeThere) exits[edgeThere] = edgeBack;
+                    }
+                    if (spawns) {
+                        if (entro_spawns[i] === edgeThere) exits[edgeThere] = edgeBack;
+                    }
+                    if (warps) {
+                        if (entro_warps[i] === edgeThere) exits[edgeThere] = edgeBack;
+                    }
                 }
             }
         }
@@ -224,6 +231,7 @@ function parseShops(shopsTrue, world, trans, shopsanity) {
     let shops = shopsTrue
 
     for (let w = 1; w <= world; w++) {
+        let data = {};
         if (world !== 1) shops = shopsTrue["World " + w];
         const kokiri = [];
         const marketB = [];
@@ -295,93 +303,82 @@ function parseShops(shopsTrue, world, trans, shopsanity) {
                         placement = 0;
                     }
                     if (i.startsWith("Market Bazaar") || i.startsWith("Castle Town Bazaar")) {
-                        marketB[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        marketBNames[placement] = "";
-                        if (player !== undefined) marketBNames[placement] = "Player " + player;
+                        data[`shop.basar_child/${placement}.item`] = item;
+                        data[`shop.basar_child/${placement}.bought`] = false;
+                        data[`shop.basar_child/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.basar_child/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.basar_child/${placement}.name`] = "";
                     }
                     if (i.startsWith("Market Potion") || i.startsWith("Castle Town Potion")) {
-                        marketP[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        marketPNames[placement] = "";
-                        if (player !== undefined) marketPNames[placement] = "Player " + player;
+                        data[`shop.magic_child/${placement}.item`] = item;
+                        data[`shop.magic_child/${placement}.bought`] = false;
+                        data[`shop.magic_child/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.magic_child/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.magic_child/${placement}.name`] = "";
                     }
                     if (i.startsWith("Market Bombchu") || i.startsWith("Bombchu")) {
-                        marketE[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        marketENames[placement] = "";
-                        if (player !== undefined) marketENames[placement] = "Player " + player;
+                        data[`shop.bombchu/${placement}.item`] = item;
+                        data[`shop.bombchu/${placement}.bought`] = false;
+                        data[`shop.bombchu/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.bombchu/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.bombchu/${placement}.name`] = "";
                     }
                     if (i.startsWith("Kak Bazaar") || i.startsWith("Kakariko Bazaar")) {
-                        kakB[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        kakBNames[placement] = "";
-                        if (player !== undefined) kakBNames[placement] = "Player " + player;
+                        data[`shop.basar_adult/${placement}.item`] = item;
+                        data[`shop.basar_adult/${placement}.bought`] = false;
+                        data[`shop.basar_adult/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.basar_adult/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.basar_adult/${placement}.name`] = "";
                     }
                     if (i.startsWith("Kak Potion") || i.startsWith("Kakariko Potion")) {
-                        kakP[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        kakPNames[placement] = "";
-                        if (player !== undefined) kakPNames[placement] = "Player " + player;
+                        data[`shop.magic_adult/${placement}.item`] = item;
+                        data[`shop.magic_adult/${placement}.bought`] = false;
+                        data[`shop.magic_adult/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.magic_adult/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.magic_adult/${placement}.name`] = "";
                     }
                     if (i.startsWith("GC") || i.startsWith("Goron")) {
-                        goron[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        goronNames[placement] = "";
-                        if (player !== undefined) goronNames[placement] = "Player " + player;
+                        data[`shop.goron/${placement}.item`] = item;
+                        data[`shop.goron/${placement}.bought`] = false;
+                        data[`shop.goron/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.goron/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.goron/${placement}.name`] = "";
                     }
                     if (i.startsWith("ZD") || i.startsWith("Zora")) {
-                        zora[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        zoraNames[placement] = "";
-                        if (player !== undefined) zoraNames[placement] = "Player " + player;
+                        data[`shop.zora/${placement}.item`] = item;
+                        data[`shop.zora/${placement}.bought`] = false;
+                        data[`shop.zora/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.zora/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.zora/${placement}.name`] = "";
                     }
                     if (i.startsWith("KF") || i.startsWith("Kokiri")) {
-                        kokiri[placement] = {
-                            item: item,
-                            price: price
-                        }
-                        kokiriNames[placement] = "";
-                        if (player !== undefined) kokiriNames[placement] = "Player " + player;
+                        data[`shop.kokiri/${placement}.item`] = item;
+                        data[`shop.kokiri/${placement}.bought`] = false;
+                        data[`shop.kokiri/${placement}.price`] = price;
+                        if(player !== 0)
+                            data[`shop.kokiri/${placement}.name`] = "Player " + player;
+                        else
+                            data[`shop.kokiri/${placement}.name`] = "";
                     }
                 }
             }
         }
         if (shopsanity !== "off") {
-            extra[w]["shops_items"] = {
-                "shop.kokiri": kokiri,
-                "shop.magic_adult": kakP,
-                "shop.basar_adult": kakB,
-                "shop.magic_child": marketP,
-                "shop.basar_child": marketB,
-                "shop.bombchu": marketE,
-                "shop.zora": zora,
-                "shop.goron": goron
-            }
-            extra[w]["shops_names"] = {
-                "shop.kokiri": kokiriNames,
-                "shop.magic_adult": kakPNames,
-                "shop.basar_adult": kakBNames,
-                "shop.magic_child": marketPNames,
-                "shop.basar_child": marketBNames,
-                "shop.bombchu": marketENames,
-                "shop.zora": zoraNames,
-                "shop.goron": goronNames
-            }
+            extra[w]["shops"] = data;
         }
     }
 }
@@ -425,7 +422,7 @@ function parseLocations(locationsTrue, world, trans) {
             if (location_trans[i] != null) {
                 let v = locations[i];
                 let player = 1;
-                if (typeof v === 'object' && v !== null) {
+                if (typeof v === "object" && v !== null) {
                     if (v["player"] !== undefined) player = v["player"];
                     v = v["item"];
                 }
@@ -435,7 +432,7 @@ function parseLocations(locationsTrue, world, trans) {
                     } else {
                         if (player === w) loca["location/" + location_trans[i]] = item_trans[v];
                         if (location_hearts_mq[i] != null) {
-                            if (player === w) loca["location/" + location_hearts_mq[i]] = item_trans[v];
+                            loca["location/" + location_hearts_mq[i]] = item_trans[v];
                         }
                     }
                 }
@@ -469,7 +466,7 @@ class SpoilerParser {
 
     parse(spoiler, settings) {
         const data = spoiler;
-        const trans = FileData.get("options_trans");
+        const trans = OptionsTransResource.get();
         let multiWorld = settings["parse.multiworld"];
 
         const version = versionChecker(data[":version"]);
@@ -485,7 +482,7 @@ class SpoilerParser {
             if (settings["parse.starting_items"]) parseStartingItems(data["starting_items"], world, trans);
             if (settings["parse.item_association"]) parseLocations(data["locations"], world, trans);
             if (settings["parse.woth_hints"]) parseWothLocation(data[":woth_locations"], world, trans);
-            parseEntrances(data["entrances"], world, settings["parse.entro_dungeons"], settings["parse.entro_grottos"], settings["parse.entro_indoors"], false/*settings["parse.entro_overworld"]*/, trans);
+            parseEntrances(data["entrances"], world, settings["parse.entro_dungeons"], settings["parse.entro_grottos"], settings["parse.entro_indoors"], settings["parse.entro_overworld"], settings["parse.entro_owls"], settings["parse.entro_spawns"], settings["parse.entro_warps"], trans);
             if (settings["parse.shops"]) parseShops(data["locations"], world, trans, data.settings["shopsanity"]);
             //if(settings["parse.gossip_stones"]) parseStones(data["gossip_stones"], world);
             if (settings["parse.barren"]) parseBarren(data[":barren_regions"], world, trans);
@@ -493,10 +490,7 @@ class SpoilerParser {
             if (settings["parse.random_settings"]) parseSetting(data["randomized_settings"], multiWorld, trans);
             parseDungeons(data["dungeons"], data["locations"], world, settings["parse.dungeons"], settings["parse.dungeonReward"], trans);
 
-            StateStorage.write(options[multiWorld]);
-            StateStorage.writeAllExtra(extra[multiWorld]);
-
-            EventBus.trigger("randomizer_options", options[multiWorld]);
+            SavestateHandler.overwrite({data: extra[multiWorld], options: options[multiWorld]});
         }
     }
 

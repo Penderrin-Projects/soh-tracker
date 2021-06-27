@@ -1,5 +1,9 @@
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
-import RTCController from "/script/util/RTCController.js";
+/* asym-import: on */
+
+// Track-OOT
+import RTCController from "/script/util/rtc/RTCController.js";
 import "./MultiplayerLobby.js";
 import "./MultiplayerRoomClient.js";
 import "./MultiplayerRoomMaster.js";
@@ -38,7 +42,7 @@ class HTMLMultiplayer extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         
         const lobby_view = this.shadowRoot.getElementById("lobby_view");
@@ -48,10 +52,10 @@ class HTMLMultiplayer extends HTMLElement {
 
         RTCController.setLogger(logger);
 
-        RTCController.onroomupdate = function(data) {
-            room_master.updateRoom(data);
-            room_client.updateRoom(data);
-        }
+        RTCController.addEventListener("roomupdate", function(event) {
+            room_master.updateRoom(event.data);
+            room_client.updateRoom(event.data);
+        });
 
         lobby_view.addEventListener("host", function() {
             lobby_view.classList.remove("active");
@@ -76,4 +80,4 @@ class HTMLMultiplayer extends HTMLElement {
 
 }
 
-customElements.define('ootrt-multiplayer', HTMLMultiplayer);
+customElements.define("ootrt-multiplayer", HTMLMultiplayer);

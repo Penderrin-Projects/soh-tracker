@@ -1,0 +1,90 @@
+/* asym-import: off */
+import EventBus from "/emcJS/event/EventBus.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import StateManager from "/GameTrackerJS/state/item/StateManager.js";
+import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
+
+const STARTVALUE = new WeakMap();
+
+export default class StartItemState extends DefaultState {
+
+    constructor(ref, props) {
+        super(ref, props);
+        /* --- */
+        STARTVALUE.set(this, parseInt(SavestateHandler.get("", props.start_settings, 1)));
+        /* EVENTS */
+        EventBus.register("options", event => {
+            if (event.data[props.start_settings] != null) {
+                this./*#*/__applyStartValue(event.data[props.start_settings]);
+            }
+        });
+    }
+
+    /*#*/__applyStartValue(newValue) {
+        const startvalue = STARTVALUE.get(this);
+        newValue = parseInt(newValue) || 1;
+        const max = this.max;
+        if (newValue < 1) {
+            newValue = 1;
+        }
+        if (newValue > max) {
+            newValue = max;
+        }
+        if (newValue != startvalue) {
+            STARTVALUE.set(this, newValue);
+            // external
+            const event = new Event("startvalue");
+            event.data = newValue;
+            this.dispatchEvent(event);
+            // update value
+            const state = this.value;
+            if (!!state && state < newValue) {
+                this.value = newValue;
+            }
+        }
+    }
+
+    stateLoaded(event) {
+        const props = this.props;
+        // savesatate
+        super.stateLoaded(event);
+        // settings
+        if (event.data.state[props.start_settings] != null) {
+            this./*#*/__applyStartValue(event.data.state[props.start_settings]);
+        }
+    }
+
+    get max() {
+        return super.max;
+    }
+
+    get min() {
+        return super.min;
+    }
+
+    get startvalue() {
+        return STARTVALUE.get(this);
+    }
+
+    set value(value) {
+        if (typeof value != "number") value = 0;
+        if (!!value && value < this.startvalue) {
+            if (super.value > value) {
+                value = 0;
+            } else {
+                value = this.startvalue;
+            }
+        }
+        super.value = value;
+    }
+
+    get value() {
+        return super.value;
+    }
+
+}
+
+StateManager.register("item_startsettings", StartItemState);

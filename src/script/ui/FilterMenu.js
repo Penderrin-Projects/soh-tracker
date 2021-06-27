@@ -1,9 +1,12 @@
-import FileData from "/emcJS/storage/FileData.js";
+/* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
+/* asym-import: on */
+
+// GameTrackerJS
+import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+// Track-OOT
 import "./FilterButton.js";
-import StateStorage from "../storage/StateStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
 
 const TPL = new Template(`
     <style>
@@ -53,18 +56,12 @@ class FilterMenu extends HTMLElement {
         this.addEventListener("click", event => {
             this.showContextMenu();
         });
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         // generate filters
         const menu = this.shadowRoot.getElementById("menu");
-        const data = FileData.get("filter");
+        const data = FilterResource.get();
         for (const name in data) {
-            if (data[name].persist) {
-                const value = StateStorage.read(name, data[name].default);
-                FilterStorage.set(name, value);
-            } else {
-                FilterStorage.set(name, data[name].default);
-            }
             if (data[name].choice) {
                 const el = document.createElement("ootrt-filterbutton");
                 el.ref = name;
@@ -90,4 +87,4 @@ class FilterMenu extends HTMLElement {
 
 }
 
-customElements.define('ootrt-filtermenu', FilterMenu);
+customElements.define("ootrt-filtermenu", FilterMenu);

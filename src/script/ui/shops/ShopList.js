@@ -1,27 +1,34 @@
-import FileData from "/emcJS/storage/FileData.js";
-import Template from "/emcJS/util/Template.js";
+/* asym-import: off */
+//import Template from "/emcJS/util/Template.js";
+import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+/* asym-import: on */
+
+// Track-OOT
+import ShopsResource from "/script/resource/ShopsResource.js";
 import "./ShopField.js";
 
-const TPL = new Template(`
-    <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
-        :host {
-            display: inline-block;
-            padding: 20px;
-        }
-    </style>
+//const TPL = new Template(``);
+
+const STYLE = new GlobalStyle(`
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+:host {
+    display: inline-block;
+    padding: 20px;
+}
 `);
 
 export default class HTMLTrackerShopList extends HTMLElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.append(TPL.generate());
-        const shops = FileData.get("shops");
+        this.attachShadow({mode: "open"});
+        //this.shadowRoot.append(TPL.generate());
+        STYLE.apply(this.shadowRoot);
+        /* --- */
+        const shops = ShopsResource.get();
         for (const i in shops) {
             const el = document.createElement("ootrt-shopfield");
             el.ref = i;
@@ -31,4 +38,4 @@ export default class HTMLTrackerShopList extends HTMLElement {
 
 }
 
-customElements.define('ootrt-shoplist', HTMLTrackerShopList);
+customElements.define("ootrt-shoplist", HTMLTrackerShopList);

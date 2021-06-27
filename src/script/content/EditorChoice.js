@@ -1,7 +1,11 @@
+/* asym-import: off */
 import "/editors/EditorChoice.js";
-import PageSwitcher from "/script/util/PageSwitcher.js";
+/* asym-import: on */
 
+// Track-OOT
+import PageSwitcher from "/script/util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";
+//import createWorldEditor from "./editors/WorldEditor.js";
 
 const editorChoice = document.getElementById("editor-choice");
 const nav = document.getElementById("navbar");
@@ -77,4 +81,5 @@ function registerWindow({name, panel, navigation, refreshFn}) {
 !async function() {
     registerWindow(await createLogicEditor(false));
     registerWindow(await createLogicEditor(true));
+    //registerWindow(await createWorldEditor());
 }();
