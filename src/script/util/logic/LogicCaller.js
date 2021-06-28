@@ -18,6 +18,8 @@ import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 
 // TODO differenciate between vanilla keys and mq keys
 // for example write keys to ${ref}_v and ${ref}_mq to reflect each type
+// TODO change key options to have different values
+// keysy, vanilla, own dungeon, overworld only, any dungeon, keysanity
 
 const ACCEPTED_KEY_GROUPS = [
     "dungeon",

@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.1
+
+### BUGFIXES
+
+- fix entrance bindings for "gerudo fortress" <-> "gerudo valley"
+- fix entrance bindings for "woods beyond mido" <-> "kokiri forrest"
+- fix missing translation for "subarea/kakariko.windmill_dampe"
+
+---
+
 ## VERSION 2.1.0
 
 ### PERFORMANCE

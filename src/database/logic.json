@@ -30759,7 +30759,7 @@
             }
         },
         "region.lw_beyond_mido[child]": {
-            "region.lw_forest_exit[child]": {
+            "region.woods_kokiri_gateway[child]": {
                 "type": "true"
             },
             "region.lost_woods[child]": {
@@ -30977,7 +30977,7 @@
             }
         },
         "region.lw_beyond_mido[adult]": {
-            "region.lw_forest_exit[adult]": {
+            "region.woods_kokiri_gateway[adult]": {
                 "type": "true"
             },
             "region.lost_woods[adult]": {
@@ -33874,7 +33874,7 @@
             }
         },
         "region.gerudo_fortress[child]": {
-            "region.valley_fortress_gateway[child]": {
+            "region.fortress_valley_gateway[child]": {
                 "type": "true"
             },
             "region.gf_outside_gate[child]": {
@@ -33969,7 +33969,7 @@
             }
         },
         "region.gerudo_fortress[adult]": {
-            "region.valley_fortress_gateway[adult]": {
+            "region.fortress_valley_gateway[adult]": {
                 "type": "true"
             },
             "region.gf_outside_gate[adult]": {

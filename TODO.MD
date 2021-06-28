@@ -7,16 +7,9 @@
 
 ### FIX MINOR BUGS
 
-- 
+- overworld numbers do not refresh on dungeontype change
+- shopsanity location wrong slots on 1,2,3
 
----
-
-### TODO FOR OVERWORLD ENTRANCES
-
-- create entrance aliases so the association wont break on return paths
-    - blocks interior association
-    - blocks overworld association(should be fixed with overworld gateways)
-    
 ---
 
 ### DUNGEONSTATE
