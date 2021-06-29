@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.3
+
+### BUGFIXES
+
+- fix race condition on startup for exits concerning access
+
+---
+
 ## VERSION 2.1.2
 
 ### BUGFIXES

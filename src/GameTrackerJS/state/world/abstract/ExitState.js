@@ -84,6 +84,10 @@ export default class ExitState extends WorldState {
                 const area = getEntranceArea(value);
                 AREA.set(this, area);
                 manager.switchState(area);
+                // external
+                const ev = new Event("access");
+                ev.data = area?.access ?? ACCESS.get(this);
+                this.dispatchEvent(ev);
             }, 0);
         }
         /* ACTIVE */
