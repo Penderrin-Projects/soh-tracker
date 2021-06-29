@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.2
+
+### BUGFIXES
+
+- fix area/entrance listitems/mapmarkers to update properly on dungeontype change (v/mq)
+
+---
+
 ## VERSION 2.1.1
 
 ### BUGFIXES

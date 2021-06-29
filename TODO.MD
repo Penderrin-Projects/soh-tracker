@@ -7,7 +7,6 @@
 
 ### FIX MINOR BUGS
 
-- overworld numbers do not refresh on dungeontype change
 - shopsanity location wrong slots on 1,2,3
 
 ---

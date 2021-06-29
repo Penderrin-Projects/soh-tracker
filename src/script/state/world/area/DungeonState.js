@@ -150,9 +150,13 @@ export default class DungeonState extends DefaultState {
         if (type != newValue) {
             TYPE.set(this, newValue);
             // external
-            const event = new Event("type");
-            event.data = newValue;
-            this.dispatchEvent(event);
+            const ev = new Event("type");
+            ev.data = newValue;
+            this.dispatchEvent(ev);
+            
+            const ev2 = new Event("access");
+            ev2.data = this.access;
+            this.dispatchEvent(ev2);
         }
     }
 
