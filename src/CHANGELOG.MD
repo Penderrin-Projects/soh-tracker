@@ -4,6 +4,21 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.4
+
+### BUGFIXES
+
+- spoiler log parser can now import the same log more than once
+- fixed items not getting applied from spoiler parser
+- fixed some bugs with woth/barren in multiworld
+- fixed random settings not getting applied for multiworld
+
+### ADDED
+
+- added disabled locations to spoiler parser
+
+---
+
 ## VERSION 2.1.3
 
 ### BUGFIXES

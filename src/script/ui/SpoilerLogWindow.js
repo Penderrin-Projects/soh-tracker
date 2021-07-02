@@ -2,6 +2,7 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
+import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/Paging.js";
 /* asym-import: on */
 
@@ -13,7 +14,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 import SettingsWindow from "/GameTrackerJS/ui/window/settings/SettingsWindow.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
-import SpoilerParser from "/script/util/SpoilerParser.js";
+import SpoilerParser from "/script/util/spoilerparser/SpoilerParser.js";
 
 let spoiler = {};
 
@@ -57,11 +58,16 @@ export default class SpoilerLogWindow extends SettingsWindow {
             await BusyIndicator.busy();
             SavestateHandler.set("parseSpoiler", event.data);
             if (!!spoiler && !!spoiler.data) {
-                SpoilerParser.parse(spoiler.data, event.data);
-                Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
-                spoiler = {};
+                try {
+                    SavestateHandler.overwrite(SpoilerParser.parse(spoiler.data, event.data));
+                    Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
+                    spoiler = {};
+                    await BusyIndicator.unbusy();
+                } catch(err) {
+                    await BusyIndicator.unbusy();
+                    await Dialog.alert("Error loading spoiler", err.message);
+                }
             }
-            await BusyIndicator.unbusy();
         });
     }
 

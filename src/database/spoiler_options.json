@@ -19,6 +19,11 @@
         "type": "check",
         "default": false
     },
+    "parse.disabled_locations": {
+        "category": "spoilerOptions",
+        "type": "check",
+        "default": false
+    },
     "parse.shops": {
         "category": "spoilerOptions",
         "type": "check",

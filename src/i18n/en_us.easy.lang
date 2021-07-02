@@ -1397,6 +1397,7 @@ parse.settings=Load Settings from Spoiler
 parse.item_association=Bind Items from Spoiler to Locations
 parse.woth_hints=Load WOTH from Spoiler for Hint System
 parse.starting_items=Load Starting Items from Spoiler
+parse.disabled_locations=Disabled Locations from Spoiler
 parse.entrances=Load Entrances from Spoiler
 parse.shops=Load Shop Items from Spoiler
 parse.gossip_stones=Load Gossip Stone Hints from Spoiler

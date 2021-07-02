@@ -1397,6 +1397,7 @@ parse.settings=Einstellung aus Spoilerlog laden
 parse.item_association=Items aus Spoilerlog an Checks binden
 parse.woth_hints=Hinweise aus Spoilerlog für Hinweissystem laden
 parse.starting_items=Startitems aus Spoilerlog laden
+parse.disabled_locations=Deaktivierte Checks aus Spoilerlog laden
 parse.entrances=Eingänge aus Spoilerlog laden
 parse.shops=Shopitems aus Spoilerlog laden
 parse.gossip_stones=Hinweise von Gossib Stones laden
