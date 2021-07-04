@@ -1385,6 +1385,7 @@ flat=Flach (Schlüssel/Belohnung/Typ)
 map-right-dtr=Minimal Items with Map (Belohnung/Typ)
 essential-map=Essenzielle Items mit Karte (Belohnung)
 essential-map-key=Essenzielle Items mit Karte (Schlüssel/Belohnung)
+standard-essential-map=Standard Essenzielle Items mit Karte (Schlüssel/Belohnung)
 
 # SETTINGS - RULESET
 load-preset-button=Vorlage laden

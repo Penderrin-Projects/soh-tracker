@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.2.0
+
+### LAYOUTS
+
+- added a standard settings based essential layout
+
+---
+
 ## VERSION 2.1.4
 
 ### BUGFIXES
