@@ -36,7 +36,8 @@
             "compact",
             "flat",
             "essential-map",
-            "essential-map-key"
+            "essential-map-key",
+            "standard-essential-map"
         ]
     },
     "color_blind_mode": {
