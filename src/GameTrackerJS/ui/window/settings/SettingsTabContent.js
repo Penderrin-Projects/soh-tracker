@@ -1,6 +1,7 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import "/emcJS/ui/input/ListSelect.js";
 import "/emcJS/ui/input/SearchSelect.js";
 import "/emcJS/ui/input/Option.js";
@@ -68,13 +69,13 @@ export default class SettingsTabContent extends HTMLElement {
         /* --- */
     }
 
-    addStringInput(storage, label, ref, def) {
+    addStringInput(storage, label, ref, visible) {
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "text");
-        input.value = storage.get(ref, def);
+        input.value = storage.get(ref);
         input.dataset.ref = ref;
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -89,11 +90,11 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addNumberInput(storage, label, ref, def, min, max) {
+    addNumberInput(storage, label, ref, visible, min, max) {
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "number");
-        input.value = storage.get(ref, def);
+        input.value = storage.get(ref);
         if (!isNaN(min)) {
             input.setAttribute("min", min);
         }
@@ -101,7 +102,7 @@ export default class SettingsTabContent extends HTMLElement {
             input.setAttribute("max", max);
         }
         input.dataset.ref = ref;
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -116,11 +117,11 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addRangeInput(storage, label, ref, def, min, max) {
+    addRangeInput(storage, label, ref, visible, min, max) {
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "range");
-        input.value = storage.get(ref, def);
+        input.value = storage.get(ref);
         if (!isNaN(min)) {
             input.setAttribute("min", min);
         }
@@ -128,7 +129,7 @@ export default class SettingsTabContent extends HTMLElement {
             input.setAttribute("max", max);
         }
         input.dataset.ref = ref;
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -143,13 +144,13 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addCheckInput(storage, label, ref, def) {
+    addCheckInput(storage, label, ref, visible) {
         const input = document.createElement("input");
         input.className = "settings-input";
         input.setAttribute("type", "checkbox");
-        input.checked = !!storage.get(ref, !!def);
+        input.checked = !!storage.get(ref);
         input.dataset.ref = ref;
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -164,16 +165,16 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addChoiceInput(storage, label, ref, def, values) {
+    addChoiceInput(storage, label, ref, visible, values) {
         const input = document.createElement("emc-searchselect");
         input.className = "settings-input";
         input.setAttribute("type", "input");
         for (const value in values) {
             input.append(generateEmcOption(value, values[value]));
         }
-        input.value = storage.get(ref, def);
+        input.value = storage.get(ref);
         input.dataset.ref = ref;
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
@@ -188,7 +189,7 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addListSelectInput(storage, label, ref, def, multiple, values) {
+    addListSelectInput(storage, label, ref, visible, multiple, values) {
         const input = document.createElement("emc-listselect");
         input.className = "settings-input";
         input.setAttribute("type", "list");
@@ -197,7 +198,7 @@ export default class SettingsTabContent extends HTMLElement {
         const valueCache = new Set();
         for (const value in values) {
             input.append(generateEmcOption(value, values[value]));
-            if (storage.get(value, def.includes(value))) {
+            if (storage.get(value)) {
                 valueCache.add(value);
             }
             // events
@@ -213,7 +214,7 @@ export default class SettingsTabContent extends HTMLElement {
             });
         }
         input.value = Array.from(valueCache);
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // events
         input.addEventListener("change", event => {
             const data = new Set(input.value);
@@ -228,7 +229,7 @@ export default class SettingsTabContent extends HTMLElement {
         container.append(el);
     }
 
-    addButton(label, ref, text = "", callback = null) {
+    addButton(storage, label, ref, visible, text = "", callback = null) {
         const input = document.createElement("button");
         input.className = "settings-button";
         input.setAttribute("type", "button");
@@ -241,7 +242,7 @@ export default class SettingsTabContent extends HTMLElement {
         if (typeof callback == "function") {
             input.onclick = callback;
         }
-        const el = generateField(label, input);
+        const el = generateField(label, input, storage, visible);
         // add element
         const container = this.shadowRoot.getElementById("container");
         container.append(el);
@@ -257,7 +258,7 @@ export default class SettingsTabContent extends HTMLElement {
 
 customElements.define("gt-window-settings-tab", SettingsTabContent);
 
-function generateField(label, input) {
+function generateField(label, input, storage, visible) {
     const el = document.createElement("label");
     el.className = "settings-option";
     const text = document.createElement("span");
@@ -271,6 +272,23 @@ function generateField(label, input) {
     const inputWrapper = document.createElement("emc-input-wrapper");
     inputWrapper.append(input);
     el.append(inputWrapper);
+    // visibility
+    if (visible != null) {
+        if (typeof visible == "object") {
+            const logicFn = LogicCompiler.compile(visible);
+            const value = !!logicFn(ref => storage.get(ref));
+            if (!value) {
+                el.style.display = "none";
+            }
+            // event
+            storage.addEventListener("change", event => {
+                const value = !!logicFn(ref => storage.get(ref));
+                el.style.display = value ? "" : "none";
+            });
+        } else if (!visible) {
+            el.style.display = "none";
+        }
+    }
     return el;
 }
 

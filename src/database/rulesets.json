@@ -229,7 +229,7 @@
             "option.stone_count_lacs": 3,
             "option.medallion_count_lacs": 6,
             "option.dungeon_count_lacs": 9,
-            "option.ganon_castle_open": "ganon_castle_open_medallions",
+            "option.ganon_castle_open": "ganon_castle_open_medallion",
             "option.ganon_castle_skulltulas": 100,
             "option.stone_count_bridge": 3,
             "option.medallion_count_bridge": 6,

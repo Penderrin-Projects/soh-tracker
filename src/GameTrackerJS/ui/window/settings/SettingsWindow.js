@@ -5,7 +5,7 @@ import Window from "/emcJS/ui/overlay/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
 /* asym-import: on */
-import DataStorage from "../../../storage/DataStorage.js";
+import DefaultingStorage from "../../../storage/DefaultingStorage.js";
 import Language from "../../../util/Language.js";
 import "./SettingsTabContent.js";
 
@@ -82,7 +82,7 @@ export default class SettingsWindow extends Window {
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        STORAGE.set(this, new DataStorage());
+        STORAGE.set(this, new DefaultingStorage());
         const window = this.shadowRoot.getElementById("window");
         const body = this.shadowRoot.getElementById("body");
         body.innerHTML = "";
@@ -159,9 +159,10 @@ export default class SettingsWindow extends Window {
         a.unshift(this.shadowRoot.getElementById("close"));
         a[a.length - 1].focus();
     }
-    
-    get storage() {
-        return STORAGE.get(this);
+
+    overwriteValues(data) {
+        const storage = STORAGE.get(this);
+        storage.overwrite(data);
     }
 
     getTab(category) {
@@ -179,59 +180,67 @@ export default class SettingsWindow extends Window {
         }
     }
 
-    addStringInput(category, label, ref, def) {
+    addStringInput(category, label, ref, def, visible) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addStringInput(storage, label, ref, def);
+            storage.setDefault(ref, def);
+            panel.addStringInput(storage, label, ref, visible);
         }
     }
 
-    addNumberInput(category, label, ref, def, min, max) {
+    addNumberInput(category, label, ref, def, visible, min, max) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addNumberInput(storage, label, ref, def, min, max);
+            storage.setDefault(ref, def);
+            panel.addNumberInput(storage, label, ref, visible, min, max);
         }
     }
 
-    addRangeInput(category, label, ref, def, min, max) {
+    addRangeInput(category, label, ref, def, visible, min, max) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addRangeInput(storage, label, ref, def, min, max);
+            storage.setDefault(ref, def);
+            panel.addRangeInput(storage, label, ref, visible, min, max);
         }
     }
 
-    addCheckInput(category, label, ref, def) {
+    addCheckInput(category, label, ref, def, visible) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addCheckInput(storage, label, ref, def);
+            storage.setDefault(ref, !!def);
+            panel.addCheckInput(storage, label, ref, visible);
         }
     }
 
-    addChoiceInput(category, label, ref, def, values) {
+    addChoiceInput(category, label, ref, def, visible, values) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addChoiceInput(storage, label, ref, def, values);
+            storage.setDefault(ref, def);
+            panel.addChoiceInput(storage, label, ref, visible, values);
         }
     }
 
-    addListSelectInput(category, label, ref, def, multiple, values) {
+    addListSelectInput(category, label, ref, def, visible, multiple, values) {
         const panel = this.getTab(category);
         if (panel != null) {
             const storage = STORAGE.get(this);
-            panel.addListSelectInput(storage, label, ref, def, multiple, values);
+            for (const value in values) {
+                storage.setDefault(value, def.includes(value));
+            }
+            panel.addListSelectInput(storage, label, ref, visible, multiple, values);
         }
     }
 
-    addButton(category, label, ref, text = "", callback = null) {
+    addButton(category, label, ref, visible, text = "", callback = null) {
         const panel = this.getTab(category);
         if (panel != null) {
-            // const storage = STORAGE.get(this);
-            panel.addButton(label, ref, text, callback = null);
+            const storage = STORAGE.get(this);
+            panel.addButton(storage, label, ref, visible, text, callback = null);
         }
     }
 

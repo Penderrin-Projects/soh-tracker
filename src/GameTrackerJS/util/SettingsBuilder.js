@@ -32,25 +32,25 @@ class SettingsBuilder {
             const max = parseFloat(option.max);
             switch (option.type) {
                 case "string":
-                    window.addStringInput(category, label, key, option.default);
+                    window.addStringInput(category, label, key, option.default, option.visible);
                     break;
                 case "number":
-                    window.addNumberInput(category, label, key, option.default, min, max);
+                    window.addNumberInput(category, label, key, option.default, option.visible, min, max);
                     break;
                 case "range":
-                    window.addRangeInput(category, label, key, option.default, min, max);
+                    window.addRangeInput(category, label, key, option.default, option.visible, min, max);
                     break;
                 case "check":
-                    window.addCheckInput(category, label, key, option.default);
+                    window.addCheckInput(category, label, key, option.default, option.visible);
                     break;
                 case "choice":
-                    window.addChoiceInput(category, label, key, option.default, convertValueList(option.values, option.names));
+                    window.addChoiceInput(category, label, key, option.default, option.visible, convertValueList(option.values, option.names));
                     break;
                 case "list":
-                    window.addListSelectInput(category, label, key, option.default, true, convertValueList(option.values, option.names));
+                    window.addListSelectInput(category, label, key, option.default, option.visible, true, convertValueList(option.values, option.names));
                     break;
                 case "button":
-                    window.addButton(category, label, key, Language.generateLabel(option.text), alert.bind(window, "not functionality bound"));
+                    window.addButton(category, label, key, option.visible, Language.generateLabel(option.text), alert.bind(window, "not functionality bound"));
                     break;
             }
         }

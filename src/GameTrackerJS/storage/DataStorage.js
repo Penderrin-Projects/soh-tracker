@@ -18,7 +18,7 @@ export default class DataStorage extends EventTarget {
 
     set(key, value) {
         const buffer = BUFFER.get(this);
-        const old = buffer.get(key);
+        const old = this.get(key);
         if (old != value) {
             buffer.set(key, value);
             const ev = new Event("change");
@@ -34,7 +34,7 @@ export default class DataStorage extends EventTarget {
         const data = {};
         for (const key in values) {
             const value = values[key];
-            const old = buffer.get(key);
+            const old = this.get(key);
             if (old != value) {
                 buffer.set(key, value);
                 changes[key] = {oldValue: old, newValue: value};

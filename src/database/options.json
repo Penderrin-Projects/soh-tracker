@@ -252,6 +252,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_skulltulas"
+        },
         "min": 0,
         "max": 100
     },
@@ -259,6 +264,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_stones"
+        },
         "min": 1,
         "max": 3
     },
@@ -266,6 +276,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_medallions"
+        },
         "min": 1,
         "max": 6
     },
@@ -273,6 +288,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_dungeons"
+        },
         "min": 1,
         "max": 9
     },
@@ -294,6 +314,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_skulltulas"
+        },
         "min": 0,
         "max": 100
     },
@@ -301,6 +326,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_stones"
+        },
         "min": 1,
         "max": 3
     },
@@ -308,6 +338,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_medallion"
+        },
         "min": 1,
         "max": 6
     },
@@ -315,6 +350,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_dungeon"
+        },
         "min": 1,
         "max": 9
     },

@@ -4,6 +4,21 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.6
+
+### BUGFIXES
+
+- fixed list choices ruleset presets in rom options
+- fixed translations not loading in detached window
+
+### SETTINGS WINDOWS
+
+- added functionality to hide unnecessary settings
+    - cleans up the presentation of the settings to enhance the user experience
+    - used for lacs and bridge
+
+---
+
 ## VERSION 2.1.5
 
 ### LAYOUTS

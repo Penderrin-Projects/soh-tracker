@@ -48,17 +48,25 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
             if (!ruleset) { return }
 
             if (ruleset.items != null) {
-                for (const i in ruleset.items) {
-                    items[i] = ruleset.items[i];
+                for (const key in ruleset.items) {
+                    const value = ruleset.items[key];
+                    items[key] = value;
                 }
             }
             if (ruleset.options != null) {
-                for (const i in ruleset.options) {
-                    options[i] = ruleset.options[i];
+                for (const key in ruleset.options) {
+                    const value = ruleset.options[key];
+                    if (Array.isArray(value)) {
+                        for (const ref of value) {
+                            options[ref] = true;
+                        }
+                    } else {
+                        options[key] = value;
+                    }
                 }
             }
 
-            this.storage.setAll(options);
+            this.overwriteValues(options);
         });
 
         this.shadowRoot.getElementById("footer").prepend(loadRulesetRow);
