@@ -4,20 +4,17 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.1.8
-
-### BUGFIX
-
-- fix bug in build process
-
----
-
 ## VERSION 2.1.7
 
 ### SHOPS
 
 - added check for wallet upgrades to access
 - added price indicator to locationlist
+
+### TOP LEVEL AWAIT
+
+- streamline application with top level await
+- remove compatibility code since firefox, chrome, edge and opera now support this natively
 
 ---
 

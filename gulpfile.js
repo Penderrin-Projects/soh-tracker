@@ -7,8 +7,6 @@ const svgo = require("gulp-svgo");
 const newer = require("gulp-newer");
 const autoprefixer = require("gulp-autoprefixer");
 const filemanager = require("./file-manager.js");
-const gulpAsyM = require("asym/GulpAsyM");
-//const gulpAsyM = require("../AsyM/GulpAsyM.js");
 
 const SRC_PATH = path.resolve(__dirname, "./src");
 const DEV_PATH = path.resolve(__dirname, "./dev");
@@ -18,7 +16,6 @@ const MODULE_PATHS = {
     emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
     trackerEditor: path.resolve(__dirname, "node_modules/jseditors/src"),
     RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src"),
-    AsyM: path.resolve(__dirname, "node_modules/asym/src"),
 };
 
 function fileExists(filename) {
@@ -33,10 +30,10 @@ function fileExists(filename) {
 const NOLOCAL = process.argv.indexOf('-nolocal') >= 0;
 const NOCOMPRESS = process.argv.indexOf('-nocompress') >= 0;
 const REBUILD = process.argv.indexOf('-rebuild') >= 0;
-const TLA = process.argv.indexOf('-tla') >= 0;
+const REBUILDJS = process.argv.indexOf('-rebuildjs') >= 0;
 
 console.log({
-    NOLOCAL, NOCOMPRESS, REBUILD, TLA
+    NOLOCAL, NOCOMPRESS, REBUILDJS, REBUILD
 });
 
 if (!NOLOCAL) {
@@ -52,45 +49,14 @@ if (!NOLOCAL) {
     if (fileExists(RTCClient)) {
         MODULE_PATHS.RTCClient = RTCClient;
     }
-    let asyM = path.resolve(__dirname, '../AsyM/src');
-    if (fileExists(asyM)) {
-        MODULE_PATHS.AsyM = asyM;
-    }
-}
-
-function copyAsyM(dest = DEV_PATH, watch = false) {
-    const FILES = [
-        `${MODULE_PATHS.AsyM}/**/*.js`
-    ];
-    let res = gulp.src(FILES);
-    res = res.pipe(filemanager.register(MODULE_PATHS.AsyM, `${dest}/asym`))
-    res = res.pipe(newer(`${dest}/asym`))
-    res = res.pipe(gulp.dest(`${dest}/asym`));
-    return res;
 }
 
 /* JS START */
 function copyJS(files, src, dest) {
     let res = gulp.src(files);
     res = res.pipe(filemanager.register(src, dest))
-    if (!REBUILD) {
+    if (!REBUILDJS && !REBUILD) {
         res = res.pipe(newer(dest))
-    }
-    res = res.pipe(gulp.dest(dest));
-    return res;
-}
-
-function copyJSAsyM(files, src, dest) {
-    let res = gulp.src(files);
-    res = res.pipe(filemanager.register(src, dest))
-    if (!REBUILD) {
-        res = res.pipe(newer(dest))
-    }
-    if (!TLA) {
-        res = res.pipe(gulpAsyM({
-            path: "/asym",
-            alike: /Import\.module/
-        }))
     }
     res = res.pipe(gulp.dest(dest));
     return res;
@@ -102,7 +68,7 @@ function copyScript(dest = DEV_PATH) {
     ];
     const SRC = `${SRC_PATH}/script`;
     const DST = `${dest}/script`;
-    return copyJSAsyM(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST);
 }
 
 function copyGameTrackerJS(dest = DEV_PATH) {
@@ -111,7 +77,7 @@ function copyGameTrackerJS(dest = DEV_PATH) {
     ];
     const SRC = `${SRC_PATH}/GameTrackerJS`;
     const DST = `${dest}/GameTrackerJS`;
-    return copyJSAsyM(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST);
 }
 
 function copyEmcJS(dest = DEV_PATH) {
@@ -161,7 +127,7 @@ function copyDetachedScript(dest = DEV_PATH) {
     ];
     const SRC = `${SRC_PATH}/detached`;
     const DST = `${dest}/detached`;
-    return copyJSAsyM(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST);
 }
 /* JS END */
 
@@ -171,7 +137,9 @@ function copyHTML(dest = DEV_PATH) {
     ];
     let res = gulp.src(FILES);
     res = res.pipe(filemanager.register(SRC_PATH, dest));
-    res = res.pipe(newer(dest));
+    if (!REBUILD) {
+        res = res.pipe(newer(dest));
+    }
     res = res.pipe(htmlmin({ collapseWhitespace: true }));
     res = res.pipe(gulp.dest(dest));
     return res;
@@ -273,7 +241,6 @@ function finish(dest = DEV_PATH, done) {
 
 exports.build = gulp.series(
     gulp.parallel(
-        copyAsyM.bind(this, PRD_PATH),
         copyHTML.bind(this, PRD_PATH),
         copyJSON.bind(this, PRD_PATH),
         copyI18N.bind(this, PRD_PATH),
@@ -294,7 +261,6 @@ exports.build = gulp.series(
 
 exports.buildDev = gulp.series(
     gulp.parallel(
-        copyAsyM.bind(this, DEV_PATH),
         copyHTML.bind(this, DEV_PATH),
         copyJSON.bind(this, DEV_PATH),
         copyI18N.bind(this, DEV_PATH),
