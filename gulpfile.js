@@ -76,6 +76,16 @@ function copyJS(files, src, dest) {
     if (!REBUILD) {
         res = res.pipe(newer(dest))
     }
+    res = res.pipe(gulp.dest(dest));
+    return res;
+}
+
+function copyJSAsyM(files, src, dest) {
+    let res = gulp.src(files);
+    res = res.pipe(filemanager.register(src, dest))
+    if (!REBUILD) {
+        res = res.pipe(newer(dest))
+    }
     if (!TLA) {
         res = res.pipe(gulpAsyM({
             path: "/asym",
@@ -86,42 +96,35 @@ function copyJS(files, src, dest) {
     return res;
 }
 
-function watchJS(files, src, dest) {
-    gulp.watch(
-        files,
-        () => copyJS(files, src, dest)
-    );
-}
-
-function copyScript(dest = DEV_PATH, watch = false, rebuild = false) {
+function copyScript(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/script/**/*.js`
     ];
     const SRC = `${SRC_PATH}/script`;
     const DST = `${dest}/script`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJSAsyM(FILES, SRC, DST);
 }
 
-function copyGameTrackerJS(dest = DEV_PATH, watch = false) {
+function copyGameTrackerJS(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/GameTrackerJS/**/*.js`
     ];
     const SRC = `${SRC_PATH}/GameTrackerJS`;
     const DST = `${dest}/GameTrackerJS`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJSAsyM(FILES, SRC, DST);
 }
 
-function copyEmcJS(dest = DEV_PATH, watch = false) {
+function copyEmcJS(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.emcJS}/**/*.js`,
         `!${MODULE_PATHS.emcJS}/*.js`
     ];
     const SRC = MODULE_PATHS.emcJS;
     const DST = `${dest}/emcJS`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJS(FILES, SRC, DST);
 }
 
-function copyTrackerEditor(dest = DEV_PATH, watch = false) {
+function copyTrackerEditor(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.trackerEditor}/**/*.js`,
         `!${MODULE_PATHS.trackerEditor}/node_modules/**/*.js`,
@@ -130,35 +133,35 @@ function copyTrackerEditor(dest = DEV_PATH, watch = false) {
     ];
     const SRC = MODULE_PATHS.trackerEditor;
     const DST = `${dest}/editors`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJS(FILES, SRC, DST);
 }
 
-function copyRTCClient(dest = DEV_PATH, watch = false) {
+function copyRTCClient(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.RTCClient}/**/*.js`
     ];
     const SRC = MODULE_PATHS.RTCClient;
     const DST = `${dest}/rtc`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJS(FILES, SRC, DST);
 }
 
-function copyInitializer(dest = DEV_PATH, watch = false) {
+function copyInitializer(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/sw.js`,
         `${SRC_PATH}/index.js`
     ];
     const SRC = SRC_PATH;
     const DST = dest;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJS(FILES, SRC, DST);
 }
 
-function copyDetachedScript(dest = DEV_PATH, watch = false) {
+function copyDetachedScript(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/detached/index.js`
     ];
     const SRC = `${SRC_PATH}/detached`;
     const DST = `${dest}/detached`;
-    return copyJS(FILES, SRC, DST, REBUILD);
+    return copyJSAsyM(FILES, SRC, DST);
 }
 /* JS END */
 

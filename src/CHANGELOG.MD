@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.8
+
+### BUGFIX
+
+- fix bug in build process
+
+---
+
 ## VERSION 2.1.7
 
 ### SHOPS
