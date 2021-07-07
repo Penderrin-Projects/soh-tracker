@@ -311,30 +311,9 @@ exports.buildDev = gulp.series(
 );
 
 exports.watch = function() {
-    watchJS([
-        `${SRC_PATH}/script/**/*.js`
-    ], `${SRC_PATH}/script`, `${DEV_PATH}/script`);
-    watchJS([
-        `${SRC_PATH}/GameTrackerJS/**/*.js`
-    ], `${SRC_PATH}/GameTrackerJS`, `${DEV_PATH}/GameTrackerJS`);
-    watchJS([
-        `${MODULE_PATHS.emcJS}/**/*.js`,
-        `!${MODULE_PATHS.emcJS}/*.js`
-    ], MODULE_PATHS.emcJS, `${DEV_PATH}/emcJS`);
-    watchJS([
-        `${MODULE_PATHS.trackerEditor}/**/*.js`,
-        `!${MODULE_PATHS.trackerEditor}/node_modules/**/*.js`,
-        `!${MODULE_PATHS.trackerEditor}/*.js`,
-        `${MODULE_PATHS.trackerEditor}/EditorChoice.js`
-    ], MODULE_PATHS.trackerEditor, `${DEV_PATH}/editors`);
-    watchJS([
-        `${MODULE_PATHS.RTCClient}/**/*.js`
-    ], MODULE_PATHS.RTCClient, `${DEV_PATH}/rtc`);
-    watchJS([
-        `${SRC_PATH}/sw.js`,
-        `${SRC_PATH}/index.js`
-    ], SRC_PATH, DEV_PATH);
-    watchJS([
-        `${SRC_PATH}/detached/index.js`
-    ], `${SRC_PATH}/detached`, `${DEV_PATH}/detached`);
+    exports.buildDev();
+    return gulp.watch(
+        SRC_PATH,
+        exports.buildDev
+    );
 }

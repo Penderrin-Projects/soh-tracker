@@ -1,6 +1,7 @@
 /* asym-import: off */
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import "/emcJS/ui/LabeledIcon.js";
 /* asym-import: on */
 
 // GameTrackerJS
@@ -13,7 +14,7 @@ import "./Location.js";
 const TPL = new Template(`
 <div class="textarea">
     <div id="text"></div>
-    <div id="item"></div>
+    <emc-labeledicon id="item" halign="end" valign="end"></emc-labeledicon>
     <gt-badge id="badge"></gt-badge>
 </div>
 `);
@@ -71,7 +72,10 @@ const STYLE = new GlobalStyle(`
     color: var(--location-status-possible-color, #000000);
 }
 #item {
+    width: 32px;
+    height: 32px;
     margin-left: 5px;
+    font-size: 0.7em;
 }
 .menu-tip {
     font-size: 0.7em;

@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.7
+
+### SHOPS
+
+- added check for wallet upgrades to access
+- added price indicator to locationlist
+
+---
+
 ## VERSION 2.1.6
 
 ### BUGFIXES

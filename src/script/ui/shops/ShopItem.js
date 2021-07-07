@@ -261,7 +261,8 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));
-            d.value = state.item;
+            d.item = state.item;
+            d.price = state.price;
             d.addEventListener("submit", function(result) {
                 if (result) {
                     const state = this.getState();

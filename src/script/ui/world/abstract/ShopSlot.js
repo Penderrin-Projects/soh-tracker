@@ -18,6 +18,9 @@ export default class ShopSlot extends AbstractLocation {
         this.registerStateHandler("bought", event => {
             this.applyItem();
         });
+        this.registerStateHandler("price", event => {
+            this.applyItem();
+        });
 
         /* context menu */
         const mnu_ctx = document.createElement("ootrt-ctxmenu-shopslot");
@@ -62,12 +65,12 @@ export default class ShopSlot extends AbstractLocation {
         const state = this.getState();
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
-            itemEl.innerHTML = "";
             if (state.item) {
-                const el_icon = document.createElement("img");
                 const itemData = ShopItemsResource.get(state.item);
-                el_icon.src = itemData?.image ?? "/images/items/unknown.png";
-                itemEl.append(el_icon);
+                itemEl.src = itemData?.image ?? "/images/items/unknown.png";
+            }
+            if (state.price) {
+                itemEl.text = state.price;
             }
         }
     }
@@ -76,7 +79,8 @@ export default class ShopSlot extends AbstractLocation {
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));
-            d.value = state.item;
+            d.item = state.item;
+            d.price = state.price;
             d.addEventListener("submit", function(result) {
                 if (result) {
                     const state = this.getState();

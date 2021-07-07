@@ -40,8 +40,6 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 #value {
-    width: 100%;
-    height: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -125,7 +125,7 @@ const Q_TAB = [
 async function settingsSubmit() {
     const ev = new Event("submit");
     const priceEl = this.shadowRoot.getElementById("price");
-    const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.value}"]`);
+    const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.item}"]`);
     if (el) {
         ev.item = el.ref;
         if (!isNaN(parseInt(el.price))) {
@@ -196,16 +196,24 @@ export default class HTMLTrackerShopItemChoice extends Window {
         this.setAttribute("active", val);
     }
 
-    get value() {
-        return this.getAttribute("value");
+    get item() {
+        return this.getAttribute("item");
     }
 
-    set value(val) {
-        this.setAttribute("value", val);
+    set item(val) {
+        this.setAttribute("item", val);
+    }
+
+    get price() {
+        return this.getAttribute("price");
+    }
+
+    set price(val) {
+        this.setAttribute("price", val);
     }
 
     static get observedAttributes() {
-        return ["active", "value"];
+        return ["active", "item", "price"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -230,7 +238,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
                     }
                 }
                 break;
-            case "value":
+            case "item":
                 if (oldValue != newValue) {
                     const ol = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${oldValue}"]`);
                     if (ol != null) {
@@ -256,31 +264,12 @@ export default class HTMLTrackerShopItemChoice extends Window {
                     }
                 }
                 break;
-        }
-    }
-
-    show(data = {}, category = "") {
-        super.show();
-        for (const i in data) {
-            const b = this.shadowRoot.getElementById(`panel_${i}`);
-            if (!b) continue;
-            for (const j in data[i]) {
-                const e = b.querySelector(`[data-ref="${j}"]`);
-                if (!e) continue;
-                if (e.type === "checkbox") {
-                    e.checked = !!data[i][j];
-                } else {
-                    e.value = data[i][j];
+            case "price":
+                if (oldValue != newValue) {
+                    const priceEl = this.shadowRoot.getElementById("price");
+                    priceEl.value = newValue;
                 }
-            }
-        }
-        if (category) {
-            this.active = category;
-        } else if (!this.active) {
-            const ctg = this.shadowRoot.getElementById("categories").children;
-            if (ctg.length) {
-                this.active = ctg[0].getAttribute("target")
-            }
+                break;
         }
     }
 
