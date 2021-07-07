@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/editors/modules/logic/Editor.js";
-/* asym-import: on */
+
 
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";

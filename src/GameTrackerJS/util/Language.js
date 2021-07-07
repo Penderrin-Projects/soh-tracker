@@ -1,10 +1,10 @@
-/* asym-import: off */
+// frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
 import I18n from "/emcJS/i18n/I18n.js";
 import I18nLabel from "/emcJS/i18n/ui/Label.js";
 import I18nTooltip from "/emcJS/i18n/ui/Tooltip.js";
-/* asym-import: on */
+
 import SettingsSpy from "./spy/SettingsSpy.js";
 
 const languageSpy = new SettingsSpy("language");

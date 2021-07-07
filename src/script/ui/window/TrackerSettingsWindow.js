@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import PopOver from "/emcJS/ui/overlay/PopOver.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import AppSettingsWindow from "/GameTrackerJS/ui/window/settings/AppSettingsWindow.js";

@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/input/SearchSelect.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";

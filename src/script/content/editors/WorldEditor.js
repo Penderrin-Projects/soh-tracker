@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Helper from "/emcJS/util/Helper.js";
 import "/editors/modules/world/Editor.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";

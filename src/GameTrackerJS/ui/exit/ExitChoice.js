@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";

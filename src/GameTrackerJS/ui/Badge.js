@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import FilterResource from "../resource/FilterResource.js";
 import SettingsSpy from "../util/spy/SettingsSpy.js";
 

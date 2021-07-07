@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/input/InputWrapper.js";
-/* asym-import: on */
+
 
 const TPL = new Template(`
     <div id="update-check" style="padding: 5px;">

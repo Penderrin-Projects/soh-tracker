@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";

@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
-/* asym-import: on */
+
 import SettingsSpy from "../spy/SettingsSpy.js";
 
 const logicDebugSpy = new SettingsSpy("debug_logic");

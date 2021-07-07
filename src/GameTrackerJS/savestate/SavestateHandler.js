@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
-/* asym-import: on */
+
 import VersionData from "../data/VersionData.js";
 import "../storage/SettingsStorage.js";
 import OptionsStorage from "../storage/OptionsStorage.js";

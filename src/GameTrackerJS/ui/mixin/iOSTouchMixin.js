@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import {createMixin} from "/emcJS/util/Mixin.js";
-/* asym-import: on */
+
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default createMixin((superclass) => class iOSTouchMixin extends superclass {

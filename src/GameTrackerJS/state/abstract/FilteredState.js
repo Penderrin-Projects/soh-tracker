@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import VisibilityState from "./VisibilityState.js";
 import FilterStorage from "../../storage/FilterStorage.js";

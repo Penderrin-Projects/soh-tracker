@@ -1,10 +1,10 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import Toast from "/emcJS/ui/overlay/Toast.js";
-/* asym-import: on */
+
 import SavestateManager from "../../../savestate/SavestateManager.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 

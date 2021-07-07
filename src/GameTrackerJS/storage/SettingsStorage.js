@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 import SettingsResource from "../resource/SettingsResource.js";
 import IDBProxyStorage from "./IDBProxyStorage.js";
 

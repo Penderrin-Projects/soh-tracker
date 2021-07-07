@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-/* asym-import: on */
+
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`

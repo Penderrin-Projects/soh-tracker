@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 //import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+
 
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";

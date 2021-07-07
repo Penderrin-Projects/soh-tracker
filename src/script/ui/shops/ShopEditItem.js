@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";

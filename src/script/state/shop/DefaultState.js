@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import Observable from "/GameTrackerJS/data/Observable.js";

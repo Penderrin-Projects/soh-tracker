@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-/* asym-import: on */
+
 import VersionData from "../data/VersionData.js";
 import SavestateConverter from "./SavestateConverter.js";
 

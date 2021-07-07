@@ -36,8 +36,8 @@
     "iOS >= 10"
   ],
   "scripts": {
-    "build": "gulp build -rebuildjs",
-    "buildDev": "gulp buildDev -rebuildjs",
+    "build": "gulp build",
+    "buildDev": "gulp buildDev",
     "buildDevNoCompress": "gulp buildDev -nocompress",
     "watch": "gulp watch -nocompress",
     "serve": "serve dev",

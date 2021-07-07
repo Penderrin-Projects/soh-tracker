@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";

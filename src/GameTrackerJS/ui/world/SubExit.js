@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import AreaState from "../../state/world/area/DefaultState.js";
 import WorldElement from "./WorldElement.js";

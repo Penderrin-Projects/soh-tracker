@@ -1,10 +1,10 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";

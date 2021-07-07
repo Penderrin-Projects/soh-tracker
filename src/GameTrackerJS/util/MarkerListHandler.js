@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
+
 import WorldStateManagers from "../state/world/StateManagers.js";
 import AccessStateEnum from "../enum/AccessStateEnum.js";
 

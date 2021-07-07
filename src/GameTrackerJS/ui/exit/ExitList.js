@@ -1,4 +1,4 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import SearchAnd from "/emcJS/util/search/SearchAnd.js";
@@ -6,7 +6,7 @@ import "/emcJS/ui/input/SearchField.js";
 import "/emcJS/ui/input/SearchSelect.js";
 import "/emcJS/ui/input/TokenSelect.js";
 import "/emcJS/ui/input/InputWrapper.js";
-/* asym-import: on */
+
 import WorldResource from "../../resource/WorldResource.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/exit/StateManager.js";

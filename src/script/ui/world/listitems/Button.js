@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";

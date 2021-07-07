@@ -1,10 +1,10 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
-/* asym-import: on */
+
 import DefaultingStorage from "../../../storage/DefaultingStorage.js";
 import Language from "../../../util/Language.js";
 import "./SettingsTabContent.js";

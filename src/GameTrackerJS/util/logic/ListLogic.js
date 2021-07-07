@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import Logger from "/emcJS/util/Logger.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/area/StateManager.js";
 import "../../state/world/exit/StateManager.js";

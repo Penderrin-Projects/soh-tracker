@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 import OptionsResource from "../resource/OptionsResource.js";
 import DataStorage from "./DataStorage.js";
 

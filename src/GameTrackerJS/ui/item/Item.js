@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 import ItemStates from "../../state/item/StateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
 import iOSTouchHandler from "../../util/iOSTouchHandler.js";

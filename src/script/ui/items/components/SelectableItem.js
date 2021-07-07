@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";

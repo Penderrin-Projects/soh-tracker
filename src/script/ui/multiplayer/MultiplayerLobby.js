@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";

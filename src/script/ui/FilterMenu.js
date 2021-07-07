@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import "/emcJS/ui/overlay/ContextMenu.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";

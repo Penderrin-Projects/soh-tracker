@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import {createMixin} from "/emcJS/util/Mixin.js";
-/* asym-import: on */
+
 import ContextMenuCatcher from "../ContextMenuCatcher.js";
 
 const MENUS = new WeakMap();

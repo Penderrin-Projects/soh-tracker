@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 import WorldStateManagers from "../StateManagers.js";
 import ExitState from "../abstract/ExitState.js";
 

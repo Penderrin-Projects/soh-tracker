@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";

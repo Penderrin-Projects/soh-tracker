@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import ElementManager from "/emcJS/util/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 
 const TPL = new Template(`
 <slot id="container"></slot>

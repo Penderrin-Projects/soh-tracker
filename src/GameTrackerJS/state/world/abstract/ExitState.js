@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";

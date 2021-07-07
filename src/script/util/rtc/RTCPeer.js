@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import EventBusModuleGeneric from "/emcJS/event/module/EventBusModuleGeneric.js";
-/* asym-import: on */
+
 
 const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();

@@ -1,4 +1,4 @@
-/* asym-import: on */
+
 import DataStorage from "./DataStorage.js";
 
 const BUFFER = new WeakMap();

@@ -2,7 +2,7 @@
  * Starting point for Track-OOT
  */
 
-/* asym-import: off */
+// frameworks
 import Import from "/emcJS/util/import/Import.js";
 import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
@@ -12,7 +12,7 @@ import "/emcJS/ui/input/TextEditor.js";
 import "/emcJS/ui/LogScreen.js";
 import "/emcJS/ui/Icon.js";
 import "/emcJS/ui/layout/Layout.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";

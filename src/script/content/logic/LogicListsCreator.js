@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";

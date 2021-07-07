@@ -1,10 +1,10 @@
 
-/* asym-import: off */
+// frameworks
 import Template from "/emcJS/util/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/Paging.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";

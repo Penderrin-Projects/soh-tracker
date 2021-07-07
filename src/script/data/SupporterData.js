@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
+
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {

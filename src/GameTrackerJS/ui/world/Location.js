@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
