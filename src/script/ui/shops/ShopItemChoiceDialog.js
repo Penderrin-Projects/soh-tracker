@@ -140,7 +140,7 @@ async function settingsSubmit() {
 
 function clickItem(event) {
     const el = event.target;
-    this.value = el.ref;
+    this.item = el.ref;
 }
 
 export default class HTMLTrackerShopItemChoice extends Window {

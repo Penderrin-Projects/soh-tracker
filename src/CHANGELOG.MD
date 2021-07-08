@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.8
+
+### BUGFIXES
+
+- fix shop dialog item choice not working
+
+---
+
 ## VERSION 2.1.7
 
 ### SHOPS
