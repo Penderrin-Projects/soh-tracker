@@ -46,7 +46,7 @@ import "/script/ui/exits/ExitList.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
 
-const spl = document.getElementById("splash").querySelector(".loading");
+const spl = document.getElementById("loading-info");
 function updateLoadingMessage(msg = "loading...") {
     spl.innerHTML = msg;
 }

@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.9
+
+### SERVICEWORKER
+
+- cache.put seems to have problems, so replace it with cache.add
+    - only use the own override cache method to ensure resource removal first
+- output error message from serviceworker
+
+---
+
 ## VERSION 2.1.8
 
 ### BUGFIXES

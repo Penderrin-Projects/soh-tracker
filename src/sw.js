@@ -1,5 +1,5 @@
 const CACHE_INDEX = "/index.json";
-const CACHE_NAME = 'track-oot';
+const CACHE_NAME = "track-oot";
 const HEADER_CONFIG = new Headers({
     "Content-Type": "text/plain",
     "Pragma": "no-cache",
@@ -14,23 +14,25 @@ const cmd = {
     purge: purgeCache
 };
 
-self.addEventListener('install', function(event) {
+self.addEventListener("install", function(event) {
     return self.skipWaiting();
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener("activate", function(event) {
     return self.clients.claim();
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener("fetch", function(event) {
+    if (event.request.cache === "only-if-cached" && event.request.mode !== "same-origin") {
+        return;
+    }
     if ((new URL(event.request.url)).searchParams.get("nosw") !== null) {
-        return false;
+        return;
+    }
+    if (event.request.url == self.location.origin + "/version.json") {
+        event.respondWith(getVersion(event.request));
     } else {
-        if (event.request.url == self.location.origin + "/version.json") {
-            event.respondWith(getVersion(event.request));
-        } else {
-            event.respondWith(getResponse(event.request));
-        }
+        event.respondWith(getResponse(event.request));
     }
 });
 
@@ -55,7 +57,7 @@ async function getVersion(request) {
     return version;
 }
 
-self.addEventListener('message', async event => {
+self.addEventListener("message", async event => {
     const src = event.source;
     const dta = event.data;
     if (!src) return;
@@ -83,7 +85,7 @@ async function fetchFile(url, method = "GET") {
     const r = await fetch(url, {
         method: method,
         headers: HEADER_CONFIG,
-        mode: 'cors'
+        mode: "cors"
     });
     if (r.status < 200 || r.status >= 300) {
         throw new Error(`error fetching file "${url}" - status: ${r.status}`);
@@ -92,8 +94,14 @@ async function fetchFile(url, method = "GET") {
 }
 
 async function overwriteCachedFile(cache, request, file) {
-    await cache.delete(request);
-    await cache.put(request, file);
+    try {
+        await cache.delete(request);
+        await cache.add(request, file);
+        // console.log("installed:", request, file);
+    } catch(err) {
+        console.log("error caching:", request, file);
+        throw err;
+    }
 }
 
 async function purgeCache(client) {
@@ -122,10 +130,10 @@ async function install(client) {
         client.postMessage({
             type: "state",
             msg: "need_download",
-            value: downloadlist.length
+            total: downloadlist.length
         });
         await updateFileList(client, cache, downloadlist);
-        await cache.put(CACHE_INDEX, filelist);
+        await overwriteCachedFile(cache, CACHE_INDEX, filelist);
         client.postMessage({
             type: "state",
             msg: "start"
@@ -179,11 +187,11 @@ async function updateFiles(client) {
     client.postMessage({
         type: "state",
         msg: "need_download",
-        value: downloadlist.length
+        total: downloadlist.length
     });
     await updateFileList(client, cache, downloadlist);
     await removeUnusedFiles(client, cache, allfileslist);
-    await cache.put(CACHE_INDEX, filelist);
+    await overwriteCachedFile(cache, CACHE_INDEX, filelist);
     client.postMessage({
         type: "state",
         msg: "update_finished"
@@ -201,11 +209,11 @@ async function updateFilesForced(client) {
     client.postMessage({
         type: "state",
         msg: "need_download",
-        value: downloadlist.length
+        total: downloadlist.length
     });
     await updateFileList(client, cache, downloadlist);
     await removeUnusedFiles(client, cache, downloadlist);
-    await cache.put(CACHE_INDEX, filelist);
+    await overwriteCachedFile(cache, CACHE_INDEX, filelist);
     client.postMessage({
         type: "state",
         msg: "update_finished"
@@ -240,22 +248,25 @@ async function checkFile(cache, url) {
 
 async function updateFileList(client, cache, filelist) {
     const r = [];
-    const files = {};
-    filelist.forEach(element => {
-        r.push(downloadFile(element).then(file => {
-            files[element] = file;
+    let loaded = 0;
+    filelist.forEach(url => {
+        r.push(updateFile(cache, url).then(file => {
+            loaded++;
             client.postMessage({
                 type: "state",
-                msg: "file_downloaded"
+                msg: "file_downloaded",
+                url,
+                loaded,
+                total: filelist.length
             });
         }));
     });
     await Promise.all(r);
-    const w = [];
-    for (const i in files) {
-        w.push(overwriteCachedFile(cache, i, files[i]));
-    }
-    await Promise.all(w);
+}
+
+async function updateFile(cache, url) {
+    const file = await downloadFile(url);
+    await overwriteCachedFile(cache, url, file)
 }
 
 async function downloadFile(url, tries = 3) {

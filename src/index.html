@@ -128,9 +128,6 @@
                 color: white;
                 z-index: 1000000;
             }
-            #splash span {
-                margin-top: 20px;
-            }
             #splash.inactive {
                 display: none;
             }
@@ -142,15 +139,29 @@
                 margin-top: 20px;
                 text-align: center;
             }
+            .button {
+                display: inline-block;
+                padding: 5px;
+                margin: 5px;
+                color: white;
+                background-color: black;
+                border: solid 1px white;
+                appearance: none;
+                text-decoration: none;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+            .button:hover {
+                background-color: #333333;
+            }
         </style>
     </head>
     <body>
         <div id="splash">
             <img class="splash-image" src="/images/logo.svg">
-            <span class="loading">[state]</span>
+            <span id="loading-info" class="info">[state]</span>
             <noscript>
                 <style>
-                    .loading,
                     .info {
                         display: none
                     }
@@ -167,16 +178,16 @@
             </noscript>
             <div class="info">
                 After updating, the tracker can freeze on startup.<br>
-                If this happens to you, you can try this:<br>
+                If this happens to you, you can try this<br>
                 <div class="controls">
-                    <button id="splash-refresh" onclick="window.location.reload(true)">REFRESH PAGE</button>
+                    <button id="splash-refresh" class="button" onclick="window.location.reload(true)">REFRESH PAGE</button>
                 </div>
             </div>
             <div class="info">
                 Safestates emergency backup<br>
-                Download all savestates in storage:<br>
+                Download all savestates in storage<br>
                 <div class="controls">
-                    <button id="splash-refresh" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
+                    <button id="emergency-download" class="button" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
                 </div>
             </div>
         </div>
