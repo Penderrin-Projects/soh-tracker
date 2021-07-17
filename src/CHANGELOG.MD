@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.10 (WIP)
+
+### NOTES PANEL
+
+- add font size control
+    - persisted in new parameter storage
+
+### BUGFIXES
+
+- fix error in update handler not showing correct download status (settings > about)
+
+---
+
 ## VERSION 2.1.9
 
 ### SERVICEWORKER

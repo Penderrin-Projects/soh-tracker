@@ -63,7 +63,7 @@ export default class UpdateHandler extends HTMLElement {
             navigator.serviceWorker.addEventListener("message", (event) => {
                 if (event.data.type == "state") {
                     switch (event.data.msg) {
-                        case "update_available":
+                        case "update_available": {
                             check.style.display = "none";
                             force.style.display = "block";
                             avail.style.display = "block";
@@ -71,25 +71,29 @@ export default class UpdateHandler extends HTMLElement {
                             running.style.display = "none";
                             finished.style.display = "none";
                             this.dispatchEvent(new Event("updateavailable"));
-                            break;
-                        case "update_unavailable":
+                        } break;
+                        case "update_unavailable": {
                             check.style.display = "none";
                             force.style.display = "block";
                             avail.style.display = "none";
                             unavail.style.display = "block";
                             running.style.display = "none";
                             finished.style.display = "none";
-                            break;
-                        case "need_download":
+                        } break;
+                        case "need_download": {
+                            const max_files = event.data.total;
+                            prog.max = max_files;
                             prog.value = 0;
-                            prog.max = event.data.value;
-                            progtext.innerHTML = `${prog.value}/${prog.max}`;
-                            break;
-                        case "file_downloaded":
-                            prog.value = parseInt(prog.value) + 1;
-                            progtext.innerHTML = `${prog.value}/${prog.max}`;
-                            break;
-                        case "update_finished":
+                            progtext.innerHTML = `0/${max_files}`;
+                        } break;
+                        case "file_downloaded": {
+                            const load_files = event.data.loaded;
+                            const max_files = event.data.total;
+                            prog.max = max_files;
+                            prog.value = load_files;
+                            progtext.innerHTML = `${load_files}/${max_files}`;
+                        } break;
+                        case "update_finished": {
                             prog.value = 0;
                             prog.max = 0;
                             progtext.innerHTML = `0/0`;
@@ -99,7 +103,7 @@ export default class UpdateHandler extends HTMLElement {
                             unavail.style.display = "none";
                             running.style.display = "none";
                             finished.style.display = "block";
-                            break;
+                        } break;
                     }
                 } else if (event.data.type == "error") {
                     check.style.display = "none";

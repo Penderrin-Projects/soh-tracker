@@ -1,21 +1,21 @@
 
 import DataStorage from "./DataStorage.js";
 
-const BUFFER = new WeakMap();
+const DEFAULTS = new WeakMap();
 
 export default class DefaultingStorage extends DataStorage {
 
     constructor() {
         super();
-        const buffer = new Map();
-        BUFFER.set(this, buffer);
+        const defaults = new Map();
+        DEFAULTS.set(this, defaults);
     }
 
     setDefault(key, value) {
-        const buffer = BUFFER.get(this);
-        const old = buffer.get(key);
+        const defaults = DEFAULTS.get(this);
+        const old = defaults.get(key);
         if (old != value) {
-            buffer.set(key, value);
+            defaults.set(key, value);
             if (!super.has(key)) {
                 const ev = new Event("change");
                 ev.changes = {[key]: {oldValue: this.get(key), newValue: value}};
@@ -26,18 +26,18 @@ export default class DefaultingStorage extends DataStorage {
     }
 
     set(key, value) {
-        const buffer = BUFFER.get(this);
-        if (buffer.has(key)) {
+        const defaults = DEFAULTS.get(this);
+        if (defaults.has(key)) {
             super.set(key, value);
         }
     }
 
     setAll(values) {
-        const buffer = BUFFER.get(this);
+        const defaults = DEFAULTS.get(this);
         const res = {};
         for (const key in values) {
             const value = values[key];
-            if (buffer.has(key)) {
+            if (defaults.has(key)) {
                 res[key] = value;
             }
         }
@@ -45,33 +45,33 @@ export default class DefaultingStorage extends DataStorage {
     }
 
     get(key) {
-        const buffer = BUFFER.get(this);
-        return super.get(key, buffer.get(key));
+        const defaults = DEFAULTS.get(this);
+        return super.get(key, defaults.get(key));
     }
 
     getAll() {
-        const buffer = BUFFER.get(this);
+        const defaults = DEFAULTS.get(this);
         const res = {};
-        for (const [key, value] of buffer) {
+        for (const [key, value] of defaults) {
             res[key] = super.get(key, value);
         }
         return res;
     }
 
     has(key) {
-        const buffer = BUFFER.get(this);
-        return buffer.has(key);
+        const defaults = DEFAULTS.get(this);
+        return defaults.has(key);
     }
 
     keys() {
-        const buffer = BUFFER.get(this);
-        return buffer.keys();
+        const defaults = DEFAULTS.get(this);
+        return defaults.keys();
     }
 
     overwrite(values) {
-        const buffer = BUFFER.get(this);
+        const defaults = DEFAULTS.get(this);
         const res = {};
-        for (const [key, value] of buffer) {
+        for (const [key, value] of defaults) {
             res[key] = values[key] ?? value;
         }
         super.setAll(res);

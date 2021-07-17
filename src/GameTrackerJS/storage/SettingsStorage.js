@@ -1,8 +1,8 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
+import IDBProxyStorage from "/emcJS/storage/IDBProxyStorage.js";
 
 import SettingsResource from "../resource/SettingsResource.js";
-import IDBProxyStorage from "./IDBProxyStorage.js";
 
 const SET_TYPES = [
     "list",
@@ -37,13 +37,20 @@ class SettingsStorage extends IDBProxyStorage {
     }
 
     set(key, value) {
-        // TODO check if value is valid; else set default/remove value
-        super.set(key, value);
+        if (DEFAULTS.has(key)) {
+            super.set(key, value);
+        }
     }
 
     setAll(values) {
-        // TODO check if values are valid; else set default/remove value
-        super.setAll(values);
+        const res = {};
+        for (const key in values) {
+            const value = values[key];
+            if (DEFAULTS.has(key)) {
+                res[key] = value;
+            }
+        }
+        super.setAll(res);
     }
 
     get(key, value = DEFAULTS.get(key)) {
@@ -69,19 +76,7 @@ class SettingsStorage extends IDBProxyStorage {
         return DEFAULTS.keys();
     }
 
-    static create(name) {
-        return new Promise((resolve, reject) => {
-            const resource = new SettingsStorage(name);
-            resource.addEventListener("load", () => {
-                resolve(resource);
-            });
-            resource.addEventListener("error", () => {
-                resolve(resource);
-            });
-        });
-    }
-
 }
 
-const storage = await SettingsStorage.create();
-export default storage;
+const storage = new SettingsStorage();
+export default await storage.awaitLoaded();

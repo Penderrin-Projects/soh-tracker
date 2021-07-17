@@ -8,11 +8,9 @@ import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Paging.js";
-import "/emcJS/ui/input/TextEditor.js";
 import "/emcJS/ui/LogScreen.js";
 import "/emcJS/ui/Icon.js";
 import "/emcJS/ui/layout/Layout.js";
-
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
@@ -22,6 +20,8 @@ import Language from "/GameTrackerJS/util/Language.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import "/GameTrackerJS/ui/TextEditor.js";
+import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
 import "/script/storage/converter/StateConverter.js";
 import "/script/storage/StateStorage.js";
@@ -34,7 +34,6 @@ import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
-import "/script/ui/ViewChoice.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/world/LocationList.js";

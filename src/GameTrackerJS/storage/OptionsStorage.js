@@ -37,13 +37,20 @@ class OptionsStorage extends DataStorage {
     }
 
     set(key, value) {
-        // TODO check if value is valid; else set default/remove value
-        super.set(key, value);
+        if (DEFAULTS.has(key)) {
+            super.set(key, value);
+        }
     }
 
     setAll(values) {
-        // TODO check if values are valid; else set default/remove value
-        super.setAll(values);
+        const res = {};
+        for (const key in values) {
+            const value = values[key];
+            if (DEFAULTS.has(key)) {
+                res[key] = value;
+            }
+        }
+        super.setAll(res);
     }
 
     get(key, value = DEFAULTS.get(key)) {

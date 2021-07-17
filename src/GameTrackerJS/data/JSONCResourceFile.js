@@ -66,7 +66,7 @@ export default class JSONCResourceFile extends EventTarget {
                 ev.data = proxyData;
                 this.dispatchEvent(ev);
             }).catch(err => {
-                console.error(err);
+                console.warn(err);
                 DATA.set(this, {});
                 const ev = new Event("error");
                 this.dispatchEvent(ev);

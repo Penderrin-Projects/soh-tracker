@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import ElementManager from "/emcJS/util/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
 
-
 const TPL = new Template(`
 <slot id="container"></slot>
 <div id="view-choice"></div>
@@ -173,4 +172,4 @@ export default class ViewChoice extends HTMLElement {
 
 }
 
-customElements.define("ootrt-viewchoice", ViewChoice);
+customElements.define("gt-viewchoice", ViewChoice);

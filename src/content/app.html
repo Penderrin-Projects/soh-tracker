@@ -1,7 +1,7 @@
 
 <emc-navbar id="navbar"></emc-navbar>
 <emc-paging id="view-pager" active="main">
-    <ootrt-viewchoice id="main-content" slot="main" active="tracker">
+    <gt-viewchoice id="main-content" slot="main" active="tracker">
         <div slot="tracker" data-title="Item & Map Tracker" data-icon="images/icons/tracker.svg">
             <gt-ctxmenucatcher>
                 <ootrt-layoutcontainer id="layout-container" layout="map-compact">
@@ -32,19 +32,19 @@
                 </ootrt-songlist>
             </gt-ctxmenucatcher>
         </div>
-        <div slot="notes" data-title="Notes" data-icon="images/icons/notes.svg">
-            <gt-ctxmenucatcher>
-                <emc-texteditor id="notes-editor" title="Notes">
-                </emc-texteditor>
-            </gt-ctxmenucatcher>
-        </div>
         <div slot="multi" data-title="Multiplayer" data-icon="images/icons/multi.svg">
             <gt-ctxmenucatcher>
                 <ootrt-multiplayer>
                 </ootrt-multiplayer>
             </gt-ctxmenucatcher>
         </div>
-    </ootrt-viewchoice>
+        <div slot="notes" data-title="Notes" data-icon="images/icons/notes.svg">
+            <gt-ctxmenucatcher>
+                <gt-texteditor id="notes-editor" title="Notes">
+                </gt-texteditor>
+            </gt-ctxmenucatcher>
+        </div>
+    </gt-viewchoice>
     <jse-choice id="editor-choice" slot="editor_choice"></jse-choice>
 </emc-paging>
 <footer class="footer">
