@@ -96,7 +96,7 @@ export default class Gossipstone extends AbstractLocation {
                     if (hint.location) {
                         Language.applyLabel(locationEl, hint.location);
                     } else {
-                        Language.applyLabel(locationEl, "");
+                        locationEl.innerHTML = "";
                     }
                 }
                 // item
@@ -104,7 +104,7 @@ export default class Gossipstone extends AbstractLocation {
                     if (hint.item) {
                         Language.applyLabel(itemEl, hint.item);
                     } else {
-                        Language.applyLabel(itemEl, "");
+                        itemEl.innerHTML = "";
                     }
                 }
             }

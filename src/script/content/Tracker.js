@@ -46,6 +46,9 @@ PageSwitcher.register("main", [{
         "content": "UPLOAD SPOILER",
         "handler": openSpoilerSettingsWindow
     }, {
+        "content": "CLEAR SPECIFIC DATA",
+        "handler": openClearDataWindow
+    }, {
         "content": "DETACHED ITEM WINDOW",
         "handler": openDetachedItems
     }, {
@@ -142,6 +145,14 @@ function openSpoilerSettingsWindow() {
         spoilerLogWindow.show();
     }
 }
+
+function openClearDataWindow() {
+    const clearDataWindow = GlobalContext.get("ClearDataWindow");
+    if (clearDataWindow) {
+        clearDataWindow.show();
+    }
+}
+
 function showEditors() {
     PageSwitcher.switch("editor_choice");
 }

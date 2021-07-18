@@ -32,8 +32,9 @@ import "/script/content/Tracker.js";
 import "/script/content/EditorChoice.js"
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
-import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
+import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
+import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/world/LocationList.js";
@@ -120,6 +121,7 @@ try {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         newGameWindow.addEventListener("close", event => {
             SavestateHandler.set("meta", "init_window_shown", true);

@@ -100,7 +100,12 @@ class Savestate extends EventTarget {
         if (data != null) {
             for (const category in data) {
                 const dataStorage = this.getData(category);
-                dataStorage.overwrite(data[category]);
+                const buffer = data[category];
+                if (buffer == null) {
+                    dataStorage.clear();
+                } else {
+                    dataStorage.overwrite(data[category]);
+                }
             }
         }
     }
@@ -118,6 +123,13 @@ class Savestate extends EventTarget {
                 ev.category = storageCategory;
                 ev.data = event.data;
                 ev.changes = event.changes;
+                this.dispatchEvent(ev);
+            });
+            dataStorage.addEventListener("clear", event => {
+                const ev = new Event("change");
+                ev.category = storageCategory;
+                ev.data = {};
+                ev.changes = undefined;
                 this.dispatchEvent(ev);
             });
             DATA.set(storageCategory, dataStorage);

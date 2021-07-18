@@ -16,9 +16,22 @@ Application:    Track-OOT
 - add song reset button
 - add song clear button
 
+### CLEAR DATA WINDOW
+
+- clear specific data
+    - shop items
+    - songs
+    - area hints (woth/fool)
+    - dungeon rewards
+    - dungeon types
+    - item locations
+    - gossipstone hints
+
 ### BUGFIXES
 
 - fix error in update handler not showing correct download status (settings > about)
+- fix gossipstones not writing hint data to state
+- fix gossipstones not retrieving hint data after state load
 
 ---
 
