@@ -94,6 +94,15 @@
                 "false": false
             }
         },
+        "shopsanity": {
+            "name": "option.shopsanity",
+            "values": {
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 4
+            }
+        },
         "logic_rules": {
             "name": "option.logic_rules",
             "values": {
@@ -2768,7 +2777,8 @@
         "Water Medallion": "item.medallion_water",
         "Kokiri Emerald": "item.stone_forest",
         "Forest Medallion": "item.medallion_forest",
-        "Goron Ruby": "item.stone_fire"
+        "Goron Ruby": "item.stone_fire",
+        "Triforce Piece": "item.triforce_piece"
     },
     "locations": {
         "HF Ocarina of Time Item": "hyrule_field.c_ocarina_of_time",

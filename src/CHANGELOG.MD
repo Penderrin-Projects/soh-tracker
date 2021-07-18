@@ -32,6 +32,8 @@ Application:    Track-OOT
 - fix error in update handler not showing correct download status (settings > about)
 - fix gossipstones not writing hint data to state
 - fix gossipstones not retrieving hint data after state load
+- fix loading shopsanity slot count from spoiler log
+- fix loading shop triforce pieces from spoiler log
 
 ---
 
