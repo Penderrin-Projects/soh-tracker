@@ -4,12 +4,17 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.1.10 (WIP)
+## VERSION 2.1.10
 
 ### NOTES PANEL
 
 - add font size control
     - persisted in new parameter storage
+
+### SONGS
+
+- add song reset button
+- add song clear button
 
 ### BUGFIXES
 
