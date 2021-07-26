@@ -13,7 +13,7 @@ const CTG_TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-#select {
+::slotted(#select) {
     height: 300px;
     width: 300px;
 }

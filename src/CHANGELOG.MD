@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.14
+
+### BUGFIXES
+
+- fix entrance binding menu size
+
+---
+
 ## VERSION 2.1.13
 
 ### BUGFIXES
