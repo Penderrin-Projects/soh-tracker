@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.13
+
+### BUGFIXES
+
+- fix entrance binding menu not opening
+- fix check all for unknown dungeon type bound to vanilla dungeon
+    - vanilla dungeon type was ignored
+
+---
+
 ## VERSION 2.1.12
 
 ### BUGFIXES

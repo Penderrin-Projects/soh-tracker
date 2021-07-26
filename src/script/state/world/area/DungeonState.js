@@ -140,7 +140,7 @@ export default class DungeonState extends DefaultState {
         if (type == "mq") {
             const listHandler = LIST_HANDLER.get(this);
             listHandler.setAllEntries(value);
-        } else if (type != "v") {
+        } else if (type == "v") {
             super.setAllEntries(value);
         }
     }

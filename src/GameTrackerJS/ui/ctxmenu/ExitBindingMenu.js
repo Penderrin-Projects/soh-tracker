@@ -19,6 +19,8 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const SELECT_EL = new WeakMap();
+
 export default class ExitBindingMenu extends ContextMenu {
 
     constructor() {
@@ -39,6 +41,7 @@ export default class ExitBindingMenu extends ContextMenu {
             event.preventDefault();
             return false;
         });
+        SELECT_EL.set(this, exitSelectEl);
         super.loadItems([exitSelectEl]);
     }
 
@@ -47,19 +50,19 @@ export default class ExitBindingMenu extends ContextMenu {
     }
 
     close() {
-        const exitSelectEl = this.shadowRoot.getElementById("select");
+        const exitSelectEl = SELECT_EL.get(this);
         exitSelectEl.resetSearch();
         super.close();
     }
 
     setValue(value) {
-        const selectEl = this.shadowRoot.getElementById("select");
-        selectEl.value = value;
+        const exitSelectEl = SELECT_EL.get(this);
+        exitSelectEl.value = value;
     }
 
     fillEntranceSelection(access, current = "") {
-        const selectEl = this.shadowRoot.getElementById("select");
-        selectEl.innerHTML = "";
+        const exitSelectEl = SELECT_EL.get(this);
+        exitSelectEl.innerHTML = "";
         // retrieve bound
         const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
@@ -78,11 +81,11 @@ export default class ExitBindingMenu extends ContextMenu {
         Language.applyLabel(emptyText, "unbind");
         emptyText.style.fontStyle = "italic";
         empty.append(emptyText);
-        selectEl.append(empty);
+        exitSelectEl.append(empty);
         // set choices and value
         const exit = WorldStateManager.getEntrance(access);
         if (exit != null) {
-            selectEl.value = current;
+            exitSelectEl.value = current;
             // add options
             const entrances = WorldResource.get("exit");
             for (const name in entrances) {
@@ -98,12 +101,12 @@ export default class ExitBindingMenu extends ContextMenu {
                         const categoryName = Language.generateLabel(value.props.type);
                         category.append(categoryName);
                         opt.append(category);
-                        selectEl.append(opt);
+                        exitSelectEl.append(opt);
                     }
                 }
             }
         } else {
-            selectEl.value = "";
+            exitSelectEl.value = "";
         }
     }
 
