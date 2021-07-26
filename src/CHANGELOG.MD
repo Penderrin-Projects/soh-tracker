@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.12
+
+### BUGFIXES
+
+- fix shop tab slots not being able to buy/unbuy items
+
+---
+
 ## VERSION 2.1.11
 
 ### SHOPS

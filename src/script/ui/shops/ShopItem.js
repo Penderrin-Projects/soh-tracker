@@ -194,7 +194,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                     if (state.isDefault()) {
                         this./*#*/__editItem();
                     } else {
-                        super.clickHandler(event);
+                        state.bought = !state.bought;
                     }
                 }
             }
