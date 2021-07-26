@@ -8,7 +8,6 @@ import "/emcJS/ui/input/Option.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import "/script/state/item/KeyState.js";
 import "./Item.js";
@@ -99,8 +98,6 @@ export default class ItemKey extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     connectedCallback() {

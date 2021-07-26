@@ -114,6 +114,16 @@ export default class ShopSlotState extends DefaultState {
         return "";
     }
 
+    isDefault() {
+        const shopState = SHOP_STATE.get(this);
+        return shopState.isDefault();
+    }
+
+    reset() {
+        const shopState = SHOP_STATE.get(this);
+        shopState.reset();
+    }
+
 }
 
 StateManager.register("shopslot", ShopSlotState);

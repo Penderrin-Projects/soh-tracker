@@ -7,6 +7,8 @@ import "/script/state/world/location/LocationState.js";
 import "../../ctxmenu/ShopSlotContextMenu.js";
 import ShopItemChoiceDialog from "../../shops/ShopItemChoiceDialog.js";
 
+// TODO make initial click open item select dialog
+
 export default class ShopSlot extends AbstractLocation {
 
     constructor() {
@@ -24,8 +26,7 @@ export default class ShopSlot extends AbstractLocation {
 
         /* context menu */
         const mnu_ctx = document.createElement("ootrt-ctxmenu-shopslot");
-        this.setContextMenu("main", mnu_ctx);
-
+        this.setDefaultContextMenu(mnu_ctx);
         mnu_ctx.addEventListener("check", event => {
             const state = this.getState();
             if (state != null) {
@@ -39,16 +40,39 @@ export default class ShopSlot extends AbstractLocation {
             }
         });
         mnu_ctx.addEventListener("associate", event => {
-            this./*#*/__editItem(event)
+            this./*#*/__editItem();
         });
-        
-        /* mouse events */
-        this.addEventListener("contextmenu", event => {
-            mnu_ctx.show(event.clientX, event.clientY);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
+        mnu_ctx.addEventListener("junk", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.item = "item.refill_item";
+                state.price = "0";
+                state.value = true;
+            }
         });
+        mnu_ctx.addEventListener("disassociate", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.reset();
+            }
+        });
+    }
+
+    clickHandler(event) {
+        const state = this.getState();
+        if (state != null) {
+            if (event.ctrlKey) {
+                state.item = "item.refill_item";
+                state.price = "0";
+                state.value = true;
+            } else {
+                if (state.isDefault()) {
+                    this./*#*/__editItem();
+                } else {
+                    super.clickHandler(event);
+                }
+            }
+        }
     }
 
     applyDefaultValues() {
@@ -65,17 +89,17 @@ export default class ShopSlot extends AbstractLocation {
         const state = this.getState();
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
-            if (state.item) {
+            if (state.item != null) {
                 const itemData = ShopItemsResource.get(state.item);
                 itemEl.src = itemData?.image ?? "/images/items/unknown.png";
             }
-            if (state.price) {
+            if (state.price != null) {
                 itemEl.text = state.price;
             }
         }
     }
 
-    /*#*/__editItem(event) {
+    /*#*/__editItem() {
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));

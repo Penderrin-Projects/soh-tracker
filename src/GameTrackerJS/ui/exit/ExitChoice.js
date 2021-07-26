@@ -126,7 +126,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         });
 
         /* context menu */
-        this.setContextMenu("main", document.createElement("gt-ctxmenu-exitchoice"));
+        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-exitchoice"));
         this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
@@ -134,9 +134,9 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
                 state.value = event.value;
             }
         });
-        this.addContextMenuHandler("main", "associate", event => {
+        this.addDefaultContextMenuHandler("associate", event => {
             const state = this.getState();
-            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ctx = this.getDefaultContextMenu();
             const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
@@ -148,7 +148,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
             mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
-        this.addContextMenuHandler("main", "deassociate", event => {
+        this.addDefaultContextMenuHandler("deassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
@@ -172,7 +172,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
             return false;
         });
         this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ctx = this.getDefaultContextMenu();
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();

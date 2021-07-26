@@ -9,7 +9,6 @@ import "/emcJS/ui/input/Option.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 import FilterSpy from "/GameTrackerJS/util/spy/FilterSpy.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <slot>
@@ -72,8 +71,6 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
             this.value = event.data;
         });
         FILTER_SPY.set(this, filterSpy);
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     get ref() {

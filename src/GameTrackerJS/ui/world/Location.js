@@ -5,7 +5,6 @@ import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class AbstractLocation extends WorldElement {
 
@@ -17,40 +16,26 @@ export default class AbstractLocation extends WorldElement {
         });
 
         /* context menu */
-        this.setContextMenu("main", document.createElement("gt-ctxmenu-location"));
-        this.addContextMenuHandler("main", "check", event => {
+        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-location"));
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        this.addContextMenuHandler("main", "uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        
-        /* mouse events */
-        this.addEventListener("click", event => {
-            const state = this.getState();
-            if (state != null) {
-                state.value = !state.value;
-            }
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getContextMenu("main");
-            mnu_ctx.show(event.clientX, event.clientY);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        
-        /* fck iOS */
-        iOSTouchHandler.register(this);
+    }
+
+    clickHandler(event) {
+        const state = this.getState();
+        if (state != null) {
+            state.value = !state.value;
+        }
     }
 
     applyDefaultValues() {

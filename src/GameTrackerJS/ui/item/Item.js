@@ -5,7 +5,6 @@ import "/emcJS/ui/input/Option.js";
 
 import ItemStates from "../../state/item/StateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div id="value">
@@ -85,8 +84,6 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     applyDefaultValues() {

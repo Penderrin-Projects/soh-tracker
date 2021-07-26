@@ -32,7 +32,7 @@ export default class Gossipstone extends AbstractLocation {
 
         /* context menu */
         const mnu_ctx = document.createElement("ootrt-ctxmenu-gossipstone");
-        this.setContextMenu("main", mnu_ctx);
+        this.setDefaultContextMenu(mnu_ctx);
 
         mnu_ctx.addEventListener("check", event => {
             const state = this.getState();

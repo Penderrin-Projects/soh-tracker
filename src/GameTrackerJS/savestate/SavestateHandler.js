@@ -304,6 +304,10 @@ class SavestateHandler extends EventTarget {
         return Savestate.getAll(category);
     }
 
+    delete(category, key) {
+        Savestate.delete(category, key);
+    }
+
 }
 
 const savestate = Object.freeze(new SavestateHandler());

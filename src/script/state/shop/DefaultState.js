@@ -12,6 +12,7 @@ import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
 const OBSERVABLE_DATA = new WeakMap();
 const ITEM_DATA = new WeakMap();
+const DEF_ITEM_DATA = new WeakMap();
 
 function internalItemChange(event) {
     const ref = this.ref;
@@ -79,14 +80,14 @@ export default class DefaultState extends DataState {
         /* --- */
         {
             // item
+            const defItemData = ShopItemsResource.get(this.props.item);
+            DEF_ITEM_DATA.set(this, defItemData);
             const item = SavestateHandler.get("shops", `${ref}.item`);
             if (item != null) {
                 const itemData = ShopItemsResource.get(item);
                 ITEM_DATA.set(this, itemData);
                 observableData.set("item", item);
             } else {
-                const defItemData = ShopItemsResource.get(this.props.item);
-                ITEM_DATA.set(this, defItemData);
                 observableData.set("item", this.props.item);
             }
             // price
@@ -240,7 +241,7 @@ export default class DefaultState extends DataState {
 
     set price(value) {
         const ref = this.ref;
-        const old = this.reward;
+        const old = this.price;
         value = this./*#*/__setPrice(value);
         if (value != null && value != old) {
             // internal
@@ -317,7 +318,28 @@ export default class DefaultState extends DataState {
     }
 
     get itemData() {
-        return ITEM_DATA.get(this);
+        if (ITEM_DATA.has(this)) {
+            return ITEM_DATA.get(this);
+        }
+        return DEF_ITEM_DATA.get(this);
+    }
+
+    isDefault() {
+        return !ITEM_DATA.has(this);
+    }
+
+    reset() {
+        const ref = this.ref;
+        const observableData = OBSERVABLE_DATA.get(this);
+        SavestateHandler.delete("shops", `${ref}.item`);
+        SavestateHandler.delete("shops", `${ref}.price`);
+        SavestateHandler.delete("shops", `${ref}.bought`);
+        SavestateHandler.delete("shops", `${ref}.name`);
+        ITEM_DATA.delete(this);
+        observableData.set("item", this.props.item);
+        observableData.set("price", this.props.price);
+        observableData.set("bought", false);
+        observableData.set("name", "");
     }
 
 }

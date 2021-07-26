@@ -5,8 +5,8 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import ContextMenuManagerMixin from "/GameTrackerJS/ui/mixin/ContextMenuManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import ShopStates from "/script/state/shop/StateManager.js";
 import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
@@ -118,7 +118,7 @@ function getIcon(itemData, bought) {
     return itemData.image ?? "/images/items/unknown.png";
 }
 
-export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLElement) {
+export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
     
     constructor() {
         super();
@@ -149,20 +149,66 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             }
         });
 
+        /* context menu */
+        const mnu_ctx = document.createElement("ootrt-ctxmenu-shopslot");
+        this.setDefaultContextMenu(mnu_ctx);
+        mnu_ctx.addEventListener("check", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = true;
+            }
+        });
+        mnu_ctx.addEventListener("uncheck", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = false;
+            }
+        });
+        mnu_ctx.addEventListener("associate", event => {
+            this./*#*/__editItem();
+        });
+        mnu_ctx.addEventListener("junk", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.item = "item.refill_item";
+                state.price = "0";
+                state.value = true;
+            }
+        });
+        mnu_ctx.addEventListener("disassociate", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.reset();
+            }
+        });
+
         /* mouse events */
         this.addEventListener("click", event => {
             const state = this.getState();
             if (state != null) {
-                state.bought = !state.bought;
+                if (event.ctrlKey) {
+                    state.item = "item.refill_item";
+                    state.price = "0";
+                    state.value = true;
+                } else {
+                    if (state.isDefault()) {
+                        this./*#*/__editItem();
+                    } else {
+                        super.clickHandler(event);
+                    }
+                }
             }
+            /* --- */
             event.preventDefault();
             event.stopPropagation();
             return false;
         });
+        
+        /* mouse events */
         this.addEventListener("contextmenu", event => {
-            this./*#*/__editItem();
-            event.preventDefault();
+            mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
+            event.preventDefault();
             return false;
         });
         const nameEl = this.shadowRoot.getElementById("name");
@@ -177,9 +223,6 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             event.stopPropagation();
             return false;
         });
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     applyDefaultValues() {

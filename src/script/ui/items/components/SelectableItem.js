@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 
 const STYLE = new GlobalStyle(`
 * {
@@ -37,8 +36,6 @@ export default class HTMLTrackerSelectableItem extends HTMLElement {
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.addEventListener("click", event => this.select(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     get ref() {

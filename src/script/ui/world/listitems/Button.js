@@ -2,10 +2,6 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 
-
-// GameTrackerJS
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
-
 const TPL = new Template(`
 <div class="textarea">
     <slot id="text"></slot>
@@ -80,9 +76,6 @@ export default class ListButton extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
 }

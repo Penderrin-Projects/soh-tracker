@@ -6,7 +6,6 @@ import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
 export default class WorldElement extends BaseClass {
@@ -34,8 +33,30 @@ export default class WorldElement extends BaseClass {
                 }
             }
         });
-        /* fck iOS */
-        iOSTouchHandler.register(this);
+        /* mouse events */
+        this.addEventListener("click", event => {
+            this.clickHandler(event);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+        this.addEventListener("contextmenu", event => {
+            this.contextmenuHandler(event);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+    }
+
+    clickHandler(event) {
+        // nothing
+    }
+
+    contextmenuHandler(event) {
+        const mnu_ctx = this.getDefaultContextMenu();
+        if (mnu_ctx != null) {
+            mnu_ctx.show(event.clientX, event.clientY);
+        }
     }
 
     applyDefaultValues(defaultIcon) {

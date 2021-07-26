@@ -4,6 +4,7 @@ import {createMixin} from "/emcJS/util/Mixin.js";
 
 import ContextMenuCatcher from "../ContextMenuCatcher.js";
 
+const DEFAULT_MENU_ID = "main";
 const MENUS = new WeakMap();
 const EVENT_MANAGERS = new WeakMap();
 
@@ -13,6 +14,22 @@ export default createMixin((superclass) => class ContextMenuManager extends supe
         super(...args);
         MENUS.set(this, new Map());
         EVENT_MANAGERS.set(this, new Map());
+    }
+
+    get defaultContextMenuId() {
+        return DEFAULT_MENU_ID;
+    }
+
+    setDefaultContextMenu(menu) {
+        this.setContextMenu(DEFAULT_MENU_ID, menu);
+    }
+
+    getDefaultContextMenu() {
+        return this.getContextMenu(DEFAULT_MENU_ID);
+    }
+
+    addDefaultContextMenuHandler(event, handler) {
+        this.addContextMenuHandler(DEFAULT_MENU_ID, event, handler);
     }
 
     setContextMenu(name, menu) {

@@ -167,6 +167,13 @@ class Savestate extends EventTarget {
         }
     }
 
+    delete(category, key) {
+        const dataStorage = this.getData(category);
+        if (dataStorage.has(key)) {
+            dataStorage.delete(key);
+        }
+    }
+
 }
 
 export default new Savestate();

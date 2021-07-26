@@ -8,7 +8,6 @@ import "/emcJS/ui/input/Option.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
 import "/script/ui/items/ItemPicker.js";
@@ -131,9 +130,6 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
             return false;
         });
         this.addEventListener("contextmenu", event => this.revert(event));
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     connectedCallback() {

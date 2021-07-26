@@ -4,6 +4,22 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.11
+
+### SHOPS
+
+- add junk submenu entry
+- make [ctrl] + [click] auto junk shop slots
+- add clear submenu entry
+- make initial click open item selection
+- make shop tab slots behave the same as location list slots
+
+### OVERHAUL
+
+- better contextmenu generation
+
+---
+
 ## VERSION 2.1.10
 
 ### NOTES PANEL

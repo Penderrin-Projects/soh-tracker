@@ -18,7 +18,6 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
@@ -211,8 +210,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 this.hint = data.newValue;
             }
         });
-        /* fck iOS */
-        iOSTouchHandler.register(this.shadowRoot.getElementById("body"));
     }
 
     connectedCallback() {

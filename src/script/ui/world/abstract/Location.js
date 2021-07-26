@@ -19,7 +19,7 @@ export default class Location extends AbstractLocation {
 
         /* context menu */
         const mnu_ctx = document.createElement("ootrt-ctxmenu-location");
-        this.setContextMenu("main", mnu_ctx);
+        this.setDefaultContextMenu(mnu_ctx);
 
         const mnu_itm = document.createElement("ootrt-ctxmenu-itempicker");
         this.setContextMenu("itempicker", mnu_itm);

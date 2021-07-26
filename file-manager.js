@@ -27,17 +27,19 @@ class FileManager {
     }
 
     finish(dest = "/", index = "index.json") {
-        let destFiles = glob.sync("./**/*", {
+        const indexPath = normalizePath(path.resolve(dest, index));
+        console.log(`index file: ${indexPath}`);
+        const destFiles = glob.sync("./**/*", {
             nodir: true,
             cwd: dest,
             absolute: true
         });
 
-        let srcFiles = Array.from(FILES);
-        
+        console.log("deleting unused files");
+        const srcFiles = Array.from(FILES);
         for (let i in destFiles) {
-            let fName = destFiles[i];
-            if (!(srcFiles.indexOf(fName) + 1)) {
+            const fName = destFiles[i];
+            if (fName != indexPath && !(srcFiles.indexOf(fName) + 1)) {
                 console.log(`delete file: ${fName}`);
                 del.sync(fName);
             }
@@ -48,6 +50,7 @@ class FileManager {
         let files = Array.from(FILES).map(el=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
         files.push("/");
         // TODO generate file structure object for sorting
+        console.log("write new index");
         fs.writeFileSync(path.resolve(dest, index), JSON.stringify(files, null, 4));
 
         FILES.clear();

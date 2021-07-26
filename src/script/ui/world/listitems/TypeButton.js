@@ -14,7 +14,6 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
@@ -124,9 +123,6 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
             event.preventDefault();
             return false;
         });
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
     
     applyAccess(data) {
