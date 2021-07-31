@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.15
+
+### IMPROVEMENTS
+
+- add empty exit to fast bind entrances without any checks
+- add optional available/unopened check counter to badges
+    - toggle by tracker settings, default: off
+
+### BUGFIXES
+
+- fix water temple no longer adds extra keys
+
+---
+
 ## VERSION 2.1.14
 
 ### BUGFIXES

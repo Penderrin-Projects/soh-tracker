@@ -32,6 +32,16 @@ const ACCEPTED_BOSSKEY_GROUPS = [
     "ganon"
 ];
 
+const KEY_VNL_AUGMENTS = {
+    "v": {
+        "temple_fire": 1
+    },
+    "mq": {
+        "temple_spirit": 3
+    }
+};
+const KEY_SAN_AUGMENTS = {};
+
 const cache = new Map();
 
 function renameKeys(src = {}, prefix = "") {
@@ -44,19 +54,12 @@ function renameKeys(src = {}, prefix = "") {
 
 function augmentKeys(ref, type, keys) {
     if (!cache.get("option.keysanity_small")) {
-        if (ref == "temple_spirit" && type == "mq") {
-            return keys + 3;
-        }
-        if (ref == "temple_fire" && type == "v") {
-            return keys + 1;
-        }
+        const keyAugment = KEY_VNL_AUGMENTS[type]?.[ref] ?? 0;
+        return keys + keyAugment;
     } else {
-        // nothing
+        const keyAugment = KEY_SAN_AUGMENTS[type]?.[ref] ?? 0;
+        return keys + keyAugment;
     }
-    if (ref == "temple_water" && type == "v") {
-        return keys + 1;
-    }
-    return keys;
 }
 
 Logic.addEventListener("change", event => {

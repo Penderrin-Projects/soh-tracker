@@ -41,6 +41,10 @@ export default class AbstractLocation extends WorldElement {
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/location.svg");
         this.applyAccess("unavailable");
+        const badge = this.shadowRoot.getElementById("badge");
+        if (badge instanceof Badge) {
+            badgeEl.hideValues = true;
+        }
     }
 
     applyStateValues(state) {

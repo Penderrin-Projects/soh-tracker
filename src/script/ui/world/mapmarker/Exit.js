@@ -20,7 +20,7 @@ const TPL = new Template(`
     <div class="textarea">
         <div id="entrances"></div>
         <div id="text"></div>
-        <gt-badge id="badge"></gt-badge>
+        <gt-badge-access id="badge"></gt-badge-access>
     </div>
     <div class="textarea">
         <div id="value"></div>

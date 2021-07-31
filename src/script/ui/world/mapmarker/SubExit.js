@@ -20,7 +20,7 @@ const TPL = new Template(`
 <emc-tooltip position="top" id="tooltip">
     <div class="textarea">
         <div id="text"></div>
-        <gt-badge id="badge"></gt-badge>
+        <gt-badge-access id="badge"></gt-badge-access>
     </div>
     <div class="textarea">
         <div id="value"></div>

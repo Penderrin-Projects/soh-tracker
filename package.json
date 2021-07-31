@@ -2,14 +2,11 @@
   "license": "MIT",
   "author": "Denis Peters (ZidArgs)",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.42",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.3.43",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.12",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/eslint-parser": "^7.11.5",
-    "@babel/plugin-syntax-top-level-await": "^7.10.4",
     "del": "^5.1.0",
     "electron": "^13.1.1",
     "glob-all": "^3.1.0",

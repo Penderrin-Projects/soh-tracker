@@ -6,6 +6,7 @@ import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
+import "../BadgeAccess.js";
 
 const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
 export default class WorldElement extends BaseClass {
@@ -94,6 +95,8 @@ export default class WorldElement extends BaseClass {
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
             badgeEl.access = value;
+            badgeEl.available = data.reachable;
+            badgeEl.unopened = data.unopened;
         }
     }
 

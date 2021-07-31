@@ -74,14 +74,22 @@ export default class ExitBindingMenu extends ContextMenu {
                 }
             }
         }
+        // add unbind
+        const unbindOptionEl = document.createElement("emc-option");
+        unbindOptionEl.value = "";
+        const unbindOptionText = document.createElement("span");
+        Language.applyLabel(unbindOptionText, "unbind");
+        unbindOptionText.style.fontStyle = "italic";
+        unbindOptionEl.append(unbindOptionText);
+        exitSelectEl.append(unbindOptionEl);
         // add empty
-        const empty = document.createElement("emc-option");
-        empty.value = "";
-        const emptyText = document.createElement("span");
-        Language.applyLabel(emptyText, "unbind");
-        emptyText.style.fontStyle = "italic";
-        empty.append(emptyText);
-        exitSelectEl.append(empty);
+        const emptyOptionEl = document.createElement("emc-option");
+        emptyOptionEl.value = "\u0000";
+        const emptyOptionText = document.createElement("span");
+        Language.applyLabel(emptyOptionText, "entrance[\u0000]");
+        emptyOptionText.style.fontStyle = "italic";
+        emptyOptionEl.append(emptyOptionText);
+        exitSelectEl.append(emptyOptionEl);
         // set choices and value
         const exit = WorldStateManager.getEntrance(access);
         if (exit != null) {

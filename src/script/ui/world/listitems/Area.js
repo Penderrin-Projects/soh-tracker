@@ -16,7 +16,7 @@ const TPL = new Template(`
     <div id="entrances"></div>
     <div id="text"></div>
     <div id="hint"></div>
-    <gt-badge id="badge"></gt-badge>
+    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 `);
 

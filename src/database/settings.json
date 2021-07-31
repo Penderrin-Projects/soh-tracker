@@ -45,6 +45,11 @@
         "type": "check",
         "default": true
     },
+    "show_access_values": {
+        "category": "settings",
+        "type": "check",
+        "default": false
+    },
     "sublist_collapsible": {
         "category": "settings",
         "type": "choice",

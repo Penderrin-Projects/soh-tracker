@@ -1,6 +1,7 @@
 # language file for track-oot
-# language: deutsch
-# author: ZidArgs (2deep4real), Fraggerman, Luigimeansme, TotallyABot
+# language: Deutsch
+# ---------------------------
+# author: ZidArgs, Fraggerman, Luigimeansme, TotallyABot
 
 language=Sprache (Neustart erforderlich)
 
@@ -1038,6 +1039,7 @@ skips=Aktive Skips
 font=Wähle Font
 layout=Wähle Layout
 color_blind_mode=Farbenblind Modus aktivieren
+show_access_values=Zeige erreichbare/ungeöffnete Checks an Umgebungen
 item_size=Item Größe
 autosave_time=Zeit für automatisches Speichern in Minuten (0 zum Deaktivieren)
 autosave_amount=Anzahl zu behaltender automatischer Speicherungen
@@ -1910,6 +1912,7 @@ entrance[region.wasteland_colossus_gateway\u0020->\u0020region.colossus_wastelan
 entrance[region.colossus_wasteland_gateway\u0020->\u0020region.wasteland_colossus_gateway]=Wüstenkoloss aus Richtung Gespensterwüste
 
 ## specials
+entrance[\u0000]=Leer
 
 exit[region.lh_owl_flight\u0020->\u0020region.hyrule_field]=Hyliasee Eule
 entrance[region.hyrule_field\u0020->\u0020region.lh_owl_flight]= Hylianische Steppe Eulen-Drop

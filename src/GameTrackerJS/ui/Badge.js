@@ -100,14 +100,15 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
             }
         }
         /* --- */
+        const colorBlindEl = this.shadowRoot.getElementById("access");
+        colorBlindEl.style.display = colorBlindSpy.getValue() ? "" : "none";
         this.switchTarget("colorBlind", colorBlindSpy);
         this.setTargetEventListener("colorBlind", "change", event => {
-            const accessEl = this.shadowRoot.getElementById("access");
-            if (accessEl != null) {
-                if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
-                    accessEl.src = `images/icons/access_${this.access}.svg`;
+            if (colorBlindEl != null) {
+                if (!!event.data) {
+                    colorBlindEl.style.display = "";
                 } else {
-                    accessEl.src = "";
+                    colorBlindEl.style.display = "none";
                 }
             }
         });
@@ -136,26 +137,22 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "type-icon":
-                    {
-                        const typeEl = this.shadowRoot.getElementById("type");
-                        if (typeEl != null) {
-                            typeEl.src = newValue;
+                case "type-icon": {
+                    const typeEl = this.shadowRoot.getElementById("type");
+                    if (typeEl != null) {
+                        typeEl.src = newValue;
+                    }
+                } break;
+                case "access": {
+                    const colorBlindEl = this.shadowRoot.getElementById("access");
+                    if (colorBlindEl != null) {
+                        if (ACCESS_VALUES.indexOf(newValue) >= 0) {
+                            colorBlindEl.src = `images/icons/access_${newValue}.svg`;
+                        } else {
+                            colorBlindEl.src = "";
                         }
                     }
-                    break;
-                case "access":
-                    {
-                        const accessEl = this.shadowRoot.getElementById("access");
-                        if (accessEl != null) {
-                            if (colorBlindSpy.getValue() && ACCESS_VALUES.indexOf(newValue) >= 0) {
-                                accessEl.src = `images/icons/access_${newValue}.svg`;
-                            } else {
-                                accessEl.src = "";
-                            }
-                        }
-                    }
-                    break;
+                } break;
             }
         }
     }

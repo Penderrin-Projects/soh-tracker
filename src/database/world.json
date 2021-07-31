@@ -12020,7 +12020,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "hyrule_field.dive_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.dive_grotto",
                 "visible": {
                     "type": "not",
@@ -12045,7 +12045,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.kakariko_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.kakariko_grotto",
                 "visible": {
                     "type": "not",
@@ -12070,7 +12070,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.castle_entrance_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.castle_entrance_grotto",
                 "visible": {
                     "type": "not",
@@ -12095,7 +12095,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.valley_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.valley_grotto",
                 "visible": {
                     "type": "not",
@@ -12120,7 +12120,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_fence_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.lake_fence_grotto",
                 "visible": {
                     "type": "not",
@@ -12145,7 +12145,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.lake_open_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.lake_open_grotto",
                 "visible": {
                     "type": "not",
@@ -12170,7 +12170,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.little_forest_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.little_forest_grotto",
                 "visible": {
                     "type": "not",
@@ -12195,7 +12195,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "kokiri.storm_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.kokiri.storm_grotto",
                 "visible": {
                     "type": "not",
@@ -12220,7 +12220,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_goron_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.woods.near_goron_grotto",
                 "visible": {
                     "type": "not",
@@ -12245,7 +12245,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "woods.near_meadow_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.woods.near_meadow_grotto",
                 "visible": {
                     "type": "not",
@@ -12270,7 +12270,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "woods.theatre_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.woods.theatre_grotto",
                 "visible": {
                     "type": "not",
@@ -12295,7 +12295,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "meadow.wolfos_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.meadow.wolfos_grotto",
                 "visible": {
                     "type": "not",
@@ -12320,7 +12320,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "meadow.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.meadow.storms_grotto",
                 "visible": {
                     "type": "not",
@@ -12580,7 +12580,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "castle.storm_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.castle.storm_grotto",
                 "visible": {
                     "type": "not",
@@ -12769,7 +12769,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "kakariko.open_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.kakariko.open_grotto",
                 "visible": {
                     "type": "not",
@@ -12794,7 +12794,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "kakariko.redead_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.kakariko.redead_grotto",
                 "visible": {
                     "type": "not",
@@ -12819,7 +12819,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.shield_grave": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.graveyard.shield_grave",
                 "visible": {
                     "type": "not",
@@ -12844,7 +12844,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.redead_grave": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.graveyard.redead_grave",
                 "visible": {
                     "type": "not",
@@ -12869,7 +12869,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.dampes_grave": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.graveyard.dampes_grave",
                 "visible": {
                     "type": "not",
@@ -12894,7 +12894,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.royal_grave": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.graveyard.royal_grave",
                 "visible": {
                     "type": "not",
@@ -12942,7 +12942,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "mountain.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.mountain.storms_grotto",
                 "visible": {
                     "type": "not",
@@ -12967,7 +12967,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "mountain.bomb_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.mountain.bomb_grotto",
                 "visible": {
                     "type": "not",
@@ -13015,7 +13015,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "crater.hammer_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.crater.hammer_grotto",
                 "visible": {
                     "type": "not",
@@ -13040,7 +13040,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "crater.crater_bomb_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.crater.crater_bomb_grotto",
                 "visible": {
                     "type": "not",
@@ -13065,7 +13065,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "goron.grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.goron.grotto",
                 "visible": {
                     "type": "not",
@@ -13090,7 +13090,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "river.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.river.storms_grotto",
                 "visible": {
                     "type": "not",
@@ -13115,7 +13115,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "river.open_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.river.open_grotto",
                 "visible": {
                     "type": "not",
@@ -13209,7 +13209,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "lake.grave_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.lake.grave_grotto",
                 "visible": {
                     "type": "not",
@@ -13234,7 +13234,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "gerudo_valley.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.gerudo_valley.storms_grotto",
                 "visible": {
                     "type": "not",
@@ -13282,7 +13282,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "desert.strength_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.fountain.fairy_fountain",
                 "visible": {
                     "type": "not",
@@ -13307,7 +13307,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "hyrule_field.fairy_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.hyrule_field.fairy_grotto",
                 "visible": false,
                 "filter": {
@@ -13323,7 +13323,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "kokiri.sarias_house": {
                 "type": "interior",
@@ -13406,7 +13406,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "meadow.fairy_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.meadow.fairy_grotto",
                 "visible": false,
                 "filter": {
@@ -13422,7 +13422,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "castle_town.shop_mask": {
                 "type": "interior",
@@ -13677,7 +13677,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "river.bomb_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.river.bomb_grotto",
                 "visible": false,
                 "filter": {
@@ -13693,7 +13693,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "zoras.shop": {
                 "type": "interior",
@@ -13719,7 +13719,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "zoras.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.zoras.storms_grotto",
                 "visible": false,
                 "filter": {
@@ -13735,7 +13735,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "gerudo_valley.tend": {
                 "type": "interior",
@@ -13757,7 +13757,7 @@
                 "icon": "images/icons/interior.svg"
             },
             "gerudo_valley.octorock_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.gerudo_valley.octorock_grotto",
                 "visible": false,
                 "filter": {
@@ -13773,10 +13773,10 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             },
             "gerudo.storms_grotto": {
-                "type": "interior",
+                "type": "grotto",
                 "access": "logic.subarea.gerudo.storms_grotto",
                 "visible": false,
                 "filter": {
@@ -13792,7 +13792,7 @@
                         "false": "!done"
                     }
                 },
-                "icon": "images/icons/interior.svg"
+                "icon": "images/icons/grotto.svg"
             }
         },
         "area": {

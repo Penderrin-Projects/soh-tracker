@@ -25,7 +25,7 @@ const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
 const TPL = new Template(`
 <div id="header" class="textarea">
     <div id="text"></div>
-    <gt-badge id="badge"></gt-badge>
+    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 <div id="list">
     <slot></slot>

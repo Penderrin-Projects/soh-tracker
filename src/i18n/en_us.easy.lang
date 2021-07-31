@@ -1,5 +1,6 @@
 # language file for track-oot
-# language: english
+# language: English (Descriptive names)
+# ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme
 
 language=Language (needs restart)
@@ -1038,6 +1039,7 @@ skips=Active skips
 font=Select Font
 layout=Select Layout
 color_blind_mode=Activate color blind mode
+show_access_values=Show available/unopened checks for areas
 item_size=Item Size
 autosave_time=Autosave time in minutes (0 to deactivate)
 autosave_amount=Number of autosaves to keep
@@ -1910,6 +1912,7 @@ entrance[region.wasteland_colossus_gateway\u0020->\u0020region.colossus_wastelan
 entrance[region.colossus_wasteland_gateway\u0020->\u0020region.wasteland_colossus_gateway]=Desert Colossus From Haunted Wasteland
 
 ## specials
+entrance[\u0000]=Empty
 
 exit[region.lh_owl_flight\u0020->\u0020region.hyrule_field]=Lake Hylia Owl
 entrance[region.hyrule_field\u0020->\u0020region.lh_owl_flight]= Hyrule Field Owl Drop
