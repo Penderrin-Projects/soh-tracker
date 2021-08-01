@@ -3,6 +3,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import EmptyState from "../../state/world/EmptyState.js";
 import AreaState from "../../state/world/area/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/ExitContextMenu.js";
@@ -88,7 +89,9 @@ export default class MapSubExit extends WorldElement {
         if (state != null) {
             const area = state.area;
             if (area != null) {
-                if (area instanceof AreaState) {
+                if (area instanceof EmptyState) {
+                    // nothing
+                } else if (area instanceof AreaState) {
                     EventBus.trigger("location_change", {
                         name: area.ref
                     });

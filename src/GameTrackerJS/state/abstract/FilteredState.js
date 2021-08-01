@@ -26,7 +26,7 @@ const FILTER_LOGICS = new WeakMap();
 
 export default class FilteredState extends VisibilityState {
 
-    constructor(ref, props) {
+    constructor(ref, props = {}) {
         super(ref, props);
         /* FILTER */
         if (props.filter) {
@@ -87,31 +87,35 @@ export default class FilteredState extends VisibilityState {
 
     checkAllFilter() {
         const filter_values = FILTER.get(this);
-        const changes = {};
-        for (const [id, oVal] of filter_values) {
-            const value = FilterStorage.get(id);
-            const nVal = this./*#*/__executeFilter(`${id}/${value}`);
-            if (oVal != nVal) {
-                filter_values.set(id, nVal);
-                changes[id] = nVal;
+        if (filter_values != null) {
+            const changes = {};
+            for (const [id, oVal] of filter_values) {
+                const value = FilterStorage.get(id);
+                const nVal = this./*#*/__executeFilter(`${id}/${value}`);
+                if (oVal != nVal) {
+                    filter_values.set(id, nVal);
+                    changes[id] = nVal;
+                }
             }
-        }
-        if (Object.keys(changes).length) {
-            const event = new Event("filter");
-            event.data = changes;
-            this.dispatchEvent(event);
+            if (Object.keys(changes).length) {
+                const event = new Event("filter");
+                event.data = changes;
+                this.dispatchEvent(event);
+            }
         }
     }
 
     /*#*/__executeFilter(name) {
         const filter_logics = FILTER_LOGICS.get(this);
-        const logicFn = filter_logics.get(name);
-        if (typeof logicFn == "function") {
-            return LogicExecutor.execute(logicFn);
-        } else if (typeof logicFn == "string") {
-            return this.executeSpecialFilter(logicFn);
-        } else if (logicFn != null) {
-            return !!logicFn;
+        if (filter_logics != null) {
+            const logicFn = filter_logics.get(name);
+            if (typeof logicFn == "function") {
+                return LogicExecutor.execute(logicFn);
+            } else if (typeof logicFn == "string") {
+                return this.executeSpecialFilter(logicFn);
+            } else if (logicFn != null) {
+                return !!logicFn;
+            }
         }
         return true;
     }
@@ -131,9 +135,11 @@ export default class FilteredState extends VisibilityState {
     get filtered() {
         const activeFilter = FilterStorage.getAll();
         const filter_values = FILTER.get(this);
-        for (const filter in activeFilter) {
-            if (filter_values.has(filter) && !filter_values.get(filter)) {
-                return true;
+        if (filter_values != null) {
+            for (const filter in activeFilter) {
+                if (filter_values.has(filter) && !filter_values.get(filter)) {
+                    return true;
+                }
             }
         }
         return false;

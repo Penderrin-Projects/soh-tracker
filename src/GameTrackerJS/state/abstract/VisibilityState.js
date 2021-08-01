@@ -10,7 +10,7 @@ const VISIBLE_LOGIC = new WeakMap();
 
 export default class VisibilityState extends DataState {
 
-    constructor(ref, props) {
+    constructor(ref, props = {}) {
         super(ref, props);
         /* VISIBLE */
         if (typeof props.visible == "object") {

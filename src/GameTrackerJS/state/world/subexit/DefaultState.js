@@ -1,7 +1,7 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-import WorldStateManagers from "../StateManagers.js";
+import EntranceStateManager from "../entrance/StateManager.js";
 import ExitState from "../abstract/ExitState.js";
 
 export default class DefaultState extends ExitState {
@@ -38,14 +38,14 @@ export default class DefaultState extends ExitState {
                 super.value = change.value;
             } else if (change.value == access) {
                 // if this entrance got bound
-                const otherExit = WorldStateManagers.getEntrance(change.ref);
+                const otherExit = EntranceStateManager.get(change.ref);
                 if (otherExit != null && otherExit.props.isBiDir) {
                     super.value = change.ref;
                 }
             } else if (change.value != "" && change.value == this.value) {
                 // if another exit got bound to this ones entrance
-                if (!this.exitData.ignoreBound) {
-                    const otherExit = WorldStateManagers.getEntrance(change.ref);
+                if (change.value != "\u0000" && !this.exitData.ignoreBound) {
+                    const otherExit = EntranceStateManager.get(change.ref);
                     if (otherExit != null && !otherExit.props.ignoreBound) {
                         super.value = "";
                     }
@@ -53,8 +53,8 @@ export default class DefaultState extends ExitState {
             } else if (change.ref == this.value) {
                 // if another entrance got bound to this ones exit
                 // if the exit does no longer bind to this
-                if (!this.exitData.ignoreBound) {
-                    const otherExit = WorldStateManagers.getEntrance(change.ref);
+                if (change.value != "\u0000" && !this.exitData.ignoreBound) {
+                    const otherExit = EntranceStateManager.get(change.ref);
                     if (otherExit == null || !otherExit.props.ignoreBound) {
                         super.value = "";
                     }

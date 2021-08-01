@@ -1,3 +1,4 @@
+import EmptyState from "./EmptyState.js";
 import OverworldState from "./OverworldState.js";
 import AreaStateManager from "./area/StateManager.js";
 import EntranceStateManager from "./entrance/StateManager.js";
@@ -14,15 +15,14 @@ const WORLD = {
     subexit: SubexitStateManager
 };
 
-let overworldState = null;
-
 class WorldStateManager {
 
+    getEmpty() {
+        return EmptyState;
+    }
+
     getOverworld() {
-        if (overworldState == null) {
-            overworldState = new OverworldState();
-        }
-        return overworldState;
+        return OverworldState;
     }
 
     getEntrance(id) {
@@ -39,6 +39,9 @@ class WorldStateManager {
         if (category == "" || category == "overworld") {
             return this.getOverworld();
         }
+        if (category == "\u0000") {
+            return this.getEmpty();
+        }
         const Manager = WORLD[category];
         if (Manager != null) {
             return Manager.get(id);
@@ -53,6 +56,9 @@ class WorldStateManager {
         }
         if (ref == "" || ref == "overworld") {
             return this.getOverworld();
+        }
+        if (ref == "\u0000") {
+            return this.getEmpty();
         }
         const [category, id] = ref.split("/");
         return this.get(category, id);

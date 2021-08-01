@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.16
+
+### BUGFIXES
+
+- add empty world states
+    - handle access for entrance bindings to empty values
+- add exception for single entrance binding checks
+    - empty entrances can now be bound multiple times
+- add exception empty entrances to not trigger worldlist change
+- remove redundant world state handling
+
+---
+
 ## VERSION 2.1.15
 
 ### IMPROVEMENTS

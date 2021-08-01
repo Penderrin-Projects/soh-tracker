@@ -3,7 +3,6 @@ import Helper from "/emcJS/util/Helper.js";
 
 import WorldResource from "../../resource/WorldResource.js";
 import MarkerListHandler from "../../util/MarkerListHandler.js";
-import WorldStateManagers from "./StateManagers.js";
 import "./area/StateManager.js";
 import "./subarea/StateManager.js";
 import "./exit/StateManager.js";
@@ -14,7 +13,7 @@ const AREA_DATA = new WeakMap();
 const ACCESS = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
-export default class OverworldState extends EventTarget {
+class OverworldState extends EventTarget {
 
     constructor() {
         super();
@@ -24,8 +23,6 @@ export default class OverworldState extends EventTarget {
         const listHandler = this.generateList();
         ACCESS.set(this, listHandler.access);
         LIST_HANDLER.set(this, listHandler);
-        /* --- */
-        WorldStateManagers.overworld = this;
     }
 
     setAccess(value) {
@@ -75,3 +72,5 @@ export default class OverworldState extends EventTarget {
     }
 
 }
+
+export default new OverworldState();

@@ -3,6 +3,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import EmptyState from "../../state/world/EmptyState.js";
 import WorldElement from "./WorldElement.js";
 import "../ctxmenu/ExitContextMenu.js";
 import "../ctxmenu/ExitBindingMenu.js";
@@ -102,9 +103,13 @@ export default class MapExit extends WorldElement {
         if (state != null) {
             const area = state.area;
             if (area != null) {
-                EventBus.trigger("location_change", {
-                    name: area.ref
-                });
+                if (area instanceof EmptyState) {
+                    // nothing
+                } else /*if (area instanceof AreaState)*/ {
+                    EventBus.trigger("location_change", {
+                        name: area.ref
+                    });
+                }
             } else {
                 const mnu_ext = this.getContextMenu("exitbinding");
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);

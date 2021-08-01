@@ -3,7 +3,7 @@ import FilteredState from "../../abstract/FilteredState.js";
 
 export default class WorldState extends FilteredState {
 
-    constructor(ref, props) {
+    constructor(ref, props = {}) {
         super(ref, props);
         /* --- */
         SavestateHandler.addEventListener("beforeload", event => {

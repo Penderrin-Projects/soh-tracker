@@ -7,7 +7,7 @@ const LIST_HANDLER = new WeakMap();
 
 export default class AreaState extends FilteredState {
     
-    constructor(ref, props, areaData) {
+    constructor(ref, props = {}, areaData = {}) {
         super(ref, props);
         /* --- */
         AREA_DATA.set(this, areaData);

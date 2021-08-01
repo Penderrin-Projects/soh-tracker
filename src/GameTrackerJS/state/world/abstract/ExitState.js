@@ -10,19 +10,23 @@ import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import WorldState from "./WorldState.js";
 import {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
-import WorldStateManagers from "../StateManagers.js";
+import WorldStateManager from "../WorldStateManager.js";
+import EmptyState from "../EmptyState.js";
 import EntranceStates from "../entrance/StateManager.js";
 
 function getEntranceArea(value) {
     if (value == "") {
         return null;
     }
+    if (value == "\u0000") {
+        return EmptyState;
+    }
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
     if (entrance == null) {
         console.error(`exit "${value}" not found`);
         return null;
     }
-    const area = WorldStateManagers.getByRef(entrance.props.area);
+    const area = WorldStateManager.getByRef(entrance.props.area);
     if (area == null) {
         console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
         return null;
@@ -58,7 +62,7 @@ const AREA = new WeakMap();
 
 export default class ExitState extends WorldState {
 
-    constructor(ref, props, exitData) {
+    constructor(ref, props = {}, exitData = {}) {
         super(ref, props);
         /* --- */
         const manager = new StateDataEventManager();
