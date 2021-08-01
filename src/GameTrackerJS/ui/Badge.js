@@ -8,10 +8,12 @@ import FilterResource from "../resource/FilterResource.js";
 import SettingsSpy from "../util/spy/SettingsSpy.js";
 
 const colorBlindSpy = new SettingsSpy("color_blind_mode");
+const showFiltersSpy = new SettingsSpy("show_filter_badges");
 
 const TPL = new Template(`
 <emc-icon id="access"></emc-icon>
 <emc-icon id="type"></emc-icon>
+<div id="filters"></div>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -40,6 +42,9 @@ emc-icon {
 emc-icon:not([src]),
 emc-icon[src=""] {
     display: none;
+}
+#filters {
+    display: contents;
 }
 `);
 
@@ -91,25 +96,33 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         STYLE.apply(this.shadowRoot);
         /* --- */
         const filter = FilterResource.get();
+        const filtersEl = this.shadowRoot.getElementById("filters");
         for (const name in filter) {
             const value = filter[name];
             if (value.badge) {
                 const el = document.createElement("emc-icon");
                 el.id = `badge-${name}`;
-                this.shadowRoot.append(el);
+                filtersEl.append(el);
             }
         }
+        if (filtersEl != null) {
+            filtersEl.style.display = showFiltersSpy.getValue() ? "" : "none";
+        }
+        this.switchTarget("showFilters", showFiltersSpy);
+        this.setTargetEventListener("showFilters", "change", event => {
+            if (filtersEl != null) {
+                filtersEl.style.display = !!event.data ? "" : "none";
+            }
+        });
         /* --- */
         const colorBlindEl = this.shadowRoot.getElementById("access");
-        colorBlindEl.style.display = colorBlindSpy.getValue() ? "" : "none";
+        if (colorBlindEl != null) {
+            colorBlindEl.style.display = colorBlindSpy.getValue() ? "" : "none";
+        }
         this.switchTarget("colorBlind", colorBlindSpy);
         this.setTargetEventListener("colorBlind", "change", event => {
             if (colorBlindEl != null) {
-                if (!!event.data) {
-                    colorBlindEl.style.display = "";
-                } else {
-                    colorBlindEl.style.display = "none";
-                }
+                colorBlindEl.style.display = !!event.data ? "" : "none";
             }
         });
     }

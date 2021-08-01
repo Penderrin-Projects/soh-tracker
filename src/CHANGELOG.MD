@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.17
+
+### IMPROVEMENTS
+
+- make filter badges optional
+    - toggle by tracker settings, default: on
+
+### BUGFIXES
+
+- prevent linebreak in access numbers badge
+
+---
+
 ## VERSION 2.1.16
 
 ### BUGFIXES

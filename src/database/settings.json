@@ -40,6 +40,11 @@
             "standard-essential-map"
         ]
     },
+    "show_filter_badges": {
+        "category": "settings",
+        "type": "check",
+        "default": true
+    },
     "color_blind_mode": {
         "category": "settings",
         "type": "check",

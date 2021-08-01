@@ -1038,6 +1038,7 @@ skips=Active skips
 # SETTINGS - GENERAL
 font=Select Font
 layout=Select Layout
+show_filter_badges=Show filter badges for checks
 color_blind_mode=Activate color blind mode
 show_access_values=Show available/unopened checks for areas
 item_size=Item Size

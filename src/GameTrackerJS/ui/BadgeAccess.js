@@ -30,7 +30,9 @@ const STYLE = new GlobalStyle(`
     height: 12px;
     font-size: 0.5em;
     line-height: 1em;
-    padding: 5px;
+    padding: 2px;
+    white-space: pre;
+    word-break: keep-all;
 }
 `);
 
@@ -42,15 +44,13 @@ export default class BadgeAccess extends Badge {
         STYLE.apply(this.shadowRoot);
         /* --- */
         const accessValuesEl = this.shadowRoot.getElementById("access-values");
-        accessValuesEl.style.display = accessValuesSpy.getValue() ? "" : "none";
+        if (accessValuesEl != null) {
+            accessValuesEl.style.display = accessValuesSpy.getValue() ? "" : "none";
+        }
         this.switchTarget("accessValues", accessValuesSpy);
         this.setTargetEventListener("accessValues", "change", event => {
             if (accessValuesEl != null) {
-                if (!!event.data) {
-                    accessValuesEl.style.display = "";
-                } else {
-                    accessValuesEl.style.display = "none";
-                }
+                accessValuesEl.style.display = !!event.data ? "" : "none";
             }
         });
     }
