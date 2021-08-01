@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.19
+
+### IMPROVEMENTS
+
+- make [ctrl] + [click] auto de-junk junked shop slots
+- add dirty check to autosave handling
+
+---
+
 ## VERSION 2.1.18
 
 ### BUGFIXES

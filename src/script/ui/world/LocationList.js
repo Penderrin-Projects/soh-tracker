@@ -5,7 +5,6 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import "/GameTrackerJS/state/world/OverworldState.js";
@@ -178,6 +177,18 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         areaEventManager.set("list_update", event => {
             this.refresh();
         });
+        /* --- */
+        SavestateHandler.addEventListener("load", event => {
+            this.refresh();
+        });
+        SavestateHandler.addEventListener("change_area_hint", event => {
+            if (event.changes != null) {
+                const data = event.changes[this.ref];
+                if (data != null) {
+                    this.hint = data.newValue;
+                }
+            }
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -189,9 +200,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         this.registerGlobal("logic", event => {
             this.updateHeader();
         });
-        this.registerGlobal("state", () => {
-            this.refresh();
-        });
         this.registerGlobal("state::dungeontype", event => {
             if (event.data != null) {
                 const data = event.data;
@@ -199,15 +207,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     this.shadowRoot.getElementById("location-version").value = data.value;
                     this.refresh();
                 }
-            }
-        });
-        this.registerGlobal("statechange_area_hint", event => {
-            let data;
-            if (event.data != null) {
-                data = event.data[this.ref];
-            }
-            if (data != null) {
-                this.hint = data.newValue;
             }
         });
     }

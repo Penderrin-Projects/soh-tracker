@@ -40,9 +40,14 @@ export default class DefaultState extends DataState {
         MIN.set(this, parseNumber(opt?.min ?? props.min ?? 0, Number.MIN_SAFE_INTEGER));
         MAX.set(this, parseNumber(opt?.max ?? props.max ?? 0, Number.MAX_SAFE_INTEGER));
         VALUE.set(this, SavestateHandler.get("", ref, 0));
+        /* --- */
+        // SavestateHandler.addEventListener("load", event => {
+        //     console.log("load", event);
+        // });
         /* EVENTS */
         EventBus.register("state::item", internalChange.bind(this));
         EventBus.register("state", event => {
+            // console.log("state", event);
             this.stateLoaded(event);
         });
     }

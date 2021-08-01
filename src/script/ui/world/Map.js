@@ -4,8 +4,8 @@ import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
-
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/OverworldState.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
@@ -440,6 +440,18 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         areaEventManager.set("list_update", event => {
             this.refresh();
         });
+        /* --- */
+        SavestateHandler.addEventListener("load", event => {
+            this.refresh();
+        });
+        SavestateHandler.addEventListener("change_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.changes[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
+            }
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -450,14 +462,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         this.registerGlobal("state", () => {
             this.refresh();
-        });
-        this.registerGlobal("statechange_dungeontype", event => {
-            if (event.data != null) {
-                const data = event.data[this.ref];
-                if (data != null) {
-                    this.refresh();
-                }
-            }
         });
     }
 

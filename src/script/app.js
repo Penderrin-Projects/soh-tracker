@@ -18,6 +18,7 @@ import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import "/GameTrackerJS/ui/TextEditor.js";

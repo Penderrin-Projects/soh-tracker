@@ -3,7 +3,7 @@ import SettingsStorage from "../../../storage/SettingsStorage.js";
 import SettingsBuilder from "../../../util/SettingsBuilder.js";
 import SettingsWindow from "./SettingsWindow.js";
 import BusyIndicator from "../../../ui/BusyIndicator.js";
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import AutosaveHandler from "../../../savestate/AutosaveHandler.js";
 
 // TODO bind erase stored data button
 
@@ -12,7 +12,8 @@ function applySettingsChoices(settings) {
     viewpane.setAttribute("data-font", settings.font);
     document.querySelector("#layout-container").setAttribute("layout", settings.layout);
     document.body.style.setProperty("--item-size", settings.itemsize);
-    SavestateHandler.setAutosave(settings.autosave_amount, settings.autosave_time);
+    AutosaveHandler.time = settings.autosave_time;
+    AutosaveHandler.slots = settings.autosave_amount;
 }
 applySettingsChoices(SettingsStorage.getAll());
 

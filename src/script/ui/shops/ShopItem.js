@@ -187,9 +187,13 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             const state = this.getState();
             if (state != null) {
                 if (event.ctrlKey) {
-                    state.item = "item.refill_item";
-                    state.price = "0";
-                    state.value = true;
+                    if (state.item != "item.refill_item") {
+                        state.item = "item.refill_item";
+                        state.price = "0";
+                        state.value = true;
+                    } else {
+                        state.reset();
+                    }
                 } else {
                     if (state.isDefault()) {
                         this./*#*/__editItem();

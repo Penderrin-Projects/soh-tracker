@@ -94,6 +94,11 @@ to:
     - chrome://flags/#web-contents-occlusion
     - chrome://flags/#calculate-native-win-occlusion
 
+- include this https://developer.mozilla.org/en-US/docs/Web/API/StorageManager
+    - persist option
+        - if not persisted aske for persistence
+    - show storage usage
+
 ---
 
 ### REQUESTS

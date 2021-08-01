@@ -3,6 +3,29 @@ import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import Helper from "/emcJS/util/Helper.js";
 
+const REQUEST_OS_DATA = ["platform", "platformVersion"];
+
+function getOSData() {
+    return new Promise(resolve => {
+        navigator.userAgentData.getHighEntropyValues(REQUEST_OS_DATA).then(resolve);
+    });
+}
+
+async function getDeviceData() {
+    const data = {
+        vendor: navigator.vendor,
+        userAgent: navigator.userAgent
+    };
+    if (navigator.userAgentData != null) {
+        const uaData = navigator.userAgentData;
+        data.platform = await getOSData(),
+        data.application = {
+            mobile: uaData.mobile,
+            brands: Helper.deepClone(uaData.brands) 
+        };
+    }
+    return data;
+}
 
 async function getData() {
     const res = {
@@ -27,28 +50,35 @@ async function getData() {
     return res;
 }
 
-const DATA = await getData();
+const APP_DATA = await getData();
+const BROWSER_DATA = await getDeviceData();
+console.groupCollapsed("APP VERSION");
+console.log(JSON.stringify(APP_DATA, null, 4));
+console.groupEnd("APP VERSION");
+console.groupCollapsed("BROWSER DATA");
+console.log(JSON.stringify(BROWSER_DATA, null, 4));
+console.groupEnd("BROWSER DATA");
 
 class VersionData extends EventTarget {
 
     get isDev() {
-        return Helper.deepClone(DATA.dev);
+        return Helper.deepClone(APP_DATA.dev);
     }
 
     get version() {
-        return Helper.deepClone(DATA.version);
+        return Helper.deepClone(APP_DATA.version);
     }
     
     get date() {
-        return Helper.deepClone(DATA.date);
+        return Helper.deepClone(APP_DATA.date);
     }
 
     get versionString() {
-        return Helper.deepClone(DATA.versionString);
+        return Helper.deepClone(APP_DATA.versionString);
     }
 
-    get userAgent() {
-        return navigator.userAgent;
+    get browserData() {
+        return BROWSER_DATA;
     }
 
 }

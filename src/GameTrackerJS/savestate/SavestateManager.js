@@ -34,15 +34,15 @@ class SavestateManager {
     async importSavestate(data) {
         data = SavestateConverter.convert(data);
         data.autosave = false;
-        data.app_version = VersionData.versionString;
-        data.user_agent = VersionData.userAgent;
         await STORAGE.set(data.name, data);
     }
 
     async exportSavestate(name) {
         const data = await STORAGE.get(name, {});
-        data.app_version = VersionData.versionString;
-        data.user_agent = VersionData.userAgent;
+        data["_meta"] = {
+            app: VersionData.versionString,
+            browser: VersionData.browserData
+        };
         return data;
     }
 
