@@ -1,6 +1,6 @@
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
-class EmptyState extends EventTarget {
+export default class EmptyState extends EventTarget {
 
     setAccess() {
         // empty
@@ -38,4 +38,4 @@ class EmptyState extends EventTarget {
 
 }
 
-export default new EmptyState();
+export const emptyState = new EmptyState();

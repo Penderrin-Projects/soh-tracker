@@ -11,7 +11,6 @@ import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import WorldState from "./WorldState.js";
 import {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
 import WorldStateManager from "../WorldStateManager.js";
-import EmptyState from "../EmptyState.js";
 import EntranceStates from "../entrance/StateManager.js";
 
 function getEntranceArea(value) {
@@ -19,7 +18,7 @@ function getEntranceArea(value) {
         return null;
     }
     if (value == "\u0000") {
-        return EmptyState;
+        return WorldStateManager.getEmpty();
     }
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
     if (entrance == null) {

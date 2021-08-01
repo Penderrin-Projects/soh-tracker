@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.18
+
+### BUGFIXES
+
+- fix entrances not triggering worldlist change
+
+---
+
 ## VERSION 2.1.17
 
 ### IMPROVEMENTS

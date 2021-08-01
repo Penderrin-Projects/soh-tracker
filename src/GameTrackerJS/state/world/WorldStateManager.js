@@ -1,5 +1,5 @@
-import EmptyState from "./EmptyState.js";
-import OverworldState from "./OverworldState.js";
+import { emptyState } from "./EmptyState.js";
+import { overworldState } from "./OverworldState.js";
 import AreaStateManager from "./area/StateManager.js";
 import EntranceStateManager from "./entrance/StateManager.js";
 import ExitStateManager from "./exit/StateManager.js";
@@ -18,11 +18,11 @@ const WORLD = {
 class WorldStateManager {
 
     getEmpty() {
-        return EmptyState;
+        return emptyState;
     }
 
     getOverworld() {
-        return OverworldState;
+        return overworldState;
     }
 
     getEntrance(id) {
