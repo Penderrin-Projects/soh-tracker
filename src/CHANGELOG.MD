@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.20
+
+### BUGFIXES
+
+- fix warp pads not accessible on warp pad/spawn/overworld shuffle
+- fix genons castle not handled like a dungeon in location state footer
+    - dungeontype was ignored and all (vanilla/mq) locations were checked all the time
+
+---
+
 ## VERSION 2.1.19
 
 ### IMPROVEMENTS

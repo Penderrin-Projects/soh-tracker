@@ -31271,88 +31271,75 @@
                 ]
             },
             "event.drain_well": {
-                "type": "and",
+                "type": "or",
                 "el": [
                     {
-                        "type": "not",
-                        "el": {
-                            "type": "state",
-                            "el": "filter.era",
-                            "value": "adult"
-                        }
-                    },
-                    {
-                        "type": "or",
+                        "type": "and",
                         "el": [
                             {
-                                "type": "and",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era_apply",
-                                                    "value": "force",
-                                                    "category": "filter"
-                                                },
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era",
-                                                    "value": "adult",
-                                                    "category": "filter"
-                                                }
-                                            ]
+                                "type": "not",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era_apply",
+                                            "value": "force",
+                                            "category": "filter"
+                                        },
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era",
+                                            "value": "adult",
+                                            "category": "filter"
                                         }
-                                    },
-                                    {
-                                        "type": "at",
-                                        "node": "region.kak_windmill[child]",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "mixin.is_child[child]"
-                                                },
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "function.can_play(item.song_storm)[child]"
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
+                                    ]
+                                }
                             },
                             {
-                                "type": "and",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era_apply",
-                                                    "value": "force",
-                                                    "category": "filter"
-                                                },
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era",
-                                                    "value": "child",
-                                                    "category": "filter"
-                                                }
-                                            ]
+                                "type": "at",
+                                "node": "region.kak_windmill[child]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.is_child[child]"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "function.can_play(item.song_storm)[child]"
                                         }
-                                    },
-                                    {
-                                        "type": "false"
-                                    }
-                                ]
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era_apply",
+                                            "value": "force",
+                                            "category": "filter"
+                                        },
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era",
+                                            "value": "child",
+                                            "category": "filter"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "false"
                             }
                         ]
                     }
@@ -31404,88 +31391,75 @@
                 ]
             },
             "event.drain_well": {
-                "type": "and",
+                "type": "or",
                 "el": [
                     {
-                        "type": "not",
-                        "el": {
-                            "type": "state",
-                            "el": "filter.era",
-                            "value": "child"
-                        }
-                    },
-                    {
-                        "type": "or",
+                        "type": "and",
                         "el": [
                             {
-                                "type": "and",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era_apply",
-                                                    "value": "force",
-                                                    "category": "filter"
-                                                },
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era",
-                                                    "value": "adult",
-                                                    "category": "filter"
-                                                }
-                                            ]
+                                "type": "not",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era_apply",
+                                            "value": "force",
+                                            "category": "filter"
+                                        },
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era",
+                                            "value": "adult",
+                                            "category": "filter"
                                         }
-                                    },
-                                    {
-                                        "type": "at",
-                                        "node": "region.kak_windmill[child]",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "mixin.is_child[child]"
-                                                },
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "function.can_play(item.song_storm)[child]"
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
+                                    ]
+                                }
                             },
                             {
-                                "type": "and",
-                                "el": [
-                                    {
-                                        "type": "not",
-                                        "el": {
-                                            "type": "and",
-                                            "el": [
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era_apply",
-                                                    "value": "force",
-                                                    "category": "filter"
-                                                },
-                                                {
-                                                    "type": "state",
-                                                    "el": "filter.era",
-                                                    "value": "child",
-                                                    "category": "filter"
-                                                }
-                                            ]
+                                "type": "at",
+                                "node": "region.kak_windmill[child]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.is_child[child]"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "function.can_play(item.song_storm)[child]"
                                         }
-                                    },
-                                    {
-                                        "type": "false"
-                                    }
-                                ]
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era_apply",
+                                            "value": "force",
+                                            "category": "filter"
+                                        },
+                                        {
+                                            "type": "state",
+                                            "el": "filter.era",
+                                            "value": "child",
+                                            "category": "filter"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "false"
                             }
                         ]
                     }
@@ -52619,8 +52593,16 @@
                     }
                 },
                 {
-                    "type": "mixin",
-                    "el": "mixin.is_glitched[child]"
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
+                {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
+                {
+                    "type": "value",
+                    "el": "option.shuffle_spawns"
                 },
                 {
                     "type": "value",
@@ -52644,8 +52626,16 @@
                     "el": "mixin.is_adult[adult]"
                 },
                 {
-                    "type": "mixin",
-                    "el": "mixin.is_glitched[adult]"
+                    "type": "value",
+                    "el": "option.shuffle_overworld"
+                },
+                {
+                    "type": "value",
+                    "el": "option.shuffle_warps"
+                },
+                {
+                    "type": "value",
+                    "el": "option.shuffle_spawns"
                 },
                 {
                     "type": "value",
