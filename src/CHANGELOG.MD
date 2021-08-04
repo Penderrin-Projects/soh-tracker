@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.21
+
+### BUGFIXES
+
+- added language file for tagged grotto/interior names to simplify the search for scrub/generic/useless grottos and useless interiors
+
+---
+
 ## VERSION 2.1.20
 
 ### BUGFIXES
