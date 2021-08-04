@@ -1,7 +1,7 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
-
+import Helper from "/emcJS/util/Helper.js";
 
 // GameTrackerJS
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
@@ -13,12 +13,60 @@ import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 
 // TODO create storage files for these
 const LogicsStorage = new IDBStorage("logics");
-const GraphStorage = new IDBStorage("edges");
 const LogicsStorageGlitched = new IDBStorage("logics_glitched");
-const GraphStorageGlitched = new IDBStorage("edges_glitched");
 
-let logic_rules = "logic_rules_glitchless";
-let use_custom_logic = false;
+let logic_glitched = OptionsStorage.get("option.logic_rules");
+let use_custom_logic = SettingsStorage.get("use_custom_logic");
+
+function getLogicData() {
+    switch(logic_glitched) {
+        case "logic_rules_glitched": {
+            return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
+        }
+        case "logic_rules_glitchless":
+        default: {
+            return LogicResource.get() ?? {edges:{}, logic:{}};
+        }
+    }
+}
+
+function getCustomLogicData() {
+    switch(logic_glitched) {
+        case "logic_rules_glitched": {
+            return LogicsStorageGlitched.getAll() ?? {edges:{}, logic:{}};
+        }
+        case "logic_rules_glitchless":
+        default: {
+            return LogicsStorage.getAll() ?? {edges:{}, logic:{}};
+        }
+    }
+}
+
+function augmentLogic(logic) {
+    const res = Helper.deepClone(logic);
+    const customLogic = getCustomLogicData();
+    for (const l in customLogic) {
+        const value = customLogic[l];
+        if (l.indexOf(" -> ") >= 0) {
+            const [key, target] = l.split(" -> ");
+            res.edges[key] = res.edges[key] ?? {};
+            res.edges[key][target] = value;
+        } else {
+            res.logic[key] = value;
+        }
+    }
+    return res;
+}
+
+async function update() {
+    const logic = getLogicData();
+    if (use_custom_logic) {
+        const customLogic = augmentLogic(logic);
+        Logic.setLogic(customLogic, "region.root");
+    } else {
+        Logic.setLogic(logic, "region.root");
+    }
+}
 
 // register event for (de-)activate entrances
 EventBus.register("options", event => {
@@ -37,45 +85,11 @@ EventBus.register("settings", async event => {
     }
 });
 // register event for changing custom logic
-EventBus.register("custom_logic", async event => {
+EventBus.register("custom_logic_update", async event => {
     // TODO make logic editor fire this event on logic changed if you exit editor
     if (use_custom_logic) {
         update();
     }
 });
 
-function augmentLogic(logic, customEdges, customLogic) {
-    for (const l in customEdges) {
-        const value = customEdges[l];
-        const [key, target] = l.split(" -> ");
-        logic.edges[key] = logic.edges[key] || {};
-        logic.edges[key][target] = value;
-    }
-    for (const l in customLogic) {
-        logic.logic[l] = customLogic[l];
-    }
-}
-
-async function update() {
-    if (logic_rules == "logic_rules_glitchless") {
-        const logic = LogicResource.get() ?? {edges:{}, logic:{}};
-        if (use_custom_logic) {
-            const customEdges = await GraphStorage.getAll();
-            const customLogic = await LogicsStorage.getAll();
-            augmentLogic(logic, customEdges, customLogic);
-        }
-        Logic.setLogic(logic, "region.root");
-    } else {
-        const logic = LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
-        if (use_custom_logic) {
-            const customEdges = await GraphStorageGlitched.getAll();
-            const customLogic = await LogicsStorageGlitched.getAll();
-            augmentLogic(logic, customEdges, customLogic);
-        }
-        Logic.setLogic(logic, "region.root");
-    }
-}
-
-logic_rules = OptionsStorage.get("option.logic_rules");
-use_custom_logic = SettingsStorage.get("use_custom_logic");
 await update();

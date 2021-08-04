@@ -1,5 +1,3 @@
-# how to run your own server
-
 ## dependencies
 
 - yarn (https://classic.yarnpkg.com/en/docs/install/)

@@ -6,9 +6,14 @@ Application:    Track-OOT
 
 ## VERSION 2.1.21
 
-### BUGFIXES
+### IMPROVEMENTS
 
 - added language file for tagged grotto/interior names to simplify the search for scrub/generic/useless grottos and useless interiors
+
+### BUGFIXES
+
+- fix key logic was always considered on
+- fix custom logic tried overwriting immutable resource
 
 ---
 

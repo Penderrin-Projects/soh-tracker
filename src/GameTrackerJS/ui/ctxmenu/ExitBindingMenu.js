@@ -103,6 +103,9 @@ export default class ExitBindingMenu extends ContextMenu {
                     if (isBindable) {
                         const opt = document.createElement("emc-option");
                         opt.value = value.props.target;
+                        opt.style.flexDirection = "column";
+                        opt.style.alignItems = "flex-start";
+                        opt.style.justifyContent = "center";
                         const entranceName = Language.generateLabel(`entrance[${value.props.target}]`);
                         opt.append(entranceName);
                         const category = CTG_TPL.generate(0);

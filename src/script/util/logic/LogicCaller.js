@@ -44,6 +44,16 @@ const KEY_SAN_AUGMENTS = {};
 
 const cache = new Map();
 
+function getDungeonType(type, hasmq) {
+    if (hasmq) {
+        if (type == "v" || type == "mq") {
+            return type;
+        }
+        return "n";
+    }
+    return "v";
+}
+
 function renameKeys(src = {}, prefix = "") {
     const res = {};
     for (const [key, value] of Object.entries(src)) {
@@ -52,14 +62,25 @@ function renameKeys(src = {}, prefix = "") {
     return res;
 }
 
-function augmentKeys(ref, type, keys) {
-    if (!cache.get("option.keysanity_small")) {
-        const keyAugment = KEY_VNL_AUGMENTS[type]?.[ref] ?? 0;
-        return keys + keyAugment;
-    } else {
-        const keyAugment = KEY_SAN_AUGMENTS[type]?.[ref] ?? 0;
-        return keys + keyAugment;
+function augmentKeys(ref, type, keys, group) {
+    if (ACCEPTED_KEY_GROUPS.includes(group) && !cache.get("option.track_keys")) {
+        return 9999;
     }
+    const ks = cache.get("option.keysanity_small");
+    const aug = !ks ? KEY_VNL_AUGMENTS : KEY_SAN_AUGMENTS;
+    if (!type || type == "n") {
+        const vAug = aug["v"]?.[ref] ?? 0;
+        const mqAug = aug["mq"]?.[ref] ?? 0;
+        return keys + Math.max(vAug, mqAug);
+    }
+    return keys + (aug[type]?.[ref] ?? 0);
+}
+
+function augmentBossKeys(keys, group) {
+    if (ACCEPTED_BOSSKEY_GROUPS.includes(group) && !cache.get("option.track_bosskeys")) {
+        return 9999;
+    }
+    return keys;
 }
 
 Logic.addEventListener("change", event => {
@@ -71,46 +92,22 @@ function augmentData(data) {
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment dungeontypes
-        let updateKeys = false;
         const dTypeKey = `dungeontype.area/${ref}`;
         if (data[dTypeKey] != null) {
-            updateKeys = true;
-            if (dData.hasmq) {
-                if (data[dTypeKey] === "") {
-                    res[dTypeKey] = "n";
-                } else {
-                    res[dTypeKey] = data[dTypeKey];
-                }
-            } else {
-                res[dTypeKey] = "v";
-            }
+            res[dTypeKey] = getDungeonType(data[dTypeKey], dData.hasmq);
         }
         // augment keys
         if (dData.keys) {
-            if (data["option.track_keys"] != null) {
-                if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
-                    res[dData.keys] = 9999;
-                    updateKeys = false;
-                } else {
-                    updateKeys = true;
-                }
-            } else if (data[dData.keys] != null) {
-                updateKeys = true;
-            }
-            if (updateKeys) {
-                res[dData.keys] = augmentKeys(ref, res[dTypeKey] ?? cache.get(dTypeKey), cache.get(dData.keys) ?? 0);
+            if (data["option.track_keys"] != null || data[dData.keys] != null || data[dTypeKey] != null) {
+                const augKeys = augmentKeys(ref, res[dTypeKey] ?? getDungeonType(cache.get(dTypeKey), dData.hasmq), cache.get(dData.keys) ?? 0, dData.keys_group);
+                res[dData.keys] = augKeys;
             }
         }
         // augment bosskeys
         if (dData.bosskey) {
-            if (data["option.track_bosskeys"] != null) {
-                if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cache.get("option.track_bosskeys")) {
-                    res[dData.bosskey] = 9999;
-                } else {
-                    res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
-                }
-            } else if (data[dData.bosskey] != null && cache.get("option.track_bosskeys")) {
-                res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
+            if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                const augKeys = augmentBossKeys(cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
+                res[dData.bosskey] = augKeys;
             }
         }
     }

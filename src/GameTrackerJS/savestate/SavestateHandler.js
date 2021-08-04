@@ -113,10 +113,6 @@ class SavestateHandler extends EventTarget {
             browser: VersionData.browserData
         };
         await STORAGE.set(name, state);
-        if (autosaveTimeout != null) {
-            clearTimeout(autosaveTimeout);
-            autosaveTimeout = setTimeout(autosave, autosaveTime);
-        }
         // write state data
         this./*#*/__cacheData(state, false);
     }
