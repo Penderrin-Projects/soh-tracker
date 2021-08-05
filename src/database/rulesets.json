@@ -254,7 +254,7 @@
             "area/temple_spirit": []
         }
     },
-    "Scrub Tournament": {
+    "S3 Scrub Tournament": {
         "options": {
             "option.logic_rules": "logic_rules_glitchless",
             "option.starting_age": "child",
@@ -274,13 +274,14 @@
             "option.track_keys": true,
             "option.track_bosskeys": true,
             "option.shuffleMediCarpet": false,
-            "option.doors_open_kakariko": "doors_open_kakariko_closed",
+            "option.doors_open_kakariko": "doors_open_kakariko_open",
             "option.shuffle_grottos": false,
             "option.shuffle_dungeons": false,
             "option.entrance_shuffle_interior": "entrance_shuffle_off",
             "option.keysanity_small_old": "keysanity_small_ignore",
             "option.keysanity_boss_old": "keysanity_boss_ignore",
             "option.shuffle_overworld": false,
+            "option.shuffle_spawns": true,
             "option.light_arrow_cutscene": "light_arrow_cutscene_vanilla",
             "option.lacs_skulltulas": 100,
             "option.stone_count_lacs": 3,
@@ -289,17 +290,12 @@
             "option.ganon_castle_open": "ganon_castle_open_medallion",
             "option.ganon_castle_skulltulas": 100,
             "option.stone_count_bridge": 3,
-            "option.medallion_count_bridge": 6,
+            "option.medallion_count_bridge": 4,
             "option.dungeon_count_bridge": 9,
-            "option.ganon_boss_door_open": true,
-            "trials": [
-                "option.forest_trial",
-                "option.water_trial",
-                "option.shadow_trial",
-                "option.fire_trial",
-                "option.light_trial",
-                "option.spirit_trial"
-            ],
+            "option.ganon_boss_door_open": false,
+            "option.skip_epona_race": true,
+            "option.skip_child_zelda": true,
+            "trials": [],
             "skip.lens_required": "lens_required_default",
             "overworld_skips": [
                 "skip.fewer_tunic_requirements",

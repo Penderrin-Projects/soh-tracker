@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.23
+
+### RULE PRESETS
+
+- update scrub tournament for S3
+
+---
+
 ## VERSION 2.1.22
 
 ### IMPROVEMENTS
