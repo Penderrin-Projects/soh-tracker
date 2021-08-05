@@ -2,10 +2,10 @@
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 
-import SettingsSpy from "../util/spy/SettingsSpy.js";
+import SettingsObserver from "../util/observer/SettingsObserver.js";
 import Badge from "./Badge.js";
 
-const accessValuesSpy = new SettingsSpy("show_access_values");
+const accessValuesObserver = new SettingsObserver("show_access_values");
 
 const TPL = new Template(`
 <div id="access-values">
@@ -45,9 +45,9 @@ export default class BadgeAccess extends Badge {
         /* --- */
         const accessValuesEl = this.shadowRoot.getElementById("access-values");
         if (accessValuesEl != null) {
-            accessValuesEl.style.display = accessValuesSpy.getValue() ? "" : "none";
+            accessValuesEl.style.display = accessValuesObserver.value ? "" : "none";
         }
-        this.switchTarget("accessValues", accessValuesSpy);
+        this.switchTarget("accessValues", accessValuesObserver);
         this.setTargetEventListener("accessValues", "change", event => {
             if (accessValuesEl != null) {
                 accessValuesEl.style.display = !!event.data ? "" : "none";

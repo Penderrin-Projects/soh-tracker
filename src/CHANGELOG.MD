@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.22
+
+### IMPROVEMENTS
+
+- add shopsanity mode for itemslots (unknown item marker)
+- rename well chests (small/large) to east/west
+- add junk item counter to large item grid
+
+---
+
 ## VERSION 2.1.21
 
 ### IMPROVEMENTS

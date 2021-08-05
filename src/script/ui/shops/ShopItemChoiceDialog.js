@@ -123,18 +123,22 @@ const Q_TAB = [
 ].join(",");
 
 async function settingsSubmit() {
-    const ev = new Event("submit");
-    const priceEl = this.shadowRoot.getElementById("price");
-    const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.item}"]`);
-    if (el) {
-        ev.item = el.ref;
-        if (!isNaN(parseInt(el.price))) {
-            ev.price = el.price;
-        } else {
-            ev.price = priceEl.value;
-        }
-        this.dispatchEvent(ev);
+    if (this.item == "unknown") {
         document.body.removeChild(this);
+    } else {
+        const ev = new Event("submit");
+        const priceEl = this.shadowRoot.getElementById("price");
+        const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.item}"]`);
+        if (el) {
+            ev.item = el.ref;
+            if (!isNaN(parseInt(el.price))) {
+                ev.price = el.price;
+            } else {
+                ev.price = priceEl.value;
+            }
+            this.dispatchEvent(ev);
+            document.body.removeChild(this);
+        }
     }
 }
 
@@ -267,9 +271,22 @@ export default class HTMLTrackerShopItemChoice extends Window {
             case "price":
                 if (oldValue != newValue) {
                     const priceEl = this.shadowRoot.getElementById("price");
-                    priceEl.value = newValue;
+                    const newPrice = parseInt(newValue);
+                    priceEl.value = isNaN(newPrice) ? 0 : newPrice;
                 }
                 break;
+        }
+    }
+
+    show(category = "") {
+        super.show();
+        if (category) {
+            this.active = category;
+        } else if (!this.active) {
+            const ctg = this.shadowRoot.getElementById("categories").children;
+            if (ctg.length) {
+                this.active = ctg[0].getAttribute("target");
+            }
         }
     }
 

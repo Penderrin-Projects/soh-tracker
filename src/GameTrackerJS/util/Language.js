@@ -5,16 +5,16 @@ import I18n from "/emcJS/i18n/I18n.js";
 import I18nLabel from "/emcJS/i18n/ui/Label.js";
 import I18nTooltip from "/emcJS/i18n/ui/Tooltip.js";
 
-import SettingsSpy from "./spy/SettingsSpy.js";
+import SettingsObserver from "./observer/SettingsObserver.js";
 
-const languageSpy = new SettingsSpy("language");
+const languageObserver = new SettingsObserver("language");
 
 let languages = null;
 
 class Language {
 
     constructor() {
-        languageSpy.addEventListener("change", event => {
+        languageObserver.addEventListener("change", event => {
             I18n.setLanguage(event.data);
         });
     }

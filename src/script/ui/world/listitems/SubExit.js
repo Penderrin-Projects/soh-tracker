@@ -15,13 +15,13 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
-import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
+import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "../../ctxmenu/ExitBindingMenu.js";
 
-const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
+const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
 
 const TPL = new Template(`
 <div class="textarea">
@@ -154,7 +154,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
             }
         });
         /* --- */
-        this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
+        this.switchTarget("sublistCollapsible", sublistCollapsibleObserver);
         this.setTargetEventListener("sublistCollapsible", "change", event => {
             const collapsible = event.data;
             if (collapsible != "off") {
@@ -168,7 +168,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
                 listEl.classList.remove("collapsible");
             }
         });
-        const collapsible = sublistCollapsibleSpy.getValue();
+        const collapsible = sublistCollapsibleObserver.value;
         if (collapsible != "off") {
             textEl.classList.add("collapsible");
             listEl.classList.add("collapsible");

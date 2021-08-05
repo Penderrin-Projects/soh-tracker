@@ -8,7 +8,7 @@ import "/emcJS/ui/input/Option.js";
 // GameTrackerJS
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
-import FilterSpy from "/GameTrackerJS/util/spy/FilterSpy.js";
+import FilterObserver from "/GameTrackerJS/util/observer/FilterObserver.js";
 
 const TPL = new Template(`
 <slot>
@@ -53,7 +53,7 @@ slot {
 }
 `);
 
-const FILTER_SPY = new WeakMap();
+const FILTER_Observer = new WeakMap();
 
 class FilterButton extends UIEventBusMixin(HTMLElement) {
 
@@ -66,11 +66,11 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
-        const filterSpy = new FilterSpy();
-        filterSpy.addEventListener("change", event => {
+        const filterObserver = new FilterObserver();
+        filterObserver.addEventListener("change", event => {
             this.value = event.data;
         });
-        FILTER_SPY.set(this, filterSpy);
+        FILTER_Observer.set(this, filterObserver);
     }
 
     get ref() {
@@ -107,9 +107,9 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
             case "ref":
                 if (oldValue != newValue) {
                     const data = FilterResource.get(this.ref);
-                    const filterSpy = FILTER_SPY.get(this);
-                    filterSpy.setKey(this.ref);
-                    this.value = filterSpy.getValue();
+                    const filterObserver = FILTER_Observer.get(this);
+                    filterObserver.key = this.ref;
+                    this.value = filterObserver.value;
                     for (const i in data.values) {
                         let img = data.images;
                         if (Array.isArray(img)) {

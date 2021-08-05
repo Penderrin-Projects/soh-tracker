@@ -4,6 +4,7 @@ import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 
 
 // GameTrackerJS
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "/GameTrackerJS/ui/mixin/ContextMenuManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
@@ -105,6 +106,8 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const shopsanityObserver = new OptionsObserver("option.shopsanity");
+
 function getIcon(itemData, bought) {
     if (itemData == null) {
         return "/images/items/unknown.png";
@@ -126,6 +129,15 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        shopsanityObserver.addEventListener("change", () => {
+            if (this.state != null) {
+                const titleEl = this.shadowRoot.getElementById("title");
+                if (titleEl != null) {
+                    Language.applyLabel(titleEl, this.state.item);
+                }
+            }
+            this./*#*/__applyItem();
+        });
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
@@ -278,8 +290,8 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
 
     /*#*/__applyItem() {
         const state = this.getState();
-        const itemData = state.itemData;
         const imageEl = this.shadowRoot.getElementById("image");
+        const itemData = state?.itemData;
         if (itemData != null) {
             // icon
             const imageEl = this.shadowRoot.getElementById("image");
@@ -300,7 +312,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                 imageEl.style.backgroundImage = `url("/images/items/unknown.png")`;
             }
             // mark
-            delete document.body.dataset.mark;
+            this.dataset.mark = "";
         }
     }
 

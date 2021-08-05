@@ -5,10 +5,10 @@ import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
 import FilterResource from "../resource/FilterResource.js";
-import SettingsSpy from "../util/spy/SettingsSpy.js";
+import SettingsObserver from "../util/observer/SettingsObserver.js";
 
-const colorBlindSpy = new SettingsSpy("color_blind_mode");
-const showFiltersSpy = new SettingsSpy("show_filter_badges");
+const colorBlindObserver = new SettingsObserver("color_blind_mode");
+const showFiltersObserver = new SettingsObserver("show_filter_badges");
 
 const TPL = new Template(`
 <emc-icon id="access"></emc-icon>
@@ -106,9 +106,9 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
             }
         }
         if (filtersEl != null) {
-            filtersEl.style.display = showFiltersSpy.getValue() ? "" : "none";
+            filtersEl.style.display = showFiltersObserver.value ? "" : "none";
         }
-        this.switchTarget("showFilters", showFiltersSpy);
+        this.switchTarget("showFilters", showFiltersObserver);
         this.setTargetEventListener("showFilters", "change", event => {
             if (filtersEl != null) {
                 filtersEl.style.display = !!event.data ? "" : "none";
@@ -117,9 +117,9 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         /* --- */
         const colorBlindEl = this.shadowRoot.getElementById("access");
         if (colorBlindEl != null) {
-            colorBlindEl.style.display = colorBlindSpy.getValue() ? "" : "none";
+            colorBlindEl.style.display = colorBlindObserver.value ? "" : "none";
         }
-        this.switchTarget("colorBlind", colorBlindSpy);
+        this.switchTarget("colorBlind", colorBlindObserver);
         this.setTargetEventListener("colorBlind", "change", event => {
             if (colorBlindEl != null) {
                 colorBlindEl.style.display = !!event.data ? "" : "none";

@@ -1,4 +1,5 @@
 // GameTrackerJS
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
@@ -7,13 +8,16 @@ import "/script/state/world/location/LocationState.js";
 import "../../ctxmenu/ShopSlotContextMenu.js";
 import ShopItemChoiceDialog from "../../shops/ShopItemChoiceDialog.js";
 
-// TODO make initial click open item select dialog
+const shopsanityObserver = new OptionsObserver("option.shopsanity");
 
 export default class ShopSlot extends AbstractLocation {
 
     constructor() {
         super();
         /* --- */
+        shopsanityObserver.addEventListener("change", () => {
+            this.applyItem();
+        });
         this.registerStateHandler("item", event => {
             this.applyItem();
         });

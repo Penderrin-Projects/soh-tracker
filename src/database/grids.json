@@ -393,13 +393,13 @@
                 "visible": true
             },
             {
-                "type": "empty",
-                "value": "",
+                "type": "item",
+                "value": "item.triforce_piece",
                 "visible": true
             },
             {
                 "type": "item",
-                "value": "item.triforce_piece",
+                "value": "item.refill_item",
                 "visible": true
             }
         ],

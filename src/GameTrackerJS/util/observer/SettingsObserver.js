@@ -1,7 +1,7 @@
-import DataStorageSpy from "./DataStorageSpy.js";
+import DataStorageObserver from "./DataStorageObserver.js";
 import SettingsStorage from "../../storage/SettingsStorage.js";
 
-export default class SettingsSpy extends DataStorageSpy {
+export default class SettingsObserver extends DataStorageObserver {
 
     constructor(key) {
         super(SettingsStorage, key);

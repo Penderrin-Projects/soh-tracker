@@ -5,14 +5,14 @@ import LogicUIAbstractElement from "/editors/ui/logic/AbstractElement.js";
 
 
 // GameTrackerJS
-import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
-import OptionsSpy from "/GameTrackerJS/util/spy/OptionsSpy.js";
+import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 
-const logicRulesSpy = new OptionsSpy("option.logic_rules");
-const customLogicSpy = new SettingsSpy("use_custom_logic");
+const logicRulesObserver = new OptionsObserver("option.logic_rules");
+const customLogicObserver = new SettingsObserver("use_custom_logic");
 
 function extractLogic(data, customData, ref) {
     const res = [];
@@ -42,7 +42,7 @@ function extractLogic(data, customData, ref) {
 
 async function getNormalLogic(ref) {
     const data = LogicResource.get();
-    if (customLogicSpy.getValue()) {
+    if (customLogicObserver.value) {
         const LogicsStorage = new IDBStorage("logics");
         const customData = await LogicsStorage.getAll();
         return extractLogic(data, customData, ref);
@@ -53,7 +53,7 @@ async function getNormalLogic(ref) {
 
 async function getGlitchedLogic(ref) {
     const data = LogicGlitchedResource.get();
-    if (customLogicSpy.getValue()) {
+    if (customLogicObserver.value) {
         const LogicsStorage = new IDBStorage("logics_glitched");
         const customData = await LogicsStorage.getAll();
         return extractLogic(data, customData, ref);
@@ -63,10 +63,10 @@ async function getGlitchedLogic(ref) {
 }
 
 async function getLogic(ref) {
-    if (logicRulesSpy.getValue() == "logic_rules_glitchless") {
+    if (logicRulesObserver.value == "logic_rules_glitchless") {
         return getNormalLogic(ref);
     }
-    if (logicRulesSpy.getValue() == "logic_rules_glitched") {
+    if (logicRulesObserver.value == "logic_rules_glitched") {
         return getGlitchedLogic(ref);
     }
     return [];

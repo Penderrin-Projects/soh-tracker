@@ -1,12 +1,12 @@
 import ExitBindingMenu from "/GameTrackerJS/ui/ctxmenu/ExitBindingMenu.js";
-import OptionsSpy from "/GameTrackerJS/util/spy/OptionsSpy.js";
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 
-const mixedEntrancePoolSpy = new OptionsSpy("option.mixed_entrance_pool");
+const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
 
 export default class TrackerExitBindingMenu extends ExitBindingMenu {
 
     checkBindable(value, exit, bound) {
-        const ignoreBindsTo = mixedEntrancePoolSpy.getValue();
+        const ignoreBindsTo = mixedEntrancePoolObserver.value;
         const isActive = value.active || exit.props.includeInactiveEntrances;
         const isActiveAndBinds = isActive && (ignoreBindsTo || exit.props.bindsTo.indexOf(value.props.type) >= 0);
         return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);

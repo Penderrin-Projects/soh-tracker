@@ -923,31 +923,43 @@
     "item.rupee_green":{
         "type": "infinite",
         "images": "/images/items/rupee_green.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     },
     "item.rupee_blue":{
         "type": "infinite",
         "images": "/images/items/rupee_blue.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     },
     "item.rupee_red":{
         "type": "infinite",
         "images": "/images/items/rupee_red.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     },
     "item.rupee_purple":{
         "type": "infinite",
         "images": "/images/items/rupee_purple.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     },
     "item.rupee_yellow":{
         "type": "infinite",
         "images": "/images/items/rupee_yellow.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     },
     "item.refill_item": {
         "type": "infinite",
         "images": "/images/items/refill_item.png",
-        "always_active": true
+        "always_active": true,
+        "halign": "end",
+        "valign": "end"
     }
 }

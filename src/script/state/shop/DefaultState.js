@@ -1,10 +1,10 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-
 // GameTrackerJS
-import Observable from "/GameTrackerJS/data/Observable.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import Observable from "/GameTrackerJS/data/Observable.js";
 import DataState from "/GameTrackerJS/state/abstract/DataState.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
@@ -52,8 +52,10 @@ function internalNameChange(event) {
 
 export default class DefaultState extends DataState {
 
-    constructor(ref, props) {
+    constructor(ref, props, defItemData) {
         super(ref, props);
+        /* --- */
+        DEF_ITEM_DATA.set(this, defItemData);
         /* --- */
         const observableData = new Observable();
         OBSERVABLE_DATA.set(this, observableData);
@@ -80,8 +82,6 @@ export default class DefaultState extends DataState {
         /* --- */
         {
             // item
-            const defItemData = ShopItemsResource.get(this.props.item);
-            DEF_ITEM_DATA.set(this, defItemData);
             const item = SavestateHandler.get("shops", `${ref}.item`);
             if (item != null) {
                 const itemData = ShopItemsResource.get(item);
@@ -216,6 +216,9 @@ export default class DefaultState extends DataState {
     }
 
     get item() {
+        if (OptionsStorage.get("option.shopsanity") > 0) {
+            return "unknown";
+        }
         const observableData = OBSERVABLE_DATA.get(this);
         return observableData.get("item");
     }
@@ -250,6 +253,9 @@ export default class DefaultState extends DataState {
     }
 
     get price() {
+        if (OptionsStorage.get("option.shopsanity") > 0) {
+            return "?";
+        }
         const observableData = OBSERVABLE_DATA.get(this);
         return observableData.get("price");
     }
@@ -283,6 +289,9 @@ export default class DefaultState extends DataState {
     }
 
     get bought() {
+        if (OptionsStorage.get("option.shopsanity") > 0) {
+            return false;
+        }
         const observableData = OBSERVABLE_DATA.get(this);
         return observableData.get("bought");
     }
@@ -320,6 +329,15 @@ export default class DefaultState extends DataState {
     get itemData() {
         if (ITEM_DATA.has(this)) {
             return ITEM_DATA.get(this);
+        }
+        if (OptionsStorage.get("option.shopsanity") > 0) {
+            return {
+                "image": "/images/unknown.svg",
+                "category": "hidden_items",
+                "refill": true,
+                "mark": false,
+                "price": "?"
+            };
         }
         return DEF_ITEM_DATA.get(this);
     }

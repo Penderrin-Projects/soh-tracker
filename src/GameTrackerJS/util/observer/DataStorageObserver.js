@@ -1,7 +1,7 @@
 const STORAGE = new WeakMap();
 const KEY = new WeakMap();
 
-export default class DataStorageSpy extends EventTarget {
+export default class DataStorageObserver extends EventTarget {
 
     constructor(storage, key) {
         super();
@@ -31,15 +31,15 @@ export default class DataStorageSpy extends EventTarget {
         });
     }
 
-    setKey(value) {
+    set key(value) {
         KEY.set(this, value);
     }
 
-    getKey() {
+    get key() {
         return KEY.get(this);
     }
 
-    getValue() {
+    get value() {
         const storage = STORAGE.get(this);
         const key = KEY.get(this);
         if (key != null) {

@@ -1,14 +1,14 @@
 // frameworks
 import LogicGraph from "/emcJS/util/graph/LogicGraph.js";
 
-import SettingsSpy from "../spy/SettingsSpy.js";
+import SettingsObserver from "../observer/SettingsObserver.js";
 
-const logicDebugSpy = new SettingsSpy("debug_logic");
+const logicDebugObserver = new SettingsObserver("debug_logic");
 
-const LOGIC_PROCESSOR = new LogicGraph(logicDebugSpy.getValue() != "off" && logicDebugSpy.getValue());
+const LOGIC_PROCESSOR = new LogicGraph(logicDebugObserver.value != "off" && logicDebugObserver.value);
 const CALL_TIMERS = new Map();
 
-logicDebugSpy.addEventListener("change", event => {
+logicDebugObserver.addEventListener("change", event => {
     LOGIC_PROCESSOR.debug = event.data != "off" && event.data;
 });
 
