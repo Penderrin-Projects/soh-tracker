@@ -1,7 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
@@ -49,7 +48,7 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(:empty) {
+:host(.empty) {
     display: none;
 }
 :host(:hover) {
@@ -120,19 +119,13 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(AbstractSubArea)) {
+export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
 
     constructor() {
         super();
         this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
-        /* --- */
-        this.registerGlobal("state", event => {
-            if (this.isConnected) {
-                this.refreshList();
-            }
-        });
         /* --- */
         const textEl = this.shadowRoot.getElementById("text");
         const listEl = this.shadowRoot.getElementById("list");
@@ -200,12 +193,19 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
         const state = this.getState();
         if (state != null) {
             const list = state.getList();
-            if (list != null) {
+            if (list != null && list.length > 0) {
+                let visible = false;
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
+                    if (loc.isVisible()) {
+                        visible = true;
+                    }
                 }
+                this.classList.toggle("empty", !visible);
+            } else {
+                this.classList.add("empty");
             }
         }
     }

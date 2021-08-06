@@ -94,15 +94,16 @@ export default class ShopSlot extends AbstractLocation {
     }
 
     applyItem() {
-        const state = this.getState();
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
-            if (state.item != null) {
-                const itemData = ShopItemsResource.get(state.item);
+            const state = this.getState();
+            const itemData = state?.itemData;
+            if (itemData != null) {
                 itemEl.src = itemData?.image ?? "/images/items/unknown.png";
-            }
-            if (state.price != null) {
-                itemEl.text = state.price;
+                itemEl.text = state.price ?? "?";
+            } else {
+                itemEl.src = "/images/items/unknown.png";
+                itemEl.text = "?";
             }
         }
     }

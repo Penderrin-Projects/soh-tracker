@@ -107,6 +107,16 @@ const STYLE = new GlobalStyle(`
 `);
 
 const shopsanityObserver = new OptionsObserver("option.shopsanity");
+const SHOP_SLOT_IDS = [
+    "left/top-left",
+    "left/top-right",
+    "right/top-left",
+    "right/top-right",
+    "left/bottom-left",
+    "left/bottom-right",
+    "right/bottom-left",
+    "right/bottom-right"
+];
 
 function getIcon(itemData, bought) {
     if (itemData == null) {
@@ -121,6 +131,17 @@ function getIcon(itemData, bought) {
     return itemData.image ?? "/images/items/unknown.png";
 }
 
+function getDialogTitle(ref) {
+    const [shopRef, slotRef] = ref.split("/");
+    const shopTitleEl = Language.generateLabel(shopRef);
+    const slotTitleEl = Language.generateLabel(SHOP_SLOT_IDS[slotRef]);
+    const titleEl = document.createElement("span");
+    titleEl.append(shopTitleEl);
+    titleEl.append(document.createTextNode(" "));
+    titleEl.append(slotTitleEl);
+    return titleEl;
+}
+
 export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
     
     constructor() {
@@ -130,10 +151,17 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         STYLE.apply(this.shadowRoot);
         /* --- */
         shopsanityObserver.addEventListener("change", () => {
-            if (this.state != null) {
+            const state = this.getState();
+            if (state != null) {
+                // title
                 const titleEl = this.shadowRoot.getElementById("title");
                 if (titleEl != null) {
-                    Language.applyLabel(titleEl, this.state.item);
+                    Language.applyLabel(titleEl, state.item);
+                }
+                // cost
+                const priceEl = this.shadowRoot.getElementById("price");
+                if (priceEl != null) {
+                    priceEl.innerHTML = state.price;
                 }
             }
             this./*#*/__applyItem();
@@ -294,7 +322,6 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         const itemData = state?.itemData;
         if (itemData != null) {
             // icon
-            const imageEl = this.shadowRoot.getElementById("image");
             if (imageEl != null) {
                 const icon = getIcon(itemData, state.bought);
                 imageEl.style.backgroundImage = `url("${icon}")`;
@@ -319,7 +346,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
     /*#*/__editItem(event) {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));
+            const d = new ShopItemChoiceDialog(getDialogTitle(this.ref));
             d.item = state.item;
             d.price = state.price;
             d.addEventListener("submit", function(result) {

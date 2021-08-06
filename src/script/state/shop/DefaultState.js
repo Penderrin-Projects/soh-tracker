@@ -216,7 +216,7 @@ export default class DefaultState extends DataState {
     }
 
     get item() {
-        if (OptionsStorage.get("option.shopsanity") > 0) {
+        if (!ITEM_DATA.has(this) && OptionsStorage.get("option.shopsanity") != "off") {
             return "unknown";
         }
         const observableData = OBSERVABLE_DATA.get(this);
@@ -253,7 +253,7 @@ export default class DefaultState extends DataState {
     }
 
     get price() {
-        if (OptionsStorage.get("option.shopsanity") > 0) {
+        if (!ITEM_DATA.has(this) && OptionsStorage.get("option.shopsanity") != "off") {
             return "?";
         }
         const observableData = OBSERVABLE_DATA.get(this);
@@ -289,7 +289,7 @@ export default class DefaultState extends DataState {
     }
 
     get bought() {
-        if (OptionsStorage.get("option.shopsanity") > 0) {
+        if (!ITEM_DATA.has(this) && OptionsStorage.get("option.shopsanity") != "off") {
             return false;
         }
         const observableData = OBSERVABLE_DATA.get(this);
@@ -330,7 +330,7 @@ export default class DefaultState extends DataState {
         if (ITEM_DATA.has(this)) {
             return ITEM_DATA.get(this);
         }
-        if (OptionsStorage.get("option.shopsanity") > 0) {
+        if (OptionsStorage.get("option.shopsanity") != "off") {
             return {
                 "image": "/images/unknown.svg",
                 "category": "hidden_items",

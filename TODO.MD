@@ -7,7 +7,7 @@
 
 ### FIX MINOR BUGS
 
-- shopsanity location wrong slots on 1,2,3
+- 
 
 ---
 

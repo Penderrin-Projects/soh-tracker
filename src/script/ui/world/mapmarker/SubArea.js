@@ -1,12 +1,12 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
 
 // GameTrackerJS
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
@@ -101,7 +101,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
+export default class MapSubArea extends AbstractSubArea {
 
     constructor() {
         super();
@@ -176,6 +176,25 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
                     tooltip.position = newValue;
                 }
                 break;
+        }
+    }
+
+    refreshList() {
+        const state = this.getState();
+        if (state != null) {
+            const list = state.getList();
+            if (list != null && list.length > 0) {
+                let visible = false;
+                for (const record of list) {
+                    const loc = WorldStateManager.get(record.category, record.id);
+                    if (loc.isVisible()) {
+                        visible = true;
+                    }
+                }
+                this.classList.toggle("empty", !visible);
+            } else {
+                this.classList.add("empty");
+            }
         }
     }
 

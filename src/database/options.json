@@ -69,10 +69,17 @@
     },
     "option.shopsanity": {
         "category": "options",
-        "type": "number",
-        "default": 0,
-        "min": 0,
-        "max": 4
+        "type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "random"
+        ]
     },
     "option.beansanity": {
         "category": "options",

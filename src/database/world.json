@@ -29203,12 +29203,24 @@
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29232,12 +29244,34 @@
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29261,12 +29295,19 @@
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29290,12 +29331,29 @@
                 "type": "shopslot",
                 "access": "logic.location.kokiri.m_shop_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29319,12 +29377,24 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29348,12 +29418,34 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29377,12 +29469,19 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29406,12 +29505,29 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29435,12 +29551,24 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop2_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29464,12 +29592,34 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop2_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29493,12 +29643,19 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop2_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29522,12 +29679,29 @@
                 "type": "shopslot",
                 "access": "logic.location.kakariko.m_shop2_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29551,12 +29725,24 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29580,12 +29766,34 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29609,12 +29817,19 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29638,12 +29853,29 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29667,12 +29899,24 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop2_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29696,12 +29940,34 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop2_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29725,12 +29991,19 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop2_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29754,12 +30027,29 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop2_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29783,12 +30073,24 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop3_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29812,12 +30114,34 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop3_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29841,12 +30165,19 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop3_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29870,12 +30201,29 @@
                 "type": "shopslot",
                 "access": "logic.location.castle_town.m_shop3_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29899,12 +30247,24 @@
                 "type": "shopslot",
                 "access": "logic.location.goron.m_shop_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29928,12 +30288,34 @@
                 "type": "shopslot",
                 "access": "logic.location.goron.m_shop_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29957,12 +30339,19 @@
                 "type": "shopslot",
                 "access": "logic.location.goron.m_shop_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -29986,12 +30375,29 @@
                 "type": "shopslot",
                 "access": "logic.location.goron.m_shop_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -30015,12 +30421,24 @@
                 "type": "shopslot",
                 "access": "logic.location.zoras.m_shop_8",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 1
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -30044,12 +30462,34 @@
                 "type": "shopslot",
                 "access": "logic.location.zoras.m_shop_7",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 2
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "1"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -30073,12 +30513,19 @@
                 "type": "shopslot",
                 "access": "logic.location.zoras.m_shop_6",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 3
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {
@@ -30102,12 +30549,29 @@
                 "type": "shopslot",
                 "access": "logic.location.zoras.m_shop_5",
                 "visible": {
-                    "type": "min",
-                    "el": {
-                        "type": "value",
-                        "el": "option.shopsanity"
-                    },
-                    "value": 4
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "2"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "3"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "4"
+                        },
+                        {
+                            "type": "state",
+                            "el": "option.shopsanity",
+                            "value": "random"
+                        }
+                    ]
                 },
                 "filter": {
                     "filter.era": {

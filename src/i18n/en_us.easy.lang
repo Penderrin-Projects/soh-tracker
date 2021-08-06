@@ -1429,6 +1429,15 @@ shop.magic_child=Castletown Potion Shop
 shop.basar_adult=Kakariko Bazaar
 shop.magic_adult=Kakariko Potion Shop
 
+left/top-left=Left - Top Left
+left/top-right=Left - Top Right
+left/bottom-left=Left - Bottom Left
+left/bottom-right=Left - Bottom Right
+right/top-left=Right - Top Left
+right/top-right=Right - Top Right
+right/bottom-left=Right - Bottom Left
+right/bottom-right=Right - Bottom Right
+
 # SHOPS - ITEMS
 item.heart_1=Heart
 item.arrows_10=Arrows (10)

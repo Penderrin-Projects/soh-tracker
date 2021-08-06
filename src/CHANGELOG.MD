@@ -4,6 +4,23 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.24
+
+### ROM OPTIONS
+
+- change shopsanity option type from number to choice
+- add missing shopsanity option values
+
+### BUGFIXES
+
+- fix presets not loading lists correctly
+- fix empty subareas did not hide properly
+- fix shop slots did not update all item data correctly
+- fix shopsanity active slot order
+- fix shop item dialog title translations
+
+---
+
 ## VERSION 2.1.23
 
 ### RULE PRESETS

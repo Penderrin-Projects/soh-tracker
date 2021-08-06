@@ -114,6 +114,22 @@ export default class ShopSlotState extends DefaultState {
         return "";
     }
 
+    get price() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            return shopState.price;
+        }
+        return "";
+    }
+
+    get itemData() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            return shopState.itemData;
+        }
+        return null;
+    }
+
     isDefault() {
         const shopState = SHOP_STATE.get(this);
         return shopState.isDefault();

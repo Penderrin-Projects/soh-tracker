@@ -107,7 +107,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
+export default class MapSubExit extends AbstractSubExit {
 
     constructor() {
         super();

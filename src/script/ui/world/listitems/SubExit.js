@@ -1,7 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
@@ -130,7 +129,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(AbstractSubExit)) {
+export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
 
     constructor() {
         super();
