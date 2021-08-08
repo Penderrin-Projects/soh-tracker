@@ -4,6 +4,17 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.25
+
+### RULE PRESETS
+
+- updated S3 scrub tournament ruleset
+- added weekly and league settings
+- enable item presetting for rulesets
+    - only items less than the specified value will be set
+
+---
+
 ## VERSION 2.1.24
 
 ### ROM OPTIONS
