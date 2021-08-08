@@ -5,7 +5,6 @@ import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/Paging.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
@@ -59,7 +58,10 @@ export default class SpoilerLogWindow extends SettingsWindow {
             SavestateHandler.set("parseSpoiler", event.data);
             if (!!spoiler && !!spoiler.data) {
                 try {
-                    SavestateHandler.overwrite(SpoilerParser.parse(spoiler.data, event.data));
+                    const data = await SpoilerParser.parse(spoiler.data, event.data);
+                    if (data != null) {
+                        SavestateHandler.overwrite(data);
+                    }
                     Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                     spoiler = {};
                     await BusyIndicator.unbusy();

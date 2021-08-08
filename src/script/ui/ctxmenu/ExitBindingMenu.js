@@ -7,7 +7,7 @@ export default class TrackerExitBindingMenu extends ExitBindingMenu {
 
     checkBindable(value, exit, bound) {
         const ignoreBindsTo = mixedEntrancePoolObserver.value;
-        const isActive = value.active || exit.props.includeInactiveEntrances;
+        const isActive = (ignoreBindsTo && value.props.type == "not_seen") || value.active || exit.props.includeInactiveEntrances;
         const isActiveAndBinds = isActive && (ignoreBindsTo || exit.props.bindsTo.indexOf(value.props.type) >= 0);
         return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);
     }

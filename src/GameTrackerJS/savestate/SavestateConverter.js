@@ -35,11 +35,17 @@ class SavestateConverter {
                 const fn = CONVERTER_FN[i - OFFSET];
                 if (typeof fn == "function") {
                     const newState = fn(state);
+                    if (newState.data == null) {
+                        newState.data = state.data;
+                    }
                     if (newState.options == null) {
                         newState.options = state.options;
                     }
-                    if (newState.data == null) {
-                        newState.data = state.data;
+                    if (newState.filter == null) {
+                        newState.filter = state.filter;
+                    }
+                    if (newState.startitems == null) {
+                        newState.startitems = state.startitems;
                     }
                     state = newState;
                 }
@@ -58,6 +64,7 @@ class SavestateConverter {
             name: "",
             data: {},
             options: {},
+            filter: {},
             notes: "",
             autosave: false,
             timestamp: new Date(),

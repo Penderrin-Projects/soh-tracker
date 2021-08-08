@@ -9,7 +9,6 @@ import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 // Track-OOT
-import "/script/state/item/InfiniteItemState.js";
 import "./Item.js";
 
 const TPL = new Template(`
@@ -181,14 +180,7 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if (value < 9999) {
-                    value++;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value++;
             }
         }
         if (!event) return;
@@ -200,16 +192,7 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
-                    value = 0;
-                } else if (value > 0) {
-                    value--;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value--;
             }
         }
         if (!event) return;

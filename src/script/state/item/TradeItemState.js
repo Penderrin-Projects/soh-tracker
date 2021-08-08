@@ -9,7 +9,7 @@ import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 
 const STARTVALUE = new WeakMap();
 
-export default class StartItemState extends DefaultState {
+export default class TradeItemState extends DefaultState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -87,4 +87,4 @@ export default class StartItemState extends DefaultState {
 
 }
 
-StateManager.register("item_startsettings", StartItemState);
+StateManager.register("item_startsettings", TradeItemState);

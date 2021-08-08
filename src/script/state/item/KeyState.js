@@ -8,51 +8,40 @@ import StateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
 
 const TYPE = new WeakMap();
-
-function getMaxValue(props, type = "n") {
-    if (type == "v") {
-        return props.max;
-    } else if (type == "mq") {
-        return props.maxmq;
-    } else {
-        return Math.max(props.maxmq, props.max);
-    }
-}
-
-function internalTypeChange(event) {
-    const props = this.props;
-    // savesatate
-    if (props["maxmq"] != null && props["related_dungeon"] != null) {
-        const change = event.data;
-        if (change != null && change.ref == props.related_dungeon) {
-            this./*#*/__applyTypeValue(change.value || "n");
-        }
-    }
-}
+const MAX = new WeakMap();
 
 export default class KeyState extends DefaultState {
 
     constructor(ref, props) {
-        super(ref, props, {max: getMaxValue(props)});
+        super(ref, props);
         /* --- */
-        if (props["maxmq"] != null && props["related_dungeon"] != null) {
-            const value = SavestateHandler.get("dungeontype", props.related_dungeon, "n");
-            this./*#*/__applyTypeValue(value);
+        if (props["type_max"] != null && props["related_dungeon"] != null) {
+            const type = SavestateHandler.get("dungeontype", props.related_dungeon, "n");
+            TYPE.set(this, type);
+            MAX.set(this, props["type_max"][type] ?? super.max);
         } else {
-            this./*#*/__applyTypeValue("v");
+            TYPE.set(this, "v");
+            MAX.set(this, super.max);
         }
         /* EVENTS */
-        EventBus.register("state::dungeontype", internalTypeChange.bind(this));
-        this.addEventListener("type", event => {
+        EventBus.register("state::dungeontype", (event) => {
             const props = this.props;
-            super.max = getMaxValue(props, event.data);
+            // savesatate
+            if (props["type_max"] != null && props["related_dungeon"] != null) {
+                const change = event.data;
+                if (change != null && change.ref == props.related_dungeon) {
+                    this.#applyTypeValue(change.value || "n");
+                }
+            }
         });
     }
 
-    /*#*/__applyTypeValue(newValue) {
+    #applyTypeValue = function(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
+            const props = this.props;
+            this.#setMax(props["type_max"][newValue]);
             // external
             const event = new Event("type");
             event.data = newValue;
@@ -60,27 +49,43 @@ export default class KeyState extends DefaultState {
         }
     }
 
+    #setMax = function(value) {
+        const newMax = DefaultState.parseInt(value, this.defaultMax);
+        const oldMax = MAX.get(this);
+        if (newMax != oldMax) {
+            const oldValue = this.value;
+            MAX.set(this, newMax);
+            // external max
+            const event = new Event("max");
+            event.data = newMax;
+            this.dispatchEvent(event);
+            // external value
+            const newValue = this.value;
+            if (oldValue != newValue) {
+                const event = new Event("value");
+                event.data = newValue;
+                this.dispatchEvent(event);
+            }
+        }
+    }
+
     stateLoaded(event) {
         const props = this.props;
         // type
-        if (props["maxmq"] != null && props.hasOwnProperty["related_dungeon"] != null) {
+        if (props["type_max"] != null && props.hasOwnProperty["related_dungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
+                this.#applyTypeValue(types[props.related_dungeon]);
             } else {
-                this./*#*/__applyTypeValue("n");
+                this.#applyTypeValue("n");
             }
         }
         // savesatate
         super.stateLoaded(event);
     }
 
-    get min() {
-        return super.min;
-    }
-
     get max() {
-        return super.max;
+        return MAX.get(this) ?? super.max;
     }
 
     get type() {

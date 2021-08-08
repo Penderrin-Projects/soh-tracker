@@ -4,6 +4,26 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.26
+
+### ITEMS
+
+- change how min/max values are applied
+    - do not overwrite value, apply boundaries only visually
+- store start item values as seperate data
+
+### SPOILER PARSER
+
+- warn on unknown version instead of throwing an error
+
+### BUGFIXES
+
+- fix unwanted persisted filter dropping on state conversion
+- fix mixed entrance pool to include common region targets
+- fix full area list was shown when bound to subexits
+
+---
+
 ## VERSION 2.1.25
 
 ### RULE PRESETS

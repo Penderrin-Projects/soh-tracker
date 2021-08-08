@@ -3,13 +3,12 @@ import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
 
-
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 // Track-OOT
-import "/script/state/item/StartItemState.js";
+import "/script/state/item/TradeItemState.js";
 
 const TPL = new Template(`
 <slot id="slot">
@@ -92,21 +91,35 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         this.registerStateHandler("value", event => {
             this.value = event.data;
         });
+        this.registerStateHandler("max", event => {
+            this.#fillItemChoices();
+        });
+        this.registerStateHandler("min", event => {
+            this.#fillItemChoices();
+        });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
     }
 
-    connectedCallback() {
-        super.connectedCallback();
-        // state
-        const state = this.getState();
-        if (state != null) {
-            this.value = state.value;
-        }
+    applyDefaultValues() {
+        this.value = 0;
+        // settings
+        this.halign = "center";
+        this.valign = "center";
+        // choices
+        this.#fillItemChoices();
     }
 
-    disconnectedCallback() {
-        super.disconnectedCallback();
+    applyStateValues(state) {
+        if (state != null) {
+            this.value = state.value;
+            const data = state.props;
+            // settings
+            this.halign = data.halign ?? "center";
+            this.valign = data.valign ?? "center";
+            // choices
+            this.#fillItemChoices();
+        }
     }
 
     get ref() {
@@ -162,18 +175,6 @@ export default class Item extends StateDataEventManager(HTMLElement) {
                         const state = ItemStates.get(this.ref);
                         this.switchState(state);
                         if (state != null) {
-                            if (this.isConnected) {
-                                this.value = state.value;
-                            }
-                            const data = state.props;
-                            // settings
-                            if (data.halign != null) {
-                                this.halign = data.halign;
-                            }
-                            if (data.valign != null) {
-                                this.valign = data.valign;
-                            }
-                            this.fillItemChoices();
                         }
                     }
                     break;
@@ -199,22 +200,27 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         }
     }
 
-    fillItemChoices() {
+    #fillItemChoices = function() {
         this.innerHTML = "";
-
-        const state = ItemStates.get(this.ref);
-        const data = state.props;
-        if (!data) return;
-
-        for (let i = 0; i <= state.max; ++i) {
-            let img = data.images;
-            if (Array.isArray(img)) {
-                img = img[i];
+        const state = this.getState();
+        if (state != null) {
+            const data = state.props;
+            for (let i = state.min; i <= state.max; ++i) {
+                let img = data.images;
+                if (Array.isArray(img)) {
+                    img = img[i];
+                }
+                const opt = createOption(i, img, data, state.max);
+                if (i == this.value) {
+                    opt.classList.add("active");
+                }
+                this.append(opt);
             }
-            const opt = createOption(i, img, data, state.max);
-            if (i == this.value) {
-                opt.classList.add("active");
-            }
+        } else {
+            const opt = document.createElement("emc-option");
+            opt.value = 0;
+            opt.style.backgroundImage = `url("/images/items/unknown.png")`;
+            opt.classList.add("active");
             this.append(opt);
         }
     }
@@ -297,7 +303,7 @@ customElements.define("ootrt-item", Item);
 function createOption(value, img, data, max_value) {
     const opt = document.createElement("emc-option");
     opt.value = value;
-    opt.style.backgroundImage = `url("${img}"`;
+    opt.style.backgroundImage = `url("${img}")`;
     if (value == 0 && !data.always_active) {
         opt.style.filter = "contrast(0.8) grayscale(0.5)";
         opt.style.opacity = "0.4";

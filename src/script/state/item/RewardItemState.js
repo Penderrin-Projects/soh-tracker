@@ -74,14 +74,6 @@ export default class RewardItemState extends DefaultState {
         this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
     }
 
-    get max() {
-        return super.max;
-    }
-
-    get min() {
-        return super.min;
-    }
-
     get dungeon() {
         return DUNGEON.get(this);
     }

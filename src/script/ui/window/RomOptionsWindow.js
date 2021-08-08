@@ -2,12 +2,9 @@
 import Template from "/emcJS/util/Template.js";
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import DataStorage from "/GameTrackerJS/storage/DataStorage.js";
 import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 // Track-OOT
 import RulesetsResource from "/script/resource/RulesetsResource.js";
 
@@ -18,28 +15,10 @@ const LOAD_RULESET = new Template(`
     </div>
 `);
 
-const STORAGE = new WeakMap();
-
 export default class RomOptionsWindow extends SavestateOptionsWindow {
 
     constructor() {
         super() ;
-        /* --- */
-        const itemStorage = new DataStorage();
-        STORAGE.set(this, itemStorage);
-        this.addEventListener("submit", async (event) => {
-            await BusyIndicator.busy();
-            const items = itemStorage.getAll();
-            const overwriting = {};
-            for (const [key, value] of Object.entries(items)) {
-                if (SavestateHandler.get("", key, 0) < value) {
-                    overwriting[key] =  value;
-                }
-            }
-            SavestateHandler.overwrite({data: {"": overwriting}});
-            await BusyIndicator.unbusy();
-        });
-        
         // add preset choice
         const loadRulesetRow = LOAD_RULESET.generate();
         const loadRulesetWrapper = loadRulesetRow.getElementById("options-preset-wrapper");
@@ -93,16 +72,10 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
             }
 
             this.overwriteValues(options);
-            itemStorage.deserialize(items);
+            this.overwriteItems(items);
         });
 
         this.shadowRoot.getElementById("footer").prepend(loadRulesetRow);
-    }
-
-    show() {
-        const storage = STORAGE.get(this);
-        storage.clear();
-        super.show();
     }
 
 }

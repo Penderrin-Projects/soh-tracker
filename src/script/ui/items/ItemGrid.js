@@ -14,7 +14,6 @@ import "./components/Item.js";
 import "./components/ItemKey.js";
 import "./components/InfiniteItem.js";
 import "./components/RewardItem.js";
-import "./components/VariableMaxItem.js";
 
 const TPL = new Template(`
 <div id="content">

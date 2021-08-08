@@ -162,7 +162,7 @@ export default class SettingsWindow extends Window {
 
     overwriteValues(data) {
         const storage = STORAGE.get(this);
-        storage.overwrite(data);
+        storage.deserialize(data);
     }
 
     getTab(category) {

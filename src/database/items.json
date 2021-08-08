@@ -104,41 +104,55 @@
     "item.magic_din": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/magic_din.png"
+        "label": "Din",
+        "images": "/images/items/magic_din.png",
+        "valign": "end"
     },
     "item.magic_farore": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/magic_farore.png"
+        "label": "Far",
+        "images": "/images/items/magic_farore.png",
+        "valign": "end"
     },
     "item.magic_nayru": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/magic_nayru.png"
+        "label": "Nay",
+        "images": "/images/items/magic_nayru.png",
+        "valign": "end"
     },
     "item.arrow_fire": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/arrow_fire.png"
+        "label": "Fire",
+        "images": "/images/items/arrow_fire.png",
+        "valign": "end"
     },
     "item.arrow_ice": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/arrow_ice.png"
+        "label": "Ice",
+        "images": "/images/items/arrow_ice.png",
+        "valign": "end"
     },
     "item.arrow_light": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/arrow_light.png"
+        "label": "Light",
+        "images": "/images/items/arrow_light.png",
+        "valign": "end"
     },
     "item.ice_trap": {
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/ice_trap.png",
         "halign": "end",
         "valign": "end"
     },
     "item.triforce_piece": {
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/triforce_piece.png",
         "halign": "end",
         "valign": "end"
@@ -309,12 +323,16 @@
     "item.tunic_fire": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/tunic_fire.png"
+        "label": "Goron",
+        "images": "/images/items/tunic_fire.png",
+        "valign": "end"
     },
     "item.tunic_water": {
         "type": "item",
         "max": 1,
-        "images": "/images/items/tunic_water.png"
+        "label": "Zora",
+        "images": "/images/items/tunic_water.png",
+        "valign": "end"
     },
     "item.tunics": {
         "type": "item",
@@ -599,8 +617,10 @@
     },
     "item.key_small_forest": {
         "type": "key",
-        "max": 5,
-        "maxmq": 6,
+        "max": 6,
+        "type_max": {
+            "v": 5
+        },
         "related_dungeon": "area/temple_forest",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -616,7 +636,9 @@
     "item.key_small_fire": {
         "type": "key",
         "max": 8,
-        "maxmq": 5,
+        "type_max": {
+            "mq": 5
+        },
         "related_dungeon": "area/temple_fire",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -632,7 +654,9 @@
     "item.key_small_water": {
         "type": "key",
         "max": 6,
-        "maxmq": 2,
+        "type_max": {
+            "mq": 2
+        },
         "related_dungeon": "area/temple_water",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -647,8 +671,10 @@
     },
     "item.key_small_shadow": {
         "type": "key",
-        "max": 5,
-        "maxmq": 6,
+        "max": 6,
+        "type_max": {
+            "v": 5
+        },
         "related_dungeon": "area/temple_shadow",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -663,8 +689,10 @@
     },
     "item.key_small_spirit": {
         "type": "key",
-        "max": 5,
-        "maxmq": 7,
+        "max": 7,
+        "type_max": {
+            "v": 5
+        },
         "related_dungeon": "area/temple_spirit",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -679,8 +707,10 @@
     },
     "item.key_small_ganon": {
         "type": "key",
-        "max": 2,
-        "maxmq": 3,
+        "max": 3,
+        "type_max": {
+            "v": 2
+        },
         "related_dungeon": "area/castle_ganon",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -694,11 +724,11 @@
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_gerudo": {
-        "type": "varmax",
-        "max": {
+        "type": "item",
+        "max": 4,
+        "var_max": {
             "option": "option.gerudo_fortress_open",
             "values": {
-                "gerudo_fortress_open_default": 4,
                 "gerudo_fortress_open_one": 1,
                 "gerudo_fortress_open_open": 0
             }
@@ -711,7 +741,9 @@
     "item.key_small_training": {
         "type": "key",
         "max": 9,
-        "maxmq": 3,
+        "type_max": {
+            "mq": 3
+        },
         "related_dungeon": "area/training_grounds",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -721,7 +753,9 @@
     "item.key_small_well": {
         "type": "key",
         "max": 3,
-        "maxmq": 2,
+        "type_max": {
+            "mq": 2
+        },
         "related_dungeon": "area/well",
         "counting": true,
         "images": "/images/items/key_small.png",
@@ -922,6 +956,7 @@
     },
     "item.rupee_green":{
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/rupee_green.png",
         "always_active": true,
         "halign": "end",
@@ -929,6 +964,7 @@
     },
     "item.rupee_blue":{
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/rupee_blue.png",
         "always_active": true,
         "halign": "end",
@@ -936,6 +972,7 @@
     },
     "item.rupee_red":{
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/rupee_red.png",
         "always_active": true,
         "halign": "end",
@@ -943,6 +980,7 @@
     },
     "item.rupee_purple":{
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/rupee_purple.png",
         "always_active": true,
         "halign": "end",
@@ -950,6 +988,7 @@
     },
     "item.rupee_yellow":{
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/rupee_yellow.png",
         "always_active": true,
         "halign": "end",
@@ -957,6 +996,7 @@
     },
     "item.refill_item": {
         "type": "infinite",
+        "max": 99999,
         "images": "/images/items/refill_item.png",
         "always_active": true,
         "halign": "end",

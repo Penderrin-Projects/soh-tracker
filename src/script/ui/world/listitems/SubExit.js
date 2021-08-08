@@ -194,11 +194,11 @@ export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
     }
 
     refreshList() {
-        this.innerHTML = ""; // TODO use ElementManager
+        this.innerHTML = "";
         const state = this.getState();
         if (state != null) {
             const area = state.area;
-            if (area != null) {
+            if (area != null && area.ref.startsWith("subarea/")) {
                 const list = area.getList();
                 if (list != null) {
                     for (const record of list) {

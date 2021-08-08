@@ -2,10 +2,6 @@
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 
-import VersionData from "../data/VersionData.js";
-import "../storage/SettingsStorage.js";
-import OptionsStorage from "../storage/OptionsStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 import BusyIndicator from "../ui/BusyIndicator.js";
@@ -34,28 +30,18 @@ class SavestateHandler extends EventTarget {
         if (initState != null) {
             this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(initState);
-            const {options, filter, ...data} = state;
-            Savestate.deserialize(data);
-            OptionsStorage.deserialize(options);
-            FilterStorage.deserialize(filter);
+            Savestate.deserialize(state);
             updateTitle();
             // trigger event
             this.dispatchEvent(new Event("reset"));
             const ev = new Event("load");
-            ev.state = {
-                notes: state.notes,
-                data: state.data,
-                options: state.options,
-                filter: state.filter
-            };
+            ev.state = state;
             this.dispatchEvent(ev);
             this.dispatchEvent(new Event("afterload"));
         }
         /* --- */
         Savestate.addEventListener("change", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
             this./*#*/__cacheData(state, true);
             if (!event.category) {
                 const ev = new Event("change");
@@ -71,23 +57,21 @@ class SavestateHandler extends EventTarget {
         });
         Savestate.addEventListener("notes", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
             this./*#*/__cacheData(state, true);
             const ev = new Event("notes");
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
-        OptionsStorage.addEventListener("change", event => {
+        Savestate.addEventListener("options", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
             this./*#*/__cacheData(state, true);
         });
-        FilterStorage.addEventListener("persistedchange", event => {
+        Savestate.addEventListener("filter", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
+            this./*#*/__cacheData(state, true);
+        });
+        Savestate.addEventListener("startitems", event => {
+            const state = Savestate.serialize();
             this./*#*/__cacheData(state, true);
         });
     }
@@ -106,12 +90,6 @@ class SavestateHandler extends EventTarget {
         const state = Savestate.serialize();
         state.timestamp = new Date();
         state.autosave = false;
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
-        state["_meta"] = {
-            app: VersionData.versionString,
-            browser: VersionData.browserData
-        };
         await STORAGE.set(name, state);
         // write state data
         this./*#*/__cacheData(state, false);
@@ -123,20 +101,12 @@ class SavestateHandler extends EventTarget {
             this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(await STORAGE.get(name));
             // write state data
-            const {options, filter, ...data} = state;
-            Savestate.deserialize(data);
-            OptionsStorage.deserialize(options);
-            FilterStorage.deserialize(filter);
+            Savestate.deserialize(state);
             this./*#*/__cacheData(state, false);
             // trigger event
             this.dispatchEvent(new Event("reset"));
             const ev = new Event("load");
-            ev.state = {
-                notes: state.notes,
-                data: state.data,
-                options: state.options,
-                filter: state.filter
-            };
+            ev.state = state;
             this.dispatchEvent(ev);
             this.dispatchEvent(new Event("afterload"));
         }
@@ -155,27 +125,18 @@ class SavestateHandler extends EventTarget {
      * Resets the state and initializes the savestate, options and filter with the given data, handling it as a stateload
      * @param {Object} stateData an Object containing data for savestate, options and filter
      */
-    async reset({data = {}, options = {}, filter = {}} = {}) {
+    async reset(data = {}) {
         await BusyIndicator.busy();
         this.dispatchEvent(new Event("beforeload"));
         // write state data
-        Savestate.deserialize({data});
-        OptionsStorage.deserialize(options);
-        FilterStorage.deserialize(filter);
+        Savestate.deserialize(data);
         // cache data
         const state = Savestate.serialize();
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
         this./*#*/__cacheData(state, false);
         // trigger event
         this.dispatchEvent(new Event("reset"));
         const ev = new Event("load");
-        ev.state = {
-            notes: state.notes,
-            data: state.data,
-            options: state.options,
-            filter: state.filter
-        };
+        ev.state = state;
         this.dispatchEvent(ev);
         this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
@@ -185,26 +146,17 @@ class SavestateHandler extends EventTarget {
      * Overwrites the savestate, options and filter with the given data, handling it as a stateload
      * @param {Object} stateData an Object containing data for savestate, options and filter
      */
-    async overwrite({data = {}, options = {}, filter = {}} = {}) {
+    async overwrite(data = {}) {
         await BusyIndicator.busy();
         this.dispatchEvent(new Event("beforeload"));
         // write state data
         Savestate.overwrite(data);
-        OptionsStorage.overwrite(options);
-        FilterStorage.overwrite(filter);
         // cache data
         const state = Savestate.serialize();
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
         this./*#*/__cacheData(state, true);
         // trigger event
         const ev = new Event("load");
-        ev.state = {
-            notes: state.notes,
-            data: state.data,
-            options: state.options,
-            filter: state.filter
-        };
+        ev.state = state;
         this.dispatchEvent(ev);
         this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
@@ -240,6 +192,20 @@ class SavestateHandler extends EventTarget {
 
     delete(category, key) {
         Savestate.delete(category, key);
+    }
+
+    /* additional storages */
+    
+    get options() {
+        return Savestate.options;
+    }
+    
+    get filter() {
+        return Savestate.filter;
+    }
+    
+    get startitems() {
+        return Savestate.startitems;
     }
 
 }

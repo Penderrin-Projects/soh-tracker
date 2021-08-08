@@ -7,7 +7,9 @@
 
 ### FIX MINOR BUGS
 
-- 
+- spoiler parser (items) will not correctly parse progressive items
+    - needs to add instead of simply setting
+    - initially set every item to 0
 
 ---
 

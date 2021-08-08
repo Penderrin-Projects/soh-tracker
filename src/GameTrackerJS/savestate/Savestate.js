@@ -1,3 +1,7 @@
+import VersionData from "../data/VersionData.js";
+import OptionsStorage from "../storage/OptionsStorage.js";
+import FilterStorage from "../storage/FilterStorage.js";
+import StartItemsStorage from "../storage/StartItemsStorage.js";
 import DataStorage from "../storage/DataStorage.js";
 import SavestateConverter from "./SavestateConverter.js";
 
@@ -9,6 +13,29 @@ let autosave = false;
 let notes = "";
 
 class Savestate extends EventTarget {
+
+    constructor() {
+        super();
+        /* --- */
+        OptionsStorage.addEventListener("change", event => {
+            const ev = new Event("options");
+            ev.data = event.data;
+            ev.changes = event.changes;
+            this.dispatchEvent(ev);
+        });
+        FilterStorage.addEventListener("persistedchange", event => {
+            const ev = new Event("filter");
+            ev.data = event.data;
+            ev.changes = event.changes;
+            this.dispatchEvent(ev);
+        });
+        StartItemsStorage.addEventListener("change", event => {
+            const ev = new Event("startitems");
+            ev.data = event.data;
+            ev.changes = event.changes;
+            this.dispatchEvent(ev);
+        });
+    }
 
     set name(value) {
         name = value.toString();
@@ -51,8 +78,10 @@ class Savestate extends EventTarget {
             version,
             timestamp,
             autosave,
+            data: {},
             options: {},
-            data: {}
+            filter: {},
+            startitems: {}
         };
     }
 
@@ -72,10 +101,17 @@ class Savestate extends EventTarget {
             version,
             timestamp,
             autosave,
-            data: {}
+            data: {},
+            options: OptionsStorage.serialize(),
+            filter: FilterStorage.serialize(),
+            startitems: StartItemsStorage.serialize(),
+            ["_meta"]: {
+                app: VersionData.versionString,
+                browser: VersionData.browserData
+            }
         };
         for (const [category, dataStorage] of DATA) {
-            res.data[category] = dataStorage.getAll();
+            res.data[category] = dataStorage.serialize();
         }
         return res;
     }
@@ -94,20 +130,23 @@ class Savestate extends EventTarget {
                 dataStorage.deserialize(value.data[category]);
             }
         }
+        OptionsStorage.deserialize(value.options);
+        FilterStorage.deserialize(value.filter);
     }
 
-    overwrite(data) {
-        if (data != null) {
-            for (const category in data) {
-                const dataStorage = this.getData(category);
-                const buffer = data[category];
-                if (buffer == null) {
-                    dataStorage.clear();
-                } else {
-                    dataStorage.overwrite(data[category]);
-                }
+    overwrite({data = {}, options = {}, filter = {}, startitems = {}} = {}) {
+        for (const category in data) {
+            const dataStorage = this.getData(category);
+            const buffer = data[category];
+            if (buffer == null) {
+                dataStorage.clear();
+            } else {
+                dataStorage.overwrite(data[category]);
             }
         }
+        OptionsStorage.deserialize(options);
+        FilterStorage.deserialize(filter);
+        StartItemsStorage.deserialize(startitems);
     }
 
     /* DATA */
@@ -172,6 +211,20 @@ class Savestate extends EventTarget {
         if (dataStorage.has(key)) {
             dataStorage.delete(key);
         }
+    }
+
+    /* additional storages */
+    
+    get options() {
+        return OptionsStorage;
+    }
+    
+    get filter() {
+        return FilterStorage;
+    }
+    
+    get startitems() {
+        return StartItemsStorage;
     }
 
 }

@@ -217,14 +217,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if (value < 9999) {
-                    value++;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value++;
             }
         }
         if (!event) return;
@@ -236,16 +229,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
-                    value = 0;
-                } else if (value > 0) {
-                    value--;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.val--;
             }
         }
         if (!event) return;

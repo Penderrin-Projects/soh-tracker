@@ -1,6 +1,11 @@
+// frameworks
+import Dialog from "/emcJS/ui/overlay/Dialog.js";
+
+// GameTrackerJS
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+
 // Track-OOT
 import OptionsTransResource from "/script/resource/OptionsTransResource.js";
-
 import parseSettings from "./parseSettings.js";
 import parseStartingItems from "./parseStartingItems.js";
 import parseItemLocations from "./parseItemLocations.js";
@@ -30,6 +35,7 @@ const DEFAULT_DATA = {
 function getVersionType(version) {
     if (version.split(" ")[1] === "Release") return "prod";
     if (version.split(" ")[1] === "f.LUM") return "dev";
+    if (version != null) return "unknown";
 }
 
 function getWorldNumber(multiWorld, worldCount) {
@@ -49,8 +55,9 @@ function getWorldData(data, world) {
 
 class SpoilerParser {
 
-    parse(spoiler, settings) {
+    async parse(spoiler, settings) {
         const mainData = {};
+        const startitems = {};
         const extraData = {};
         const options = {};
         const areahint = {};
@@ -60,11 +67,19 @@ class SpoilerParser {
         if (version == null) {
             throw new Error("Not a valid OOTR Spoiler log found");
         }
+        if (version == "unknown") {
+            await BusyIndicator.unbusy();
+            const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
+            await BusyIndicator.busy();
+            if (!cont) {
+                return;
+            }
+        }
         
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
         if (settings["parse.settings"]) parseSettings(options, spoiler["settings"], trans);
-        if (settings["parse.starting_items"]) parseStartingItems(mainData, getWorldData(spoiler["starting_items"], world), trans);
+        if (settings["parse.starting_items"]) parseStartingItems(startitems, getWorldData(spoiler["starting_items"], world), trans);
         if (settings["parse.random_settings"]) parseSettings(options, getWorldData(spoiler["randomized_settings"], world), trans);
         if (settings["parse.item_association"]) parseItemLocations(extraData, getWorldData(spoiler["locations"], world), world, trans);
         if (settings["parse.woth_hints"]) parseWoth(areahint, getWorldData(spoiler[":woth_locations"], world), trans);
@@ -101,7 +116,8 @@ class SpoilerParser {
                 "": mainData,
                 "area_hint": areahint
             },
-            options
+            options,
+            startitems
         };
     }
 
