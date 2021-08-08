@@ -34,7 +34,7 @@ export default class DefaultState extends DataState {
         DEF_MAX.set(this, DefaultState.parseInt(props.max, 0));
         MIN.set(this, DefaultState.parseInt(startItemsObserver.value, 0));
         startItemsObserver.addEventListener("change", (event) => {
-            this.#setMin(event.data);
+            this./*#*/__setMin(event.data);
         });
         if (props.var_max != null && props.var_max.option != null && props.var_max.values != null) {
             const defMax = DEF_MAX.get(this);
@@ -44,11 +44,11 @@ export default class DefaultState extends DataState {
                 MAX.set(this, maxVal);
             }
             optionObserver.addEventListener("change", (event) => {
-                this.#setMax(props.var_max.values[event.data]);
+                this./*#*/__setMax(props.var_max.values[event.data]);
             });
         }
         const value = SavestateHandler.get("", ref, 0);
-        VALUE.set(this, this.#restrictValue(value));
+        VALUE.set(this, this./*#*/__restrictValue(value));
         /* --- */
         // SavestateHandler.addEventListener("load", event => {
         //     console.log("load", event);
@@ -58,7 +58,7 @@ export default class DefaultState extends DataState {
             const ref = this.ref;
             const change = event.data;
             if (change != null && change.ref == ref) {
-                this.#setValue(change.value);
+                this./*#*/__setValue(change.value);
             }
         });
         EventBus.register("state", (event) => {
@@ -70,10 +70,10 @@ export default class DefaultState extends DataState {
     stateLoaded(event) {
         const ref = this.ref;
         // savesatate
-        this.#setValue(event.data.state[ref] ?? 0);
+        this./*#*/__setValue(event.data.state[ref] ?? 0);
     }
 
-    #restrictValue = function(value) {
+    /*#*/__restrictValue(value) {
         const max = this.max;
         const min = this.min;
         if (value > max) {
@@ -85,7 +85,7 @@ export default class DefaultState extends DataState {
         return value;
     }
 
-    #setMax = function(value) {
+    /*#*/__setMax(value) {
         const newMax = DefaultState.parseInt(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {
@@ -105,7 +105,7 @@ export default class DefaultState extends DataState {
         }
     }
 
-    #setMin = function(value) {
+    /*#*/__setMin(value) {
         const newMin = DefaultState.parseInt(value, 0);
         const oldMin = MIN.get(this);
         if (newMin != oldMin) {
@@ -125,11 +125,11 @@ export default class DefaultState extends DataState {
         }
     }
 
-    #setValue = function(value) {
+    /*#*/__setValue(value) {
         const ref = this.ref;
         const rValue = DefaultState.parseInt(value);
         if (rValue != null) {
-            const newValue = this.#restrictValue(rValue);
+            const newValue = this./*#*/__restrictValue(rValue);
             const oldValue = this.value;
             if (newValue != oldValue) {
                 VALUE.set(this, newValue);
@@ -157,7 +157,7 @@ export default class DefaultState extends DataState {
 
     set value(value) {
         const oldValue = this.value;
-        const newValue = this.#setValue(value);
+        const newValue = this./*#*/__setValue(value);
         if (newValue != null && newValue != oldValue) {
             // internal
             EventBus.trigger("state::item", {ref: this.ref, value: newValue});
@@ -166,7 +166,7 @@ export default class DefaultState extends DataState {
 
     get value() {
         const value = VALUE.get(this);
-        return this.#restrictValue(value);
+        return this./*#*/__restrictValue(value);
     }
 
 }

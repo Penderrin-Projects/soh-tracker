@@ -30,18 +30,18 @@ export default class KeyState extends DefaultState {
             if (props["type_max"] != null && props["related_dungeon"] != null) {
                 const change = event.data;
                 if (change != null && change.ref == props.related_dungeon) {
-                    this.#applyTypeValue(change.value || "n");
+                    this./*#*/__applyTypeValue(change.value || "n");
                 }
             }
         });
     }
 
-    #applyTypeValue = function(newValue) {
+    /*#*/__applyTypeValue(newValue) {
         const type = TYPE.get(this);
         if (type != newValue) {
             TYPE.set(this, newValue);
             const props = this.props;
-            this.#setMax(props["type_max"][newValue]);
+            this./*#*/__setMax(props["type_max"][newValue]);
             // external
             const event = new Event("type");
             event.data = newValue;
@@ -49,7 +49,7 @@ export default class KeyState extends DefaultState {
         }
     }
 
-    #setMax = function(value) {
+    /*#*/__setMax(value) {
         const newMax = DefaultState.parseInt(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {
@@ -75,9 +75,9 @@ export default class KeyState extends DefaultState {
         if (props["type_max"] != null && props.hasOwnProperty["related_dungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this.#applyTypeValue(types[props.related_dungeon]);
+                this./*#*/__applyTypeValue(types[props.related_dungeon]);
             } else {
-                this.#applyTypeValue("n");
+                this./*#*/__applyTypeValue("n");
             }
         }
         // savesatate

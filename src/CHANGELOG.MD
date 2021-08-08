@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.27
+
+### BUGFIXES
+
+- remove private class methods as the compressor does not handle them correctly
+
+---
+
 ## VERSION 2.1.26
 
 ### ITEMS

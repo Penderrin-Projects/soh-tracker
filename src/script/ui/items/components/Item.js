@@ -29,7 +29,7 @@ const STYLE = new GlobalStyle(`
     height: 40px;
     cursor: pointer;
 }
-#slot {
+/*#*/__slot {
     width: 100%;
     height: 100%;
     font-size: 1em;
@@ -65,7 +65,7 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 ::slotted([value].mark) {
-    color: #54ff54;
+    color: /*#*/__54ff54;
 }
 `);
 
@@ -92,10 +92,10 @@ export default class Item extends StateDataEventManager(HTMLElement) {
             this.value = event.data;
         });
         this.registerStateHandler("max", event => {
-            this.#fillItemChoices();
+            this./*#*/__fillItemChoices();
         });
         this.registerStateHandler("min", event => {
-            this.#fillItemChoices();
+            this./*#*/__fillItemChoices();
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
@@ -107,7 +107,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         this.halign = "center";
         this.valign = "center";
         // choices
-        this.#fillItemChoices();
+        this./*#*/__fillItemChoices();
     }
 
     applyStateValues(state) {
@@ -118,7 +118,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
             this.halign = data.halign ?? "center";
             this.valign = data.valign ?? "center";
             // choices
-            this.#fillItemChoices();
+            this./*#*/__fillItemChoices();
         }
     }
 
@@ -200,7 +200,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         }
     }
 
-    #fillItemChoices = function() {
+    /*#*/__fillItemChoices() {
         this.innerHTML = "";
         const state = this.getState();
         if (state != null) {
