@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.28
+
+### IMPROVEMENTS
+
+- add remove starting items to clear data window
+
+### BUGFIXES
+
+- fix detached window not loading correctly due to race condition
+- fix start items not loaded after tracker initialization
+- fix item marker style not applied correctly
+
+---
+
 ## VERSION 2.1.27
 
 ### BUGFIXES

@@ -132,6 +132,7 @@ class Savestate extends EventTarget {
         }
         OptionsStorage.deserialize(value.options);
         FilterStorage.deserialize(value.filter);
+        StartItemsStorage.deserialize(value.startitems);
     }
 
     overwrite({data = {}, options = {}, filter = {}, startitems = {}} = {}) {
@@ -144,9 +145,9 @@ class Savestate extends EventTarget {
                 dataStorage.overwrite(data[category]);
             }
         }
-        OptionsStorage.deserialize(options);
-        FilterStorage.deserialize(filter);
-        StartItemsStorage.deserialize(startitems);
+        OptionsStorage.overwrite(options);
+        FilterStorage.overwrite(filter);
+        StartItemsStorage.overwrite(startitems);
     }
 
     /* DATA */

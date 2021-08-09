@@ -11,35 +11,35 @@ const DEF_MAX = new WeakMap();
 const MAX = new WeakMap();
 const MIN = new WeakMap();
 
-export default class DefaultState extends DataState {
-
-    static parseInt(value, def) {
-        const result = parseInt(value);
-        if (isNaN(result)) {
-            return def;
-        }
-        if (result > 99999) {
-            return 99999;
-        }
-        if (result < 0) {
-            return 0;
-        }
-        return result;
+export function parseSafeRange(value, def) {
+    const result = parseInt(value);
+    if (isNaN(result)) {
+        return def;
     }
+    if (result > 99999) {
+        return 99999;
+    }
+    if (result < 0) {
+        return 0;
+    }
+    return result;
+}
+
+export default class DefaultState extends DataState {
 
     constructor(ref, props = {}) {
         super(ref, props);
         /* --- */
         const startItemsObserver = new StartItemsObserver(ref);
-        DEF_MAX.set(this, DefaultState.parseInt(props.max, 0));
-        MIN.set(this, DefaultState.parseInt(startItemsObserver.value, 0));
+        DEF_MAX.set(this, parseSafeRange(props.max, 0));
+        MIN.set(this, parseSafeRange(startItemsObserver.value, 0));
         startItemsObserver.addEventListener("change", (event) => {
             this./*#*/__setMin(event.data);
         });
         if (props.var_max != null && props.var_max.option != null && props.var_max.values != null) {
             const defMax = DEF_MAX.get(this);
             const optionObserver = new OptionsObserver(props.var_max.option);
-            const maxVal = DefaultState.parseInt(props.var_max.values[optionObserver.value], defMax);
+            const maxVal = parseSafeRange(props.var_max.values[optionObserver.value], defMax);
             if (maxVal != null) {
                 MAX.set(this, maxVal);
             }
@@ -86,7 +86,7 @@ export default class DefaultState extends DataState {
     }
 
     /*#*/__setMax(value) {
-        const newMax = DefaultState.parseInt(value, this.defaultMax);
+        const newMax = parseSafeRange(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {
             const oldValue = this.value;
@@ -106,7 +106,7 @@ export default class DefaultState extends DataState {
     }
 
     /*#*/__setMin(value) {
-        const newMin = DefaultState.parseInt(value, 0);
+        const newMin = parseSafeRange(value, 0);
         const oldMin = MIN.get(this);
         if (newMin != oldMin) {
             const oldValue = this.value;
@@ -127,7 +127,7 @@ export default class DefaultState extends DataState {
 
     /*#*/__setValue(value) {
         const ref = this.ref;
-        const rValue = DefaultState.parseInt(value);
+        const rValue = parseSafeRange(value);
         if (rValue != null) {
             const newValue = this./*#*/__restrictValue(rValue);
             const oldValue = this.value;

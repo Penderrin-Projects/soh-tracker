@@ -2,13 +2,13 @@
 import EventBus from "/emcJS/event/EventBus.js";
 
 import ItemsResource from "../resource/ItemsResource.js";
-import DefaultItemState from "../state/item/DefaultState.js";
+import { parseSafeRange } from "../state/item/DefaultState.js";
 import DataStorage from "./DataStorage.js";
 
 const MAX = new Map();
 
 for (const [key, value] of Object.entries(ItemsResource.get())) {
-    MAX.set(key, DefaultItemState.parseInt(value.max, 0));
+    MAX.set(key, parseSafeRange(value.max, 0));
 }
 
 class StartItemsStorage extends DataStorage {
@@ -26,7 +26,7 @@ class StartItemsStorage extends DataStorage {
     }
 
     set(key, value) {
-        const parsedValue = DefaultItemState.parseInt(value);
+        const parsedValue = parseSafeRange(value);
         if (parsedValue != null && MAX.has(key)) {
             super.set(key, Math.min(MAX.get(key), Math.max(0, parsedValue)));
         }
@@ -35,7 +35,7 @@ class StartItemsStorage extends DataStorage {
     setAll(values) {
         const res = {};
         for (const key in values) {
-            const value = DefaultItemState.parseInt(values[key]);
+            const value = parseSafeRange(values[key]);
             if (value != null && MAX.has(key)) {
                 res[key] = Math.min(MAX.get(key), Math.max(0, value));
             }

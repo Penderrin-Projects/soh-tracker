@@ -29,7 +29,7 @@ const STYLE = new GlobalStyle(`
     height: 40px;
     cursor: pointer;
 }
-/*#*/__slot {
+#slot {
     width: 100%;
     height: 100%;
     font-size: 1em;
@@ -65,7 +65,7 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 ::slotted([value].mark) {
-    color: /*#*/__54ff54;
+    color: #54ff54;
 }
 `);
 

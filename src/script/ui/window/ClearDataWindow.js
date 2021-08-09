@@ -5,6 +5,7 @@ import Window from "/emcJS/ui/overlay/Window.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 
 // GameTrackerJS
+import StartItemsStorage from "/GameTrackerJS/storage/StartItemsStorage.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 
 const TPL = new Template(`
@@ -19,6 +20,9 @@ const TPL = new Template(`
 <div>
     <emc-input-wrapper>
         <button data-type="shops">delete shop items</button>
+    </emc-input-wrapper>
+    <emc-input-wrapper>
+        <button id="startitems">delete start items</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
         <button data-type="songs">delete songs</button>
@@ -63,6 +67,16 @@ async function clearData(event) {
     });
 }
 
+async function clearExtra(event) {
+    const buttonEl = event.target;
+    if (!await Dialog.confirm("Warning", `Do you really want to "${buttonEl.innerHTML}"? This can not be undone.`)) {
+        return;
+    }
+    SavestateHandler.overwrite({
+        [buttonEl.dataset.extra]: null
+    });
+}
+
 export default class ClearDataWindow extends Window {
 
     constructor(title = "Initialize new state", options = {}) {
@@ -78,6 +92,14 @@ export default class ClearDataWindow extends Window {
         for (const buttonEl of Array.from(buttonEls)) {
             buttonEl.addEventListener("click", clearData);
         }
+        /* --- */
+        const clearStartitemsEl = bodyEl.querySelector("#startitems");
+        clearStartitemsEl.addEventListener("click", async () => {
+            if (!await Dialog.confirm("Warning", `Do you really want to "delete start items"? This can not be undone.`)) {
+                return;
+            }
+            StartItemsStorage.clear();
+        });
     }
 
 }

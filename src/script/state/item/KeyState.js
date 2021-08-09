@@ -5,7 +5,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
+import DefaultState, { parseSafeRange } from "/GameTrackerJS/state/item/DefaultState.js";
 
 const TYPE = new WeakMap();
 const MAX = new WeakMap();
@@ -50,7 +50,7 @@ export default class KeyState extends DefaultState {
     }
 
     /*#*/__setMax(value) {
-        const newMax = DefaultState.parseInt(value, this.defaultMax);
+        const newMax = parseSafeRange(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {
             const oldValue = this.value;
