@@ -1,6 +1,8 @@
+// frameworks
+import DefaultingStorage from "/emcJS/datastorage/DefaultingStorage.js";
+
 import OptionsResource from "../../../resource/OptionsResource.js";
 import ItemsResource from "../../../resource/ItemsResource.js";
-import DefaultingStorage from "../../../storage/DefaultingStorage.js";
 import OptionsStorage from "../../../storage/OptionsStorage.js";
 import StartItemsStorage from "../../../storage/StartItemsStorage.js";
 import SettingsBuilder from "../../../util/SettingsBuilder.js";

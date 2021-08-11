@@ -1,9 +1,9 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
+import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
 import ItemsResource from "../resource/ItemsResource.js";
 import { parseSafeRange } from "../state/item/DefaultState.js";
-import DataStorage from "./DataStorage.js";
 
 const MAX = new Map();
 
@@ -43,11 +43,10 @@ class StartItemsStorage extends DataStorage {
         super.setAll(res);
     }
 
-    get(key, value = 0) {
+    get(key) {
         if (MAX.has(key)) {
-            return super.get(key, value);
+            return super.get(key, 0);
         }
-        return value;
     }
 
     getAll() {
@@ -64,6 +63,26 @@ class StartItemsStorage extends DataStorage {
 
     keys() {
         return MAX.keys();
+    }
+
+    deserialize(data = {}) {
+        const res = {};
+        for (const [key] of MAX) {
+            const newValue = data[key];
+            if (newValue != null) {
+                res[key] = newValue;
+            }
+        }
+        super.deserialize(res);
+    }
+
+    overwrite(data = {}) {
+        const res = {};
+        for (const [key] of MAX) {
+            const newValue = data[key];
+            res[key] = newValue;
+        }
+        super.overwrite(res);
     }
 
 }

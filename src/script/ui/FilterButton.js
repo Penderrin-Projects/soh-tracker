@@ -1,9 +1,8 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/input/Option.js";
-
 
 // GameTrackerJS
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
@@ -53,9 +52,7 @@ slot {
 }
 `);
 
-const FILTER_Observer = new WeakMap();
-
-class FilterButton extends UIEventBusMixin(HTMLElement) {
+class FilterButton extends EventTargetMixin(HTMLElement) {
 
     constructor() {
         super();
@@ -66,11 +63,9 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
-        const filterObserver = new FilterObserver();
-        filterObserver.addEventListener("change", event => {
+        this.setTargetEventListener("filterObserver", "change", event => {
             this.value = event.data;
         });
-        FILTER_Observer.set(this, filterObserver);
     }
 
     get ref() {
@@ -107,8 +102,9 @@ class FilterButton extends UIEventBusMixin(HTMLElement) {
             case "ref":
                 if (oldValue != newValue) {
                     const data = FilterResource.get(this.ref);
-                    const filterObserver = FILTER_Observer.get(this);
-                    filterObserver.key = this.ref;
+                    const filterObserver = new FilterObserver(this.ref);
+                    this.switchTarget("filterObserver", filterObserver);
+                    this.innerHTML = "";
                     this.value = filterObserver.value;
                     for (const i in data.values) {
                         let img = data.images;

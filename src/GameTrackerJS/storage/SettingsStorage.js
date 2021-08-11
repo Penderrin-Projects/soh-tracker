@@ -1,6 +1,6 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-import IDBProxyStorage from "/emcJS/storage/IDBProxyStorage.js";
+import IDBProxyStorage from "/emcJS/datastorage/IDBProxyStorage.js";
 
 import SettingsResource from "../resource/SettingsResource.js";
 
@@ -53,11 +53,10 @@ class SettingsStorage extends IDBProxyStorage {
         super.setAll(res);
     }
 
-    get(key, value = DEFAULTS.get(key)) {
+    get(key) {
         if (DEFAULTS.has(key)) {
-            return super.get(key, value);
+            return super.get(key, DEFAULTS.get(key));
         }
-        return value;
     }
 
     getAll() {
@@ -74,6 +73,26 @@ class SettingsStorage extends IDBProxyStorage {
 
     keys() {
         return DEFAULTS.keys();
+    }
+
+    deserialize(data = {}) {
+        const res = {};
+        for (const [key] of DEFAULTS) {
+            const newValue = data[key];
+            if (newValue != null) {
+                res[key] = newValue;
+            }
+        }
+        super.deserialize(res);
+    }
+
+    overwrite(data = {}) {
+        const res = {};
+        for (const [key] of DEFAULTS) {
+            const newValue = data[key];
+            res[key] = newValue;
+        }
+        super.overwrite(res);
     }
 
 }

@@ -1,8 +1,10 @@
+// frameworks
+import DataStorage from "/emcJS/datastorage/DataStorage.js";
+
 import VersionData from "../data/VersionData.js";
 import OptionsStorage from "../storage/OptionsStorage.js";
 import FilterStorage from "../storage/FilterStorage.js";
 import StartItemsStorage from "../storage/StartItemsStorage.js";
-import DataStorage from "../storage/DataStorage.js";
 import SavestateConverter from "./SavestateConverter.js";
 
 const DATA = new Map();

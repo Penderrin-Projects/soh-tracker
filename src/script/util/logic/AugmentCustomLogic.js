@@ -15,11 +15,11 @@ import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 const LogicsStorage = new IDBStorage("logics");
 const LogicsStorageGlitched = new IDBStorage("logics_glitched");
 
-let logic_glitched = OptionsStorage.get("option.logic_rules");
+let logic_rule_type = OptionsStorage.get("option.logic_rules");
 let use_custom_logic = SettingsStorage.get("use_custom_logic");
 
 function getLogicData() {
-    switch(logic_glitched) {
+    switch(logic_rule_type) {
         case "logic_rules_glitched": {
             return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
         }
@@ -31,7 +31,7 @@ function getLogicData() {
 }
 
 function getCustomLogicData() {
-    switch(logic_glitched) {
+    switch(logic_rule_type) {
         case "logic_rules_glitched": {
             return LogicsStorageGlitched.getAll() ?? {edges:{}, logic:{}};
         }
@@ -70,8 +70,8 @@ async function update() {
 
 // register event for (de-)activate entrances
 EventBus.register("options", event => {
-    if (event.data["option.logic_rules"] != null && logic_rules != event.data["option.logic_rules"]) {
-        logic_rules = event.data["option.logic_rules"];
+    if (event.data["option.logic_rules"] != null && logic_rule_type != event.data["option.logic_rules"]) {
+        logic_rule_type = event.data["option.logic_rules"];
         update();
     }
 });

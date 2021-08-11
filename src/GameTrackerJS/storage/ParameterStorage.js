@@ -1,6 +1,6 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-import IDBProxyStorage from "/emcJS/storage/IDBProxyStorage.js";
+import IDBProxyStorage from "/emcJS/datastorage/IDBProxyStorage.js";
 
 class ParameterStorage extends IDBProxyStorage {
 

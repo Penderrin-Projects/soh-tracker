@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.29
+
+### BUGFIXES
+
+- fix presets would not apply correctly
+- fix filters would not initialize on new game as intended
+- fix error in custom logic type change
+
+---
+
 ## VERSION 2.1.28
 
 ### IMPROVEMENTS
