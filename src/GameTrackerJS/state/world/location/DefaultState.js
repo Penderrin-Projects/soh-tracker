@@ -11,15 +11,6 @@ const ACCESS = new WeakMap();
 const REACHABLE = new WeakMap();
 const VALUE = new WeakMap();
 
-function internalChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this./*#*/__setValue(change.value);
-    }
-}
-
 export default class DefaultState extends FilteredState {
 
     constructor(ref, props) {
@@ -29,7 +20,14 @@ export default class DefaultState extends FilteredState {
         REACHABLE.set(this, Logic.getValue(props.access));
         ACCESS.set(this, this.getAccessValue(VALUE.get(this), REACHABLE.get(this)));
         /* EVENTS */
-        EventBus.register("state::location", internalChange.bind(this));
+        EventBus.register("state::location", (event) => {
+            const ref = this.ref;
+            // savesatate
+            const change = event.data;
+            if (change != null && change.ref == ref) {
+                this./*#*/__setValue(change.value);
+            }
+        });
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });

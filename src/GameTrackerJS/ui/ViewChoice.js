@@ -71,13 +71,6 @@ const STYLE = new GlobalStyle(`
 const EL_MANAGER = new WeakMap();
 const ON_CLICK = new WeakMap();
 
-function onOptionClick(event) {
-    const el = event.currentTarget;
-    if (!el.classList.contains("active")) {
-        this.active = el.value;
-    }
-}
-
 function composer(key, params) {
     const el = document.createElement("emc-option");
     el.value = key;
@@ -95,7 +88,12 @@ export default class ViewChoice extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        ON_CLICK.set(this, onOptionClick.bind(this));
+        ON_CLICK.set(this, (event) => {
+            const el = event.currentTarget;
+            if (!el.classList.contains("active")) {
+                this.active = el.value;
+            }
+        });
         const choice = this.shadowRoot.getElementById("view-choice");
         EL_MANAGER.set(this, new ElementManager(choice, composer));
         const observer = new MutationObserver(() => {

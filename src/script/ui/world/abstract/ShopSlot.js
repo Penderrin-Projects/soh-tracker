@@ -3,9 +3,8 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import AbstractLocation from "/GameTrackerJS/ui/world/Location.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import "/script/state/world/location/LocationState.js";
-import "../../ctxmenu/ShopSlotContextMenu.js";
+import ShopSlotContextMenu from "../../ctxmenu/ShopSlotContextMenu.js";
 import ShopItemChoiceDialog from "../../shops/ShopItemChoiceDialog.js";
 
 const shopsanityObserver = new OptionsObserver("option.shopsanity");
@@ -29,24 +28,23 @@ export default class ShopSlot extends AbstractLocation {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-shopslot");
-        this.setDefaultContextMenu(mnu_ctx);
-        mnu_ctx.addEventListener("check", event => {
+        this.setDefaultContextMenu(ShopSlotContextMenu);
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        mnu_ctx.addEventListener("associate", event => {
+        this.addDefaultContextMenuHandler("associate", event => {
             this./*#*/__editItem();
         });
-        mnu_ctx.addEventListener("junk", event => {
+        this.addDefaultContextMenuHandler("junk", event => {
             const state = this.getState();
             if (state != null) {
                 state.item = "item.refill_item";
@@ -54,7 +52,7 @@ export default class ShopSlot extends AbstractLocation {
                 state.value = true;
             }
         });
-        mnu_ctx.addEventListener("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.reset();

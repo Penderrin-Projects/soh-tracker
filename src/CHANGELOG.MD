@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.30
+
+### PERFORMANCE
+
+- create and cache contextmenus only when they are needed
+- remove unnecessary data handling in datastorages
+
+### BUGFIXES
+
+- fix smaller issues with persisiting data concerning filters
+
+---
+
 ## VERSION 2.1.29
 
 ### BUGFIXES

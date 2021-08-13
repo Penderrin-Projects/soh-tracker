@@ -3,7 +3,7 @@ import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
-import "../ctxmenu/LocationContextMenu.js";
+import LocationContextMenu from "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
 
 export default class AbstractLocation extends WorldElement {
@@ -16,7 +16,7 @@ export default class AbstractLocation extends WorldElement {
         });
 
         /* context menu */
-        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-location"));
+        this.setDefaultContextMenu(LocationContextMenu);
         this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {

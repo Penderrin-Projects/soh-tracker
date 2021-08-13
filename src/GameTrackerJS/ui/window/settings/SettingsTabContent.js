@@ -77,6 +77,12 @@ export default class SettingsTabContent extends HTMLElement {
         input.dataset.ref = ref;
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            input.value = event.data[ref];
+        });
+        storage.addEventListener("load", event => {
+            input.value = event.data[ref];
+        });
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
                 input.value = event.data[ref];
@@ -104,9 +110,15 @@ export default class SettingsTabContent extends HTMLElement {
         input.dataset.ref = ref;
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            input.value = parseFloat(event.data[ref]) || 0;
+        });
+        storage.addEventListener("load", event => {
+            input.value = parseFloat(event.data[ref]) || 0;
+        });
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = parseFloat(event.data[ref]);
+                input.value = parseFloat(event.data[ref]) || 0;
             }
         });
         input.addEventListener("change", event => {
@@ -131,9 +143,15 @@ export default class SettingsTabContent extends HTMLElement {
         input.dataset.ref = ref;
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            input.value = parseFloat(event.data[ref]) || 0;
+        });
+        storage.addEventListener("load", event => {
+            input.value = parseFloat(event.data[ref]) || 0;
+        });
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
-                input.value = parseFloat(event.data[ref]);
+                input.value = parseFloat(event.data[ref]) || 0;
             }
         });
         input.addEventListener("change", event => {
@@ -152,6 +170,12 @@ export default class SettingsTabContent extends HTMLElement {
         input.dataset.ref = ref;
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            input.value = !!event.data[ref];
+        });
+        storage.addEventListener("load", event => {
+            input.value = !!event.data[ref];
+        });
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
                 input.checked = !!event.data[ref];
@@ -176,6 +200,12 @@ export default class SettingsTabContent extends HTMLElement {
         input.dataset.ref = ref;
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            input.value = event.data[ref];
+        });
+        storage.addEventListener("load", event => {
+            input.value = event.data[ref];
+        });
         storage.addEventListener("change", event => {
             if (event.data[ref] != null) {
                 input.value = event.data[ref];
@@ -203,8 +233,9 @@ export default class SettingsTabContent extends HTMLElement {
             }
             // events
             storage.addEventListener("change", event => {
-                if (event.data[value] != null) {
-                    if (event.data[value]) {
+                const evValue = event.data[value];
+                if (evValue != null) {
+                    if (!!evValue) {
                         valueCache.add(value);
                     } else {
                         valueCache.delete(value);
@@ -216,6 +247,26 @@ export default class SettingsTabContent extends HTMLElement {
         input.value = Array.from(valueCache);
         const el = generateField(label, input, storage, visible);
         // events
+        storage.addEventListener("clear", event => {
+            valueCache.clear();
+            for (const value in values) {
+                const evValue = event.data[value];
+                if (!!evValue) {
+                    valueCache.add(value);
+                }
+            }
+            input.value = Array.from(valueCache);
+        });
+        storage.addEventListener("load", event => {
+            valueCache.clear();
+            for (const value in values) {
+                const evValue = event.data[value];
+                if (!!evValue) {
+                    valueCache.add(value);
+                }
+            }
+            input.value = Array.from(valueCache);
+        });
         input.addEventListener("change", event => {
             const data = new Set(input.value);
             const res = {};

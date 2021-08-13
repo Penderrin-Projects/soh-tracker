@@ -34,16 +34,14 @@ class FilterStorage extends DataStorage {
             }, 100);
             const data = {};
             const changes = {};
-            for (const key in event.changes) {
+            for (const key in event.data) {
                 if (PERSISTED.has(key)) {
                     data[key] = event.data[key];
-                    changes[key] = event.changes[key];
                 }
             }
             if (Object.keys(changes).length) {
                 const ev = new Event("persistedchange");
                 ev.data = data;
-                ev.changes = changes;
                 this.dispatchEvent(ev);
             }
         });

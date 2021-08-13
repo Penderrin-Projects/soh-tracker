@@ -1,7 +1,7 @@
 // frameworks
 import ContextMenu from "/emcJS/ui/overlay/ContextMenu.js";
 
-export default class ExitContextMenu extends ContextMenu {
+export default class ExitChoiceContextMenu extends ContextMenu {
 
     connectedCallback() {
         super.loadItems([
@@ -16,4 +16,4 @@ export default class ExitContextMenu extends ContextMenu {
 
 }
 
-customElements.define("gt-ctxmenu-exitchoice", ExitContextMenu);
+customElements.define("gt-ctxmenu-exitchoice", ExitChoiceContextMenu);

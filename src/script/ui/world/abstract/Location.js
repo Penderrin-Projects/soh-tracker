@@ -5,8 +5,8 @@ import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import "/script/state/world/location/LocationState.js";
 import LogicViewer from "/script/ui/LogicViewer.js";
-import "../../ctxmenu/LocationContextMenu.js";
-import "../../ctxmenu/ItemPickerMenu.js";
+import LocationContextMenu from "../../ctxmenu/LocationContextMenu.js";
+import ItemPickerMenu from "../../ctxmenu/ItemPickerMenu.js";
 
 export default class Location extends AbstractLocation {
 
@@ -18,40 +18,38 @@ export default class Location extends AbstractLocation {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-location");
-        this.setDefaultContextMenu(mnu_ctx);
-
-        const mnu_itm = document.createElement("ootrt-ctxmenu-itempicker");
-        this.setContextMenu("itempicker", mnu_itm);
-
-        mnu_itm.addEventListener("pick", event => {
+        this.setDefaultContextMenu(LocationContextMenu);
+        this.setContextMenu("itempicker", ItemPickerMenu);
+        this.addContextMenuHandler("itempicker", "pick", event => {
             const state = this.getState();
             if (state != null) {
                 state.item = event.item;
             }
         });
-        mnu_ctx.addEventListener("check", event => {
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        mnu_ctx.addEventListener("associate", event => {
+        this.addDefaultContextMenuHandler("associate", event => {
+            const mnu_ctx = this.getDefaultContextMenu();
+            const mnu_itm = this.getContextMenu("itempicker");
             mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
         });
-        mnu_ctx.addEventListener("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.item = "";
             }
         });
-        mnu_ctx.addEventListener("show_logic", event => {
+        this.addDefaultContextMenuHandler("show_logic", event => {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(this.ref);
@@ -61,6 +59,7 @@ export default class Location extends AbstractLocation {
         
         /* mouse events */
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getDefaultContextMenu();
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();

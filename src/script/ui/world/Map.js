@@ -446,7 +446,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         SavestateHandler.addEventListener("change_dungeontype", event => {
             if (event.data != null) {
-                const data = event.changes[this.ref];
+                const data = event.data[this.ref];
                 if (data != null) {
                     this.refresh();
                 }

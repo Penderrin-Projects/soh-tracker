@@ -7,15 +7,6 @@ import "../location/StateManager.js";
 
 const HINT = new WeakMap();
 
-function internalHintChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this./*#*/__setHint(change.value);
-    }
-}
-
 export default class DefaultState extends AreaState {
 
     constructor(ref, props, areaData) {
@@ -23,7 +14,14 @@ export default class DefaultState extends AreaState {
         /* --- */
         this.hint = SavestateHandler.get("area_hint", ref, "");
         /* EVENTS */
-        EventBus.register("state::area_hint", internalHintChange.bind(this));
+        EventBus.register("state::area_hint", (event) => {
+            const ref = this.ref;
+            // savesatate
+            const change = event.data;
+            if (change != null && change.ref == ref) {
+                this./*#*/__setHint(change.value);
+            }
+        });
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });

@@ -379,7 +379,7 @@ export default class ManageWindow extends HTMLElement {
     }
 
     close() {
-        document.body.removeChild(this);
+        this.remove();
         this.dispatchEvent(new Event("close"));
     }
 

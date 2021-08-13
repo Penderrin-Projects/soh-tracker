@@ -1,7 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
@@ -13,7 +12,7 @@ import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-import "../../ctxmenu/ExitBindingMenu.js";
+import ExitBindingMenu from "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -115,7 +114,7 @@ export default class MapSubExit extends AbstractSubExit {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
+        this.setContextMenu("exitbinding", ExitBindingMenu);
     }
     
     applyAccess(data) {

@@ -22,19 +22,16 @@ class Savestate extends EventTarget {
         OptionsStorage.addEventListener("change", event => {
             const ev = new Event("options");
             ev.data = event.data;
-            ev.changes = event.changes;
             this.dispatchEvent(ev);
         });
         FilterStorage.addEventListener("persistedchange", event => {
             const ev = new Event("filter");
             ev.data = event.data;
-            ev.changes = event.changes;
             this.dispatchEvent(ev);
         });
         StartItemsStorage.addEventListener("change", event => {
             const ev = new Event("startitems");
             ev.data = event.data;
-            ev.changes = event.changes;
             this.dispatchEvent(ev);
         });
     }
@@ -118,7 +115,7 @@ class Savestate extends EventTarget {
         return res;
     }
 
-    deserialize(value) {
+    deserialize({data = {}, options = {}, filter = {}, startitems = {}, ...value} = {}) {
         DATA.clear();
         name = value.name?.toString() ?? "";
         notes = value.notes?.toString() ?? "";
@@ -126,15 +123,13 @@ class Savestate extends EventTarget {
         timestamp = value.timestamp ?? new Date();
         autosave = value.autosave ?? false;
         /* --- */
-        if (value.data != null) {
-            for (const category in value.data) {
-                const dataStorage = this.getData(category);
-                dataStorage.deserialize(value.data[category]);
-            }
+        for (const category in data) {
+            const dataStorage = this.getData(category);
+            dataStorage.deserialize(data[category]);
         }
-        OptionsStorage.deserialize(value.options);
-        FilterStorage.deserialize(value.filter);
-        StartItemsStorage.deserialize(value.startitems);
+        OptionsStorage.deserialize(options);
+        FilterStorage.deserialize(filter);
+        StartItemsStorage.deserialize(startitems);
     }
 
     overwrite({data = {}, options = {}, filter = {}, startitems = {}} = {}) {
@@ -164,14 +159,6 @@ class Savestate extends EventTarget {
                 const ev = new Event("change");
                 ev.category = storageCategory;
                 ev.data = event.data;
-                ev.changes = event.changes;
-                this.dispatchEvent(ev);
-            });
-            dataStorage.addEventListener("clear", event => {
-                const ev = new Event("change");
-                ev.category = storageCategory;
-                ev.data = {};
-                ev.changes = undefined;
                 this.dispatchEvent(ev);
             });
             DATA.set(storageCategory, dataStorage);

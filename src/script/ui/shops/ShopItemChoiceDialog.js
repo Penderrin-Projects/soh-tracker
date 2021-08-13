@@ -124,7 +124,7 @@ const Q_TAB = [
 
 async function settingsSubmit() {
     if (this.item == "unknown") {
-        document.body.removeChild(this);
+        this.remove();
     } else {
         const ev = new Event("submit");
         const priceEl = this.shadowRoot.getElementById("price");
@@ -137,7 +137,7 @@ async function settingsSubmit() {
                 ev.price = priceEl.value;
             }
             this.dispatchEvent(ev);
-            document.body.removeChild(this);
+            this.remove();
         }
     }
 }

@@ -46,12 +46,10 @@ class SavestateHandler extends EventTarget {
             if (!event.category) {
                 const ev = new Event("change");
                 ev.data = event.data;
-                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             } else {
                 const ev = new Event(`change_${event.category}`);
                 ev.data = event.data;
-                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             }
         });

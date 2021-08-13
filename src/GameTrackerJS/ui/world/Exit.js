@@ -5,8 +5,8 @@ import "/emcJS/ui/Icon.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import EmptyState from "../../state/world/EmptyState.js";
 import WorldElement from "./WorldElement.js";
-import "../ctxmenu/ExitContextMenu.js";
-import "../ctxmenu/ExitBindingMenu.js";
+import ExitContextMenu from "../ctxmenu/ExitContextMenu.js";
+import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
 import Language from "../../util/Language.js";
 
 export default class MapExit extends WorldElement {
@@ -25,8 +25,8 @@ export default class MapExit extends WorldElement {
         });
 
         /* context menu */
-        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-exit"));
-        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
+        this.setDefaultContextMenu(ExitContextMenu);
+        this.setContextMenu("exitbinding", ExitBindingMenu);
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {

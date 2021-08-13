@@ -6,8 +6,8 @@ import WorldStateManager from "../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
-import "../ctxmenu/ExitChoiceContextMenu.js";
-import "../ctxmenu/ExitBindingMenu.js";
+import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
+import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
 import Language from "../../util/Language.js";
 
 const TPL = new Template(`
@@ -126,8 +126,8 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         });
 
         /* context menu */
-        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-exitchoice"));
-        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
+        this.setDefaultContextMenu(ExitChoiceContextMenu);
+        this.setContextMenu("exitbinding", ExitBindingMenu);
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {

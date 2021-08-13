@@ -13,7 +13,7 @@ import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 // Track-OOT
 import "/script/state/world/location/GossipstoneState.js";
 import LogicViewer from "/script/ui/LogicViewer.js";
-import "../../ctxmenu/GossipstoneContextMenu.js";
+import GossipstoneContextMenu from "../../ctxmenu/GossipstoneContextMenu.js";
 
 const CTG_TPL = new Template(`
 <span style="display: contents; color: lightgray; font-style: italic; font-size: 0.8em;"></span>
@@ -31,25 +31,23 @@ export default class Gossipstone extends AbstractLocation {
         });
 
         /* context menu */
-        const mnu_ctx = document.createElement("ootrt-ctxmenu-gossipstone");
-        this.setDefaultContextMenu(mnu_ctx);
-
-        mnu_ctx.addEventListener("check", event => {
+        this.setDefaultContextMenu(GossipstoneContextMenu);
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        mnu_ctx.addEventListener("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        mnu_ctx.addEventListener("sethint", event => {
+        this.addDefaultContextMenuHandler("sethint", event => {
             this.showDialog();
         });
-        mnu_ctx.addEventListener("clearhint", event => {
+        this.addDefaultContextMenuHandler("clearhint", event => {
             const state = this.getState();
             if (state != null) {
                 state.hint = {
@@ -58,7 +56,7 @@ export default class Gossipstone extends AbstractLocation {
                 };
             }
         });
-        mnu_ctx.addEventListener("show_logic", event => {
+        this.addDefaultContextMenuHandler("show_logic", event => {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(this.ref);
@@ -68,6 +66,7 @@ export default class Gossipstone extends AbstractLocation {
         
         /* mouse events */
         this.addEventListener("contextmenu", event => {
+            const mnu_ctx = this.getDefaultContextMenu();
             mnu_ctx.show(event.clientX, event.clientY);
             event.stopPropagation();
             event.preventDefault();

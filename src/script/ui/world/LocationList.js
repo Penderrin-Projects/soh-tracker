@@ -182,10 +182,10 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             this.refresh();
         });
         SavestateHandler.addEventListener("change_area_hint", event => {
-            if (event.changes != null) {
-                const data = event.changes[this.ref];
+            if (event.data != null) {
+                const data = event.data[this.ref];
                 if (data != null) {
-                    this.hint = data.newValue;
+                    this.hint = data;
                 }
             }
         });

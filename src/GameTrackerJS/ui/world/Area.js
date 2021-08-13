@@ -4,7 +4,7 @@ import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
-import "../ctxmenu/AreaContextMenu.js";
+import AreaContextMenu from "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
 
 export default class AbstractArea extends WorldElement {
@@ -20,7 +20,7 @@ export default class AbstractArea extends WorldElement {
         });
 
         /* context menu */
-        this.setDefaultContextMenu(document.createElement("gt-ctxmenu-area"));
+        this.setDefaultContextMenu(AreaContextMenu);
         this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
