@@ -6,13 +6,14 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter1.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
         data: {},
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
-    for (const i of Object.keys(state.data)) {
+    for (const i of Object.keys(state.data ?? {})) {
         switch (i) {
             case "skips.wt_bosskey_noitem":
                 res.data["skip.wt_bosskey_noitem"] = state.data[i];

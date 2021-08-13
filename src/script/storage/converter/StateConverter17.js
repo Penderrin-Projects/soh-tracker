@@ -1,17 +1,21 @@
 /**
- * move to serverside earliest past TBD
+ * move to serverside earliest past 2022‑06‑27
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter16.js";
 
 SavestateConverter.register(function(state) {
-    const {dungeontype = {}, dungeonreward = {}, ...data} = state.data;
-
+    state = state ?? {};
+    const {dungeontype = {}, dungeonreward = {}, ...data} = state.data ?? {};
     const res = {
         data: {...data, dungeontype: {}, dungeonreward: {}},
-        options: state.options,
-        filter: state.filter
+        options: state.options ?? {},
+        filter: state.filter ?? {},
+        notes: state.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
     
     for (const [key, value] of Object.entries(dungeontype)) {

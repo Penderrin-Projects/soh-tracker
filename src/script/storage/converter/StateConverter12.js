@@ -1,21 +1,22 @@
 /**
- * move to serverside earliest past TBD
+ * move to serverside earliest past 2022‑06‑27
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter11.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
         data: {},
-        extra: state.extra,
-        notes: state.notes,
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        extra: state.extra ?? {},
+        notes: state.notes ?? state.data.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
     // move gossipstone data
-    for (const i of Object.keys(state.data)) {
+    for (const i of Object.keys(state.data ?? {})) {
         if (TEST_ITEM.test(i)) {
             res.extra.gossipstone = res.extra.gossipstone ?? {};
             const value = res.extra.gossipstone[i.slice(0, -5)] ?? {};
@@ -31,26 +32,20 @@ SavestateConverter.register(function(state) {
         }
     }
     const extra_shops = {};
-    if (state.extra.shops_items != null) {
-        for (const [key, value] of Object.entries(state.extra.shops_items)) {
-            for (let i = 0; i < 8; ++i) {
-                extra_shops[`${key}/${i}.item`] = value[i].item;
-                extra_shops[`${key}/${i}.price`] = value[i].price;
-            }
+    for (const [key, value] of Object.entries(state.extra?.shops_items ?? {})) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.item`] = value[i].item;
+            extra_shops[`${key}/${i}.price`] = value[i].price;
         }
     }
-    if (state.extra.shops_bought != null) {
-        for (const [key, value] of Object.entries(state.extra.shops_bought)) {
-            for (let i = 0; i < 8; ++i) {
-                extra_shops[`${key}/${i}.bought`] = !!value[i];
-            }
+    for (const [key, value] of Object.entries(state.extra?.shops_bought ?? {})) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.bought`] = !!value[i];
         }
     }
-    if (state.extra.shops_names != null) {
-        for (const [key, value] of Object.entries(state.extra.shops_names)) {
-            for (let i = 0; i < 8; ++i) {
-                extra_shops[`${key}/${i}.name`] = value[i];
-            }
+    for (const [key, value] of Object.entries(state.extra?.shops_names ?? {})) {
+        for (let i = 0; i < 8; ++i) {
+            extra_shops[`${key}/${i}.name`] = value[i];
         }
     }
     // collect data

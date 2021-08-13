@@ -1,24 +1,23 @@
 /**
- * move to serverside earliest past TBD
+ * move to serverside earliest past 2022‑06‑27
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter14.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
-        data: state.data,
+        data: state.data ?? {},
         extra: {},
-        notes: state.notes,
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        notes: state.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
     const exits = {};
-    if (state.extra.exits != null) {
-        for (const i of Object.keys(state.extra.exits)) {
-            exits[translation[i] || i] = translation[state.extra.exits[i]] || state.extra.exits[i];
-        }
+    for (const i of Object.keys(state.extra?.exits ?? {})) {
+        exits[translation[i] ?? i] = translation[state.extra.exits[i]] ?? state.extra.exits[i];
     }
     res.extra = {...state.extra, exits};
     return res;

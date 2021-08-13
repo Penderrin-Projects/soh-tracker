@@ -206,6 +206,22 @@ class SavestateHandler extends EventTarget {
         return Savestate.startitems;
     }
 
+    /* debug */
+    testConverter() {
+        const offset = SavestateConverter.offset;
+        const version = SavestateConverter.version;
+        console.group("StateConverter - Test");
+        try {
+            for (let i = offset; i < version; ++i) {
+                console.log(`Version[${i}]: `, SavestateConverter.convert({version: i, data: {}}));
+            }
+        } catch(err) {
+            console.error(err);
+        } finally {
+            console.groupEnd("StateConverter - Test");
+        }
+    }
+
 }
 
 const savestate = Object.freeze(new SavestateHandler());

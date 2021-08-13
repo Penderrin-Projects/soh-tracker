@@ -14,6 +14,7 @@ Application:    Track-OOT
 ### BUGFIXES
 
 - fix smaller issues with persisiting data concerning filters
+- fix small issue with state converters missing initial data
 
 ---
 
