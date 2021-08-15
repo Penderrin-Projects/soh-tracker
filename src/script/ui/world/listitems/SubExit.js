@@ -7,6 +7,7 @@ import "/emcJS/ui/Icon.js";
 
 // GameTrackerJS
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -191,6 +192,12 @@ export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
                 listEl.classList.add("expanded");
             }
         }
+    }
+    
+    applyAccess(data) {
+        super.applyAccess(data);
+        /* collapsed */
+        this.setCollapsed(data.value == AccessStateEnum.OPENED);
     }
 
     refreshList() {

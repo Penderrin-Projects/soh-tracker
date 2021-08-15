@@ -84,6 +84,13 @@ export default class MapSubExit extends WorldElement {
         });
     }
 
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
+        }
+        this.refreshList();
+    }
+
     clickHandler(event) {
         const state = this.getState();
         if (state != null) {
@@ -106,13 +113,6 @@ export default class MapSubExit extends WorldElement {
         event.stopPropagation();
         event.preventDefault();
         return false;
-    }
-
-    connectedCallback() {
-        if (super.connectedCallback) {
-            super.connectedCallback();
-        }
-        this.refreshList();
     }
     
     applyAccess(data) {

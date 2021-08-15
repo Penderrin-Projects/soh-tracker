@@ -7,6 +7,7 @@ import "/emcJS/ui/Icon.js";
 
 // GameTrackerJS
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -18,8 +19,6 @@ import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-
-const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
 
 const TPL = new Template(`
 <div id="header" class="textarea">
@@ -119,6 +118,8 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
+
 export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
 
     constructor() {
@@ -180,12 +181,11 @@ export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
             }
         }
     }
-
-    connectedCallback() {
-        if (super.connectedCallback) {
-            super.connectedCallback();
-        }
-        this.refreshList();
+    
+    applyAccess(data) {
+        super.applyAccess(data);
+        /* collapsed */
+        this.setCollapsed(data.value == AccessStateEnum.OPENED);
     }
 
     refreshList() {

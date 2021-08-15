@@ -61,22 +61,22 @@ export default class DefaultState extends DataState {
         OBSERVABLE_DATA.set(this, observableData);
         observableData.addEventListener("item", event => {
             const ev = new Event("item");
-            ev.data = event.value;
+            ev.data = event.value ?? this.item;
             this.dispatchEvent(ev);
         });
         observableData.addEventListener("price", event => {
             const ev = new Event("price");
-            ev.data = event.value;
+            ev.data = event.value ?? this.price;
             this.dispatchEvent(ev);
         });
         observableData.addEventListener("bought", event => {
             const ev = new Event("bought");
-            ev.data = event.value;
+            ev.data = event.value ?? this.bought;
             this.dispatchEvent(ev);
         });
         observableData.addEventListener("name", event => {
             const ev = new Event("name");
-            ev.data = event.value;
+            ev.data = event.value ?? this.name;
             this.dispatchEvent(ev);
         });
         /* --- */
@@ -87,29 +87,21 @@ export default class DefaultState extends DataState {
                 const itemData = ShopItemsResource.get(item);
                 ITEM_DATA.set(this, itemData);
                 observableData.set("item", item);
-            } else {
-                observableData.set("item", this.props.item);
             }
             // price
             const price = SavestateHandler.get("shops", `${ref}.price`);
             if (price != null) {
                 observableData.set("price", price);
-            } else {
-                observableData.set("price", this.props.price);
             }
             // bought
             const bought = SavestateHandler.get("shops", `${ref}.bought`);
             if (bought != null) {
                 observableData.set("bought", bought);
-            } else {
-                observableData.set("bought", false);
             }
             // name
             const name = SavestateHandler.get("shops", `${ref}.name`);
             if (name != null) {
                 observableData.set("name", name);
-            } else {
-                observableData.set("name", "");
             }
         }
         /* EVENTS */
@@ -138,38 +130,36 @@ export default class DefaultState extends DataState {
                     ITEM_DATA.set(this, itemData);
                     observableData.set("item", item);
                 } else {
-                    const defItemData = ShopItemsResource.get(this.props.item);
-                    ITEM_DATA.set(this, defItemData);
-                    observableData.set("item", this.props.item);
+                    ITEM_DATA.delete(this);
+                    observableData.delete("item");
                 }
                 // price
                 const price = event.data.extra.shops[`${ref}.price`];
                 if (price != null) {
                     observableData.set("price", price);
                 } else {
-                    observableData.set("price", this.props.price);
+                    observableData.delete("price");
                 }
                 // bought
                 const bought = event.data.extra.shops[`${ref}.bought`];
                 if (bought != null) {
                     observableData.set("bought", bought);
                 } else {
-                    observableData.set("bought", false);
+                    observableData.delete("bought");
                 }
                 // name
                 const name = event.data.extra.shops[`${ref}.name`];
                 if (name != null) {
                     observableData.set("name", name);
                 } else {
-                    observableData.set("name", "");
+                    observableData.delete("name");
                 }
             } else {
-                const defItemData = ShopItemsResource.get(this.props.item);
-                ITEM_DATA.set(this, defItemData);
-                observableData.set("item", this.props.item);
-                observableData.set("price", this.props.price);
-                observableData.set("bought", false);
-                observableData.set("name", "");
+                ITEM_DATA.delete(this);
+                observableData.delete("item");
+                observableData.delete("price");
+                observableData.delete("bought");
+                observableData.delete("name");
             }
         }
     }
@@ -207,7 +197,7 @@ export default class DefaultState extends DataState {
 
     set item(value) {
         const ref = this.ref;
-        const old = this.reward;
+        const old = this.item;
         value = this./*#*/__setItem(value);
         if (value != null && value != old) {
             // internal
@@ -220,7 +210,10 @@ export default class DefaultState extends DataState {
             return "unknown";
         }
         const observableData = OBSERVABLE_DATA.get(this);
-        return observableData.get("item");
+        if (observableData.has("item")) {
+            return observableData.get("item");
+        }
+        return this.props.item;
     }
 
     /*#*/__setPrice(value) {
@@ -257,7 +250,10 @@ export default class DefaultState extends DataState {
             return "?";
         }
         const observableData = OBSERVABLE_DATA.get(this);
-        return observableData.get("price");
+        if (observableData.has("price")) {
+            return observableData.get("price");
+        }
+        return this.props.price;
     }
 
     /*#*/__setBought(value) {
@@ -293,7 +289,10 @@ export default class DefaultState extends DataState {
             return false;
         }
         const observableData = OBSERVABLE_DATA.get(this);
-        return observableData.get("bought");
+        if (observableData.has("bought")) {
+            return observableData.get("bought");
+        }
+        return false;
     }
 
     /*#*/__setName(value) {
@@ -323,7 +322,10 @@ export default class DefaultState extends DataState {
 
     get name() {
         const observableData = OBSERVABLE_DATA.get(this);
-        return observableData.get("name");
+        if (observableData.has("name")) {
+            return observableData.get("name");
+        }
+        return "";
     }
 
     get itemData() {
@@ -354,10 +356,10 @@ export default class DefaultState extends DataState {
         SavestateHandler.delete("shops", `${ref}.bought`);
         SavestateHandler.delete("shops", `${ref}.name`);
         ITEM_DATA.delete(this);
-        observableData.set("item", this.props.item);
-        observableData.set("price", this.props.price);
-        observableData.set("bought", false);
-        observableData.set("name", "");
+        observableData.delete("item");
+        observableData.delete("price");
+        observableData.delete("bought");
+        observableData.delete("name");
     }
 
 }

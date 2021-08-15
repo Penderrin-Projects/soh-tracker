@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.31
+
+### IMPROVEMENTS
+
+- auto close location sublists if they are empty
+
+### BUGFIXES
+
+- fix shop items could not be applied to vanilla on shopsanity
+- fix load spoiler shopitems trading sequence wrong values
+
+---
+
 ## VERSION 2.1.30
 
 ### PERFORMANCE

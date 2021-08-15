@@ -1,6 +1,6 @@
 export default function parseShops(target = {}, data = {}, trans = {}, shopsanity = false) {
     const shop_trans = new Set(trans["shops"]);
-    const item_trans = trans["itemList"];
+    const item_trans = trans["shopItems"];
 
     const buffer = {};
     const kokiri = [];

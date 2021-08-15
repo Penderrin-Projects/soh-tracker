@@ -38,6 +38,13 @@ export default class AbstractSubArea extends WorldElement {
             }
         });
     }
+
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
+        }
+        this.refreshList();
+    }
     
     applyAccess(data) {
         super.applyAccess(data);
