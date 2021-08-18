@@ -167,6 +167,13 @@
             "item.claim"
         ]
     },
+    "option.big_poe_count": {
+        "category": "options",
+        "type": "number",
+        "default": 10,
+        "min": 1,
+        "max": 10
+    },
     "option.keysanity_small_old": {
         "category": "options",
         "type": "hidden",

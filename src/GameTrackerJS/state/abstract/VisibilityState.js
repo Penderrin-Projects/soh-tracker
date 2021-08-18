@@ -5,6 +5,8 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import DataState from "./DataState.js";
 
+// TODO this should be a mixin
+
 const VISIBLE = new WeakMap();
 const VISIBLE_LOGIC = new WeakMap();
 

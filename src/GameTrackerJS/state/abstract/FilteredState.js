@@ -6,6 +6,8 @@ import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import VisibilityState from "./VisibilityState.js";
 import FilterStorage from "../../storage/FilterStorage.js";
 
+// TODO this should be a mixin
+
 const SPECIAL_FILTERS = [
     "access",
     "!access",
@@ -126,10 +128,6 @@ export default class FilteredState extends VisibilityState {
 
     get filter() {
         return mapToObj(FILTER.get(this));
-    }
-
-    isVisible() {
-        return this.visible && !this.filtered;
     }
 
     get filtered() {

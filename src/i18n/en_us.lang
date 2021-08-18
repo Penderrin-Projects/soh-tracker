@@ -1061,6 +1061,7 @@ option.scrubsanity=Scrubsanity
 option.cowsanity=Cowsanity
 option.beansanity=Beansanity
 option.skullsanity=Skullsanity (do not autocount) [WIP]
+option.big_poe_count=Big Poes Required
 option.doors_open_forest=Open Forest
 option.doors_open_kakariko=Open Kakariko Gate
 option.doors_open_temple=Open Temple of Time

@@ -2861,7 +2861,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 2
+                                "value": 0
                             }
                         ]
                     }
@@ -3004,7 +3004,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 2
+                                "value": 0
                             }
                         ]
                     }
@@ -3100,7 +3100,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 2
+                                "value": 0
                             }
                         ]
                     }
@@ -3351,7 +3351,7 @@
                                             "type": "value",
                                             "el": "item.key_small_well"
                                         },
-                                        "value": 3
+                                        "value": 0
                                     }
                                 ]
                             },
@@ -3396,7 +3396,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -3466,7 +3466,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_well"
                                                 },
-                                                "value": 3
+                                                "value": 0
                                             },
                                             {
                                                 "type": "mixin",
@@ -3505,7 +3505,7 @@
                             "type": "value",
                             "el": "item.key_small_well"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             },
@@ -3526,7 +3526,7 @@
                             "type": "value",
                             "el": "item.key_small_well"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             },
@@ -3563,7 +3563,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -3602,7 +3602,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -3641,7 +3641,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -3823,7 +3823,7 @@
                                             "type": "value",
                                             "el": "item.key_small_well"
                                         },
-                                        "value": 3
+                                        "value": 0
                                     }
                                 ]
                             },
@@ -3868,7 +3868,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -3938,7 +3938,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_well"
                                                 },
-                                                "value": 3
+                                                "value": 0
                                             },
                                             {
                                                 "type": "mixin",
@@ -3977,7 +3977,7 @@
                             "type": "value",
                             "el": "item.key_small_well"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             },
@@ -3998,7 +3998,7 @@
                             "type": "value",
                             "el": "item.key_small_well"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             },
@@ -4035,7 +4035,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -4074,7 +4074,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -4113,7 +4113,7 @@
                                     "type": "value",
                                     "el": "item.key_small_well"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -9326,7 +9326,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -9456,7 +9456,7 @@
                                                             "type": "value",
                                                             "el": "item.hookshot"
                                                         },
-                                                        "value": 2
+                                                        "value": 0
                                                     }
                                                 ]
                                             }
@@ -9585,7 +9585,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -9730,7 +9730,7 @@
                                                                     "type": "value",
                                                                     "el": "item.hookshot"
                                                                 },
-                                                                "value": 2
+                                                                "value": 0
                                                             }
                                                         ]
                                                     }
@@ -9916,7 +9916,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -10139,7 +10139,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 3
+                        "value": 0
                     },
                     {
                         "type": "value",
@@ -10208,7 +10208,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 3
+                        "value": 0
                     },
                     {
                         "type": "value",
@@ -10310,7 +10310,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -10374,7 +10374,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             }
@@ -10413,7 +10413,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -10477,7 +10477,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             }
@@ -10525,7 +10525,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_fire.c_near_boss": {
                 "type": "and",
@@ -10566,7 +10566,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 8
+                                        "value": 0
                                     },
                                     {
                                         "type": "not",
@@ -10605,7 +10605,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 8
+                                "value": 0
                             },
                             {
                                 "type": "not",
@@ -10626,7 +10626,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_fire.c_near_boss": {
                 "type": "and",
@@ -10667,7 +10667,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 8
+                                        "value": 0
                                     },
                                     {
                                         "type": "not",
@@ -10725,7 +10725,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 8
+                                                "value": 0
                                             },
                                             {
                                                 "type": "not",
@@ -10901,7 +10901,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 8
+                                "value": 0
                             },
                             {
                                 "type": "not",
@@ -10979,7 +10979,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 4
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -11058,7 +11058,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 7
+                "value": 0
             },
             "logic.location.temple_fire.c_boulder_maze_lower": {
                 "type": "and",
@@ -11096,7 +11096,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -11115,7 +11115,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11162,7 +11162,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "mixin",
@@ -11192,7 +11192,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11223,7 +11223,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11242,7 +11242,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11276,7 +11276,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -11295,7 +11295,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11323,7 +11323,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -11356,7 +11356,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11375,7 +11375,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11412,7 +11412,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11431,7 +11431,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11453,7 +11453,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 7
+                "value": 0
             },
             "logic.location.temple_fire.c_boulder_maze_lower": {
                 "type": "and",
@@ -11491,7 +11491,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -11510,7 +11510,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11557,7 +11557,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "mixin",
@@ -11596,7 +11596,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11627,7 +11627,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11646,7 +11646,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11689,7 +11689,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -11700,7 +11700,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 5
+                                        "value": 0
                                     },
                                     {
                                         "type": "mixin",
@@ -11725,7 +11725,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 4
+                                        "value": 0
                                     }
                                 ]
                             }
@@ -11753,7 +11753,7 @@
                                     "type": "value",
                                     "el": "item.key_small_fire"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -11786,7 +11786,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11805,7 +11805,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11851,7 +11851,7 @@
                                             "type": "value",
                                             "el": "item.key_small_fire"
                                         },
-                                        "value": 6
+                                        "value": 0
                                     },
                                     {
                                         "type": "and",
@@ -11870,7 +11870,7 @@
                                                     "type": "value",
                                                     "el": "item.key_small_fire"
                                                 },
-                                                "value": 4
+                                                "value": 0
                                             }
                                         ]
                                     }
@@ -11901,7 +11901,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 7
+                "value": 0
             },
             "logic.location.temple_fire.c_compass": {
                 "type": "and",
@@ -11920,7 +11920,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             }
@@ -11932,7 +11932,7 @@
                     "type": "value",
                     "el": "item.key_small_fire"
                 },
-                "value": 7
+                "value": 0
             },
             "logic.location.temple_fire.c_compass": {
                 "type": "and",
@@ -11951,7 +11951,7 @@
                             "type": "value",
                             "el": "item.key_small_fire"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             }
@@ -12106,7 +12106,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 1
+                "value": 0
             },
             "logic.location.nuts": {
                 "type": "and",
@@ -12183,7 +12183,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 1
+                "value": 0
             },
             "logic.location.nuts": {
                 "type": "and",
@@ -12453,7 +12453,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 4
+                "value": 0
             },
             "logic.location.temple_forest_mq.c_boss_key": {
                 "type": "and",
@@ -12472,7 +12472,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             }
@@ -12484,7 +12484,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 4
+                "value": 0
             },
             "logic.location.temple_forest_mq.c_boss_key": {
                 "type": "and",
@@ -12503,7 +12503,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             }
@@ -12557,7 +12557,7 @@
                     "type": "value",
                     "el": "item.scale"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_forest_mq.s_outdoor_west_adult": {
                 "type": "and",
@@ -12594,7 +12594,7 @@
                             "type": "value",
                             "el": "item.scale"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "and",
@@ -12851,7 +12851,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -12886,7 +12886,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -13036,7 +13036,7 @@
                                     "type": "value",
                                     "el": "item.key_small_forest"
                                 },
-                                "value": 6
+                                "value": 0
                             }
                         ]
                     }
@@ -13127,7 +13127,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 1
+                "value": 0
             },
             "region.forest_temple_basement[child]": {
                 "type": "and",
@@ -13259,7 +13259,7 @@
                     "type": "value",
                     "el": "item.key_small_forest"
                 },
-                "value": 1
+                "value": 0
             },
             "region.forest_temple_basement[adult]": {
                 "type": "or",
@@ -13788,7 +13788,7 @@
                     "type": "value",
                     "el": "item.scale"
                 },
-                "value": 2
+                "value": 0
             },
             "region.forest_temple_lobby[child]": {
                 "type": "true"
@@ -14110,7 +14110,7 @@
                             "type": "value",
                             "el": "item.scale"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -14581,7 +14581,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "and",
@@ -14670,7 +14670,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 3
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -14722,7 +14722,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -14853,7 +14853,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -14897,7 +14897,7 @@
                             "type": "value",
                             "el": "item.key_small_forest"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -15890,7 +15890,7 @@
                                     "type": "value",
                                     "el": "item.key_small_ganon"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -16738,7 +16738,7 @@
                                     "type": "value",
                                     "el": "item.key_small_ganon"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -17865,7 +17865,7 @@
                                     "type": "value",
                                     "el": "item.key_small_ganon"
                                 },
-                                "value": 1
+                                "value": 0
                             }
                         ]
                     }
@@ -18009,7 +18009,7 @@
                                     "type": "value",
                                     "el": "item.key_small_ganon"
                                 },
-                                "value": 1
+                                "value": 0
                             }
                         ]
                     }
@@ -18061,7 +18061,7 @@
                                     "type": "value",
                                     "el": "item.key_small_ganon"
                                 },
-                                "value": 2
+                                "value": 0
                             }
                         ]
                     }
@@ -18200,7 +18200,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 1
+                        "value": 0
                     }
                 ]
             }
@@ -18337,7 +18337,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 1
+                        "value": 0
                     }
                 ]
             }
@@ -19049,7 +19049,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             }
@@ -19107,7 +19107,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 3
+                        "value": 0
                     }
                 ]
             }
@@ -19496,7 +19496,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 9
+                        "value": 0
                     },
                     {
                         "type": "and",
@@ -19533,7 +19533,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 3
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19585,7 +19585,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19637,7 +19637,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19689,7 +19689,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19741,7 +19741,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 9
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19784,7 +19784,7 @@
                             "type": "value",
                             "el": "item.key_small_training"
                         },
-                        "value": 9
+                        "value": 0
                     },
                     {
                         "type": "and",
@@ -19821,7 +19821,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 3
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19860,7 +19860,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19899,7 +19899,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 6
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19938,7 +19938,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -19977,7 +19977,7 @@
                                     "type": "value",
                                     "el": "item.key_small_training"
                                 },
-                                "value": 9
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -25057,7 +25057,7 @@
                 "type": "mixin",
                 "el": "mixin.can_blast_or_smash[adult]"
             },
-            "logic.location.big_poe": {
+            "logic.location.big_poe_kill": {
                 "type": "and",
                 "el": [
                     {
@@ -25802,7 +25802,7 @@
                             "type": "value",
                             "el": "item.scale"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             }
@@ -25828,7 +25828,7 @@
                                     "type": "value",
                                     "el": "item.scale"
                                 },
-                                "value": 2
+                                "value": 0
                             },
                             {
                                 "type": "and",
@@ -28649,16 +28649,26 @@
                                 "el": "mixin.is_adult[adult]"
                             },
                             {
-                                "type": "value",
-                                "el": "item.bottle"
-                            },
-                            {
-                                "type": "value",
-                                "el": "item.bow"
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.epona"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "logic.location.big_poe_kill"
+                                    },
+                                    {
+                                        "type": "gte",
+                                        "el": [
+                                            {
+                                                "type": "value",
+                                                "el": "item.poe_big"
+                                            },
+                                            {
+                                                "type": "value",
+                                                "el": "option.big_poe_count"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -30986,7 +30996,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 10
+                        "value": 0
                     }
                 ]
             },
@@ -31007,7 +31017,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 20
+                        "value": 0
                     }
                 ]
             },
@@ -31028,7 +31038,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 30
+                        "value": 0
                     }
                 ]
             },
@@ -31049,7 +31059,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 40
+                        "value": 0
                     }
                 ]
             },
@@ -31070,7 +31080,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 50
+                        "value": 0
                     }
                 ]
             }
@@ -31093,7 +31103,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 10
+                        "value": 0
                     }
                 ]
             },
@@ -31114,7 +31124,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 20
+                        "value": 0
                     }
                 ]
             },
@@ -31135,7 +31145,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 30
+                        "value": 0
                     }
                 ]
             },
@@ -31156,7 +31166,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 40
+                        "value": 0
                     }
                 ]
             },
@@ -31177,7 +31187,7 @@
                             "type": "value",
                             "el": "item.skulltula"
                         },
-                        "value": 50
+                        "value": 0
                     }
                 ]
             }
@@ -39261,7 +39271,7 @@
                             "type": "value",
                             "el": "item.scale"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             }
@@ -39287,7 +39297,7 @@
                                     "type": "value",
                                     "el": "item.scale"
                                 },
-                                "value": 2
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -40350,7 +40360,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             }
@@ -40385,7 +40395,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             }
@@ -40492,7 +40502,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -40559,7 +40569,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -40630,7 +40640,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -40742,7 +40752,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -40772,7 +40782,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 3
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -40818,7 +40828,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -40947,7 +40957,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 3
+                                "value": 0
                             }
                         ]
                     }
@@ -40977,7 +40987,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 3
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -41019,7 +41029,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -41118,7 +41128,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -41360,7 +41370,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -41381,7 +41391,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -41436,7 +41446,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -41457,7 +41467,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -41664,7 +41674,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -41739,7 +41749,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -41805,7 +41815,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -41931,7 +41941,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -41970,7 +41980,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -42065,7 +42075,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -42099,7 +42109,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -42243,7 +42253,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -42282,7 +42292,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -42395,7 +42405,7 @@
                                     "type": "value",
                                     "el": "item.key_small_shadow"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -42422,7 +42432,7 @@
                     "type": "value",
                     "el": "item.key_small_shadow"
                 },
-                "value": 5
+                "value": 0
             },
             "region.shadow_temple_huge_pit[child]": {
                 "type": "mixin",
@@ -42505,7 +42515,7 @@
                     "type": "value",
                     "el": "item.key_small_shadow"
                 },
-                "value": 5
+                "value": 0
             },
             "region.shadow_temple_huge_pit[adult]": {
                 "type": "mixin",
@@ -42588,7 +42598,7 @@
                     "type": "value",
                     "el": "item.key_small_shadow"
                 },
-                "value": 5
+                "value": 0
             },
             "region.shadow_temple_beyond_boat[child]": {
                 "type": "and",
@@ -42646,7 +42656,7 @@
                     "type": "value",
                     "el": "item.key_small_shadow"
                 },
-                "value": 5
+                "value": 0
             },
             "region.shadow_temple_beyond_boat[adult]": {
                 "type": "and",
@@ -42732,7 +42742,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -42916,7 +42926,7 @@
                             "type": "value",
                             "el": "item.key_small_shadow"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -43406,7 +43416,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -43507,7 +43517,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -43646,7 +43656,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -43747,7 +43757,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -43911,7 +43921,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 6
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -43932,7 +43942,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -43986,7 +43996,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -44017,7 +44027,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             },
@@ -44094,7 +44104,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -44118,7 +44128,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44148,7 +44158,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44179,7 +44189,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             },
@@ -44200,7 +44210,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             }
@@ -44253,7 +44263,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 6
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -44274,7 +44284,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -44328,7 +44338,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -44359,7 +44369,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             },
@@ -44436,7 +44446,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     }
                 ]
             },
@@ -44460,7 +44470,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44490,7 +44500,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44521,7 +44531,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             },
@@ -44542,7 +44552,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 7
+                        "value": 0
                     }
                 ]
             }
@@ -44560,7 +44570,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44577,7 +44587,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44630,7 +44640,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -44657,7 +44667,7 @@
                                             "type": "value",
                                             "el": "item.key_small_spirit"
                                         },
-                                        "value": 7
+                                        "value": 0
                                     },
                                     {
                                         "type": "mixin",
@@ -44743,7 +44753,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -44778,7 +44788,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 4
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -44831,7 +44841,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 6
+                        "value": 0
                     }
                 ]
             },
@@ -45004,7 +45014,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -45091,7 +45101,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -45163,7 +45173,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -45250,7 +45260,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 7
+                                "value": 0
                             },
                             {
                                 "type": "value",
@@ -45563,7 +45573,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -45936,7 +45946,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -46765,7 +46775,7 @@
                     "type": "value",
                     "el": "item.key_small_spirit"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_spirit.c_compass": {
                 "type": "and",
@@ -46831,7 +46841,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -46852,7 +46862,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -46890,7 +46900,7 @@
                     "type": "value",
                     "el": "item.key_small_spirit"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_spirit.c_compass": {
                 "type": "and",
@@ -46965,7 +46975,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -46986,7 +46996,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             },
@@ -47046,7 +47056,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 2
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -47239,7 +47249,7 @@
                                     "type": "value",
                                     "el": "item.key_small_spirit"
                                 },
-                                "value": 2
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -47547,7 +47557,7 @@
                     "type": "value",
                     "el": "item.key_small_spirit"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_spirit.c_gauntlets": {
                 "type": "and",
@@ -47598,7 +47608,7 @@
                     "type": "value",
                     "el": "item.key_small_spirit"
                 },
-                "value": 2
+                "value": 0
             },
             "logic.location.temple_spirit.c_gauntlets": {
                 "type": "and",
@@ -47643,7 +47653,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -47701,7 +47711,7 @@
                             "type": "value",
                             "el": "item.key_small_spirit"
                         },
-                        "value": 5
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -48391,7 +48401,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             }
@@ -48447,7 +48457,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 2
+                        "value": 0
                     }
                 ]
             }
@@ -48541,7 +48551,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -48706,7 +48716,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -48740,7 +48750,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     }
                 ]
             },
@@ -48824,7 +48834,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -49039,7 +49049,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -49133,7 +49143,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     },
                     {
                         "type": "mixin",
@@ -49355,7 +49365,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -49453,7 +49463,7 @@
                             "type": "value",
                             "el": "item.key_small_water"
                         },
-                        "value": 4
+                        "value": 0
                     },
                     {
                         "type": "or",
@@ -50401,7 +50411,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "mixin",
@@ -50468,7 +50478,7 @@
                                     "type": "value",
                                     "el": "item.key_small_water"
                                 },
-                                "value": 5
+                                "value": 0
                             },
                             {
                                 "type": "or",
@@ -53557,7 +53567,7 @@
                                 "type": "value",
                                 "el": "item.key_small_gerudo"
                             },
-                            "value": 4
+                            "value": 0
                         },
                         {
                             "type": "or",

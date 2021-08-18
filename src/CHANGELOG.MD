@@ -4,6 +4,19 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.32
+
+### IMPROVEMENTS
+
+- add big poe item counter
+- add big poe requirements to rom options
+
+### BUGFIXES
+
+- fix big poe check was accessible without eponas song if skip epona race was active
+
+---
+
 ## VERSION 2.1.31
 
 ### IMPROVEMENTS

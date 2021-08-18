@@ -22,4 +22,8 @@ export default class WorldState extends FilteredState {
         // nothing
     }
 
+    isVisible() {
+        return this.visible && !this.filtered;
+    }
+
 }

@@ -51,42 +51,10 @@
                 "open": "ganon_castle_open_open"
             }
         },
-        "bridge_tokens": {
-            "name": "option.ganon_castle_skulltulas"
-        },
-        "bridge_stones": {
-            "name": "option.stone_count_bridge",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3
-            }
-        },
-        "bridge_medallions": {
-            "name": "option.medallion_count_bridge",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3,
-                "4": 4,
-                "5": 5,
-                "6": 6
-            }
-        },
-        "bridge_rewards": {
-            "name": "option.dungeon_count_bridge",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3,
-                "4": 4,
-                "5": 5,
-                "6": 6,
-                "7": 7,
-                "8": 8,
-                "9": 9
-            }
-        },
+        "bridge_tokens": "option.ganon_castle_skulltulas",
+        "bridge_stones": "option.stone_count_bridge",
+        "bridge_medallions": "option.medallion_count_bridge",
+        "bridge_rewards": "option.dungeon_count_bridge",
         "triforce_hunt": {
             "name": "",
             "values": {
@@ -94,18 +62,7 @@
                 "false": false
             }
         },
-        "shopsanity": {
-            "name": "option.shopsanity",
-            "values": {
-                "off": "off",
-                "0": "0",
-                "1": "1",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "random": "random"
-            }
-        },
+        "shopsanity": "option.shopsanity",
         "logic_rules": {
             "name": "option.logic_rules",
             "values": {
@@ -260,42 +217,10 @@
                 "lacs_tokens": "light_arrow_cutscene_skulltulas"
             }
         },
-        "lacs_tokens": {
-            "name": "option.lacs_skulltulas"
-        },
-        "lacs_stones": {
-            "name": "option.stone_count_lacs",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3
-            }
-        },
-        "lacs_medallions": {
-            "name": "option.medallion_count_lacs",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3,
-                "4": 4,
-                "5": 5,
-                "6": 6
-            }
-        },
-        "lacs_rewards": {
-            "name": "option.dungeon_count_lacs",
-            "values": {
-                "1": 1,
-                "2": 2,
-                "3": 3,
-                "4": 4,
-                "5": 5,
-                "6": 6,
-                "7": 7,
-                "8": 8,
-                "9": 9
-            }
-        },
+        "lacs_tokens": "option.lacs_skulltulas",
+        "lacs_stones": "option.stone_count_lacs",
+        "lacs_medallions": "option.medallion_count_lacs",
+        "lacs_rewards": "option.dungeon_count_lacs",
         "logic_earliest_adult_trade": {
             "name": "option.trade_sequence_start_item",
             "values": {
@@ -478,7 +403,12 @@
             "logic_spirit_mq_sun_block_gs",
             "logic_spirit_mq_sun_block_sot",
             "logic_spirit_lobby_jump"
-        ]
+        ],
+        "big_poe_count_random": {
+            "name": "option.big_poe_count",
+            "values": 10
+        },
+        "big_poe_count": "option.big_poe_count"
     },
     "starting_items": {
         "Biggoron Sword": "item.sword_biggoron",

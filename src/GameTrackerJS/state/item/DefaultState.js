@@ -36,16 +36,30 @@ export default class DefaultState extends DataState {
         startItemsObserver.addEventListener("change", (event) => {
             this./*#*/__setMin(event.data);
         });
-        if (props.var_max != null && props.var_max.option != null && props.var_max.values != null) {
-            const defMax = DEF_MAX.get(this);
-            const optionObserver = new OptionsObserver(props.var_max.option);
-            const maxVal = parseSafeRange(props.var_max.values[optionObserver.value], defMax);
-            if (maxVal != null) {
-                MAX.set(this, maxVal);
+        if (props.var_max != null) {
+            if (typeof props.var_max == "object") {
+                if (props.var_max.option != null && props.var_max.values != null) {
+                    const defMax = DEF_MAX.get(this);
+                    const optionObserver = new OptionsObserver(props.var_max.option);
+                    const maxVal = parseSafeRange(props.var_max.values[optionObserver.value], defMax);
+                    if (maxVal != null) {
+                        MAX.set(this, maxVal);
+                    }
+                    optionObserver.addEventListener("change", (event) => {
+                        this./*#*/__setMax(props.var_max.values[event.data]);
+                    });
+                }
+            } else if (typeof props.var_max == "string") {
+                const defMax = DEF_MAX.get(this);
+                const optionObserver = new OptionsObserver(props.var_max);
+                const maxVal = parseSafeRange(optionObserver.value, defMax);
+                if (maxVal != null) {
+                    MAX.set(this, maxVal);
+                }
+                optionObserver.addEventListener("change", (event) => {
+                    this./*#*/__setMax(event.data);
+                });
             }
-            optionObserver.addEventListener("change", (event) => {
-                this./*#*/__setMax(props.var_max.values[event.data]);
-            });
         }
         const value = SavestateHandler.get("", ref, 0);
         VALUE.set(this, this./*#*/__restrictValue(value));

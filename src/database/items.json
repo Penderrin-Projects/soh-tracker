@@ -935,9 +935,13 @@
         "always_active": true
     },
     "item.poe_big": {
-        "type": "visual",
+        "type": "item",
+        "max": 10,
+        "var_max": "option.big_poe_count",
+        "counting": true,
         "images": "/images/items/bottle_poe_big.png",
-        "always_active": true
+        "halign": "end",
+        "valign": "end"
     },
     "item.potion_red": {
         "type": "visual",
