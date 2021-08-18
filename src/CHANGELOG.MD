@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.33
+
+### BUGFIXES
+
+- fix states not prviding correct visibility data
+
+---
+
 ## VERSION 2.1.32
 
 ### IMPROVEMENTS
