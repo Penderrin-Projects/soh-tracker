@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.34
+
+### BUGFIXES
+
+- fix some min requirements in logic did wrongly check against 0
+
+---
+
 ## VERSION 2.1.33
 
 ### BUGFIXES
