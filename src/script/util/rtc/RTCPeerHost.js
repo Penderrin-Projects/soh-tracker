@@ -1,6 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventBusSubset from "/emcJS/event/EventBusSubset.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
@@ -65,7 +65,7 @@ export default class RTCPeerHost extends RTCPeer {
             } else {
                 return;
             }
-            Toast.show(`Multiplayer: "${name}" left`);
+            Toast.warn(`Multiplayer: "${name}" left`);
             rtcClient.send("data", {
                 type: "leave",
                 data: name
@@ -172,7 +172,7 @@ export default class RTCPeerHost extends RTCPeer {
                 clients.set(key, msg.data);
                 // or spectators.set(key, msg.data);
                 reverseLookup.set(msg.data, key);
-                Toast.show(`Multiplayer: "${msg.data}" joined`);
+                Toast.info(`Multiplayer: "${msg.data}" joined`);
                 rtcClient.sendButOne("data", key, {
                     type: "join",
                     data: msg.data

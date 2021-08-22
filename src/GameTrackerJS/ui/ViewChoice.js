@@ -5,7 +5,9 @@ import ElementManager from "/emcJS/util/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
 
 const TPL = new Template(`
-<slot id="container"></slot>
+<emc-ctxmenulayer>
+    <slot id="container"></slot>
+</emc-ctxmenulayer>
 <div id="view-choice"></div>
 `);
 

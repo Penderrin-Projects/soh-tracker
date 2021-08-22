@@ -1,24 +1,46 @@
 // frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import {createMixin} from "/emcJS/util/Mixin.js";
+import CtxMenuLayer from "/emcJS/ui/overlay/ctxmenu/CtxMenuLayer.js";
 
-import ContextMenuCatcher from "../ContextMenuCatcher.js";
-
+const CTX_COUNTER = new WeakMap();
 const DEFAULT_MENU_ID = "main";
 const MENU_CLASSES = new WeakMap();
 const MENUS = new WeakMap();
 const EVENT_MANAGERS = new WeakMap();
+const INTERNAL_EVENT_MANAGERS = new WeakMap();
 
-function getCatcherEl(target) {
-    if (!(target instanceof ContextMenuCatcher)) {
-        if (target.parentElement != null) {
-            return getCatcherEl(target.parentElement);
-        }
-        if (target.getRootNode()?.host != null) {
-            return getCatcherEl(target.getRootNode().host);
-        }
+function getCtxMenuLayer(target) {
+    if (target instanceof CtxMenuLayer || target == document.body) {
+        return target;
     }
-    return target;
+    if (target.assignedSlot != null) {
+        return getCtxMenuLayer(target.assignedSlot);
+    }
+    if (target.parentElement != null) {
+        return getCtxMenuLayer(target.parentElement);
+    }
+    if (target.getRootNode()?.host != null) {
+        return getCtxMenuLayer(target.getRootNode().host);
+    }
+    return document.body;
+}
+
+function getInternalEventManager(target, name) {
+    const eventManagers = INTERNAL_EVENT_MANAGERS.get(target);
+    if (!eventManagers.has(name)) {
+        const manager = new EventTargetManager();
+        manager.set("show", () => {
+            showCtxMenu(target);
+        });
+        manager.set("close", () => {
+            closeCtxMenu(target);
+        });
+        eventManagers.set(name, manager);
+        return manager;
+    } else {
+        return eventManagers.get(name);
+    }
 }
 
 function getEventManager(target, name) {
@@ -32,13 +54,31 @@ function getEventManager(target, name) {
     }
 }
 
+function showCtxMenu(inst) {
+    const cnt = CTX_COUNTER.get(inst) + 1;
+    CTX_COUNTER.set(inst, cnt);
+    if (cnt > 0) {
+        inst.classList.add("ctx-marked");
+    }
+}
+
+function closeCtxMenu(inst) {
+    const cnt = Math.max(CTX_COUNTER.get(inst) - 1, 0);
+    CTX_COUNTER.set(inst, cnt);
+    if (cnt <= 0) {
+        inst.classList.remove("ctx-marked");
+    }
+}
+
 export default createMixin((superclass) => class ContextMenuManager extends superclass {
 
     constructor(...args) {
         super(...args);
         MENUS.set(this, new Map());
         MENU_CLASSES.set(this, new Map());
+        INTERNAL_EVENT_MANAGERS.set(this, new Map());
         EVENT_MANAGERS.set(this, new Map());
+        CTX_COUNTER.set(this, 0);
     }
 
     get defaultContextMenuId() {
@@ -61,12 +101,14 @@ export default createMixin((superclass) => class ContextMenuManager extends supe
         const menus = MENUS.get(this);
         const menuClasses = MENU_CLASSES.get(this);
         menuClasses.set(name, MenuClass);
-        const manager = getEventManager(this, name);
         if (menus.has(name)) {
             const oldMenu = menus.get(name);
             if (!(oldMenu instanceof MenuClass)) {
-                oldMenu.remove();
+                const internalManager = getInternalEventManager(this, name);
+                const manager = getEventManager(this, name);
+                internalManager.switchTarget(null);
                 manager.switchTarget(null);
+                oldMenu.remove();
             }
         }
     }
@@ -81,11 +123,13 @@ export default createMixin((superclass) => class ContextMenuManager extends supe
         const ctxMnu = new MenuClass();
         menus.set(name, ctxMnu);
         /* --- */
+        const internalManager = getInternalEventManager(this, name);
         const manager = getEventManager(this, name);
+        internalManager.switchTarget(ctxMnu);
         manager.switchTarget(ctxMnu);
         /* --- */
         if (this.isConnected) {
-            const catcherEl = getCatcherEl(this);
+            const catcherEl = getCtxMenuLayer(this);
             catcherEl.append(ctxMnu);
         }
         /* --- */
@@ -101,7 +145,7 @@ export default createMixin((superclass) => class ContextMenuManager extends supe
         if (super.connectedCallback) {
             super.connectedCallback();
         }
-        const catcherEl = getCatcherEl(this);
+        const catcherEl = getCtxMenuLayer(this);
         const menus = MENUS.get(this);
         for (const [, menu] of menus) {
             catcherEl.append(menu);

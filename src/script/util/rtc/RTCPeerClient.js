@@ -1,6 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
 
@@ -33,9 +33,9 @@ export default class RTCPeerClient extends RTCPeer {
 
     async rtcMessageHandler(key, msg) {
         if (msg.type == "join") {
-            Toast.show(`Multiplayer: "${msg.data}" joined`);
+            Toast.info(`Multiplayer: "${msg.data}" joined`);
         } else if (msg.type == "leave") {
-            Toast.show(`Multiplayer: "${msg.data}" left`);
+            Toast.warn(`Multiplayer: "${msg.data}" left`);
         } else if (msg.type == "kick") {
             Dialog.alert("You have been kicked", `You have been kicked by the host: ${msg.data ? msg.data : "no reason provided"}.`);
         } else if (msg.type == "room") {

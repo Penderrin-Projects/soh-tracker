@@ -79,10 +79,12 @@ const STYLE = new GlobalStyle(`
     border-radius: 50%;
     content: " ";
 }
-#marker:hover {
+#marker:hover,
+:host(.ctx-marked) #marker {
     box-shadow: 0 0 2px 4px #67ffea;
 }
-#marker:hover + #tooltip {
+#marker:hover + #tooltip,
+:host(.ctx-marked) #marker + #tooltp {
     display: block;
 }
 #tooltip {

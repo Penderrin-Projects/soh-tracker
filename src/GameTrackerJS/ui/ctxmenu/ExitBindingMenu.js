@@ -1,7 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
 import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ContextMenu from "/emcJS/ui/overlay/ContextMenu.js";
+import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 import WorldResource from "../../resource/WorldResource.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";

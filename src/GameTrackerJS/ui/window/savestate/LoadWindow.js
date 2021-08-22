@@ -2,7 +2,7 @@
 import Template from "/emcJS/util/Template.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 
 import SavestateManager from "../../../savestate/SavestateManager.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
@@ -233,7 +233,7 @@ export default class LoadWindow extends HTMLElement {
                 }
             }
             await SavestateHandler.load(stateName);
-            Toast.show(`State "${stateName}" loaded.`);
+            Toast.info(`State "${stateName}" loaded.`);
             this.dispatchEvent(new Event("submit"));
             this.close();
         };

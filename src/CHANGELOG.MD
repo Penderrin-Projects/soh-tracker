@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION DEV
+
+### BUGFIXES
+
+- fix render layers for overlays and navigation
+
+---
+
 ## VERSION 2.1.34
 
 ### BUGFIXES

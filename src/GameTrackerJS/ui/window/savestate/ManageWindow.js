@@ -3,7 +3,7 @@ import Template from "/emcJS/util/Template.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 
 import SavestateManager from "../../../savestate/SavestateManager.js";
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
@@ -242,7 +242,7 @@ export default class ManageWindow extends HTMLElement {
                 return;
             }
             await SavestateManager.delete(stateName);
-            Toast.show(`State "${stateName}" deleted.`);
+            Toast.info(`State "${stateName}" deleted.`);
             snm.value = "";
             await fillStates(lst);
         };
@@ -272,7 +272,7 @@ export default class ManageWindow extends HTMLElement {
                 newName = name;
             }
             await SavestateManager.rename(stateName, newName);
-            Toast.show(`State "${stateName}" renamed to "${newName}".`);
+            Toast.info(`State "${stateName}" renamed to "${newName}".`);
             snm.value = "";
             await fillStates(lst);
         };
@@ -301,13 +301,13 @@ export default class ManageWindow extends HTMLElement {
             }
             res.data.name = name;
             await SavestateManager.importSavestate(res.data);
-            Toast.show(`State "${name}" imported.`);
+            Toast.info(`State "${name}" imported.`);
             snm.value = "";
             
             // load
             if (await Dialog.confirm("Load imported state?", "Do you want to load the newly imported state?\nUnsafed changes will be lost!")) {
                 await SavestateHandler.load(name);
-                Toast.show(`State "${name}" loaded.`);
+                Toast.success(`State "${name}" loaded.`);
                 this.dispatchEvent(new Event("submit"));
                 this.close();
                 return;
@@ -348,7 +348,7 @@ export default class ManageWindow extends HTMLElement {
             }
             data.name = name;
             await SavestateManager.importSavestate(data);
-            Toast.show(`State "${name}" imported.`);
+            Toast.info(`State "${name}" imported.`);
             snm.value = "";
             await fillStates(lst);
         };

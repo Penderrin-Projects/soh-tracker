@@ -1,5 +1,5 @@
 // frameworks
-import ContextMenu from "/emcJS/ui/overlay/ContextMenu.js";
+import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 export default class LocationContextMenu extends ContextMenu {
 

@@ -1,6 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/Template.js";
-import "/emcJS/ui/overlay/ContextMenu.js";
+import "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 
 // GameTrackerJS

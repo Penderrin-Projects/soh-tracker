@@ -47,10 +47,8 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(.empty) {
-    display: none;
-}
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {

@@ -7,6 +7,7 @@ import Import from "/emcJS/util/import/Import.js";
 import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
 import "/emcJS/ui/Icon.js";

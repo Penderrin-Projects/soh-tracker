@@ -1,6 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";
 
 
@@ -68,7 +68,7 @@ async function state_Save() {
     const activestate = await SavestateHandler.getName();
     if (activestate) {
         await SavestateHandler.save();
-        Toast.show(`Saved "${activestate}" successfully.`);
+        Toast.success(`Saved "${activestate}" successfully.`);
     } else {
         state_SaveAs();
     }

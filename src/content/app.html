@@ -1,52 +1,54 @@
 
 <emc-navbar id="navbar"></emc-navbar>
-<emc-paging id="view-pager" active="main">
-    <gt-viewchoice id="main-content" slot="main" active="tracker">
-        <div slot="tracker" data-title="Item & Map Tracker" data-icon="images/icons/tracker.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-layoutcontainer id="layout-container" layout="map-compact">
-                </ootrt-layoutcontainer>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="shops" data-title="Shops" data-icon="images/icons/shops.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-shoplist>
-                </ootrt-shoplist>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="dungeonstate" data-title="Dungeonstate" data-icon="images/icons/dungeon.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-dungeonstate orientation="column" active="key,bosskey,map,compass,reward,type,hint">
-                </ootrt-dungeonstate>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="exits" data-title="Exits" data-icon="images/icons/entrance.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-exitlist>
-                </ootrt-exitlist>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="songs" data-title="Songs" data-icon="images/icons/songs.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-songlist>
-                </ootrt-songlist>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="multi" data-title="Multiplayer" data-icon="images/icons/multi.svg">
-            <gt-ctxmenucatcher>
-                <ootrt-multiplayer>
-                </ootrt-multiplayer>
-            </gt-ctxmenucatcher>
-        </div>
-        <div slot="notes" data-title="Notes" data-icon="images/icons/notes.svg">
-            <gt-ctxmenucatcher>
-                <gt-texteditor id="notes-editor" title="Notes">
-                </gt-texteditor>
-            </gt-ctxmenucatcher>
-        </div>
-    </gt-viewchoice>
-    <jse-choice id="editor-choice" slot="editor_choice"></jse-choice>
-</emc-paging>
+<emc-page>
+    <emc-paging id="view-pager" active="main">
+        <gt-viewchoice id="main-content" slot="main" active="tracker">
+            <div slot="tracker" data-title="Item & Map Tracker" data-icon="images/icons/tracker.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-layoutcontainer id="layout-container" layout="map-compact">
+                    </ootrt-layoutcontainer>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="shops" data-title="Shops" data-icon="images/icons/shops.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-shoplist>
+                    </ootrt-shoplist>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="dungeonstate" data-title="Dungeonstate" data-icon="images/icons/dungeon.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-dungeonstate orientation="column" active="key,bosskey,map,compass,reward,type,hint">
+                    </ootrt-dungeonstate>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="exits" data-title="Exits" data-icon="images/icons/entrance.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-exitlist>
+                    </ootrt-exitlist>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="songs" data-title="Songs" data-icon="images/icons/songs.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-songlist>
+                    </ootrt-songlist>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="multi" data-title="Multiplayer" data-icon="images/icons/multi.svg">
+                <emc-ctxmenulayer>
+                    <ootrt-multiplayer>
+                    </ootrt-multiplayer>
+                </emc-ctxmenulayer>
+            </div>
+            <div slot="notes" data-title="Notes" data-icon="images/icons/notes.svg">
+                <emc-ctxmenulayer>
+                    <gt-texteditor id="notes-editor" title="Notes">
+                    </gt-texteditor>
+                </emc-ctxmenulayer>
+            </div>
+        </gt-viewchoice>
+        <jse-choice id="editor-choice" slot="editor_choice"></jse-choice>
+    </emc-paging>
+</emc-page>
 <footer class="footer">
     <ootrt-locationstate>
     </ootrt-locationstate>

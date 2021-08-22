@@ -1,5 +1,5 @@
 // frameworks
-import ContextMenu from "/emcJS/ui/overlay/ContextMenu.js";
+import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 // Track-OOT
 import "/script/ui/items/ItemPicker.js";
