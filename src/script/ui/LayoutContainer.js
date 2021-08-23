@@ -1,5 +1,5 @@
 // frameworks
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Layout from "/emcJS/ui/layout/Layout.js";
 
 

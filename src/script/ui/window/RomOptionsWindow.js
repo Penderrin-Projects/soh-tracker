@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/Template.js";
+import Template from "/emcJS/util/html/Template.js";
 
 // GameTrackerJS
 import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";

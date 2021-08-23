@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/Template.js";
+import Template from "/emcJS/util/html/Template.js";
 import AbstractElement from "/editors/ui/logic/AbstractElement.js";
 
 

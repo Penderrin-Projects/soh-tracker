@@ -1,7 +1,7 @@
 // frameworks
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import ElementManager from "/emcJS/util/ElementManager.js";
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import ElementManager from "/emcJS/util/html/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
 
 const TPL = new Template(`

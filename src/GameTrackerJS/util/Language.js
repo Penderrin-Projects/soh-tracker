@@ -100,4 +100,10 @@ class Language {
 
 }
 
+export function i18n(strings, ...values) {
+    const key = [strings.raw[0]];
+    values.forEach((v, k) => key.push(v, strings.raw[k + 1]));
+    return I18n.get(key.join(""));
+}
+
 export default new Language();

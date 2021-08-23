@@ -1,6 +1,6 @@
 
 // frameworks
-import Template from "/emcJS/util/Template.js";
+import Template from "/emcJS/util/html/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import Dialog from "/emcJS/ui/overlay/Dialog.js";
 import "/emcJS/ui/Paging.js";

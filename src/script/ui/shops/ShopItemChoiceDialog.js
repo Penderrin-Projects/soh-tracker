@@ -1,6 +1,6 @@
 // frameworks
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/Window.js";
 
 

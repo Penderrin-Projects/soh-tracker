@@ -1,7 +1,6 @@
 // frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
 
-
 const PROXY_HANDLER = {
     get(target, key) {
         if (typeof key == "symbol") {
