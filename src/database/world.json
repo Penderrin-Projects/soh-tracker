@@ -13596,9 +13596,12 @@
                 "type": "interior",
                 "access": "logic.subarea.kakariko.shop_magic",
                 "visible": {
-                    "type": "state",
-                    "el": "option.entrance_shuffle_interior",
-                    "value": "entrance_shuffle_off"
+                    "type": "not",
+                    "el": {
+                        "type": "state",
+                        "el": "option.entrance_shuffle_interior",
+                        "value": "entrance_shuffle_all"
+                    }
                 },
                 "filter": {
                     "filter.era": {

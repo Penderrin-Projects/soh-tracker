@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.35
+
+### BUGFIXES
+
+- fix SFM GS not checking for nighttime skulltula option
+- fix king zora thawed to consider ice cavern mq
+
+---
+
 ## VERSION 2.1.34
 
 ### BUGFIXES
