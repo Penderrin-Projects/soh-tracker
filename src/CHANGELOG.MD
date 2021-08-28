@@ -18,6 +18,7 @@ Application:    Track-OOT
 
 - fix SFM GS not checking for nighttime skulltula option
 - fix king zora thawed to consider ice cavern mq
+- fix kakriko potion shop not visible on simple interior shuffle
 
 ---
 
