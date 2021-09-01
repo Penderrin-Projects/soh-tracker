@@ -4,6 +4,26 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.39
+
+### IMPROVEMENTS
+
+- change order in songs tab to reflect the in-game order
+
+### BUGFIXES
+
+- fix "ganons castle grounds" reachable from "hc storms grotto" due to entrance binding leak
+
+---
+
+## VERSION 2.1.38
+
+### BUGFIXES
+
+- fix savestate export not triggering correctly
+
+---
+
 ## VERSION 2.1.37
 
 ### BUGFIXES

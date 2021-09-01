@@ -49693,7 +49693,7 @@
             }
         },
         "region.hc_storms_grotto[child]": {
-            "region.castle_grounds[child]": {
+            "region.hc_storms_grotto_entrance[child]": {
                 "type": "true"
             },
             "logic.location.castle_town.s_storm_grotto_child": {
@@ -49832,7 +49832,7 @@
             }
         },
         "region.hc_storms_grotto[adult]": {
-            "region.castle_grounds[adult]": {
+            "region.hc_storms_grotto_entrance[adult]": {
                 "type": "true"
             },
             "logic.location.castle_town.s_storm_grotto_child": {
