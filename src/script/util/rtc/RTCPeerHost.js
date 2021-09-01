@@ -1,5 +1,5 @@
 // frameworks
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventBusSubset from "/emcJS/event/EventBusSubset.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";

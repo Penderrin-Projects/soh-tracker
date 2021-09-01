@@ -1,7 +1,7 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/editors/modules/logic/Editor.js";
 

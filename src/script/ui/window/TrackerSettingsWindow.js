@@ -1,6 +1,6 @@
 // frameworks
 import ActionMessage from "/emcJS/ui/overlay/message/ActionMessage.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 
 // GameTrackerJS

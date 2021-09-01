@@ -2,7 +2,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/Paging.js";
 
 // GameTrackerJS
@@ -18,9 +18,9 @@ import SpoilerParser from "/script/util/spoilerparser/SpoilerParser.js";
 let spoiler = {};
 
 const LOAD_SPOILER = new Template(`
-    <div id="options-spoiler-wrapper">
-        <button id="load-spoiler-preset" class="settings-button" type="button" value="undefined" style="margin-right: 10px;"></button>
-    </div>
+<div id="options-spoiler-wrapper">
+    <button id="load-spoiler-preset" class="settings-button" type="button" value="undefined" style="margin-right: 10px;"></button>
+</div>
 `);
 
 async function loadSpoiler(button) {

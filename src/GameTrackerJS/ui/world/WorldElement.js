@@ -1,10 +1,10 @@
 // frameworks
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/Icon.js";
 
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
 import "../BadgeAccess.js";
 

@@ -1,12 +1,11 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 // GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "/GameTrackerJS/ui/mixin/ContextMenuManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import ShopStates from "/script/state/shop/StateManager.js";

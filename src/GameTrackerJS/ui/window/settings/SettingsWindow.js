@@ -2,7 +2,7 @@
 import DefaultingStorage from "/emcJS/datastorage/DefaultingStorage.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import Window from "/emcJS/ui/overlay/Window.js";
+import Window from "/emcJS/ui/overlay/window/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
 
@@ -63,15 +63,6 @@ const STYLE = new GlobalStyle(`
     background-color: black;
 }
 `);
-
-const Q_TAB = [
-    "button:not([tabindex=\"-1\"])",
-    "[href]:not([tabindex=\"-1\"])",
-    "input:not([tabindex=\"-1\"])",
-    "select:not([tabindex=\"-1\"])",
-    "textarea:not([tabindex=\"-1\"])",
-    "[tabindex]:not([tabindex=\"-1\"])"
-].join(",");
 
 const STORAGE = new WeakMap();
 
@@ -134,30 +125,6 @@ export default class SettingsWindow extends Window {
         const storage = STORAGE.get(this);
         storage.setAll(data);
         super.show();
-    }
-
-    initialFocus() {
-        const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById("submit"));
-        a.push(this.shadowRoot.getElementById("cancel"));
-        a.push(this.shadowRoot.getElementById("close"));
-        a[0].focus();
-    }
-
-    focusFirst() {
-        const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById("submit"));
-        a.push(this.shadowRoot.getElementById("cancel"));
-        a.unshift(this.shadowRoot.getElementById("close"));
-        a[0].focus();
-    }
-    
-    focusLast() {
-        const a = Array.from(this.querySelectorAll(Q_TAB));
-        a.push(this.shadowRoot.getElementById("submit"));
-        a.push(this.shadowRoot.getElementById("cancel"));
-        a.unshift(this.shadowRoot.getElementById("close"));
-        a[a.length - 1].focus();
     }
 
     overwriteValues(data) {

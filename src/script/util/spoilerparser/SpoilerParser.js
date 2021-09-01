@@ -1,5 +1,5 @@
 // frameworks
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 // GameTrackerJS
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";

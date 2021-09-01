@@ -1,7 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import Window from "/emcJS/ui/overlay/Window.js";
+import Window from "/emcJS/ui/overlay/window/Window.js";
 
 
 // GameTrackerJS

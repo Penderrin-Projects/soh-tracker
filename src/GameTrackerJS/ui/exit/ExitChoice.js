@@ -1,10 +1,10 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
 import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
 import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";

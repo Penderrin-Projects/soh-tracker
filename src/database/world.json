@@ -11940,7 +11940,7 @@
         },
         "subarea": {
             "spawns": {
-                "type": "interior",
+                "type": "collection",
                 "access": "logic.subarea.root",
                 "visible": {
                     "type": "or",

@@ -4,11 +4,19 @@ Application:    Track-OOT
 
 ***
 
-## VERSION DEV
+## VERSION 2.1.36
+
+### IMPROVEMENTS
+
+- add collection list item for spawn exits
+    - will auto open if exits become bindable
+    - will not auto close
+    - text color is always white
 
 ### BUGFIXES
 
 - fix render layers for overlays and navigation
+- fix subarea and collection collapse behaviour
 
 ---
 

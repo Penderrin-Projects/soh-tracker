@@ -76,6 +76,11 @@ export default class ExitState extends WorldState {
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
+        manager.registerStateHandler("list_update", event => {
+            const ev = new Event("list_update");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
         /* VALUES */
         const logicAccess = props.access.split(" -> ")[0];
         {

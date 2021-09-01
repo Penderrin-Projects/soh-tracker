@@ -23,7 +23,6 @@ import "/script/state/world/CustomWorldStates.js";
 const TPL = new Template(`
 <div id="header" class="textarea">
     <div id="text"></div>
-    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 <div id="list">
     <slot></slot>
@@ -71,18 +70,6 @@ const STYLE = new GlobalStyle(`
     color: #ffffff;
     align-items: center;
 }
-#text[data-state="opened"] {
-    color: var(--location-status-opened-color, #000000);
-}
-#text[data-state="available"] {
-    color: var(--location-status-available-color, #000000);
-}
-#text[data-state="unavailable"] {
-    color: var(--location-status-unavailable-color, #000000);
-}
-#text[data-state="possible"] {
-    color: var(--location-status-possible-color, #000000);
-}
 :host(:not(:empty)) #header.collapsible:before {
     display: flex;
     align-items: center;
@@ -118,7 +105,7 @@ const STYLE = new GlobalStyle(`
 
 const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
 
-export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
+export default class ListCollection extends EventTargetMixin(AbstractSubArea) {
 
     constructor() {
         super();
@@ -173,7 +160,7 @@ export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
     applyAccess(data) {
         super.applyAccess(data);
         /* collapsed */
-        this.setCollapsed(data.value == AccessStateEnum.OPENED);
+        this.setCollapsed(!data.entrances && data.value == AccessStateEnum.OPENED);
     }
 
     refreshList() {
@@ -197,5 +184,5 @@ export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
 
 }
 
-UIRegistry.set("list-subarea", new UIRegistry(ListSubArea));
-customElements.define("ootrt-list-subarea", ListSubArea);
+UIRegistry.get("list-subarea").register("collection", ListCollection);
+customElements.define("ootrt-list-collection", ListCollection);

@@ -28,6 +28,7 @@ import "./listitems/Area.js";
 import "./listitems/SubArea.js";
 import "./listitems/Exit.js";
 import "./listitems/SubExit.js";
+import "./listitems/ListCollection.js";
 import "/script/ui/dungeonstate/DungeonType.js";
 import "/script/ui/FilterMenu.js";
 

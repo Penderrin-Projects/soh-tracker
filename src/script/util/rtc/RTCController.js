@@ -1,5 +1,5 @@
 // frameworks
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import RTCClient from "/rtc/RTCClient.js";
 
