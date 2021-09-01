@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.37
+
+### BUGFIXES
+
+- fix savestate export not triggering correctly
+
+---
+
 ## VERSION 2.1.36
 
 ### IMPROVEMENTS
