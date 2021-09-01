@@ -160,7 +160,9 @@ export default class ListCollection extends EventTargetMixin(AbstractSubArea) {
     applyAccess(data) {
         super.applyAccess(data);
         /* collapsed */
-        this.setCollapsed(!data.entrances && data.value == AccessStateEnum.OPENED);
+        if (!!data.entrances || data.value != AccessStateEnum.OPENED) {
+            this.setCollapsed(false);
+        }
     }
 
     refreshList() {
