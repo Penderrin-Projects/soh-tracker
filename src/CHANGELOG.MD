@@ -16,7 +16,7 @@ Application:    Track-OOT
 ### BUGFIXES
 
 - fix render layers for overlays and navigation
-- fix subarea and collection collapse behaviour
+- fix subarea and collection collapse behavior
 
 ---
 
