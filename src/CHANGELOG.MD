@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.41
+
+### BUGFIXES
+
+- fix filter context menu not positioned correctly
+- fix filter context menu not blocking page interaction
+
+---
+
 ## VERSION 2.1.40
 
 ### BUGFIXES

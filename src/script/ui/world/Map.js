@@ -15,6 +15,7 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
+import "/GameTrackerJS/ui/button/FilterMenuButton.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
@@ -24,8 +25,7 @@ import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
 import "./mapmarker/Exit.js";
 import "./mapmarker/SubExit.js";
-import "/script/ui/dungeonstate/DungeonType.js";
-import "/script/ui/FilterMenu.js";
+import "../dungeonstate/DungeonType.js";
 
 const ZOOM_MIN = 10;
 const ZOOM_MAX = 200;
@@ -228,8 +228,8 @@ const TPL = new Template(`
                 </div>
                 -->
                 <div class="button-wrapper">
-                    <ootrt-filtermenu class="button map-menu">
-                    </ootrt-filtermenu>
+                    <gt-filtermenubutton class="button map-menu">
+                    </gt-filtermenubutton>
                 </div>
             </div>
             <div id="map-options-body" class="hidden">

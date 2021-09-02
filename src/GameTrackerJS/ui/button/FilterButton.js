@@ -5,9 +5,9 @@ import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
-import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
-import FilterObserver from "/GameTrackerJS/util/observer/FilterObserver.js";
+import FilterResource from "../../resource/FilterResource.js";
+import FilterStorage from "../../storage/FilterStorage.js";
+import FilterObserver from "../../util/observer/FilterObserver.js";
 
 const TPL = new Template(`
 <slot>
@@ -184,7 +184,7 @@ class FilterButton extends EventTargetMixin(HTMLElement) {
 
 }
 
-customElements.define("ootrt-filterbutton", FilterButton);
+customElements.define("gt-filterbutton", FilterButton);
 
 function createOption(value, img) {
     const opt = document.createElement("emc-option");

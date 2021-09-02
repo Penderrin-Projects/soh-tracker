@@ -17,6 +17,7 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
+import "/GameTrackerJS/ui/button/FilterMenuButton.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
@@ -29,8 +30,7 @@ import "./listitems/SubArea.js";
 import "./listitems/Exit.js";
 import "./listitems/SubExit.js";
 import "./listitems/ListCollection.js";
-import "/script/ui/dungeonstate/DungeonType.js";
-import "/script/ui/FilterMenu.js";
+import "../dungeonstate/DungeonType.js";
 
 const TPL = new Template(`
     <style>
@@ -135,8 +135,8 @@ const TPL = new Template(`
         <div id="hint"></div>
         <ootrt-dungeontype id="location-version" class="button" ref="overworld" value="v" readonly="true">
         </ootrt-dungeontype>
-        <ootrt-filtermenu class="button">
-        </ootrt-filtermenu>
+        <gt-filtermenubutton class="button">
+        </gt-filtermenubutton>
     </div>
     <div id="body">
         <ootrt-list-button id="back"></ootrt-list-button>
