@@ -41,6 +41,7 @@ export default class Location extends AbstractLocation {
         this.addDefaultContextMenuHandler("associate", event => {
             const mnu_ctx = this.getDefaultContextMenu();
             const mnu_itm = this.getContextMenu("itempicker");
+            mnu_itm.loadItems("pickable");
             mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
         });
         this.addDefaultContextMenuHandler("disassociate", event => {

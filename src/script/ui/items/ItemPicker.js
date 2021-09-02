@@ -71,8 +71,33 @@ class HTMLTrackerItemPicker extends Panel {
 
     connectedCallback() {
         this.setAttribute("data-fontmod", "items");
-        if (!this.items && !!this.grid) {
-            this.items = JSON.stringify(GridsResource.get(this.grid));
+    }
+
+    /*#*/__loadItems(config) {
+        const content = this.shadowRoot.getElementById("content");
+        content.innerHTML = "";
+        if (!Array.isArray(config)) {
+            return;
+        }
+        for (const row of config) {
+            if (!Array.isArray(row)) {
+                return;
+            }
+            const cnt = document.createElement("div");
+            cnt.classList.add("item-row");
+            for (const element of row) {
+                if (element.type == "item") {
+                    const item = createItem(element.value, event => {
+                        this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
+                        event.preventDefault();
+                        return false;
+                    });
+                    cnt.append(item);
+                } else {
+                    cnt.append(createEmpty());
+                }
+            }
+            content.append(cnt);
         }
     }
 
@@ -101,31 +126,16 @@ class HTMLTrackerItemPicker extends Panel {
             case "grid":
                 if (oldValue != newValue) {
                     if (!this.items && !!newValue) {
-                        this.items = JSON.stringify(GridsResource.get(newValue));
+                        const config = GridsResource.get(newValue);
+                        this./*#*/__loadItems(config);
                     }
                 }
                 break;
             case "items":
                 if (oldValue != newValue) {
-                    const content = this.shadowRoot.getElementById("content");
-                    content.innerHTML = "";
-                    const config = JSON.parse(newValue);
-                    for (const row of config) {
-                        const cnt = document.createElement("div");
-                        cnt.classList.add("item-row");
-                        for (const element of row) {
-                            if (element.type == "item") {
-                                const item = createItem(element.value, event => {
-                                    this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
-                                    event.preventDefault();
-                                    return false;
-                                });
-                                cnt.append(item);
-                            } else {
-                                cnt.append(createEmpty());
-                            }
-                        }
-                        content.append(cnt);
+                    if (!!newValue) {
+                        const config = JSON.parse(newValue);
+                        this./*#*/__loadItems(config);
                     }
                 }
                 break;

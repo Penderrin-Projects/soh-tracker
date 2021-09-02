@@ -1,16 +1,15 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/input/Option.js";
 
-
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import "/script/ui/items/ItemPicker.js";
+import ItemPickerMenu from "../ctxmenu/ItemPickerMenu.js";
 
 const TPL = new Template(`
 <slot>
@@ -60,28 +59,57 @@ slot {
 }
 `);
 
-const TPL_MNU_ITM = new Template(`
-<emc-contextmenu id="menu">
-    <ootrt-itempicker id="item-picker"></ootrt-itempicker>
-</emc-contextmenu>
-`);
-
-const MNU_ITM = new WeakMap();
-
 const REWARDS = [
-    "item.stone_forest",
-    "item.stone_fire",
-    "item.stone_water",
-    "item.medallion_forest",
-    "item.medallion_fire",
-    "item.medallion_water",
-    "item.medallion_spirit",
-    "item.medallion_shadow",
-    "item.medallion_light"
+    {
+        "type": "item",
+        "value": "item.stone_forest",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.stone_fire",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.stone_water",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_forest",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_fire",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_water",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_spirit",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_shadow",
+        "visible": true
+    },
+    {
+        "type": "item",
+        "value": "item.medallion_light",
+        "visible": true
+    }
 ];
 const TAKEN_REWARDS = new Map();
 
-class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
+
+class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
 
     constructor() {
         super();
@@ -94,57 +122,28 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
         });
 
         /* context menu */
-        const mnu_itm = document.createElement("div");
-        mnu_itm.attachShadow({mode: "open"});
-        mnu_itm.shadowRoot.append(TPL_MNU_ITM.generate());
-        const mnu_itm_el = mnu_itm.shadowRoot.getElementById("menu");
-        MNU_ITM.set(this, mnu_itm);
-        const mnu_itm_picker = mnu_itm.shadowRoot.getElementById("item-picker");
-
-        mnu_itm.shadowRoot.getElementById("item-picker").addEventListener("pick", event => {
-            const value = event.detail;
+        this.setContextMenu("itempicker", ItemPickerMenu);
+        this.addContextMenuHandler("itempicker", "pick", event => {
+            const value = event.item;
             const state = this.getState();
             if (state != null) {
                 state.reward = value;
             }
-            event.preventDefault();
-            return false;
         });
         
         /* mouse events */
         this.addEventListener("click", event => {
-            const filteredRewards = REWARDS.filter(el => !TAKEN_REWARDS.has(el));
+            const mnu_itm = this.getContextMenu("itempicker");
+            const filteredRewards = REWARDS.filter(el => !TAKEN_REWARDS.has(el.value));
             if (filteredRewards.length) {
-                mnu_itm_picker.items = JSON.stringify([filteredRewards.map(el => {
-                    return {
-                        "type": "item",
-                        "value": el,
-                        "visible": true
-                    };
-                })]);
-                /* --- */
-                mnu_itm_el.show(event.clientX, event.clientY);
+                mnu_itm.loadItems([filteredRewards]);
+                mnu_itm.show(event.clientX, event.clientY);
             }
             event.stopPropagation();
             event.preventDefault();
             return false;
         });
         this.addEventListener("contextmenu", event => this.revert(event));
-    }
-
-    connectedCallback() {
-        super.connectedCallback();
-        this.value = SavestateHandler.get("dungeonreward", this.ref, "");
-        let el = this;
-        while (el.parentElement != null && !el.classList.contains("panel")) {
-            el = el.parentElement;
-        }
-        el.append(MNU_ITM.get(this));
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        MNU_ITM.get(this).remove();
     }
 
     applyDefaultValues() {
@@ -187,8 +186,8 @@ class HTMLTrackerDungeonReward extends StateDataEventManager(HTMLElement) {
                         if (state != null) {
                             this.append(createOption("", "/images/items/unknown.png"));
                             const items = ItemsResource.get();
-                            for (let i = 0; i < REWARDS.length; ++i) {
-                                const name = REWARDS[i];
+                            for (const reward of REWARDS) {
+                                const name = reward.value;
                                 let j = items[name].images;
                                 if (Array.isArray(j)) {
                                     j = j[0];

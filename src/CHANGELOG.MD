@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.40
+
+### BUGFIXES
+
+- fix dungeon reward choice context menu not positioned correctly
+- fix dungeon reward choice context menu not blocking page interaction
+
+---
+
 ## VERSION 2.1.39
 
 ### IMPROVEMENTS
