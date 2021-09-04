@@ -1,7 +1,9 @@
+// frameworks
+import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
+
+import AbstractSettingsWindow from "./AbstractSettingsWindow.js";
 import SettingsResource from "../../../resource/SettingsResource.js";
 import SettingsStorage from "../../../storage/SettingsStorage.js";
-import SettingsBuilder from "../../../util/SettingsBuilder.js";
-import SettingsWindow from "./SettingsWindow.js";
 import BusyIndicator from "../../../ui/BusyIndicator.js";
 import AutosaveHandler from "../../../savestate/AutosaveHandler.js";
 
@@ -17,10 +19,10 @@ function applySettingsChoices(settings) {
 }
 applySettingsChoices(SettingsStorage.getAll());
 
-export default class AppSettingsWindow extends SettingsWindow {
+export default class AppSettingsWindow extends AbstractSettingsWindow {
 
     constructor() {
-        super() ;
+        super("App settings") ;
         /* --- */
         const options = SettingsResource.get();
         SettingsBuilder.build(this, options);

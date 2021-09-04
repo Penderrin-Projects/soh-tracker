@@ -247,6 +247,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     this.shadowRoot.getElementById("masterquest").ref = newValue;
                     this.hint = SavestateHandler.get("area_hint", newValue, "");
                     this.refresh();
+                    this.shadowRoot.getElementById("body").scroll(0, 0);
                 }
                 break;
             case "hint":

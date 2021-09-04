@@ -45,11 +45,6 @@
         "type": "check",
         "default": true
     },
-    "color_blind_mode": {
-        "category": "settings",
-        "type": "check",
-        "default": true
-    },
     "show_access_values": {
         "category": "settings",
         "type": "check",
@@ -70,21 +65,24 @@
         "type": "-range",
         "min": 32,
         "max": 64,
-        "default": 40
+        "default": 40,
+        "resettable": true
     },
     "autosave_time": {
         "category": "settings",
         "type": "number",
         "min": 0,
         "max": 120,
-        "default": 10
+        "default": 10,
+        "resettable": true
     },
     "autosave_amount": {
         "category": "settings",
         "type": "number",
         "min": 1,
         "max": 10,
-        "default": 4
+        "default": 4,
+        "resettable": true
     },
     "unknown_dungeon_need_both": {
         "category": "settings",
@@ -96,6 +94,40 @@
         "type": "check",
         "default": false
     },
+    "show_state_init_window": {
+        "category": "settings",
+        "type": "check",
+        "default": true
+    },
+    "color_blind_badge_icons": {
+        "category": "a11y",
+        "type": "check",
+        "default": true
+    },
+    "location_status_opened_color": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#777777",
+        "resettable": true
+    },
+    "location_status_available_color": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#00ff00",
+        "resettable": true
+    },
+    "location_status_unavailable_color": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#ff0000",
+        "resettable": true
+    },
+    "location_status_possible_color": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#ffff00",
+        "resettable": true
+    },
     "debug_logic": {
         "category": "debug",
         "type": "choice",
@@ -105,10 +137,5 @@
             "on",
             "extended"
         ]
-    },
-    "show_state_init_window": {
-        "category": "settings",
-        "type": "check",
-        "default": true
     }
 }

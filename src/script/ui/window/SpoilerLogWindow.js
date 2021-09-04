@@ -2,15 +2,15 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
+import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/Paging.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import AbstractSettingsWindow from "/GameTrackerJS/ui/window/settings/AbstractSettingsWindow.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
-import SettingsBuilder from "/GameTrackerJS/util/SettingsBuilder.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import SettingsWindow from "/GameTrackerJS/ui/window/settings/SettingsWindow.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
 import SpoilerParser from "/script/util/spoilerparser/SpoilerParser.js";
@@ -30,7 +30,7 @@ async function loadSpoiler(button) {
     }
 }
 
-export default class SpoilerLogWindow extends SettingsWindow {
+export default class SpoilerLogWindow extends AbstractSettingsWindow {
 
     constructor() {
         super("Spoiler parser");

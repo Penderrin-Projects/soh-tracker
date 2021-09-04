@@ -17,6 +17,8 @@ debug=Debug options
 credits=Credits
 about=About
 show_state_init_window=Show state init dialog on new state
+Initialize new state=Initialize new state
+Clear data=Clear data
 
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
@@ -1030,16 +1032,19 @@ item.compass_generic=Compass
 item.dungeon_map_generic=Dungeon Map
 
 # SETTINGS
+App settings=App settings
+Randomizer options=Randomizer options
+Spoiler parser=Spoiler parser
 settings=General settings
 options=Randomizer options
 lacsAndGanon=LACS and Bridge options
 skips=Active skips
+a11y=Accessibility
 
 # SETTINGS - GENERAL
 font=Select Font
 layout=Select Layout
 show_filter_badges=Show filter badges for checks
-color_blind_mode=Activate color blind mode
 show_access_values=Show available/unopened checks for areas
 item_size=Item Size
 autosave_time=Autosave time in minutes (0 to deactivate)
@@ -1050,6 +1055,11 @@ edit_custom_logic=Edit custom logic
 button_edit_logic=edit
 erase_all_data=Erase all stored data
 button_erase_data=erase
+color_blind_badge_icons=Activate color blind badge icons
+location_status_opened_color=Color for finished checks
+location_status_available_color=Color for available checks
+location_status_unavailable_color=Color for unavailable checks
+location_status_possible_color=Color for partialy available checks
 
 # SETTINGS - ROM OPTIONS
 option.consider_buyable=Consider buyable Items (Tunics / Blue Fire) in logic

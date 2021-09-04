@@ -51,6 +51,9 @@ const STYLE = new GlobalStyle(`
 :host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
+:host(.empty) {
+    display: none;
+}
 .textarea {
     display: flex;
     align-items: center;
@@ -191,6 +194,9 @@ export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
                         visible = true;
                     }
                 }
+                this.classList.toggle("empty", !visible);
+            } else {
+                this.classList.add("empty");
             }
         }
     }

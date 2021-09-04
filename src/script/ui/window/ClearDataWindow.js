@@ -69,7 +69,7 @@ async function clearData(event) {
 
 export default class ClearDataWindow extends Window {
 
-    constructor(title = "Initialize new state", options = {}) {
+    constructor(title = "Clear data", options = {}) {
         super(title, options.close);
         const els = TPL.generate();
         STYLE.apply(this.shadowRoot);

@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.42
+
+### IMPROVEMENTS
+
+- add check color choice for a11y
+- add a11y options tab to tracker settings
+
+### BUGFIXES
+
+- fix subareas were not hidden if empty
+- fix location list now scrolls to top on reference change
+
+---
+
 ## VERSION 2.1.41
 
 ### BUGFIXES

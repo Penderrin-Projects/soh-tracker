@@ -30,12 +30,13 @@ import "/script/storage/StateStorage.js";
 import "/script/util/logic/AugmentExits.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/LogicCaller.js";
+import "/script/util/A11y.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorChoice.js"
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
-import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
+import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";

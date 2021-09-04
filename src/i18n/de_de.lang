@@ -16,7 +16,9 @@ debug_logic=Logic debugger
 debug=Debug Optionen
 credits=Credits
 about=Über
-show_state_init_window=Zeige state initialisierungs Dialog
+show_state_init_window=Zeige State initialisierungs Dialog
+Initialize new state=Initialisiere den neuen State
+Clear data=Lösche Daten
 
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
@@ -1030,16 +1032,19 @@ item.compass_generic=Kompass
 item.dungeon_map_generic=Karte
 
 # SETTINGS
+App settings=App-Einstellungen
+Randomizer options=Randomizer-Optionen
+Spoiler parser=Spoiler Parser
 settings=Allgemeine Einstellungen
 options=Randomizer Optionen
 lacsAndGanon=Lichtpfeil-Cutscene und Brückenoptionen
 skips=Aktive Skips
+a11y=Barrierefreiheit
 
 # SETTINGS - GENERAL
 font=Wähle Font
 layout=Wähle Layout
 show_filter_badges=Filter-Marken an Checks anzeigen
-color_blind_mode=Farbenblind Modus aktivieren
 show_access_values=Zeige erreichbare/ungeöffnete Checks an Umgebungen
 item_size=Item Größe
 autosave_time=Zeit für automatisches Speichern in Minuten (0 zum Deaktivieren)
@@ -1050,6 +1055,11 @@ edit_custom_logic=Ändere eigene Logik
 button_edit_logic=Ändern
 erase_all_data=Lösche alle gespeicherten Daten
 button_erase_data=Löschen
+color_blind_badge_icons=Farbenblind Badge Icons aktivieren
+location_status_opened_color=Farbe für erledigte Checks
+location_status_available_color=Farbe für erreichbare Checks
+location_status_unavailable_color=Farbe für unerreichbare Checks
+location_status_possible_color=Farbe für teilweise erreichbare Checks
 
 # SETTINGS - ROM OPTIONS
 option.consider_buyable=Berücksichtige kaufbare Items (Rüstungen / Blaues Feuer) in Logik

@@ -1,20 +1,20 @@
 // frameworks
 import DefaultingStorage from "/emcJS/datastorage/DefaultingStorage.js";
+import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 
+import AbstractSettingsWindow from "./AbstractSettingsWindow.js";
 import OptionsResource from "../../../resource/OptionsResource.js";
 import ItemsResource from "../../../resource/ItemsResource.js";
 import OptionsStorage from "../../../storage/OptionsStorage.js";
 import StartItemsStorage from "../../../storage/StartItemsStorage.js";
-import SettingsBuilder from "../../../util/SettingsBuilder.js";
-import SettingsWindow from "./SettingsWindow.js";
 import BusyIndicator from "../../../ui/BusyIndicator.js";
 
 const ITEM_STORAGE = new WeakMap();
 
-export default class SavestateOptionsWindow extends SettingsWindow {
+export default class SavestateOptionsWindow extends AbstractSettingsWindow {
 
     constructor() {
-        super() ;
+        super("Randomizer options") ;
         /* --- */
         const options = OptionsResource.get();
         SettingsBuilder.build(this, options);

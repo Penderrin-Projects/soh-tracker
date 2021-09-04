@@ -7,7 +7,7 @@ import "/emcJS/ui/Icon.js";
 import FilterResource from "../resource/FilterResource.js";
 import SettingsObserver from "../util/observer/SettingsObserver.js";
 
-const colorBlindObserver = new SettingsObserver("color_blind_mode");
+const colorBlindObserver = new SettingsObserver("color_blind_badge_icons");
 const showFiltersObserver = new SettingsObserver("show_filter_badges");
 
 const TPL = new Template(`
