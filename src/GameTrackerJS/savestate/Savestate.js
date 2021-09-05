@@ -7,6 +7,7 @@ import FilterStorage from "../storage/FilterStorage.js";
 import StartItemsStorage from "../storage/StartItemsStorage.js";
 import SavestateConverter from "./SavestateConverter.js";
 
+const SPECIAL_STORAGES = new Map();
 const DATA = new Map();
 let name = "";
 let version = SavestateConverter.version;
@@ -204,17 +205,23 @@ class Savestate extends EventTarget {
     }
 
     /* additional storages */
-    
-    get options() {
-        return OptionsStorage;
+
+    registerStorage(name, storage) {
+        if (!(storage instanceof DataStorage)) {
+            throw new TypeError("unknown storage implementation, expected DataStorage");
+        }
+        if (SPECIAL_STORAGES.has(name)) {
+            throw new Error(`special storage with name "${name}" already registerred`);
+        }
+        if (DATA.has(name)) {
+            storage.deserialize(DATA.get(name).serialize());
+            DATA.set(name, storage);
+        }
+        SPECIAL_STORAGES.set(name, storage);
     }
-    
-    get filter() {
-        return FilterStorage;
-    }
-    
-    get startitems() {
-        return StartItemsStorage;
+
+    getStorage(name) {
+        return DATA.get(name) ?? SPECIAL_STORAGES.get(name);
     }
 
 }

@@ -8,8 +8,10 @@ import DataState from "../abstract/DataState.js";
 
 const VALUE = new WeakMap();
 const DEF_MAX = new WeakMap();
+const DEF_MIN = new WeakMap();
 const MAX = new WeakMap();
 const MIN = new WeakMap();
+const START = new WeakMap();
 
 export function parseSafeRange(value, def) {
     const result = parseInt(value);
@@ -30,12 +32,19 @@ export default class DefaultState extends DataState {
     constructor(ref, props = {}) {
         super(ref, props);
         /* --- */
-        const startItemsObserver = new StartItemsObserver(ref);
         DEF_MAX.set(this, parseSafeRange(props.max, 0));
-        MIN.set(this, parseSafeRange(startItemsObserver.value, 0));
-        startItemsObserver.addEventListener("change", (event) => {
-            this./*#*/__setMin(event.data);
-        });
+        DEF_MIN.set(this, parseSafeRange(props.min, 0));
+
+        /* STARTITEMS */
+        {
+            const startItemsObserver = new StartItemsObserver(ref);
+            START.set(this, parseSafeRange(startItemsObserver.value, 0));
+            startItemsObserver.addEventListener("change", (event) => {
+                this./*#*/__setStart(event.data);
+            });
+        }
+
+        /* VAR_MAX */
         if (props.var_max != null) {
             if (typeof props.var_max == "object") {
                 if (props.var_max.option != null && props.var_max.values != null) {
@@ -61,12 +70,44 @@ export default class DefaultState extends DataState {
                 });
             }
         }
-        const value = SavestateHandler.get("", ref, 0);
-        VALUE.set(this, this./*#*/__restrictValue(value));
-        /* --- */
+
+        /* VAR_MIN */
+        if (props.var_min != null) {
+            if (typeof props.var_min == "object") {
+                if (props.var_min.option != null && props.var_min.values != null) {
+                    const defMin = DEF_MIN.get(this);
+                    const optionObserver = new OptionsObserver(props.var_min.option);
+                    const minVal = parseSafeRange(props.var_min.values[optionObserver.value], defMin);
+                    if (minVal != null) {
+                        MIN.set(this, minVal);
+                    }
+                    optionObserver.addEventListener("change", (event) => {
+                        this./*#*/__setMin(props.var_min.values[event.data]);
+                    });
+                }
+            } else if (typeof props.var_min == "string") {
+                const defMin = DEF_MIN.get(this);
+                const optionObserver = new OptionsObserver(props.var_min);
+                const minVal = parseSafeRange(optionObserver.value, defMin);
+                if (minVal != null) {
+                    MIN.set(this, minVal);
+                }
+                optionObserver.addEventListener("change", (event) => {
+                    this./*#*/__setMin(event.data);
+                });
+            }
+        }
+
+        /* VALUE */
+        {
+            const value = SavestateHandler.get("", ref, 0);
+            VALUE.set(this, this./*#*/__restrictValue(value));
+        }
+        // TODO
         // SavestateHandler.addEventListener("load", event => {
         //     console.log("load", event);
         // });
+        
         /* EVENTS */
         EventBus.register("state::item", (event) => {
             const ref = this.ref;
@@ -139,6 +180,26 @@ export default class DefaultState extends DataState {
         }
     }
 
+    /*#*/__setStart(value) {
+        const newStart = parseSafeRange(value, 0);
+        const oldStart = MIN.get(this);
+        if (newStart != oldStart) {
+            const oldValue = this.value;
+            START.set(this, newStart);
+            // external min
+            const event = new Event("start");
+            event.data = newStart;
+            this.dispatchEvent(event);
+            // external value
+            const newValue = this.value;
+            if (oldValue != newValue) {
+                const event = new Event("value");
+                event.data = newValue;
+                this.dispatchEvent(event);
+            }
+        }
+    }
+
     /*#*/__setValue(value) {
         const ref = this.ref;
         const rValue = parseSafeRange(value);
@@ -161,12 +222,16 @@ export default class DefaultState extends DataState {
         return DEF_MAX.get(this);
     }
 
+    get defaultMin() {
+        return DEF_MIN.get(this);
+    }
+
     get max() {
         return MAX.get(this) ?? DEF_MAX.get(this);
     }
 
     get min() {
-        return MIN.get(this);
+        return Math.max(MIN.get(this) ?? DEF_MIN.get(this), START.get(this) ?? 0);
     }
 
     set value(value) {

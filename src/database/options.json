@@ -140,32 +140,19 @@
         "category": "options",
         "type": "choice",
         "default": 1,
-        "values": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11
-        ],
-        "names": [
-            "item.pocket_egg",
-            "item.pocket_cucco",
-            "item.pocket_cojiro",
-            "item.mushroom",
-            "item.medicine",
-            "item.saw",
-            "item.broken_sword",
-            "item.prescription",
-            "item.frog",
-            "item.eyedrops",
-            "item.claim"
-        ]
+        "values": {
+            "1": "item.pocket_egg",
+            "2": "item.pocket_cucco",
+            "3": "item.pocket_cojiro",
+            "4": "item.mushroom",
+            "5": "item.medicine",
+            "6": "item.saw",
+            "7": "item.broken_sword",
+            "8": "item.prescription",
+            "9": "item.frog",
+            "10": "item.eyedrops",
+            "11": "item.claim"
+        }
     },
     "option.big_poe_count": {
         "category": "options",

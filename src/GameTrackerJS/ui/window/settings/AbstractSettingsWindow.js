@@ -15,14 +15,26 @@ function convertValueList(values = {}) {
     if (typeof values == "object") {
         if (Array.isArray(values)) {
             for (const key of values) {
-                opt[key] = Language.generateLabel(key);
+                if (isNaN(parseFloat(key))) {
+                    opt[key] = Language.generateLabel(key);
+                } else {
+                    opt[key] = key;
+                }
             }
         } else {
             for (const key in values) {
                 if (values[key] != null) {
-                    opt[key] = Language.generateLabel(values[key]);
+                    if (isNaN(parseFloat(values[key]))) {
+                        opt[key] = Language.generateLabel(values[key]);
+                    } else {
+                        opt[key] = values[key];
+                    }
                 } else {
-                    opt[key] = Language.generateLabel(key);
+                    if (isNaN(parseFloat(key))) {
+                        opt[key] = Language.generateLabel(key);
+                    } else {
+                        opt[key] = key;
+                    }
                 }
             }
         }

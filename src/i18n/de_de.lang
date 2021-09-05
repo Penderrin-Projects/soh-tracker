@@ -8,6 +8,7 @@ language=Sprache
 # INTERFACE
 on=an
 off=aus
+random=zufällig
 extended=erweitert
 sublist_collapsible=Einklappbare unterlisten
 start_expanded=starte ausgeklappt

@@ -14,11 +14,25 @@ export default class TradeItemState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        STARTVALUE.set(this, parseInt(SavestateHandler.get("", props.start_settings, 1)));
+        if (props.start_values) {
+            const startSettings = SavestateHandler.get("", props.start_settings);
+            const startValue = props.start_values[startSettings] ?? 0;
+            STARTVALUE.set(this, parseInt(startValue));
+        } else {
+            const startValue = SavestateHandler.get("", props.start_settings, 0);
+            STARTVALUE.set(this, parseInt(startValue));
+        }
         /* EVENTS */
         EventBus.register("options", event => {
             if (event.data[props.start_settings] != null) {
-                this./*#*/__applyStartValue(event.data[props.start_settings]);
+                if (props.start_values) {
+                    const startSettings = event.data[props.start_settings];
+                    const startValue = props.start_values[startSettings] ?? 0;
+                    this./*#*/__applyStartValue(startValue);
+                } else {
+                    const startValue = event.data[props.start_settings];
+                    this./*#*/__applyStartValue(startValue);
+                }
             }
         });
     }
@@ -53,7 +67,14 @@ export default class TradeItemState extends DefaultState {
         super.stateLoaded(event);
         // settings
         if (event.data.state[props.start_settings] != null) {
-            this./*#*/__applyStartValue(event.data.state[props.start_settings]);
+            if (props.start_values) {
+                const startSettings = event.data.state[props.start_settings];
+                const startValue = props.start_values[startSettings] ?? 0;
+                this./*#*/__applyStartValue(startValue);
+            } else {
+                const startValue = event.data.state[props.start_settings];
+                this./*#*/__applyStartValue(startValue);
+            }
         }
     }
 

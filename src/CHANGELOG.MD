@@ -4,6 +4,22 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.43
+
+### IMPROVEMENTS
+
+- add variable minimum item count to child trading sequence
+    - depending on skip child zelda option
+
+### BUGFIXES
+
+- fix starting items not handled correctly in logic
+- fix fountain access without zora letter for always open fountain option
+- fix starting items from spoiler log no longer cleared on options window open
+- fix translations for options
+
+---
+
 ## VERSION 2.1.42
 
 ### IMPROVEMENTS

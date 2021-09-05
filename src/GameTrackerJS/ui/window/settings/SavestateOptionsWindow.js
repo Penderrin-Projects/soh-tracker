@@ -39,6 +39,10 @@ export default class SavestateOptionsWindow extends AbstractSettingsWindow {
     }
 
     show() {
+        const items = StartItemsStorage.getAll();
+        const storage = ITEM_STORAGE.get(this);
+        storage.setAll(items);
+        /* -- */
         const values = OptionsStorage.getAll();
         super.show(values);
     }

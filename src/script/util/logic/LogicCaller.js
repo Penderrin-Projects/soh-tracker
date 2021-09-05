@@ -7,6 +7,7 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+import StartItemsStorage from "/GameTrackerJS/storage/StartItemsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
@@ -111,6 +112,14 @@ function augmentData(data) {
             }
         }
     }
+    // special augments
+    if (data["item.zora_letter"] != null || data["option.doors_open_zora"] != null) {
+        if ((data["option.doors_open_zora"] ?? cache.get("option.doors_open_zora")) == "doors_open_zora_both") {
+            res["item.zora_letter"] = 1;
+        } else {
+            res["item.zora_letter"] = data["item.zora_letter"] ?? cache.get("item.zora_letter")
+        }
+    }
     // ---
     return {
         ...data,
@@ -137,6 +146,14 @@ function init() {
         ...OptionsStorage.getAll(),
         ...FilterStorage.getAll()
     };
+    // startitems
+    const startItems = StartItemsStorage.getAll();
+    for (const [key, value] of Object.entries(startItems)) {
+        if (data[key] == null || data[key] < value) {
+            data[key] = value;
+        }
+    }
+    // ---
     cache.clear();
     for (const [key, value] of Object.entries(data)) {
         cache.set(key, value);
@@ -162,17 +179,38 @@ function changeData(newData) {
     }
 }
 
+function changeDataWithItems(newData, items) {
+    const changes = {};
+    for (const [key, value] of Object.entries(newData)) {
+        if (items[key] != null && items[key] > value) {
+            if (cache.get(key) != items[key]) {
+                changes[key] = items[key];
+                cache.set(key, items[key]);
+            }
+        } else if (cache.get(key) != value) {
+            changes[key] = value;
+            cache.set(key, value);
+        }
+    }
+    if (Object.keys(changes).length > 0) {
+        const augmentedData = augmentData(changes);
+        augmentReachables(augmentedData);
+        Logic.execute(augmentedData, "region.root");
+    }
+}
+
 class LogicCaller {
 
     constructor() {
         init();
         /* EVENTS */
-        SavestateHandler.addEventListener("load",               event => init());
-        SavestateHandler.addEventListener("change",             event => changeData(event.data));
-        SavestateHandler.addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
-        OptionsStorage  .addEventListener("change",             event => changeData(event.data));
-        SettingsStorage .addEventListener("change",             event => changeData(event.data));
-        FilterStorage   .addEventListener("change",             event => changeData(event.data));
+        SavestateHandler .addEventListener("load",               event => init());
+        SavestateHandler .addEventListener("change",             event => changeDataWithItems(event.data, StartItemsStorage.getAll()));
+        SavestateHandler .addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
+        OptionsStorage   .addEventListener("change",             event => changeData(event.data));
+        SettingsStorage  .addEventListener("change",             event => changeData(event.data));
+        FilterStorage    .addEventListener("change",             event => changeData(event.data));
+        StartItemsStorage.addEventListener("change",             event => changeDataWithItems(event.data, SavestateHandler.getAll("")));
     }
 
 }

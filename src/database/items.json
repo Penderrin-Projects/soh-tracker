@@ -251,6 +251,12 @@
     "item.egg": {
         "type": "item",
         "max": 8,
+        "var_min": {
+            "option": "option.skip_child_zelda",
+            "values": {
+                "true": 3
+            }
+        },
         "images": [
             "/images/items/egg.png",
             "/images/items/egg.png",
