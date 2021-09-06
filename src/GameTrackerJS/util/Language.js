@@ -2,8 +2,8 @@
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
 import I18n from "/emcJS/i18n/I18n.js";
-import I18nLabel from "/emcJS/i18n/ui/Label.js";
-import I18nTooltip from "/emcJS/i18n/ui/Tooltip.js";
+import I18nLabel from "/emcJS/i18n/ui/I18nLabel.js";
+import I18nTooltip from "/emcJS/i18n/ui/I18nTooltip.js";
 
 import SettingsObserver from "./observer/SettingsObserver.js";
 
@@ -49,50 +49,38 @@ class Language {
         return I18n.get(index);
     }
 
-    generateLabel(key, value) {
+    generateLabel(key) {
         const el = document.createElement("emc-i18n-label");
-        el.i18nKey = key;
-        if (value != null) {
-            el.i18nValue = value;
-        }
+        el.i18nValue = key;
         return el;
     }
 
-    generateTooltip(key, value) {
+    generateTooltip(key) {
         const el = document.createElement("emc-i18n-tooltip");
-        el.i18nKey = key;
-        if (value != null) {
-            el.i18nValue = value;
-        }
+        el.i18nTooltip = key;
         return el;
     }
 
-    applyLabel(el, key, value) {
+    applyLabel(el, key) {
         if (el.children[0] instanceof I18nLabel) {
             const label = el.children[0];
-            label.i18nKey = key;
-            if (value != null) {
-                label.i18nValue = value;
-            }
+            label.i18nValue = key;
             return el;
         } else {
-            const label = this.generateLabel(key, value);
+            const label = this.generateLabel(key);
             el.innerHTML = "";
             el.append(label);
             return el;
         }
     }
 
-    applyTooltip(el, key, value) {
+    applyTooltip(el, key) {
         if (el.parentElement instanceof I18nTooltip) {
             const tooltip = el.parentElement;
-            tooltip.i18nKey = key;
-            if (value != null) {
-                tooltip.i18nValue = value;
-            }
+            tooltip.i18nValue = key;
             return tooltip;
         } else {
-            const tooltip = this.generateTooltip(key, value);
+            const tooltip = this.generateTooltip(key);
             tooltip.append(el);
             return tooltip;
         }

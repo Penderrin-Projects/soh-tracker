@@ -13,7 +13,6 @@ function applySettingsChoices(settings) {
     const viewpane = document.getElementById("main-content");
     viewpane.setAttribute("data-font", settings.font);
     document.querySelector("#layout-container").setAttribute("layout", settings.layout);
-    document.body.style.setProperty("--item-size", settings.itemsize);
     AutosaveHandler.time = settings.autosave_time;
     AutosaveHandler.slots = settings.autosave_amount;
 }

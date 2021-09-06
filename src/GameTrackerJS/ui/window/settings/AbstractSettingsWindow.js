@@ -8,91 +8,21 @@ const VARS = {
 };
 
 function convertValueList(values = {}) {
-    const opt = {};
     if (typeof values == "string") {
         values = VARS[values]();
     }
-    if (typeof values == "object") {
-        if (Array.isArray(values)) {
-            for (const key of values) {
-                if (isNaN(parseFloat(key))) {
-                    opt[key] = Language.generateLabel(key);
-                } else {
-                    opt[key] = key;
-                }
-            }
-        } else {
-            for (const key in values) {
-                if (values[key] != null) {
-                    if (isNaN(parseFloat(values[key]))) {
-                        opt[key] = Language.generateLabel(values[key]);
-                    } else {
-                        opt[key] = values[key];
-                    }
-                } else {
-                    if (isNaN(parseFloat(key))) {
-                        opt[key] = Language.generateLabel(key);
-                    } else {
-                        opt[key] = key;
-                    }
-                }
-            }
-        }
-    }
-    return opt;
+    return values;
 }
 
 export default class AbstractSettingsWindow extends SettingsWindow {
 
-    constructor(title = "Settings", options = {}) {
-        super(Language.generateLabel(title), options.close);
-    }
-
-    getTab(category, label = category) {
-        label = Language.generateLabel(label);
-        return super.getTab(category, label);
-    }
-
-    addStringInput(category, label, ref, def, visible, resettable) {
-        label = Language.generateLabel(label);
-        super.addStringInput(category, label, ref, def, visible, resettable);
-    }
-
-    addNumberInput(category, label, ref, def, visible, resettable, min, max) {
-        label = Language.generateLabel(label);
-        super.addNumberInput(category, label, ref, def, visible, resettable, min, max);
-    }
-
-    addRangeInput(category, label, ref, def, visible, resettable, min, max) {
-        label = Language.generateLabel(label);
-        super.addRangeInput(category, label, ref, def, visible, resettable, min, max);
-    }
-
-    addCheckInput(category, label, ref, def, visible, resettable) {
-        label = Language.generateLabel(label);
-        super.addCheckInput(category, label, ref, def, visible, resettable);
-    }
-
-    addColorInput(category, label, ref, def, visible, resettable) {
-        label = Language.generateLabel(label);
-        super.addColorInput(category, label, ref, def, visible, resettable);
-    }
-
-    addChoiceInput(category, label, ref, def, visible, resettable, values) {
-        label = Language.generateLabel(label);
+    addChoiceInput(category, ref, label, desc, def, visible, resettable, values) {
         values = convertValueList(values);
-        super.addChoiceInput(category, label, ref, def, visible, resettable, values);
+        super.addChoiceInput(category, ref, label, desc, def, visible, resettable, values);
     }
 
-    addListSelectInput(category, label, ref, def, visible, resettable, multiple, values) {
-        label = Language.generateLabel(label);
-        values = convertValueList(values);
-        super.addListSelectInput(category, label, ref, def, visible, resettable, multiple, values);
-    }
-
-    addButton(category, label, ref, visible, text = "", callback = null) {
-        label = Language.generateLabel(label);
-        super.addButton(category, label, ref, def, visible, text, callback);
+    addListSelectInput(category, ref, label, desc, def, visible, resettable, multiple, values) {
+        super.addListSelectInput(category, ref, label, desc, def, visible, resettable, multiple, convertValueList(values));
     }
 
 }
