@@ -3,7 +3,7 @@ import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 export default class AreaContextMenu extends ContextMenu {
 
-    connectedCallback() {
+    initItems() {
         super.loadItems([
             {menuAction: "check", content: "Check All"},
             {menuAction: "uncheck", content: "Uncheck All"},

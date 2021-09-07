@@ -8,7 +8,7 @@ const ITEMS = new WeakMap();
 
 export default class ItemPickerMenu extends ContextMenu {
 
-    connectedCallback() {
+    initItems() {
         const itemPickerEl = document.createElement("ootrt-itempicker");
         itemPickerEl.id = "item-picker";
         if (ITEMS.has(this)) {

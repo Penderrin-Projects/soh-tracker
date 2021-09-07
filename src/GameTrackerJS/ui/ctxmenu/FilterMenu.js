@@ -25,7 +25,7 @@ export default class FilterMenu extends ContextMenu {
         /* --- */
     }
 
-    connectedCallback() {
+    initItems() {
         const els = [];
         const data = FilterResource.get();
         for (const name in data) {

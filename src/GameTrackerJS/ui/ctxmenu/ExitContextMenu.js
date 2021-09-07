@@ -3,7 +3,7 @@ import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 export default class ExitContextMenu extends ContextMenu {
 
-    connectedCallback() {
+    initItems() {
         super.loadItems([
             {menuAction: "associate", content: "Bind Entrance"},
             {menuAction: "deassociate", content: "Unbind Entrance"},

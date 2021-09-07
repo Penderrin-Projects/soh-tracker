@@ -4,7 +4,7 @@ Application:    Track-OOT
 
 ***
 
-## VERSION DEV
+## VERSION 2.1.44
 
 ### IMPROVEMENTS
 
@@ -12,7 +12,8 @@ Application:    Track-OOT
 
 ### BUGFIXES
 
-- 
+- fix context menu layer shift
+- fix context menu keyboard navigation
 
 ---
 
