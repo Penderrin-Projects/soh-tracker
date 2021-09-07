@@ -11,7 +11,7 @@ const ACCESS = new WeakMap();
 const REACHABLE = new WeakMap();
 const VALUE = new WeakMap();
 
-export default class DefaultState extends FilteredState {
+export default class LocationState extends FilteredState {
 
     constructor(ref, props) {
         super(ref, props);

@@ -6,9 +6,9 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/MarkerListHandler.js";
-import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
+import AreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const TYPE = new WeakMap();
 const LIST_HANDLER = new WeakMap();
@@ -66,7 +66,7 @@ function internalTypeChange(event) {
     }
 }
 
-export default class DungeonState extends DefaultState {
+export default class DungeonState extends AreaState {
 
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
@@ -235,5 +235,5 @@ export default class DungeonState extends DefaultState {
 
 }
 
-StateManager.register("dungeon", DungeonState);
-StateManager.register("boss_dungeon", DungeonState);
+AreaStateManager.register("dungeon", DungeonState);
+AreaStateManager.register("boss_dungeon", DungeonState);

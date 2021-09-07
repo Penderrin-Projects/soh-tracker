@@ -1,13 +1,13 @@
 import WorldResource from "../../../resource/WorldResource.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
-import DefaultState from "./DefaultState.js";
+import LocationState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("marker/location");
 
-class StateManager extends AbstractStateManager {
+class LocationStateManager extends AbstractStateManager {
     
     constructor() {
-        super(DefaultState, resourceData);
+        super(LocationState, resourceData);
     }
     
     createState(StateClass, ref, props) {
@@ -16,4 +16,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-export default new StateManager();
+export default new LocationStateManager();

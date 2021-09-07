@@ -1,11 +1,11 @@
-import FilteredState from "../../abstract/FilteredState.js";
+import VisibilityState from "../../abstract/VisibilityState.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 
 const AREA_DATA = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
-export default class AbstractAreaState extends FilteredState {
+export default class CollectionState extends VisibilityState {
     
     constructor(ref, props = {}, areaData = {}) {
         super(ref, props);

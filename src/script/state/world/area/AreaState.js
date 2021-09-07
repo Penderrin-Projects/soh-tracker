@@ -1,8 +1,8 @@
-import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import MarkerListHandler from "/GameTrackerJS/util/MarkerListHandler.js";
-import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
+import AreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
-export default class AreaState extends DefaultState {
+export default class AreaState extends AreaState {
     
     generateList() {
         const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
@@ -24,4 +24,4 @@ export default class AreaState extends DefaultState {
 
 }
 
-StateManager.register("area", AreaState);
+AreaStateManager.register("area", AreaState);

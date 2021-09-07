@@ -59,7 +59,7 @@ const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
 const AREA = new WeakMap();
 
-export default class ExitState extends WorldState {
+export default class AbstractExitState extends WorldState {
 
     constructor(ref, props = {}, exitData = {}) {
         super(ref, props);

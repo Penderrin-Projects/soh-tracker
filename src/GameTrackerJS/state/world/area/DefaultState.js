@@ -2,12 +2,12 @@
 import EventBus from "/emcJS/event/EventBus.js";
 
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
-import AreaState from "../abstract/AreaState.js";
+import AbstractAreaState from "../abstract/AreaState.js";
 import "../location/StateManager.js";
 
 const HINT = new WeakMap();
 
-export default class DefaultState extends AreaState {
+export default class AreaState extends AbstractAreaState {
 
     constructor(ref, props, areaData) {
         super(ref, props, areaData);

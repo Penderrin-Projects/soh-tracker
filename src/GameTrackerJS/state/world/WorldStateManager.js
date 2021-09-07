@@ -6,13 +6,15 @@ import ExitStateManager from "./exit/StateManager.js";
 import LocationStateManager from "./location/StateManager.js";
 import SubareaStateManager from "./subarea/StateManager.js";
 import SubexitStateManager from "./subexit/StateManager.js";
+import CollectionStateManager from "./collection/StateManager.js";
 
 const WORLD = {
     area: AreaStateManager,
     exit: ExitStateManager,
     location: LocationStateManager,
     subarea: SubareaStateManager,
-    subexit: SubexitStateManager
+    subexit: SubexitStateManager,
+    collection: CollectionStateManager
 };
 
 class WorldStateManager {

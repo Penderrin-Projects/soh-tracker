@@ -1,6 +1,6 @@
 // GameTrackerJS
-import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
+import LocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
 import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
@@ -22,7 +22,7 @@ const WALLET_CAPACITIES = [99, 200, 500, 999];
     }
 }
 
-export default class ShopSlotState extends DefaultState {
+export default class ShopSlotState extends LocationState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -142,4 +142,4 @@ export default class ShopSlotState extends DefaultState {
 
 }
 
-StateManager.register("shopslot", ShopSlotState);
+LocationStateManager.register("shopslot", ShopSlotState);

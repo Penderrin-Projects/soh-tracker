@@ -8,7 +8,7 @@
                 "id": "spawns",
                 "x": -10000,
                 "y": -10000,
-                "category": "subarea"
+                "category": "collection"
             },
             {
                 "id": "kokiri",
@@ -287,6 +287,76 @@
                 "category": "area"
             }
         ]
+    },
+    "collection": {
+        "spawns": {
+            "background": "",
+            "width": 0,
+            "height": 0,
+            "visible": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_spawns"
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_warps"
+                    }
+                ]
+            },
+            "list": [
+                {
+                    "id": "child.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "adult.spawn",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "prelude",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "minuet",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "bolero",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "serenade",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "nocturne",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "requiem",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
+        }
     },
     "area": {
         "kokiri": {
@@ -5163,61 +5233,6 @@
         }
     },
     "subarea": {
-        "spawns": {
-            "background": "",
-            "width": 0,
-            "height": 0,
-            "list": [
-                {
-                    "id": "child.spawn",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "adult.spawn",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "prelude",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "minuet",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "bolero",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "serenade",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "nocturne",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "requiem",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                }
-            ]
-        },
         "kokiri.links_house": {
             "background": "",
             "width": 0,
@@ -11942,19 +11957,6 @@
             "spawns": {
                 "type": "collection",
                 "access": "logic.subarea.root",
-                "visible": {
-                    "type": "or",
-                    "el": [
-                        {
-                            "type": "value",
-                            "el": "option.shuffle_spawns"
-                        },
-                        {
-                            "type": "value",
-                            "el": "option.shuffle_warps"
-                        }
-                    ]
-                },
                 "filter": {
                     "filter.era": {
                         "child": true,

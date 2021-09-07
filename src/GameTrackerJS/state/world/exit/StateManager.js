@@ -1,14 +1,14 @@
 import WorldResource from "../../../resource/WorldResource.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
-import DefaultState from "./DefaultState.js";
+import ExitState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("marker/exit");
 const DATA = WorldResource.get("exit");
 
-class StateManager extends AbstractStateManager {
+class ExitStateManager extends AbstractStateManager {
     
     constructor() {
-        super(DefaultState, resourceData);
+        super(ExitState, resourceData);
     }
 
     createState(StateClass, ref, props) {
@@ -18,4 +18,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-export default new StateManager();
+export default new ExitStateManager();

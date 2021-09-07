@@ -8,7 +8,7 @@ import DataState from "../../abstract/DataState.js";
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
 
-export default class DefaultState extends DataState {
+export default class EntranceState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);

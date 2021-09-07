@@ -2,9 +2,9 @@
 import EventBus from "/emcJS/event/EventBus.js";
 
 import EntranceStateManager from "../entrance/StateManager.js";
-import ExitState from "./ExitState.js";
+import AbstractExitState from "./ExitState.js";
 
-export default class GhostExitState extends ExitState {
+export default class GhostExitState extends AbstractExitState {
 
     constructor(ref, props = {}, exitData = {}) {
         super(ref, props, exitData);

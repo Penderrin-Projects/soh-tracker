@@ -3,8 +3,8 @@ import EventBus from "/emcJS/event/EventBus.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
+import LocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
 const ITEM = new WeakMap();
 
@@ -17,7 +17,7 @@ function internalItemChange(event) {
     }
 }
 
-export default class LocationState extends DefaultState {
+export default class LocationState extends LocationState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -69,8 +69,8 @@ export default class LocationState extends DefaultState {
 
 }
 
-StateManager.register("chest", LocationState);
-StateManager.register("skulltula", LocationState);
-StateManager.register("scrub", LocationState);
-StateManager.register("bean", LocationState);
-StateManager.register("cow", LocationState);
+LocationStateManager.register("chest", LocationState);
+LocationStateManager.register("skulltula", LocationState);
+LocationStateManager.register("scrub", LocationState);
+LocationStateManager.register("bean", LocationState);
+LocationStateManager.register("cow", LocationState);

@@ -3,19 +3,8 @@ const fs = require("fs");
 const fileName = "./src/database/world.json";
 
 function modifyData(inData) {
-    for (const [, value] of Object.entries(inData.marker.exit)) {
-        if (!value.filter["filter.era"]["child"] && !value.filter["filter.era"]["adult"]) {
-            value.filter["filter.era"] = {
-                "child": true,
-                "adult": true
-            }
-        }
-        if (!value.filter["filter.time"]["day"] && !value.filter["filter.time"]["night"]) {
-            value.filter["filter.time"] = {
-                "day": true,
-                "night": true
-            }
-        }
+    for (const [key, value] of Object.entries(inData.subarea)) {
+        inData.area[key] = value;
     }
     return inData;
 }
