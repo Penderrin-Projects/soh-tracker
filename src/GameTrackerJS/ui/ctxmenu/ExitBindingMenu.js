@@ -28,7 +28,7 @@ export default class ExitBindingMenu extends ContextMenu {
         STYLE.apply(this.shadowRoot);
     }
 
-    connectedCallback() {
+    initItems() {
         const exitSelectEl = document.createElement("emc-listselect");
         exitSelectEl.id = "select";
         exitSelectEl.addEventListener("change", event => {

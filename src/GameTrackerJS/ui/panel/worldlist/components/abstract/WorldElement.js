@@ -1,19 +1,87 @@
 // frameworks
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import { mix } from "/emcJS/util/Mixin.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/Icon.js";
 
-import AccessStateEnum from "../../enum/AccessStateEnum.js";
-import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import Badge from "../Badge.js";
-import "../BadgeAccess.js";
+import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
+import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
 
-const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
+const TPL = new Template(`
+<div class="textarea">
+    <slot id="text"></slot>
+</div>
+`);
+
+const STYLE = new GlobalStyle(`
+* {
+    position: relative;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+}
+:host(:hover),
+:host(.ctx-marked) {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+.textarea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 35px;
+    word-break: break-word;
+}
+.textarea:empty {
+    display: none;
+}
+.textarea + .textarea {
+    margin-top: 5px;
+}
+#text {
+    flex: 1;
+    color: #ffffff;
+}
+#text[data-state="opened"] {
+    color: var(--location-status-opened-color, #000000);
+}
+#text[data-state="available"] {
+    color: var(--location-status-available-color, #000000);
+}
+#text[data-state="unavailable"] {
+    color: var(--location-status-unavailable-color, #000000);
+}
+#text[data-state="possible"] {
+    color: var(--location-status-possible-color, #000000);
+}
+`);
+
+const BaseClass = mix(
+    HTMLElement
+).with(
+    StateDataEventManagerMixin,
+    ContextMenuManagerMixin
+);
+
 export default class WorldElement extends BaseClass {
 
     constructor() {
         super();
-        /* --- */
+        this.attachShadow({mode: "open"});
+        this.shadowRoot.append(TPL.generate());
+        STYLE.apply(this.shadowRoot);
+        /* state handler */
         this.registerStateHandler("visible", event => {
             const state = this.getState();
             if (state != null) {
@@ -33,6 +101,9 @@ export default class WorldElement extends BaseClass {
                     this.style.display = "none";
                 }
             }
+        });
+        this.registerStateHandler("access", event => {
+            this.applyAccess(event.data);
         });
         /* mouse events */
         this.addEventListener("click", event => {
@@ -61,21 +132,11 @@ export default class WorldElement extends BaseClass {
     }
 
     applyDefaultValues(defaultIcon) {
-        const badge = this.shadowRoot.getElementById("badge");
-        if (badge instanceof Badge) {
-            badge.typeIcon = defaultIcon;
-            badge.setFilterData({});
-        }
         this.style.display = "none";
     }
 
     applyStateValues(state, defaultIcon) {
         if (state != null) {
-            const badge = this.shadowRoot.getElementById("badge");
-            if (badge instanceof Badge) {
-                badge.typeIcon = state.props.icon ?? defaultIcon;
-                badge.setFilterData(state.props.filter);
-            }
             if (state.isVisible()) {
                 this.style.display = "";
             } else {
@@ -90,13 +151,6 @@ export default class WorldElement extends BaseClass {
         const textEl = this.shadowRoot.getElementById("text");
         if (textEl != null) {
             textEl.dataset.state = value;
-        }
-        /* badge */
-        const badgeEl = this.shadowRoot.getElementById("badge");
-        if (badgeEl != null) {
-            badgeEl.access = value;
-            badgeEl.available = data.reachable;
-            badgeEl.unopened = data.unopened;
         }
     }
 

@@ -12,7 +12,8 @@ Application:    Track-OOT
 
 ### BUGFIXES
 
-- 
+- fix context menu layer shift
+- fix context menu keyboard navigation
 
 ---
 

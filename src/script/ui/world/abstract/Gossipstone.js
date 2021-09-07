@@ -66,8 +66,7 @@ export default class Gossipstone extends AbstractLocation {
         
         /* mouse events */
         this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getDefaultContextMenu();
-            mnu_ctx.show(event.clientX, event.clientY);
+            this.showDefaultContextMenu(event);
             event.stopPropagation();
             event.preventDefault();
             return false;
