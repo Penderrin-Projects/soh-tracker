@@ -102,11 +102,13 @@
         "values": [
             "true",
             "dungeons",
+            "overworld",
             "false"
         ],
         "images": [
             "/images/icons/skulltula.svg",
             "/images/icons/skulltula_dungeons.svg",
+            "/images/icons/skulltula_overworld.svg",
             "/images/icons/skulltula_no.svg"
         ],
         "badge": false

@@ -8,7 +8,7 @@ Application:    Track-OOT
 
 ### IMPROVEMENTS
 
-- 
+- add overworld only skulltula filter
 
 ### BUGFIXES
 
