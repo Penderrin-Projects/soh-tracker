@@ -125,10 +125,10 @@ export default class WorldElement extends BaseClass {
     }
 
     contextmenuHandler(event) {
-        const mnu_ctx = this.getDefaultContextMenu();
-        if (mnu_ctx != null) {
-            mnu_ctx.show(event.clientX, event.clientY);
-        }
+        this.showDefaultContextMenu(event);
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
     }
 
     applyDefaultValues(defaultIcon) {
