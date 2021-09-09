@@ -23,4 +23,4 @@ export default class ExitContextMenu extends ContextMenu {
 
 }
 
-customElements.define("gt-ctxmenu-exit", ExitContextMenu);
+customElements.define("gt-worldlist-exit-ctxmenu", ExitContextMenu);

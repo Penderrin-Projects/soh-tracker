@@ -1,13 +1,14 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import Badge from "../Badge.js";
 import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
-import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
+import ExitBindingContextMenu from "../ctxmenu/ExitBindingContextMenu.js";
 import Language from "../../util/Language.js";
 
 const TPL = new Template(`
@@ -22,13 +23,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
 :host {
     display: flex;
     flex-direction: row;
@@ -37,6 +31,7 @@ const STYLE = new GlobalStyle(`
     width: 100%;
     cursor: pointer;
     padding: 3px;
+    user-select: none;
 }
 :host(:hover) {
     background-color: var(--main-hover-color, #ffffff32);
@@ -93,11 +88,10 @@ const STYLE = new GlobalStyle(`
 `);
 
 
-export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(HTMLElement)) {
+export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -127,7 +121,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
 
         /* context menu */
         this.setDefaultContextMenu(ExitChoiceContextMenu);
-        this.setContextMenu("exitbinding", ExitBindingMenu);
+        this.setContextMenu("exitbinding", ExitBindingContextMenu);
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {

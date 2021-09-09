@@ -26,4 +26,8 @@ export default class DefaultState extends AbstractAreaState {
         return "";
     }
 
+    get listContents() {
+        return true;
+    }
+
 }

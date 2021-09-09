@@ -7,7 +7,7 @@ import "../location/StateManager.js";
 
 const HINT = new WeakMap();
 
-export default class AreaState extends AbstractAreaState {
+export default class DefaultAreaState extends AbstractAreaState {
 
     constructor(ref, props, areaData) {
         super(ref, props, areaData);
@@ -66,6 +66,11 @@ export default class AreaState extends AbstractAreaState {
 
     get hint() {
         return HINT.get(this);
+    }
+
+    get listContents() {
+        // XXX return this.props.listContents
+        return false;
     }
 
 }

@@ -1,28 +1,14 @@
 // GameTrackerJS
-import ExitList from "/GameTrackerJS/ui/exit/ExitList.js";
-// Track-OOT
-import "./ExitChoice.js";
+import GTExitList from "/GameTrackerJS/ui/exit/ExitList.js";
 
-export default class HTMLTrackerExitList extends ExitList {
+export default class ExitList extends GTExitList {
 
-    
     addEntrance(state) {
         if (state.exitData.type !== "not_seen") {
-            const el = document.createElement("ootrt-exitchoice");
-            el.ref = state.ref;
-            el.setAttribute("access", state.props.access);
-            el.setAttribute("type", state.exitData.type);
-            el.setAttribute("categories", JSON.stringify(state.props.categories));
-            for (const cat of state.props.categories) {
-                this.addCategory(cat);
-            }
-            el.addEventListener("change", event => {
-                this.calculateItems();
-            });
-            this.append(el);
+            super.addEntrance(state);
         }
     }
 
 }
 
-customElements.define("ootrt-exitlist", HTMLTrackerExitList);
+customElements.define("ootrt-exitlist", ExitList);

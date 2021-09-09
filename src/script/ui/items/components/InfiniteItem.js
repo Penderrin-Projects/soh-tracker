@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 
@@ -17,13 +18,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
 :host {
     display: inline-flex;
     width: 40px;
@@ -33,6 +27,7 @@ const STYLE = new GlobalStyle(`
     background-repeat: no-repeat;
     background-position: center;
     background-origin: border-box;
+    user-select: none;
 }
 :host(:hover) {
     background-size: 100%;
@@ -67,11 +62,10 @@ function getAlign(value) {
     }
 }
 
-export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
+export default class InfiniteItem extends StateDataEventManager(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

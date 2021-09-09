@@ -4,10 +4,10 @@ import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import EmptyState from "../../state/world/EmptyState.js";
-import AreaState from "../../state/world/area/DefaultState.js";
+import DefaultAreaState from "../../state/world/area/DefaultState.js";
 import WorldElement from "./WorldElement.js";
 import ExitContextMenu from "../ctxmenu/ExitContextMenu.js";
-import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
+import ExitBindingContextMenu from "../ctxmenu/ExitBindingContextMenu.js";
 import Language from "../../util/Language.js";
 
 export default class MapSubExit extends WorldElement {
@@ -40,7 +40,7 @@ export default class MapSubExit extends WorldElement {
 
         /* context menu */
         this.setDefaultContextMenu(ExitContextMenu);
-        this.setContextMenu("exitbinding", ExitBindingMenu);
+        this.setContextMenu("exitbinding", ExitBindingContextMenu);
 
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
@@ -101,7 +101,7 @@ export default class MapSubExit extends WorldElement {
             if (area != null) {
                 if (area instanceof EmptyState) {
                     // nothing
-                } else if (area instanceof AreaState) {
+                } else if (area instanceof DefaultAreaState) {
                     EventBus.trigger("location_change", {
                         name: area.ref
                     });

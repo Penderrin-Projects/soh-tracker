@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // GameTrackerJS
@@ -9,10 +10,6 @@ import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 
 const TPL = new Template(`
     <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
         :host {
             display: inline-flex;
             flex-direction: column;
@@ -56,11 +53,10 @@ const TPL = new Template(`
     <div id="price"></div>
 `);
 
-export default class HTMLTrackerShopEditItem extends HTMLElement {
+export default class HTMLTrackerShopEditItem extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
     }
 

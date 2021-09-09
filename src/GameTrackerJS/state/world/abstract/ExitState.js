@@ -214,10 +214,47 @@ export default class AbstractExitState extends WorldState {
         return ACTIVE.get(this);
     }
 
+    get hint() {
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.hint;
+        }
+        return "";
+    }
+
+    get listContents() {
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.listContents;
+        }
+        return false;
+    }
+
     setAllEntries(value = true) {
         const area = AREA.get(this);
         if (area != null) {
             return area.setAllEntries(value);
+        }
+    }
+
+    getRawList() {
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.getRawList();
+        }
+    }
+
+    getList() {
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.getList();
+        }
+    }
+
+    getFilteredList() {
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.getFilteredList();
         }
     }
 

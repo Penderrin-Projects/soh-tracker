@@ -119,7 +119,7 @@
             "type": "hbox",
             "items": [{
                 "type": "panel",
-                "name": "location-list"
+                "name": "worldlist"
             }]
         }]
     },
@@ -148,7 +148,7 @@
             "type": "hbox",
             "items": [{
                 "type": "panel",
-                "name": "location-list"
+                "name": "worldlist"
             }]
         }]
     },
@@ -178,12 +178,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     },
     "map-right-dt": {
@@ -213,12 +213,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     },
     "map-right-dtr": {
@@ -247,12 +247,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     },
     "map-center": {
@@ -284,11 +284,11 @@
             }]
         },{
             "type": "panel",
-            "name": "location-map",
+            "name": "worldmap",
             "autosize": true    
         },{
             "type": "panel",
-            "name": "location-list"
+            "name": "worldlist"
         }]
     },
     "map-compact": {
@@ -306,7 +306,7 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
@@ -330,7 +330,7 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-map"
+                    "name": "worldmap"
                 }]
             }]
         }]
@@ -364,7 +364,7 @@
             }]
         },{
             "type": "panel",
-            "name": "location-list"
+            "name": "worldlist"
         }]
     },
     "flat": {
@@ -393,7 +393,7 @@
             }
         },{
             "type": "panel",
-            "name": "location-list"
+            "name": "worldlist"
         }]
     },
     "essential-map": {
@@ -424,12 +424,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     },
     "essential-map-key": {
@@ -461,12 +461,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     },
     "standard-essential-map": {
@@ -497,12 +497,12 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "location-list"
+                    "name": "worldlist"
                 }]
             }]
         },{
             "type": "panel",
-            "name": "location-map"
+            "name": "worldmap"
         }]
     }
 }

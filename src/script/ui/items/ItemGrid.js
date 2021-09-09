@@ -21,7 +21,9 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
+:host {
+    position: relative;
+    box-sizing: border-box;
     position: relative;
     box-sizing: border-box;
     -webkit-user-select: none;
@@ -83,7 +85,6 @@ class HTMLTrackerItemGrid extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

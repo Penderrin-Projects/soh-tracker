@@ -1,5 +1,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 import ParameterStorage from "../storage/ParameterStorage.js";
 
@@ -14,10 +15,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 :host {
     display: flex;
     flex-direction: column;
@@ -67,11 +64,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class TextEditor extends HTMLElement {
+export default class TextEditor extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -17,7 +17,9 @@ import "../items/components/InfiniteItem.js";
 import "../items/components/RewardItem.js";
 
 const STYLE = new GlobalStyle(`
-* {
+:host {
+    position: relative;
+    box-sizing: border-box;
     position: relative;
     box-sizing: border-box;
     cursor: default;
@@ -96,7 +98,6 @@ class HTMLTrackerDungeonState extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         STYLE.apply(this.shadowRoot);
         /* --- */
         const dungeonData = DungeonstateResource.get("area");

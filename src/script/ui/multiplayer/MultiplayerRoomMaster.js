@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -11,10 +12,6 @@ import "./MPLogger.js";
 
 const TPL = new Template(`
     <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
         :host {
             display: flex;
             flex-direction: column;
@@ -48,11 +45,10 @@ const TPL = new Template(`
     </div>
 `);
 
-class HTMLMultiplayerRoomMaster extends HTMLElement {
+class HTMLMultiplayerRoomMaster extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const close_button = this.shadowRoot.getElementById("close_button");

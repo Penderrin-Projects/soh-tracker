@@ -5,7 +5,7 @@ import Helper from "/emcJS/util/Helper.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import LocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
 const HINT = new WeakMap();
 
@@ -18,7 +18,7 @@ function internalHintChange(event) {
     }
 }
 
-export default class GossipstoneState extends LocationState {
+export default class GossipstoneState extends DefaultLocationState {
 
     constructor(ref, props) {
         super(ref, props);

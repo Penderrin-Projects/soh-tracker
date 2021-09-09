@@ -43,5 +43,9 @@ export default class VisibilityState extends DataState {
     get visible() {
         return !!VISIBLE.get(this);
     }
+    
+    isVisible() {
+        return this.visible;
+    }
 
 }

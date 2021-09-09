@@ -1,27 +1,22 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
-import FilterMenu from "../ctxmenu/FilterMenu.js";
+import FilterContextMenu from "../ctxmenu/FilterContextMenu.js";
 
 const TPL = new Template(`
 <emc-icon id="icon" src="images/icons/filter.svg"></emc-icon>
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 :host {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 20px;
     height: 20px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
     cursor: pointer;
 }
@@ -36,17 +31,16 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-class FilterMenuButton extends ContextMenuManagerMixin(HTMLElement) {
+class FilterMenuButton extends ContextMenuManagerMixin(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
         
         /* context menu */
-        this.setContextMenu("filter", FilterMenu);
+        this.setContextMenu("filter", FilterContextMenu);
         
         /* mouse events */
         this.addEventListener("click", event => {

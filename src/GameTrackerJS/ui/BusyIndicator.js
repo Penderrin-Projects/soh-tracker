@@ -30,6 +30,9 @@ const STYLE = new GlobalStyle(`
     background: rgba(0,0,0,0.3);
     transform: translateZ(0);
 }
+:host(.active) {
+    display: flex;
+}
 #default-animation {
     width: 50vmin;
     height: 50vmin;
@@ -56,7 +59,7 @@ class BusyIndicator {
     busy() {
         return new Promise(function(resolve) {
             if (COUNT++ == 0) {
-                EL.style.display = "flex";
+                EL.classList.add("active");
                 setTimeout(resolve, 10);
             } else {
                 resolve();
@@ -67,7 +70,7 @@ class BusyIndicator {
     unbusy() {
         return new Promise(function(resolve) {
             if (COUNT > 0 && --COUNT == 0) {
-                EL.style.display = null;
+                EL.classList.remove("active");
                 setTimeout(resolve, 10);
             } else {
                 resolve();

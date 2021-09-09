@@ -143,9 +143,8 @@ export default class FilteredState extends VisibilityState {
         return false;
     }
 
-    // TODO this should not be here
     isVisible() {
-        return this.visible && !this.filtered;
+        return super.isVisible() && !this.filtered;
     }
 
 }

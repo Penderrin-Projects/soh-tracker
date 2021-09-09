@@ -1,6 +1,6 @@
 import WorldResource from "../../../resource/WorldResource.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
-import AreaState from "./DefaultState.js";
+import DefaultAreaState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("marker/area");
 const DATA = WorldResource.get("area");
@@ -8,7 +8,7 @@ const DATA = WorldResource.get("area");
 class AreaStateManager extends AbstractStateManager {
     
     constructor() {
-        super(AreaState, resourceData);
+        super(DefaultAreaState, resourceData);
     }
 
     createState(StateClass, ref, props) {

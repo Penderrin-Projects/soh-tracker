@@ -1,15 +1,16 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import ItemPickerMenu from "../ctxmenu/ItemPickerMenu.js";
 
 const TPL = new Template(`
 <slot>
@@ -17,10 +18,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 :host {
     display: inline-flex;
     align-items: center;
@@ -109,11 +106,10 @@ const REWARDS = [
 const TAKEN_REWARDS = new Map();
 
 
-class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
+class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -122,7 +118,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
         });
 
         /* context menu */
-        this.setContextMenu("itempicker", ItemPickerMenu);
+        this.setContextMenu("itempicker", ItemPickerContextMenu);
         this.addContextMenuHandler("itempicker", "pick", event => {
             const value = event.item;
             const state = this.getState();

@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
@@ -17,13 +18,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
 :host {
     display: inline-flex;
     align-items: center;
@@ -33,6 +27,7 @@ const STYLE = new GlobalStyle(`
     margin-left: 5px;
     border: 1px solid var(--navigation-background-color, #ffffff);
     border-radius: 2px;
+    user-select: none;
 }
 emc-icon {
     width: 24px;
@@ -59,6 +54,9 @@ function getFilterImage(name, filter, data) {
     if (filter.badge) {
         if (Array.isArray(filter.badge)) {
             const current = data[name];
+            if (current == null) {
+                return "";
+            }
             for (const entry of filter.badge) {
                 if (entry.values == null || Object.entries(entry.values).every(([key, value]) => current[key] == value)) {
                     return entry.image ?? "";
@@ -87,11 +85,10 @@ function getLoneFilterIndex(name, filter, data) {
     return current;
 }
 
-export default class Badge extends EventTargetMixin(HTMLElement) {
+export default class Badge extends EventTargetMixin(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
@@ -171,13 +168,17 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
     }
 
     setFilterData(data) {
-        if (data != null) {
-            const filter = FilterResource.get();
-            for (const name in filter) {
-                const value = filter[name];
-                if (value.badge) {
-                    const el = this.shadowRoot.getElementById(`badge-${name}`);
-                    el.src = getFilterImage(name, value, data);
+        const filter = FilterResource.get();
+        for (const name in filter) {
+            const badgeImageEl = this.shadowRoot.getElementById(`badge-${name}`);
+            if (badgeImageEl != null) {
+                if (data != null) {
+                    const value = filter[name];
+                    if (value.badge) {
+                        badgeImageEl.src = getFilterImage(name, value, data);
+                    }
+                } else {
+                    badgeImageEl.src = "";
                 }
             }
         }

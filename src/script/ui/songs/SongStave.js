@@ -1,14 +1,13 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 const TPL = new Template(`
     <style>
-        * {
+        :host {
             position: relative;
             box-sizing: border-box;
-        }
-        :host {
             display: flex;
             height: 100px;
             background-repeat: repeat-x;
@@ -65,11 +64,10 @@ const TPL = new Template(`
     </div>
 `);
 
-export default class HTMLTrackerStave extends HTMLElement {
+export default class HTMLTrackerStave extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
     }
 

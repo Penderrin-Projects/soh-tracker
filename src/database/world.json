@@ -1,4 +1,7 @@
 {
+    "config": {
+        "defaultArea": "hyrule"
+    },
     "overworld": {
         "background": "main.png",
         "width": 1920,
@@ -293,19 +296,6 @@
             "background": "",
             "width": 0,
             "height": 0,
-            "visible": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "option.shuffle_spawns"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option.shuffle_warps"
-                    }
-                ]
-            },
             "list": [
                 {
                     "id": "child.spawn",
@@ -359,6 +349,295 @@
         }
     },
     "area": {
+        "hyrule": {
+            "background": "main.png",
+            "width": 1920,
+            "height": 1080,
+            "list": [
+                {
+                    "id": "spawns",
+                    "x": -10000,
+                    "y": -10000,
+                    "category": "collection"
+                },
+                {
+                    "id": "kokiri",
+                    "x": 1507,
+                    "y": 626,
+                    "category": "area"
+                },
+                {
+                    "id": "desert",
+                    "x": 245,
+                    "y": 254,
+                    "category": "area"
+                },
+                {
+                    "id": "colossus",
+                    "x": 123,
+                    "y": 254,
+                    "category": "area"
+                },
+                {
+                    "id": "river",
+                    "x": 1498,
+                    "y": 346,
+                    "category": "area"
+                },
+                {
+                    "id": "hyrule_field",
+                    "x": 1020,
+                    "y": 400,
+                    "category": "area"
+                },
+                {
+                    "id": "gerudo_valley",
+                    "x": 461,
+                    "y": 383,
+                    "category": "area"
+                },
+                {
+                    "id": "lake",
+                    "x": 741,
+                    "y": 864,
+                    "category": "area"
+                },
+                {
+                    "id": "lonlon",
+                    "x": 902,
+                    "y": 448,
+                    "category": "area"
+                },
+                {
+                    "id": "gerudo",
+                    "x": 361,
+                    "y": 205,
+                    "category": "area"
+                },
+                {
+                    "id": "woods",
+                    "x": 1480,
+                    "y": 540,
+                    "category": "area"
+                },
+                {
+                    "id": "meadow",
+                    "x": 1545,
+                    "y": 500,
+                    "category": "area"
+                },
+                {
+                    "id": "town_entrance",
+                    "x": 998,
+                    "y": 300,
+                    "category": "area"
+                },
+                {
+                    "id": "castle_town",
+                    "x": 998,
+                    "y": 240,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_time",
+                    "x": 1055,
+                    "y": 225,
+                    "category": "area"
+                },
+                {
+                    "id": "castle",
+                    "x": 980,
+                    "y": 170,
+                    "category": "area"
+                },
+                {
+                    "id": "castle_ganon_outside",
+                    "x": 1040,
+                    "y": 150,
+                    "category": "area"
+                },
+                {
+                    "id": "kakariko",
+                    "x": 1248,
+                    "y": 259,
+                    "category": "area"
+                },
+                {
+                    "id": "graveyard",
+                    "x": 1400,
+                    "y": 240,
+                    "category": "area"
+                },
+                {
+                    "id": "mountain",
+                    "x": 1229,
+                    "y": 97,
+                    "category": "area"
+                },
+                {
+                    "id": "crater",
+                    "x": 1248,
+                    "y": 30,
+                    "category": "area"
+                },
+                {
+                    "id": "goron",
+                    "x": 1152,
+                    "y": 70,
+                    "category": "area"
+                },
+                {
+                    "id": "zoras",
+                    "x": 1795,
+                    "y": 313,
+                    "category": "area"
+                },
+                {
+                    "id": "fountain",
+                    "x": 1840,
+                    "y": 240,
+                    "category": "area"
+                },
+                {
+                    "id": "deku",
+                    "x": 1690,
+                    "y": 605,
+                    "category": "exit"
+                },
+                {
+                    "id": "deku",
+                    "x": 1690,
+                    "y": 605,
+                    "category": "area"
+                },
+                {
+                    "id": "dodongo",
+                    "x": 1133,
+                    "y": 146,
+                    "category": "exit"
+                },
+                {
+                    "id": "dodongo",
+                    "x": 1133,
+                    "y": 146,
+                    "category": "area"
+                },
+                {
+                    "id": "jabujabu",
+                    "x": 1757,
+                    "y": 227,
+                    "category": "exit"
+                },
+                {
+                    "id": "jabujabu",
+                    "x": 1757,
+                    "y": 227,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_forest",
+                    "x": 1507,
+                    "y": 421,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_forest",
+                    "x": 1507,
+                    "y": 421,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_fire",
+                    "x": 1306,
+                    "y": 70,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_fire",
+                    "x": 1306,
+                    "y": 70,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_water",
+                    "x": 693,
+                    "y": 983,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_water",
+                    "x": 693,
+                    "y": 983,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_shadow",
+                    "x": 1459,
+                    "y": 227,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_shadow",
+                    "x": 1459,
+                    "y": 227,
+                    "category": "area"
+                },
+                {
+                    "id": "temple_spirit",
+                    "x": 48,
+                    "y": 184,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_spirit",
+                    "x": 48,
+                    "y": 184,
+                    "category": "area"
+                },
+                {
+                    "id": "well",
+                    "x": 1306,
+                    "y": 248,
+                    "category": "exit"
+                },
+                {
+                    "id": "well",
+                    "x": 1306,
+                    "y": 248,
+                    "category": "area"
+                },
+                {
+                    "id": "ice_cavern",
+                    "x": 1738,
+                    "y": 173,
+                    "category": "exit"
+                },
+                {
+                    "id": "ice_cavern",
+                    "x": 1738,
+                    "y": 173,
+                    "category": "area"
+                },
+                {
+                    "id": "training_grounds",
+                    "x": 361,
+                    "y": 302,
+                    "category": "exit"
+                },
+                {
+                    "id": "training_grounds",
+                    "x": 361,
+                    "y": 302,
+                    "category": "area"
+                },
+                {
+                    "id": "castle_ganon",
+                    "x": 998,
+                    "y": 95,
+                    "category": "area"
+                }
+            ]
+        },
         "kokiri": {
             "background": "",
             "width": 0,
@@ -13801,6 +14080,12 @@
             }
         },
         "area": {
+            "hyrule": {
+                "type": "overworld",
+                "access": "",
+                "visible": true,
+                "icon": "images/icons/area.svg"
+            },
             "kokiri": {
                 "type": "area",
                 "access": "logic.area.kokiri",

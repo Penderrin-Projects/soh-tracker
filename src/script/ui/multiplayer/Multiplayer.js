@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -10,10 +11,6 @@ import "./MultiplayerRoomMaster.js";
 
 const TPL = new Template(`
     <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
         :host {
             display: flex;
             flex-direction: column;
@@ -38,11 +35,10 @@ const TPL = new Template(`
     <ootrt-mplogger id="logger" class="active"></ootrt-mplogger>
 `);
 
-class HTMLMultiplayer extends HTMLElement {
+class HTMLMultiplayer extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         
         const lobby_view = this.shadowRoot.getElementById("lobby_view");

@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
 
@@ -42,12 +43,11 @@ const TPL = new Template(`
     </div>
 `);
 
-export default class UpdateHandler extends HTMLElement {
+export default class UpdateHandler extends CustomElement {
 
     constructor() {
         super();
         if ("serviceWorker" in navigator) {
-            this.attachShadow({mode: "open"});
             this.shadowRoot.append(TPL.generate());
 
             const prog = this.shadowRoot.getElementById("update-progress");
@@ -98,7 +98,7 @@ export default class UpdateHandler extends HTMLElement {
                             prog.max = 0;
                             progtext.innerHTML = `0/0`;
                             check.style.display = "none";
-                            force.style.display = "none";
+                            force.style.display = "block";
                             avail.style.display = "none";
                             unavail.style.display = "none";
                             running.style.display = "none";

@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
@@ -56,11 +57,10 @@ function checkList(entityList) {
 const LIST = new WeakMap();
 const DUNGEON_LIST = new WeakMap();
 
-export default class LocationState extends UIEventBusMixin(HTMLElement) {
+export default class LocationState extends UIEventBusMixin(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

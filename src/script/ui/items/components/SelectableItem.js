@@ -1,18 +1,12 @@
 // frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
 :host {
     display: inline-flex;
     width: 40px;
@@ -22,17 +16,17 @@ const STYLE = new GlobalStyle(`
     background-repeat: no-repeat;
     background-position: center;
     background-origin: border-box;
+    user-select: none;
 }
 :host(:hover) {
     background-size: 100%;
 }
 `);
 
-export default class HTMLTrackerSelectableItem extends HTMLElement {
+export default class HTMLTrackerSelectableItem extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.addEventListener("click", event => this.select(event));

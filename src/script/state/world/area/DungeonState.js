@@ -8,7 +8,7 @@ import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/MarkerListHandler.js";
-import AreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
+import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const TYPE = new WeakMap();
 const LIST_HANDLER = new WeakMap();
@@ -66,7 +66,7 @@ function internalTypeChange(event) {
     }
 }
 
-export default class DungeonState extends AreaState {
+export default class DungeonState extends DefaultAreaState {
 
     constructor(ref, props, areaData) {
         super(ref, props, areaData);

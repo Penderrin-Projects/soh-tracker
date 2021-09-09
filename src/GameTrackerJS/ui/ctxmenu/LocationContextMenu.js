@@ -8,6 +8,9 @@ export default class LocationContextMenu extends ContextMenu {
             {menuAction: "check", content: "Check"},
             {menuAction: "uncheck", content: "Uncheck"},
             "splitter",
+            {menuAction: "associate", content: "Set Item"},
+            {menuAction: "disassociate", content: "Clear Item"},
+            "splitter",
             {menuAction: "show_logic", content: "Show Logic"}
         ]);
     }
@@ -18,4 +21,4 @@ export default class LocationContextMenu extends ContextMenu {
 
 }
 
-customElements.define("gt-ctxmenu-location", LocationContextMenu);
+customElements.define("gt-worldlist-location-ctxmenu", LocationContextMenu);

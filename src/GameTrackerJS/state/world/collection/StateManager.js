@@ -1,13 +1,17 @@
 import WorldResource from "../../../resource/WorldResource.js";
 import AbstractStateManager from "../../abstract/StateManager.js";
-import CollectionState from "./DefaultState.js";
+import DefaultCollectionState from "./DefaultState.js";
 
 const resourceData = WorldResource.get("collection");
 
 class CollectionStateManager extends AbstractStateManager {
     
     constructor() {
-        super(CollectionState, resourceData);
+        super(DefaultCollectionState, resourceData);
+    }
+
+    createState(StateClass, ref, props) {
+        return new StateClass(`collection/${ref}`, props);
     }
 
 }

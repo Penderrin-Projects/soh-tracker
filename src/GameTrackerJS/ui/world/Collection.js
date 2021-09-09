@@ -1,4 +1,5 @@
 // frameworks
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
@@ -6,7 +7,7 @@ import WorldElement from "./WorldElement.js";
 import AreaContextMenu from "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
 
-export default class AbstractCollection extends StateDataEventManagerMixin(HTMLElement) {
+export default class AbstractCollection extends StateDataEventManagerMixin(CustomElement) {
 
     constructor(type) {
         super();

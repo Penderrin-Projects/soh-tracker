@@ -1,6 +1,13 @@
 @import "./theme.css";
 @import "./font.css";
 
+:host {
+    position: relative;
+    box-sizing: border-box;
+    position: relative;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;

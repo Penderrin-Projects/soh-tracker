@@ -12,8 +12,8 @@ import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
-import "/script/ui/world/LocationList.js";
-import "/script/ui/world/Map.js";
+import "/script/ui/panel/worldlist/WorldList.js";
+import "/script/ui/panel/worldmap/WorldMap.js";
 
 try {
     // load current language

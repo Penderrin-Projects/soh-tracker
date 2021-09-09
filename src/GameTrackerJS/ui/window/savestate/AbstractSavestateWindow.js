@@ -11,10 +11,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 :host,
 .footer,
 .button {

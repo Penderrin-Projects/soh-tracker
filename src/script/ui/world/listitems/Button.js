@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -9,13 +10,6 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
 :host {
     display: flex;
     flex-direction: column;
@@ -25,6 +19,7 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
     color: #ffffff;
+    user-select: none;
 }
 :host(:hover),
 :host(.ctx-marked) {
@@ -69,11 +64,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListButton extends HTMLElement {
+export default class ListButton extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

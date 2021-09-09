@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
 
@@ -12,12 +13,7 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 :host {
-    position: relative;
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -25,8 +21,6 @@ const STYLE = new GlobalStyle(`
     margin: 0px;
     background-color: var(--page-background-color, #000000);
     color: var(--page-text-color, #ffffff);
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
 }
 #container {
@@ -82,11 +76,10 @@ function composer(key, params) {
     return el;
 }
 
-export default class ViewChoice extends HTMLElement {
+export default class ViewChoice extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
