@@ -11,7 +11,23 @@ function convertValueList(values = {}) {
     if (typeof values == "string") {
         values = VARS[values]();
     }
-    return values;
+    const opt = {};
+    if (typeof values == "object") {
+        if (Array.isArray(values)) {
+            for (const key of values) {
+                opt[key] = key;
+            }
+        } else {
+            for (const key in values) {
+                if (values[key] != null) {
+                    opt[key] = values[key];
+                } else {
+                    opt[key] = key;
+                }
+            }
+        }
+    }
+    return opt;
 }
 
 export default class AbstractSettingsWindow extends SettingsWindow {
@@ -22,7 +38,8 @@ export default class AbstractSettingsWindow extends SettingsWindow {
     }
 
     addListSelectInput(category, ref, label, desc, def, visible, resettable, multiple, values) {
-        super.addListSelectInput(category, ref, label, desc, def, visible, resettable, multiple, convertValueList(values));
+        values = convertValueList(values);
+        super.addListSelectInput(category, ref, label, desc, def, visible, resettable, multiple, values);
     }
 
 }
