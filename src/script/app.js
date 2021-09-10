@@ -18,7 +18,7 @@ import VersionData from "/GameTrackerJS/data/VersionData.js";
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
@@ -89,12 +89,12 @@ try {
     BusyIndicator.setIndicator(document.getElementById("busy-animation"));
     // notepad
     const notePad = document.getElementById("notes-editor");
-    notePad.value = SavestateHandler.getNotes();
-    SavestateHandler.addEventListener("notes", function(event) {
+    notePad.value = Savestate.notes;
+    Savestate.addEventListener("notes", function(event) {
         notePad.value = event.data;
     });
     notePad.addEventListener("change", function() {
-        SavestateHandler.setNotes(notePad.value);
+        Savestate.notes = notePad.value;
     });
     // shared worker
     if ("SharedWorker" in window) {
@@ -127,7 +127,7 @@ try {
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         newGameWindow.addEventListener("close", event => {
-            SavestateHandler.set("meta", "init_window_shown", true);
+            Savestate.setMeta("init_window_shown", true);
         });
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
@@ -139,7 +139,7 @@ try {
         spl.className = "inactive";
     }
 
-    if (!SavestateHandler.get("meta", "init_window_shown", false)) {
+    if (!Savestate.getMeta("init_window_shown", false)) {
         const showInitWindow = SettingsStorage.get("show_state_init_window");
         if (showInitWindow) {
             const newGameWindow = GlobalContext.get("NewGameWindow");

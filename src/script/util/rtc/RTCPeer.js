@@ -1,7 +1,26 @@
-// frameworks
-import EventBus from "/emcJS/event/EventBus.js";
-import EventBusModuleGeneric from "/emcJS/event/module/EventBusModuleGeneric.js";
+// GameTrackerJS
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 
+const STORAGES = {
+    // GameTrackerJS
+    items: Savestate.getStorage("items"),
+    locations: Savestate.getStorage("locations"),
+    exitBindings: Savestate.getStorage("exitBindings"),
+    areaHints: Savestate.getStorage("areaHints"),
+    locationItems: Savestate.getStorage("locationItems"),
+    startItems: Savestate.getStorage("startItems"),
+    options: OptionsStorage,
+    // Track-OOT
+    dungeonReward: Savestate.getStorage("dungeonReward"),
+    dungeonType: Savestate.getStorage("dungeonType"),
+    shopItems: Savestate.getStorage("shopItems"),
+    shopItemsPrice: Savestate.getStorage("shopItemsPrice"),
+    shopItemsBought: Savestate.getStorage("shopItemsBought"),
+    songNotes: Savestate.getStorage("songNotes"),
+    gossipstoneLocations: Savestate.getStorage("gossipstoneLocations"),
+    gossipstoneItems: Savestate.getStorage("gossipstoneItems")
+};
 
 const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();
@@ -21,26 +40,20 @@ export default class RTCPeer extends EventTarget {
             this.rtcMessageHandler(key, msg)
         });
 
-        /* EVENTS */
-        const eventModule = new EventBusModuleGeneric();
-        EventBus.addModule(eventModule, {
-            blacklist: [
-                "extra::shop_name"
-            ],
-            whitelist: [
-                /^state::[a-zA-Z0-9_]+$/,
-                "options"
-            ]
-        });
-        eventModule.register(event => {
-            if (!this.isMuted()) {
-                rtcClient.send("data", {
-                    type: "event",
-                    data: event
-                });
-            }
-        });
-        EVENT_MODULE.set(this, eventModule);
+        /* STORAGES */
+        for (const [name, storage] of Object.entries(STORAGES)) {
+            storage.addEventListener("change", (event) => {
+                if (!this.isMuted()) {
+                    rtcClient.send("data", {type: "event", name, data: event.data});
+                }
+            });
+        }
+    }
+
+    getNetworkSafeState() {
+        const data = Savestate.getAll(Object.keys(STORAGES));
+        const options = OptionsStorage.getAll();
+        return {data, options};
     }
 
     get username() {
@@ -75,19 +88,13 @@ export default class RTCPeer extends EventTarget {
         /* EVENTS */
         const eventModule = EVENT_MODULE.get(this);
         eventModule.clear();
-        EventBus.removeModule(eventModule);
     }
 
     async rtcMessageHandler(key, msg) {
         if (msg.type == "event") {
-            const eventModule = EVENT_MODULE.get(this);
-            if (EventBus.checkLists(eventModule, msg.data.name)) {
-                this.mute();
-                eventModule.trigger(msg.data.name, msg.data.data);
-                this.unmute();
-                return true;
-            }
-            return false;
+            this.mute();
+            STORAGES[msg.name]?.setAll(msg.data);
+            this.unmute();
         }
     }
 

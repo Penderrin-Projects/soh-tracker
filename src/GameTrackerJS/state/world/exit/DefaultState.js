@@ -4,7 +4,7 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import { mix } from "/emcJS/util/Mixin.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import Savestate from "../../../savestate/Savestate.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
@@ -14,6 +14,8 @@ import AreaStateManager from "../area/StateManager.js";
 import EntranceStateManager from "../entrance/StateManager.js";
 import { emptyState } from "../EmptyState.js";
 import WorldState from "../WorldState.js";
+
+const exitBindingsSavestateStorage = Savestate.getStorage("exitBindings");
 
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
@@ -68,7 +70,7 @@ export default class DefaultExitState extends WorldState {
         this.addEventListener("visibility", (event) => {
             console.log("visibility", this.ref, event.data);
         });
-        /* area */
+        /* AREA */
         const manager = new StateDataEventManager();
         MANAGER.set(this, manager);
         manager.registerStateHandler("access", event => {
@@ -90,7 +92,7 @@ export default class DefaultExitState extends WorldState {
         const logicAccess = props.logicAccess;
         {
             ACCESS.set(this, getLogicAccess(logicAccess));
-            const value = SavestateHandler.get("exits", this.ref, "")
+            const value = exitBindingsSavestateStorage.get(ref, "");
             VALUE.set(this, value);
             setTimeout(() => {
                 const area = getEntranceArea(value);
@@ -101,6 +103,15 @@ export default class DefaultExitState extends WorldState {
                 ev.data = area?.access ?? ACCESS.get(this);
                 this.dispatchEvent(ev);
             }, 0);
+            exitBindingsSavestateStorage.addEventListener("change", (event) => {
+                if (event.changes[ref] != null) {
+                    const value = event.changes[ref].newValue;
+                    this./*#*/__setValue(value);
+                }
+            });
+            exitBindingsSavestateStorage.addEventListener("load", (event) => {
+                this./*#*/__setValue(event.data[ref] ?? "");
+            });
         }
         /* ACTIVE */
         if (typeof props.active == "object") {
@@ -147,19 +158,6 @@ export default class DefaultExitState extends WorldState {
         });
     }
 
-    // beforeStateLoad() {
-    //     const manager = MANAGER.get(this);
-    //     VALUE.set(this, "");
-    //     AREA.set(this, null);
-    //     manager.switchState();
-    // }
-
-    onStateLoad(state) {
-        const props = this.props;
-        // value
-        this.value = state?.data?.["exits"]?.[this.ref] ?? "";
-    }
-
     /*#*/__internalChange(event) {
         // savesatate
         const change = event.data;
@@ -194,25 +192,8 @@ export default class DefaultExitState extends WorldState {
         }
     }
 
-    set value(value) {
-        const oldValue = this.value;
-        super.value = value;
-        const newValue = this.value;
-        if (newValue != null && newValue != oldValue) {
-            // internal
-            EventBus.trigger("state::exit_binding", { ref: this.ref, value: newValue });
-        }
-    }
-
-    get value() {
-        return super.value;
-    }
-
-    get area() {
-        return AREA.get(this);
-    }
-
-    set value(value) {
+    /*#*/__setValue(value) {
+        const props = this.props;
         const old = VALUE.get(this);
         if (value == this.ref) {
             value = "";
@@ -220,7 +201,7 @@ export default class DefaultExitState extends WorldState {
         if (value != old) {
             const manager = MANAGER.get(this);
             VALUE.set(this, value);
-            SavestateHandler.set("exits", this.ref, value);
+            exitBindingsSavestateStorage.set(this.ref, value);
             const area = getEntranceArea(value);
             AREA.set(this, area);
             manager.switchState(area);
@@ -232,10 +213,24 @@ export default class DefaultExitState extends WorldState {
             ev2.data = value;
             this.dispatchEvent(ev2);
         }
+        return value;
+    }
+
+    set value(value) {
+        const oldValue = this.value;
+        value = this./*#*/__setValue(value);
+        if (newValue != null && newValue != oldValue) {
+            // internal
+            EventBus.trigger("state::exit_binding", { ref: this.ref, value: newValue });
+        }
     }
 
     get value() {
         return VALUE.get(this);
+    }
+
+    get area() {
+        return AREA.get(this);
     }
 
     get active() {

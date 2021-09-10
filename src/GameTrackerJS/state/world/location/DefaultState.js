@@ -1,13 +1,15 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-import { mix } from "/emcJS/util/Mixin.js";
 
+import Savestate from "../../../savestate/Savestate.js";
 import Logic from "../../../util/logic/Logic.js";
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import WorldState from "../WorldState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import ItemStateManager from "../../../state/item/StateManager.js";
+
+const locationsSavestateStorage = Savestate.getStorage("locations");
+const locationItemsSavestateStorage = Savestate.getStorage("locationItems");
 
 const ACCESS = new WeakMap();
 const REACHABLE = new WeakMap();
@@ -37,9 +39,6 @@ export default class DefaultLocationState extends WorldState {
                 this./*#*/__setItem(change.value);
             }
         });
-        EventBus.register("state", event => {
-            this.stateLoaded(event);
-        });
         EventBus.register("logic", event => {
             const reachable = Logic.getValue(props.logicAccess);
             if (reachable != null) {
@@ -56,27 +55,39 @@ export default class DefaultLocationState extends WorldState {
         }, 0);
     }
 
-    onStateLoad(state) {
-        // TODO
-    }
-
-    stateLoaded(event) {
-        const ref = this.ref;
-        // savesatate
-        this.value = !!event.data.state[ref];
-        // item
-        if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
-            this.item = event.data.extra["item_location"][ref];
-        } else {
-            this.item = "";
-        }
-    }
-
     initValues() {
         const ref = this.ref;
         const props = this.props;
-        VALUE.set(this, SavestateHandler.get("", `location/${ref}`, false)); // XXX remove "location/"
+        /* value */
+        VALUE.set(this, locationsSavestateStorage.get(ref, false));
+        locationsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setValue(value);
+            }
+        });
+        locationsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setValue(event.data[ref] ?? "");
+        });
+        /* item */
+        const item = locationItemsSavestateStorage.get(ref, "");
+        ITEM.set(this, item);
+        if (item) {
+            const itemData = ItemStateManager.get(item);
+            ITEM_DATA.set(this, itemData?.props);
+        }
+        locationItemsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setItem(value);
+            }
+        });
+        locationItemsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setItem(event.data[ref] ?? "");
+        });
+        /* reach */
         REACHABLE.set(this, Logic.getValue(props.logicAccess));
+        /* access */
         ACCESS.set(this, {
             done: 0,
             unopened: 0,
@@ -85,12 +96,6 @@ export default class DefaultLocationState extends WorldState {
             value: AccessStateEnum.OPENED,
             entrances: 0
         });
-        const item = SavestateHandler.get("item_location", `location/${ref}`, ""); // XXX remove "location/"
-        ITEM.set(this, item);
-        if (item) {
-            const itemData = ItemStateManager.get(item);
-            ITEM_DATA.set(this, itemData?.props);
-        }
     }
 
     getAccessValue(checked, reachable) {
@@ -151,7 +156,7 @@ export default class DefaultLocationState extends WorldState {
         if (value != old) {
             const ref = this.ref;
             VALUE.set(this, value);
-            SavestateHandler.set("", `location/${ref}`, value); // XXX remove "location/"
+            locationsSavestateStorage.set(ref, value);
             this.refreshAccess();
             // external
             const event = new Event("value");
@@ -181,7 +186,7 @@ export default class DefaultLocationState extends WorldState {
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);
-            SavestateHandler.set("item_location", `location/${ref}`, value); // XXX remove "location/"
+            locationItemsSavestateStorage.set(ref, value);
             // item data
             if (value) {
                 const itemData = ItemStateManager.get(value);

@@ -7,10 +7,8 @@ import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopStates from "/script/state/shop/StateManager.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
-// TODO only show item if it is not a refill item
-
 const SHOP_STATE = new WeakMap();
-const WALLET = ItemStateManager.get("item.wallet");
+const WALLET = ItemStateManager.get("wallet");
 const WALLET_CAPACITIES = [99, 200, 500, 999];
 
 {

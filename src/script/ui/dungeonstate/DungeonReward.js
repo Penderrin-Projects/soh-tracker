@@ -59,47 +59,47 @@ slot {
 const REWARDS = [
     {
         "type": "item",
-        "value": "item.stone_forest",
+        "value": "stone_forest",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.stone_fire",
+        "value": "stone_fire",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.stone_water",
+        "value": "stone_water",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_forest",
+        "value": "medallion_forest",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_fire",
+        "value": "medallion_fire",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_water",
+        "value": "medallion_water",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_spirit",
+        "value": "medallion_spirit",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_shadow",
+        "value": "medallion_shadow",
         "visible": true
     },
     {
         "type": "item",
-        "value": "item.medallion_light",
+        "value": "medallion_light",
         "visible": true
     }
 ];

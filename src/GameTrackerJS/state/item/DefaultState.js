@@ -1,10 +1,13 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-import SavestateHandler from "../../savestate/SavestateHandler.js";
+import { parseSafeRange } from "../../util/helper/ItemHelper.js";
+import Savestate from "../../savestate/Savestate.js";
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
 import StartItemsObserver from "../../util/observer/StartItemsObserver.js";
 import DataState from "../DataState.js";
+
+const itemsSavestateStorage = Savestate.getStorage("items");
 
 const VALUE = new WeakMap();
 const DEF_MAX = new WeakMap();
@@ -13,21 +16,7 @@ const MAX = new WeakMap();
 const MIN = new WeakMap();
 const START = new WeakMap();
 
-export function parseSafeRange(value, def) {
-    const result = parseInt(value);
-    if (isNaN(result)) {
-        return def;
-    }
-    if (result > 99999) {
-        return 99999;
-    }
-    if (result < 0) {
-        return 0;
-    }
-    return result;
-}
-
-export default class DefaultState extends DataState {
+export default class DefaultItemState extends DataState {
 
     constructor(ref, props = {}) {
         super(ref, props);
@@ -98,15 +87,17 @@ export default class DefaultState extends DataState {
             }
         }
 
-        /* VALUE */
-        {
-            const value = SavestateHandler.get("", ref, 0);
-            VALUE.set(this, this./*#*/__restrictValue(value));
-        }
-        // TODO
-        // SavestateHandler.addEventListener("load", event => {
-        //     console.log("load", event);
-        // });
+        /* VALUES */
+        VALUE.set(this, this./*#*/__restrictValue(itemsSavestateStorage.get(ref, 0)));
+        itemsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setValue(value);
+            }
+        });
+        itemsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setValue(event.data[ref] ?? 0);
+        });
         
         /* EVENTS */
         EventBus.register("state::item", (event) => {
@@ -116,16 +107,6 @@ export default class DefaultState extends DataState {
                 this./*#*/__setValue(change.value);
             }
         });
-        EventBus.register("state", (event) => {
-            // console.log("state", event);
-            this.stateLoaded(event);
-        });
-    }
-
-    stateLoaded(event) {
-        const ref = this.ref;
-        // savesatate
-        this./*#*/__setValue(event.data.state[ref] ?? 0);
     }
 
     /*#*/__restrictValue(value) {
@@ -208,7 +189,7 @@ export default class DefaultState extends DataState {
             const oldValue = this.value;
             if (newValue != oldValue) {
                 VALUE.set(this, newValue);
-                SavestateHandler.set("", ref, newValue);
+                itemsSavestateStorage.set(ref, newValue);
                 // external
                 const event = new Event("value");
                 event.data = newValue;

@@ -5,7 +5,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/item/DefaultState.js";
+import DefaultItemState from "/GameTrackerJS/state/item/DefaultState.js";
 
 const ALL_DUNGEONS = [
     "area/pocket",
@@ -45,7 +45,7 @@ function internalRewardChange(event) {
     }
 }
 
-export default class RewardItemState extends DefaultState {
+export default class RewardItemState extends DefaultItemState {
 
     constructor(ref, props) {
         super(ref, props);

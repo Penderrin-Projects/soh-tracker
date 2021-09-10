@@ -3,8 +3,9 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-
 // GameTrackerJS
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
@@ -45,7 +46,8 @@ export default class RTCPeerClient extends RTCPeer {
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
             this.mute();
-            await SavestateHandler.reset({data: msg.data.data, options: msg.data.options});
+            const filter = FilterStorage.getAll();
+            await Savestate.deserialize({data: msg.data.data, options: msg.data.options, filter});
             this.unmute();
         } else {
             await super.rtcMessageHandler(key, msg);

@@ -6,6 +6,7 @@ import "/emcJS/ui/input/Option.js";
 
 import ItemStates from "../../state/item/StateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
+import "../../state/item/StartSettingsState.js";
 
 const TPL = new Template(`
 <div id="value">

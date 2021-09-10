@@ -1,31 +1,12 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import EventBusSubset from "/emcJS/event/EventBusSubset.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
-
-function getState() {
-    SavestateHandler.getAll();
-    const state = SavestateHandler.getAll();
-    const options = OptionsStorage.getAll();
-    const shops = {};
-    for (const i in state.shops) {
-        if (!i.endsWith(".name")) {
-            shops[i] = state.shops[i];
-        }
-    }
-    return {
-        data: {...state, shops},
-        options
-    };
-}
 
 const EVENT_BUS_SUBSET = new WeakMap();
 const EVENT_TARGET_MANAGER = new WeakMap();
@@ -82,14 +63,11 @@ export default class RTCPeerHost extends RTCPeer {
             this.dispatchEvent(ev);
         });
 
-
-        /* EVENTS */
-        const eventBusSubset = new EventBusSubset();
-        EVENT_BUS_SUBSET.set(this, eventBusSubset);
-        eventBusSubset.register("state", event => {
+        /* SAVESTATE */
+        Savestate.addEventListener("load", (event) => {
             rtcClient.send("data", {
                 type: "state",
-                data: getState()
+                data: this.getNetworkSafeState()
             });
         });
     }
@@ -167,7 +145,7 @@ export default class RTCPeerHost extends RTCPeer {
                 });
                 rtcClient.sendOne("data", key, {
                     type: "state",
-                    data: getState()
+                    data: this.getNetworkSafeState()
                 });
                 clients.set(key, msg.data);
                 // or spectators.set(key, msg.data);

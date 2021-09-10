@@ -1,5 +1,6 @@
 const CONVERTER_FN = [];
 let OFFSET = 0;
+let NO_UPDATE = new Set();
 
 class SavestateConverter {
 
@@ -16,9 +17,6 @@ class SavestateConverter {
     }
 
     convert(state) {
-        if (state.version == 0 && state.data != null) {
-            state.version = 17;
-        }
         const version = state.version ?? 0;
         if (version < OFFSET) {
             // TODO show error to user and link to converter page
@@ -49,12 +47,14 @@ class SavestateConverter {
                     }
                     state = newState;
                 }
+                if (!NO_UPDATE.has(i)) {
+                    state.version = i;
+                }
             }
             state.name = name;
             state.timestamp = timestamp;
             state.autosave = autosave;
             state.notes = notes;
-            state.version = this.version;
         }
         return state;
     }
@@ -86,9 +86,12 @@ class SavestateConverter {
         return res;
     }
 
-    register(conv) {
+    register(conv, muted = false) {
         if (typeof conv == "function") {
             CONVERTER_FN.push(conv);
+        }
+        if (muted) {
+            NO_UPDATE.add(this.version);
         }
     }
 

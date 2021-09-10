@@ -10,7 +10,7 @@ export default class DefaultCollectionState extends DataState {
         super(ref, props);
         /* --- */
         VISIBLE.set(this, false);
-        /* --- */
+        /* LIST HANDLER */
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);
         VISIBLE.set(this, listHandler.visible);

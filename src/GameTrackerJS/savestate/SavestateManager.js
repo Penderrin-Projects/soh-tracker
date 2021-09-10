@@ -39,7 +39,7 @@ class SavestateManager {
 
     async exportSavestate(name) {
         const data = await STORAGE.get(name, {});
-        data["_meta"] = {
+        data["_info"] = {
             app: VersionData.versionString,
             browser: VersionData.browserData
         };

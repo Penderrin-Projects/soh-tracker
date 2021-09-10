@@ -2,8 +2,8 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
+import { parseSafeRange } from "../util/helper/ItemHelper.js";
 import ItemsResource from "../resource/ItemsResource.js";
-import { parseSafeRange } from "../state/item/DefaultState.js";
 
 const MAX = new Map();
 

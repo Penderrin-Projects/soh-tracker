@@ -1,20 +1,32 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-import Helper from "/emcJS/util/Helper.js";
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
 
-const HINT = new WeakMap();
+const gossipstoneLocationsSavestateStorage = Savestate.getStorage("gossipstoneLocations");
+const gossipstoneItemsSavestateStorage = Savestate.getStorage("gossipstoneItems");
 
-function internalHintChange(event) {
+const LOCATION = new WeakMap();
+const ITEM = new WeakMap();
+
+function internalItemChange(event) {
     const ref = this.ref;
     // savesatate
     const change = event.data;
     if (change != null && change.ref == ref) {
-        this./*#*/__setHint(change.value);
+        this./*#*/__setItem(change.value);
+    }
+}
+
+function internalLocationChange(event) {
+    const ref = this.ref;
+    // savesatate
+    const change = event.data;
+    if (change != null && change.ref == ref) {
+        this./*#*/__setLocation(change.value);
     }
 }
 
@@ -22,58 +34,92 @@ export default class GossipstoneState extends DefaultLocationState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        this.hint = SavestateHandler.get("gossipstone", ref, {location: "", item: ""});
+        /* VALUES */
+        ITEM.set(this, gossipstoneItemsSavestateStorage.get(ref, ""));
+        gossipstoneItemsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setItem(value);
+            }
+        });
+        gossipstoneItemsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setItem(event.data[ref] ?? "");
+        });
+        LOCATION.set(this, gossipstoneLocationsSavestateStorage.get(ref, ""));
+        gossipstoneLocationsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setLocation(value);
+            }
+        });
+        gossipstoneLocationsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setLocation(event.data[ref] ?? "");
+        });
         /* EVENTS */
-        EventBus.register("state::gossipstone", internalHintChange.bind(this));
+        EventBus.register("state::gossipstone::item", internalItemChange.bind(this));
+        EventBus.register("state::gossipstone::location", internalLocationChange.bind(this));
     }
 
-    stateLoaded(event) {
-        super.stateLoaded(event);
+    /*#*/__setItem(value) {
         const ref = this.ref;
-        // hint
-        if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
-            this.hint = event.data.extra["gossipstone"][ref];
-        } else {
-            this.hint = "";
+        if (typeof value != "string") {
+            value = "";
         }
-    }
-
-    /*#*/__setHint(value) {
-        const ref = this.ref;
-        if (typeof value != "object" || Array.isArray(value)) {
-            value = {location: "", item: ""}
-        }
-        if (typeof value.location != "string") {
-            value.location = "";
-        }
-        if (typeof value.item != "string") {
-            value.item = "";
-        }
-        const old = this.hint;
-        if (!Helper.isEqual(old, value)) {
-            HINT.set(this, value);
-            SavestateHandler.set("gossipstone", ref, value);
+        const oldValue = this.item;
+        if (value != oldValue) {
+            ITEM.set(this, value);
+            gossipstoneItemsSavestateStorage.set(ref, value);
             // external
-            const event = new Event("hint");
+            const event = new Event("item");
             event.data = value;
             this.dispatchEvent(event);
         }
         return value;
     }
 
-    set hint(value) {
+    set item(value) {
         const ref = this.ref;
-        const old = this.reward;
-        value = this./*#*/__setHint(value);
-        if (value != null && !Helper.isEqual(old, value)) {
+        const oldValue = this.item;
+        const newValue = this./*#*/__setItem(value);
+        if (value != null && newValue != oldValue) {
             // internal
-            EventBus.trigger("state::gossipstone", {ref, value});
+            EventBus.trigger("state::gossipstone::item", {ref, value});
         }
     }
 
-    get hint() {
-        return HINT.get(this);
+    get item() {
+        return ITEM.get(this);
+    }
+
+    /*#*/__setLocation(value) {
+        const ref = this.ref;
+        if (typeof value != "string") {
+            value = "";
+        }
+        const oldValue = this.location;
+        if (value != oldValue) {
+            LOCATION.set(this, value);
+            gossipstoneLocationsSavestateStorage.set(ref, value);
+            // external
+            const event = new Event("location");
+            event.data = value;
+            this.dispatchEvent(event);
+        }
+        return value;
+    }
+
+    set location(value) {
+        const ref = this.ref;
+        const oldValue = this.location;
+        const newValue = this./*#*/__setLocation(value);
+        if (value != null && newValue != oldValue) {
+            // internal
+            EventBus.trigger("state::gossipstone::location", {ref, value});
+        }
+    }
+
+    get location() {
+        return LOCATION.get(this);
     }
 
 }

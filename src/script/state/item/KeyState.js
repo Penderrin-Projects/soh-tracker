@@ -5,12 +5,13 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import StateManager from "/GameTrackerJS/state/item/StateManager.js";
-import DefaultState, { parseSafeRange } from "/GameTrackerJS/state/item/DefaultState.js";
+import { parseSafeRange } from "../../../GameTrackerJS/util/helper/ItemHelper.js";
+import DefaultItemState from "/GameTrackerJS/state/item/DefaultState.js";
 
 const TYPE = new WeakMap();
 const MAX = new WeakMap();
 
-export default class KeyState extends DefaultState {
+export default class KeyState extends DefaultItemState {
 
     constructor(ref, props) {
         super(ref, props);

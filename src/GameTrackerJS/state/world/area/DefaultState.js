@@ -1,9 +1,11 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import Savestate from "../../../savestate/Savestate.js";
 import WorldState from "../WorldState.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
+
+const areaHintsSavestateStorage = Savestate.getStorage("areaHints");
 
 const LIST_HANDLER = new WeakMap();
 const HINT = new WeakMap();
@@ -12,9 +14,18 @@ export default class DefaultAreaState extends WorldState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        this.hint = SavestateHandler.get("area_hint", `area/${ref}`, ""); // XXX remove "area/"
-        /* handler */
+        /* VALUES */
+        HINT.set(this, areaHintsSavestateStorage.get(ref, ""));
+        areaHintsSavestateStorage.addEventListener("change", (event) => {
+            if (event.changes[ref] != null) {
+                const value = event.changes[ref].newValue;
+                this./*#*/__setHint(value);
+            }
+        });
+        areaHintsSavestateStorage.addEventListener("load", (event) => {
+            this./*#*/__setHint(event.data[ref] ?? "");
+        });
+        /* LIST HANDLER */
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);
         /* EVENTS */
@@ -28,12 +39,6 @@ export default class DefaultAreaState extends WorldState {
         });
     }
 
-    onStateLoad(state) {
-        const ref = this.ref;
-        // hint
-        this.hint = state?.data?.["area_hint"]?.[`area/${ref}`] ?? ""; // XXX remove "area/"
-    }
-
     /*#*/__setHint(value) {
         const ref = this.ref;
         if (typeof value != "string" || (value != "woth" && value != "barren")) {
@@ -42,7 +47,7 @@ export default class DefaultAreaState extends WorldState {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            SavestateHandler.set("area_hint", `area/${ref}`, value); // XXX remove "area/"
+            areaHintsSavestateStorage.set(ref, value);
             // external
             const event = new Event("hint");
             event.data = value;

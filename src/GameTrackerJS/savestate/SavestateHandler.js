@@ -68,10 +68,6 @@ class SavestateHandler extends EventTarget {
             const state = Savestate.serialize();
             this./*#*/__cacheData(state, true);
         });
-        Savestate.addEventListener("startitems", event => {
-            const state = Savestate.serialize();
-            this./*#*/__cacheData(state, true);
-        });
     }
 
     /*#*/__cacheData(data, dirty = true) {
@@ -126,13 +122,13 @@ class SavestateHandler extends EventTarget {
     async reset(data = {}) {
         await BusyIndicator.busy();
         this.dispatchEvent(new Event("beforeload"));
+        this.dispatchEvent(new Event("reset"));
         // write state data
         Savestate.deserialize(data);
         // cache data
         const state = Savestate.serialize();
         this./*#*/__cacheData(state, false);
         // trigger event
-        this.dispatchEvent(new Event("reset"));
         const ev = new Event("load");
         ev.state = state;
         this.dispatchEvent(ev);
@@ -160,20 +156,10 @@ class SavestateHandler extends EventTarget {
         await BusyIndicator.unbusy();
     }
 
-    /* NOTES */
-
-    setNotes(value) {
-        Savestate.notes = value;
-    }
-
-    getNotes() {
-        return Savestate.notes || "";
-    }
-
     /* DATA */
 
     getData(category) {
-        return Savestate.getData(category);
+        return Savestate.getStorage(category);
     }
 
     set(category, key, value) {
@@ -190,20 +176,6 @@ class SavestateHandler extends EventTarget {
 
     delete(category, key) {
         Savestate.delete(category, key);
-    }
-
-    /* additional storages */
-    
-    get options() {
-        return Savestate.options;
-    }
-    
-    get filter() {
-        return Savestate.filter;
-    }
-    
-    get startitems() {
-        return Savestate.startitems;
     }
 
     /* debug */

@@ -1,13 +1,13 @@
 import ItemsRecource from "../../resource/ItemsResource.js";
 import AbstractStateManager from "../StateManager.js";
-import DefaultState from "./DefaultState.js";
+import DefaultItemState from "./DefaultState.js";
 
 const resourceData = ItemsRecource.get();
 
 class StateManager extends AbstractStateManager {
 
     constructor() {
-        super(DefaultState, resourceData);
+        super(DefaultItemState, resourceData);
     }
 
     createState(StateClass, ref, props) {
