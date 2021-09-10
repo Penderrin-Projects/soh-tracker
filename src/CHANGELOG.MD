@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.45
+
+### BUGFIXES
+
+- fix settings value lists default values
+
+---
+
 ## VERSION 2.1.44
 
 ### IMPROVEMENTS
