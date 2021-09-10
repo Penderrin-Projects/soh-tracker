@@ -1,5 +1,5 @@
 // GameTrackerJS
-import AbstractStateManager from "/GameTrackerJS/state/abstract/StateManager.js";
+import AbstractStateManager from "/GameTrackerJS/state/StateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";

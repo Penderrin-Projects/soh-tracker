@@ -1,13 +1,12 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/MarkerListHandler.js";
+import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/handler/MarkerListHandler.js";
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const TYPE = new WeakMap();
@@ -78,9 +77,69 @@ export default class DungeonState extends DefaultAreaState {
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
     }
-    
+
+    onStateLoad(state) {
+        super.onStateLoad(state);
+        const props = this.props;
+        // type
+        if (props["maxmq"] != null && props["related_dungeon"] != null) {
+            const types = state?.data?.["dungeontype"];
+            if (types != null) {
+                this./*#*/__applyTypeValue(types[props.related_dungeon]);
+            } else {
+                this./*#*/__applyTypeValue("n");
+            }
+        }
+    }
+
+    /*#*/__applyTypeValue(newValue) {
+        const type = TYPE.get(this);
+        if (type != newValue) {
+            TYPE.set(this, newValue);
+            // external
+            const ev = new Event("type");
+            ev.data = newValue;
+            this.dispatchEvent(ev);
+            
+            const ev2 = new Event("access");
+            ev2.data = this.access;
+            this.dispatchEvent(ev2);
+        }
+    }
+
+    get type() {
+        return TYPE.get(this);
+    }
+
+    get access() {
+        return this.getAccess();
+    }
+
+    getAccess(type = this.type) {
+        if (type == "v") {
+            return this.getAccessV();
+        } else if (type == "mq") {
+            return this.getAccessMQ();
+        } else {
+            const acc_v = this.getAccessV();
+            const acc_mq = this.getAccessMQ();
+            const acc = getAccessNeutral(acc_v, acc_mq);
+            return acc;
+        }
+    }
+
+    getAccessV() {
+        return super.access;
+    }
+
+    getAccessMQ() {
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler.access ?? defaultMarkerAccess;
+    }
+
+    /* list */
     generateList() {
-        const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
+        const listHandler = new MarkerListHandler(this.props.list, `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
             if (this.type == "v") {
                 const ev = new Event("access");
@@ -108,7 +167,7 @@ export default class DungeonState extends DefaultAreaState {
     }
     
     generateMQList() {
-        const listHandler = new MarkerListHandler(this.areaData.lists["mq"], `${this.ref}/mq`);
+        const listHandler = new MarkerListHandler(this.props.list_mq, `${this.ref}/mq`);
         listHandler.addEventListener("access", event => {
             if (this.type == "mq") {
                 const ev = new Event("access");
@@ -133,46 +192,6 @@ export default class DungeonState extends DefaultAreaState {
             }
         });
         return listHandler;
-    }
-
-    setAllEntries(value = true) {
-        const type = TYPE.get(this);
-        if (type == "mq") {
-            const listHandler = LIST_HANDLER.get(this);
-            listHandler.setAllEntries(value);
-        } else if (type == "v") {
-            super.setAllEntries(value);
-        }
-    }
-
-    /*#*/__applyTypeValue(newValue) {
-        const type = TYPE.get(this);
-        if (type != newValue) {
-            TYPE.set(this, newValue);
-            // external
-            const ev = new Event("type");
-            ev.data = newValue;
-            this.dispatchEvent(ev);
-            
-            const ev2 = new Event("access");
-            ev2.data = this.access;
-            this.dispatchEvent(ev2);
-        }
-    }
-
-    stateLoaded(event) {
-        const props = this.props;
-        // type
-        if (props["maxmq"] != null && props["related_dungeon"] != null) {
-            const types = event.data.extra.dungeontype;
-            if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
-            } else {
-                this./*#*/__applyTypeValue("n");
-            }
-        }
-        // savesatate
-        super.stateLoaded(event);
     }
 
     getRawList(type = this.type) {
@@ -205,32 +224,14 @@ export default class DungeonState extends DefaultAreaState {
         }
     }
 
-    get type() {
-        return TYPE.get(this);
-    }
-
-    get access() {
-        if (this.type == "v") {
-            return super.access;
-        } else if (this.type == "mq") {
+    setAllEntries(value = true) {
+        const type = TYPE.get(this);
+        if (type == "mq") {
             const listHandler = LIST_HANDLER.get(this);
-            return listHandler?.access ?? defaultMarkerAccess;
-        } else {
-            const listHandler = LIST_HANDLER.get(this);
-            const acc_v = super.access;
-            const acc_mq = listHandler?.access ?? defaultMarkerAccess;
-            const acc = getAccessNeutral(acc_v, acc_mq);
-            return acc;
+            listHandler.setAllEntries(value);
+        } else if (type == "v") {
+            super.setAllEntries(value);
         }
-    }
-
-    getAccessV() {
-        return super.access;
-    }
-
-    getAccessMQ() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.access ?? defaultMarkerAccess;
     }
 
 }

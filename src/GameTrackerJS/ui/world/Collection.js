@@ -3,6 +3,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import CollectionStateManager from "../../state/world/collection/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import AreaContextMenu from "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
@@ -69,7 +70,7 @@ export default class AbstractCollection extends StateDataEventManagerMixin(Custo
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManager.getByRef(this.ref);
+                        const state = CollectionStateManager.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, newValue);

@@ -118,6 +118,7 @@ export default class MapLocation extends WorldMapMarkedEntry {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
+        super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {
             switch (name) {
                 case "top":
@@ -151,6 +152,14 @@ export default class MapLocation extends WorldMapMarkedEntry {
                 itemEl.halign = "center";
             }
         }
+    }
+
+    get textRef() {
+        return `location/${super.textRef}`;
+    }
+
+    get category() {
+        return "location";
     }
 
 }

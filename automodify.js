@@ -1,15 +1,198 @@
 const fs = require("fs");
 
-const fileName = "./src/database/world.json";
+/* files */
 
-function modifyData(inData) {
-    for (const [key, value] of Object.entries(inData.subarea)) {
-        inData.area[key] = value;
+const inFileName = "./src/database/world_old.json";
+const outFileName = "./src/database/world.json";
+
+/* modificator */
+
+const exitBindings = new Map();
+
+function getAreaName(name) {
+    if (name.startsWith("subarea/")) {
+        return name.slice(8);
     }
-    return inData;
+    if (name.startsWith("area/")) {
+        return name.slice(5);
+    }
+    return name;
 }
 
-const inData = JSON.parse(fs.readFileSync(fileName));
-const outData = modifyData(inData);
+function createExitData(props, data, type, ref, reverseRef, isBiDir, visibleRootOnly, bindsTo) {
+    const access = ref.split(" -> ")[0];
+    return {
+        "type": type,
+        "target": reverseRef,
+        "logicAccess": access,
+        "area": getAreaName(data.area ?? ""),
+        "categories": props.categories ?? [],
+        "visible": props.visible ?? true,
+        "visibleRootOnly": visibleRootOnly,
+        "filter": props.filter ?? {},
+        "icon": props.icon ?? "",
+        "bindsTo": bindsTo,
+        "ignoreBound": data.ignoreBound ?? false,
+        "active": data.active ?? true,
+        "includeInactiveEntrances": data.includeInactiveEntrances ?? false,
+        "isBiDir": isBiDir
+    };
+}
 
-fs.writeFileSync(fileName, JSON.stringify(outData, null, 4));
+function addExit(target, ref, reverseRef, props, data) {
+    const isBiDir = data.isBiDir ?? true;
+    const type = data.type;
+    if (type == "overworld") {
+        target[ref] = createExitData(props, data, "overworld", ref, reverseRef, isBiDir, false, [
+            "overworld"
+        ]);
+    } else if (data.type == "special") {
+        target[ref] = createExitData(props, data, "special", ref, reverseRef, isBiDir, false, [
+            "special",
+            "overworld",
+            "interior_outer",
+            "interior_inner",
+            "grotto_outer",
+            "grotto_inner"
+        ]);
+    } else if (data.type == "dungeon") {
+        target[ref] = createExitData(props, data, "dungeon_outer", ref, reverseRef, isBiDir, false, [
+            "dungeon_inner"
+        ]);
+        target[reverseRef] = createExitData(props, data, "dungeon_inner", reverseRef, ref, isBiDir, true, [
+            "dungeon_outer"
+        ]);
+    } else if (data.type == "interior") {
+        target[ref] = createExitData(props, data, "interior_outer", ref, reverseRef, isBiDir, false, [
+            "interior_inner"
+        ]);
+        target[reverseRef] = createExitData(props, data, "interior_inner", reverseRef, ref, isBiDir, true, [
+            "interior_outer"
+        ]);
+    } else if (data.type == "grotto") {
+        target[ref] = createExitData(props, data, "grotto_outer", ref, reverseRef, isBiDir, false, [
+            "grotto_inner"
+        ]);
+        target[reverseRef] = createExitData(props, data, "grotto_inner", reverseRef, ref, isBiDir, true, [
+            "grotto_outer"
+        ]);
+    }
+}
+
+function correctListEntries(entry) {
+    if (entry.category == "subarea") {
+        entry.category = "area";
+    } else if (entry.category == "subexit") {
+        entry.category = "exit";
+    }
+    if (entry.category == "exit") {
+        entry.id = exitBindings.get(entry.id) ?? entry.id
+    }
+    return entry;
+}
+
+function addArea(target, props, data, ref, listContents, accessPenetration) {
+    const newProps = {
+        "type": props.type,
+        "categories": props.categories ?? [],
+        "visible": props.visible ?? true,
+        "filter": props.filter ?? false,
+        "listContents": !!listContents,
+        "accessPenetration": !!accessPenetration,
+        "icon": props.icon ?? "",
+        "areaTags": false,
+        "map": {
+            "color": data.color ?? "",
+            "border": data.border ?? "",
+            "background": data.background ?? "",
+            "width": data.width ?? 0,
+            "height": data.height ?? 0
+        },
+        "list": (data.lists?.v ?? data.list ?? []).map(correctListEntries)
+    };
+    if (data.lists?.mq != null) {
+        newProps["list_mq"] = data.lists.mq.map(correctListEntries);
+    }
+    target[ref] = newProps;
+}
+
+function modify(source, target) {
+
+    // location
+    const location = {};
+    for (const ref in source.marker.location) {
+        const props = source.marker.location[ref];
+        location[ref] = {
+            "type": props.type,
+            "logicAccess": props.access,
+            "visible": props.visible ?? true,
+            "filter": props.filter ?? {},
+            "icon": props.icon ?? ""
+        };
+        if (props.type == "shopslot") {
+            location[ref]["shop"] = ref;
+        }
+    }
+
+    // exit
+    const exit = {};
+    for (const ref in source.marker.exit) {
+        const props = source.marker.exit[ref];
+        const exitRef = props.access;
+        exitBindings.set(ref, exitRef);
+        const data = source.exit[exitRef];
+        const reverseRef = data.target ?? exitRef.split(" -> ").reverse().join(" -> ");
+        addExit(exit, exitRef, reverseRef, props, data);
+    }
+    for (const ref in source.marker.subexit) {
+        const props = source.marker.subexit[ref];
+        const exitRef = props.access;
+        exitBindings.set(ref, exitRef);
+        const data = source.exit[exitRef];
+        const reverseRef = data.target ?? exitRef.split(" -> ").reverse().join(" -> ");
+        addExit(exit, exitRef, reverseRef, props, data);
+    }
+
+    // area
+    const area = {};
+    for (const ref in source.marker.area) {
+        const props = source.marker.area[ref];
+        const data = source.area[ref];
+        addArea(area, props, data, ref, false, false);
+    }
+    for (const ref in source.subarea) {
+        const data = source.subarea[ref];
+        const props = source.marker.subarea[ref];
+        addArea(area, props, data, ref, true, true);
+    }
+    
+    // collection
+    const collection = {};
+    for (const ref in source.collection) {
+        const props = source.collection[ref];
+        collection[ref] = {
+            "map": {
+                "color": props.map.color ?? "",
+                "border": props.map.border ?? "",
+                "background": props.map.background ?? "",
+                "width": props.map.width ?? 0,
+                "height": props.map.height ?? 0
+            },
+            "list": (props.list ?? []).map(correctListEntries)
+        };
+    }
+
+    // write all
+    target.config = source.config;
+    target.location = location;
+    target.collection = collection;
+    target.area = area;
+    target.exit = exit;
+}
+
+/* module */
+
+const inData = JSON.parse(fs.readFileSync(inFileName));
+const outData = {};
+modify(inData, outData);
+fs.writeFileSync(outFileName, JSON.stringify(outData, null, 4));

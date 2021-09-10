@@ -201,6 +201,14 @@ export default class MapArea extends WorldMapMarkedEntry {
         }
     }
 
+    get textRef() {
+        return `area/${super.textRef}`;
+    }
+
+    get category() {
+        return "area";
+    }
+
 }
 
 UIRegistry.set("worldmap-area", new UIRegistry(MapArea));

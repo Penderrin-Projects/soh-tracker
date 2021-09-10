@@ -2,26 +2,23 @@
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-import LogicExecutor from "../../util/logic/LogicExecutor.js";
-import DataState from "./DataState.js";
-
-// TODO this should be a mixin
+import LogicExecutor from "../logic/LogicExecutor.js";
 
 const VISIBLE = new WeakMap();
 const VISIBLE_LOGIC = new WeakMap();
 
-export default class VisibilityState extends DataState {
+export default class VisibilityHandler extends EventTarget {
 
-    constructor(ref, props = {}) {
-        super(ref, props);
+    constructor(config = true) {
+        super();
         /* VISIBLE */
-        if (typeof props.visible == "object") {
-            const logicFn = LogicCompiler.compile(props.visible);
+        if (typeof config == "object") {
+            const logicFn = LogicCompiler.compile(config);
             const value = LogicExecutor.execute(logicFn);
             VISIBLE.set(this, value);
             VISIBLE_LOGIC.set(this, logicFn);
         } else {
-            VISIBLE.set(this, !!props.visible);
+            VISIBLE.set(this, !!config);
         }
         /* EVENTS */
         const logicEventManager = new EventTargetManager(LogicExecutor);
@@ -32,7 +29,7 @@ export default class VisibilityState extends DataState {
                 const value = LogicExecutor.execute(logicFn);
                 if (visible != value) {
                     VISIBLE.set(this, value);
-                    const event = new Event("visible");
+                    const event = new Event("change");
                     event.data = value;
                     this.dispatchEvent(event);
                 }
@@ -42,10 +39,6 @@ export default class VisibilityState extends DataState {
 
     get visible() {
         return !!VISIBLE.get(this);
-    }
-    
-    isVisible() {
-        return this.visible;
     }
 
 }

@@ -2,7 +2,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import ExitStateManager from "../../state/world/exit/StateManager.js";
 import EmptyState from "../../state/world/EmptyState.js";
 import WorldElement from "./WorldElement.js";
 import ExitContextMenu from "../ctxmenu/ExitContextMenu.js";
@@ -194,7 +194,7 @@ export default class MapExit extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManager.getByRef(this.ref);
+                        const state = ExitStateManager.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, `exit[${state.props.access}]`);

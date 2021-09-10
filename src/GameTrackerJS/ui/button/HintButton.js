@@ -5,6 +5,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import AreaStateManager from "../../state/world/area/StateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
 
 const TPL = new Template(`
@@ -120,7 +121,7 @@ class HintButton extends StateDataEventManager(CustomElement) {
                 case "ref":
                     {
                         // state
-                        const state = WorldStateManager.getByRef(newValue);
+                        const state = AreaStateManager.get(newValue);
                         this.switchState(state);
                     }
                     break;

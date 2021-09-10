@@ -2,17 +2,21 @@
 import EventBus from "/emcJS/event/EventBus.js";
 
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
-import AbstractAreaState from "../abstract/AreaState.js";
-import "../location/StateManager.js";
+import WorldState from "../WorldState.js";
+import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
 
+const LIST_HANDLER = new WeakMap();
 const HINT = new WeakMap();
 
-export default class DefaultAreaState extends AbstractAreaState {
+export default class DefaultAreaState extends WorldState {
 
-    constructor(ref, props, areaData) {
-        super(ref, props, areaData);
+    constructor(ref, props) {
+        super(ref, props);
         /* --- */
-        this.hint = SavestateHandler.get("area_hint", ref, "");
+        this.hint = SavestateHandler.get("area_hint", `area/${ref}`, ""); // XXX remove "area/"
+        /* handler */
+        const listHandler = this.generateList();
+        LIST_HANDLER.set(this, listHandler);
         /* EVENTS */
         EventBus.register("state::area_hint", (event) => {
             const ref = this.ref;
@@ -22,19 +26,12 @@ export default class DefaultAreaState extends AbstractAreaState {
                 this./*#*/__setHint(change.value);
             }
         });
-        EventBus.register("state", event => {
-            this.stateLoaded(event);
-        });
     }
 
-    stateLoaded(event) {
+    onStateLoad(state) {
         const ref = this.ref;
         // hint
-        if (event.data.extra["area_hint"] != null) {
-            this.hint = event.data.extra["area_hint"][ref] ?? "";
-        } else {
-            this.hint = "";
-        }
+        this.hint = state?.data?.["area_hint"]?.[`area/${ref}`] ?? ""; // XXX remove "area/"
     }
 
     /*#*/__setHint(value) {
@@ -45,7 +42,7 @@ export default class DefaultAreaState extends AbstractAreaState {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            SavestateHandler.set("area_hint", ref, value);
+            SavestateHandler.set("area_hint", `area/${ref}`, value); // XXX remove "area/"
             // external
             const event = new Event("hint");
             event.data = value;
@@ -69,8 +66,57 @@ export default class DefaultAreaState extends AbstractAreaState {
     }
 
     get listContents() {
-        // XXX return this.props.listContents
-        return false;
+        return this.props.listContents;
+    }
+
+    get access() {
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler?.access ?? defaultMarkerAccess;
+    }
+
+    get visible() {
+        const listHandler = LIST_HANDLER.get(this);
+        return super.visible && listHandler.visible;
+    }
+
+    /* list */
+    generateList() {
+        const listHandler = new MarkerListHandler(this.props.list, this.ref);
+        listHandler.addEventListener("visibility", () => {
+            this.updateVisible();
+        });
+        listHandler.addEventListener("access", event => {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+        listHandler.addEventListener("change", event => {
+            this.checkAllFilter();
+            const ev = new Event("list_update");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+        return listHandler;
+    }
+
+    getRawList() {
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.rawList);
+    }
+
+    getList() {
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.list);
+    }
+
+    getFilteredList() {
+        const listHandler = LIST_HANDLER.get(this);
+        return Array.from(listHandler.filteredList);
+    }
+
+    setAllEntries(value = true) {
+        const listHandler = LIST_HANDLER.get(this);
+        listHandler.setAllEntries(value);
     }
 
 }

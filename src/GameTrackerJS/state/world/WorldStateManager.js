@@ -1,20 +1,18 @@
+import WorldResource from "../../resource/WorldResource.js";
 import { emptyState } from "./EmptyState.js";
-import { overworldState } from "./OverworldState.js";
 import AreaStateManager from "./area/StateManager.js";
 import EntranceStateManager from "./entrance/StateManager.js";
 import ExitStateManager from "./exit/StateManager.js";
 import LocationStateManager from "./location/StateManager.js";
-import SubareaStateManager from "./subarea/StateManager.js";
-import SubexitStateManager from "./subexit/StateManager.js";
 import CollectionStateManager from "./collection/StateManager.js";
+import "./area/OverworldState.js";
 
+const CONFIG = WorldResource.get("config");
 const WORLD = {
-    area: AreaStateManager,
-    exit: ExitStateManager,
     location: LocationStateManager,
-    subarea: SubareaStateManager,
-    subexit: SubexitStateManager,
-    collection: CollectionStateManager
+    collection: CollectionStateManager,
+    area: AreaStateManager,
+    exit: ExitStateManager
 };
 
 class WorldStateManager {
@@ -23,8 +21,20 @@ class WorldStateManager {
         return emptyState;
     }
 
-    getOverworld() {
-        return overworldState;
+    getLocation(id) {
+        return LocationStateManager.get(id);
+    }
+
+    getCollection(id) {
+        return CollectionStateManager.get(id);
+    }
+
+    getArea(id) {
+        return AreaStateManager.get(id);
+    }
+
+    getExit(id) {
+        return ExitStateManager.get(id);
     }
 
     getEntrance(id) {
@@ -38,10 +48,7 @@ class WorldStateManager {
         if (typeof id != "string") {
             throw new TypeError(`id parameter must be of type "string" but was "${typeof id}"`);
         }
-        if (category == "" || category == "overworld") {
-            return this.getOverworld();
-        }
-        if (category == "\u0000") {
+        if (category == "\u0000" || id == "\u0000") {
             return this.getEmpty();
         }
         const Manager = WORLD[category];
@@ -52,20 +59,33 @@ class WorldStateManager {
         }
     }
 
-    getByRef(ref) {
-        if (typeof ref != "string") {
-            throw new TypeError(`ref parameter must be of type "string" but was "${typeof ref}"`);
-        }
-        if (ref == "" || ref == "overworld") {
-            return this.getOverworld();
-        }
-        if (ref == "\u0000") {
-            return this.getEmpty();
-        }
-        const [category, id] = ref.split("/");
-        return this.get(category, id);
-    }
+}
 
+if (!!CONFIG.prefetchEntries) {
+    setTimeout(() => {
+        const locations = WorldResource.get("collection");
+        const collections = WorldResource.get("collection");
+        const areas = WorldResource.get("collection");
+        const exits = WorldResource.get("collection");
+    
+        for (const id in locations) {
+            LocationStateManager.get(id);
+        }
+    
+        for (const id in collections) {
+            CollectionStateManager.get(id);
+        }
+    
+        for (const id in areas) {
+            AreaStateManager.get(id);
+        }
+    
+        for (const id in exits) {
+            ExitStateManager.get(id);
+            EntranceStateManager.get(id);
+        }
+    
+    }, 0);
 }
 
 export default new WorldStateManager();

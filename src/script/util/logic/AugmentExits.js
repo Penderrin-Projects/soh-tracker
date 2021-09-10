@@ -2,12 +2,10 @@
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import GhostExitState from "/GameTrackerJS/state/world/abstract/GhostExitState.js";
+import DefaultExitState from "/GameTrackerJS/state/world/exit/DefaultState.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
-import "/GameTrackerJS/state/world/subarea/StateManager.js";
-import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
@@ -162,7 +160,7 @@ class ExitAugmentor {
     }
 
     for (const [access, exit] of NEEDED_REVERSE) {
-        const ghost_exit = new GhostExitState(`${exit.ref}_reverse`, {...exit.props, access}, exit.exitData);
+        const ghost_exit = new DefaultExitState(access, exit.props);
         AUGMENTORS.add(new ExitAugmentor(ghost_exit));
     }
 

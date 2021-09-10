@@ -4,8 +4,8 @@ import EventBus from "/emcJS/event/EventBus.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 
@@ -35,9 +35,9 @@ export default class DefaultState extends DataState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const state = WorldStateManager.getByRef(ref);
+        const state = AreaStateManager.get(ref);
         if (state != null) {
-            if (state.areaData.lists == null) {
+            if (state.props.list_mq == null) {
                 this.type = "v";
             } else {
                 this.type = SavestateHandler.get("dungeontype", ref, "n");
@@ -58,9 +58,9 @@ export default class DefaultState extends DataState {
         const ref = this.ref;
         if (ref) {
             // type
-            const state = WorldStateManager.getByRef(ref);
+            const state = AreaStateManager.get(ref);
             if (state != null) {
-                if (state.areaData.lists == null) {
+                if (state.props.list_mq == null) {
                     this.type = "v";
                 } else if (event.data.extra.dungeontype != null) {
                     const state = event.data.extra.dungeontype[ref];

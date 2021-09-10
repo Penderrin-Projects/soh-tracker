@@ -151,7 +151,7 @@ export default class WorldListExit extends BaseClass {
             const mnu_ctx = this.getDefaultContextMenu();
             const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
-                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.fillEntranceSelection(this.ref, state.value);
             } else {
                 mnu_ext.fillEntranceSelection("", "");
             }
@@ -235,7 +235,9 @@ export default class WorldListExit extends BaseClass {
             const area = state.area;
             if (area != null) {
                 if (!(area instanceof EmptyState)) {
-                    WorldListState.area = area.ref;
+                    if (!area.listContents) {
+                        WorldListState.area = area.ref;
+                    }
                 }
                 // XXX use the one below
                 // if (area instanceof AreaState) {
@@ -243,7 +245,7 @@ export default class WorldListExit extends BaseClass {
                 // }
             } else {
                 const mnu_ext = this.getContextMenu("exitbinding");
-                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.fillEntranceSelection(this.ref, state.value);
                 mnu_ext.setValue(state.value);
                 this.showContextMenu("exitbinding", event);
             }
@@ -347,16 +349,16 @@ export default class WorldListExit extends BaseClass {
                 }
             }
         }
-        this.classList.toggle("empty", !hasElements);
+        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
     }
 
     get textRef() {
-        const state = this.getState();
-        if (state != null) {
-            return `exit[${state.props.access}]`;
-        }
-        return super.textRef;
+        return `exit[${super.textRef}]`;
+    }
+
+    get category() {
+        return "exit";
     }
 
 }

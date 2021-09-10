@@ -16,8 +16,9 @@ class ListLogic {
             done: 0,
             unopened: 0,
             reachable: 0,
-            entrances: 0,
-            value: AccessStateEnum.OPENED
+            total: 0,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
         };
     }
     
@@ -26,8 +27,9 @@ class ListLogic {
             done: 0,
             unopened: 0,
             reachable: 0,
-            entrances: 0,
-            value: AccessStateEnum.OPENED
+            total: 0,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
         };
         if (!!list && Array.isArray(list)) {
             for (const entry of list) {

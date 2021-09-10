@@ -17,27 +17,10 @@ export default class WorldListStateEntry extends BaseClass {
     constructor() {
         super();
         /* state handler */
-        this.registerStateHandler("visible", event => {
-            const state = this.getState();
-            if (state != null) {
-                if (state.isVisible()) {
-                    this.style.display = "";
-                } else {
-                    this.style.display = "none";
-                }
-            }
+        this.registerStateHandler("visiblity", (event) => {
+            this.style.display = event.data ? "" : "none";
         });
-        this.registerStateHandler("filter", event => {
-            const state = this.getState();
-            if (state != null) {
-                if (state.isVisible()) {
-                    this.style.display = "";
-                } else {
-                    this.style.display = "none";
-                }
-            }
-        });
-        this.registerStateHandler("access", event => {
+        this.registerStateHandler("access", (event) => {
             const accessValue = AccessStateEnum.getName(event.data.value);
             this.applyAccess(accessValue.toLowerCase(), event.data);
         });
@@ -49,7 +32,7 @@ export default class WorldListStateEntry extends BaseClass {
         }
         /* --- */
         if (this.ref) {
-            const state = WorldStateManager.getByRef(this.ref);
+            const state = WorldStateManager.get(this.category, this.ref);
             this.switchState(state);
             /* text */
             const textEl = this.shadowRoot.getElementById("text");
@@ -68,14 +51,15 @@ export default class WorldListStateEntry extends BaseClass {
 
     applyStateValues(state) {
         /* visible */
-        if (state.isVisible()) {
-            this.style.display = "";
-        } else {
-            this.style.display = "none";
-        }
+        this.style.display = state.isVisible() ? "" : "none";
         /* access */
-        const accessValue = AccessStateEnum.getName(state.access.value);
-        this.applyAccess(accessValue.toLowerCase(), state.access);
+        const access = this.getStateAccess(state);
+        const accessValue = AccessStateEnum.getName(access.value);
+        this.applyAccess(accessValue.toLowerCase(), access);
+    }
+
+    getStateAccess(state) {
+        return state.access;
     }
     
     applyAccess(value = "unavailable", data = {}) {
@@ -101,7 +85,7 @@ export default class WorldListStateEntry extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    const state = WorldStateManager.getByRef(this.ref);
+                    const state = WorldStateManager.get(this.category, this.ref);
                     this.switchState(state);
                     /* text */
                     const textEl = this.shadowRoot.getElementById("text");
@@ -115,6 +99,10 @@ export default class WorldListStateEntry extends BaseClass {
 
     get textRef() {
         return this.ref;
+    }
+
+    get category() {
+        return "\u0000";
     }
 
 }

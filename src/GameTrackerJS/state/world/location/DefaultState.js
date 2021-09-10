@@ -1,12 +1,13 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
+import { mix } from "/emcJS/util/Mixin.js";
 
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
-import ItemStateManager from "../../../state/item/StateManager.js";
 import Logic from "../../../util/logic/Logic.js";
-import FilteredState from "../../abstract/FilteredState.js";
+import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import WorldState from "../WorldState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
+import ItemStateManager from "../../../state/item/StateManager.js";
 
 const ACCESS = new WeakMap();
 const REACHABLE = new WeakMap();
@@ -14,10 +15,11 @@ const VALUE = new WeakMap();
 const ITEM = new WeakMap();
 const ITEM_DATA = new WeakMap();
 
-export default class DefaultLocationState extends FilteredState {
+export default class DefaultLocationState extends WorldState {
 
     constructor(ref, props) {
         super(ref, props);
+        this.initValues();
         /* EVENTS */
         EventBus.register("state::location", (event) => {
             const ref = this.ref;
@@ -39,7 +41,7 @@ export default class DefaultLocationState extends FilteredState {
             this.stateLoaded(event);
         });
         EventBus.register("logic", event => {
-            const reachable = Logic.getValue(props.access);
+            const reachable = Logic.getValue(props.logicAccess);
             if (reachable != null) {
                 const old = REACHABLE.get(this);
                 if (reachable != old) {
@@ -48,16 +50,42 @@ export default class DefaultLocationState extends FilteredState {
                 }
             }
         });
+        /* --- */
+        setTimeout(() => {
+            this.refreshAccess();
+        }, 0);
+    }
+
+    onStateLoad(state) {
+        // TODO
+    }
+
+    stateLoaded(event) {
+        const ref = this.ref;
+        // savesatate
+        this.value = !!event.data.state[ref];
+        // item
+        if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
+            this.item = event.data.extra["item_location"][ref];
+        } else {
+            this.item = "";
+        }
     }
 
     initValues() {
-        super.initValues();
         const ref = this.ref;
         const props = this.props;
-        VALUE.set(this, SavestateHandler.get("", ref, false));
-        REACHABLE.set(this, Logic.getValue(props.access));
-        ACCESS.set(this, this.getAccessValue(VALUE.get(this), REACHABLE.get(this)));
-        const item = SavestateHandler.get("item_location", ref, "");
+        VALUE.set(this, SavestateHandler.get("", `location/${ref}`, false)); // XXX remove "location/"
+        REACHABLE.set(this, Logic.getValue(props.logicAccess));
+        ACCESS.set(this, {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            total: 1,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
+        });
+        const item = SavestateHandler.get("item_location", `location/${ref}`, ""); // XXX remove "location/"
         ITEM.set(this, item);
         if (item) {
             const itemData = ItemStateManager.get(item);
@@ -70,8 +98,9 @@ export default class DefaultLocationState extends FilteredState {
             done: 0,
             unopened: 0,
             reachable: 0,
-            entrances: false,
-            value: AccessStateEnum.OPENED
+            total: 1,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
         };
         if (checked) {
             res.done = 1;
@@ -110,18 +139,6 @@ export default class DefaultLocationState extends FilteredState {
         }
     }
 
-    stateLoaded(event) {
-        const ref = this.ref;
-        // savesatate
-        this.value = !!event.data.state[ref];
-        // item
-        if (event.data.extra["item_location"] != null && event.data.extra["item_location"][ref] != null) {
-            this.item = event.data.extra["item_location"][ref];
-        } else {
-            this.item = "";
-        }
-    }
-
     get access() {
         return ACCESS.get(this);
     }
@@ -134,7 +151,7 @@ export default class DefaultLocationState extends FilteredState {
         if (value != old) {
             const ref = this.ref;
             VALUE.set(this, value);
-            SavestateHandler.set("", ref, value);
+            SavestateHandler.set("", `location/${ref}`, value); // XXX remove "location/"
             this.refreshAccess();
             // external
             const event = new Event("value");
@@ -164,7 +181,7 @@ export default class DefaultLocationState extends FilteredState {
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);
-            SavestateHandler.set("item_location", ref, value);
+            SavestateHandler.set("item_location", `location/${ref}`, value); // XXX remove "location/"
             // item data
             if (value) {
                 const itemData = ItemStateManager.get(value);

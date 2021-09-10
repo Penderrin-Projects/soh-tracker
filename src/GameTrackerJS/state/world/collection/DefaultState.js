@@ -1,32 +1,79 @@
-import VisibilityState from "../../abstract/VisibilityState.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
-import AccessStateEnum from "../../../enum/AccessStateEnum.js";
+import DataState from "../../DataState.js";
+import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
+const VISIBLE = new WeakMap();
 
-export default class DefaultCollectionState extends VisibilityState {
+export default class DefaultCollectionState extends DataState {
     
     constructor(ref, props = {}) {
         super(ref, props);
         /* --- */
+        VISIBLE.set(this, false);
+        /* --- */
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);
+        VISIBLE.set(this, listHandler.visible);
     }
-    
+
+    set hint(value) {
+        // nothing
+    }
+
+    get hint() {
+        return "";
+    }
+
+    get listContents() {
+        return this.props.listContents;
+    }
+
+    get access() {
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler?.access ?? defaultMarkerAccess;
+    }
+
+    get visible() {
+        const listHandler = LIST_HANDLER.get(this);
+        return listHandler.visible;
+    }
+
+    get filtered() {
+        return false;
+    }
+
+    isVisible() {
+        return VISIBLE.get(this);
+    }
+
+    updateVisible() {
+        const value = this.visible;
+        const old = VISIBLE.get(this);
+        if (old != value) {
+            VISIBLE.set(this, value);
+            // external
+            const ev = new Event("visiblity");
+            ev.data = value;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    /* list */
     generateList() {
         const list = this.props.list;
         const listHandler = new MarkerListHandler(list, this.ref);
-        listHandler.addEventListener("access", event => {
+        listHandler.addEventListener("visibility", () => {
+            this.updateVisible();
+        });
+        listHandler.addEventListener("access", (event) => {
             const ev = new Event("access");
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
-        listHandler.addEventListener("change", event => {
-            if (event.list != null) {
-                const ev = new Event("list_update");
-                ev.data = event.list;
-                this.dispatchEvent(ev);
-            }
+        listHandler.addEventListener("change", (event) => {
+            const ev = new Event("list_update");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
         });
         return listHandler;
     }
@@ -46,17 +93,9 @@ export default class DefaultCollectionState extends VisibilityState {
         return Array.from(listHandler.filteredList);
     }
 
-    get access() {
+    setAllEntries(value = true) {
         const listHandler = LIST_HANDLER.get(this);
-        return listHandler?.access ?? defaultMarkerAccess;
-    }
-
-    get visible() {
-        return true;
-    }
-    
-    isVisible() {
-        return this.visible;
+        listHandler.setAllEntries(value);
     }
 
 }

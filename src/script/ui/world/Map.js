@@ -518,11 +518,11 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`map-${record.category}`);
-                    const el = uiReg.create(loc.props.type, loc.ref);
-                    el.left = record.x;
-                    el.top = record.y;
-                    el.tooltip = calculateTooltipPosition(record.x, record.y, areaData.width, areaData.height);
-                    this.append(el);
+                    // const el = uiReg.create(loc.props.type, loc.ref);
+                    // el.left = record.x;
+                    // el.top = record.y;
+                    // el.tooltip = calculateTooltipPosition(record.x, record.y, areaData.width, areaData.height);
+                    // this.append(el);
                 }
             }/* else {
                 const listV = data.getFilteredList("v");

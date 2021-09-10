@@ -62,7 +62,7 @@ class LogicListsCreator {
             operators: []
         };
 
-        const world = WorldResource.get("marker");
+        const locations = WorldResource.get("location");
         const items = ItemsResource.get();
         const randomizer_options = OptionsResource.get();
         const tracker_settings = SettingsResource.get();
@@ -109,10 +109,7 @@ class LogicListsCreator {
         result.operators.push(createOptionsOperatorCategory(randomizer_options));
         result.operators.push(createSettingsOperatorCategory(tracker_settings));
         result.operators.push(createFilterOperatorCategory(filter));
-        /*for (let cat of createOperatorWorldCategories(world)) {
-            result.operators.push(cat);
-        }*/
-        result.operators.push(createOperatorLocationDoneCategory(world));
+        result.operators.push(createOperatorLocationDoneCategory(locations));
         
         for (const cat of createOperatorReachCategories(logic.edges)) {
             result.operators.push(cat);
@@ -122,10 +119,7 @@ class LogicListsCreator {
         result.operators.push(createOperatorFunctions(functions));
         
         // LOGICS
-        //for (let cat of createLogicWorldCategories(world_lists, world)) {
-        //    result.logics.push(cat);
-        //}
-        result.logics.push(createLogicGraphCategory(logic.edges, world));
+        result.logics.push(createLogicGraphCategory(logic.edges, locations));
         result.logics.push(createLogicMixinCategory(mixins));
         result.logics.push(createLogicFunctionCategory(functions));
 
@@ -320,14 +314,14 @@ function createOperatorReachCategories(data) {
     return [lbuf, rbuf, ebuf];
 }
 
-function createOperatorLocationDoneCategory(world) {
+function createOperatorLocationDoneCategory(locations) {
     const res = {
         "type": "group",
         "caption": "locations done",
         "children": []
     };
-    for (const name in world) {
-        const ref = world[name];
+    for (const name in locations) {
+        const ref = locations[name];
         if (ref.category == "location") {
             res.children.push({
                 "type": "tracker-logic-custom",
@@ -371,7 +365,7 @@ function createOperatorFunctions(data) {
 
 // LOGICS
 // -------------------
-function createLogicGraphCategory(data, world) {
+function createLogicGraphCategory(data, locations) {
     const resC = {
         "type": "group",
         "caption": "child",
@@ -407,8 +401,8 @@ function createLogicGraphCategory(data, world) {
         if (ref.endsWith("[child]")) {
             for (const sref in sub) {
                 if (sref.startsWith("logic.location.")) {
-                    const name = sref.slice(6);
-                    const loc = world[name];
+                    const name = sref.slice(15);
+                    const loc = locations[name];
                     if (loc) {
                         lbuf.children.push({
                             "type": loc.type,
@@ -456,8 +450,8 @@ function createLogicGraphCategory(data, world) {
         } else {
             for (const sref in sub) {
                 if (sref.startsWith("logic.location.")) {
-                    const name = sref.slice(6);
-                    const loc = world[name];
+                    const name = sref.slice(15);
+                    const loc = locations[name];
                     if (loc) {
                         lbuf.children.push({
                             "type": loc.type,

@@ -7,10 +7,9 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import "/script/state/world/area/AreaState.js";
 import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
@@ -128,9 +127,9 @@ class HTMLTrackerDungeonType extends StateDataEventManager(CustomElement) {
                         // state
                         const state = DungeonstateStates.get(newValue);
                         if (state != null) {
-                            const data = WorldStateManager.getByRef(newValue);
+                            const data = AreaStateManager.get(newValue);
                             if (data != null) {
-                                if (data.areaData.lists != null) {
+                                if (data.props.list_mq != null) {
                                     this.readonly = false;
                                 } else {
                                     this.readonly = true;

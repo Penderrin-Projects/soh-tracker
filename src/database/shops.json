@@ -1,336 +1,336 @@
 {
     "shop.kokiri": [
         {
-            "ref": "location/kokiri.kokiri_shop_8",
+            "ref": "kokiri.kokiri_shop_8",
             "item": "item.heart_1",
             "price": 10
         },
         {
-            "ref": "location/kokiri.kokiri_shop_6",
+            "ref": "kokiri.kokiri_shop_6",
             "item": "item.arrows_10",
             "price": 20
         },
         {
-            "ref": "location/kokiri.kokiri_shop_2",
+            "ref": "kokiri.kokiri_shop_2",
             "item": "item.nuts_5",
             "price": 15
         },
         {
-            "ref": "location/kokiri.kokiri_shop_4",
+            "ref": "kokiri.kokiri_shop_4",
             "item": "item.stick_1",
             "price": 10
         },
         {
-            "ref": "location/kokiri.kokiri_shop_7",
+            "ref": "kokiri.kokiri_shop_7",
             "item": "item.arrows_30",
             "price": 60
         },
         {
-            "ref": "location/kokiri.kokiri_shop_5",
+            "ref": "kokiri.kokiri_shop_5",
             "item": "item.seeds_30",
             "price": 30
         },
         {
-            "ref": "location/kokiri.kokiri_shop_1",
+            "ref": "kokiri.kokiri_shop_1",
             "item": "item.shield_kokiri_1",
             "price": 40
         },
         {
-            "ref": "location/kokiri.kokiri_shop_3",
+            "ref": "kokiri.kokiri_shop_3",
             "item": "item.nuts_10",
             "price": 30
         }
     ],
     "shop.goron": [
         {
-            "ref": "location/goron.goron_shop_8",
+            "ref": "goron.goron_shop_8",
             "item": "item.heart_1",
             "price": 10
         },
         {
-            "ref": "location/goron.goron_shop_6",
+            "ref": "goron.goron_shop_6",
             "item": "item.heart_1",
             "price": 10
         },
         {
-            "ref": "location/goron.goron_shop_2",
+            "ref": "goron.goron_shop_2",
             "item": "item.bombs_10",
             "price": 50
         },
         {
-            "ref": "location/goron.goron_shop_4",
+            "ref": "goron.goron_shop_4",
             "item": "item.bombs_30",
             "price": 120
         },
         {
-            "ref": "location/goron.goron_shop_7",
+            "ref": "goron.goron_shop_7",
             "item": "item.potion_red_1",
             "price": 40
         },
         {
-            "ref": "location/goron.goron_shop_5",
+            "ref": "goron.goron_shop_5",
             "item": "item.tunic_fire_1",
             "price": 200
         },
         {
-            "ref": "location/goron.goron_shop_1",
+            "ref": "goron.goron_shop_1",
             "item": "item.bombs_5",
             "price": 25
         },
         {
-            "ref": "location/goron.goron_shop_3",
+            "ref": "goron.goron_shop_3",
             "item": "item.bombs_20",
             "price": 80
         }
     ],
     "shop.zora": [
         {
-            "ref": "location/zoras.zoras_shop_8",
+            "ref": "zoras.zoras_shop_8",
             "item": "item.potion_red_1",
             "price": 50
         },
         {
-            "ref": "location/zoras.zoras_shop_6",
+            "ref": "zoras.zoras_shop_6",
             "item": "item.arrows_50",
             "price": 90
         },
         {
-            "ref": "location/zoras.zoras_shop_2",
+            "ref": "zoras.zoras_shop_2",
             "item": "item.arrows_10",
             "price": 20
         },
         {
-            "ref": "location/zoras.zoras_shop_4",
+            "ref": "zoras.zoras_shop_4",
             "item": "item.arrows_30",
             "price": 60
         },
         {
-            "ref": "location/zoras.zoras_shop_7",
+            "ref": "zoras.zoras_shop_7",
             "item": "item.fish_1",
             "price": 200
         },
         {
-            "ref": "location/zoras.zoras_shop_5",
+            "ref": "zoras.zoras_shop_5",
             "item": "item.nuts_5",
             "price": 15
         },
         {
-            "ref": "location/zoras.zoras_shop_1",
+            "ref": "zoras.zoras_shop_1",
             "item": "item.tunic_water_1",
             "price": 300
         },
         {
-            "ref": "location/zoras.zoras_shop_3",
+            "ref": "zoras.zoras_shop_3",
             "item": "item.heart_1",
             "price": 10
         }
     ],
     "shop.bombchu": [
         {
-            "ref": "location/castle_town.shop_bombchu_8",
+            "ref": "castle_town.shop_bombchu_8",
             "item": "item.bombchu_20",
             "price": 180
         },
         {
-            "ref": "location/castle_town.shop_bombchu_6",
+            "ref": "castle_town.shop_bombchu_6",
             "item": "item.bombchu_20",
             "price": 180
         },
         {
-            "ref": "location/castle_town.shop_bombchu_2",
+            "ref": "castle_town.shop_bombchu_2",
             "item": "item.bombchu_10",
             "price": 99
         },
         {
-            "ref": "location/castle_town.shop_bombchu_4",
+            "ref": "castle_town.shop_bombchu_4",
             "item": "item.bombchu_10",
             "price": 99
         },
         {
-            "ref": "location/castle_town.shop_bombchu_7",
+            "ref": "castle_town.shop_bombchu_7",
             "item": "item.bombchu_20",
             "price": 180
         },
         {
-            "ref": "location/castle_town.shop_bombchu_5",
+            "ref": "castle_town.shop_bombchu_5",
             "item": "item.bombchu_20",
             "price": 180
         },
         {
-            "ref": "location/castle_town.shop_bombchu_1",
+            "ref": "castle_town.shop_bombchu_1",
             "item": "item.bombchu_5",
             "price": 60
         },
         {
-            "ref": "location/castle_town.shop_bombchu_3",
+            "ref": "castle_town.shop_bombchu_3",
             "item": "item.bombchu_10",
             "price": 99
         }
     ],
     "shop.basar_child": [
         {
-            "ref": "location/castle_town.shop_bazaar_8",
+            "ref": "castle_town.shop_bazaar_8",
             "item": "item.arrows_30",
             "price": 60
         },
         {
-            "ref": "location/castle_town.shop_bazaar_6",
+            "ref": "castle_town.shop_bazaar_6",
             "item": "item.arrows_50",
             "price": 90
         },
         {
-            "ref": "location/castle_town.shop_bazaar_2",
+            "ref": "castle_town.shop_bazaar_2",
             "item": "item.bombs_5",
             "price": 35
         },
         {
-            "ref": "location/castle_town.shop_bazaar_4",
+            "ref": "castle_town.shop_bazaar_4",
             "item": "item.heart_1",
             "price": 10
         },
         {
-            "ref": "location/castle_town.shop_bazaar_7",
+            "ref": "castle_town.shop_bazaar_7",
             "item": "item.stick_1",
             "price": 10
         },
         {
-            "ref": "location/castle_town.shop_bazaar_5",
+            "ref": "castle_town.shop_bazaar_5",
             "item": "item.arrows_10",
             "price": 20
         },
         {
-            "ref": "location/castle_town.shop_bazaar_1",
+            "ref": "castle_town.shop_bazaar_1",
             "item": "item.shield_hylia_1",
             "price": 80
         },
         {
-            "ref": "location/castle_town.shop_bazaar_3",
+            "ref": "castle_town.shop_bazaar_3",
             "item": "item.nuts_5",
             "price": 15
         }
     ],
     "shop.magic_child": [
         {
-            "ref": "location/castle_town.shop_magic_8",
+            "ref": "castle_town.shop_magic_8",
             "item": "item.bugs_1",
             "price": 50
         },
         {
-            "ref": "location/castle_town.shop_magic_6",
+            "ref": "castle_town.shop_magic_6",
             "item": "item.fish_1",
             "price": 200
         },
         {
-            "ref": "location/castle_town.shop_magic_2",
+            "ref": "castle_town.shop_magic_2",
             "item": "item.potion_green_1",
             "price": 30
         },
         {
-            "ref": "location/castle_town.shop_magic_4",
+            "ref": "castle_town.shop_magic_4",
             "item": "item.potion_red_1",
             "price": 30
         },
         {
-            "ref": "location/castle_town.shop_magic_7",
+            "ref": "castle_town.shop_magic_7",
             "item": "item.poe_1",
             "price": 30
         },
         {
-            "ref": "location/castle_town.shop_magic_5",
+            "ref": "castle_town.shop_magic_5",
             "item": "item.nuts_5",
             "price": 15
         },
         {
-            "ref": "location/castle_town.shop_magic_1",
+            "ref": "castle_town.shop_magic_1",
             "item": "item.fairy_spirit_1",
             "price": 50
         },
         {
-            "ref": "location/castle_town.shop_magic_3",
+            "ref": "castle_town.shop_magic_3",
             "item": "item.blue_fire_1",
             "price": 300
         }
     ],
     "shop.basar_adult": [
         {
-            "ref": "location/kakariko.shop_bazaar_8",
+            "ref": "kakariko.shop_bazaar_8",
             "item": "item.arrows_30",
             "price": 60
         },
         {
-            "ref": "location/kakariko.shop_bazaar_6",
+            "ref": "kakariko.shop_bazaar_6",
             "item": "item.arrows_50",
             "price": 90
         },
         {
-            "ref": "location/kakariko.shop_bazaar_2",
+            "ref": "kakariko.shop_bazaar_2",
             "item": "item.bombs_5",
             "price": 35
         },
         {
-            "ref": "location/kakariko.shop_bazaar_4",
+            "ref": "kakariko.shop_bazaar_4",
             "item": "item.heart_1",
             "price": 10
         },
         {
-            "ref": "location/kakariko.shop_bazaar_7",
+            "ref": "kakariko.shop_bazaar_7",
             "item": "item.stick_1",
             "price": 10
         },
         {
-            "ref": "location/kakariko.shop_bazaar_5",
+            "ref": "kakariko.shop_bazaar_5",
             "item": "item.arrows_10",
             "price": 20
         },
         {
-            "ref": "location/kakariko.shop_bazaar_1",
+            "ref": "kakariko.shop_bazaar_1",
             "item": "item.shield_hylia_1",
             "price": 80
         },
         {
-            "ref": "location/kakariko.shop_bazaar_3",
+            "ref": "kakariko.shop_bazaar_3",
             "item": "item.nuts_5",
             "price": 15
         }
     ],
     "shop.magic_adult": [
         {
-            "ref": "location/kakariko.shop_magic_8",
+            "ref": "kakariko.shop_magic_8",
             "item": "item.bugs_1",
             "price": 50
         },
         {
-            "ref": "location/kakariko.shop_magic_6",
+            "ref": "kakariko.shop_magic_6",
             "item": "item.fish_1",
             "price": 200
         },
         {
-            "ref": "location/kakariko.shop_magic_2",
+            "ref": "kakariko.shop_magic_2",
             "item": "item.potion_green_1",
             "price": 30
         },
         {
-            "ref": "location/kakariko.shop_magic_4",
+            "ref": "kakariko.shop_magic_4",
             "item": "item.potion_red_1",
             "price": 30
         },
         {
-            "ref": "location/kakariko.shop_magic_7",
+            "ref": "kakariko.shop_magic_7",
             "item": "item.poe_1",
             "price": 30
         },
         {
-            "ref": "location/kakariko.shop_magic_5",
+            "ref": "kakariko.shop_magic_5",
             "item": "item.nuts_5",
             "price": 15
         },
         {
-            "ref": "location/kakariko.shop_magic_1",
+            "ref": "kakariko.shop_magic_1",
             "item": "item.fairy_spirit_1",
             "price": 50
         },
         {
-            "ref": "location/kakariko.shop_magic_3",
+            "ref": "kakariko.shop_magic_3",
             "item": "item.blue_fire_1",
             "price": 300
         }

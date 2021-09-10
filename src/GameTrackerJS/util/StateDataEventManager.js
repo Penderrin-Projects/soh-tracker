@@ -1,4 +1,4 @@
-import DataState from "../state/abstract/DataState.js";
+import DataState from "../state/DataState.js";
 
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();

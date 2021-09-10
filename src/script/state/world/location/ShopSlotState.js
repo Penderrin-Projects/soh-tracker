@@ -27,7 +27,7 @@ export default class ShopSlotState extends DefaultLocationState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const shopState = ShopLocationRegistry.get(ref);
+        const shopState = ShopLocationRegistry.get(props.shop);
         SHOP_STATE.set(this, shopState);
         /* EVENTS */
         if (shopState != null) {
@@ -52,7 +52,6 @@ export default class ShopSlotState extends DefaultLocationState {
                 this.refreshAccess();
             });
         }
-        this.refreshAccess();
     }
 
     getAccessValue(checked, reachable) {
@@ -63,6 +62,10 @@ export default class ShopSlotState extends DefaultLocationState {
             }
         }
         return super.getAccessValue(checked, reachable);
+    }
+
+    onStateLoad(state) {
+        // ignore
     }
 
     stateLoaded(event) {

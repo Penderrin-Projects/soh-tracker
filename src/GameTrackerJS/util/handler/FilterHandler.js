@@ -2,11 +2,8 @@
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-import LogicExecutor from "../../util/logic/LogicExecutor.js";
-import VisibilityState from "./VisibilityState.js";
+import LogicExecutor from "../logic/LogicExecutor.js";
 import FilterStorage from "../../storage/FilterStorage.js";
-
-// TODO this should be a mixin
 
 const SPECIAL_FILTERS = [
     "access",
@@ -26,59 +23,57 @@ function mapToObj(map) {
 const FILTER = new WeakMap();
 const FILTER_LOGICS = new WeakMap();
 
-export default class FilteredState extends VisibilityState {
+export default class FilterHandler extends EventTarget {
 
-    constructor(ref, props = {}) {
-        super(ref, props);
+    constructor(config = {}) {
+        super();
         /* FILTER */
-        if (props.filter) {
-            const filter_values = new Map();
-            const filter_logics = new Map();
-            for (const i in props.filter) {
-                const filterValue = FilterStorage.get(i);
-                for (const j in props.filter[i]) {
-                    const filterProp = props.filter[i][j];
-                    if (typeof filterProp == "object") {
-                        const logicFn = LogicCompiler.compile(filterProp);
-                        filter_logics.set(`${i}/${j}`, logicFn);
-                        if (j == filterValue) {
-                            const value = LogicExecutor.execute(logicFn);
-                            filter_values.set(i, value);
-                        } else {
-                            filter_values.set(i, false);
-                        }
-                    } else if (SPECIAL_FILTERS.includes(filterProp)) {
-                        filter_logics.set(`${i}/${j}`, filterProp);
-                        if (j == filterValue) {
-                            const value = this.executeSpecialFilter(filterProp);
-                            filter_values.set(i, value);
-                        } else {
-                            filter_values.set(i, false);
-                        }
-                    } else if (filterProp != null) {
-                        const value = !!filterProp;
-                        filter_logics.set(`${i}/${j}`, value);
-                        if (j == filterValue) {
-                            filter_values.set(i, value);
-                        } else {
-                            filter_values.set(i, false);
-                        }
-                    } else if (j == filterValue) {
-                        filter_values.set(i, true);
+        const filter_values = new Map();
+        const filter_logics = new Map();
+        for (const i in config) {
+            const filterValue = FilterStorage.get(i);
+            for (const j in config[i]) {
+                const filterProp = config[i][j];
+                if (typeof filterProp == "object") {
+                    const logicFn = LogicCompiler.compile(filterProp);
+                    filter_logics.set(`${i}/${j}`, logicFn);
+                    if (j == filterValue) {
+                        const value = LogicExecutor.execute(logicFn);
+                        filter_values.set(i, value);
                     } else {
                         filter_values.set(i, false);
                     }
+                } else if (SPECIAL_FILTERS.includes(filterProp)) {
+                    filter_logics.set(`${i}/${j}`, filterProp);
+                    if (j == filterValue) {
+                        const value = this.executeSpecialFilter(filterProp);
+                        filter_values.set(i, value);
+                    } else {
+                        filter_values.set(i, false);
+                    }
+                } else if (filterProp != null) {
+                    const value = !!filterProp;
+                    filter_logics.set(`${i}/${j}`, value);
+                    if (j == filterValue) {
+                        filter_values.set(i, value);
+                    } else {
+                        filter_values.set(i, false);
+                    }
+                } else if (j == filterValue) {
+                    filter_values.set(i, true);
+                } else {
+                    filter_values.set(i, false);
                 }
             }
-            FILTER.set(this, filter_values);
-            FILTER_LOGICS.set(this, filter_logics);
         }
+        FILTER.set(this, filter_values);
+        FILTER_LOGICS.set(this, filter_logics);
         /* EVENTS */
-        FilterStorage.addEventListener("change", event => {
+        FilterStorage.addEventListener("change", () => {
             this.checkAllFilter();
         });
         const logicEventManager = new EventTargetManager(LogicExecutor);
-        logicEventManager.set(["reset", "change"], event => {
+        logicEventManager.set(["reset", "change"], () => {
             this.checkAllFilter();
         });
         /* --- */
@@ -100,7 +95,7 @@ export default class FilteredState extends VisibilityState {
                 }
             }
             if (Object.keys(changes).length) {
-                const event = new Event("filter");
+                const event = new Event("change");
                 event.data = changes;
                 this.dispatchEvent(event);
             }
@@ -123,7 +118,13 @@ export default class FilteredState extends VisibilityState {
     }
 
     executeSpecialFilter(name) {
-        return true;
+        // const access = this.access;
+        // switch (name) {
+        //     case "access": return access.value != AccessStateEnum.UNAVAILABLE;
+        //     case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
+        //     case "done": return access.value == AccessStateEnum.OPENED;
+        //     case "!done": return access.value != AccessStateEnum.OPENED;
+        // }
     }
 
     get filter() {
@@ -141,10 +142,6 @@ export default class FilteredState extends VisibilityState {
             }
         }
         return false;
-    }
-
-    isVisible() {
-        return super.isVisible() && !this.filtered;
     }
 
 }

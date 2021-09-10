@@ -4,7 +4,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+import DataState from "/GameTrackerJS/state/DataState.js";
 
 const NOTES = new WeakMap();
 

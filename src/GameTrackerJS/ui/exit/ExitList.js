@@ -11,7 +11,6 @@ import "/emcJS/ui/input/InputWrapper.js";
 import WorldResource from "../../resource/WorldResource.js";
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/exit/StateManager.js";
-import "../../state/world/subexit/StateManager.js";
 import Language from "../../util/Language.js";
 import "./ExitChoice.js";
 

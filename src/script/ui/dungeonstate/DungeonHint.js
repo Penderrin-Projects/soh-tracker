@@ -7,9 +7,8 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 // Track-OOT
-import "/script/state/world/area/AreaState.js";
 import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
@@ -125,7 +124,7 @@ class HTMLTrackerDungeonHint extends StateDataEventManager(CustomElement) {
                 case "ref":
                     {
                         // state
-                        const state = WorldStateManager.getByRef(newValue);
+                        const state = AreaStateManager.get(newValue);
                         this.switchState(state);
                     }
                     break;

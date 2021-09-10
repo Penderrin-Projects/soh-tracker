@@ -1,7 +1,7 @@
 // frameworks
 import "/emcJS/ui/Icon.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import LocationStateManager from "../../state/world/location/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import LocationContextMenu from "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
@@ -71,7 +71,7 @@ export default class AbstractLocation extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManager.getByRef(this.ref);
+                        const state = LocationStateManager.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, newValue);

@@ -5,7 +5,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import Observable from "/GameTrackerJS/data/Observable.js";
-import DataState from "/GameTrackerJS/state/abstract/DataState.js";
+import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";

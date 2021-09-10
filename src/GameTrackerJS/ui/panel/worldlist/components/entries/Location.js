@@ -127,6 +127,14 @@ export default class WorldListLocation extends WorldListMarkedEntry {
         }
     }
 
+    get textRef() {
+        return `location/${super.textRef}`;
+    }
+
+    get category() {
+        return "location";
+    }
+
 }
 
 UIRegistry.set("worldlist-location", new UIRegistry(WorldListLocation));

@@ -1,5 +1,5 @@
 // GameTrackerJS
-import AbstractStateManager from "/GameTrackerJS/state/abstract/StateManager.js";
+import AbstractStateManager from "/GameTrackerJS/state/StateManager.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 import DefaultState from "./DefaultState.js";

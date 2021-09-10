@@ -19,6 +19,13 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
+:host {
+    box-shadow: inset 0 0 0px 2px var(--page-background-color, #ffffff), inset 0 0 1px 3px var(--page-text-color, #000000);
+}
+:host(:hover),
+:host(.ctx-marked) {
+    background-color: transparent;
+}
 :host(.empty) {
     display: none;
 }
@@ -46,6 +53,11 @@ const STYLE = new GlobalStyle(`
 }
 :host(:not(:empty)) #header.collapsible.expanded + #list {
     display: block;
+}
+.button,
+::slotted(*) {
+    border-bottom: solid 1px var(--list-border-bottom-color, #000000);
+    border-top: solid 1px var(--list-border-top-color, #000000);
 }
 `);
 
@@ -172,8 +184,16 @@ export default class WorldListCollection extends BaseClass {
                 }
             }
         }
-        this.classList.toggle("empty", !hasElements);
+        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
+    }
+
+    get textRef() {
+        return `collection/${super.textRef}`;
+    }
+
+    get category() {
+        return "collection";
     }
 
 }

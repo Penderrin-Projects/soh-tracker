@@ -77,7 +77,7 @@ export default class MapExit extends WorldMapMarkedEntry {
             const mnu_ctx = this.getDefaultContextMenu();
             const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
-                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.fillEntranceSelection(this.ref, state.value);
             } else {
                 mnu_ext.fillEntranceSelection("", "");
             }
@@ -159,7 +159,7 @@ export default class MapExit extends WorldMapMarkedEntry {
                 // }
             } else {
                 const mnu_ext = this.getContextMenu("exitbinding");
-                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.fillEntranceSelection(this.ref, state.value);
                 mnu_ext.setValue(state.value);
                 this.showContextMenu("exitbinding", event);
             }
@@ -273,11 +273,11 @@ export default class MapExit extends WorldMapMarkedEntry {
     }
 
     get textRef() {
-        const state = this.getState();
-        if (state != null) {
-            return `exit[${state.props.access}]`;
-        }
-        return super.textRef;
+        return `exit[${super.textRef}]`;
+    }
+
+    get category() {
+        return "exit";
     }
 
 }

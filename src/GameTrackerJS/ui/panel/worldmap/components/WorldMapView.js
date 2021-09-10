@@ -7,8 +7,8 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../../state/world/WorldListState.js";
-import AccessStateEnum from "../../../../enum/AccessStateEnum.js";
 import WorldStateManager from "../../../../state/world/WorldStateManager.js";
+import AreaStateManager from "../../../../state/world/area/StateManager.js";
 import UIRegistry from "../../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
 import "../../../button/FilterMenuButton.js";
@@ -108,10 +108,10 @@ export default class WorldMapView extends BaseClass {
         /* map */
         const mapEl = this.shadowRoot.getElementById("map");
         if (mapEl != null) {
-            const areaData = state.areaData;
-            mapEl.style.backgroundImage = `url("/images/maps/${areaData.background}")`;
-            mapEl.style.width = `${areaData.width}px`;
-            mapEl.style.height = `${areaData.height}px`;
+            const mapData = state.props.map;
+            mapEl.style.backgroundImage = `url("/images/maps/${mapData.background}")`;
+            mapEl.style.width = `${mapData.width}px`;
+            mapEl.style.height = `${mapData.height}px`;
         }
         /* list */
         this.refreshList();
@@ -133,7 +133,7 @@ export default class WorldMapView extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    const state = WorldStateManager.getByRef(this.ref);
+                    const state = AreaStateManager.get(this.ref);
                     this.switchState(state);
                 } break;
             }
@@ -148,7 +148,6 @@ export default class WorldMapView extends BaseClass {
         if (state != null) {
             const list = state.getList();
             if (list != null && list.length > 0) {
-                const areaData = state.areaData;
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);
                     elManagerData.push({
@@ -157,8 +156,8 @@ export default class WorldMapView extends BaseClass {
                         type: loc.props.type,
                         x: record.x,
                         y: record.y,
-                        areaWidth: areaData.width,
-                        areaHeight: areaData.height
+                        areaWidth: state.props.map.width,
+                        areaHeight: state.props.map.height
                     });
                     if (loc.isVisible()) {
                         hasElements = true;
@@ -166,7 +165,7 @@ export default class WorldMapView extends BaseClass {
                 }
             }
         }
-        this.classList.toggle("empty", !hasElements);
+        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
     }
 

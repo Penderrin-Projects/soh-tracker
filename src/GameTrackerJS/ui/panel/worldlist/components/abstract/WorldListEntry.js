@@ -21,7 +21,7 @@ const STYLE = new GlobalStyle(`
     align-items: center;
     width: 100%;
     cursor: pointer;
-    padding: 5px;
+    padding: 3px;
     user-select: none;
 }
 :host(:hover),
@@ -35,6 +35,7 @@ const STYLE = new GlobalStyle(`
     flex: 1;
     width: 100%;
     min-height: 35px;
+    padding: 2px;
     word-break: break-word;
 }
 .textarea:empty {

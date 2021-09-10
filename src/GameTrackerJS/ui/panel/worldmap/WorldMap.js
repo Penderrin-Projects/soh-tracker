@@ -14,9 +14,6 @@ import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
 import "./components/WorldMapView.js";
-import "./components/entries/Location.js";
-import "./components/entries/Area.js";
-import "./components/entries/Exit.js";
 
 //TODO save map settings per map
 

@@ -9,6 +9,7 @@ import "/emcJS/i18n/ui/I18nLabel.js";
 import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import WorldStateManager from "../../../state/world/WorldStateManager.js";
+import AreaStateManager from "../../../state/world/area/StateManager.js";
 import UIRegistry from "../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";
@@ -209,7 +210,7 @@ export default class WorldList extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    const state = WorldStateManager.getByRef(this.ref);
+                    const state = AreaStateManager.get(this.ref);
                     this.switchState(state);
                     /* text */
                     const textEl = this.shadowRoot.getElementById("text");
@@ -257,7 +258,7 @@ export default class WorldList extends BaseClass {
                 }
             }
         }
-        this.classList.toggle("empty", !hasElements);
+        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
     }
     

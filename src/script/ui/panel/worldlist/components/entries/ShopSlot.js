@@ -161,6 +161,14 @@ export default class ListShopSlot extends WorldListMarkedEntry {
         }
     }
 
+    get textRef() {
+        return `location/${super.textRef}`;
+    }
+
+    get category() {
+        return "location";
+    }
+
 }
 
 UIRegistry.get("worldlist-location").register("shopslot", ListShopSlot);

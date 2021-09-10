@@ -2,7 +2,7 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import AreaStateManager from "../../state/world/area/StateManager.js";
 import WorldElement from "./WorldElement.js";
 import AreaContextMenu from "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
@@ -119,7 +119,7 @@ export default class AbstractArea extends WorldElement {
             switch (name) {
                 case "ref":
                     {
-                        const state = WorldStateManager.getByRef(this.ref);
+                        const state = AreaStateManager.get(this.ref);
                         const textEl = this.shadowRoot.getElementById("text");
                         if (textEl != null) {
                             Language.applyLabel(textEl, newValue);

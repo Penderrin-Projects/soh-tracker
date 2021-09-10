@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import ExitStateManager from "../../state/world/exit/StateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import Badge from "../Badge.js";
 import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
@@ -225,7 +225,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    const state = WorldStateManager.getByRef(this.ref);
+                    const state = ExitStateManager.get(this.ref);
                     const textEl = this.shadowRoot.getElementById("text");
                     if (textEl != null) {
                         Language.applyLabel(textEl, `exit[${state.props.access}]`);

@@ -276,8 +276,16 @@ export default class WorldListArea extends BaseClass {
                 }
             }
         }
-        this.classList.toggle("empty", !hasElements);
+        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
+    }
+
+    get textRef() {
+        return `area/${super.textRef}`;
+    }
+
+    get category() {
+        return "area";
     }
 
 }

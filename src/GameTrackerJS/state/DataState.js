@@ -8,7 +8,6 @@ export default class DataState extends EventTarget {
         /* --- */
         REF.set(this, ref);
         PROPS.set(this, props);
-        this.initValues();
     }
 
     get ref() {
@@ -17,10 +16,6 @@ export default class DataState extends EventTarget {
 
     get props() {
         return PROPS.get(this);
-    }
-
-    initValues() {
-        // nothing
     }
 
 }

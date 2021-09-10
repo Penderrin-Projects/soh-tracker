@@ -4,7 +4,7 @@ import EventBus from "/emcJS/event/EventBus.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
 import StartItemsObserver from "../../util/observer/StartItemsObserver.js";
-import DataState from "../abstract/DataState.js";
+import DataState from "../DataState.js";
 
 const VALUE = new WeakMap();
 const DEF_MAX = new WeakMap();
