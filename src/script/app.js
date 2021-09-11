@@ -25,7 +25,7 @@ import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
-import "/script/storage/converter/StateConverter.js";
+import "./savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentExits.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/LogicCaller.js";
