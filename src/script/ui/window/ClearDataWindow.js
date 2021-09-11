@@ -85,14 +85,6 @@ export default class ClearDataWindow extends Window {
         for (const buttonEl of Array.from(buttonEls)) {
             buttonEl.addEventListener("click", clearData);
         }
-        /* --- */
-        const clearStartitemsEl = bodyEl.querySelector("#startitems");
-        clearStartitemsEl.addEventListener("click", async () => {
-            if (!await Dialog.confirm("Warning", `Do you really want to "delete start items"? This can not be undone.`)) {
-                return;
-            }
-            StartItemsStorage.clear();
-        });
     }
 
 }

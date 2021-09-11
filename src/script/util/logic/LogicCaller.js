@@ -16,7 +16,7 @@ const STORAGES = {
     options: Savestate.getStorage("options"),
     filter: Savestate.getStorage("filter"),
     // Track-OOT
-    dungeonType: Savestate.getStorage("dungeonType"),
+    dungeonTypes: Savestate.getStorage("dungeonTypes"),
 };
 
 /**
@@ -247,7 +247,7 @@ class LogicCaller {
         STORAGES.locations.addEventListener("change", (event) => {
             changeData(renameKeys(event.data, "location."));
         });
-        STORAGES.dungeonType.addEventListener("change", (event) => {
+        STORAGES.dungeonTypes.addEventListener("change", (event) => {
             changeData(renameKeys(event.data, "dungeontype."));
         });
         STORAGES.options.addEventListener("change", (event) => {

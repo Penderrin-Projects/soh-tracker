@@ -59,8 +59,12 @@ export default class DefaultAreaState extends WorldState {
     }
 
     get visible() {
+        return super.visible && this.getListVisiblity();
+    }
+
+    getListVisiblity() {
         const listHandler = LIST_HANDLER.get(this);
-        return super.visible && listHandler.visible;
+        return listHandler.visible;
     }
 
     /* list */

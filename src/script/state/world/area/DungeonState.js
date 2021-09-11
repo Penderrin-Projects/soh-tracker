@@ -110,6 +110,10 @@ export default class DungeonState extends DefaultAreaState {
         return this.getAccess();
     }
 
+    getListVisiblity() {
+        return true; 
+    }
+
     getAccess(type = this.type) {
         if (type == "v") {
             return this.getAccessV();
