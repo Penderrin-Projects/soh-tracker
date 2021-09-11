@@ -164,5 +164,5 @@ export default class MapLocation extends WorldMapMarkedEntry {
 
 }
 
-UIRegistry.set("worldmap-location", new UIRegistry(MapLocation));
 customElements.define("gt-worldmap-location", MapLocation);
+UIRegistry.set("worldmap-location", new UIRegistry(MapLocation));

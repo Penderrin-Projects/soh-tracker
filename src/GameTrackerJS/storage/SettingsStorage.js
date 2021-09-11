@@ -4,6 +4,8 @@ import IDBProxyStorage from "/emcJS/datastorage/IDBProxyStorage.js";
 
 import SettingsResource from "../resource/SettingsResource.js";
 
+// TODO sync data to other page instances
+
 const SET_TYPES = [
     "list",
     "-list"
@@ -26,14 +28,6 @@ class SettingsStorage extends IDBProxyStorage {
 
     constructor() {
         super("settings");
-        this.addEventListener("change", event => {
-            setTimeout(() => {
-                EventBus.trigger("settings", event.data);
-            }, 0);
-        });
-        EventBus.register("settings", event => {
-            this.setAll(event.data);
-        });
     }
 
     set(key, value) {

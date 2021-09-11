@@ -3,7 +3,7 @@ import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
 import LogicExecutor from "../logic/LogicExecutor.js";
-import FilterStorage from "../../storage/FilterStorage.js";
+import FilterStorage from "../../savestate/storage/FilterStorage.js";
 
 const SPECIAL_FILTERS = [
     "access",

@@ -1,24 +1,29 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
-import StartItemsStorage from "/GameTrackerJS/storage/StartItemsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
+
+const STORAGES = {
+    // GameTrackerJS
+    items: Savestate.getStorage("items"),
+    locations: Savestate.getStorage("locations"),
+    startItems: Savestate.getStorage("startItems"),
+    options: Savestate.getStorage("options"),
+    filter: Savestate.getStorage("filter"),
+    // Track-OOT
+    dungeonType: Savestate.getStorage("dungeonType"),
+};
 
 /**
  * resources
  * logic augmentation: /ItemPool.py
  */
 
-// TODO differenciate between vanilla keys and mq keys
-// for example write keys to ${ref}_v and ${ref}_mq to reflect each type
 // TODO change key options to have different values
 // keysy, vanilla, own dungeon, overworld only, any dungeon, keysanity
 
@@ -89,11 +94,11 @@ Logic.addEventListener("change", event => {
 });
 
 function augmentData(data) {
-    const dungeonData = DungeonstateResource.get("area");
+    const dungeonData = DungeonstateResource.get();
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment dungeontypes
-        const dTypeKey = `dungeontype.area/${ref}`;
+        const dTypeKey = `dungeontype.${ref}`;
         if (data[dTypeKey] != null) {
             res[dTypeKey] = getDungeonType(data[dTypeKey], dData.hasmq);
         }
@@ -140,14 +145,15 @@ function augmentReachables(data) {
 
 function init() {
     const data = {
-        ...SavestateHandler.getAll(""),
-        ...renameKeys(SavestateHandler.getAll("dungeontype"), "dungeontype."),
+        ...renameKeys(STORAGES.items.getAll(), "item."),
+        ...renameKeys(STORAGES.locations.getAll(), "location."),
+        ...renameKeys(STORAGES.dungeonTypes.getAll(), "dungeontype."),
+        ...STORAGES.options.getAll(),
+        ...STORAGES.filter.getAll(),
         ...SettingsStorage.getAll(),
-        ...OptionsStorage.getAll(),
-        ...FilterStorage.getAll()
     };
     // startitems
-    const startItems = StartItemsStorage.getAll();
+    const startItems = STORAGES.startItems.getAll();
     for (const [key, value] of Object.entries(startItems)) {
         if (data[key] == null || data[key] < value) {
             data[key] = value;
@@ -167,7 +173,8 @@ function init() {
 function changeData(newData) {
     const changes = {};
     for (const [key, value] of Object.entries(newData)) {
-        if (cache.get(key) != value) {
+        const oldValue = cache.get(key);
+        if (oldValue != value) {
             changes[key] = value;
             cache.set(key, value);
         }
@@ -179,17 +186,41 @@ function changeData(newData) {
     }
 }
 
-function changeDataWithItems(newData, items) {
+function changeItemData(newData) {
     const changes = {};
     for (const [key, value] of Object.entries(newData)) {
-        if (items[key] != null && items[key] > value) {
-            if (cache.get(key) != items[key]) {
-                changes[key] = items[key];
-                cache.set(key, items[key]);
+        const oldValue = cache.get(key);
+        const startValue = STORAGES.startItems.get(key);
+        if (startValue != null && startValue > value) {
+            if (oldValue!= startValue) {
+                changes[key] = startValue;
+                cache.set(key, startValue);
             }
-        } else if (cache.get(key) != value) {
+        } else if (oldValue != value) {
             changes[key] = value;
             cache.set(key, value);
+        }
+    }
+    if (Object.keys(changes).length > 0) {
+        const augmentedData = augmentData(changes);
+        augmentReachables(augmentedData);
+        Logic.execute(augmentedData, "region.root");
+    }
+}
+
+function changeStartitemData(newData) {
+    const changes = {};
+    for (const [key, startValue] of Object.entries(newData)) {
+        const oldValue = cache.get(key);
+        const value = STORAGES.items.get(key);
+        if (value != null && startValue < value) {
+            if (oldValue != value) {
+                changes[key] = value;
+                cache.set(key, value);
+            }
+        } else if (oldValue != startValue) {
+            changes[key] = startValue;
+            cache.set(key, startValue);
         }
     }
     if (Object.keys(changes).length > 0) {
@@ -204,13 +235,30 @@ class LogicCaller {
     constructor() {
         init();
         /* EVENTS */
-        SavestateHandler .addEventListener("load",               event => init());
-        SavestateHandler .addEventListener("change",             event => changeDataWithItems(event.data, StartItemsStorage.getAll()));
-        SavestateHandler .addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
-        OptionsStorage   .addEventListener("change",             event => changeData(event.data));
-        SettingsStorage  .addEventListener("change",             event => changeData(event.data));
-        FilterStorage    .addEventListener("change",             event => changeData(event.data));
-        StartItemsStorage.addEventListener("change",             event => changeDataWithItems(event.data, SavestateHandler.getAll("")));
+        Savestate.addEventListener("load", () => {
+            init();
+        });
+        STORAGES.items.addEventListener("change", (event) => {
+            changeItemData(renameKeys(event.data, "item."));
+        });
+        STORAGES.startItems.addEventListener("change", (event) => {
+            changeStartitemData(renameKeys(event.data, "item."));
+        });
+        STORAGES.locations.addEventListener("change", (event) => {
+            changeData(renameKeys(event.data, "location."));
+        });
+        STORAGES.dungeonType.addEventListener("change", (event) => {
+            changeData(renameKeys(event.data, "dungeontype."));
+        });
+        STORAGES.options.addEventListener("change", (event) => {
+            changeData(event.data);
+        });
+        STORAGES.filter.addEventListener("change", (event) => {
+            changeData(event.data);
+        });
+        SettingsStorage.addEventListener("change", (event) => {
+            changeData(event.data);
+        });
     }
 
 }

@@ -105,6 +105,15 @@ const REWARDS = [
 ];
 const TAKEN_REWARDS = new Map();
 
+function resolveIcon(icon) {
+    if (icon == null) {
+        return "/images/items/unknown.png";
+    }
+    if (typeof icon == "object") {
+        return icon[0] ?? "/images/items/unknown.png";
+    }
+    return icon;
+}
 
 class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
 
@@ -184,11 +193,8 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
                             const items = ItemsResource.get();
                             for (const reward of REWARDS) {
                                 const name = reward.value;
-                                let j = items[name].images;
-                                if (Array.isArray(j)) {
-                                    j = j[0];
-                                }
-                                this.append(createOption(name, j));
+                                const icon = resolveIcon(items[name].icon);
+                                this.append(createOption(name, icon));
                             }
                         }
                         if (newValue === "") {

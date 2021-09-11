@@ -14,6 +14,7 @@ export default class DefaultEntranceState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
+
         /* ACTIVE */
         if (typeof props.active == "object") {
             const logicFn = LogicCompiler.compile(props.active);
@@ -23,6 +24,7 @@ export default class DefaultEntranceState extends DataState {
         } else {
             ACTIVE.set(this, !!props.active);
         }
+        
         /* EVENTS */
         const logicEventManager = new EventTargetManager(LogicExecutor);
         logicEventManager.set(["reset", "change"], event => {

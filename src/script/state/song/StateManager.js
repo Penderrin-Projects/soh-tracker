@@ -6,7 +6,7 @@ import DefaultState from "./DefaultState.js";
 
 const resourceData = SongsResource.get();
 
-class StateManager extends AbstractStateManager {
+class SongStateManager extends AbstractStateManager {
 
     constructor() {
         super(DefaultState, resourceData);
@@ -14,4 +14,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-export default new StateManager();
+export default new SongStateManager();

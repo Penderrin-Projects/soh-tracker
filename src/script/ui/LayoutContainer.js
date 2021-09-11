@@ -2,13 +2,12 @@
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Layout from "/emcJS/ui/layout/Layout.js";
 
-
 // Track-OOT
 import LayoutsResource from "/script/resource/LayoutsResource.js";
-import "/script/ui/items/ItemGrid.js";
-import "/script/ui/dungeonstate/DungeonState.js";
+import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
+import "/script/ui/dungeonstate/DungeonState.js";
 
 const STYLE = new GlobalStyle(`
 .state {

@@ -198,5 +198,5 @@ export default class WorldListCollection extends BaseClass {
 
 }
 
-UIRegistry.set("worldlist-collection", new UIRegistry(WorldListCollection));
 customElements.define("gt-worldlist-collection", WorldListCollection);
+UIRegistry.set("worldlist-collection", new UIRegistry(WorldListCollection));

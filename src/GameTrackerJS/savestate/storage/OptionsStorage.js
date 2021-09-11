@@ -1,8 +1,7 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
-import OptionsResource from "../resource/OptionsResource.js";
+import OptionsResource from "../../resource/OptionsResource.js";
 
 const SET_TYPES = [
     "list",
@@ -23,18 +22,6 @@ for (const [key, value] of Object.entries(OptionsResource.get())) {
 }
 
 class OptionsStorage extends DataStorage {
-
-    constructor() {
-        super();
-        this.addEventListener("change", event => {
-            setTimeout(() => {
-                EventBus.trigger("options", event.data);
-            }, 0);
-        });
-        EventBus.register("options", event => {
-            this.setAll(event.data);
-        });
-    }
 
     set(key, value) {
         if (DEFAULTS.has(key)) {

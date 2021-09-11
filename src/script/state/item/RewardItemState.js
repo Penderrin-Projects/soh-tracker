@@ -1,35 +1,10 @@
-// frameworks
-import EventBus from "/emcJS/event/EventBus.js";
-
-
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import StateManager from "/GameTrackerJS/state/item/StateManager.js";
+import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 import DefaultItemState from "/GameTrackerJS/state/item/DefaultState.js";
-
-const ALL_DUNGEONS = [
-    "area/pocket",
-    "area/deku",
-    "area/dodongo",
-    "area/jabujabu",
-    "area/temple_forest",
-    "area/temple_fire",
-    "area/temple_shadow",
-    "area/temple_water",
-    "area/temple_spirit"
-];
+// Track-OOT
+import RewardItemObserver from "../../util/observer/RewardItemObserver.js";
 
 const DUNGEON = new WeakMap();
-
-function getDisplayDungeon(ref) {
-    for (const dungeon of ALL_DUNGEONS) {
-        const rewardValue = SavestateHandler.get("dungeonreward", dungeon, "");
-        if (rewardValue == ref) {
-            return dungeon;
-        }
-    }
-    return "";
-}
 
 function internalRewardChange(event) {
     const ref = this.ref;
@@ -38,9 +13,9 @@ function internalRewardChange(event) {
     const change = event.data;
     if (change != null) {
         if (change.ref == dungeon && change.value != ref) {
-            this./*#*/__applyDungeonValue("");
+            this./*#*/__setDungeon("");
         } else if (change.value == ref) {
-            this./*#*/__applyDungeonValue(change.ref);
+            this./*#*/__setDungeon(change.ref);
         }
     }
 }
@@ -49,13 +24,16 @@ export default class RewardItemState extends DefaultItemState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
-        /* EVENTS */
-        EventBus.register("state::dungeonreward", internalRewardChange.bind(this));
+
+        /* VALUES */
+        const rewardItemObserver = new RewardItemObserver(ref);
+        DUNGEON.set(this, rewardItemObserver.value);
+        rewardItemObserver.addEventListener("change", (event) => {
+            this./*#*/__setDungeon(event.data);
+        });
     }
 
-    /*#*/__applyDungeonValue(newValue) {
+    /*#*/__setDungeon(newValue) {
         const dungeon = DUNGEON.get(this);
         if (dungeon != newValue) {
             DUNGEON.set(this, newValue);
@@ -66,18 +44,10 @@ export default class RewardItemState extends DefaultItemState {
         }
     }
 
-    stateLoaded(event) {
-        const ref = this.ref;
-        // savesatate
-        super.stateLoaded(event);
-        // dungeon
-        this./*#*/__applyDungeonValue(getDisplayDungeon(ref));
-    }
-
     get dungeon() {
         return DUNGEON.get(this);
     }
 
 }
 
-StateManager.register("dungeonreward", RewardItemState);
+ItemStateManager.register("dungeonreward", RewardItemState);

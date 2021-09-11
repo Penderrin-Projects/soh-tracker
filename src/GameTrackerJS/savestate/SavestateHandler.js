@@ -1,11 +1,25 @@
 // frameworks
+import Import from "/emcJS/util/import/Import.js";
+import Path from "/emcJS/util/Path.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 
+import Counter from "../util/Counter.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 import BusyIndicator from "../ui/BusyIndicator.js";
 
+const path = new Path(import.meta.url);
+
+async function getWorker() {
+    if ("SharedWorker" in window) {
+        const [SharedWorkerRegistry] = await Import.module("/emcJS/worker/SharedWorkerRegistry.js");
+        const workerPath = path.getAbsolute("./SavestateHandler.worker.js");
+        return SharedWorkerRegistry.register("SavestateHandler", workerPath);
+    }
+}
+
+const SHARED_WORKER = await getWorker();
 const PERSISTANCE_NAME = "savestate";
 const STATE_DIRTY = "state_dirty";
 const TITLE_PREFIX = document.title;
@@ -19,6 +33,33 @@ function updateTitle() {
     } else {
         document.title = `${TITLE_PREFIX} - ${name}`;
     }
+}
+
+if (SHARED_WORKER != null) {
+    const muted = new Counter();
+    SHARED_WORKER.addEventListener("message", (event) => {
+        muted.add();
+        if (event.data.type == "load") {
+            const {state = {}} = event.data;
+            Savestate.deserialize(state);
+        } else if (event.data.type == "change") {
+            const {category = "", data = {}} = event.data;
+            Savestate.set(category, data);
+        }
+        muted.sub();
+    });
+    Savestate.addEventListener("change", (event) => {
+        if (!muted.value) {
+            const {category = "", data = {}} = event;
+            SHARED_WORKER.postMessage({type: "change", category, data});
+        }
+    });
+    Savestate.addEventListener("load", (event) => {
+        if (!muted.value) {
+            const {data = {}} = event;
+            SHARED_WORKER.postMessage({type: "load", data});
+        }
+    });
 }
 
 class SavestateHandler extends EventTarget {

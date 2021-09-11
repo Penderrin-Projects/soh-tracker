@@ -1,9 +1,9 @@
 // frameworks
-import DataStorageObserver from "/emcJS/datastorage/DataStorageObserver.js";
+import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
-import FilterStorage from "../../storage/FilterStorage.js";
+import FilterStorage from "../../savestate/storage/FilterStorage.js";
 
-export default class FilterObserver extends DataStorageObserver {
+export default class FilterObserver extends DataStorageValueObserver {
 
     constructor(key) {
         super(FilterStorage, key);

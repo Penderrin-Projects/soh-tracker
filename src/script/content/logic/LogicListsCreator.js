@@ -152,10 +152,10 @@ function createItemOperatorCategory(data) {
         "caption": "item",
         "children": []
     };
-    for (const i in data) {
+    for (const name in data) {
         res.children.push({
             "type": "tracker-logic-custom",
-            "ref": i,
+            "ref": `item.${name}`,
             "category": "item"
         });
     }
@@ -325,7 +325,7 @@ function createOperatorLocationDoneCategory(locations) {
         if (ref.category == "location") {
             res.children.push({
                 "type": "tracker-logic-custom",
-                "ref": name,
+                "ref": `location.${name}`,
                 "category": "location"
             });
         }

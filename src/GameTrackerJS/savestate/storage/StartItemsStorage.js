@@ -1,9 +1,8 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
-import { parseSafeRange } from "../util/helper/ItemHelper.js";
-import ItemsResource from "../resource/ItemsResource.js";
+import { parseSafeRange } from "../../util/helper/ItemHelper.js";
+import ItemsResource from "../../resource/ItemsResource.js";
 
 const MAX = new Map();
 
@@ -12,18 +11,6 @@ for (const [key, value] of Object.entries(ItemsResource.get())) {
 }
 
 class StartItemsStorage extends DataStorage {
-
-    constructor() {
-        super();
-        this.addEventListener("change", event => {
-            setTimeout(() => {
-                EventBus.trigger("startitems", event.data);
-            }, 0);
-        });
-        EventBus.register("startitems", event => {
-            this.setAll(event.data);
-        });
-    }
 
     set(key, value) {
         const parsedValue = parseSafeRange(value);

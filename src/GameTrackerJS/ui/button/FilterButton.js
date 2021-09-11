@@ -7,7 +7,7 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import FilterResource from "../../resource/FilterResource.js";
-import FilterStorage from "../../storage/FilterStorage.js";
+import FilterStorage from "../../savestate/storage/FilterStorage.js";
 import FilterObserver from "../../util/observer/FilterObserver.js";
 
 const TPL = new Template(`

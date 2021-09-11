@@ -5,10 +5,13 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
+
+const STORAGES = {
+    // GameTrackerJS
+    filter: Savestate.getStorage("filter"),
+};
 
 const EVENT_TARGET_MANAGER = new WeakMap();
 
@@ -46,8 +49,8 @@ export default class RTCPeerClient extends RTCPeer {
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
             this.mute();
-            const filter = FilterStorage.getAll();
-            await Savestate.deserialize({data: msg.data.data, options: msg.data.options, filter});
+            const filter = STORAGES.filter.getAll();
+            await Savestate.deserialize({data: {...msg.data.data, filter}});
             this.unmute();
         } else {
             await super.rtcMessageHandler(key, msg);

@@ -1,14 +1,19 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
+import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/handler/MarkerListHandler.js";
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
+const STORAGES = {
+    dungeonTypes: Savestate.getStorage("dungeonTypes"),
+};
+
+const ALLOWED_TYPES = ["n", "v", "mq"];
 const TYPE = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
@@ -41,6 +46,7 @@ function getAccessNeutral(res_v, res_m) {
             done: Math.min(res_v.done, res_m.done),
             unopened: Math.min(res_v.done, res_m.done),
             reachable: Math.min(res_v.reachable, res_m.reachable),
+            total: Math.min(res_v.total, res_m.total),
             entrances: res_v.entrances && res_m.entrances,
             value
         };
@@ -50,56 +56,45 @@ function getAccessNeutral(res_v, res_m) {
             done: Math.max(res_v.done, res_m.done),
             unopened: Math.max(res_v.done, res_m.done),
             reachable: Math.max(res_v.reachable, res_m.reachable),
+            total: Math.max(res_v.total, res_m.total),
             entrances: res_v.entrances || res_m.entrances,
             value
         };
     }
 }
 
-function internalTypeChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this./*#*/__applyTypeValue(change.value || "n");
-    }
-}
-
 export default class DungeonState extends DefaultAreaState {
 
-    constructor(ref, props, areaData) {
-        super(ref, props, areaData);
-        /* --- */
+    constructor(ref, props) {
+        super(ref, props);
+
+        /* VALUES */
+        if (props.list_mq != null) {
+            const dungeonTypesObserver = new DataStorageValueObserver(STORAGES.dungeonTypes, ref, "n");
+            TYPE.set(this, dungeonTypesObserver.value);
+            dungeonTypesObserver.addEventListener("change", (event) => {
+                this.type = event.data;
+            });
+        }
+
+        /* LIST HANDLER */
         const listHandler = this.generateMQList();
         LIST_HANDLER.set(this, listHandler);
-        /* --- */
-        this./*#*/__applyTypeValue(SavestateHandler.get("dungeontype", ref, "n"));
-        /* EVENTS */
-        EventBus.register("state::dungeontype", internalTypeChange.bind(this));
     }
-
-    onStateLoad(state) {
-        super.onStateLoad(state);
-        const props = this.props;
-        // type
-        if (props["maxmq"] != null && props["related_dungeon"] != null) {
-            const types = state?.data?.["dungeontype"];
-            if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
-            } else {
-                this./*#*/__applyTypeValue("n");
-            }
+    
+    set type(value) {
+        const ref = this.ref;
+        if (!ALLOWED_TYPES.includes(value)) {
+            value = "n";
         }
-    }
-
-    /*#*/__applyTypeValue(newValue) {
-        const type = TYPE.get(this);
-        if (type != newValue) {
-            TYPE.set(this, newValue);
+        const old = this.type;
+        if (value != old) {
+            TYPE.set(this, value);
+            STORAGES.dungeonTypes.set(ref, value);
             // external
-            const ev = new Event("type");
-            ev.data = newValue;
-            this.dispatchEvent(ev);
+            const event = new Event("type");
+            event.data = value;
+            this.dispatchEvent(event);
             
             const ev2 = new Event("access");
             ev2.data = this.access;
@@ -225,7 +220,7 @@ export default class DungeonState extends DefaultAreaState {
     }
 
     setAllEntries(value = true) {
-        const type = TYPE.get(this);
+        const type = this.type;
         if (type == "mq") {
             const listHandler = LIST_HANDLER.get(this);
             listHandler.setAllEntries(value);

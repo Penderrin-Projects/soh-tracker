@@ -1,7 +1,6 @@
 // frameworks
 import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
-// Track-OOT
 import "../itempicker/ItemPicker.js";
 
 const ITEMS = new WeakMap();
@@ -21,7 +20,7 @@ export default class ItemPickerContextMenu extends ContextMenu {
         }
         itemPickerEl.addEventListener("pick", event => {
             const ev = new Event("pick");
-            ev.item = event.detail;
+            ev.item = event.data;
             this.dispatchEvent(ev);
             /* --- */
             event.preventDefault();

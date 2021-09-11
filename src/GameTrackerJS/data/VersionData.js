@@ -1,7 +1,7 @@
 // frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
 import DateUtil from "/emcJS/util/DateUtil.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 const REQUEST_OS_DATA = ["platform", "platformVersion"];
 

@@ -83,5 +83,6 @@ export default class ListGossipstone extends AbstractGossipstone {
 
 }
 
-UIRegistry.get("list-location").register("gossipstone", ListGossipstone);
 customElements.define("ootrt-list-gossipstone", ListGossipstone);
+UIRegistry.get("list-location")
+    .register("gossipstone", ListGossipstone);

@@ -1,8 +1,7 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
-import FilterResource from "../resource/FilterResource.js";
+import FilterResource from "../../resource/FilterResource.js";
 
 const DEFAULTS = new Map();
 const PERSISTED = new Set();
@@ -14,24 +13,11 @@ for (const [key, value] of Object.entries(FilterResource.get())) {
     }
 }
 
-let debounce_timeout = null;
-let debounce_data = {};
-
 class FilterStorage extends DataStorage {
 
     constructor() {
         super();
         this.addEventListener("change", event => {
-            if (debounce_timeout != null) {
-                clearTimeout(debounce_timeout);
-            }
-            for (const [key, value] of Object.entries(event.data)) {
-                debounce_data[key] = value;
-            }
-            debounce_timeout = setTimeout(() => {
-                EventBus.trigger("filter", debounce_data);
-                debounce_data = {};
-            }, 100);
             const data = {};
             const changes = {};
             for (const key in event.data) {
@@ -44,9 +30,6 @@ class FilterStorage extends DataStorage {
                 ev.data = data;
                 this.dispatchEvent(ev);
             }
-        });
-        EventBus.register("filter", event => {
-            this.setAll(event.data);
         });
     }
 

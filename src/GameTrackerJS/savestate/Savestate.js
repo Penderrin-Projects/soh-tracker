@@ -1,9 +1,9 @@
 // frameworks
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
-import OptionsStorage from "../storage/OptionsStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
-import StartItemsStorage from "../storage/StartItemsStorage.js";
+import OptionsStorage from "./storage/OptionsStorage.js";
+import FilterStorage from "./storage/FilterStorage.js";
+import StartItemsStorage from "./storage/StartItemsStorage.js";
 import SavestateConverter from "./SavestateConverter.js";
 
 const META = new Map();
@@ -31,24 +31,14 @@ class Savestate extends EventTarget {
     constructor() {
         super();
         /* --- */
-        OptionsStorage.addEventListener("change", event => {
-            const ev = new Event("options");
-            ev.data = event.data;
-            ev.changes = event.changes;
-            this.dispatchEvent(ev);
-        });
-        FilterStorage.addEventListener("persistedchange", event => {
-            const ev = new Event("filter");
-            ev.data = event.data;
-            ev.changes = event.changes;
-            this.dispatchEvent(ev);
-        });
         this.registerStorage("items", new DataStorage());
         this.registerStorage("locations", new DataStorage());
         this.registerStorage("exitBindings", new DataStorage());
         this.registerStorage("areaHints", new DataStorage());
         this.registerStorage("locationItems", new DataStorage());
         this.registerStorage("startItems", StartItemsStorage);
+        this.registerStorage("options", OptionsStorage);
+        this.registerStorage("filter", FilterStorage, "persistedchange");
     }
 
     set name(value) {
@@ -95,18 +85,16 @@ class Savestate extends EventTarget {
         for (const [, dataStorage] of ST_DEF) {
             dataStorage.clear();
         }
-        ST_ADD.clear();
-        OptionsStorage.clear();
-        FilterStorage.clear();
+        for (const [, dataStorage] of ST_ADD) {
+            dataStorage.clear();
+        }
     }
     
     serialize() {
         const res = {
             ...INFO,
-            state: Object.fromEntries(META),
-            data: {},
-            options: OptionsStorage.serialize(),
-            filter: FilterStorage.serialize()
+            meta: Object.fromEntries(META),
+            data: {}
         };
         for (const [category, dataStorage] of ST_DEF) {
             res.data[category] = dataStorage.serialize();
@@ -117,32 +105,27 @@ class Savestate extends EventTarget {
         return res;
     }
 
-    deserialize({data = {}, options = {}, filter = {}, state = {}, ...value} = {}) {
+    deserialize({data = {}, meta = {}, ...value} = {}) {
         this.purge();
         INFO.name = value.name?.toString() ?? "";
         INFO.version = value.version ?? SavestateConverter.version;
         INFO.timestamp = value.timestamp ?? new Date();
         INFO.autosave = value.autosave ?? false;
         INFO.notes = value.notes?.toString() ?? "";
-        for (const key in state) {
-            META.set(key, state[key]);
+        for (const key in meta) {
+            META.set(key, meta[key]);
         }
         for (const category in data) {
             const dataStorage = this.getStorage(category);
             dataStorage.deserialize(data[category]);
         }
-        OptionsStorage.deserialize(options);
-        FilterStorage.deserialize(filter);
         /* --- */
         const ev = new Event("load");
         ev.data = this.serialize();
         this.dispatchEvent(ev);
     }
 
-    overwrite({data = {}, options = {}, filter = {}, state = {}} = {}) {
-        for (const key in state) {
-            META.set(key, state[key]);
-        }
+    overwrite(data = {}) {
         for (const category in data) {
             const dataStorage = this.getStorage(category);
             const buffer = data[category];
@@ -152,8 +135,6 @@ class Savestate extends EventTarget {
                 dataStorage.overwrite(data[category]);
             }
         }
-        OptionsStorage.overwrite(options);
-        FilterStorage.overwrite(filter);
     }
 
     /* META */
@@ -172,7 +153,7 @@ class Savestate extends EventTarget {
     }
 
     /* STORAGES */
-    registerStorage(category, dataStorage) {
+    registerStorage(category, dataStorage, eventName = "change") {
         const storageCategory = category.toString();
         if (!(dataStorage instanceof DataStorage)) {
             throw new TypeError("unknown storage implementation, expected DataStorage");
@@ -188,7 +169,7 @@ class Savestate extends EventTarget {
             ST_ADD.delete(storageCategory);
         }
         ST_DEF.set(storageCategory, dataStorage);
-        dataStorage.addEventListener("change", handler);
+        dataStorage.addEventListener(eventName, handler);
     }
 
     getStorage(category) {

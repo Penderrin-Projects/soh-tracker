@@ -1,6 +1,6 @@
 // GameTrackerJS
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
-import StateManager from "./StateManager.js";
+import ItemStateManager from "./StateManager.js";
 import DefaultItemState from "./DefaultState.js";
 
 const STARTVALUE = new WeakMap();
@@ -71,4 +71,5 @@ export default class StartSettingsState extends DefaultItemState {
 
 }
 
-StateManager.register("item_startsettings", StartSettingsState);
+ItemStateManager.register("item_startsettings", StartSettingsState);
+ItemStateManager.register("progressive_startsettings", StartSettingsState);

@@ -171,5 +171,6 @@ export default class ListShopSlot extends WorldListMarkedEntry {
 
 }
 
-UIRegistry.get("worldlist-location").register("shopslot", ListShopSlot);
 customElements.define("ootrt-worldlist-shopslot", ListShopSlot);
+UIRegistry.get("worldlist-location")
+    .register("shopslot", ListShopSlot);

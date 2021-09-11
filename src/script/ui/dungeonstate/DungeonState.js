@@ -6,15 +6,14 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import "/GameTrackerJS/ui/panel/itemgrid/components/entries/Item.js";
+import "/GameTrackerJS/ui/panel/itemgrid/components/entries/ProgressiveItem.js";
 // Track-OOT
-import DungeonstateResource from "/script/resource/DungeonstateResource.js";
+import DungeonstateResource from "../../resource/DungeonstateResource.js";
+import "../panel/itemgrid/components/RewardItem.js";
 import "./DungeonReward.js";
 import "./DungeonType.js";
 import "./DungeonHint.js";
-import "../items/components/Item.js";
-import "../items/components/ItemKey.js";
-import "../items/components/InfiniteItem.js";
-import "../items/components/RewardItem.js";
 
 const STYLE = new GlobalStyle(`
 :host {
@@ -100,10 +99,10 @@ class HTMLTrackerDungeonState extends Panel {
         super();
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const dungeonData = DungeonstateResource.get("area");
+        const dungeonData = DungeonstateResource.get();
         for (const ref in dungeonData) {
             const dData = dungeonData[ref];
-            this.shadowRoot.append(createRow(`area/${ref}`, dData));
+            this.shadowRoot.append(createRow(ref, dData));
         }
         switchActive.call(this, this.active);
     }
@@ -181,7 +180,7 @@ function createRow(ref, data) {
     // small key
     if (data.keys) {
         const itemData = items[data.keys];
-        const itm = UIRegistry.get("item").create(itemData.type, data.keys);
+        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.keys);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
         el.append(Language.applyTooltip(itm, data.keys));
@@ -197,7 +196,7 @@ function createRow(ref, data) {
     // boss key
     if (data.bosskey) {
         const itemData = items[data.bosskey];
-        const itm = UIRegistry.get("item").create(itemData.type, data.bosskey);
+        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.bosskey);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
         el.append(Language.applyTooltip(itm, data.bosskey));
@@ -213,7 +212,7 @@ function createRow(ref, data) {
     // map
     if (data.map) {
         const itemData = items[data.map];
-        const itm = UIRegistry.get("item").create(itemData.type, data.map);
+        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.map);
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
         itm.setAttribute("ref", data.map);
@@ -230,7 +229,7 @@ function createRow(ref, data) {
     // compass
     if (data.compass) {
         const itemData = items[data.compass];
-        const itm = UIRegistry.get("item").create(itemData.type, data.compass);
+        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.compass);
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
         itm.setAttribute("ref", data.compass);

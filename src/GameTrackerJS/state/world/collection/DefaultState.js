@@ -8,8 +8,10 @@ export default class DefaultCollectionState extends DataState {
     
     constructor(ref, props = {}) {
         super(ref, props);
-        /* --- */
+        
+        /* VALUES */
         VISIBLE.set(this, false);
+
         /* LIST HANDLER */
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);

@@ -3,7 +3,7 @@
         "type": "vbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "items"
@@ -25,7 +25,7 @@
         "type": "hbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "essentials"
@@ -44,7 +44,7 @@
     },
     "items-race": {
         "type": "panel",
-        "name": "item-grid",
+        "name": "itemgrid",
         "options": {
             "itemsize": 40,
             "grid": "race"
@@ -54,7 +54,7 @@
         "type": "vbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "race"
@@ -76,7 +76,7 @@
         "type": "vbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "items"
@@ -99,7 +99,7 @@
         "type": "vbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "items"
@@ -127,7 +127,7 @@
         "type": "vbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "items"
@@ -158,7 +158,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -192,7 +192,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -227,7 +227,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -261,7 +261,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -297,7 +297,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -341,7 +341,7 @@
             "type": "vbox",
             "items": [{
                 "type": "panel",
-                "name": "item-grid",
+                "name": "itemgrid",
                 "options": {
                     "itemsize": 40,
                     "grid": "items"
@@ -371,7 +371,7 @@
         "type": "hbox",
         "items": [{
             "type": "panel",
-            "name": "item-grid",
+            "name": "itemgrid",
             "options": {
                 "itemsize": 40,
                 "grid": "items"
@@ -404,7 +404,7 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "item-grid",
+                    "name": "itemgrid",
                     "options": {
                         "itemsize": 40,
                         "grid": "essentials"
@@ -440,7 +440,7 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "item-grid",
+                    "name": "itemgrid",
                     "options": {
                         "itemsize": 40,
                         "grid": "essentials"
@@ -477,7 +477,7 @@
                 "type": "hbox",
                 "items": [{
                     "type": "panel",
-                    "name": "item-grid",
+                    "name": "itemgrid",
                     "options": {
                         "itemsize": 40,
                         "grid": "standard-essentials"

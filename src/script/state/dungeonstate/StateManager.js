@@ -6,7 +6,7 @@ import DefaultState from "./DefaultState.js";
 
 const resourceData = DungeonstateResource.get();
 
-class StateManager extends AbstractStateManager {
+class DungeonstateStateManager extends AbstractStateManager {
 
     constructor() {
         super(DefaultState, resourceData);
@@ -14,4 +14,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-export default new StateManager();
+export default new DungeonstateStateManager();

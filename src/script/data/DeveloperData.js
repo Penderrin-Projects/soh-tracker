@@ -1,6 +1,6 @@
 // frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 
 async function getData() {

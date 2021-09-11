@@ -1,7 +1,6 @@
 // frameworks
 import ClassRegistry from "/emcJS/util/ClassRegistry.js";
 
-
 const CATEGORIES = new Map();
 
 export default class UIRegistry extends ClassRegistry {

@@ -193,6 +193,18 @@ export default class MapExit extends WorldMapMarkedEntry {
                 entrancesEl.append(el_icon);
             }
         }
+        /* value */
+        const markerEl = this.shadowRoot.getElementById("marker");
+        if (data.reachable > 0) {
+            const state = this.getState();
+            if (state?.area != null) {
+                markerEl.innerHTML = data.reachable;
+            } else {
+                markerEl.innerHTML = "?";
+            }
+        } else {
+            markerEl.innerHTML = "";
+        }
     }
 
     applyValue(value = "") {
@@ -282,5 +294,5 @@ export default class MapExit extends WorldMapMarkedEntry {
 
 }
 
-UIRegistry.set("worldmap-exit", new UIRegistry(MapExit));
 customElements.define("gt-worldmap-exit", MapExit);
+UIRegistry.set("worldmap-exit", new UIRegistry(MapExit));

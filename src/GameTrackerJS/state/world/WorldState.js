@@ -1,4 +1,3 @@
-import SavestateHandler from "../../savestate/SavestateHandler.js";
 import DataState from "../DataState.js";
 import FilterHandler from "../../util/handler/FilterHandler.js";
 import VisibilityHandler from "../../util/handler/VisibilityHandler.js";
@@ -11,38 +10,26 @@ export default class WorldState extends DataState {
 
     constructor(ref, props = {}) {
         super(ref, props);
-        /* --- */
+
+        /* VISIBILITY */
         VISIBLE.set(this, false);
-        /* handler */
+        
         const visibilityHandler = new VisibilityHandler(props.visible);
         VISIBILITY_HANDLER.set(this, visibilityHandler);
-        const filterHandler = new FilterHandler(props.filter);
-        FILTER_HANDLER.set(this, filterHandler);
         visibilityHandler.addEventListener("change", () => {
             this.updateVisible();
         });
+
+        const filterHandler = new FilterHandler(props.filter);
+        FILTER_HANDLER.set(this, filterHandler);
         filterHandler.addEventListener("change", () => {
             this.updateVisible();
         });
-        /* savestate */
-        SavestateHandler.addEventListener("beforeload", event => {
-            this.beforeStateLoad();
-        });
-        SavestateHandler.addEventListener("load", event => {
-            this.onStateLoad(event.state);
-        });
+
         /* --- */
         setTimeout(() => {
             this.updateVisible();
         }, 0);
-    }
-
-    beforeStateLoad() {
-        // nothing
-    }
-
-    onStateLoad(state) {
-        // nothing
     }
 
     get visible() {

@@ -1,0 +1,174 @@
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import "/emcJS/ui/input/Option.js";
+
+// GameTrackerJS
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import ItemElement from "../abstract/ItemElement.js";
+import "./Item.js";
+
+const TPL = new Template(`
+<slot id="slot">
+</slot>
+`);
+
+const STYLE = new GlobalStyle(`
+#slot {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+}
+::slotted(:not([value])),
+::slotted([value]:not(.active)) {
+    display: none !important;
+}
+::slotted([value]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    color: white;
+    font-size: 0.8em;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
+    flex-grow: 0;
+    flex-shrink: 0;
+    min-height: 0;
+    white-space: normal;
+    line-height: 0.7em;
+    font-weight: bold;
+}
+::slotted([value]:hover) {
+    background-size: 100%;
+}
+::slotted([value].mark) {
+    color: #54ff54;
+}
+`);
+
+function resolveIcon(icon, value = 0) {
+    if (icon == null) {
+        return "/images/items/unknown.png";
+    }
+    if (typeof icon == "object") {
+        return icon[value] ?? icon[0] ?? "/images/items/unknown.png";
+    }
+    return icon;
+}
+
+function createOption(value, icon, data, max_value) {
+    const opt = document.createElement("emc-option");
+    opt.value = value;
+    opt.style.backgroundImage = `url("${icon}")`;
+    if (value == 0 && !data.always_active) {
+        opt.style.filter = "contrast(0.8) grayscale(0.5)";
+        opt.style.opacity = "0.4";
+    }
+    if (data.counting) {
+        if (Array.isArray(data.counting)) {
+            opt.innerHTML = data.counting[value];
+        } else if (typeof data.counting == "string") {
+            opt.innerHTML = data.counting;
+        } else {
+            if (value > 0 || data.always_active) {
+                opt.innerHTML = value;
+            }
+        }
+        if (data.mark !== false) {
+            const mark = parseInt(data.mark);
+            if (value >= max_value || (!isNaN(mark) && value >= mark)) {
+                opt.classList.add("mark");
+            }
+        }
+    } else if (data.label) {
+        if (Array.isArray(data.label)) {
+            opt.innerHTML = data.label[value];
+        } else if (typeof data.label == "string") {
+            opt.innerHTML = data.label;
+        }
+    }
+    return opt;
+}
+
+function applyElements(target) {
+    const tooltipEl = target.getElementById("tooltip");
+    const tpl = TPL.generate();
+    /* value */
+    const slotEl = tpl.getElementById("slot");
+    tooltipEl.append(slotEl);
+}
+
+export default class ProgressiveItem extends ItemElement {
+
+    constructor() {
+        super();
+        applyElements(this.shadowRoot);
+        STYLE.apply(this.shadowRoot);
+        /* --- */
+        this.registerStateHandler("max", event => {
+            this./*#*/__fillItemChoices();
+        });
+        this.registerStateHandler("min", event => {
+            this./*#*/__fillItemChoices();
+        });
+        this.registerStateHandler("start", event => {
+            this./*#*/__fillItemChoices();
+        });
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues();
+        // choices
+        this./*#*/__fillItemChoices();
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        // choices
+        this./*#*/__fillItemChoices();
+    }
+
+    applyValueChange(value) {
+        const activeEl = this.querySelector(".active");
+        if (activeEl != null) {
+            activeEl.classList.remove("active");
+        }
+        const newEl = this.querySelector(`[value="${value}"]`);
+        if (newEl != null) {
+            newEl.classList.add("active");
+        }
+    }
+
+    /*#*/__fillItemChoices() {
+        this.innerHTML = "";
+        const state = this.getState();
+        if (state != null) {
+            for (let value = state.min; value <= state.max; ++value) {
+                const icon = resolveIcon(state.props.icon, value);
+                const opt = createOption(value, icon, state.props, state.max);
+                if (value == this.value) {
+                    opt.classList.add("active");
+                }
+                this.append(opt);
+            }
+        } else {
+            const opt = document.createElement("emc-option");
+            opt.value = 0;
+            opt.style.backgroundImage = `url("/images/items/unknown.png")`;
+            opt.classList.add("active");
+            this.append(opt);
+        }
+    }
+
+}
+
+customElements.define("gt-itemgrid-progressiveitem", ProgressiveItem);
+UIRegistry.get("itemgrid-item")
+    .register("progressive", ProgressiveItem)
+    .register("progressive_startsettings", ProgressiveItem);

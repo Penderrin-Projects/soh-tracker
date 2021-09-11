@@ -1,10 +1,10 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 // GameTrackerJS
-import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT

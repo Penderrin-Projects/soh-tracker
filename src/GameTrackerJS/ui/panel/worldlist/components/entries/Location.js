@@ -137,5 +137,5 @@ export default class WorldListLocation extends WorldListMarkedEntry {
 
 }
 
-UIRegistry.set("worldlist-location", new UIRegistry(WorldListLocation));
 customElements.define("gt-worldlist-location", WorldListLocation);
+UIRegistry.set("worldlist-location", new UIRegistry(WorldListLocation));

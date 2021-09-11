@@ -3,7 +3,6 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
-import Language from "../../util/Language.js";
 import GridsResource from "../../resource/GridsResource.js";
 import "./components/Item.js";
 
@@ -44,12 +43,25 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-function createItem(value, onSelect) {
+function createItem(value) {
     const el = document.createElement("gt-itempicker-item");
     el.className = "item";
     el.setAttribute("ref", value);
-    el.addEventListener("select", onSelect);
-    return Language.applyTooltip(el, value);
+    return el;
+}
+
+function createText(value) {
+    const el = document.createElement("DIV");
+    el.className = "text";
+    el.innerHTML = value;
+    return el;
+}
+
+function createIcon(value) {
+    const el = document.createElement("DIV");
+    el.className = "icon";
+    el.dataset.icon = value;
+    return el;
 }
 
 function createEmpty() {
@@ -71,40 +83,31 @@ export default class ItemPicker extends Panel {
         this.setAttribute("data-fontmod", "items");
     }
 
-    /*#*/__loadItems(config) {
+    loadGrid(config = [[]]) {
         const content = this.shadowRoot.getElementById("content");
         content.innerHTML = "";
-        if (!Array.isArray(config)) {
-            return;
-        }
         for (const row of config) {
-            if (!Array.isArray(row)) {
-                return;
-            }
             const cnt = document.createElement("div");
             cnt.classList.add("item-row");
             for (const element of row) {
                 if (element.type == "item") {
-                    const item = createItem(element.value, event => {
-                        this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
-                        event.preventDefault();
-                        return false;
+                    const itemEl = createItem(element.value);
+                    itemEl.addEventListener("click", () => {
+                        const ev = new Event("pick");
+                        ev.data = element.value;
+                        this.dispatchEvent(ev);
                     });
-                    cnt.append(item);
+                    cnt.append(itemEl);
+                } else if (element.type == "text") {
+                    cnt.append(createText(element.value));
+                } else if (element.type == "icon") {
+                    cnt.append(createIcon(element.value));
                 } else {
                     cnt.append(createEmpty());
                 }
             }
             content.append(cnt);
         }
-    }
-
-    get grid() {
-        return this.getAttribute("grid");
-    }
-
-    set grid(val) {
-        this.setAttribute("grid", val);
     }
 
     get items() {
@@ -115,28 +118,43 @@ export default class ItemPicker extends Panel {
         this.setAttribute("items", val);
     }
 
+    get grid() {
+        return this.getAttribute("grid");
+    }
+
+    set grid(val) {
+        this.setAttribute("grid", val);
+    }
+
     static get observedAttributes() {
         return ["items", "grid"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case "grid":
-                if (oldValue != newValue) {
-                    if (!this.items && !!newValue) {
-                        const config = GridsResource.get(newValue);
-                        this./*#*/__loadItems(config);
-                    }
-                }
-                break;
-            case "items":
-                if (oldValue != newValue) {
-                    if (!!newValue) {
+        if (oldValue != newValue) {
+            switch (name) {
+                case "items": {
+                    if (newValue) {
                         const config = JSON.parse(newValue);
-                        this./*#*/__loadItems(config);
+                        this.loadGrid(config);
+                    } else if (this.grid) {
+                        const config = GridsResource.get(newValue);
+                        this.loadGrid(config);
+                    } else {
+                        this.loadGrid();
                     }
-                }
-                break;
+                } break;
+                case "grid": {
+                    if (!this.items) {
+                        if (newValue) {
+                            const config = GridsResource.get(newValue);
+                            this.loadGrid(config);
+                        } else {
+                            this.loadGrid();
+                        }
+                    }
+                } break;
+            }
         }
     }
 

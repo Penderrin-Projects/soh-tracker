@@ -4,7 +4,7 @@ import DefaultItemState from "./DefaultState.js";
 
 const resourceData = ItemsRecource.get();
 
-class StateManager extends AbstractStateManager {
+class ItemStateManager extends AbstractStateManager {
 
     constructor() {
         super(DefaultItemState, resourceData);
@@ -16,4 +16,4 @@ class StateManager extends AbstractStateManager {
 
 }
 
-export default new StateManager();
+export default new ItemStateManager();

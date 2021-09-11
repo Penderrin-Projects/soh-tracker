@@ -1,11 +1,13 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
+import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
 import WorldState from "../WorldState.js";
 import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
 
-const areaHintsSavestateStorage = Savestate.getStorage("areaHints");
+const STORAGES = {
+    areaHints: Savestate.getStorage("areaHints"),
+};
 
 const LIST_HANDLER = new WeakMap();
 const HINT = new WeakMap();
@@ -14,32 +16,20 @@ export default class DefaultAreaState extends WorldState {
 
     constructor(ref, props) {
         super(ref, props);
+
         /* VALUES */
-        HINT.set(this, areaHintsSavestateStorage.get(ref, ""));
-        areaHintsSavestateStorage.addEventListener("change", (event) => {
-            if (event.changes[ref] != null) {
-                const value = event.changes[ref].newValue;
-                this./*#*/__setHint(value);
-            }
+        const areaHintsObserver = new DataStorageValueObserver(STORAGES.areaHints, ref, "");
+        HINT.set(this, areaHintsObserver.value);
+        areaHintsObserver.addEventListener("change", (event) => {
+            this.hint = event.data;
         });
-        areaHintsSavestateStorage.addEventListener("load", (event) => {
-            this./*#*/__setHint(event.data[ref] ?? "");
-        });
+
         /* LIST HANDLER */
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);
-        /* EVENTS */
-        EventBus.register("state::area_hint", (event) => {
-            const ref = this.ref;
-            // savesatate
-            const change = event.data;
-            if (change != null && change.ref == ref) {
-                this./*#*/__setHint(change.value);
-            }
-        });
     }
 
-    /*#*/__setHint(value) {
+    set hint(value) {
         const ref = this.ref;
         if (typeof value != "string" || (value != "woth" && value != "barren")) {
             value = "";
@@ -47,22 +37,11 @@ export default class DefaultAreaState extends WorldState {
         const old = this.hint;
         if (value != old) {
             HINT.set(this, value);
-            areaHintsSavestateStorage.set(ref, value);
+            STORAGES.areaHints.set(ref, value);
             // external
             const event = new Event("hint");
             event.data = value;
             this.dispatchEvent(event);
-        }
-        return value;
-    }
-
-    set hint(value) {
-        const ref = this.ref;
-        const old = this.hint;
-        value = this./*#*/__setHint(value);
-        if (value != null && value != old) {
-            // internal
-            EventBus.trigger("state::area_hint", { ref, value });
         }
     }
 

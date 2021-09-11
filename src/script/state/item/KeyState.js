@@ -1,52 +1,33 @@
-// frameworks
-import EventBus from "/emcJS/event/EventBus.js";
-
-
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import StateManager from "/GameTrackerJS/state/item/StateManager.js";
-import { parseSafeRange } from "../../../GameTrackerJS/util/helper/ItemHelper.js";
+import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import { parseSafeRange } from "/GameTrackerJS/util/helper/ItemHelper.js";
 import DefaultItemState from "/GameTrackerJS/state/item/DefaultState.js";
 
-const TYPE = new WeakMap();
+const AREA = new WeakMap();
 const MAX = new WeakMap();
 
 export default class KeyState extends DefaultItemState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
+
+        /* VALUES */
+        MAX.set(this, super.max);
         if (props["type_max"] != null && props["related_dungeon"] != null) {
-            const type = SavestateHandler.get("dungeontype", props.related_dungeon, "n");
-            TYPE.set(this, type);
-            MAX.set(this, props["type_max"][type] ?? super.max);
-        } else {
-            TYPE.set(this, "v");
-            MAX.set(this, super.max);
-        }
-        /* EVENTS */
-        EventBus.register("state::dungeontype", (event) => {
-            const props = this.props;
-            // savesatate
-            if (props["type_max"] != null && props["related_dungeon"] != null) {
-                const change = event.data;
-                if (change != null && change.ref == props.related_dungeon) {
-                    this./*#*/__applyTypeValue(change.value || "n");
+            const area = AreaStateManager.get(ref);
+            if (area != null) {
+                AREA.set(this, area);
+                if (area.list_mq != null) {
+                    area.addEventListener("type", (event) => {
+                        this./*#*/__setMax(props["type_max"][event.data] ?? super.max);
+                        const ev = new Event("type");
+                        ev.data = event.data;
+                        this.dispatchEvent(ev);
+                    });
+                    MAX.set(this, props["type_max"][area.type] ?? super.max);
                 }
             }
-        });
-    }
-
-    /*#*/__applyTypeValue(newValue) {
-        const type = TYPE.get(this);
-        if (type != newValue) {
-            TYPE.set(this, newValue);
-            const props = this.props;
-            this./*#*/__setMax(props["type_max"][newValue]);
-            // external
-            const event = new Event("type");
-            event.data = newValue;
-            this.dispatchEvent(event);
         }
     }
 
@@ -70,29 +51,18 @@ export default class KeyState extends DefaultItemState {
         }
     }
 
-    stateLoaded(event) {
-        const props = this.props;
-        // type
-        if (props["type_max"] != null && props.hasOwnProperty["related_dungeon"] != null) {
-            const types = event.data.extra.dungeontype;
-            if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
-            } else {
-                this./*#*/__applyTypeValue("n");
-            }
-        }
-        // savesatate
-        super.stateLoaded(event);
-    }
-
     get max() {
         return MAX.get(this) ?? super.max;
     }
 
     get type() {
-        return TYPE.get(this);
+        const area = AREA.get(this);
+        if (area != null) {
+            return area.type;
+        }
+        return "v";
     }
 
 }
 
-StateManager.register("key", KeyState);
+ItemStateManager.register("key", KeyState);

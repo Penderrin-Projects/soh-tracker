@@ -52,14 +52,12 @@ export default class ShopSlotState extends DefaultLocationState {
         }
     }
 
-    getAccessValue(checked, reachable) {
-        if (!checked && reachable) {
-            const shopState = SHOP_STATE.get(this);
-            if (WALLET_CAPACITIES[WALLET.value] < shopState.price) {
-                reachable = false;
-            }
+    get reachable() {
+        const shopState = SHOP_STATE.get(this);
+        if (WALLET_CAPACITIES[WALLET.value] < shopState.price) {
+            return false;
         }
-        return super.getAccessValue(checked, reachable);
+        return super.reachable;
     }
 
     onStateLoad(state) {

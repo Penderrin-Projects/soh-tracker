@@ -1,6 +1,6 @@
 // frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
@@ -125,7 +125,7 @@ export default class MarkerListHandler extends EventTarget {
     }
 
     /*#*/__calculateAvailability() {
-        const list = LIST_FILTERED.get(this);
+        const list = LIST_FILTERED.get(this) ?? new Map();
         const res = {
             done: 0,
             unopened: 0,
@@ -183,7 +183,7 @@ export default class MarkerListHandler extends EventTarget {
     }
 
     setAllEntries(value = true) {
-        const list = LIST_RESOLVED.get(this);
+        const list = LIST_RESOLVED.get(this) ?? new Map();
         for (const [loc, record] of list) {
             if (record.category == "area") {
                 if (loc.props.accessPenetration) {

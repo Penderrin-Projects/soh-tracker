@@ -19,17 +19,25 @@ import parseEntrances from "./parseEntrances.js";
 import parseDisabledLocations from "./parseDisabledLocations.js";
 
 const DEFAULT_DATA = {
-    "": {},
-    area_hint: {},
-    dungeonreward: {},
-    dungeontype: {},
-    exits: {},
-    gossipstone: {},
-    item_location: {},
-    meta: {},
-    parseSpoiler: {},
-    shops: {},
-    songs: {}
+    items: {},
+    locations: {},
+    exitBindings: {},
+    areaHints: {},
+    locationItems: {},
+    startItems: {},
+    options: {},
+    filter: {},
+    // Track-OOT
+    dungeonRewards: {},
+    dungeonTypes: {},
+    shopItems: {},
+    shopItemsPrice: {},
+    shopItemsBought: {},
+    shopItemsName: {},
+    songNotes: {},
+    gossipstoneLocations: {},
+    gossipstoneItems: {},
+    parseSpoiler: {}
 };
 
 function getVersionType(version) {
@@ -110,12 +118,10 @@ class SpoilerParser {
         }
 
         return {
-            data: {
-                ...DEFAULT_DATA,
-                ...extraData,
-                "": mainData,
-                "area_hint": areahint
-            },
+            ...DEFAULT_DATA,
+            ...extraData,
+            "": mainData,
+            "areaHint": areahint,
             options,
             startitems
         };

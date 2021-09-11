@@ -30,8 +30,8 @@ const DUNGEON_TYPES = [
     "dungeon",
     "boss_dungeon"
 ];
-const locationMarkerData = WorldResource.get("marker/location");
-const areaMarkerData = WorldResource.get("marker/area");
+const locationData = WorldResource.get("location");
+const areaData = WorldResource.get("area");
 
 function checkList(entityList) {
     let reachable = 0;
@@ -58,7 +58,7 @@ export default class LocationState extends UIEventBusMixin(CustomElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        const {entityList, dungeonList} = this.generateList(locationMarkerData);
+        const {entityList, dungeonList} = this.generateList(locationData);
         LIST.set(this, entityList);
         DUNGEON_LIST.set(this, dungeonList);
         this.updateStates();
@@ -141,7 +141,7 @@ export default class LocationState extends UIEventBusMixin(CustomElement) {
         const usedLocations = new Set();
         const entityList = new Set();
         const dungeonList = new Set();
-        for (const key in areaMarkerData) {
+        for (const key in areaData) {
             const area = AreaStateManager.get(key);
             if (DUNGEON_TYPES.includes(area.props.type)) {
                 dungeonList.add(area);

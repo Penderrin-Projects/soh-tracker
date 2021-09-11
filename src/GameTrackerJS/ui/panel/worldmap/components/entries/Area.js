@@ -140,6 +140,13 @@ export default class MapArea extends WorldMapMarkedEntry {
                 entrancesEl.append(el_icon);
             }
         }
+        /* value */
+        const markerEl = this.shadowRoot.getElementById("marker");
+        if (data.reachable > 0) {
+            markerEl.innerHTML = data.reachable;
+        } else {
+            markerEl.innerHTML = "";
+        }
     }
 
     applyHint(hint = "") {
@@ -211,5 +218,5 @@ export default class MapArea extends WorldMapMarkedEntry {
 
 }
 
-UIRegistry.set("worldmap-area", new UIRegistry(MapArea));
 customElements.define("gt-worldmap-area", MapArea);
+UIRegistry.set("worldmap-area", new UIRegistry(MapArea));

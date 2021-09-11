@@ -290,6 +290,5 @@ export default class WorldListArea extends BaseClass {
 
 }
 
-UIRegistry.set("worldlist-area", new UIRegistry(WorldListArea));
-UIRegistry.set("worldlist-subarea", new UIRegistry(WorldListArea));
 customElements.define("ootrt-list-area", WorldListArea);
+UIRegistry.set("worldlist-area", new UIRegistry(WorldListArea));

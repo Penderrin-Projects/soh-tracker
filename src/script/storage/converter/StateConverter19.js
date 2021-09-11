@@ -19,9 +19,11 @@ SavestateConverter.register(function(state) {
             areaHints: {},
             locationItems: {},
             startItems: {},
+            options: state.options ?? {},
+            filter: state.filter ?? {},
             // Track-OOT
-            dungeonReward: {},
-            dungeonType: {},
+            dungeonRewards: {},
+            dungeonTypes: {},
             shopItems: {},
             shopItemsPrice: {},
             shopItemsBought: {},
@@ -31,8 +33,6 @@ SavestateConverter.register(function(state) {
             gossipstoneItems: {},
             parseSpoiler: state.data?.parseSpoiler ?? {}
         },
-        options: state.options ?? {},
-        filter: state.filter ?? {},
         notes: state.notes ?? "",
         autosave: state.autosave ?? false,
         timestamp: state.timestamp ?? new Date(),
@@ -61,10 +61,10 @@ SavestateConverter.register(function(state) {
 
     // Track-OOT
     for (const [key, value] of Object.entries(state.data?.dungeonreward ?? {})) {
-        res.data.dungeonReward[key.slice(5)] = value;
+        res.data.dungeonRewards[key.slice(5)] = value;
     }
     for (const [key, value] of Object.entries(state.data?.dungeontype ?? {})) {
-        res.data.dungeonType[key.slice(5)] = value;
+        res.data.dungeonTypes[key.slice(5)] = value;
     }
     for (const [key, value] of Object.entries(state.data?.shops ?? {})) {
         const ref = key.slice(5);

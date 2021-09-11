@@ -363,6 +363,5 @@ export default class WorldListExit extends BaseClass {
 
 }
 
-UIRegistry.set("worldlist-exit", new UIRegistry(WorldListExit));
-UIRegistry.set("worldlist-subexit", new UIRegistry(WorldListExit));
 customElements.define("ootrt-list-exit", WorldListExit);
+UIRegistry.set("worldlist-exit", new UIRegistry(WorldListExit));

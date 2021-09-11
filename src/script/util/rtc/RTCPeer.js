@@ -1,6 +1,6 @@
 // GameTrackerJS
+import Counter from "/GameTrackerJS/util/Counter.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 
 const STORAGES = {
     // GameTrackerJS
@@ -10,7 +10,7 @@ const STORAGES = {
     areaHints: Savestate.getStorage("areaHints"),
     locationItems: Savestate.getStorage("locationItems"),
     startItems: Savestate.getStorage("startItems"),
-    options: OptionsStorage,
+    options: Savestate.getStorage("options"),
     // Track-OOT
     dungeonReward: Savestate.getStorage("dungeonReward"),
     dungeonType: Savestate.getStorage("dungeonType"),
@@ -33,7 +33,7 @@ export default class RTCPeer extends EventTarget {
         super();
         RTC.set(this, rtcClient);
         USERNAME.set(this, username);
-        MUTED.set(this, 0);
+        MUTED.set(this, new Counter());
 
         /* RTC */
         rtcClient.setMessageHandler("data", (key, msg) => {
@@ -44,7 +44,7 @@ export default class RTCPeer extends EventTarget {
         for (const [name, storage] of Object.entries(STORAGES)) {
             storage.addEventListener("change", (event) => {
                 if (!this.isMuted()) {
-                    rtcClient.send("data", {type: "event", name, data: event.data});
+                    rtcClient.send("data", {type: "event", category: name, data: event.data});
                 }
             });
         }
@@ -62,24 +62,17 @@ export default class RTCPeer extends EventTarget {
 
     mute() {
         const muted = MUTED.get(this);
-        if (muted > 0) {
-            MUTED.set(this, muted + 1);
-        } else {
-            MUTED.set(this, 1);
-        }
+        muted.add();
     }
 
     unmute() {
         const muted = MUTED.get(this);
-        if (muted > 1) {
-            MUTED.set(this, muted - 1);
-        } else {
-            MUTED.set(this, 0);
-        }
+        muted.sub();
     }
 
     isMuted() {
-        return !!MUTED.get(this);
+        const muted = MUTED.get(this);
+        return !!muted.value;
     }
 
     async disconnect() {
@@ -93,7 +86,7 @@ export default class RTCPeer extends EventTarget {
     async rtcMessageHandler(key, msg) {
         if (msg.type == "event") {
             this.mute();
-            STORAGES[msg.name]?.setAll(msg.data);
+            STORAGES[msg.category]?.setAll(msg.data);
             this.unmute();
         }
     }

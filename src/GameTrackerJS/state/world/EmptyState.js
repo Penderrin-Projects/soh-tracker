@@ -1,6 +1,11 @@
+import DataState from "../DataState.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
-export default class EmptyState extends EventTarget {
+export default class EmptyState extends DataState {
+
+    constructor() {
+        super("\u0000");
+    }
 
     setAccess() {
         // empty
@@ -16,10 +21,6 @@ export default class EmptyState extends EventTarget {
 
     getFilteredList() {
         return [];
-    }
-
-    get ref() {
-        return "\u0000";
     }
 
     get areaData() {

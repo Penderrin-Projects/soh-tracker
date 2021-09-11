@@ -5,8 +5,8 @@ import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import AbstractSettingsWindow from "./AbstractSettingsWindow.js";
 import OptionsResource from "../../../resource/OptionsResource.js";
 import ItemsResource from "../../../resource/ItemsResource.js";
-import OptionsStorage from "../../../storage/OptionsStorage.js";
-import StartItemsStorage from "../../../storage/StartItemsStorage.js";
+import OptionsStorage from "../../../savestate/storage/OptionsStorage.js";
+import StartItemsStorage from "../../../savestate/storage/StartItemsStorage.js";
 import BusyIndicator from "../../../ui/BusyIndicator.js";
 
 const ITEM_STORAGE = new WeakMap();

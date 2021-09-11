@@ -1,37 +1,43 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
+import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import { parseSafeRange } from "../../util/helper/ItemHelper.js";
 import Savestate from "../../savestate/Savestate.js";
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
-import StartItemsObserver from "../../util/observer/StartItemsObserver.js";
 import DataState from "../DataState.js";
+import VisibilityHandler from "../../util/handler/VisibilityHandler.js";
 
-const itemsSavestateStorage = Savestate.getStorage("items");
+const STORAGES = {
+    items: Savestate.getStorage("items"),
+    startItems: Savestate.getStorage("startItems"),
+};
 
-const VALUE = new WeakMap();
+const VISIBILITY_HANDLER = new WeakMap();
+
 const DEF_MAX = new WeakMap();
 const DEF_MIN = new WeakMap();
 const MAX = new WeakMap();
 const MIN = new WeakMap();
 const START = new WeakMap();
+const VALUE = new WeakMap();
 
 export default class DefaultItemState extends DataState {
 
     constructor(ref, props = {}) {
         super(ref, props);
-        /* --- */
+
+        /* VISIBILITY */
+        const visibilityHandler = new VisibilityHandler(props.visible);
+        VISIBILITY_HANDLER.set(this, visibilityHandler);
+        visibilityHandler.addEventListener("change", (event) => {
+            const ev = new Event("visiblity");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+
+        /* DEFAULT */
         DEF_MAX.set(this, parseSafeRange(props.max, 0));
         DEF_MIN.set(this, parseSafeRange(props.min, 0));
-
-        /* STARTITEMS */
-        {
-            const startItemsObserver = new StartItemsObserver(ref);
-            START.set(this, parseSafeRange(startItemsObserver.value, 0));
-            startItemsObserver.addEventListener("change", (event) => {
-                this./*#*/__setStart(event.data);
-            });
-        }
 
         /* VAR_MAX */
         if (props.var_max != null) {
@@ -88,24 +94,16 @@ export default class DefaultItemState extends DataState {
         }
 
         /* VALUES */
-        VALUE.set(this, this./*#*/__restrictValue(itemsSavestateStorage.get(ref, 0)));
-        itemsSavestateStorage.addEventListener("change", (event) => {
-            if (event.changes[ref] != null) {
-                const value = event.changes[ref].newValue;
-                this./*#*/__setValue(value);
-            }
+        const startItemsObserver = new DataStorageValueObserver(STORAGES.startItems, ref, 0);
+        START.set(this, parseSafeRange(startItemsObserver.value, 0));
+        startItemsObserver.addEventListener("change", (event) => {
+            this./*#*/__setStart(event.data);
         });
-        itemsSavestateStorage.addEventListener("load", (event) => {
-            this./*#*/__setValue(event.data[ref] ?? 0);
-        });
-        
-        /* EVENTS */
-        EventBus.register("state::item", (event) => {
-            const ref = this.ref;
-            const change = event.data;
-            if (change != null && change.ref == ref) {
-                this./*#*/__setValue(change.value);
-            }
+
+        const itemsObserver = new DataStorageValueObserver(STORAGES.items, ref, 0);
+        VALUE.set(this, this./*#*/__restrictValue(itemsObserver.value));
+        itemsObserver.addEventListener("change", (event) => {
+            this.value = event.data;
         });
     }
 
@@ -181,24 +179,6 @@ export default class DefaultItemState extends DataState {
         }
     }
 
-    /*#*/__setValue(value) {
-        const ref = this.ref;
-        const rValue = parseSafeRange(value);
-        if (rValue != null) {
-            const newValue = this./*#*/__restrictValue(rValue);
-            const oldValue = this.value;
-            if (newValue != oldValue) {
-                VALUE.set(this, newValue);
-                itemsSavestateStorage.set(ref, newValue);
-                // external
-                const event = new Event("value");
-                event.data = newValue;
-                this.dispatchEvent(event);
-            }
-            return newValue;
-        }
-    }
-
     get defaultMax() {
         return DEF_MAX.get(this);
     }
@@ -216,17 +196,40 @@ export default class DefaultItemState extends DataState {
     }
 
     set value(value) {
-        const oldValue = this.value;
-        const newValue = this./*#*/__setValue(value);
-        if (newValue != null && newValue != oldValue) {
-            // internal
-            EventBus.trigger("state::item", {ref: this.ref, value: newValue});
+        const ref = this.ref;
+        const rValue = parseSafeRange(value);
+        if (rValue != null) {
+            const newValue = this./*#*/__restrictValue(rValue);
+            const oldValue = this.value;
+            if (newValue != oldValue) {
+                VALUE.set(this, newValue);
+                STORAGES.items.set(ref, newValue);
+                // external
+                const event = new Event("value");
+                event.data = newValue;
+                this.dispatchEvent(event);
+            }
         }
     }
 
     get value() {
         const value = VALUE.get(this);
         return this./*#*/__restrictValue(value);
+    }
+
+    isMarked() {
+        if (this.props.mark !== false) {
+            const mark = parseInt(this.props.mark);
+            if (this.value >= this.max || (!isNaN(mark) && this.value >= mark)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    get visible() {
+        const visibilityHandler = VISIBILITY_HANDLER.get(this);
+        return visibilityHandler.visible;
     }
 
 }

@@ -26,7 +26,6 @@ import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
 import "/script/storage/converter/StateConverter.js";
-import "/script/storage/StateStorage.js";
 import "/script/util/logic/AugmentExits.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/LogicCaller.js";
@@ -38,10 +37,10 @@ import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
-import "/script/ui/items/ItemGrid.js";
-import "/script/ui/dungeonstate/DungeonState.js";
+import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
+import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/LocationStatus.js";
 import "/script/ui/shops/ShopList.js";
 import "/script/ui/songs/SongList.js";
@@ -97,10 +96,10 @@ try {
         Savestate.notes = notePad.value;
     });
     // shared worker
-    if ("SharedWorker" in window) {
-        const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
-        EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
-    }
+    // if ("SharedWorker" in window) {
+    //     const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
+    //     EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
+    // }
     // register hotkey - detached window
     HotkeyHandler.setAction("detached_window", () => {
         window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
@@ -139,15 +138,18 @@ try {
         spl.className = "inactive";
     }
 
-    if (!Savestate.getMeta("init_window_shown", false)) {
-        const showInitWindow = SettingsStorage.get("show_state_init_window");
-        if (showInitWindow) {
-            const newGameWindow = GlobalContext.get("NewGameWindow");
-            if (newGameWindow) {
-                newGameWindow.show();
+    Savestate.addEventListener("load", () => {
+        if (!Savestate.getMeta("init_window_shown", false)) {
+            const showInitWindow = SettingsStorage.get("show_state_init_window");
+            if (showInitWindow) {
+                const newGameWindow = GlobalContext.get("NewGameWindow");
+                if (newGameWindow) {
+                    newGameWindow.show();
+                }
             }
         }
-    }
+    });
+
 } catch(err) {
     console.error(err);
     updateLoadingMessage(err.message.replace(/\n/g, "<br>"));

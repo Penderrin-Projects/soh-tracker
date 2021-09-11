@@ -1,7 +1,7 @@
 // frameworks
+import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import { mix } from "/emcJS/util/Mixin.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
 import Savestate from "../../../savestate/Savestate.js";
@@ -15,7 +15,9 @@ import EntranceStateManager from "../entrance/StateManager.js";
 import { emptyState } from "../EmptyState.js";
 import WorldState from "../WorldState.js";
 
-const exitBindingsSavestateStorage = Savestate.getStorage("exitBindings");
+const STORAGES = {
+    exitBindings: Savestate.getStorage("exitBindings"),
+};
 
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
@@ -67,9 +69,7 @@ export default class DefaultExitState extends WorldState {
 
     constructor(ref, props) {
         super(ref, props);
-        this.addEventListener("visibility", (event) => {
-            console.log("visibility", this.ref, event.data);
-        });
+
         /* AREA */
         const manager = new StateDataEventManager();
         MANAGER.set(this, manager);
@@ -88,31 +88,27 @@ export default class DefaultExitState extends WorldState {
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
+
         /* VALUES */
         const logicAccess = props.logicAccess;
-        {
-            ACCESS.set(this, getLogicAccess(logicAccess));
-            const value = exitBindingsSavestateStorage.get(ref, "");
-            VALUE.set(this, value);
-            setTimeout(() => {
-                const area = getEntranceArea(value);
-                AREA.set(this, area);
-                manager.switchState(area);
-                // external
-                const ev = new Event("access");
-                ev.data = area?.access ?? ACCESS.get(this);
-                this.dispatchEvent(ev);
-            }, 0);
-            exitBindingsSavestateStorage.addEventListener("change", (event) => {
-                if (event.changes[ref] != null) {
-                    const value = event.changes[ref].newValue;
-                    this./*#*/__setValue(value);
-                }
-            });
-            exitBindingsSavestateStorage.addEventListener("load", (event) => {
-                this./*#*/__setValue(event.data[ref] ?? "");
-            });
-        }
+        ACCESS.set(this, getLogicAccess(logicAccess));
+        
+        const exitBindingsObserver = new DataStorageValueObserver(STORAGES.exitBindings, ref, "");
+        VALUE.set(this, exitBindingsObserver.value);
+        exitBindingsObserver.addEventListener("change", (event) => {
+            this.value = event.data;
+        });
+
+        setTimeout(() => {
+            const area = getEntranceArea(this.value);
+            AREA.set(this, area);
+            manager.switchState(area);
+            // external
+            const ev = new Event("access");
+            ev.data = area?.access ?? ACCESS.get(this);
+            this.dispatchEvent(ev);
+        }, 0);
+
         /* ACTIVE */
         if (typeof props.active == "object") {
             const logicFn = LogicCompiler.compile(props.active);
@@ -122,6 +118,7 @@ export default class DefaultExitState extends WorldState {
         } else {
             ACTIVE.set(this, !!props.active);
         }
+
         /* EVENTS */
         EventBus.register("logic", event => {
             const access = getLogicAccess(logicAccess);
@@ -139,9 +136,6 @@ export default class DefaultExitState extends WorldState {
                 }
             }
         });
-        EventBus.register("state::exit_binding", event => {
-            this./*#*/__internalChange(event);
-        });
         const logicEventManager = new EventTargetManager(LogicExecutor);
         logicEventManager.set(["reset", "change"], event => {
             const logicFn = ACTIVE_LOGIC.get(this);
@@ -158,6 +152,7 @@ export default class DefaultExitState extends WorldState {
         });
     }
 
+    // TODO add reverse binding module
     /*#*/__internalChange(event) {
         // savesatate
         const change = event.data;
@@ -192,8 +187,7 @@ export default class DefaultExitState extends WorldState {
         }
     }
 
-    /*#*/__setValue(value) {
-        const props = this.props;
+    set value(value) {
         const old = VALUE.get(this);
         if (value == this.ref) {
             value = "";
@@ -201,28 +195,20 @@ export default class DefaultExitState extends WorldState {
         if (value != old) {
             const manager = MANAGER.get(this);
             VALUE.set(this, value);
-            exitBindingsSavestateStorage.set(this.ref, value);
+            STORAGES.exitBindings.set(this.ref, value);
             const area = getEntranceArea(value);
             AREA.set(this, area);
             manager.switchState(area);
             // external
-            const ev = new Event("access");
-            ev.data = area?.access ?? ACCESS.get(this);
+            const ev = new Event("value");
+            ev.data = value;
             this.dispatchEvent(ev);
-            const ev2 = new Event("value");
-            ev2.data = value;
+
+            const ev2 = new Event("access");
+            ev2.data = this.access;
             this.dispatchEvent(ev2);
         }
         return value;
-    }
-
-    set value(value) {
-        const oldValue = this.value;
-        value = this./*#*/__setValue(value);
-        if (newValue != null && newValue != oldValue) {
-            // internal
-            EventBus.trigger("state::exit_binding", { ref: this.ref, value: newValue });
-        }
     }
 
     get value() {
