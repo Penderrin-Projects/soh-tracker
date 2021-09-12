@@ -2437,7 +2437,14 @@
         "gerudo.c_fortress_clear": {
             "type": "chest",
             "logicAccess": "logic.location.gerudo.c_fortress_clear",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option.gerudo_fortress_open",
+                    "value": "gerudo_fortress_open_open"
+                }
+            },
             "filter": {
                 "filter.era": {
                     "child": false,
