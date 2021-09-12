@@ -1061,7 +1061,7 @@ color_blind_badge_icons=Activate color blind badge icons
 location_status_opened_color=Color for finished checks
 location_status_available_color=Color for available checks
 location_status_unavailable_color=Color for unavailable checks
-location_status_possible_color=Color for partialy available checks
+location_status_possible_color=Color for partially available checks
 
 # SETTINGS - ROM OPTIONS
 option.consider_buyable=Consider buyable Items (Tunics / Blue Fire) in logic
