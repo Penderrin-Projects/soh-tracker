@@ -5,7 +5,7 @@ import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 import Language from "../../util/Language.js";
 import WorldResource from "../../resource/WorldResource.js";
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import EntranceStateManager from "../../state/world/entrance/StateManager.js";
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 
 
@@ -69,7 +69,7 @@ export default class ExitBindingContextMenu extends ContextMenu {
         const bound = new Set();
         for (const key in exits) {
             if (exits[key] != current) {
-                const boundExit = WorldStateManager.getEntrance(key);
+                const boundExit = EntranceStateManager.get(key);
                 if (boundExit == null || !boundExit.props.ignoreBound) {
                     bound.add(exits[key]);
                 }
@@ -92,13 +92,13 @@ export default class ExitBindingContextMenu extends ContextMenu {
         emptyOptionEl.append(emptyOptionText);
         exitSelectEl.append(emptyOptionEl);
         // set choices and value
-        const exit = WorldStateManager.getEntrance(access);
+        const exit = EntranceStateManager.get(access);
         if (exit != null) {
             exitSelectEl.value = current;
             // add options
             const entrances = WorldResource.get("exit");
             for (const name in entrances) {
-                const entrance = WorldStateManager.getEntrance(name);
+                const entrance = EntranceStateManager.get(name);
                 if (access != entrance.props.target) {
                     const isBindable = this.checkBindable(entrance, exit, bound);
                     if (isBindable) {
