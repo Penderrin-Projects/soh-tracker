@@ -4,6 +4,17 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.46
+
+### BUGFIXES
+
+- fix entrance binding initial focus not on searchbox
+- fix all carpenters rescued check to only show if active
+- fix "Guards Cleared" translation to now say "Rescued all Carpenters"
+- fix "Stage" translations to now say "Deku Theatre"
+
+---
+
 ## VERSION 2.1.45
 
 ### BUGFIXES

@@ -127,6 +127,11 @@ export default class ExitBindingMenu extends ContextMenu {
         return isActiveAndBinds && (!bound.has(value.props.target) || exit.props.ignoreBound);
     }
 
+    initFocus() {
+        const exitSelectEl = SELECT_EL.get(this);
+        exitSelectEl.focus();
+    }
+
 }
 
 customElements.define("gt-ctxmenu-exitbinding", ExitBindingMenu);
