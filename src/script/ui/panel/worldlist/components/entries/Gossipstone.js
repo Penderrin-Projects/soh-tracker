@@ -1,88 +1,87 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-
+import { mix } from "/emcJS/util/Mixin.js";
 
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import "/GameTrackerJS/ui/Badge.js";
-// Track-OOT
-import AbstractGossipstone from "../abstract/Gossipstone.js";
-import "./Location.js.js";
+import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
+import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 
 const TPL = new Template(`
-<div id="hintlocation" class="textarea"></div>
-<div id="hintitem" class="textarea"></div>
+<div class="textarea">
+    <emc-i18n-label id="hintlocation"></emc-i18n-label>
+</div>
+<div class="textarea">
+    <emc-i18n-label id="hintitem"></emc-i18n-label>
+</div>
 `);
 
-const STYLE = new GlobalStyle(`
-:host {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-    padding: 5px;
+function applyElements(target) {
+    const headerEl = target.getElementById("header");
+    const tpl = TPL.generate();
+    headerEl.append(tpl);
 }
-:host(:hover),
-:host(.ctx-marked) {
-    background-color: var(--main-hover-color, #ffffff32);
-}
-.textarea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-height: 35px;
-    word-break: break-word;
-}
-.textarea:empty {
-    display: none;
-}
-.textarea + .textarea {
-    margin-top: 5px;
-}
-#text {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    color: #ffffff;
-}
-#text[data-state="opened"] {
-    color: var(--location-status-opened-color, #000000);
-}
-#text[data-state="available"] {
-    color: var(--location-status-available-color, #000000);
-}
-#text[data-state="unavailable"] {
-    color: var(--location-status-unavailable-color, #000000);
-}
-#text[data-state="possible"] {
-    color: var(--location-status-possible-color, #000000);
-}
-#item {
-    margin-left: 5px;
-}
-.menu-tip {
-    font-size: 0.7em;
-    color: #777777;
-    margin-left: 15px;
-    float: right;
-}
-`);
 
-export default class ListGossipstone extends AbstractGossipstone {
+const BaseClass = mix(
+    WorldListElement
+).with(
+    AccessTextMarkerMixin
+);
+
+// FIXME will never be visible
+
+export default class ListGossipstone extends BaseClass {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
-        STYLE.apply(this.shadowRoot);
-        /* --- */
+        applyElements(this.shadowRoot);
+        /* observer */
+        this.registerStateHandler("item", event => {
+            this.applyItem(event.data);
+        });
+        this.registerStateHandler("location", event => {
+            this.applyLocation(event.data);
+        });
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues();
+        this.applyItem();
+        this.applyLocation();
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        this.applyItem(state.item);
+        this.applyLocation(state.location);
+    }
+
+    applyItem(item) {
+        const itemEl = this.shadowRoot.getElementById("hintitem");
+        if (itemEl != null) {
+            const state = this.getState();
+            if (state?.value && item) {
+                itemEl.i18nValue = item;
+            } else {
+                itemEl.i18nValue = "";
+            }
+        }
+    }
+
+    applyLocation(location) {
+        const locationEl = this.shadowRoot.getElementById("hintlocation");
+        if (locationEl != null) {
+            const state = this.getState();
+            if (state?.value && location) {
+                locationEl.i18nValue = location;
+            } else {
+                locationEl.i18nValue = "";
+            }
+        }
     }
 
 }
 
-customElements.define("ootrt-list-gossipstone", ListGossipstone);
-UIRegistry.get("list-location")
+customElements.define("ootrt-worldlist-gossipstone", ListGossipstone);
+UIRegistry.get("worldlist-location")
     .register("gossipstone", ListGossipstone);

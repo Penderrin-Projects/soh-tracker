@@ -27,7 +27,7 @@ export default class DefaultCollectionState extends DataState {
     }
 
     get listContents() {
-        return this.props.listContents;
+        return true;
     }
 
     get access() {

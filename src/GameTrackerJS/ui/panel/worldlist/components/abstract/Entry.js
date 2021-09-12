@@ -2,13 +2,13 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import { mix } from "/emcJS/util/Mixin.js";
-import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
 const TPL = new Template(`
-<div id="header" class="textarea">
-    <emc-i18n-label id="text"></emc-i18n-label>
+<div id="header">
+    <div id="title" class="textarea">
+        <emc-i18n-label id="text"></emc-i18n-label>
+    </div>
 </div>
 `);
 
@@ -16,15 +16,20 @@ const STYLE = new GlobalStyle(`
 :host {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
+    justify-content: center;
     width: 100%;
-    cursor: pointer;
     padding: 3px;
     user-select: none;
 }
-:host(:hover),
-:host(.ctx-marked) {
+#header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+}
+#header:hover,
+:host(.ctx-marked) #header {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {
@@ -52,27 +57,16 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const BaseClass = mix(
-    CustomElement
-).with(
-    ContextMenuManagerMixin
-);
-
-export default class WorldListEntry extends BaseClass {
+export default class WorldListEntry extends CustomElement {
 
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* mouse events */
-        this.addEventListener("click", event => {
+        const headerEl = this.shadowRoot.getElementById("header");
+        headerEl.addEventListener("click", (event) => {
             this.clickHandler(event);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        this.addEventListener("contextmenu", event => {
-            this.contextmenuHandler(event);
             event.stopPropagation();
             event.preventDefault();
             return false;
@@ -81,13 +75,6 @@ export default class WorldListEntry extends BaseClass {
 
     clickHandler(event) {
         // nothing
-    }
-
-    contextmenuHandler(event) {
-        this.showDefaultContextMenu(event);
-        event.stopPropagation();
-        event.preventDefault();
-        return false;
     }
 
 }

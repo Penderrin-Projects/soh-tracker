@@ -4,7 +4,7 @@ import { mix } from "/emcJS/util/Mixin.js";
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import WorldStateManager from "../../../../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
-import WorldListEntry from "./WorldListEntry.js";
+import WorldListEntry from "./Entry.js";
 
 const BaseClass = mix(
     WorldListEntry
@@ -17,9 +17,6 @@ export default class WorldListStateEntry extends BaseClass {
     constructor() {
         super();
         /* state handler */
-        this.registerStateHandler("visiblity", (event) => {
-            this.style.display = event.data ? "" : "none";
-        });
         this.registerStateHandler("access", (event) => {
             const accessValue = AccessStateEnum.getName(event.data.value);
             this.applyAccess(accessValue.toLowerCase(), event.data);
@@ -43,15 +40,11 @@ export default class WorldListStateEntry extends BaseClass {
     }
 
     applyDefaultValues() {
-        /* visible */
-        this.style.display = "none";
         /* access */
-        this.applyAccess("unavailable", {});
+        this.applyAccess();
     }
 
     applyStateValues(state) {
-        /* visible */
-        this.style.display = state.isVisible() ? "" : "none";
         /* access */
         const access = this.getStateAccess(state);
         const accessValue = AccessStateEnum.getName(access.value);
@@ -62,11 +55,8 @@ export default class WorldListStateEntry extends BaseClass {
         return state.access;
     }
     
-    applyAccess(value = "unavailable", data = {}) {
-        const textEl = this.shadowRoot.getElementById("text");
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
+    applyAccess(value = "undefined", data = {}) {
+        this.access = value;
     }
 
     get ref() {
@@ -75,6 +65,14 @@ export default class WorldListStateEntry extends BaseClass {
 
     set ref(val) {
         this.setAttribute("ref", val);
+    }
+
+    get access() {
+        return this.getAttribute("access");
+    }
+
+    set access(val) {
+        this.setAttribute("access", val);
     }
 
     static get observedAttributes() {
@@ -102,7 +100,7 @@ export default class WorldListStateEntry extends BaseClass {
     }
 
     get category() {
-        return "\u0000";
+        return "";
     }
 
 }

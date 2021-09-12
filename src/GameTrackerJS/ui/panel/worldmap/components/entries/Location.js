@@ -155,7 +155,7 @@ export default class MapLocation extends WorldMapMarkedEntry {
     }
 
     get textRef() {
-        return `location/${super.textRef}`;
+        return `location[${super.textRef}]`;
     }
 
     get category() {

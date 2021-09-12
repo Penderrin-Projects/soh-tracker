@@ -1,24 +1,28 @@
 
-import WorldListEntry from "../abstract/WorldListEntry.js";
+import WorldListEntry from "../abstract/Entry.js";
 
 export default class WorldListButton extends WorldListEntry {
 
-    get value() {
-        return this.getAttribute("value");
+    clickHandler(event) {
+        this.dispatchEvent(new Event("trigger"));
     }
 
-    set value(val) {
-        this.setAttribute("value", val);
+    get text() {
+        return this.getAttribute("text");
+    }
+
+    set text(val) {
+        this.setAttribute("text", val);
     }
 
     static get observedAttributes() {
-        return ["value"];
+        return ["text"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "value": {
+                case "text": {
                     const textEl = this.shadowRoot.getElementById("text");
                     if (textEl != null) {
                         textEl.i18nValue = newValue;

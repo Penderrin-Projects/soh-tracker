@@ -17,7 +17,6 @@ const STYLE = new GlobalStyle(`
 #slot {
     width: 100%;
     height: 100%;
-    font-size: 1em;
 }
 ::slotted(:not([value])),
 ::slotted([value]:not(.active)) {

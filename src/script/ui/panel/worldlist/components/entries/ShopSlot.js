@@ -1,13 +1,14 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import { mix } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/LabeledIcon.js";
 
 // GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldListMarkedEntry from "/GameTrackerJS/ui/panel/worldlist/components/abstract/WorldListMarkedEntry.js";
+import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
+import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 // Track-OOT
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 import ShopItemChoiceDialog from "../../../../shops/ShopItemChoiceDialog.js";
@@ -34,7 +35,15 @@ function applyElements(target) {
 
 const shopsanityObserver = new OptionsObserver("option.shopsanity");
 
-export default class ListShopSlot extends WorldListMarkedEntry {
+const BaseClass = mix(
+    WorldListElement
+).with(
+    AccessTextMarkerMixin
+);
+
+// FIXME will not open binder on click
+
+export default class ListShopSlot extends BaseClass {
 
     constructor() {
         super();

@@ -1,29 +1,13 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import "/emcJS/ui/Icon.js";
+import { mix } from "/emcJS/util/Mixin.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
-import WorldListStateEntry from "./WorldListStateEntry.js";
-import Badge from "../../../../Badge.js";
-import "../../../../BadgeAccess.js";
+import WorldListStateEntry from "./StateEntry.js";
+import "../../../../Badge.js";
 
 const TPL = new Template(`
-<gt-badge-access id="badge"></gt-badge-access>
-`);
-
-const STYLE = new GlobalStyle(`
-#text[data-state="opened"] {
-    color: var(--location-status-opened-color, var(--page-text-color, #000000));
-}
-#text[data-state="available"] {
-    color: var(--location-status-available-color, var(--page-text-color, #000000));
-}
-#text[data-state="unavailable"] {
-    color: var(--location-status-unavailable-color, var(--page-text-color, #000000));
-}
-#text[data-state="possible"] {
-    color: var(--location-status-possible-color, var(--page-text-color, #000000));
-}
+<gt-badge id="badge"></gt-badge>
 `);
 
 function applyElements(target) {
@@ -33,19 +17,45 @@ function applyElements(target) {
     textEl.insertAdjacentElement("afterend", badgeEl);
 }
 
-export default class WorldListMarkedEntry extends WorldListStateEntry {
+const BaseClass = mix(
+    WorldListStateEntry
+).with(
+    ContextMenuManagerMixin
+);
+
+export default class WorldListElement extends BaseClass {
 
     constructor() {
         super();
         applyElements(this.shadowRoot);
-        STYLE.apply(this.shadowRoot);
+        /* state handler */
+        this.registerStateHandler("visiblity", (event) => {
+            this.style.display = event.data ? "" : "none";
+        });
+        /* mouse events */
+        const headerEl = this.shadowRoot.getElementById("header");
+        headerEl.addEventListener("contextmenu", (event) => {
+            this.contextmenuHandler(event);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+    }
+
+    contextmenuHandler(event) {
+        this.showDefaultContextMenu(event);
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
     }
 
     applyDefaultValues(defaultIcon) {
         super.applyDefaultValues();
+        /* visible */
+        this.style.display = "none";
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
-        if (badgeEl instanceof Badge) {
+        if (badgeEl != null) {
             badgeEl.typeIcon = defaultIcon;
             badgeEl.setFilterData();
         }
@@ -53,9 +63,11 @@ export default class WorldListMarkedEntry extends WorldListStateEntry {
 
     applyStateValues(state, defaultIcon) {
         super.applyStateValues(state);
+        /* visible */
+        this.style.display = state.isVisible() ? "" : "none";
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
-        if (badgeEl instanceof Badge) {
+        if (badgeEl != null) {
             badgeEl.typeIcon = state.props.icon ?? defaultIcon;
             badgeEl.setFilterData(state.props.filter);
         }
@@ -65,7 +77,7 @@ export default class WorldListMarkedEntry extends WorldListStateEntry {
         super.applyAccess(value, data);
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
-        if (badgeEl instanceof Badge) {
+        if (badgeEl != null) {
             badgeEl.access = value;
             badgeEl.available = data.reachable ?? 0;
             badgeEl.unopened = data.unopened ?? 0;

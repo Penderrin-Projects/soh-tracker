@@ -1,3 +1,5 @@
+import DataState from "./DataState.js";
+
 const PROPDATA = new WeakMap();
 const DEFAULT_STATE = new WeakMap();
 const CLASSES = new WeakMap();
@@ -9,8 +11,8 @@ export default class StateManager {
         if (new.target === StateManager) {
             throw new TypeError("can not construct abstract class");
         }
-        if (DefaultState == null) {
-            throw new Error("DefaultState class must not be null");
+        if (!(DefaultState.prototype instanceof DataState)) {
+            throw new Error("DefaultState must be an instance of DataState");
         }
         /* --- */
         DEFAULT_STATE.set(this, DefaultState);
@@ -25,17 +27,11 @@ export default class StateManager {
     }
 
     has(ref) {
-        if (ref == null) {
-            throw new Error("the reference must not be null");
-        }
         const propdata = PROPDATA.get(this);
         return propdata[ref] != null;
     }
 
     get(ref) {
-        if (ref == null) {
-            throw new Error("the reference must not be null");
-        }
         const instances = INSTANCES.get(this);
         if (instances.has(ref)) {
             return instances.get(ref);

@@ -183,7 +183,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.keys);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
-        el.append(Language.applyTooltip(itm, data.keys));
+        el.append(itm);
         /* register */
         types.push("key");
     } else {
@@ -199,7 +199,7 @@ function createRow(ref, data) {
         const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.bosskey);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
-        el.append(Language.applyTooltip(itm, data.bosskey));
+        el.append(itm);
         /* register */
         types.push("bosskey");
     } else {
@@ -216,7 +216,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
         itm.setAttribute("ref", data.map);
-        el.append(Language.applyTooltip(itm, data.map));
+        el.append(itm);
         /* register */
         types.push("map");
     } else {
@@ -233,7 +233,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
         itm.setAttribute("ref", data.compass);
-        el.append(Language.applyTooltip(itm, data.compass));
+        el.append(itm);
         /* register */
         types.push("compass");
     } else {
@@ -250,7 +250,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "reward");
         itm.setAttribute("ref", ref);
-        el.append(Language.applyTooltip(itm, `${ref}_reward`));
+        el.append(itm);
         /* register */
         types.push("reward");
     } else {
@@ -267,7 +267,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "type");
         itm.setAttribute("ref", ref);
-        el.append(Language.applyTooltip(itm, `${ref}_type`));
+        el.append(itm);
         /* register */
         types.push("type");
     } else {
@@ -284,7 +284,7 @@ function createRow(ref, data) {
         itm.classList.add("inactive");
         itm.setAttribute("type", "hint");
         itm.setAttribute("ref", ref);
-        el.append(Language.applyTooltip(itm, `${ref}_hint`));
+        el.append(itm);
         /* register */
         types.push("hint");
     } else {

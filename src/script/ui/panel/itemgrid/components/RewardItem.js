@@ -12,11 +12,15 @@ import "/GameTrackerJS/ui/itempicker/components/Item.js";
 import "/script/state/item/RewardItemState.js";
 
 const TPL = new Template(`
-<emc-i18n-label id="value"></emc-i18n-label>
+<div id="icon">
+    <emc-i18n-label id="value"></emc-i18n-label>
+</div>
 `);
 
 const STYLE = new GlobalStyle(`
-:host {
+#icon {
+    width: 100%;
+    height: 100%;
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -24,10 +28,10 @@ const STYLE = new GlobalStyle(`
     filter: contrast(0.8) grayscale(0.5);
     opacity: 0.4;
 }
-:host(:hover) {
+:host(:hover) #icon {
     background-size: 100%;
 }
-:host([value]:not([value="0"])) {
+:host([value]:not([value="0"])) #icon {
     filter: none;
     opacity: 1;
 }
@@ -53,10 +57,12 @@ const STYLE = new GlobalStyle(`
 function applyElements(target) {
     const tooltipEl = target.getElementById("tooltip");
     const tpl = TPL.generate();
-    /* value */
-    const valueEl = tpl.getElementById("value");
-    tooltipEl.append(valueEl);
+    /* icon */
+    const iconEl = tpl.getElementById("icon");
+    tooltipEl.append(iconEl);
 }
+
+// FIXME dungeon name is not shown
 
 export default class RewardItem extends ItemElement {
 
@@ -73,7 +79,8 @@ export default class RewardItem extends ItemElement {
     applyDefaultValues() {
         super.applyDefaultValues();
         // image
-        this.style.backgroundImage = "";
+        const iconEl = this.shadowRoot.getElementById("icon");
+        iconEl.style.backgroundImage = "";
         // dungeon
         this.dungeon = "";
     }
@@ -81,7 +88,8 @@ export default class RewardItem extends ItemElement {
     applyStateValues(state) {
         super.applyStateValues(state);
         // image
-        this.style.backgroundImage = `url("${state.props.icon}")`;
+        const iconEl = this.shadowRoot.getElementById("icon");
+        iconEl.style.backgroundImage = `url("${state.props.icon}")`;
         // dungeon
         this.dungeon = state.dungeon ?? "";
         
@@ -106,10 +114,10 @@ export default class RewardItem extends ItemElement {
                 case "dungeon": {
                     if (newValue != "") {
                         const valueEl = this.shadowRoot.getElementById("value");
-                        valueEl.i18nValue = `${newValue}.short`;
+                        valueEl.i18nValue = `area[${newValue}.short]`;
                     } else {
                         const valueEl = this.shadowRoot.getElementById("value");
-                        valueEl.i18nValue = "";
+                        valueEl.i18nValue = "???";
                     }
                 } break;
             }

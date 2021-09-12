@@ -1,10 +1,12 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import { mix } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/LabeledIcon.js";
 
 import UIRegistry from "../../../../../registry/UIRegistry.js";
-import WorldListMarkedEntry from "../abstract/WorldListMarkedEntry.js";
+import WorldListElement from "../abstract/Element.js";
+import AccessTextMarkerMixin from "../mixin/AccessTextMarkerMixin.js";
 import LocationContextMenu from "../../../../ctxmenu/LocationContextMenu.js";
 import ItemPickerContextMenu from "../../../../ctxmenu/ItemPickerContextMenu.js";
 
@@ -36,7 +38,13 @@ function applyElements(target) {
     textEl.insertAdjacentElement("afterend", itemEl);
 }
 
-export default class WorldListLocation extends WorldListMarkedEntry {
+const BaseClass = mix(
+    WorldListElement
+).with(
+    AccessTextMarkerMixin
+);
+
+export default class WorldListLocation extends BaseClass {
 
     constructor() {
         super();
@@ -128,7 +136,7 @@ export default class WorldListLocation extends WorldListMarkedEntry {
     }
 
     get textRef() {
-        return `location/${super.textRef}`;
+        return `location[${super.textRef}]`;
     }
 
     get category() {

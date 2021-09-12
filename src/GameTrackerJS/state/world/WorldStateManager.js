@@ -8,6 +8,7 @@ import LocationStateManager from "./location/StateManager.js";
 import CollectionStateManager from "./collection/StateManager.js";
 import "./area/OverworldState.js";
 
+const VALID_NAME = /[a-zA-Z0-9_\.\/\-]+/;
 const CONFIG = WorldResource.get("config");
 const DEFAULT_TYPES = new Map();
 const CUSTOM_TYPES = new Map();
@@ -31,7 +32,7 @@ class WorldStateManager {
         if (typeof id != "string") {
             throw new TypeError(`id parameter must be of type "string" but was "${typeof id}"`);
         }
-        if (category == "" || id == "") {
+        if (category == "\u0000" || id == "\u0000") {
             return this.getEmpty();
         }
         const manager = DEFAULT_TYPES.get(category);
@@ -42,7 +43,8 @@ class WorldStateManager {
             if (customManager != null) {
                 return customManager.get(id);
             } else {
-                throw new Error(`manager for category "${category}" not initialized before usage`);
+                console.warn(`StateManager for category "${category}" not initialized before usage`);
+                return this.getEmpty();
             }
         }
     }
@@ -50,6 +52,12 @@ class WorldStateManager {
     register(category, manager) {
         if (typeof category != "string") {
             throw new TypeError(`category parameter must be of type "string" but was "${typeof category}"`);
+        }
+        if (!category) {
+            throw new Error("category parameter must not be empty");
+        }
+        if (!VALID_NAME.test(category)) {
+            throw new Error("category parameter can only include the following characters [a-zA-Z0-9_./-]");
         }
         if (!(manager instanceof StateManager)) {
             throw new TypeError(`manager parameter must be an instance of StateManager`);

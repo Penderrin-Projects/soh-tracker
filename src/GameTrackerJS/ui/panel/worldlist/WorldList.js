@@ -14,7 +14,7 @@ import UIRegistry from "../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
-import "./components/entries/Button.js";
+import "./components/button/Button.js";
 import "./components/entries/Collection.js";
 import "./components/entries/Location.js";
 import "./components/entries/Area.js";
@@ -29,7 +29,7 @@ const TPL = new Template(`
     </gt-filtermenubutton>
 </div>
 <div id="body">
-    <gt-worldlist-button id="back" class="button" value="(to overworld)"></gt-worldlist-button>
+    <gt-worldlist-button id="back" class="button" text="(to overworld)"></gt-worldlist-button>
     <div id="list">
         <slot></slot>
     </div>
@@ -81,11 +81,9 @@ const STYLE = new GlobalStyle(`
     width: 38px;
     height: 38px;
     padding: 4px;
+    margin-left: 8px;
     border: solid 2px var(--navigation-background-color, #ffffff);
     border-radius: 10px;
-}
-#title > .button {
-    margin-left: 8px;
 }
 #body {
     flex: 1;
@@ -97,19 +95,6 @@ const STYLE = new GlobalStyle(`
 }
 #hint {
     margin-left: 5px;
-}
-#body .button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 45px;
-    cursor: pointer;
-    padding: 5px;
-}
-#body .button:hover,
-#list > *:hover {
-    background-color: var(--main-hover-color, #ffffff32);
 }
 #body .button.hidden,
 :host(:not([ref])) #back {
@@ -156,11 +141,8 @@ export default class WorldList extends BaseClass {
         });
         /* back button */
         const backEl = this.shadowRoot.getElementById("back");
-        backEl.addEventListener("click", event => {
+        backEl.addEventListener("trigger", event => {
             WorldListState.reset();
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
         });
         /* --- */
         EL_MANAGER.set(this, new ElementManager(this, elementComposer));
@@ -215,7 +197,7 @@ export default class WorldList extends BaseClass {
                     /* text */
                     const textEl = this.shadowRoot.getElementById("text");
                     if (textEl != null) {
-                        textEl.i18nValue = this.ref;
+                        textEl.i18nValue = `area[${this.ref}]`;
                     }
                     /* hint button */
                     const hintEl = this.shadowRoot.getElementById("hint");

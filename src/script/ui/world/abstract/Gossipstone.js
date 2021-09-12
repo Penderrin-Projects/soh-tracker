@@ -181,10 +181,6 @@ function hintstoneDialog(ref) {
             const id = `area/${loc}`;
             slt_loc.append(createLocationOption(id, "area"));
         }
-        for (const loc of subareas) {
-            const id = `subarea/${loc}`;
-            slt_loc.append(createLocationOption(id, "subarea"));
-        }
         for (const type in locations) {
             const data = locations[type];
             for (const loc of data) {

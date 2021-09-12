@@ -2,17 +2,14 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import { mix } from "/emcJS/util/Mixin.js";
-import ElementManager from "/emcJS/util/html/ElementManager.js";
-import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
-import WorldStateManager from "../../../../../state/world/WorldStateManager.js";
 import WorldListState from "../../../../../state/world/WorldListState.js";
-import EmptyState from "../../../../../state/world/EmptyState.js";
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
-import SettingsObserver from "../../../../../util/observer/SettingsObserver.js";
-import WorldListMarkedEntry from "../abstract/WorldListMarkedEntry.js";
+import WorldListSubListElement from "../abstract/SubListElement.js";
+import AccessTextMarkerMixin from "../mixin/AccessTextMarkerMixin.js";
+import AccessListMarkerMixin from "../mixin/AccessListMarkerMixin.js";
 import ExitContextMenu from "../../../../ctxmenu/ExitContextMenu.js";
 import ExitBindingContextMenu from "../../../../ctxmenu/ExitBindingContextMenu.js";
 
@@ -21,9 +18,6 @@ const TPL = new Template(`
     <div id="entrances"></div>
     <emc-i18n-label id="value"></emc-i18n-label>
     <div id="hint"></div>
-</div>
-<div id="list">
-    <slot></slot>
 </div>
 `);
 
@@ -53,54 +47,26 @@ const STYLE = new GlobalStyle(`
     width: 25px;
     height: 25px;
 }
-:host(:not(:empty):not(.empty)) #area.collapsible:before {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    margin-right: 8px;
-    font-weight: bold;
-    text-align: center;
-    content: "+"
-}
-:host(:not(:empty):not(.empty)) #area.collapsible.expanded:before {
-    content:"-"
-}
-#list {
-    width: 100%;
-    margin-top: 5px;
-}
-#area.collapsible + #list {
-    display: none;
-}
-:host(:not(:empty):not(.empty)) #area.collapsible.expanded + #list {
-    display: block;
-}
 `);
 
-const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
-const EL_MANAGER = new WeakMap();
-
-function elementComposer(key, props) {
-    const uiReg = UIRegistry.get(`worldlist-${props.category}`);
-    if (uiReg != null) {
-        return uiReg.create(props.type, key);
-    }
+function applyElements(target) {
+    const headerEl = target.getElementById("header");
+    const tpl = TPL.generate();
+    headerEl.append(tpl);
 }
 
 const BaseClass = mix(
-    WorldListMarkedEntry
+    WorldListSubListElement
 ).with(
-    EventTargetMixin
+    AccessTextMarkerMixin,
+    AccessListMarkerMixin
 );
 
 export default class WorldListExit extends BaseClass {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
+        applyElements(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* state handler */
         this.registerStateHandler("value", event => {
@@ -109,41 +75,6 @@ export default class WorldListExit extends BaseClass {
         this.registerStateHandler("hint", event => {
             this.applyHint(event.data);
         });
-        this.registerStateHandler("list_update", event => {
-            this.refreshList();
-        });
-        /* header */
-        const areaEl = this.shadowRoot.getElementById("area");
-        areaEl.addEventListener("click", (event) => {
-            if (areaEl.classList.contains("collapsible") && this.value != "") {
-                if (areaEl.classList.contains("expanded")) {
-                    areaEl.classList.remove("expanded");
-                } else {
-                    areaEl.classList.add("expanded");
-                }
-            }
-        });
-        /* settings */
-        this.switchTarget("sublistCollapsible", sublistCollapsibleObserver);
-        this.setTargetEventListener("sublistCollapsible", "change", event => {
-            const collapsible = event.data;
-            if (collapsible != "off") {
-                areaEl.classList.add("collapsible");
-                if (collapsible == "start_expanded") {
-                    areaEl.classList.add("startexpanded");
-                }
-            } else {
-                areaEl.classList.remove("collapsible");
-            }
-        });
-        const collapsible = sublistCollapsibleObserver.value;
-        if (collapsible != "off") {
-            areaEl.classList.add("collapsible");
-            if (collapsible == "start_expanded") {
-                areaEl.classList.add("expanded");
-                areaEl.classList.add("startexpanded");
-            }
-        }
         /* context menu */
         this.setDefaultContextMenu(ExitContextMenu);
         this.addDefaultContextMenuHandler("associate", event => {
@@ -217,16 +148,6 @@ export default class WorldListExit extends BaseClass {
                 state.value = event.value;
             }
         });
-        /* --- */
-        EL_MANAGER.set(this, new ElementManager(this, elementComposer));
-    }
-
-    connectedCallback() {
-        if (super.connectedCallback) {
-            super.connectedCallback();
-        }
-        /* list */
-        this.refreshList();
     }
 
     clickHandler(event) {
@@ -234,15 +155,13 @@ export default class WorldListExit extends BaseClass {
         if (state != null) {
             const area = state.area;
             if (area != null) {
-                if (!(area instanceof EmptyState)) {
+                if (area instanceof AreaState) {
                     if (!area.listContents) {
                         WorldListState.area = area.ref;
+                    } else {
+                        super.clickHandler(event);
                     }
                 }
-                // XXX use the one below
-                // if (area instanceof AreaState) {
-                //     WorldListState.area = area.ref;
-                // }
             } else {
                 const mnu_ext = this.getContextMenu("exitbinding");
                 mnu_ext.fillEntranceSelection(this.ref, state.value);
@@ -250,9 +169,6 @@ export default class WorldListExit extends BaseClass {
                 this.showContextMenu("exitbinding", event);
             }
         }
-        event.stopPropagation();
-        event.preventDefault();
-        return false;
     }
 
     applyDefaultValues() {
@@ -265,8 +181,6 @@ export default class WorldListExit extends BaseClass {
         super.applyStateValues(state, "images/icons/entrance.svg");
         /* value */
         this.applyValue(state.value);
-        /* list */
-        this.refreshList();
     }
     
     applyAccess(value = "unavailable", data = {}) {
@@ -314,43 +228,6 @@ export default class WorldListExit extends BaseClass {
                 hintEl.append(el_icon);
             }
         }
-    }
-
-    setCollapsed(value) {
-        const areaEl = this.shadowRoot.getElementById("area");
-        if (areaEl.classList.contains("collapsible")) {
-            if (value) {
-                areaEl.classList.remove("expanded");
-            } else {
-                areaEl.classList.add("expanded");
-            }
-        }
-    }
-
-    refreshList() {
-        const elManager = EL_MANAGER.get(this);
-        const elManagerData = [];
-        const state = this.getState();
-        let hasElements = true;
-        if (state != null && state.listContents) {
-            hasElements = false;
-            const list = state.getList();
-            if (list != null && list.length > 0) {
-                for (const record of list) {
-                    const loc = WorldStateManager.get(record.category, record.id);
-                    elManagerData.push({
-                        key: loc.ref,
-                        category: record.category,
-                        type: loc.props.type
-                    });
-                    if (loc.isVisible()) {
-                        hasElements = true;
-                    }
-                }
-            }
-        }
-        // this.classList.toggle("empty", !hasElements);
-        elManager.manage(elManagerData);
     }
 
     get textRef() {

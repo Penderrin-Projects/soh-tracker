@@ -49,6 +49,10 @@ class WorldListState extends EventTarget {
         }
     }
 
+    forceReload() {
+        this.dispatchEvent(new Event("reload"));
+    }
+
 }
 
 export default new WorldListState();

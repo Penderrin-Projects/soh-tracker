@@ -1,10 +1,14 @@
-import DataState from "../DataState.js";
+import PropState from "../PropState.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
-export default class EmptyState extends DataState {
+export default class EmptyState extends PropState {
 
     constructor() {
-        super("\u0000");
+        super();
+    }
+
+    get ref() {
+        return "\u0000";
     }
 
     setAccess() {

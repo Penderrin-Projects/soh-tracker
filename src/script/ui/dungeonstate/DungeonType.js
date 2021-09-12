@@ -126,14 +126,11 @@ class HTMLTrackerDungeonType extends StateDataEventManager(CustomElement) {
                     {
                         // state
                         const state = DungeonstateStates.get(newValue);
+                        this.readonly = true;
                         if (state != null) {
-                            const data = AreaStateManager.get(newValue);
-                            if (data != null) {
-                                if (data.props.list_mq != null) {
-                                    this.readonly = false;
-                                } else {
-                                    this.readonly = true;
-                                }
+                            const area = AreaStateManager.get(newValue);
+                            if (area?.props.list_mq != null) {
+                                this.readonly = false;
                             }
                         }
                         this.switchState(state);

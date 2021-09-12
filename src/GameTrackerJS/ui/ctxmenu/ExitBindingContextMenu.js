@@ -87,7 +87,7 @@ export default class ExitBindingContextMenu extends ContextMenu {
         const emptyOptionEl = document.createElement("emc-option");
         emptyOptionEl.value = "\u0000";
         const emptyOptionText = document.createElement("span");
-        Language.applyLabel(emptyOptionText, "entrance[\u0000]");
+        Language.applyLabel(emptyOptionText, "entrance[]");
         emptyOptionText.style.fontStyle = "italic";
         emptyOptionEl.append(emptyOptionText);
         exitSelectEl.append(emptyOptionEl);

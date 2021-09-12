@@ -1,34 +1,22 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
+import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import GTWorldList from "/GameTrackerJS/ui/panel/worldlist/WorldList.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
+import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
-// import "./components/entries/TypeButton.js";
+import "./components/button/TypeButton.js";
 import "../../dungeonstate/DungeonType.js";
 
-// import "./listitems/Button.js";
-// import "./listitems/Location.js";
-// import "./listitems/Gossipstone.js";
-// import "./listitems/Area.js";
-// import "./listitems/SubArea.js";
-// import "./listitems/Exit.js";
-// import "./listitems/SubExit.js";
-// import "./listitems/ListCollection.js";
-
 const TPL = new Template(`
-<ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true">
-</ootrt-dungeontype>
-<ootrt-worldlist-typebutton type="v" id="vanilla" class="hidden"></ootrt-worldlist-typebutton>
-<ootrt-worldlist-typebutton type="mq" id="masterquest" class="hidden"></ootrt-worldlist-typebutton>
+<ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
+<ootrt-worldlist-typebutton id="vanilla" class="button" type="v" text="vanilla"></ootrt-worldlist-typebutton>
+<ootrt-worldlist-typebutton id="masterquest" class="button" type="mq" text="masterquest"></ootrt-worldlist-typebutton>
 `);
-
-// const STYLE = new GlobalStyle(`
-// `);
 
 function applyElements(target) {
     const hintEl = target.getElementById("hint");
@@ -45,12 +33,13 @@ function applyElements(target) {
     listEl.insertAdjacentElement("beforebegin", masterquestEl);
 }
 
+// TODO listen on area type event and reload list
+
 export default class WorldList extends GTWorldList {
     
     constructor() {
         super();
         applyElements(this.shadowRoot);
-        // STYLE.apply(this.shadowRoot);
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -58,9 +47,32 @@ export default class WorldList extends GTWorldList {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    this.shadowRoot.getElementById("dungeontype").ref = newValue;
-                    this.shadowRoot.getElementById("vanilla").ref = newValue;
-                    this.shadowRoot.getElementById("masterquest").ref = newValue;
+                    /* dungeontype */
+                    const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
+                    if (dungeontypeEl != null) {
+                        dungeontypeEl.ref = newValue;
+                    }
+                    const area = AreaStateManager.get(newValue);
+                    /* vanilla */
+                    const vanillaEl = this.shadowRoot.getElementById("vanilla");
+                    if (vanillaEl != null) {
+                        vanillaEl.ref = newValue;
+                        if (area?.props.list_mq != null) {
+                            vanillaEl.classList.remove("hidden");
+                        } else {
+                            vanillaEl.classList.add("hidden");
+                        }
+                    }
+                    /* masterquest */
+                    const masterquestEl = this.shadowRoot.getElementById("masterquest");
+                    if (masterquestEl != null) {
+                        masterquestEl.ref = newValue;
+                        if (area?.props.list_mq != null) {
+                            masterquestEl.classList.remove("hidden");
+                        } else {
+                            masterquestEl.classList.add("hidden");
+                        }
+                    }
                 } break;
             }
         }

@@ -209,7 +209,7 @@ export default class MapArea extends WorldMapMarkedEntry {
     }
 
     get textRef() {
-        return `area/${super.textRef}`;
+        return `area[${super.textRef}]`;
     }
 
     get category() {

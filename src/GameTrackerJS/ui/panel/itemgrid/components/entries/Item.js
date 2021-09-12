@@ -6,12 +6,15 @@ import UIRegistry from "../../../../../registry/UIRegistry.js";
 import ItemElement from "../abstract/ItemElement.js";
 
 const TPL = new Template(`
-<div id="value">
+<div id="icon">
+    <div id="value"></div>
 </div>
 `);
 
 const STYLE = new GlobalStyle(`
-:host {
+#icon {
+    width: 100%;
+    height: 100%;
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -19,11 +22,11 @@ const STYLE = new GlobalStyle(`
     filter: contrast(0.8) grayscale(0.5);
     opacity: 0.4;
 }
-:host(:hover) {
+:host(:hover) #icon {
     background-size: 100%;
 }
-:host(.always_active),
-:host([value]:not([value="0"])) {
+:host(.always_active) #icon,
+:host([value]:not([value="0"])) #icon {
     filter: none;
     opacity: 1;
 }
@@ -66,9 +69,9 @@ function resolveIcon(icon, value = 0) {
 function applyElements(target) {
     const tooltipEl = target.getElementById("tooltip");
     const tpl = TPL.generate();
-    /* value */
-    const valueEl = tpl.getElementById("value");
-    tooltipEl.append(valueEl);
+    /* icon */
+    const iconEl = tpl.getElementById("icon");
+    tooltipEl.append(iconEl);
 }
 
 export default class Item extends ItemElement {
@@ -118,8 +121,9 @@ export default class Item extends ItemElement {
             }
         }
         // image
+        const iconEl = this.shadowRoot.getElementById("icon");
         const icon = resolveIcon(state.props.icon, this.value);
-        this.style.backgroundImage = `url("${icon}")`;
+        iconEl.style.backgroundImage = `url("${icon}")`;
     }
 
 }
