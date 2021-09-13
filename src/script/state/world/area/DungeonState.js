@@ -6,7 +6,7 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/handler/MarkerListHandler.js";
+import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../../GameTrackerJS/util/handler/StateListHandler.js";
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const STORAGES = {
@@ -138,7 +138,7 @@ export default class DungeonState extends DefaultAreaState {
 
     /* list */
     generateList() {
-        const listHandler = new MarkerListHandler(this.props.list, `${this.ref}/v`);
+        const listHandler = new StateListHandler(this.props.list, `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
             if (this.type == "v") {
                 const ev = new Event("access");
@@ -166,7 +166,7 @@ export default class DungeonState extends DefaultAreaState {
     }
     
     generateMQList() {
-        const listHandler = new MarkerListHandler(this.props.list_mq, `${this.ref}/mq`);
+        const listHandler = new StateListHandler(this.props.list_mq, `${this.ref}/mq`);
         listHandler.addEventListener("access", event => {
             if (this.type == "mq") {
                 const ev = new Event("access");

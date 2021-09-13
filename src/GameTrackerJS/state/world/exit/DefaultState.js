@@ -10,7 +10,7 @@ import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
-import {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
+import {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
 import AreaStateManager from "../area/StateManager.js";
 import EntranceStateManager from "../entrance/StateManager.js";
 import { emptyState } from "../EmptyState.js";

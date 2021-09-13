@@ -19,7 +19,7 @@ function getAreaName(name) {
     return name;
 }
 
-function createExitData(props, data, type, ref, reverseRef, isBiDir, visibleRootOnly, bindsTo) {
+function createExitData(props = {}, data = {}, type = "", ref = "", reverseRef = "", isBiDir = false, visibleRootOnly = false, bindsTo = []) {
     const access = ref.split(" -> ")[0];
     return {
         "type": type,
@@ -39,7 +39,7 @@ function createExitData(props, data, type, ref, reverseRef, isBiDir, visibleRoot
     };
 }
 
-function addExit(target, ref, reverseRef, props, data) {
+function addExit(target = {}, props = {}, data = {}, ref = "", reverseRef = "") {
     const isBiDir = data.isBiDir ?? true;
     const type = data.type;
     if (type == "overworld") {
@@ -79,7 +79,7 @@ function addExit(target, ref, reverseRef, props, data) {
     }
 }
 
-function correctListEntries(entry) {
+function correctListEntries(entry = {}) {
     if (entry.category == "subarea") {
         entry.category = "area";
     } else if (entry.category == "subexit") {
@@ -91,7 +91,7 @@ function correctListEntries(entry) {
     return entry;
 }
 
-function addArea(target, props, data, ref, listContents, accessPenetration) {
+function addArea(target = {}, props = {}, data = {}, ref = "", listContents = false, accessPenetration = false) {
     const newProps = {
         "type": props.type,
         "categories": props.categories ?? [],
@@ -116,11 +116,28 @@ function addArea(target, props, data, ref, listContents, accessPenetration) {
     target[ref] = newProps;
 }
 
-function modify(source, target) {
+function addOverworld(target = {}, data = {}, ref = "") {
+    const newProps = {
+        "type": "overworld",
+        "map": {
+            "color": data.color ?? "",
+            "border": data.border ?? "",
+            "background": data.background ?? "",
+            "width": data.width ?? 0,
+            "height": data.height ?? 0
+        },
+        "list": (data.lists?.v ?? data.list ?? []).map(correctListEntries)
+    };
+    target[ref] = newProps;
+}
+
+function modify(source = {}, target = {}) {
 
     // location
+    console.log("location");
     const location = {};
     for (const ref in source.marker.location) {
+        console.log(ref);
         const props = source.marker.location[ref];
         location[ref] = {
             "type": props.type,
@@ -133,42 +150,55 @@ function modify(source, target) {
             location[ref]["shop"] = ref;
         }
     }
+    console.log("-----------------------");
 
     // exit
+    console.log("exit");
     const exit = {};
     for (const ref in source.marker.exit) {
+        console.log(ref);
         const props = source.marker.exit[ref];
         const exitRef = props.access;
         exitBindings.set(ref, exitRef);
         const data = source.exit[exitRef];
         const reverseRef = data.target ?? exitRef.split(" -> ").reverse().join(" -> ");
-        addExit(exit, exitRef, reverseRef, props, data);
+        addExit(exit, props, data, exitRef, reverseRef);
     }
     for (const ref in source.marker.subexit) {
+        console.log(ref);
         const props = source.marker.subexit[ref];
         const exitRef = props.access;
         exitBindings.set(ref, exitRef);
         const data = source.exit[exitRef];
         const reverseRef = data.target ?? exitRef.split(" -> ").reverse().join(" -> ");
-        addExit(exit, exitRef, reverseRef, props, data);
+        addExit(exit, props, data, exitRef, reverseRef);
     }
+    console.log("-----------------------");
 
     // area
+    console.log("area");
     const area = {};
+    console.log("overworld");
+    addOverworld(area, source.overworld, "hyrule");
     for (const ref in source.marker.area) {
+        console.log(ref);
         const props = source.marker.area[ref];
         const data = source.area[ref];
         addArea(area, props, data, ref, false, false);
     }
-    for (const ref in source.subarea) {
-        const data = source.subarea[ref];
+    for (const ref in source.marker.subarea) {
+        console.log(ref);
         const props = source.marker.subarea[ref];
+        const data = source.subarea[ref];
         addArea(area, props, data, ref, true, true);
     }
+    console.log("-----------------------");
     
     // collection
+    console.log("collection");
     const collection = {};
     for (const ref in source.collection) {
+        console.log(ref);
         const props = source.collection[ref];
         collection[ref] = {
             "map": {
@@ -181,6 +211,7 @@ function modify(source, target) {
             "list": (props.list ?? []).map(correctListEntries)
         };
     }
+    console.log("-----------------------");
 
     // write all
     target.config = source.config;

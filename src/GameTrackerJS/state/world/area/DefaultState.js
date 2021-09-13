@@ -3,7 +3,7 @@ import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserve
 
 import Savestate from "../../../savestate/Savestate.js";
 import WorldState from "../WorldState.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
+import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
 
 const STORAGES = {
     areaHints: Savestate.getStorage("areaHints"),
@@ -69,7 +69,7 @@ export default class DefaultAreaState extends WorldState {
 
     /* list */
     generateList() {
-        const listHandler = new MarkerListHandler(this.props.list, this.ref);
+        const listHandler = new StateListHandler(this.props.list, this.ref);
         listHandler.addEventListener("visibility", () => {
             this.updateVisible();
         });

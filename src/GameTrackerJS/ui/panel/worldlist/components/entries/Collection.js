@@ -39,10 +39,6 @@ export default class WorldListCollection extends WorldListSubList {
         }
     }
 
-    get textRef() {
-        return `collection[${super.textRef}]`;
-    }
-
     get category() {
         return "collection";
     }

@@ -20,7 +20,7 @@ export default createMixin((superclass) => class StateDataEventManager extends s
         if (oldTarget != null) {
             subs.forEach(function(fns, name) {
                 fns.forEach(function(fn) {
-                    oldTarget.addEventListener(name, fn);
+                    oldTarget.removeEventListener(name, fn);
                 });
             });
         }

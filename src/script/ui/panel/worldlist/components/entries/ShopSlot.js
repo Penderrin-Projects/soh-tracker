@@ -170,10 +170,6 @@ export default class ListShopSlot extends BaseClass {
         }
     }
 
-    get textRef() {
-        return `location/${super.textRef}`;
-    }
-
     get category() {
         return "location";
     }

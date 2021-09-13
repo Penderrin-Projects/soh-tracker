@@ -23,7 +23,7 @@ const DEFAULT_ACCESS = {
 
 export const defaultAccess = DEFAULT_ACCESS;
 
-export default class MarkerListHandler extends EventTarget {
+export default class StateListHandler extends EventTarget {
 
     constructor(list, ref) {
         super();
@@ -33,7 +33,7 @@ export default class MarkerListHandler extends EventTarget {
         LIST_RAW.set(this, list);
         REF.set(this, ref);
         setTimeout(() => {
-            this./*#*/__createLists(list);
+            this./*#*/__generateList(list);
             this./*#*/__refreshAccess();
         }, 0);
     }
@@ -51,7 +51,7 @@ export default class MarkerListHandler extends EventTarget {
         }
     }
 
-    /*#*/__createLists(list) {
+    /*#*/__generateList(list) {
         const entityList = new Map();
         const filteredEntityList = new Map();
         if (list != null) {

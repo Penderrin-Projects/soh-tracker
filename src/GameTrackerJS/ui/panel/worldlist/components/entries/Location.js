@@ -135,10 +135,6 @@ export default class WorldListLocation extends BaseClass {
         }
     }
 
-    get textRef() {
-        return `location[${super.textRef}]`;
-    }
-
     get category() {
         return "location";
     }

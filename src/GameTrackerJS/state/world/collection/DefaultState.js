@@ -1,5 +1,5 @@
 import DataState from "../../DataState.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
+import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
 const VISIBLE = new WeakMap();
@@ -63,7 +63,7 @@ export default class DefaultCollectionState extends DataState {
     /* list */
     generateList() {
         const list = this.props.list;
-        const listHandler = new MarkerListHandler(list, this.ref);
+        const listHandler = new StateListHandler(list, this.ref);
         listHandler.addEventListener("visibility", () => {
             this.updateVisible();
         });

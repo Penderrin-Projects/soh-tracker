@@ -80,6 +80,10 @@ export default class ListGossipstone extends BaseClass {
         }
     }
 
+    get category() {
+        return "location";
+    }
+
 }
 
 customElements.define("ootrt-worldlist-gossipstone", ListGossipstone);

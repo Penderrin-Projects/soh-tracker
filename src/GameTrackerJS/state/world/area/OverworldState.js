@@ -1,8 +1,12 @@
 import AreaStateManager from "./StateManager.js";
 import DataState from "../../DataState.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/MarkerListHandler.js";
+import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
+
+// TODO needs a better listhandler penetrating areas
+// see LocationStatus for advice
+// also should be overwritter to account for dungeons in tracker
 
 export default class OverworldState extends DataState {
 
@@ -44,7 +48,7 @@ export default class OverworldState extends DataState {
     
     /* list */
     generateList() {
-        const listHandler = new MarkerListHandler(this.props.list, this.ref);
+        const listHandler = new StateListHandler(this.props.list, this.ref);
         listHandler.addEventListener("access", event => {
             const ev = new Event("access");
             ev.data = event.data;

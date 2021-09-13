@@ -227,10 +227,6 @@ export default class WorldListExit extends BaseClass {
         }
     }
 
-    get textRef() {
-        return `exit[${super.textRef}]`;
-    }
-
     get category() {
         return "exit";
     }

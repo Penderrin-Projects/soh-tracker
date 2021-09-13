@@ -2437,14 +2437,7 @@
         "gerudo.c_fortress_clear": {
             "type": "chest",
             "logicAccess": "logic.location.gerudo.c_fortress_clear",
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "option.gerudo_fortress_open",
-                    "value": "gerudo_fortress_open_open"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -16265,13 +16258,6 @@
     "area": {
         "hyrule": {
             "type": "overworld",
-            "categories": [],
-            "visible": true,
-            "filter": false,
-            "listContents": false,
-            "accessPenetration": false,
-            "icon": "images/icons/area.svg",
-            "areaTags": false,
             "map": {
                 "color": "",
                 "border": "",
@@ -22483,36 +22469,6 @@
                 }
             ]
         },
-        "hyrule_field.fairy_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "hyrule_field.castle_entrance_grotto": {
             "type": "grotto",
             "categories": [],
@@ -22746,155 +22702,6 @@
                 },
                 {
                     "id": "hyrule_field.g_gossip_grotto_small_forest",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
-        "kokiri.sarias_house": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "kokiri.twins_house": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "kokiri.know_it_all_house": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "kokiri.shop": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "kokiri.kokiri_shop_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kokiri.kokiri_shop_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kokiri.kokiri_shop_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kokiri.kokiri_shop_5",
                     "x": 0,
                     "y": 0,
                     "category": "location"
@@ -23189,36 +22996,6 @@
                 }
             ]
         },
-        "meadow.fairy_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "castle_town.guard_tower": {
             "type": "interior",
             "categories": [],
@@ -23265,36 +23042,6 @@
                     "category": "location"
                 }
             ]
-        },
-        "castle_town.shop_mask": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
         },
         "castle_town.minigame_bombchu": {
             "type": "interior",
@@ -23343,65 +23090,6 @@
                 }
             ]
         },
-        "castle_town.shop_magic": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": false
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": false
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "castle_town.shop_magic_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_magic_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_magic_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_magic_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
         "castle_town.minigame_treasure": {
             "type": "interior",
             "categories": [],
@@ -23437,154 +23125,6 @@
             "list": [
                 {
                     "id": "castle_town.c_chest_game",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
-        "castle_town.shop_bombchu": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": false
-                },
-                "filter.time": {
-                    "day": false,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "castle_town.shop_bombchu_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bombchu_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bombchu_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bombchu_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
-        "castle_town.back_house": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "castle_town.shop_bazaar": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": false
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": false
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "castle_town.shop_bazaar_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bazaar_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bazaar_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "castle_town.shop_bazaar_5",
                     "x": 0,
                     "y": 0,
                     "category": "location"
@@ -24009,36 +23549,6 @@
                 }
             ]
         },
-        "kakariko.carpenter_house": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "kakariko.skulltula_house": {
             "type": "interior",
             "categories": [],
@@ -24186,95 +23696,6 @@
                 }
             ]
         },
-        "kakariko.kakariko_witch": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": false,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "kakariko.shop_bazaar": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": false,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": false
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "kakariko.shop_bazaar_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_bazaar_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_bazaar_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_bazaar_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
         "kakariko.minigame_shooting": {
             "type": "interior",
             "categories": [],
@@ -24413,68 +23834,6 @@
                 }
             ]
         },
-        "kakariko.shop_magic": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "option.entrance_shuffle_interior",
-                    "value": "entrance_shuffle_all"
-                }
-            },
-            "filter": {
-                "filter.era": {
-                    "child": false,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": false
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "kakariko.shop_magic_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_magic_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_magic_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.shop_magic_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
         "kakariko.open_grotto": {
             "type": "grotto",
             "categories": [],
@@ -24567,36 +23926,6 @@
                 }
             ]
         },
-        "graveyard.dampes_hut": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "graveyard.shield_grave": {
             "type": "grotto",
             "categories": [],
@@ -24683,55 +24012,6 @@
                 }
             ]
         },
-        "graveyard.royal_grave": {
-            "type": "grotto",
-            "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_grottos"
-                }
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "kakariko.c_sun_song",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.c_sun_song_chest",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
         "graveyard.dampes_grave": {
             "type": "grotto",
             "categories": [],
@@ -24784,6 +24064,55 @@
                     "x": 0,
                     "y": 0,
                     "category": "area"
+                }
+            ]
+        },
+        "graveyard.royal_grave": {
+            "type": "grotto",
+            "categories": [],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "value",
+                    "el": "option.shuffle_grottos"
+                }
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "kakariko.c_sun_song",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.c_sun_song_chest",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
                 }
             ]
         },
@@ -25065,65 +24394,6 @@
                 }
             ]
         },
-        "goron.shop": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "goron.goron_shop_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "goron.goron_shop_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "goron.goron_shop_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "goron.goron_shop_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
         "goron.grotto": {
             "type": "grotto",
             "categories": [],
@@ -25228,36 +24498,6 @@
                 }
             ]
         },
-        "river.bomb_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "river.open_grotto": {
             "type": "grotto",
             "categories": [],
@@ -25306,95 +24546,6 @@
                     "category": "location"
                 }
             ]
-        },
-        "zoras.shop": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option.entrance_shuffle_interior",
-                "value": "entrance_shuffle_off"
-            },
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": [
-                {
-                    "id": "zoras.zoras_shop_8",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "zoras.zoras_shop_7",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "zoras.zoras_shop_6",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "zoras.zoras_shop_5",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
-        "zoras.storms_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
         },
         "fountain.fairy_fountain": {
             "type": "interior",
@@ -25586,36 +24737,6 @@
                 }
             ]
         },
-        "gerudo_valley.tend": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
         "gerudo_valley.storms_grotto": {
             "type": "grotto",
             "categories": [],
@@ -25664,66 +24785,6 @@
                     "category": "location"
                 }
             ]
-        },
-        "gerudo_valley.octorock_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
-        },
-        "gerudo.storms_grotto": {
-            "type": "grotto",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": true,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": true
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/grotto.svg",
-            "areaTags": false,
-            "map": {
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0
-            },
-            "list": []
         },
         "desert.fairy_fountain": {
             "type": "interior",
@@ -25814,6 +24875,961 @@
                     "category": "location"
                 }
             ]
+        },
+        "hyrule_field.fairy_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kokiri.sarias_house": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kokiri.twins_house": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kokiri.know_it_all_house": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kokiri.shop": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "kokiri.kokiri_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kokiri.kokiri_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "meadow.fairy_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "castle_town.shop_mask": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "castle_town.shop_magic": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": false
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": false
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "castle_town.shop_magic_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_magic_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "castle_town.shop_bombchu": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": false
+                },
+                "filter.time": {
+                    "day": false,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "castle_town.shop_bombchu_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bombchu_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "castle_town.back_house": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "castle_town.shop_bazaar": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": false
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": false
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "castle_town.shop_bazaar_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "castle_town.shop_bazaar_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "kakariko.carpenter_house": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kakariko.kakariko_witch": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": false,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "kakariko.shop_bazaar": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": false,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": false
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "kakariko.shop_bazaar_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_bazaar_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "kakariko.shop_magic": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option.entrance_shuffle_interior",
+                    "value": "entrance_shuffle_all"
+                }
+            },
+            "filter": {
+                "filter.era": {
+                    "child": false,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": false
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "kakariko.shop_magic_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "kakariko.shop_magic_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "kakariko.shop_magic_back": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": false,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": false
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "graveyard.dampes_hut": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "goron.shop": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "goron.goron_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "goron.goron_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "river.bomb_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "zoras.shop": {
+            "type": "interior",
+            "categories": [],
+            "visible": {
+                "type": "state",
+                "el": "option.entrance_shuffle_interior",
+                "value": "entrance_shuffle_off"
+            },
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": [
+                {
+                    "id": "zoras.zoras_shop_8",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_7",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_6",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "zoras.zoras_shop_5",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "zoras.storms_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "gerudo_valley.tend": {
+            "type": "interior",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/interior.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "gerudo_valley.octorock_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
+        },
+        "gerudo.storms_grotto": {
+            "type": "grotto",
+            "categories": [],
+            "visible": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/grotto.svg",
+            "areaTags": false,
+            "map": {
+                "color": "",
+                "border": "",
+                "background": "",
+                "width": 0,
+                "height": 0
+            },
+            "list": []
         }
     },
     "exit": {

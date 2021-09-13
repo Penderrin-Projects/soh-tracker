@@ -77,4 +77,12 @@ export default class WorldListEntry extends CustomElement {
         // nothing
     }
 
+    get textRef() {
+        return "";
+    }
+
+    get category() {
+        return "";
+    }
+
 }

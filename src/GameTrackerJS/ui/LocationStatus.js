@@ -41,7 +41,7 @@ function checkList(entityList) {
 
 const LIST = new WeakMap();
 
-export default class LocationState extends UIEventBusMixin(CustomElement) {
+export default class LocationStatus extends UIEventBusMixin(CustomElement) {
 
     constructor() {
         super();
@@ -81,4 +81,4 @@ export default class LocationState extends UIEventBusMixin(CustomElement) {
 
 }
 
-customElements.define("gt-locationstate", LocationState);
+customElements.define("gt-locationstate", LocationStatus);

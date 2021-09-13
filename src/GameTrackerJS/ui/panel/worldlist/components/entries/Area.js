@@ -154,10 +154,6 @@ export default class WorldListArea extends BaseClass {
         }
     }
 
-    get textRef() {
-        return `area[${super.textRef}]`;
-    }
-
     get category() {
         return "area";
     }

@@ -96,11 +96,9 @@ export default class WorldListStateEntry extends BaseClass {
     }
 
     get textRef() {
-        return this.ref;
-    }
-
-    get category() {
-        return "";
+        const ref = this.ref;
+        const cat = this.category;
+        return cat ? `${cat}[${ref}]` : ref;
     }
 
 }
