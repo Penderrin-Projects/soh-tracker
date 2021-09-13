@@ -44,6 +44,7 @@ export default class ListButton extends BaseClass {
         if (state != null) {
             state.type = this.type ?? "n";
         }
+        super.clickHandler();
     }
 
     applyDefaultValues() {

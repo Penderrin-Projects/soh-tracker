@@ -3,7 +3,6 @@ import Template from "/emcJS/util/html/Template.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 import GTWorldList from "/GameTrackerJS/ui/panel/worldlist/WorldList.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
@@ -33,13 +32,44 @@ function applyElements(target) {
     listEl.insertAdjacentElement("beforebegin", masterquestEl);
 }
 
-// TODO listen on area type event and reload list
-
 export default class WorldList extends GTWorldList {
     
     constructor() {
         super();
         applyElements(this.shadowRoot);
+        /* state handler */
+        this.registerStateHandler("type", event => {
+            this.refreshList();
+            /* buttons */
+            this.applyType(event.data);
+        });
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues();
+        /* buttons */
+        const vanillaEl = this.shadowRoot.getElementById("vanilla");
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        vanillaEl.classList.add("hidden");
+        masterquestEl.classList.add("hidden");
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        /* buttons */
+        this.applyType(state.type);
+    }
+
+    applyType(type) {
+        const vanillaEl = this.shadowRoot.getElementById("vanilla");
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        if (type == "n") {
+            vanillaEl.classList.remove("hidden");
+            masterquestEl.classList.remove("hidden");
+        } else {
+            vanillaEl.classList.add("hidden");
+            masterquestEl.classList.add("hidden");
+        }
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -49,30 +79,13 @@ export default class WorldList extends GTWorldList {
                 case "ref": {
                     /* dungeontype */
                     const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
-                    if (dungeontypeEl != null) {
-                        dungeontypeEl.ref = newValue;
-                    }
-                    const area = AreaStateManager.get(newValue);
+                    dungeontypeEl.ref = newValue;
                     /* vanilla */
                     const vanillaEl = this.shadowRoot.getElementById("vanilla");
-                    if (vanillaEl != null) {
-                        vanillaEl.ref = newValue;
-                        if (area?.props.list_mq != null) {
-                            vanillaEl.classList.remove("hidden");
-                        } else {
-                            vanillaEl.classList.add("hidden");
-                        }
-                    }
+                    vanillaEl.ref = newValue;
                     /* masterquest */
                     const masterquestEl = this.shadowRoot.getElementById("masterquest");
-                    if (masterquestEl != null) {
-                        masterquestEl.ref = newValue;
-                        if (area?.props.list_mq != null) {
-                            masterquestEl.classList.remove("hidden");
-                        } else {
-                            masterquestEl.classList.add("hidden");
-                        }
-                    }
+                    masterquestEl.ref = newValue;
                 } break;
             }
         }

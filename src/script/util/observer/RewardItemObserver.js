@@ -17,13 +17,13 @@ function setInstance(key, inst) {
 }
 
 function getRewardDungeons() {
-    const resource = DungeonstateResource.get("area");
+    const resource = DungeonstateResource.get();
     const filtered = Helper.Object.filter(resource, (key, entry) => entry.boss_reward);
     return Object.keys(filtered);
 }
 
 const REWARD_DUNGEONS = getRewardDungeons();
-const STORAGE = Savestate.getStorage("dungeonReward");
+const STORAGE = Savestate.getStorage("dungeonRewards");
 const DUNGEON = new Map();
 
 for (const dungeon of REWARD_DUNGEONS) {
