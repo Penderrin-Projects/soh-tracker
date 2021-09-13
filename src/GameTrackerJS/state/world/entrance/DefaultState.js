@@ -2,11 +2,9 @@
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
-import OptionsObserver from "../../../util/observer/OptionsObserver.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import DataState from "../../DataState.js";
 
-const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
 const ACTIVE = new WeakMap();
 const ACTIVE_LOGIC = new WeakMap();
 
@@ -44,15 +42,6 @@ export default class DefaultEntranceState extends DataState {
 
     get active() {
         return ACTIVE.get(this);
-    }
-
-    checkBindable(exit) {
-        if (exit instanceof DefaultEntranceState) {
-            const ignoreBindsTo = mixedEntrancePoolObserver.value;
-            const isActive = this.active || exit.props.includeInactiveEntrances;
-            return isActive && (ignoreBindsTo || exit.props.bindsTo.indexOf(exit.props.type) >= 0);
-        }
-        return false;
     }
 
 }

@@ -5,6 +5,7 @@ import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
+import DefaultAreaState from "../../../../../state/world/area/DefaultState.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldMapMarkedEntry from "../abstract/WorldMapMarkedEntry.js";
 import ExitContextMenu from "../../../../ctxmenu/ExitContextMenu.js";
@@ -149,19 +150,14 @@ export default class MapExit extends WorldMapMarkedEntry {
         const state = this.getState();
         if (state != null) {
             const area = state.area;
-            if (area != null) {
-                if (!(area instanceof EmptyState)) {
+            if (area instanceof DefaultAreaState) {
+                if (!area.listContents) {
                     WorldListState.area = area.ref;
+                } else {
+                    super.clickHandler(event);
                 }
-                // XXX use the one below
-                // if (area instanceof AreaState) {
-                //     WorldListState.area = area.ref;
-                // }
             } else {
-                const mnu_ext = this.getContextMenu("exitbinding");
-                mnu_ext.fillEntranceSelection(this.ref, state.value);
-                mnu_ext.setValue(state.value);
-                this.showContextMenu("exitbinding", event);
+                this.showContextMenu("exitbinding", event, this.ref, state.value);
             }
         }
         event.stopPropagation();

@@ -3,11 +3,15 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
+import Savestate from "../../savestate/Savestate.js";
 import Language from "../../util/Language.js";
 import WorldResource from "../../resource/WorldResource.js";
+import ExitStateManager from "../../state/world/exit/StateManager.js";
 import EntranceStateManager from "../../state/world/entrance/StateManager.js";
-import SavestateHandler from "../../savestate/SavestateHandler.js";
 
+const STORAGES = {
+    exitBindings: Savestate.getStorage("exitBindings"),
+};
 
 const CTG_TPL = new Template(`
 <span style="color:#00000057;font-style:italic;font-size:0.8em;"></span>
@@ -50,6 +54,13 @@ export default class ExitBindingContextMenu extends ContextMenu {
         // nothing
     }
 
+    show(posX, posY, access, current) {
+        super.show(posX, posY);
+        setTimeout(() => {
+            this.fillEntranceSelection(access, current);
+        }, 0);
+    }
+
     close() {
         const exitSelectEl = SELECT_EL.get(this);
         exitSelectEl.resetSearch();
@@ -65,13 +76,12 @@ export default class ExitBindingContextMenu extends ContextMenu {
         const exitSelectEl = SELECT_EL.get(this);
         exitSelectEl.innerHTML = "";
         // retrieve bound
-        const exits = SavestateHandler.getAll("exits");
         const bound = new Set();
-        for (const key in exits) {
-            if (exits[key] != current) {
+        for (const [key, value] of STORAGES.exitBindings) {
+            if (value != current) {
                 const boundExit = EntranceStateManager.get(key);
                 if (boundExit == null || !boundExit.props.ignoreBound) {
-                    bound.add(exits[key]);
+                    bound.add(value);
                 }
             }
         }
@@ -92,15 +102,13 @@ export default class ExitBindingContextMenu extends ContextMenu {
         emptyOptionEl.append(emptyOptionText);
         exitSelectEl.append(emptyOptionEl);
         // set choices and value
-        const exit = EntranceStateManager.get(access);
+        const exit = ExitStateManager.get(access);
         if (exit != null) {
             exitSelectEl.value = current;
             // add options
-            const entrances = WorldResource.get("exit");
-            for (const name in entrances) {
-                const entrance = EntranceStateManager.get(name);
-                if (access != entrance.props.target) {
-                    const isBindable = this.checkBindable(entrance, exit, bound);
+            for (const [, entrance] of EntranceStateManager) {
+                if (access != entrance.props.target && (entrance.props.ignoreBound || !bound.has(exit.props.target))) {
+                    const isBindable = exit.checkBindable(entrance);
                     if (isBindable) {
                         const opt = document.createElement("emc-option");
                         opt.value = entrance.props.target;
@@ -120,10 +128,6 @@ export default class ExitBindingContextMenu extends ContextMenu {
         } else {
             exitSelectEl.value = "";
         }
-    }
-
-    checkBindable(entrance, exit, bound) {
-        return entrance.checkBindable(exit) && (!bound.has(entrance.props.target) || exit.props.ignoreBound);
     }
 
     initFocus() {

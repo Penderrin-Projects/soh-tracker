@@ -5,7 +5,7 @@ import DefaultLocationState from "./DefaultState.js";
 const resourceData = WorldResource.get("location");
 
 class LocationStateManager extends AbstractStateManager {
-    
+
     constructor() {
         super(DefaultLocationState, resourceData);
     }

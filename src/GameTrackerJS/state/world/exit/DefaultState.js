@@ -5,6 +5,7 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
 import Savestate from "../../../savestate/Savestate.js";
+import OptionsObserver from "../../../util/observer/OptionsObserver.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
@@ -14,6 +15,9 @@ import AreaStateManager from "../area/StateManager.js";
 import EntranceStateManager from "../entrance/StateManager.js";
 import { emptyState } from "../EmptyState.js";
 import WorldState from "../WorldState.js";
+import DefaultEntranceState from "../entrance/DefaultState.js";
+
+const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
 
 const STORAGES = {
     exitBindings: Savestate.getStorage("exitBindings"),
@@ -245,6 +249,15 @@ export default class DefaultExitState extends WorldState {
             return area.access;
         }
         return ACCESS.get(this) ?? defaultMarkerAccess;
+    }
+
+    checkBindable(entrance) {
+        if (entrance instanceof DefaultEntranceState) {
+            const ignoreBindsTo = mixedEntrancePoolObserver.value;
+            const isActive = entrance.active || this.props.includeInactiveEntrances;
+            return isActive && (ignoreBindsTo || this.props.bindsTo.indexOf(entrance.props.type) >= 0);
+        }
+        return false;
     }
 
     /* list */

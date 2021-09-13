@@ -5,6 +5,7 @@ import { mix } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
+import DefaultAreaState from "../../../../../state/world/area/DefaultState.js";
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldListSubListElement from "../abstract/SubListElement.js";
@@ -154,19 +155,14 @@ export default class WorldListExit extends BaseClass {
         const state = this.getState();
         if (state != null) {
             const area = state.area;
-            if (area != null) {
-                if (area instanceof AreaState) {
-                    if (!area.listContents) {
-                        WorldListState.area = area.ref;
-                    } else {
-                        super.clickHandler(event);
-                    }
+            if (area instanceof DefaultAreaState) {
+                if (!area.listContents) {
+                    WorldListState.area = area.ref;
+                } else {
+                    super.clickHandler(event);
                 }
             } else {
-                const mnu_ext = this.getContextMenu("exitbinding");
-                mnu_ext.fillEntranceSelection(this.ref, state.value);
-                mnu_ext.setValue(state.value);
-                this.showContextMenu("exitbinding", event);
+                this.showContextMenu("exitbinding", event, this.ref, state.value);
             }
         }
     }
@@ -216,6 +212,7 @@ export default class WorldListExit extends BaseClass {
                 this.applyHint();
             }
         }
+        this.refreshList();
     }
 
     applyHint(hint = "") {

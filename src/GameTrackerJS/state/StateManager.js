@@ -67,4 +67,20 @@ export default class StateManager {
         return res;
     }
 
+    [Symbol.iterator]() {
+        const propdata = PROPDATA.get(this);
+        const keys = Object.keys(propdata);
+        let index = 0;
+        return {
+            next: () => {
+                if (index < keys.length) {
+                    const key = keys[index++];
+                    return { value: [key, this.get(key)], done: false };
+                } else {
+                    return { done: true };
+                }
+            }
+        }
+    }
+
 }
