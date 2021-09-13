@@ -56,9 +56,7 @@ export default class ExitBindingContextMenu extends ContextMenu {
 
     show(posX, posY, access, current) {
         super.show(posX, posY);
-        setTimeout(() => {
-            this.fillEntranceSelection(access, current);
-        }, 0);
+        this.fillEntranceSelection(access, current);
     }
 
     close() {
@@ -107,23 +105,25 @@ export default class ExitBindingContextMenu extends ContextMenu {
             exitSelectEl.value = current;
             // add options
             for (const [, entrance] of EntranceStateManager) {
-                if (access != entrance.props.target && (entrance.props.ignoreBound || !bound.has(exit.props.target))) {
-                    const isBindable = exit.checkBindable(entrance);
-                    if (isBindable) {
-                        const opt = document.createElement("emc-option");
-                        opt.value = entrance.props.target;
-                        opt.style.flexDirection = "column";
-                        opt.style.alignItems = "flex-start";
-                        opt.style.justifyContent = "center";
-                        const entranceName = Language.generateLabel(`entrance[${entrance.props.target}]`);
-                        opt.append(entranceName);
-                        const category = CTG_TPL.generate(0);
-                        const categoryName = Language.generateLabel(entrance.props.type);
-                        category.append(categoryName);
-                        opt.append(category);
-                        exitSelectEl.append(opt);
+                setTimeout(() => {
+                    if (access != entrance.props.target && (entrance.props.ignoreBound || !bound.has(exit.props.target))) {
+                        const isBindable = exit.checkBindable(entrance);
+                        if (isBindable) {
+                            const opt = document.createElement("emc-option");
+                            opt.value = entrance.props.target;
+                            opt.style.flexDirection = "column";
+                            opt.style.alignItems = "flex-start";
+                            opt.style.justifyContent = "center";
+                            const entranceName = Language.generateLabel(`entrance[${entrance.props.target}]`);
+                            opt.append(entranceName);
+                            const category = CTG_TPL.generate(0);
+                            const categoryName = Language.generateLabel(entrance.props.type);
+                            category.append(categoryName);
+                            opt.append(category);
+                            exitSelectEl.append(opt);
+                        }
                     }
-                }
+                }, 0);
             }
         } else {
             exitSelectEl.value = "";
