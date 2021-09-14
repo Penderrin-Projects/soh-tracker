@@ -14,7 +14,7 @@ import "/script/state/world/CustomWorldStates.js";
 
 const TPL = new Template(`
 <div class="state">
-    <span id="locations-done">#</span> done / <span id="locations-available">#</span> avail / <span id="locations-missing">#</span> miss
+    <span id="locations-done">#</span> done | <span id="locations-available">#</span> avail | <span id="locations-missing">#</span> miss
 </div>
 `);
     
@@ -150,13 +150,13 @@ export default class LocationState extends UIEventBusMixin(CustomElement) {
                     this.updateStates();
                 });
                 /* --- */
-                const listV = area.getRawList("v");
-                const listMQ = area.getRawList("mq");
+                const listV = area.props.list.filter(r => r.category == "location").map(r => r.id);
+                const listMQ = area.props.list_mq.filter(r => r.category == "location").map(r => r.id);
                 for (const entry of listV) {
-                    usedLocations.add(entry.id);
+                    usedLocations.add(entry);
                 }
                 for (const entry of listMQ) {
-                    usedLocations.add(entry.id);
+                    usedLocations.add(entry);
                 }
             }
         }

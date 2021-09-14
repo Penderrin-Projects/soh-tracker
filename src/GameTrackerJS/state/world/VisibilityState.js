@@ -6,7 +6,7 @@ const VISIBILITY_HANDLER = new WeakMap();
 const FILTER_HANDLER = new WeakMap();
 const VISIBLE = new WeakMap();
 
-export default class WorldState extends DataState {
+export default class VisibilityState extends DataState {
 
     constructor(ref, props = {}) {
         super(ref, props);

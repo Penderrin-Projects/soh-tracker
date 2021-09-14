@@ -18,8 +18,9 @@ export default class WorldListStateEntry extends BaseClass {
         super();
         /* state handler */
         this.registerStateHandler("access", (event) => {
-            const accessValue = AccessStateEnum.getName(event.data.value);
-            this.applyAccess(accessValue.toLowerCase(), event.data);
+            const access = event.data;
+            const accessValue = AccessStateEnum.getName(access.value);
+            this.applyAccess(accessValue.toLowerCase(), access);
         });
     }
 

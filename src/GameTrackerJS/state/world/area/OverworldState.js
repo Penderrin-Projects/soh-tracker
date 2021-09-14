@@ -1,20 +1,41 @@
 import AreaStateManager from "./StateManager.js";
 import DataState from "../../DataState.js";
-import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
+import StateListHandler from "../../../util/handler/StateListHandler.js";
+import OverworldListHandler from "../../../util/handler/OverworldListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
-
-// TODO needs a better listhandler penetrating areas
-// see LocationStatus for advice
-// also should be overwritter to account for dungeons in tracker
+const OVERWORLD_HANDLER = new WeakMap();
 
 export default class OverworldState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
+        
+        /* LIST HANDLER */
         const listHandler = this.generateList();
+        listHandler.addEventListener("change", (event) => {
+            this.onListEntriesChange(event)
+        });
         LIST_HANDLER.set(this, listHandler);
+        
+        /* OVERWORLD HANDLER */
+        const overworldHandler = this.generateOverworldList();
+        overworldHandler.addEventListener("access", (event) => {
+            this.onAccessChange(event);
+        });
+        OVERWORLD_HANDLER.set(this, overworldHandler);
+    }
+
+    onAccessChange(event) {
+        const ev = new Event("access");
+        ev.data = event.data;
+        this.dispatchEvent(ev);
+    }
+
+    onListEntriesChange(event) {
+        const ev = new Event("list_update");
+        ev.data = event.data;
+        this.dispatchEvent(ev);
     }
 
     set hint(value) {
@@ -26,12 +47,16 @@ export default class OverworldState extends DataState {
     }
     
     get listContents() {
-        return this.props.listContents;
+        return false;
+    }
+
+    get defaultAccess() {
+        return OverworldListHandler.defaultAccess;
     }
 
     get access() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler?.access ?? defaultMarkerAccess;
+        const overworldHandler = OVERWORLD_HANDLER.get(this);
+        return overworldHandler?.access ?? this.defaultAccess;
     }
 
     get visible() {
@@ -48,33 +73,24 @@ export default class OverworldState extends DataState {
     
     /* list */
     generateList() {
-        const listHandler = new StateListHandler(this.props.list, this.ref);
-        listHandler.addEventListener("access", event => {
-            const ev = new Event("access");
-            ev.data = event.data;
-            this.dispatchEvent(ev);
-        });
-        listHandler.addEventListener("change", event => {
-            const ev = new Event("list_update");
-            ev.data = event.data;
-            this.dispatchEvent(ev);
-        });
+        const ref = this.ref;
+        const list = this.props.list;
+        const listHandler = new StateListHandler(list, ref);
         return listHandler;
     }
 
-    getRawList() {
-        const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.rawList);
+    generateOverworldList() {
+        return new OverworldListHandler();
     }
 
     getList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.list);
+        return listHandler.list;
     }
 
     getFilteredList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.filteredList);
+        return listHandler.filteredList;
     }
 
     setAllEntries(value = true) {

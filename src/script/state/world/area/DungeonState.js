@@ -6,8 +6,8 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../../GameTrackerJS/util/handler/StateListHandler.js";
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
+import StateListHandler from "/GameTrackerJS/util/handler/StateListHandler.js";
 
 const STORAGES = {
     dungeonTypes: Savestate.getStorage("dungeonTypes"),
@@ -79,9 +79,69 @@ export default class DungeonState extends DefaultAreaState {
 
         /* LIST HANDLER */
         const listHandler = this.generateMQList();
+        listHandler.addEventListener("access", (event) => {
+            this.onMQAccessChange(event);
+        });
+        listHandler.addEventListener("change", (event) => {
+            this.onMQListEntriesChange(event)
+        });
         LIST_HANDLER.set(this, listHandler);
     }
-    
+
+    onVisibilityChange(event) {
+        // ignore
+    }
+
+    onAccessChange(event) {
+        if (this.type == "v") {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        } else if (this.type != "mq") {
+            const acc_mq = this.getAccessMQ();
+            const acc = getAccessNeutral(event.data, acc_mq);
+            const ev = new Event("access");
+            ev.data = acc;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    onListEntriesChange(event) {
+        if (this.type != "mq") {
+            this.checkAllFilter();
+            if (event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        }
+    }
+
+    onMQAccessChange(event) {
+        if (this.type == "mq") {
+            const ev = new Event("access");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        } else if (this.type != "v") {
+            const acc_v = this.getAccessV();
+            const acc = getAccessNeutral(acc_v, event.data);
+            const ev = new Event("access");
+            ev.data = acc;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    onMQListEntriesChange(event) {
+        if (this.type != "v") {
+            this.checkAllFilter();
+            if (event.list != null) {
+                const ev = new Event("list_update");
+                ev.data = event.list;
+                this.dispatchEvent(ev);
+            }
+        }
+    }
+
     set type(value) {
         const ref = this.ref;
         if (!ALLOWED_TYPES.includes(value)) {
@@ -133,73 +193,31 @@ export default class DungeonState extends DefaultAreaState {
 
     getAccessMQ() {
         const listHandler = LIST_HANDLER.get(this);
-        return listHandler.access ?? defaultMarkerAccess;
+        return listHandler.access ?? this.defaultAccess;
     }
 
     /* list */
     generateList() {
-        const listHandler = new StateListHandler(this.props.list, `${this.ref}/v`);
-        listHandler.addEventListener("access", event => {
-            if (this.type == "v") {
-                const ev = new Event("access");
-                ev.data = event.data;
-                this.dispatchEvent(ev);
-            } else if (this.type != "mq") {
-                const acc_mq = this.getAccessMQ();
-                const acc = getAccessNeutral(event.data, acc_mq);
-                const ev = new Event("access");
-                ev.data = acc;
-                this.dispatchEvent(ev);
-            }
-        });
-        listHandler.addEventListener("change", event => {
-            if (this.type != "mq") {
-                this.checkAllFilter();
-                if (event.list != null) {
-                    const ev = new Event("list_update");
-                    ev.data = event.list;
-                    this.dispatchEvent(ev);
-                }
-            }
-        });
-        return listHandler;
-    }
-    
-    generateMQList() {
-        const listHandler = new StateListHandler(this.props.list_mq, `${this.ref}/mq`);
-        listHandler.addEventListener("access", event => {
-            if (this.type == "mq") {
-                const ev = new Event("access");
-                ev.data = event.data;
-                this.dispatchEvent(ev);
-            } else if (this.type != "v") {
-                const acc_v = this.getAccessV();
-                const acc = getAccessNeutral(acc_v, event.data);
-                const ev = new Event("access");
-                ev.data = acc;
-                this.dispatchEvent(ev);
-            }
-        });
-        listHandler.addEventListener("change", event => {
-            if (this.type != "v") {
-                this.checkAllFilter();
-                if (event.list != null) {
-                    const ev = new Event("list_update");
-                    ev.data = event.list;
-                    this.dispatchEvent(ev);
-                }
-            }
-        });
+        const ref = `${this.ref}/v`;
+        const list = this.props.list;
+        const listHandler = new StateListHandler(list, ref);
         return listHandler;
     }
 
-    getRawList(type = this.type) {
+    generateMQList() {
+        const ref = `${this.ref}/mq`;
+        const list = this.props.list_mq;
+        const listHandler = new StateListHandler(list, ref);
+        return listHandler;
+    }
+
+    getLocations(type = this.type) {
         if (type == "v") {
-            return super.getRawList();
+            return super.getLocations();
         }
         if (type == "mq") {
             const listHandler = LIST_HANDLER.get(this);
-            return Array.from(listHandler.rawList);
+            return listHandler.getLocations;
         }
     }
 

@@ -1,14 +1,10 @@
-// GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import DefaultExitState from "/GameTrackerJS/state/world/exit/DefaultState.js";
-import "/GameTrackerJS/state/world/area/StateManager.js";
-import "/GameTrackerJS/state/world/exit/StateManager.js";
-import "/GameTrackerJS/state/world/location/StateManager.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
-// Track-OOT
-import "/script/state/world/CustomWorldStates.js";
+import SavestateHandler from "../../savestate/SavestateHandler.js";
+import ExitStateManager from "../../state/world/exit/StateManager.js";
+import DefaultExitState from "../../state/world/exit/DefaultState.js";
+import Logic from "../logic/Logic.js";
+
+// TODO add reverse exit bind handling
+// include detached exit support
 
 const AUGMENTORS = new Set();
 
@@ -135,10 +131,7 @@ class ExitAugmentor {
 // scoped init
 {
     const NEEDED_REVERSE = new Map();
-
-    const exits = WorldResource.get("marker/exit");
-    for (const name in exits) {
-        const exit = WorldStateManager.get("exit", name);
+    for (const [, exit] of ExitStateManager) {
         AUGMENTORS.add(new ExitAugmentor(exit));
         // reverse exits
         if (NEEDED_REVERSE.has(exit.props.access)) {
@@ -147,19 +140,9 @@ class ExitAugmentor {
             NEEDED_REVERSE.set(exit.props.access.split(" -> ").reverse().join(" -> "), exit);
         }
     }
-    const subexits = WorldResource.get("marker/subexit");
-    for (const name in subexits) {
-        const subexit = WorldStateManager.get("subexit", name);
-        AUGMENTORS.add(new ExitAugmentor(subexit));
-        // reverse subexits
-        if (NEEDED_REVERSE.has(subexit.props.access)) {
-            NEEDED_REVERSE.delete(subexit.props.access);
-        } else {
-            NEEDED_REVERSE.set(subexit.props.access.split(" -> ").reverse().join(" -> "), subexit);
-        }
-    }
 
     for (const [access, exit] of NEEDED_REVERSE) {
+        console.warn("reverse exit inserted: ", access);
         const ghost_exit = new DefaultExitState(access, exit.props);
         AUGMENTORS.add(new ExitAugmentor(ghost_exit));
     }

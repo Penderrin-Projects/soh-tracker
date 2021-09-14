@@ -10,11 +10,11 @@ import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
-import {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
+import StateListHandler from "../../../util/handler/StateListHandler.js";
 import AreaStateManager from "../area/StateManager.js";
 import EntranceStateManager from "../entrance/StateManager.js";
 import { emptyState } from "../EmptyState.js";
-import WorldState from "../WorldState.js";
+import VisibilityState from "../VisibilityState.js";
 import DefaultEntranceState from "../entrance/DefaultState.js";
 
 const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
@@ -69,7 +69,7 @@ function getLogicAccess(access) {
     return res;
 }
 
-export default class DefaultExitState extends WorldState {
+export default class DefaultExitState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -243,12 +243,16 @@ export default class DefaultExitState extends WorldState {
         return false;
     }
 
+    get defaultAccess() {
+        return StateListHandler.defaultAccess;
+    }
+
     get access() {
         const area = AREA.get(this);
         if (area != null) {
             return area.access;
         }
-        return ACCESS.get(this) ?? defaultMarkerAccess;
+        return ACCESS.get(this) ?? this.defaultAccess;
     }
 
     checkBindable(entrance) {
@@ -261,11 +265,12 @@ export default class DefaultExitState extends WorldState {
     }
 
     /* list */
-    getRawList() {
+    getLocations() {
         const area = AREA.get(this);
         if (area != null) {
-            return area.getRawList();
+            return area.getLocations();
         }
+        return [];
     }
 
     getList() {
@@ -273,6 +278,7 @@ export default class DefaultExitState extends WorldState {
         if (area != null) {
             return area.getList();
         }
+        return [];
     }
 
     getFilteredList() {
@@ -280,6 +286,7 @@ export default class DefaultExitState extends WorldState {
         if (area != null) {
             return area.getFilteredList();
         }
+        return [];
     }
 
     setAllEntries(value = true) {

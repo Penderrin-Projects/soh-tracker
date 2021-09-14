@@ -8,20 +8,9 @@ import AccessStateEnum from "../../enum/AccessStateEnum.js";
 const REF = new WeakMap();
 const VISIBLE = new WeakMap();
 const ACCESS = new WeakMap();
-const LIST_RAW = new WeakMap();
+const LIST_LOCATIONS = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
 const LIST_FILTERED = new WeakMap();
-
-const DEFAULT_ACCESS = {
-    done: 0,
-    unopened: 0,
-    reachable: 0,
-    total: 0,
-    value: AccessStateEnum.OPENED,
-    entrances: 0
-};
-
-export const defaultAccess = DEFAULT_ACCESS;
 
 export default class StateListHandler extends EventTarget {
 
@@ -29,8 +18,7 @@ export default class StateListHandler extends EventTarget {
         super();
         /* --- */
         VISIBLE.set(this, false);
-        ACCESS.set(this, DEFAULT_ACCESS);
-        LIST_RAW.set(this, list);
+        ACCESS.set(this, StateListHandler.defaultAccess);
         REF.set(this, ref);
         setTimeout(() => {
             this./*#*/__generateList(list);
@@ -38,24 +26,11 @@ export default class StateListHandler extends EventTarget {
         }, 0);
     }
 
-    updateVisible() {
-        const list = LIST_FILTERED.get(this);
-        const value = !!list.size;
-        const old = VISIBLE.get(this);
-        if (old != value) {
-            VISIBLE.set(this, value);
-            // external
-            const ev = new Event("visibility");
-            ev.data = value;
-            this.dispatchEvent(ev);
-        }
-    }
-
     /*#*/__generateList(list) {
         const entityList = new Map();
         const filteredEntityList = new Map();
         if (list != null) {
-            list.forEach(record => {
+            for (const record of list) {
                 const loc = WorldStateManager.get(record.category, record.id);
                 if (loc != null) {
                     entityList.set(loc, record);
@@ -87,46 +62,56 @@ export default class StateListHandler extends EventTarget {
                             if (!filteredEntityList.has(loc)) {
                                 filteredEntityList.set(loc, entityList.get(loc));
                                 this./*#*/__refreshAccess();
-                                this.updateVisible();
+                                this./*#*/__setVisibility(!!filteredEntityList.size);
                             }
                         } else {
                             if (filteredEntityList.has(loc)) {
                                 filteredEntityList.delete(loc);
                                 this./*#*/__refreshAccess();
-                                this.updateVisible();
+                                this./*#*/__setVisibility(!!filteredEntityList.size);
                             }
                         }
                     });
                 }
-            });
+            }
         }
         /* --- */
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        this.updateVisible();
+        this./*#*/__setVisibility(!!filteredEntityList.size);
         // external
         const ev = new Event("change");
         ev.data = this.list;
         this.dispatchEvent(ev);
     }
 
-    /*#*/__refreshAccess() {
-        const access = this./*#*/__calculateAvailability();
-        if (access != null) {
+    /*#*/__setVisibility(value) {
+        const old = VISIBLE.get(this);
+        if (old != value) {
+            VISIBLE.set(this, value);
+            // external
+            const ev = new Event("visibility");
+            ev.data = value;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    /*#*/__setAccess(value) {
+        if (value != null) {
             const old = ACCESS.get(this);
-            if (!Helper.isEqual(old, access)) {
-                ACCESS.set(this, access);
+            if (!Helper.isEqual(old, value)) {
+                ACCESS.set(this, value);
                 // external
                 const event = new Event("access");
-                event.data = access;
+                event.data = value;
                 this.dispatchEvent(event);
             }
         }
     }
 
-    /*#*/__calculateAvailability() {
+    /*#*/__refreshAccess() {
         const list = LIST_FILTERED.get(this) ?? new Map();
-        const res = {
+        const access = {
             done: 0,
             unopened: 0,
             reachable: 0,
@@ -138,48 +123,48 @@ export default class StateListHandler extends EventTarget {
             if (record.category == "area") {
                 if (loc.props.accessPenetration) {
                     const {done, unopened, reachable, entrances, total} = loc.access;
-                    res.done += done;
-                    res.unopened += unopened;
-                    res.reachable += reachable;
-                    res.total += total;
-                    res.entrances += entrances;
+                    access.done += done;
+                    access.unopened += unopened;
+                    access.reachable += reachable;
+                    access.total += total;
+                    access.entrances += entrances;
                 }
             } else if (record.category == "exit") {
                 const area = loc.area;
                 if (area != null) {
                     if (area.props.accessPenetration) {
                         const {done, unopened, reachable, entrances, total} = loc.access;
-                        res.done += done;
-                        res.unopened += unopened;
-                        res.reachable += reachable;
-                        res.total += total;
-                        res.entrances += entrances;
+                        access.done += done;
+                        access.unopened += unopened;
+                        access.reachable += reachable;
+                        access.total += total;
+                        access.entrances += entrances;
                     }
                 } else {
                     const {entrances} = loc.access;
-                    res.entrances += entrances;
+                    access.entrances += entrances;
                 }
             } else if (record.category == "location" || record.category == "collection") {
                 const {done, unopened, reachable, entrances, total} = loc.access;
-                res.done += done;
-                res.unopened += unopened;
-                res.reachable += reachable;
-                res.total += total;
-                res.entrances += entrances;
+                access.done += done;
+                access.unopened += unopened;
+                access.reachable += reachable;
+                access.total += total;
+                access.entrances += entrances;
             }
         }
-        if (res.unopened > 0) {
-            if (res.reachable > 0) {
-                if (res.unopened == res.reachable) {
-                    res.value = AccessStateEnum.AVAILABLE;
+        if (access.unopened > 0) {
+            if (access.reachable > 0) {
+                if (access.unopened == access.reachable) {
+                    access.value = AccessStateEnum.AVAILABLE;
                 } else {
-                    res.value = AccessStateEnum.POSSIBLE;
+                    access.value = AccessStateEnum.POSSIBLE;
                 }
             } else {
-                res.value = AccessStateEnum.UNAVAILABLE;
+                access.value = AccessStateEnum.UNAVAILABLE;
             }
         }
-        return res;
+        this./*#*/__setAccess(access);
     }
 
     setAllEntries(value = true) {
@@ -216,8 +201,17 @@ export default class StateListHandler extends EventTarget {
         return ACCESS.get(this);
     }
 
-    get rawList() {
-        const list = LIST_RAW.get(this);
+    get locations() {
+        const list = LIST_LOCATIONS.get(this);
+        if (list != null) {
+            return Array.from(list.values());
+        } else {
+            return [];
+        }
+    }
+
+    get locations() {
+        const list = LIST_LOCATIONS.get(this);
         if (list != null) {
             return Array.from(list.values());
         } else {
@@ -241,6 +235,17 @@ export default class StateListHandler extends EventTarget {
         } else {
             return [];
         }
+    }
+
+    static get defaultAccess() {
+        return {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            total: 0,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
+        };
     }
 
 }

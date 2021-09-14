@@ -22,13 +22,16 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import "/GameTrackerJS/util/handler/ExitHandler.js";
+import "/GameTrackerJS/util/logic/LogicCaller.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
-import "./savestateConverter/StateConverter.js";
-import "/script/util/logic/AugmentExits.js";
+import "/script/savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentCustomLogic.js";
-import "/script/util/logic/LogicCaller.js";
+import "/script/util/logic/augment/AugmentDungeons.js";
+import "/script/util/logic/augment/AugmentZoraLetter.js";
+import "/script/util/logic/prerun/ReachEpona.js";
 import "/script/util/A11y.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorChoice.js"
@@ -41,12 +44,12 @@ import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/dungeonstate/DungeonState.js";
-import "/script/ui/LocationStatus.js";
 import "/script/ui/shops/ShopList.js";
 import "/script/ui/songs/SongList.js";
 import "/script/ui/exits/ExitList.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
+import "/script/ui/LocationStatus.js";
 
 const spl = document.getElementById("loading-info");
 function updateLoadingMessage(msg = "loading...") {

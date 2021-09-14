@@ -1,5 +1,10 @@
+// frameworks
+import MapLocker from "/emcJS/data/locker/MapLocker.js";
+
+// GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import SettingsStorage from "../../storage/SettingsStorage.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
 
 const STORAGES = {
     // GameTrackerJS
@@ -8,22 +13,27 @@ const STORAGES = {
     startItems: Savestate.getStorage("startItems"),
     options: Savestate.getStorage("options"),
     filter: Savestate.getStorage("filter"),
+    // Track-OOT
+    dungeonTypes: Savestate.getStorage("dungeonTypes"),
 };
 
 const AUGMENT = new Set();
+const PRERUN = new Set();
 const CACHE = new Map();
-const DATA = new Map();
-
-function valueGetter(key) {
-    return DATA.get(key);
-}
+const LOCKED_CACHE = new MapLocker(CACHE);
 
 function execAugment(data) {
     for (const augment of AUGMENT) {
-        const res = augment(data);
+        const res = augment(LOCKED_CACHE, data);
         data = {...data, ...res};
     }
     return data;
+}
+
+function execPrerun(data) {
+    for (const prerun of PRERUN) {
+        prerun(LOCKED_CACHE, data);
+    }
 }
 
 function renameKeys(src = {}, prefix = "") {
@@ -85,13 +95,18 @@ function augmentStartItemValues(newData) {
     return res;
 }
 
-class LogicExecutor extends EventTarget {
+class LogicCaller extends EventTarget {
 
     constructor() {
         super();
         /* EVENTS */
+        Logic.addEventListener("change", event => {
+            const ev = new Event("change");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
         Savestate.addEventListener("load", () => {
-            this./*#*/__init();
+            init();
         });
         STORAGES.items.addEventListener("change", (event) => {
             this./*#*/__changeData(renameKeys(augmentItemValues(event.data), "item."));
@@ -101,6 +116,9 @@ class LogicExecutor extends EventTarget {
         });
         STORAGES.locations.addEventListener("change", (event) => {
             this./*#*/__changeData(renameKeys(event.data, "location."));
+        });
+        STORAGES.dungeonTypes.addEventListener("change", (event) => {
+            this./*#*/__changeData(renameKeys(event.data, "dungeontype."));
         });
         STORAGES.options.addEventListener("change", (event) => {
             this./*#*/__changeData(event.data);
@@ -136,11 +154,9 @@ class LogicExecutor extends EventTarget {
             CACHE.set(key, value);
         }
         const augmentedData = execAugment(data);
-        for (const [key, value] of Object.entries(augmentedData)) {
-            DATA.set(key, value);
-        }
-        const ev = new Event("reset");
-        this.dispatchEvent(ev);
+        Logic.reset();
+        execPrerun(augmentedData);
+        Logic.execute(augmentedData, "region.root");
     }
 
     /*#*/__changeData(newData) {
@@ -153,20 +169,10 @@ class LogicExecutor extends EventTarget {
             }
         }
         if (Object.keys(changes).length > 0) {
-            const augmentedData = execAugment(data);
-            for (const [key, value] of Object.entries(augmentedData)) {
-                DATA.set(key, value);
-            }
-            const ev = new Event("change");
-            this.dispatchEvent(ev);
+            const augmentedData = execAugment(changes);
+            execPrerun(augmentedData);
+            Logic.execute(augmentedData, "region.root");
         }
-    }
-
-    execute(fn) {
-        if (typeof fn != "function") {
-            throw new TypeError(`expected parameter to be of type "function" but was "${typeof fn}"`);
-        }
-        return !!fn(valueGetter);
     }
 
     registerAugment(augment) {
@@ -176,6 +182,25 @@ class LogicExecutor extends EventTarget {
         AUGMENT.add(augment);
     }
 
+    registerPrerun(prerun) {
+        if (typeof prerun != "function") {
+            throw new TypeError(`prerun parameter must be of type "function" but was "${typeof ref}"`);
+        }
+        PRERUN.add(prerun);
+    }
+
+    addReachable(target) {
+        Logic.addReachable(target);
+    }
+
+    deleteReachable(target) {
+        Logic.deleteReachable(target);
+    }
+
+    clearReachables() {
+        Logic.clearReachables();
+    }
+
 }
-    
-export default new LogicExecutor();
+
+export default new LogicCaller();

@@ -1,10 +1,10 @@
-import PropState from "../PropState.js";
+import DataState from "../DataState.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
-export default class EmptyState extends PropState {
+export default class EmptyState extends DataState {
 
     constructor() {
-        super();
+        super("_", {});
     }
 
     get ref() {
@@ -31,15 +31,19 @@ export default class EmptyState extends PropState {
         return {};
     }
 
-    get access() {
+    get defaultAccess() {
         return {
             done: 0,
             unopened: 0,
             reachable: 0,
             total: 0,
-            entrances: false,
-            value: AccessStateEnum.OPENED
+            value: AccessStateEnum.OPENED,
+            entrances: 0
         };
+    }
+
+    get access() {
+        return this.defaultAccess;
     }
 
     get visible() {

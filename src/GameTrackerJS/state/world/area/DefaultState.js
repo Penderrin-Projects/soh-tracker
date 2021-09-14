@@ -2,8 +2,8 @@
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
-import WorldState from "../WorldState.js";
-import StateListHandler, {defaultAccess as defaultMarkerAccess} from "../../../util/handler/StateListHandler.js";
+import VisibilityState from "../VisibilityState.js";
+import StateListHandler from "../../../util/handler/StateListHandler.js";
 
 const STORAGES = {
     areaHints: Savestate.getStorage("areaHints"),
@@ -12,7 +12,7 @@ const STORAGES = {
 const LIST_HANDLER = new WeakMap();
 const HINT = new WeakMap();
 
-export default class DefaultAreaState extends WorldState {
+export default class DefaultAreaState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -26,7 +26,33 @@ export default class DefaultAreaState extends WorldState {
 
         /* LIST HANDLER */
         const listHandler = this.generateList();
+        listHandler.addEventListener("visibility", (event) => {
+            this.onVisibilityChange(event);
+        });
+        listHandler.addEventListener("access", (event) => {
+            this.onAccessChange(event);
+        });
+        listHandler.addEventListener("change", (event) => {
+            this.onListEntriesChange(event)
+        });
         LIST_HANDLER.set(this, listHandler);
+    }
+
+    onVisibilityChange(event) {
+        this.updateVisible();
+    }
+
+    onAccessChange(event) {
+        const ev = new Event("access");
+        ev.data = event.data;
+        this.dispatchEvent(ev);
+    }
+
+    onListEntriesChange(event) {
+        this.checkAllFilter();
+        const ev = new Event("list_update");
+        ev.data = event.data;
+        this.dispatchEvent(ev);
     }
 
     set hint(value) {
@@ -48,14 +74,18 @@ export default class DefaultAreaState extends WorldState {
     get hint() {
         return HINT.get(this);
     }
-
+    
     get listContents() {
-        return this.props.listContents;
+        return this.props.listContents ?? false;
+    }
+
+    get defaultAccess() {
+        return StateListHandler.defaultAccess;
     }
 
     get access() {
         const listHandler = LIST_HANDLER.get(this);
-        return listHandler?.access ?? defaultMarkerAccess;
+        return listHandler?.access ?? this.defaultAccess;
     }
 
     get visible() {
@@ -69,37 +99,25 @@ export default class DefaultAreaState extends WorldState {
 
     /* list */
     generateList() {
-        const listHandler = new StateListHandler(this.props.list, this.ref);
-        listHandler.addEventListener("visibility", () => {
-            this.updateVisible();
-        });
-        listHandler.addEventListener("access", event => {
-            const ev = new Event("access");
-            ev.data = event.data;
-            this.dispatchEvent(ev);
-        });
-        listHandler.addEventListener("change", event => {
-            this.checkAllFilter();
-            const ev = new Event("list_update");
-            ev.data = event.data;
-            this.dispatchEvent(ev);
-        });
+        const ref = this.ref;
+        const list = this.props.list;
+        const listHandler = new StateListHandler(list, ref);
         return listHandler;
     }
 
-    getRawList() {
+    getLocations() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.rawList);
+        return listHandler.getLocations;
     }
 
     getList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.list);
+        return listHandler.list;
     }
 
     getFilteredList() {
         const listHandler = LIST_HANDLER.get(this);
-        return Array.from(listHandler.filteredList);
+        return listHandler.filteredList;
     }
 
     setAllEntries(value = true) {

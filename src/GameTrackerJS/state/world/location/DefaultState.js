@@ -5,7 +5,7 @@ import Helper from "/emcJS/util/helper/Helper.js";
 
 import Savestate from "../../../savestate/Savestate.js";
 import Logic from "../../../util/logic/Logic.js";
-import WorldState from "../WorldState.js";
+import VisibilityState from "../VisibilityState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import ItemStateManager from "../../../state/item/StateManager.js";
 
@@ -42,7 +42,7 @@ function getLogicAccess(checked, reachable) {
     return res;
 }
 
-export default class DefaultLocationState extends WorldState {
+export default class DefaultLocationState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -102,8 +102,19 @@ export default class DefaultLocationState extends WorldState {
         return REACHABLE.get(this);
     }
 
+    get defaultAccess() {
+        return {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            total: 1,
+            value: AccessStateEnum.OPENED,
+            entrances: 0
+        };
+    }
+
     get access() {
-        return ACCESS.get(this);
+        return ACCESS.get(this) ?? this.defaultAccess;
     }
 
     /*#*/__setValue(value) {

@@ -133,8 +133,9 @@ export default class WorldList extends BaseClass {
             this.ref = event.data;
         });
         this.registerStateHandler("access", event => {
-            const accessValue = AccessStateEnum.getName(event.data.value);
-            this.applyAccess(accessValue.toLowerCase(), event.data);
+            const access = event.data;
+            const accessValue = AccessStateEnum.getName(access.value);
+            this.applyAccess(accessValue.toLowerCase(), access);
         });
         this.registerStateHandler("list_update", event => {
             this.refreshList();
@@ -163,10 +164,15 @@ export default class WorldList extends BaseClass {
 
     applyStateValues(state) {
         /* access */
-        const accessValue = AccessStateEnum.getName(state.access.value);
-        this.applyAccess(accessValue.toLowerCase(), state.access);
+        const access = this.getStateAccess(state);
+        const accessValue = AccessStateEnum.getName(access.value);
+        this.applyAccess(accessValue.toLowerCase(), access);
         /* list */
         this.refreshList();
+    }
+
+    getStateAccess(state) {
+        return state.access;
     }
     
     applyAccess(value = "unavailable", data = {}) {

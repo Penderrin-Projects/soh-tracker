@@ -2,7 +2,7 @@ const fs = require("fs");
 
 /* files */
 
-const inFileName = "./src/database/world_old.json";
+const inFileName = "./_old/world.json";
 const outFileName = "./src/database/world.json";
 
 /* modificator */
