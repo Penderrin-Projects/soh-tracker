@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION DEV
+
+### IMPROVEMENTS
+
+- reduce logic file size further
+    - remove unnessecary tokens
+    - minified by nature and must not be re-transpiled
+
+### BUGFIXES
+
+- fix some logic misbehaviour applying filters
+
+---
+
 ## VERSION 2.1.46
 
 ### BUGFIXES
