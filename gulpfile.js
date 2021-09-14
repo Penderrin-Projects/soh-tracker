@@ -10,6 +10,7 @@ const indexManager = require("./build_tools/file-index.js");
 const languageManager = require("./build_tools/language.js");
 
 const SRC_PATH = path.resolve(__dirname, "./src");
+const LOGIC_PATH = path.resolve(__dirname, "./logic");
 const DEV_PATH = path.resolve(__dirname, "./dev");
 const PRD_PATH = path.resolve(__dirname, "./prod");
 
@@ -162,6 +163,20 @@ function copyJSON(dest = DEV_PATH) {
     return res;
 }
 
+function copyLogic(dest = DEV_PATH) {
+    const FILES = [
+        `${LOGIC_PATH}/**/*.min.json`
+    ];
+    const DST = `${dest}/logic`;
+    let res = gulp.src(FILES);
+    res = res.pipe(indexManager.register(SRC_PATH, DST));
+    if (!REBUILD) {
+        res = res.pipe(newer(DST));
+    }
+    res = res.pipe(gulp.dest(DST));
+    return res;
+}
+
 function copyI18N(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/i18n/*.lang`
@@ -246,6 +261,7 @@ exports.build = gulp.series(
     gulp.parallel(
         copyHTML.bind(this, PRD_PATH),
         copyJSON.bind(this, PRD_PATH),
+        copyLogic.bind(this, PRD_PATH),
         copyI18N.bind(this, PRD_PATH),
         copyImg.bind(this, PRD_PATH),
         copyCSS.bind(this, PRD_PATH),
@@ -266,6 +282,7 @@ exports.buildDev = gulp.series(
     gulp.parallel(
         copyHTML.bind(this, DEV_PATH),
         copyJSON.bind(this, DEV_PATH),
+        copyLogic.bind(this, DEV_PATH),
         copyI18N.bind(this, DEV_PATH),
         copyImg.bind(this, DEV_PATH),
         copyCSS.bind(this, DEV_PATH),
