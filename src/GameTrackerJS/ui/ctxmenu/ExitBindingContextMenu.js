@@ -5,9 +5,8 @@ import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 
 import Savestate from "../../savestate/Savestate.js";
 import Language from "../../util/Language.js";
-import WorldResource from "../../resource/WorldResource.js";
-import ExitStateManager from "../../state/world/exit/StateManager.js";
-import EntranceStateManager from "../../state/world/entrance/StateManager.js";
+import ExitStateManager from "../../statemanager/world/exit/ExitStateManager.js";
+import EntranceStateManager from "../../statemanager/world/entrance/EntranceStateManager.js";
 
 const STORAGES = {
     exitBindings: Savestate.getStorage("exitBindings"),

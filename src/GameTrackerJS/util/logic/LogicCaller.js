@@ -18,22 +18,15 @@ const STORAGES = {
 };
 
 const AUGMENT = new Set();
-const PRERUN = new Set();
 const CACHE = new Map();
 const LOCKED_CACHE = new MapLocker(CACHE);
 
 function execAugment(data) {
     for (const augment of AUGMENT) {
-        const res = augment(LOCKED_CACHE, data);
+        const res = augment(LOCKED_CACHE, data) ?? {};
         data = {...data, ...res};
     }
     return data;
-}
-
-function execPrerun(data) {
-    for (const prerun of PRERUN) {
-        prerun(LOCKED_CACHE, data);
-    }
 }
 
 function renameKeys(src = {}, prefix = "") {
@@ -153,9 +146,8 @@ class LogicCaller extends EventTarget {
         for (const [key, value] of Object.entries(data)) {
             CACHE.set(key, value);
         }
-        const augmentedData = execAugment(data);
         Logic.reset();
-        execPrerun(augmentedData);
+        const augmentedData = execAugment(data);
         Logic.execute(augmentedData, "region.root");
     }
 
@@ -170,7 +162,6 @@ class LogicCaller extends EventTarget {
         }
         if (Object.keys(changes).length > 0) {
             const augmentedData = execAugment(changes);
-            execPrerun(augmentedData);
             Logic.execute(augmentedData, "region.root");
         }
     }
@@ -180,13 +171,6 @@ class LogicCaller extends EventTarget {
             throw new TypeError(`augment parameter must be of type "function" but was "${typeof ref}"`);
         }
         AUGMENT.add(augment);
-    }
-
-    registerPrerun(prerun) {
-        if (typeof prerun != "function") {
-            throw new TypeError(`prerun parameter must be of type "function" but was "${typeof ref}"`);
-        }
-        PRERUN.add(prerun);
     }
 
     addReachable(target) {

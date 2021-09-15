@@ -2,22 +2,31 @@
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
-import LocationStateManager from "../../state/world/location/StateManager.js";
+import LocationStateManager from "../../statemanager/world/location/LocationStateManager.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
 const ACCESS = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
 const LIST_FILTERED = new WeakMap();
 
+export function getDefaultAccess() {
+    return {
+        done: 0,
+        unopened: 0,
+        reachable: 0,
+        total: 0,
+        value: AccessStateEnum.OPENED
+    };
+}
+
 export default class OverworldListHandler extends EventTarget {
 
     constructor() {
         super();
         /* --- */
-        ACCESS.set(this, OverworldListHandler.defaultAccess);
+        ACCESS.set(this, getDefaultAccess());
         setTimeout(() => {
             this./*#*/__generateList();
-            this./*#*/__refreshAccess();
         }, 0);
     }
 
@@ -59,10 +68,7 @@ export default class OverworldListHandler extends EventTarget {
         /* --- */
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        // external
-        const ev = new Event("change");
-        ev.data = this.list;
-        this.dispatchEvent(ev);
+        this./*#*/__refreshAccess();
     }
 
     /*#*/__setAccess(value) {
@@ -112,16 +118,6 @@ export default class OverworldListHandler extends EventTarget {
 
     get access() {
         return ACCESS.get(this);
-    }
-
-    static get defaultAccess() {
-        return {
-            done: 0,
-            unopened: 0,
-            reachable: 0,
-            total: 0,
-            value: AccessStateEnum.OPENED
-        };
     }
 
 }

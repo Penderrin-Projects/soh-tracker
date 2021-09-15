@@ -2,7 +2,8 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import OverworldListHandler from ".../../util/handler/OverworldListHandler.js";
+
+import OverworldListHandler from "../util/handler/OverworldListHandler.js";
 
 const TPL = new Template(`
 <div class="state">
@@ -24,9 +25,10 @@ export default class LocationStatus extends CustomElement {
         super();
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
-        /* --- */
+        
+        /* LIST HANDLER */
         const listHandler = this.generateList();
-        listHandler.addEventListener("access", event => {
+        listHandler.addEventListener("access", (event) => {
             const doneEl = this.shadowRoot.getElementById("locations-done");
             const availEl = this.shadowRoot.getElementById("locations-available");
             const missEl = this.shadowRoot.getElementById("locations-missing");

@@ -9,8 +9,8 @@ import "/emcJS/ui/input/TokenSelect.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
 import WorldResource from "../../resource/WorldResource.js";
-import WorldStateManager from "../../state/world/WorldStateManager.js";
-import "../../state/world/exit/StateManager.js";
+import WorldStateManagerRegistry from "../../statemanager/WorldStateManagerRegistry.js";
+import "../../statemanager/world/exit/ExitStateManager.js";
 import Language from "../../util/Language.js";
 import "./ExitChoice.js";
 
@@ -128,12 +128,12 @@ export default class ExitList extends CustomElement {
         CATEGORIES.set(this, new Set());
         const exits = WorldResource.get("marker/exit");
         for (const name in exits) {
-            const state = WorldStateManager.get("exit", name);
+            const state = WorldStateManagerRegistry.get("exit").get(name);
             this.addEntrance(state);
         }
         const subexits = WorldResource.get("marker/subexit");
         for (const name in subexits) {
-            const state = WorldStateManager.get("subexit", name);
+            const state = WorldStateManagerRegistry.get("subexit").get(name);
             this.addEntrance(state);
         }
         /* --- */

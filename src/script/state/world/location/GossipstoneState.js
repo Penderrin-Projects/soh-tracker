@@ -3,8 +3,8 @@ import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserve
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
 
 const STORAGES = {
     gossipstoneItems: Savestate.getStorage("gossipstoneItems"),

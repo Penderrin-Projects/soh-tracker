@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import { mix } from "/emcJS/util/Mixin.js";
 
-import ItemStates from "../../../state/item/StateManager.js";
+import ItemStates from "../../../state/item/ItemStateManager.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 
 const TPL = new Template(`

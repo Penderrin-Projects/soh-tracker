@@ -1,6 +1,6 @@
 // GameTrackerJS
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
-import ItemStateManager from "./StateManager.js";
+import ItemStateManager from "./ItemStateManager.js";
 import DefaultItemState from "./DefaultState.js";
 
 const STARTVALUE = new WeakMap();

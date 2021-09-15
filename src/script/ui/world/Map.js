@@ -1,31 +1,3 @@
-// frameworks
-import Template from "/emcJS/util/html/Template.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
-
-// GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import "/GameTrackerJS/state/world/OverworldState.js";
-import "/GameTrackerJS/state/world/area/StateManager.js";
-import "/GameTrackerJS/state/world/exit/StateManager.js";
-import "/GameTrackerJS/state/world/location/StateManager.js";
-import "/GameTrackerJS/state/world/subarea/StateManager.js";
-import "/GameTrackerJS/state/world/subexit/StateManager.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Language from "/GameTrackerJS/util/Language.js";
-import "/GameTrackerJS/ui/button/FilterMenuButton.js";
-// Track-OOT
-import "/script/state/world/CustomWorldStates.js";
-import "./mapmarker/Location.js";
-import "./mapmarker/Gossipstone.js";
-import "./mapmarker/ShopSlot.js";
-import "./mapmarker/Area.js";
-import "./mapmarker/SubArea.js";
-import "./mapmarker/Exit.js";
-import "./mapmarker/SubExit.js";
-import "../dungeonstate/DungeonType.js";
 
 const ZOOM_MIN = 10;
 const ZOOM_MAX = 200;

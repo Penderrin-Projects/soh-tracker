@@ -7,8 +7,8 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../../state/world/WorldListState.js";
-import WorldStateManager from "../../../../state/world/WorldStateManager.js";
-import AreaStateManager from "../../../../state/world/area/StateManager.js";
+import WorldStateManagerRegistry from "../../../../statemanager/WorldStateManagerRegistry.js";
+import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
 import "../../../button/FilterMenuButton.js";
@@ -149,7 +149,7 @@ export default class WorldMapView extends BaseClass {
             const list = state.getList();
             if (list != null && list.length > 0) {
                 for (const record of list) {
-                    const loc = WorldStateManager.get(record.category, record.id);
+                    const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
                     elManagerData.push({
                         key: loc.ref,
                         category: record.category,

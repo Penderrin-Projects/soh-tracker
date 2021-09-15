@@ -7,7 +7,7 @@ import ElementManager from "/emcJS/util/html/ElementManager.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import SettingsObserver from "../../../../../util/observer/SettingsObserver.js";
-import WorldStateManager from "../../../../../state/world/WorldStateManager.js";
+import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldListStateEntry from "./StateEntry.js";
 
@@ -169,7 +169,7 @@ export default class WorldListSubList extends BaseClass {
             const list = state.getList();
             if (list != null && list.length > 0) {
                 for (const record of list) {
-                    const loc = WorldStateManager.get(record.category, record.id);
+                    const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
                     elManagerData.push({
                         key: loc.ref,
                         category: record.category,

@@ -5,8 +5,8 @@ import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserve
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultState.js";
+import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
+import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultAreaState.js";
 import StateListHandler from "/GameTrackerJS/util/handler/StateListHandler.js";
 
 const STORAGES = {
@@ -211,33 +211,12 @@ export default class DungeonState extends DefaultAreaState {
         return listHandler;
     }
 
-    getLocations(type = this.type) {
-        if (type == "v") {
-            return super.getLocations();
-        }
-        if (type == "mq") {
-            const listHandler = LIST_HANDLER.get(this);
-            return listHandler.getLocations;
-        }
-    }
-
     getList(type = this.type) {
         if (type == "v") {
             return super.getList();
         }
         if (type == "mq") {
-            const listHandler = LIST_HANDLER.get(this);
-            return Array.from(listHandler.list);
-        }
-    }
-
-    getFilteredList(type = this.type) {
-        if (type == "v") {
-            return super.getFilteredList();
-        }
-        if (type == "mq") {
-            const listHandler = LIST_HANDLER.get(this);
-            return Array.from(listHandler.filteredList);
+            return this.props.list_mq;
         }
     }
 

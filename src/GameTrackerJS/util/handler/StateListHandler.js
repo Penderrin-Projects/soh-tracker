@@ -2,15 +2,25 @@
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
+import WorldStateManagerRegistry from "../../statemanager/WorldStateManagerRegistry.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 
 const REF = new WeakMap();
 const VISIBLE = new WeakMap();
 const ACCESS = new WeakMap();
-const LIST_LOCATIONS = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
 const LIST_FILTERED = new WeakMap();
+
+export function getDefaultAccess() {
+    return {
+        done: 0,
+        unopened: 0,
+        reachable: 0,
+        total: 0,
+        value: AccessStateEnum.OPENED,
+        entrances: 0
+    };
+}
 
 export default class StateListHandler extends EventTarget {
 
@@ -18,11 +28,10 @@ export default class StateListHandler extends EventTarget {
         super();
         /* --- */
         VISIBLE.set(this, false);
-        ACCESS.set(this, StateListHandler.defaultAccess);
+        ACCESS.set(this, getDefaultAccess());
         REF.set(this, ref);
         setTimeout(() => {
             this./*#*/__generateList(list);
-            this./*#*/__refreshAccess();
         }, 0);
     }
 
@@ -31,7 +40,7 @@ export default class StateListHandler extends EventTarget {
         const filteredEntityList = new Map();
         if (list != null) {
             for (const record of list) {
-                const loc = WorldStateManager.get(record.category, record.id);
+                const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
                 if (loc != null) {
                     entityList.set(loc, record);
                     if (loc.isVisible()) {
@@ -79,10 +88,7 @@ export default class StateListHandler extends EventTarget {
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
         this./*#*/__setVisibility(!!filteredEntityList.size);
-        // external
-        const ev = new Event("change");
-        ev.data = this.list;
-        this.dispatchEvent(ev);
+        this./*#*/__refreshAccess();
     }
 
     /*#*/__setVisibility(value) {
@@ -199,53 +205,6 @@ export default class StateListHandler extends EventTarget {
 
     get access() {
         return ACCESS.get(this);
-    }
-
-    get locations() {
-        const list = LIST_LOCATIONS.get(this);
-        if (list != null) {
-            return Array.from(list.values());
-        } else {
-            return [];
-        }
-    }
-
-    get locations() {
-        const list = LIST_LOCATIONS.get(this);
-        if (list != null) {
-            return Array.from(list.values());
-        } else {
-            return [];
-        }
-    }
-
-    get list() {
-        const list = LIST_RESOLVED.get(this);
-        if (list != null) {
-            return Array.from(list.values());
-        } else {
-            return [];
-        }
-    }
-
-    get filteredList() {
-        const list = LIST_FILTERED.get(this);
-        if (list != null) {
-            return Array.from(list.values());
-        } else {
-            return [];
-        }
-    }
-
-    static get defaultAccess() {
-        return {
-            done: 0,
-            unopened: 0,
-            reachable: 0,
-            total: 0,
-            value: AccessStateEnum.OPENED,
-            entrances: 0
-        };
     }
 
 }

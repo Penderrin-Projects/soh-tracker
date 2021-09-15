@@ -4,8 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
-import WorldStateManager from "../../state/world/WorldStateManager.js";
-import AreaStateManager from "../../state/world/area/StateManager.js";
+import AreaStateManager from "../../statemanager/world/area/AreaStateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
 
 const TPL = new Template(`

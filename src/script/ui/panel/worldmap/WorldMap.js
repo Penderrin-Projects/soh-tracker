@@ -5,7 +5,7 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 import GTWorldMap from "/GameTrackerJS/ui/panel/worldmap/WorldMap.js";
 
 // Track-OOT
-import "/script/state/world/CustomWorldStates.js";
+import "../../../state/world/WorldStates.js";
 // import "./listitems/Button.js";
 // import "./listitems/TypeButton.js";
 // import "./listitems/Location.js";

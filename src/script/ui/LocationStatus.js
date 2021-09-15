@@ -3,14 +3,10 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-// GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
 // Track-OOT
-import "/script/state/world/CustomWorldStates.js";
+import OverworldListHandler from "../util/handler/OverworldListHandler.js";
+import "../state/world/WorldStates.js";
 
 const TPL = new Template(`
 <div class="state">
@@ -26,153 +22,40 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const DUNGEON_TYPES = [
-    "dungeon",
-    "boss_dungeon"
-];
-const locationData = WorldResource.get("location");
-const areaData = WorldResource.get("area");
-
-function checkList(entityList) {
-    let reachable = 0;
-    let unopened = 0;
-    let done = 0;
-    for (const loc of entityList) {
-        if (loc.isVisible()) {
-            const access = loc.access;
-            reachable += access.reachable;
-            unopened += access.unopened;
-            done += access.done;
-        }
-    }
-    return {reachable, unopened, done};
-}
-
-const LIST = new WeakMap();
-const DUNGEON_LIST = new WeakMap();
-
 export default class LocationState extends UIEventBusMixin(CustomElement) {
 
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
-        /* --- */
-        const {entityList, dungeonList} = this.generateList(locationData);
-        LIST.set(this, entityList);
-        DUNGEON_LIST.set(this, dungeonList);
-        this.updateStates();
-    }
-    
-    updateStates() {
-        const dungeonList = DUNGEON_LIST.get(this);
-        const entityList = LIST.get(this);
-        const doneEl = this.shadowRoot.getElementById("locations-done");
-        const availEl = this.shadowRoot.getElementById("locations-available");
-        const missEl = this.shadowRoot.getElementById("locations-missing");
-        let reachable_min = 0;
-        let reachable_max = 0;
-        let unopened_min = 0;
-        let unopened_max = 0;
-        let done_min = 0;
-        let done_max = 0;
-        for (const area of dungeonList) {
-            if (area.type == "v" || area.type == "mq") {
-                const access = area.access;
-                reachable_min += access.reachable;
-                reachable_max += access.reachable;
-                unopened_min += access.unopened;
-                unopened_max += access.unopened;
-                done_min += access.done;
-                done_max += access.done;
+        
+        /* LIST HANDLER */
+        const listHandler = this.generateList();
+        listHandler.addEventListener("access", (event) => {
+            const doneEl = this.shadowRoot.getElementById("locations-done");
+            const availEl = this.shadowRoot.getElementById("locations-available");
+            const missEl = this.shadowRoot.getElementById("locations-missing");
+            const {reachable_min, reachable_max, unopened_min, unopened_max, done_min, done_max} = event.data;
+            if (reachable_min == reachable_max) {
+                availEl.innerHTML = reachable_min;
             } else {
-                const cv = area.getAccess("v");
-                const cm = area.getAccess("mq");
-                if (cv.reachable < cm.reachable) {
-                    reachable_min += cv.reachable;
-                    reachable_max += cm.reachable;
-                } else {
-                    reachable_min += cm.reachable;
-                    reachable_max += cv.reachable;
-                }
-                if (cv.unopened < cm.unopened) {
-                    unopened_min += cv.unopened;
-                    unopened_max += cm.unopened;
-                } else {
-                    unopened_min += cm.unopened;
-                    unopened_max += cv.unopened;
-                }
-                if (cv.done < cm.done) {
-                    done_min += cv.done;
-                    done_max += cm.done;
-                } else {
-                    done_min += cm.done;
-                    done_max += cv.done;
-                }
+                availEl.innerHTML = `[${reachable_min}..${reachable_max}]`;
             }
-        }
-        {
-            const {reachable, unopened, done} = checkList(entityList);
-            reachable_min += reachable;
-            reachable_max += reachable;
-            unopened_min += unopened;
-            unopened_max += unopened;
-            done_min += done;
-            done_max += done;
-        }
-        if (reachable_min == reachable_max) {
-            availEl.innerHTML = reachable_min;
-        } else {
-            availEl.innerHTML = `[${reachable_min}..${reachable_max}]`;
-        }
-        if (unopened_min == unopened_max) {
-            missEl.innerHTML = unopened_min;
-        } else {
-            missEl.innerHTML = `[${unopened_min}..${unopened_max}]`;
-        }
-        if (done_min == done_max) {
-            doneEl.innerHTML = done_min;
-        } else {
-            doneEl.innerHTML = `[${done_min}..${done_max}]`;
-        }
+            if (unopened_min == unopened_max) {
+                missEl.innerHTML = unopened_min;
+            } else {
+                missEl.innerHTML = `[${unopened_min}..${unopened_max}]`;
+            }
+            if (done_min == done_max) {
+                doneEl.innerHTML = done_min;
+            } else {
+                doneEl.innerHTML = `[${done_min}..${done_max}]`;
+            }
+        });
     }
 
-    generateList(list) {
-        const usedLocations = new Set();
-        const entityList = new Set();
-        const dungeonList = new Set();
-        for (const key in areaData) {
-            const area = AreaStateManager.get(key);
-            if (DUNGEON_TYPES.includes(area.props.type)) {
-                dungeonList.add(area);
-                const eventManager = new EventTargetManager(area);
-                eventManager.set("access", () => {
-                    this.updateStates();
-                });
-                /* --- */
-                const listV = area.props.list.filter(r => r.category == "location").map(r => r.id);
-                const listMQ = area.props.list_mq.filter(r => r.category == "location").map(r => r.id);
-                for (const entry of listV) {
-                    usedLocations.add(entry);
-                }
-                for (const entry of listMQ) {
-                    usedLocations.add(entry);
-                }
-            }
-        }
-        for (const key in list) {
-            if (!usedLocations.has(key)) {
-                const loc = LocationStateManager.get(key);
-                if (loc != null) {
-                    const eventManager = new EventTargetManager(loc);
-                    entityList.add(loc);
-                    eventManager.set(["access", "visible", "filter"], () => {
-                        this.updateStates();
-                    });
-                }
-            }
-        }
-        return {entityList, dungeonList};
+    generateList() {
+        return new OverworldListHandler();
     }
 
 }

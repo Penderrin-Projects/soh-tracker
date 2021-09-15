@@ -2,29 +2,48 @@
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
-import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+
+const DUNGEON_TYPES = [
+    "dungeon",
+    "boss_dungeon"
+];
 
 const ACCESS = new WeakMap();
 const LIST_RESOLVED = new WeakMap();
 const LIST_FILTERED = new WeakMap();
+const DUNGEON_LIST = new WeakMap();
+
+export function getDefaultAccess() {
+    return {
+        done_min: 0,
+        done_max: 0,
+        unopened_min: 0,
+        unopened_max: 0,
+        reachable_min: 0,
+        reachable_max: 0,
+        total_min: 0,
+        total_max: 0,
+        value: AccessStateEnum.OPENED
+    };
+}
 
 export default class OverworldListHandler extends EventTarget {
 
     constructor() {
         super();
         /* --- */
-        ACCESS.set(this, DEFAULT_ACCESS);
+        ACCESS.set(this, getDefaultAccess());
         setTimeout(() => {
             this./*#*/__generateList();
-            this./*#*/__refreshAccess();
         }, 0);
     }
 
     /*#*/__generateList() {
         const usedLocations = new Set();
-        const dungeonList = new Map();
+        const dungeonList = new Set();
         const entityList = new Map();
         const filteredEntityList = new Map();
         for (const [, area] of AreaStateManager) {
@@ -83,11 +102,7 @@ export default class OverworldListHandler extends EventTarget {
         DUNGEON_LIST.set(this, dungeonList);
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        this.updateVisible();
-        // external
-        const ev = new Event("change");
-        ev.data = this.list;
-        this.dispatchEvent(ev);
+        this./*#*/__refreshAccess();
     }
 
     /*#*/__setAccess(value) {
@@ -119,7 +134,7 @@ export default class OverworldListHandler extends EventTarget {
         };
         for (const [loc] of entityList) {
             if (loc.isVisible()) {
-                const {done, unopened, reachable, total, value} = loc.access;
+                const {done, unopened, reachable, total} = loc.access;
                 access.done_min += done;
                 access.done_max += done;
                 access.unopened_min += unopened;
@@ -142,35 +157,45 @@ export default class OverworldListHandler extends EventTarget {
                 access.total_min += total;
                 access.total_max += total;
             } else {
-                const {doneV, unopenedV, reachableV, totalV} = area.getAccess("v");
-                const {doneMQ, unopenedMQ, reachableMQ, totalMQ} = area.getAccess("mq");
+                const {
+                    done: doneV,
+                    unopened: unopenedV,
+                    reachable: reachableV,
+                    total: totalV
+                } = area.getAccess("v");
+                const {
+                    done: doneMQ,
+                    unopened: unopenedMQ,
+                    reachable: reachableMQ,
+                    total: totalMQ
+                } = area.getAccess("mq");
                 if (doneV < doneMQ) {
-                    done_min += doneV;
-                    done_max += doneMQ;
+                    access.done_min += doneV;
+                    access.done_max += doneMQ;
                 } else {
-                    done_min += doneMQ;
-                    done_max += doneV;
+                    access.done_min += doneMQ;
+                    access.done_max += doneV;
                 }
                 if (unopenedV < unopenedMQ) {
-                    unopened_min += unopenedV;
-                    unopened_max += unopenedMQ;
+                    access.unopened_min += unopenedV;
+                    access.unopened_max += unopenedMQ;
                 } else {
-                    unopened_min += unopenedMQ;
-                    unopened_max += unopenedV;
+                    access.unopened_min += unopenedMQ;
+                    access.unopened_max += unopenedV;
                 }
                 if (reachableV < reachableMQ) {
-                    reachable_min += reachableV;
-                    reachable_max += reachableMQ;
+                    access.reachable_min += reachableV;
+                    access.reachable_max += reachableMQ;
                 } else {
-                    reachable_min += reachableMQ;
-                    reachable_max += reachableV;
+                    access.reachable_min += reachableMQ;
+                    access.reachable_max += reachableV;
                 }
                 if (totalV < totalMQ) {
-                    total_min += totalV;
-                    total_max += totalMQ;
+                    access.total_min += totalV;
+                    access.total_max += totalMQ;
                 } else {
-                    total_min += totalMQ;
-                    total_max += totalV;
+                    access.total_min += totalMQ;
+                    access.total_max += totalV;
                 }
             }
         }
@@ -190,20 +215,6 @@ export default class OverworldListHandler extends EventTarget {
 
     get access() {
         return ACCESS.get(this);
-    }
-
-    static get defaultAccess() {
-        return {
-            done_min: 0,
-            done_max: 0,
-            unopened_min: 0,
-            unopened_max: 0,
-            reachable_min: 0,
-            reachable_max: 0,
-            total_min: 0,
-            total_max: 0,
-            value: AccessStateEnum.OPENED
-        };
     }
 
 }

@@ -8,7 +8,7 @@ import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
-import WorldStateManager from "../../../state/world/WorldStateManager.js";
+import WorldStateManagerRegistry from "../../../statemanager/WorldStateManagerRegistry.js";
 import UIRegistry from "../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";

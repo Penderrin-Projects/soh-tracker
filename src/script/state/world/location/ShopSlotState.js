@@ -1,10 +1,10 @@
 // GameTrackerJS
-import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultState.js";
-import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
+import ItemStateManager from "/GameTrackerJS/state/item/ItemStateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
-import ShopStates from "/script/state/shop/StateManager.js";
+import ShopStates from "../../shop/ShopStateManager.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
 const SHOP_STATE = new WeakMap();
@@ -54,7 +54,7 @@ export default class ShopSlotState extends DefaultLocationState {
 
     get reachable() {
         const shopState = SHOP_STATE.get(this);
-        if (WALLET_CAPACITIES[WALLET.value] < shopState.price) {
+        if (shopState == null || WALLET_CAPACITIES[WALLET.value] < shopState.price) {
             return false;
         }
         return super.reachable;

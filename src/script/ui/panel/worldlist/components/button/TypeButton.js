@@ -7,7 +7,7 @@ import WorldListStateButton from "/GameTrackerJS/ui/panel/worldlist/components/b
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/BadgeAccess.js";
 // Track-OOT
-import "/script/state/world/CustomWorldStates.js";
+import "../../../../../state/world/WorldStates.js";
 
 const TPL = new Template(`
 <gt-badge-access id="badge"></gt-badge-access>

@@ -1,7 +1,7 @@
-import AreaStateManager from "./StateManager.js";
+import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import DataState from "../../DataState.js";
 import StateListHandler from "../../../util/handler/StateListHandler.js";
-import OverworldListHandler from "../../../util/handler/OverworldListHandler.js";
+import OverworldListHandler, { getDefaultAccess } from "../../../util/handler/OverworldListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
 const OVERWORLD_HANDLER = new WeakMap();
@@ -38,6 +38,18 @@ export default class OverworldState extends DataState {
         this.dispatchEvent(ev);
     }
 
+    get visible() {
+        return true;
+    }
+
+    get filtered() {
+        return false;
+    }
+
+    isVisible() {
+        return true;
+    }
+
     set hint(value) {
         // nothing
     }
@@ -51,24 +63,12 @@ export default class OverworldState extends DataState {
     }
 
     get defaultAccess() {
-        return OverworldListHandler.defaultAccess;
+        return getDefaultAccess();
     }
 
     get access() {
         const overworldHandler = OVERWORLD_HANDLER.get(this);
         return overworldHandler?.access ?? this.defaultAccess;
-    }
-
-    get visible() {
-        return true;
-    }
-
-    get filtered() {
-        return false;
-    }
-
-    isVisible() {
-        return true;
     }
     
     /* list */
@@ -84,13 +84,7 @@ export default class OverworldState extends DataState {
     }
 
     getList() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.list;
-    }
-
-    getFilteredList() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.filteredList;
+        return this.props.list;
     }
 
     setAllEntries(value = true) {

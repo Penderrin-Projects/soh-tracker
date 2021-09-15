@@ -5,7 +5,7 @@ import { mix } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
-import DefaultAreaState from "../../../../../state/world/area/DefaultState.js";
+import DefaultAreaState from "../../../../../state/world/area/DefaultAreaState.js";
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldListSubListElement from "../abstract/SubListElement.js";

@@ -7,9 +7,9 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 // Track-OOT
-import "/script/state/world/area/DungeonState.js";
+import "../../state/world/area/DungeonState.js";
 
 const TPL = new Template(`
 <emc-option value="" style="background-image: url('images/icons/area_nohint.svg')"></emc-option>

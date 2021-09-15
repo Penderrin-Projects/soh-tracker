@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import { mix } from "/emcJS/util/Mixin.js";
 
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
-import WorldStateManager from "../../../../../state/world/WorldStateManager.js";
+import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
 import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
 import WorldMapEntry from "./WorldMapEntry.js";
 
@@ -81,7 +81,7 @@ export default class WorldMapStateEntry extends BaseClass {
         }
         /* --- */
         if (this.ref) {
-            const state = WorldStateManager.get(this.category, this.ref);
+            const state = WorldStateManagerRegistry.get(this.category).get(this.ref);
             this.switchState(state);
             /* text */
             const textEl = this.shadowRoot.getElementById("text");
@@ -140,7 +140,7 @@ export default class WorldMapStateEntry extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    const state = WorldStateManager.get(this.category, this.ref);
+                    const state = WorldStateManagerRegistry.get(this.category).get(this.ref);
                     this.switchState(state);
                     /* text */
                     const textEl = this.shadowRoot.getElementById("text");

@@ -7,10 +7,10 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
-import AreaStateManager from "/GameTrackerJS/state/world/area/StateManager.js";
+import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 // Track-OOT
-import DungeonstateStates from "/script/state/dungeonstate/StateManager.js";
-import "/script/state/world/area/DungeonState.js";
+import DungeonstateStates from "../../state/dungeon/DungeonStateManager.js";
+import "../../state/world/area/DungeonState.js";
 
 const TPL = new Template(`
 <emc-option value="n" style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>

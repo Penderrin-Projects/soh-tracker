@@ -5,7 +5,7 @@ import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
-import DefaultAreaState from "../../../../../state/world/area/DefaultState.js";
+import DefaultAreaState from "../../../../../state/world/area/DefaultAreaState.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldMapMarkedEntry from "../abstract/WorldMapMarkedEntry.js";
 import ExitContextMenu from "../../../../ctxmenu/ExitContextMenu.js";

@@ -22,7 +22,7 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
-import "/GameTrackerJS/util/handler/ExitHandler.js";
+// import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
@@ -31,7 +31,7 @@ import "/script/savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/augment/AugmentDungeons.js";
 import "/script/util/logic/augment/AugmentZoraLetter.js";
-import "/script/util/logic/prerun/ReachEpona.js";
+import "./util/logic/augment/ReachEpona.js";
 import "/script/util/A11y.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorChoice.js"
