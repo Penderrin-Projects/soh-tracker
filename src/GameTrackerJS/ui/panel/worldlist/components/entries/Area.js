@@ -72,31 +72,31 @@ export default class WorldListArea extends BaseClass {
         });
         /* context menu */
         this.setDefaultContextMenu(AreaContextMenu);
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(true);
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(false);
             }
         });
-        this.addDefaultContextMenuHandler("setwoth", event => {
+        this.addDefaultContextMenuHandler("setwoth", () => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "woth";
             }
         });
-        this.addDefaultContextMenuHandler("setbarren", event => {
+        this.addDefaultContextMenuHandler("setbarren", () => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "barren";
             }
         });
-        this.addDefaultContextMenuHandler("clearhint", event => {
+        this.addDefaultContextMenuHandler("clearhint", () => {
             const state = this.getState();
             if (state != null) {
                 state.hint = "";

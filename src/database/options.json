@@ -192,6 +192,16 @@
         "type": "check",
         "default": false
     },
+    "option.mixed_entrance_pool": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
+    "option.detached_entrances": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
     "option.shuffle_dungeons": {
         "category": "entrance_randomizer",
         "type": "check",
@@ -228,11 +238,6 @@
         "default": false
     },
     "option.shuffle_spawns": {
-        "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
-    },
-    "option.mixed_entrance_pool": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false

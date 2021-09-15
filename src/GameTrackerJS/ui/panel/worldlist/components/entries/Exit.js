@@ -78,25 +78,17 @@ export default class WorldListExit extends BaseClass {
         });
         /* context menu */
         this.setDefaultContextMenu(ExitContextMenu);
-        this.addDefaultContextMenuHandler("associate", event => {
+        this.addDefaultContextMenuHandler("associate", (event) => {
             const state = this.getState();
-            const mnu_ctx = this.getDefaultContextMenu();
-            const mnu_ext = this.getContextMenu("exitbinding");
-            if (state != null) {
-                mnu_ext.fillEntranceSelection(this.ref, state.value);
-            } else {
-                mnu_ext.fillEntranceSelection("", "");
-            }
-            mnu_ext.setValue(state.value);
-            mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
+            this.showContextMenu("exitbinding", event, this.ref, state.value);
         });
-        this.addDefaultContextMenuHandler("deassociate", event => {
+        this.addDefaultContextMenuHandler("deassociate", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
             }
         });
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -105,7 +97,7 @@ export default class WorldListExit extends BaseClass {
                 }
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -114,7 +106,7 @@ export default class WorldListExit extends BaseClass {
                 }
             }
         });
-        this.addDefaultContextMenuHandler("setwoth", event => {
+        this.addDefaultContextMenuHandler("setwoth", () => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -123,7 +115,7 @@ export default class WorldListExit extends BaseClass {
                 }
             }
         });
-        this.addDefaultContextMenuHandler("setbarren", event => {
+        this.addDefaultContextMenuHandler("setbarren", () => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -132,7 +124,7 @@ export default class WorldListExit extends BaseClass {
                 }
             }
         });
-        this.addDefaultContextMenuHandler("clearhint", event => {
+        this.addDefaultContextMenuHandler("clearhint", () => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -143,7 +135,7 @@ export default class WorldListExit extends BaseClass {
         });
         /* context menu - exit binding */
         this.setContextMenu("exitbinding", ExitBindingContextMenu);
-        this.addContextMenuHandler("exitbinding", "change", event => {
+        this.addContextMenuHandler("exitbinding", "change", (event) => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;

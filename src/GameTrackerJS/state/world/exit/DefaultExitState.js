@@ -1,15 +1,11 @@
 // frameworks
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
-import EventBus from "/emcJS/event/EventBus.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
 import Savestate from "../../../savestate/Savestate.js";
 import OptionsObserver from "../../../util/observer/OptionsObserver.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
-import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import { getDefaultAccess } from "../../../util/handler/StateListHandler.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import EntranceStateManager from "../../../statemanager/world/entrance/EntranceStateManager.js";
@@ -23,6 +19,7 @@ const STORAGES = {
     exitBindings: Savestate.getStorage("exitBindings"),
 };
 
+const ENTRANCE = new WeakMap();
 const MANAGER = new WeakMap();
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
@@ -71,6 +68,15 @@ export default class DefaultExitState extends VisibilityState {
 
     constructor(ref, props) {
         super(ref, props);
+
+        /* ENTRANCE */
+        const entrance = EntranceStateManager.get(ref);
+        entrance.addEventListener("active", (event) => {
+            const ev = new Event("active");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        })
+        ENTRANCE.set(this, entrance);
 
         /* AREA */
         const manager = new StateDataEventManager();
@@ -130,39 +136,9 @@ export default class DefaultExitState extends VisibilityState {
         });
     }
 
-    // TODO add reverse binding module
-    /*#*/__internalChange(event) {
-        // savesatate
-        const change = event.data;
-        if (change != null) {
-            if (change.ref == this.ref) {
-                // if this exit got bound
-                super.value = change.value;
-            } else if (change.value == this.ref) {
-                // if this entrance got bound
-                const otherExit = EntranceStateManager.get(change.ref);
-                if (otherExit != null && otherExit.props.isBiDir) {
-                    super.value = change.ref;
-                }
-            } else if (change.value != "" && change.value == this.value) {
-                // if another exit got bound to this ones entrance
-                if (change.value != "\u0000" && !this.props.ignoreBound) {
-                    const otherExit = EntranceStateManager.get(change.ref);
-                    if (otherExit != null && !otherExit.props.ignoreBound) {
-                        super.value = "";
-                    }
-                }
-            } else if (change.ref == this.value) {
-                // if another entrance got bound to this ones exit
-                // if the exit does no longer bind to this
-                if (change.value != "\u0000" && !this.props.ignoreBound) {
-                    const otherExit = EntranceStateManager.get(change.ref);
-                    if (otherExit == null || !otherExit.props.ignoreBound) {
-                        super.value = "";
-                    }
-                }
-            }
-        }
+    get active() {
+        const entrance = ENTRANCE.get(this);
+        return entrance.active;
     }
 
     set value(value) {
@@ -180,6 +156,8 @@ export default class DefaultExitState extends VisibilityState {
             // external
             const ev = new Event("value");
             ev.data = value;
+            ev.newValue = value;
+            ev.oldValue = old;
             this.dispatchEvent(ev);
 
             const ev2 = new Event("access");

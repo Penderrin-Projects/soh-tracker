@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import { mix } from "/emcJS/util/Mixin.js";
 import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
+import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 
 import Savestate from "../../savestate/Savestate.js";
 import Language from "../../util/Language.js";
@@ -25,7 +27,13 @@ const STYLE = new GlobalStyle(`
 
 const SELECT_EL = new WeakMap();
 
-export default class ExitBindingContextMenu extends ContextMenu {
+const BaseClass = mix(
+    ContextMenu
+).with(
+    EventTargetMixin
+);
+
+export default class ExitBindingContextMenu extends BaseClass {
 
     constructor() {
         super();
@@ -64,20 +72,16 @@ export default class ExitBindingContextMenu extends ContextMenu {
         super.close();
     }
 
-    setValue(value) {
-        const exitSelectEl = SELECT_EL.get(this);
-        exitSelectEl.value = value;
-    }
-
     fillEntranceSelection(access, current = "") {
         const exitSelectEl = SELECT_EL.get(this);
         exitSelectEl.innerHTML = "";
+        exitSelectEl.value = current;
         // retrieve bound
         const bound = new Set();
         for (const [key, value] of STORAGES.exitBindings) {
             if (value != current) {
                 const boundExit = EntranceStateManager.get(key);
-                if (boundExit == null || !boundExit.props.ignoreBound) {
+                if (boundExit == null || boundExit.props.isBiDir) {
                     bound.add(value);
                 }
             }
@@ -105,15 +109,15 @@ export default class ExitBindingContextMenu extends ContextMenu {
             // add options
             for (const [, entrance] of EntranceStateManager) {
                 setTimeout(() => {
-                    if (access != entrance.props.target && (entrance.props.ignoreBound || !bound.has(exit.props.target))) {
+                    if (access != entrance.ref && (!entrance.props.isBiDir || !bound.has(entrance.ref))) {
                         const isBindable = exit.checkBindable(entrance);
                         if (isBindable) {
                             const opt = document.createElement("emc-option");
-                            opt.value = entrance.props.target;
+                            opt.value = entrance.ref;
                             opt.style.flexDirection = "column";
                             opt.style.alignItems = "flex-start";
                             opt.style.justifyContent = "center";
-                            const entranceName = Language.generateLabel(`entrance[${entrance.props.target}]`);
+                            const entranceName = Language.generateLabel(`entrance[${entrance.ref}]`);
                             opt.append(entranceName);
                             const category = CTG_TPL.generate(0);
                             const categoryName = Language.generateLabel(entrance.props.type);

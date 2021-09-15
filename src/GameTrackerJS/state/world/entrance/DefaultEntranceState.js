@@ -14,13 +14,13 @@ export default class DefaultEntranceState extends DataState {
         super(ref, props);
 
         /* ACTIVE */
-        if (typeof props.active == "object") {
-            const logicFn = LogicCompiler.compile(props.active);
+        if (typeof props.entranceActive == "object") {
+            const logicFn = LogicCompiler.compile(props.entranceActive);
             const value = LogicExecutor.execute(logicFn);
             ACTIVE.set(this, value);
             ACTIVE_LOGIC.set(this, logicFn);
         } else {
-            ACTIVE.set(this, !!props.active);
+            ACTIVE.set(this, !!props.entranceActive);
         }
         
         /* EVENTS */

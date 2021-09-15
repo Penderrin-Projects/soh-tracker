@@ -54,37 +54,34 @@ export default class WorldListLocation extends BaseClass {
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
         /* state handler */
-        this.registerStateHandler("item", event => {
+        this.registerStateHandler("item", () => {
             const state = this.getState();
             this.applyItem(state?.itemData);
         });
         /* context menu */
         this.setDefaultContextMenu(LocationContextMenu);
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("associate", event => {
-            const mnu_ctx = this.getDefaultContextMenu();
-            const mnu_itm = this.getContextMenu("itempicker");
-            mnu_itm.loadItems("pickable");
-            mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
+        this.addDefaultContextMenuHandler("associate", (event) => {
+            this.showContextMenu("itempicker", event);
         });
-        this.addDefaultContextMenuHandler("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", () => {
             const state = this.getState();
             if (state != null) {
                 state.item = "";
             }
         });
-        this.addDefaultContextMenuHandler("show_logic", event => {
+        this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(this.ref);
@@ -93,7 +90,7 @@ export default class WorldListLocation extends BaseClass {
         });
         /* context menu - item picker */
         this.setContextMenu("itempicker", ItemPickerContextMenu);
-        this.addContextMenuHandler("itempicker", "pick", event => {
+        this.addContextMenuHandler("itempicker", "pick", (event) => {
             const state = this.getState();
             if (state != null) {
                 state.item = event.item;

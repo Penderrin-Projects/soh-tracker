@@ -25837,7 +25837,7 @@
             "type": "dungeon_outer",
             "target": "region.deku_tree_gateway -> region.deku_tree_entrance",
             "logicAccess": "region.deku_tree_entrance",
-            "area": "deku",
+            "area": "kokiri",
             "categories": [
                 "forest",
                 "deku",
@@ -25868,7 +25868,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -25910,7 +25910,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -25921,7 +25921,7 @@
             "type": "dungeon_outer",
             "target": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
             "logicAccess": "region.dodongos_cavern_entrance",
-            "area": "dodongo",
+            "area": "mountain",
             "categories": [
                 "mountain",
                 "dodongo",
@@ -25952,7 +25952,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -25994,7 +25994,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26005,7 +26005,7 @@
             "type": "dungeon_outer",
             "target": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
             "logicAccess": "region.jabu_jabus_belly_entrance",
-            "area": "jabujabu",
+            "area": "fountain",
             "categories": [
                 "zoras",
                 "fountain",
@@ -26036,7 +26036,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26078,7 +26078,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26089,7 +26089,7 @@
             "type": "dungeon_outer",
             "target": "region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance",
             "logicAccess": "region.bottom_of_the_well_entrance",
-            "area": "well",
+            "area": "kakariko",
             "categories": [
                 "kakariko",
                 "well",
@@ -26119,7 +26119,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26160,7 +26160,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26171,7 +26171,7 @@
             "type": "dungeon_outer",
             "target": "region.forest_temple_gateway -> region.forest_temple_entrance",
             "logicAccess": "region.forest_temple_entrance",
-            "area": "temple_forest",
+            "area": "meadow",
             "categories": [
                 "meadow",
                 "forest",
@@ -26202,7 +26202,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26244,7 +26244,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26255,7 +26255,7 @@
             "type": "dungeon_outer",
             "target": "region.fire_temple_gateway -> region.fire_temple_entrance",
             "logicAccess": "region.fire_temple_entrance",
-            "area": "temple_fire",
+            "area": "crater",
             "categories": [
                 "crater",
                 "fire",
@@ -26286,7 +26286,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26328,7 +26328,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26339,7 +26339,7 @@
             "type": "dungeon_outer",
             "target": "region.water_temple_gateway -> region.water_temple_entrance",
             "logicAccess": "region.water_temple_entrance",
-            "area": "temple_water",
+            "area": "lake",
             "categories": [
                 "lake",
                 "water",
@@ -26370,7 +26370,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26412,7 +26412,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26423,7 +26423,7 @@
             "type": "dungeon_outer",
             "target": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
             "logicAccess": "region.spirit_temple_entrance",
-            "area": "temple_spirit",
+            "area": "colossus",
             "categories": [
                 "colossus",
                 "spirit",
@@ -26454,7 +26454,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26496,7 +26496,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26507,7 +26507,7 @@
             "type": "dungeon_outer",
             "target": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
             "logicAccess": "region.shadow_temple_entrance",
-            "area": "temple_shadow",
+            "area": "graveyard",
             "categories": [
                 "graveyard",
                 "shadow",
@@ -26538,7 +26538,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26580,7 +26580,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26591,7 +26591,7 @@
             "type": "dungeon_outer",
             "target": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
             "logicAccess": "region.ice_cavern_entrance",
-            "area": "ice_cavern",
+            "area": "fountain",
             "categories": [
                 "zoras",
                 "fountain",
@@ -26623,7 +26623,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26666,7 +26666,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26677,7 +26677,7 @@
             "type": "dungeon_outer",
             "target": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
             "logicAccess": "region.gerudo_training_grounds_entrance",
-            "area": "training_grounds",
+            "area": "gerudo",
             "categories": [
                 "fortress",
                 "gerudo",
@@ -26708,7 +26708,7 @@
                 "dungeon_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26750,7 +26750,7 @@
                 "dungeon_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_dungeons"
             },
@@ -26790,7 +26790,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -26831,7 +26831,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -26872,7 +26872,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -26913,7 +26913,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -26954,7 +26954,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -26995,7 +26995,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27036,7 +27036,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27076,7 +27076,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27116,7 +27116,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27156,7 +27156,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27196,7 +27196,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27236,7 +27236,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27276,7 +27276,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27316,7 +27316,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27356,7 +27356,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27396,7 +27396,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27436,7 +27436,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27476,7 +27476,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27516,7 +27516,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27556,7 +27556,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27596,7 +27596,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27636,7 +27636,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27676,7 +27676,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27716,7 +27716,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27757,7 +27757,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27798,7 +27798,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27838,7 +27838,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27878,7 +27878,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27918,7 +27918,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27958,7 +27958,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -27998,7 +27998,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28038,7 +28038,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28078,7 +28078,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28118,7 +28118,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28158,7 +28158,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28198,7 +28198,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28238,7 +28238,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28278,7 +28278,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28319,7 +28319,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28359,7 +28359,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28399,7 +28399,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28439,7 +28439,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28480,7 +28480,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28520,7 +28520,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28560,7 +28560,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28601,7 +28601,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28642,7 +28642,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28683,7 +28683,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28724,7 +28724,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28764,7 +28764,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28804,7 +28804,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28844,7 +28844,7 @@
                 "overworld"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
             },
@@ -28855,7 +28855,7 @@
             "type": "special",
             "target": "region.hyrule_field -> region.lh_owl_flight",
             "logicAccess": "region.lh_owl_flight",
-            "area": "hyrule_field",
+            "area": "lake",
             "categories": [
                 "overworld",
                 "hyrule",
@@ -28883,7 +28883,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -28891,7 +28893,29 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.hyrule_field -> region.lh_owl_flight": {
+            "type": "flight",
+            "target": "region.lh_owl_flight -> region.hyrule_field",
+            "logicAccess": "",
+            "area": "hyrule_field",
+            "categories": [
+                "overworld",
+                "hyrule",
+                "field",
+                "owl",
+                "drop"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_owls"
             },
@@ -28902,7 +28926,7 @@
             "type": "special",
             "target": "region.kak_impas_rooftop -> region.dmt_owl_flight",
             "logicAccess": "region.dmt_owl_flight",
-            "area": "kakariko",
+            "area": "mountain",
             "categories": [
                 "overworld",
                 "kakariko",
@@ -28929,7 +28953,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -28937,7 +28963,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.kak_impas_rooftop -> region.dmt_owl_flight": {
+            "type": "flight",
+            "target": "region.dmt_owl_flight -> region.kak_impas_rooftop",
+            "logicAccess": "",
+            "area": "kakariko",
+            "categories": [
+                "overworld",
+                "kakariko",
+                "owl",
+                "drop"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_owls"
             },
@@ -28948,7 +28995,7 @@
             "type": "special",
             "target": "region.kf_links_house -> region.child_spawn",
             "logicAccess": "region.child_spawn",
-            "area": "kokiri.links_house",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "links",
@@ -28975,7 +29022,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -28983,7 +29032,31 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": {
+                "type": "value",
+                "el": "option.shuffle_spawns"
+            },
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.kf_links_house -> region.child_spawn": {
+            "type": "spawn",
+            "target": "region.child_spawn -> region.kf_links_house",
+            "logicAccess": "",
+            "area": "kokiri.links_house",
+            "categories": [
+                "overworld",
+                "links",
+                "child",
+                "spawn"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_spawns"
             },
@@ -28994,7 +29067,7 @@
             "type": "special",
             "target": "region.temple_of_time -> region.adult_spawn",
             "logicAccess": "region.adult_spawn",
-            "area": "castle_town.temple_of_time",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "temple",
@@ -29022,7 +29095,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29030,7 +29105,29 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.temple_of_time -> region.adult_spawn": {
+            "type": "spawn",
+            "target": "region.adult_spawn -> region.temple_of_time",
+            "logicAccess": "",
+            "area": "castle_town.temple_of_time",
+            "categories": [
+                "overworld",
+                "temple",
+                "time",
+                "adult",
+                "spawn"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_spawns"
             },
@@ -29041,6 +29138,52 @@
             "type": "special",
             "target": "region.temple_of_time -> region.prelude_of_light_warp",
             "logicAccess": "region.prelude_of_light_warp",
+            "area": "hyrule",
+            "categories": [
+                "overworld",
+                "temple",
+                "time",
+                "song",
+                "warp"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option.shuffle_warps"
+            },
+            "visibleRootOnly": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "icon": "images/icons/location.svg",
+            "bindsTo": [
+                "flight",
+                "spawn",
+                "warp",
+                "overworld",
+                "interior_outer",
+                "interior_inner",
+                "grotto_outer",
+                "grotto_inner"
+            ],
+            "ignoreBound": true,
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.temple_of_time -> region.prelude_of_light_warp": {
+            "type": "warp",
+            "target": "region.prelude_of_light_warp -> region.temple_of_time",
+            "logicAccess": "",
             "area": "castle_town.temple_of_time",
             "categories": [
                 "overworld",
@@ -29069,7 +29212,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29077,7 +29222,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29088,7 +29233,7 @@
             "type": "special",
             "target": "region.sacred_forest_meadow -> region.minuet_of_forest_warp",
             "logicAccess": "region.minuet_of_forest_warp",
-            "area": "meadow",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "meadow",
@@ -29115,7 +29260,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29123,7 +29270,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.sacred_forest_meadow -> region.minuet_of_forest_warp": {
+            "type": "warp",
+            "target": "region.minuet_of_forest_warp -> region.sacred_forest_meadow",
+            "logicAccess": "",
+            "area": "meadow",
+            "categories": [
+                "overworld",
+                "meadow",
+                "song",
+                "warp"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29134,7 +29302,7 @@
             "type": "special",
             "target": "region.dmc_central_local -> region.bolero_of_fire_warp",
             "logicAccess": "region.bolero_of_fire_warp",
-            "area": "crater",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "crater",
@@ -29161,7 +29329,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29169,7 +29339,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.dmc_central_local -> region.bolero_of_fire_warp": {
+            "type": "warp",
+            "target": "region.bolero_of_fire_warp -> region.dmc_central_local",
+            "logicAccess": "",
+            "area": "crater",
+            "categories": [
+                "overworld",
+                "crater",
+                "song",
+                "warp"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29180,7 +29371,7 @@
             "type": "special",
             "target": "region.lake_hylia -> region.serenade_of_water_warp",
             "logicAccess": "region.serenade_of_water_warp",
-            "area": "lake",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "lake",
@@ -29207,7 +29398,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29215,7 +29408,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.lake_hylia -> region.serenade_of_water_warp": {
+            "type": "warp",
+            "target": "region.serenade_of_water_warp -> region.lake_hylia",
+            "logicAccess": "",
+            "area": "lake",
+            "categories": [
+                "overworld",
+                "lake",
+                "song",
+                "warp"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29226,7 +29440,7 @@
             "type": "special",
             "target": "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp",
             "logicAccess": "region.nocturne_of_shadow_warp",
-            "area": "graveyard",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "graveyard",
@@ -29253,7 +29467,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29261,7 +29477,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp": {
+            "type": "warp",
+            "target": "region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region",
+            "logicAccess": "",
+            "area": "graveyard",
+            "categories": [
+                "overworld",
+                "graveyard",
+                "song",
+                "warp"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29272,7 +29509,7 @@
             "type": "special",
             "target": "region.desert_colossus -> region.requiem_of_spirit_warp",
             "logicAccess": "region.requiem_of_spirit_warp",
-            "area": "colossus",
+            "area": "hyrule",
             "categories": [
                 "overworld",
                 "colossus",
@@ -29299,7 +29536,9 @@
             },
             "icon": "images/icons/location.svg",
             "bindsTo": [
-                "special",
+                "flight",
+                "spawn",
+                "warp",
                 "overworld",
                 "interior_outer",
                 "interior_inner",
@@ -29307,7 +29546,28 @@
                 "grotto_inner"
             ],
             "ignoreBound": true,
-            "active": {
+            "entranceActive": false,
+            "includeInactiveEntrances": true,
+            "isBiDir": false
+        },
+        "region.desert_colossus -> region.requiem_of_spirit_warp": {
+            "type": "warp",
+            "target": "region.requiem_of_spirit_warp -> region.desert_colossus",
+            "logicAccess": "",
+            "area": "colossus",
+            "categories": [
+                "overworld",
+                "colossus",
+                "song",
+                "warp"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {},
+            "icon": "images/icons/location.svg",
+            "bindsTo": [],
+            "ignoreBound": true,
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_warps"
             },
@@ -29318,7 +29578,7 @@
             "type": "grotto_outer",
             "target": "region.hf_tektite_grotto -> region.hf_tektite_grotto_entrance",
             "logicAccess": "region.hf_tektite_grotto_entrance",
-            "area": "hyrule_field.dive_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29350,7 +29610,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29393,7 +29653,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29404,7 +29664,7 @@
             "type": "grotto_outer",
             "target": "region.hf_near_kak_grotto -> region.hf_near_kak_grotto_entrance",
             "logicAccess": "region.hf_near_kak_grotto_entrance",
-            "area": "hyrule_field.kakariko_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29437,7 +29697,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29481,7 +29741,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29492,7 +29752,7 @@
             "type": "grotto_outer",
             "target": "region.hf_fairy_grotto -> region.hf_fairy_grotto_entrance",
             "logicAccess": "region.hf_fairy_grotto_entrance",
-            "area": "hyrule_field.fairy_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29524,7 +29784,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29567,7 +29827,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29578,7 +29838,7 @@
             "type": "grotto_outer",
             "target": "region.hf_near_market_grotto -> region.hf_near_market_grotto_entrance",
             "logicAccess": "region.hf_near_market_grotto_entrance",
-            "area": "hyrule_field.castle_entrance_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29611,7 +29871,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29655,7 +29915,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29666,7 +29926,7 @@
             "type": "grotto_outer",
             "target": "region.hf_cow_grotto -> region.hf_cow_grotto_entrance",
             "logicAccess": "region.hf_cow_grotto_entrance",
-            "area": "hyrule_field.valley_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29698,7 +29958,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29741,7 +30001,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29752,7 +30012,7 @@
             "type": "grotto_outer",
             "target": "region.hf_inside_fence_grotto -> region.hf_inside_fence_grotto_entrance",
             "logicAccess": "region.hf_inside_fence_grotto_entrance",
-            "area": "hyrule_field.lake_fence_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29786,7 +30046,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29831,7 +30091,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29842,7 +30102,7 @@
             "type": "grotto_outer",
             "target": "region.hf_open_grotto -> region.hf_open_grotto_entrance",
             "logicAccess": "region.hf_open_grotto_entrance",
-            "area": "hyrule_field.lake_open_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29874,7 +30134,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29917,7 +30177,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -29928,7 +30188,7 @@
             "type": "grotto_outer",
             "target": "region.hf_southeast_grotto -> region.hf_southeast_grotto_entrance",
             "logicAccess": "region.hf_southeast_grotto_entrance",
-            "area": "hyrule_field.little_forest_grotto",
+            "area": "hyrule_field",
             "categories": [
                 "grotto",
                 "hyrule",
@@ -29960,7 +30220,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30003,7 +30263,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30014,7 +30274,7 @@
             "type": "interior_outer",
             "target": "region.kf_midos_house -> region.kf_midos_house_entrance",
             "logicAccess": "region.kf_midos_house_entrance",
-            "area": "kokiri.midos_house",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30050,7 +30310,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30101,7 +30361,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30116,7 +30376,7 @@
             "type": "interior_outer",
             "target": "region.kf_sarias_house -> region.kf_sarias_house_entrance",
             "logicAccess": "region.kf_sarias_house_entrance",
-            "area": "kokiri.sarias_house",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30152,7 +30412,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30203,7 +30463,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30218,7 +30478,7 @@
             "type": "interior_outer",
             "target": "region.kf_house_of_twins -> region.kf_house_of_twins_entrance",
             "logicAccess": "region.kf_house_of_twins_entrance",
-            "area": "kokiri.twins_house",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30254,7 +30514,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30305,7 +30565,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30320,7 +30580,7 @@
             "type": "interior_outer",
             "target": "region.kf_know_it_all_house -> region.kf_know_it_all_house_entrance",
             "logicAccess": "region.kf_know_it_all_house_entrance",
-            "area": "kokiri.know_it_all_house",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30356,7 +30616,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30407,7 +30667,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30422,7 +30682,7 @@
             "type": "interior_outer",
             "target": "region.kf_kokiri_shop -> region.kf_kokiri_shop_entrance",
             "logicAccess": "region.kf_kokiri_shop_entrance",
-            "area": "kokiri.shop",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30458,7 +30718,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30509,7 +30769,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -30524,7 +30784,7 @@
             "type": "interior_outer",
             "target": "region.kf_links_house -> region.kf_links_house_entrance",
             "logicAccess": "region.kf_links_house_entrance",
-            "area": "kokiri.links_house",
+            "area": "kokiri",
             "categories": [
                 "interior",
                 "kokiri",
@@ -30557,7 +30817,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -30602,7 +30862,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -30614,7 +30874,7 @@
             "type": "grotto_outer",
             "target": "region.kf_storms_grotto -> region.kf_storms_grotto_entrance",
             "logicAccess": "region.kf_storms_grotto_entrance",
-            "area": "kokiri.storm_grotto",
+            "area": "kokiri",
             "categories": [
                 "grotto",
                 "kokiri",
@@ -30646,7 +30906,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30689,7 +30949,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30700,7 +30960,7 @@
             "type": "grotto_outer",
             "target": "region.lw_near_shortcuts_grotto -> region.lw_near_shortcuts_grotto_entrance",
             "logicAccess": "region.lw_near_shortcuts_grotto_entrance",
-            "area": "woods.near_goron_grotto",
+            "area": "woods",
             "categories": [
                 "grotto",
                 "lost",
@@ -30733,7 +30993,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30777,7 +31037,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30788,7 +31048,7 @@
             "type": "grotto_outer",
             "target": "region.lw_scrubs_grotto -> region.lw_scrubs_grotto_entrance",
             "logicAccess": "region.lw_scrubs_grotto_entrance",
-            "area": "woods.near_meadow_grotto",
+            "area": "woods",
             "categories": [
                 "grotto",
                 "lost",
@@ -30822,7 +31082,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30867,7 +31127,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30878,7 +31138,7 @@
             "type": "grotto_outer",
             "target": "region.deku_theater -> region.deku_theater_entrance",
             "logicAccess": "region.deku_theater_entrance",
-            "area": "woods.theatre_grotto",
+            "area": "woods",
             "categories": [
                 "grotto",
                 "lost",
@@ -30910,7 +31170,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30953,7 +31213,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -30964,7 +31224,7 @@
             "type": "grotto_outer",
             "target": "region.sfm_wolfos_grotto -> region.sfm_wolfos_grotto_entrance",
             "logicAccess": "region.sfm_wolfos_grotto_entrance",
-            "area": "meadow.wolfos_grotto",
+            "area": "meadow",
             "categories": [
                 "grotto",
                 "sacred",
@@ -30997,7 +31257,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31041,7 +31301,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31052,7 +31312,7 @@
             "type": "grotto_outer",
             "target": "region.sfm_storms_grotto -> region.sfm_storms_grotto_entrance",
             "logicAccess": "region.sfm_storms_grotto_entrance",
-            "area": "meadow.storms_grotto",
+            "area": "meadow",
             "categories": [
                 "grotto",
                 "sacred",
@@ -31085,7 +31345,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31129,7 +31389,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31140,7 +31400,7 @@
             "type": "grotto_outer",
             "target": "region.sfm_fairy_grotto -> region.sfm_fairy_grotto_entrance",
             "logicAccess": "region.sfm_fairy_grotto_entrance",
-            "area": "meadow.fairy_grotto",
+            "area": "meadow",
             "categories": [
                 "grotto",
                 "sacred",
@@ -31173,7 +31433,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31217,7 +31477,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -31228,7 +31488,7 @@
             "type": "interior_outer",
             "target": "region.market_guard_house -> region.market_guard_house_entrance",
             "logicAccess": "region.market_guard_house_entrance",
-            "area": "castle_town.guard_tower",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31264,7 +31524,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31315,7 +31575,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31330,7 +31590,7 @@
             "type": "interior_outer",
             "target": "region.market_mask_shop -> region.market_mask_shop_entrance",
             "logicAccess": "region.market_mask_shop_entrance",
-            "area": "castle_town.shop_mask",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31365,7 +31625,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31415,7 +31675,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31430,7 +31690,7 @@
             "type": "interior_outer",
             "target": "region.market_bombchu_bowling -> region.market_bombchu_bowling_entrance",
             "logicAccess": "region.market_bombchu_bowling_entrance",
-            "area": "castle_town.minigame_bombchu",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31465,7 +31725,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31515,7 +31775,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31530,7 +31790,7 @@
             "type": "interior_outer",
             "target": "region.market_potion_shop -> region.market_potion_shop_entrance",
             "logicAccess": "region.market_potion_shop_entrance",
-            "area": "castle_town.shop_magic",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31565,7 +31825,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31615,7 +31875,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31630,7 +31890,7 @@
             "type": "interior_outer",
             "target": "region.market_treasure_chest_game -> region.market_treasure_chest_game_entrance",
             "logicAccess": "region.market_treasure_chest_game_entrance",
-            "area": "castle_town.minigame_treasure",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31665,7 +31925,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31715,7 +31975,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31730,7 +31990,7 @@
             "type": "interior_outer",
             "target": "region.market_bombchu_shop -> region.market_bombchu_shop_entrance",
             "logicAccess": "region.market_bombchu_shop_entrance",
-            "area": "castle_town.shop_bombchu",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31765,7 +32025,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31815,7 +32075,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31830,7 +32090,7 @@
             "type": "interior_outer",
             "target": "region.market_man_in_green_house -> region.market_man_in_green_house_entrance",
             "logicAccess": "region.market_man_in_green_house_entrance",
-            "area": "castle_town.back_house",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31864,7 +32124,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31913,7 +32173,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -31928,7 +32188,7 @@
             "type": "interior_outer",
             "target": "region.market_bazaar -> region.market_bazaar_entrance",
             "logicAccess": "region.market_bazaar_entrance",
-            "area": "castle_town.shop_bazaar",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -31962,7 +32222,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32011,7 +32271,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32026,7 +32286,7 @@
             "type": "interior_outer",
             "target": "region.market_shooting_gallery -> region.market_shooting_gallery_entrance",
             "logicAccess": "region.market_shooting_gallery_entrance",
-            "area": "castle_town.minigame_shooting",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "market",
@@ -32060,7 +32320,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32109,7 +32369,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32124,7 +32384,7 @@
             "type": "interior_outer",
             "target": "region.temple_of_time -> region.tot_entrance",
             "logicAccess": "region.tot_entrance",
-            "area": "castle_town.temple_of_time",
+            "area": "castle_town",
             "categories": [
                 "interior",
                 "temple",
@@ -32156,7 +32416,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -32200,7 +32460,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -32212,7 +32472,7 @@
             "type": "interior_outer",
             "target": "region.llr_talons_house -> region.llr_talons_house_entrance",
             "logicAccess": "region.llr_talons_house_entrance",
-            "area": "lonlon.house",
+            "area": "lonlon",
             "categories": [
                 "interior",
                 "lonlon",
@@ -32248,7 +32508,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32299,7 +32559,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32314,7 +32574,7 @@
             "type": "interior_outer",
             "target": "region.llr_stables -> region.llr_stables_entrance",
             "logicAccess": "region.llr_stables_entrance",
-            "area": "lonlon.stables",
+            "area": "lonlon",
             "categories": [
                 "interior",
                 "lonlon",
@@ -32349,7 +32609,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32399,7 +32659,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32414,7 +32674,7 @@
             "type": "interior_outer",
             "target": "region.llr_tower -> region.llr_tower_entrance",
             "logicAccess": "region.llr_tower_entrance",
-            "area": "lonlon.silo",
+            "area": "lonlon",
             "categories": [
                 "interior",
                 "lonlon",
@@ -32449,7 +32709,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32499,7 +32759,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32514,7 +32774,7 @@
             "type": "grotto_outer",
             "target": "region.llr_grotto -> region.llr_grotto_entrance",
             "logicAccess": "region.llr_grotto_entrance",
-            "area": "lonlon.open_grotto",
+            "area": "lonlon",
             "categories": [
                 "grotto",
                 "lonlon",
@@ -32545,7 +32805,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -32587,7 +32847,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -32598,7 +32858,7 @@
             "type": "interior_outer",
             "target": "region.hc_great_fairy_fountain -> region.hc_great_fairy_fountain_entrance",
             "logicAccess": "region.hc_great_fairy_fountain_entrance",
-            "area": "castle.fairy_young",
+            "area": "castle",
             "categories": [
                 "interior",
                 "castle",
@@ -32634,7 +32894,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32685,7 +32945,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32700,7 +32960,7 @@
             "type": "grotto_outer",
             "target": "region.hc_storms_grotto -> region.hc_storms_grotto_entrance",
             "logicAccess": "region.hc_storms_grotto_entrance",
-            "area": "castle.storm_grotto",
+            "area": "castle",
             "categories": [
                 "grotto",
                 "castle",
@@ -32731,7 +32991,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -32773,7 +33033,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -32820,7 +33080,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32871,7 +33131,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32886,7 +33146,7 @@
             "type": "interior_outer",
             "target": "region.kak_carpenter_boss_house -> region.kak_carpenter_boss_house_entrance",
             "logicAccess": "region.kak_carpenter_boss_house_entrance",
-            "area": "kakariko.carpenter_house",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -32921,7 +33181,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32971,7 +33231,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -32986,7 +33246,7 @@
             "type": "interior_outer",
             "target": "region.kak_house_of_skulltula -> region.kak_house_of_skulltula_entrance",
             "logicAccess": "region.kak_house_of_skulltula_entrance",
-            "area": "kakariko.skulltula_house",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33021,7 +33281,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33071,7 +33331,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33086,7 +33346,7 @@
             "type": "interior_outer",
             "target": "region.kak_impas_house -> region.kak_impas_house_entrance",
             "logicAccess": "region.kak_impas_house_entrance",
-            "area": "kakariko.impas_house",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33121,7 +33381,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33171,7 +33431,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33186,7 +33446,7 @@
             "type": "interior_outer",
             "target": "region.kak_impas_house_back -> region.kak_impas_house_back_entrance",
             "logicAccess": "region.kak_impas_house_back_entrance",
-            "area": "kakariko.impa_back",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33221,7 +33481,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33271,7 +33531,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33286,7 +33546,7 @@
             "type": "interior_outer",
             "target": "region.kak_odd_medicine_building -> region.kak_odd_medicine_building_entrance",
             "logicAccess": "region.kak_odd_medicine_building_entrance",
-            "area": "kakariko.kakariko_witch",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33320,7 +33580,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33369,7 +33629,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33384,7 +33644,7 @@
             "type": "interior_outer",
             "target": "region.kak_bazaar -> region.kak_bazaar_entrance",
             "logicAccess": "region.kak_bazaar_entrance",
-            "area": "kakariko.shop_bazaar",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33418,7 +33678,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33467,7 +33727,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33482,7 +33742,7 @@
             "type": "interior_outer",
             "target": "region.kak_shooting_gallery -> region.kak_shooting_gallery_entrance",
             "logicAccess": "region.kak_shooting_gallery_entrance",
-            "area": "kakariko.minigame_shooting",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33517,7 +33777,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33567,7 +33827,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -33582,7 +33842,7 @@
             "type": "interior_outer",
             "target": "region.kak_windmill -> region.kak_windmill_entrance",
             "logicAccess": "region.kak_windmill_entrance",
-            "area": "kakariko.windmill",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33614,7 +33874,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33658,7 +33918,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33670,7 +33930,7 @@
             "type": "interior_outer",
             "target": "region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance",
             "logicAccess": "region.kak_potion_shop_front_entrance",
-            "area": "kakariko.shop_magic",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33703,7 +33963,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33748,7 +34008,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33760,7 +34020,7 @@
             "type": "interior_outer",
             "target": "region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance",
             "logicAccess": "region.kak_potion_shop_back_entrance",
-            "area": "kakariko.shop_magic",
+            "area": "kakariko",
             "categories": [
                 "interior",
                 "kakariko",
@@ -33793,7 +34053,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33838,7 +34098,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "state",
                 "el": "option.entrance_shuffle_interior",
                 "value": "entrance_shuffle_all"
@@ -33850,7 +34110,7 @@
             "type": "grotto_outer",
             "target": "region.kak_open_grotto -> region.kak_open_grotto_entrance",
             "logicAccess": "region.kak_open_grotto_entrance",
-            "area": "kakariko.open_grotto",
+            "area": "kakariko",
             "categories": [
                 "grotto",
                 "kakariko",
@@ -33881,7 +34141,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -33923,7 +34183,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -33934,7 +34194,7 @@
             "type": "grotto_outer",
             "target": "region.kak_redead_grotto -> region.kak_redead_grotto_entrance",
             "logicAccess": "region.kak_redead_grotto_entrance",
-            "area": "kakariko.redead_grotto",
+            "area": "kakariko",
             "categories": [
                 "grotto",
                 "kakariko",
@@ -33965,7 +34225,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34007,7 +34267,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34018,7 +34278,7 @@
             "type": "interior_outer",
             "target": "region.graveyard_dampes_house -> region.graveyard_dampes_house_entrance",
             "logicAccess": "region.graveyard_dampes_house_entrance",
-            "area": "graveyard.dampes_hut",
+            "area": "graveyard",
             "categories": [
                 "interior",
                 "graveyard",
@@ -34053,7 +34313,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34103,7 +34363,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34118,7 +34378,7 @@
             "type": "grotto_outer",
             "target": "region.graveyard_shield_grave -> region.graveyard_shield_grave_entrance",
             "logicAccess": "region.graveyard_shield_grave_entrance",
-            "area": "graveyard.shield_grave",
+            "area": "graveyard",
             "categories": [
                 "grotto",
                 "graveyard",
@@ -34150,7 +34410,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34193,7 +34453,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34204,7 +34464,7 @@
             "type": "grotto_outer",
             "target": "region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance",
             "logicAccess": "region.graveyard_heart_piece_grave_entrance",
-            "area": "graveyard.redead_grave",
+            "area": "graveyard",
             "categories": [
                 "grotto",
                 "graveyard",
@@ -34238,7 +34498,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34283,7 +34543,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34294,7 +34554,7 @@
             "type": "grotto_outer",
             "target": "region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance",
             "logicAccess": "region.graveyard_composers_grave_entrance",
-            "area": "graveyard.royal_grave",
+            "area": "graveyard",
             "categories": [
                 "grotto",
                 "graveyard",
@@ -34326,7 +34586,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34369,7 +34629,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34380,7 +34640,7 @@
             "type": "grotto_outer",
             "target": "region.graveyard_dampes_grave -> region.graveyard_dampes_grave_entrance",
             "logicAccess": "region.graveyard_dampes_grave_entrance",
-            "area": "graveyard.dampes_grave",
+            "area": "graveyard",
             "categories": [
                 "grotto",
                 "graveyard",
@@ -34411,7 +34671,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34453,7 +34713,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34464,7 +34724,7 @@
             "type": "interior_outer",
             "target": "region.dmt_great_fairy_fountain -> region.dmt_great_fairy_fountain_entrance",
             "logicAccess": "region.dmt_great_fairy_fountain_entrance",
-            "area": "mountain.fairy_fountain",
+            "area": "mountain",
             "categories": [
                 "interior",
                 "death",
@@ -34501,7 +34761,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34553,7 +34813,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34568,7 +34828,7 @@
             "type": "grotto_outer",
             "target": "region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance",
             "logicAccess": "region.dmt_storms_grotto_entrance",
-            "area": "mountain.storms_grotto",
+            "area": "mountain",
             "categories": [
                 "grotto",
                 "death",
@@ -34600,7 +34860,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34643,7 +34903,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34654,7 +34914,7 @@
             "type": "grotto_outer",
             "target": "region.dmt_cow_grotto -> region.dmt_cow_grotto_entrance",
             "logicAccess": "region.dmt_cow_grotto_entrance",
-            "area": "mountain.bomb_grotto",
+            "area": "mountain",
             "categories": [
                 "grotto",
                 "death",
@@ -34686,7 +34946,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34729,7 +34989,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34740,7 +35000,7 @@
             "type": "interior_outer",
             "target": "region.dmc_great_fairy_fountain -> region.dmc_great_fairy_fountain_entrance",
             "logicAccess": "region.dmc_great_fairy_fountain_entrance",
-            "area": "crater.fairy_fountain",
+            "area": "crater",
             "categories": [
                 "interior",
                 "death",
@@ -34778,7 +35038,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34831,7 +35091,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -34846,7 +35106,7 @@
             "type": "grotto_outer",
             "target": "region.dmc_hammer_grotto -> region.dmc_hammer_grotto_entrance",
             "logicAccess": "region.dmc_hammer_grotto_entrance",
-            "area": "crater.hammer_grotto",
+            "area": "crater",
             "categories": [
                 "grotto",
                 "death",
@@ -34878,7 +35138,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34921,7 +35181,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -34932,7 +35192,7 @@
             "type": "grotto_outer",
             "target": "region.dmc_upper_grotto -> region.dmc_upper_grotto_entrance",
             "logicAccess": "region.dmc_upper_grotto_entrance",
-            "area": "crater.crater_bomb_grotto",
+            "area": "crater",
             "categories": [
                 "grotto",
                 "death",
@@ -34966,7 +35226,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35011,7 +35271,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35022,7 +35282,7 @@
             "type": "interior_outer",
             "target": "region.gc_shop -> region.gc_shop_entrance",
             "logicAccess": "region.gc_shop_entrance",
-            "area": "goron.shop",
+            "area": "goron",
             "categories": [
                 "interior",
                 "goron",
@@ -35057,7 +35317,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35107,7 +35367,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35122,7 +35382,7 @@
             "type": "grotto_outer",
             "target": "region.gc_grotto -> region.gc_grotto_entrance",
             "logicAccess": "region.gc_grotto_entrance",
-            "area": "goron.grotto",
+            "area": "goron",
             "categories": [
                 "grotto",
                 "goron",
@@ -35151,7 +35411,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35191,7 +35451,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35202,7 +35462,7 @@
             "type": "grotto_outer",
             "target": "region.zr_storms_grotto -> region.zr_storms_grotto_entrance",
             "logicAccess": "region.zr_storms_grotto_entrance",
-            "area": "river.storms_grotto",
+            "area": "river",
             "categories": [
                 "grotto",
                 "zoras",
@@ -35234,7 +35494,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35277,7 +35537,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35288,7 +35548,7 @@
             "type": "grotto_outer",
             "target": "region.zr_fairy_grotto -> region.zr_fairy_grotto_entrance",
             "logicAccess": "region.zr_fairy_grotto_entrance",
-            "area": "river.bomb_grotto",
+            "area": "river",
             "categories": [
                 "grotto",
                 "zoras",
@@ -35320,7 +35580,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35363,7 +35623,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35374,7 +35634,7 @@
             "type": "grotto_outer",
             "target": "region.zr_open_grotto -> region.zr_open_grotto_entrance",
             "logicAccess": "region.zr_open_grotto_entrance",
-            "area": "river.open_grotto",
+            "area": "river",
             "categories": [
                 "grotto",
                 "zoras",
@@ -35406,7 +35666,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35449,7 +35709,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35460,7 +35720,7 @@
             "type": "interior_outer",
             "target": "region.zd_shop -> region.zd_shop_entrance",
             "logicAccess": "region.zd_shop_entrance",
-            "area": "zoras.shop",
+            "area": "zoras",
             "categories": [
                 "interior",
                 "zoras",
@@ -35495,7 +35755,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35545,7 +35805,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35560,7 +35820,7 @@
             "type": "grotto_outer",
             "target": "region.zd_storms_grotto -> region.zd_storms_grotto_entrance",
             "logicAccess": "region.zd_storms_grotto_entrance",
-            "area": "zoras.storms_grotto",
+            "area": "zoras",
             "categories": [
                 "grotto",
                 "zoras",
@@ -35592,7 +35852,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35635,7 +35895,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -35646,7 +35906,7 @@
             "type": "interior_outer",
             "target": "region.zf_great_fairy_fountain -> region.zf_great_fairy_fountain_entrance",
             "logicAccess": "region.zf_great_fairy_fountain_entrance",
-            "area": "fountain.fairy_fountain",
+            "area": "fountain",
             "categories": [
                 "interior",
                 "zoras",
@@ -35683,7 +35943,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35735,7 +35995,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35750,7 +36010,7 @@
             "type": "interior_outer",
             "target": "region.lh_lab -> region.lh_lab_entrance",
             "logicAccess": "region.lh_lab_entrance",
-            "area": "lake.laboratory",
+            "area": "lake",
             "categories": [
                 "interior",
                 "lake",
@@ -35786,7 +36046,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35837,7 +36097,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35852,7 +36112,7 @@
             "type": "interior_outer",
             "target": "region.lh_fishing_hole -> region.lh_fishing_hole_entrance",
             "logicAccess": "region.lh_fishing_hole_entrance",
-            "area": "lake.fishing",
+            "area": "lake",
             "categories": [
                 "interior",
                 "lake",
@@ -35888,7 +36148,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35939,7 +36199,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -35954,7 +36214,7 @@
             "type": "grotto_outer",
             "target": "region.lh_grotto -> region.lh_grotto_entrance",
             "logicAccess": "region.lh_grotto_entrance",
-            "area": "lake.grave_grotto",
+            "area": "lake",
             "categories": [
                 "grotto",
                 "lake",
@@ -35986,7 +36246,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36029,7 +36289,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36040,7 +36300,7 @@
             "type": "interior_outer",
             "target": "region.gv_carpenter_tent -> region.gv_carpenter_tent_entrance",
             "logicAccess": "region.gv_carpenter_tent_entrance",
-            "area": "gerudo_valley.tend",
+            "area": "gerudo_valley",
             "categories": [
                 "interior",
                 "gerudo",
@@ -36077,7 +36337,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -36129,7 +36389,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -36144,7 +36404,7 @@
             "type": "grotto_outer",
             "target": "region.gv_storms_grotto -> region.gv_storms_grotto_entrance",
             "logicAccess": "region.gv_storms_grotto_entrance",
-            "area": "gerudo_valley.storms_grotto",
+            "area": "gerudo_valley",
             "categories": [
                 "grotto",
                 "gerudo",
@@ -36175,7 +36435,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36217,7 +36477,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36228,7 +36488,7 @@
             "type": "grotto_outer",
             "target": "region.gv_octorok_grotto -> region.gv_octorok_grotto_entrance",
             "logicAccess": "region.gv_octorok_grotto_entrance",
-            "area": "gerudo_valley.octorock_grotto",
+            "area": "gerudo_valley",
             "categories": [
                 "grotto",
                 "gerudo",
@@ -36259,7 +36519,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36301,7 +36561,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36312,7 +36572,7 @@
             "type": "grotto_outer",
             "target": "region.gf_storms_grotto -> region.gf_storms_grotto_entrance",
             "logicAccess": "region.gf_storms_grotto_entrance",
-            "area": "gerudo.storms_grotto",
+            "area": "gerudo",
             "categories": [
                 "grotto",
                 "gerudo",
@@ -36343,7 +36603,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36385,7 +36645,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36396,7 +36656,7 @@
             "type": "interior_outer",
             "target": "region.colossus_great_fairy_fountain -> region.colossus_great_fairy_fountain_entrance",
             "logicAccess": "region.colossus_great_fairy_fountain_entrance",
-            "area": "desert.fairy_fountain",
+            "area": "desert",
             "categories": [
                 "interior",
                 "colossus",
@@ -36432,7 +36692,7 @@
                 "interior_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -36483,7 +36743,7 @@
                 "interior_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -36498,7 +36758,7 @@
             "type": "grotto_outer",
             "target": "region.colossus_grotto -> region.colossus_grotto_entrance",
             "logicAccess": "region.colossus_grotto_entrance",
-            "area": "desert.strength_grotto",
+            "area": "desert",
             "categories": [
                 "grotto",
                 "colossus",
@@ -36530,7 +36790,7 @@
                 "grotto_inner"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },
@@ -36573,7 +36833,7 @@
                 "grotto_outer"
             ],
             "ignoreBound": false,
-            "active": {
+            "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_grottos"
             },

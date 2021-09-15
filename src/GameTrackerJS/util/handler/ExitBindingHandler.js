@@ -1,7 +1,7 @@
 import SavestateHandler from "../../savestate/SavestateHandler.js";
 import ExitStateManager from "../../statemanager/world/exit/ExitStateManager.js";
-import DefaultExitState from "../../state/world/exit/DefaultExitState.js";
 import Logic from "../logic/Logic.js";
+import LogicExitAugmentor from "../logic/LogicExitAugmentor.js";
 
 // TODO add reverse exit bind handling
 // include detached exit support
@@ -13,7 +13,7 @@ function initRedirects() {
     const initTransalation = [];
     for (const entry of AUGMENTORS) {
         if (entry.exit.active) {
-            applyBinding(initTransalation, entry.exit.props.access, entry.exit.value);
+            LogicExitAugmentor.applyBinding(initTransalation, entry.exit.ref, entry.exit.value);
         }
     }
     if (initTransalation.length) {
@@ -21,130 +21,61 @@ function initRedirects() {
     }
 }
 
-SavestateHandler.addEventListener("afterload", event => {
+SavestateHandler.addEventListener("afterload", () => {
     initRedirects();
 });
 
-function changeBinding(values) {
-    const changes = [];
-    if (Array.isArray(values)) {
-        for (const {from, to} of values) {
-            applyBinding(changes, from, to);
-        }
-    } else {
-        const {from, to} = values;
-        applyBinding(changes, from, to);
-    }
-    if (changes.length) {
-        Logic.setRedirect(changes, "region.root");
-    }
-}
-
-function applyBinding(changes, from, to) {
-    const [source, target] = from.split(" -> ");
-    if (source && target) {
-        if (!to) {
-            changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
-            changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
-        } else {
-            const [reroute] = to.split(" -> ");
-            if (reroute) {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+/*
+function checkForBindingCorrections(event) {
+    // savesatate
+    const change = event.data;
+    if (change != null) {
+        if (change.ref == this.ref) {
+            // if this exit got bound
+            super.value = change.value;
+        } else if (change.value == this.ref) {
+            // if this entrance got bound
+            const otherExit = EntranceStateManager.get(change.ref);
+            if (otherExit != null && otherExit.props.isBiDir) {
+                super.value = change.ref;
+            }
+        } else if (change.value != "" && change.value == this.value) {
+            // if another exit got bound to this ones entrance
+            if (change.value != "\u0000" && !this.props.ignoreBound) {
+                const otherExit = EntranceStateManager.get(change.ref);
+                if (otherExit != null && !otherExit.props.ignoreBound) {
+                    super.value = "";
+                }
+            }
+        } else if (change.ref == this.value) {
+            // if another entrance got bound to this ones exit
+            // if the exit does no longer bind to this
+            if (change.value != "\u0000" && !this.props.ignoreBound) {
+                const otherExit = EntranceStateManager.get(change.ref);
+                if (otherExit == null || !otherExit.props.ignoreBound) {
+                    super.value = "";
+                }
             }
         }
     }
 }
-
-const EXIT = new WeakMap();
-
-class ExitAugmentor {
-
-    constructor(exit) {
-        EXIT.set(this, exit);
-        // change active
-        exit.addEventListener("active", () => {
-            this.changeActive();
-        });
-        // change value
-        exit.addEventListener("value", () => {
-            this.changeValue();
-        });
-        // init
-        this.changeActive();
-    }
-
-    changeActive() {
-        const exit = EXIT.get(this);
-        const access = exit.props.access;
-        const bindingChange = [];
-        if (exit.active) {
-            bindingChange.push({
-                from: access,
-                to: exit.value
-            });
-            if (exit.exitData.isBiDir) {
-                bindingChange.push({
-                    from: exit.value,
-                    to: access
-                });
-            }
-        } else {
-            bindingChange.push({
-                from: access,
-                to: null
-            });
-            if (exit.exitData.isBiDir) {
-                bindingChange.push({
-                    from: exit.value,
-                    to: null
-                });
-            }
-        }
-        changeBinding(bindingChange);
-    }
-
-    changeValue() {
-        const exit = EXIT.get(this);
-        const access = exit.props.access;
-        if (exit.active) {
-            const bindingChange = [{
-                from: access,
-                to: exit.value
-            }];
-            if (exit.exitData.isBiDir) {
-                bindingChange.push({
-                    from: exit.value,
-                    to: access
-                });
-            }
-            changeBinding(bindingChange);
-        }
-    }
-
-    get exit() {
-        return EXIT.get(this);
-    }
-
-}
+*/
 
 // scoped init
 {
-    const NEEDED_REVERSE = new Map();
-    for (const [, exit] of ExitStateManager) {
-        AUGMENTORS.add(new ExitAugmentor(exit));
+    const MISSING_ENTRANCES = new Set();
+    for (const [ref, exit] of ExitStateManager) {
+        AUGMENTORS.add(new LogicExitAugmentor(ref));
         // reverse exits
-        if (NEEDED_REVERSE.has(exit.props.access)) {
-            NEEDED_REVERSE.delete(exit.props.access);
+        if (MISSING_ENTRANCES.has(ref)) {
+            MISSING_ENTRANCES.delete(ref);
         } else {
-            NEEDED_REVERSE.set(exit.props.access.split(" -> ").reverse().join(" -> "), exit);
+            MISSING_ENTRANCES.add(exit.props.target);
         }
     }
 
-    for (const [access, exit] of NEEDED_REVERSE) {
-        console.warn("reverse exit inserted: ", access);
-        const ghost_exit = new DefaultExitState(access, exit.props);
-        AUGMENTORS.add(new ExitAugmentor(ghost_exit));
+    for (const ref of MISSING_ENTRANCES) {
+        console.warn("entrance missing: ", ref);
     }
 
     initRedirects();
