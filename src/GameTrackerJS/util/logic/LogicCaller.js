@@ -2,9 +2,9 @@
 import MapLocker from "/emcJS/data/locker/MapLocker.js";
 
 // GameTrackerJS
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import Logic from "/GameTrackerJS/util/logic/Logic.js";
+import Savestate from "../../savestate/Savestate.js";
+import SettingsStorage from "../../storage/SettingsStorage.js";
+import Logic from "./Logic.js";
 
 const STORAGES = {
     // GameTrackerJS

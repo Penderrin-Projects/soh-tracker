@@ -23,8 +23,6 @@ const STORAGES = {
     exitBindings: Savestate.getStorage("exitBindings"),
 };
 
-const ACTIVE = new WeakMap();
-const ACTIVE_LOGIC = new WeakMap();
 const MANAGER = new WeakMap();
 const ACCESS = new WeakMap();
 const VALUE = new WeakMap();
@@ -113,18 +111,8 @@ export default class DefaultExitState extends VisibilityState {
             this.dispatchEvent(ev);
         }, 0);
 
-        /* ACTIVE */
-        if (typeof props.active == "object") {
-            const logicFn = LogicCompiler.compile(props.active);
-            const value = LogicExecutor.execute(logicFn);
-            ACTIVE.set(this, value);
-            ACTIVE_LOGIC.set(this, logicFn);
-        } else {
-            ACTIVE.set(this, !!props.active);
-        }
-
-        /* EVENTS */
-        EventBus.register("logic", event => {
+        /* LOGIC */
+        Logic.addEventListener("change", () => {
             const access = getLogicAccess(logicAccess);
             if (access != null) {
                 const old = ACCESS.get(this);
@@ -137,20 +125,6 @@ export default class DefaultExitState extends VisibilityState {
                         ev.data = access;
                         this.dispatchEvent(ev);
                     }
-                }
-            }
-        });
-        const logicEventManager = new EventTargetManager(LogicExecutor);
-        logicEventManager.set(["reset", "change"], event => {
-            const logicFn = ACTIVE_LOGIC.get(this);
-            if (typeof logicFn == "function") {
-                const active = ACTIVE.get(this);
-                const value = LogicExecutor.execute(logicFn);
-                if (active != value) {
-                    ACTIVE.set(this, value);
-                    const event = new Event("active");
-                    event.data = value;
-                    this.dispatchEvent(event);
                 }
             }
         });
@@ -221,10 +195,6 @@ export default class DefaultExitState extends VisibilityState {
 
     get area() {
         return AREA.get(this);
-    }
-
-    get active() {
-        return ACTIVE.get(this);
     }
 
     get hint() {

@@ -1,4 +1,7 @@
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+// frameworks
+import MapLocker from "/emcJS/data/locker/MapLocker.js";
+
+import Savestate from "../../savestate/Savestate.js";
 import SettingsStorage from "../../storage/SettingsStorage.js";
 
 const STORAGES = {
@@ -12,6 +15,7 @@ const STORAGES = {
 
 const AUGMENT = new Set();
 const CACHE = new Map();
+const LOCKED_CACHE = new MapLocker(CACHE);
 const DATA = new Map();
 
 function valueGetter(key) {
@@ -20,7 +24,7 @@ function valueGetter(key) {
 
 function execAugment(data) {
     for (const augment of AUGMENT) {
-        const res = augment(data);
+        const res = augment(LOCKED_CACHE, data);
         data = {...data, ...res};
     }
     return data;
@@ -153,7 +157,7 @@ class LogicExecutor extends EventTarget {
             }
         }
         if (Object.keys(changes).length > 0) {
-            const augmentedData = execAugment(data);
+            const augmentedData = execAugment(changes);
             for (const [key, value] of Object.entries(augmentedData)) {
                 DATA.set(key, value);
             }
