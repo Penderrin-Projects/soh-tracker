@@ -1965,7 +1965,8 @@
                 "type": "true"
             },
             "region.woods_river_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.river_woods_gateway[adult]": {
@@ -1973,7 +1974,8 @@
                 "type": "true"
             },
             "region.woods_river_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.meadow_woods_gateway[child]": {
@@ -2106,7 +2108,8 @@
         },
         "region.domain_lake_gateway[child]": {
             "region.lake_domain_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.zoras_domain[child]": {
                 "type": "true"
@@ -2114,7 +2117,8 @@
         },
         "region.domain_lake_gateway[adult]": {
             "region.lake_domain_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.zoras_domain[adult]": {
                 "type": "true"
@@ -2406,7 +2410,8 @@
         },
         "region.woods_river_gateway[child]": {
             "region.river_woods_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.lost_woods[child]": {
                 "type": "true"
@@ -2414,7 +2419,8 @@
         },
         "region.woods_river_gateway[adult]": {
             "region.river_woods_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.lost_woods[adult]": {
                 "type": "true"
@@ -2553,7 +2559,8 @@
                 "type": "true"
             },
             "region.domain_lake_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.lake_domain_gateway[adult]": {
@@ -2561,7 +2568,8 @@
                 "type": "true"
             },
             "region.domain_lake_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.fortress_valley_gateway[child]": {
