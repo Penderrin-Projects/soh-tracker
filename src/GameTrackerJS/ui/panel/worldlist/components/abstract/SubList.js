@@ -78,9 +78,6 @@ export default class WorldListSubList extends BaseClass {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("visiblity", (event) => {
-            this.style.display = event.data ? "" : "none";
-        });
         this.registerStateHandler("list_update", event => {
             this.refreshList();
         });
@@ -138,16 +135,8 @@ export default class WorldListSubList extends BaseClass {
         this.showDefaultContextMenu(event);
     }
 
-    applyDefaultValues(defaultIcon) {
-        super.applyDefaultValues();
-        /* visible */
-        this.style.display = "none";
-    }
-
-    applyStateValues(state, defaultIcon) {
+    applyStateValues(state) {
         super.applyStateValues(state);
-        /* visible */
-        this.style.display = state.isVisible() ? "" : "none";
     }
 
     setCollapsed(value) {

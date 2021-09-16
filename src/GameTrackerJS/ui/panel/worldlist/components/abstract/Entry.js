@@ -22,6 +22,9 @@ const STYLE = new GlobalStyle(`
     padding: 3px;
     user-select: none;
 }
+:host([hidden]:not([hidden="false"])) {
+    display: none;
+}
 #header {
     display: flex;
     flex-direction: column;
@@ -75,6 +78,14 @@ export default class WorldListEntry extends CustomElement {
 
     clickHandler(event) {
         // nothing
+    }
+
+    get hidden() {
+        return this.getAttribute("hidden") != "false";
+    }
+
+    set hidden(val) {
+        this.setAttribute("hidden", !!val);
     }
 
     get textRef() {

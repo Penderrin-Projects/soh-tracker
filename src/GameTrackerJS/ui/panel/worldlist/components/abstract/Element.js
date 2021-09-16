@@ -28,10 +28,6 @@ export default class WorldListElement extends BaseClass {
     constructor() {
         super();
         applyElements(this.shadowRoot);
-        /* state handler */
-        this.registerStateHandler("visiblity", (event) => {
-            this.style.display = event.data ? "" : "none";
-        });
         /* mouse events */
         const headerEl = this.shadowRoot.getElementById("header");
         headerEl.addEventListener("contextmenu", (event) => {
@@ -51,8 +47,6 @@ export default class WorldListElement extends BaseClass {
 
     applyDefaultValues(defaultIcon) {
         super.applyDefaultValues();
-        /* visible */
-        this.style.display = "none";
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
@@ -63,8 +57,6 @@ export default class WorldListElement extends BaseClass {
 
     applyStateValues(state, defaultIcon) {
         super.applyStateValues(state);
-        /* visible */
-        this.style.display = state.isVisible() ? "" : "none";
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
