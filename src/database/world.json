@@ -16197,6 +16197,7 @@
     "collection": {
         "spawns": {
             "map": {
+                "active": false,
                 "color": "black",
                 "border": "white",
                 "background": "",
@@ -16260,6 +16261,7 @@
         "hyrule": {
             "type": "overworld",
             "map": {
+                "active": true,
                 "color": "",
                 "border": "",
                 "background": "main.png",
@@ -16574,6 +16576,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -16726,6 +16729,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -16788,6 +16792,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -16886,6 +16891,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17032,6 +17038,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17214,6 +17221,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17336,6 +17344,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17482,6 +17491,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17598,6 +17608,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17708,6 +17719,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17878,6 +17890,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -17982,6 +17995,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18038,6 +18052,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18178,6 +18193,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18252,6 +18268,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18302,6 +18319,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18394,6 +18412,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18450,6 +18469,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18686,6 +18706,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18808,6 +18829,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -18948,6 +18970,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19070,6 +19093,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19216,6 +19240,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19314,6 +19339,7 @@
             "icon": "images/icons/area.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19412,6 +19438,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19602,6 +19629,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -19738,6 +19766,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -20012,6 +20041,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -20196,6 +20226,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -20440,6 +20471,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -20636,6 +20668,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -20898,6 +20931,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -21166,6 +21200,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -21374,6 +21409,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -21708,6 +21744,7 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22060,6 +22097,7 @@
             "icon": "images/icons/boss_dungeon.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22347,6 +22385,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22389,6 +22428,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22451,6 +22491,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22495,6 +22536,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22539,6 +22581,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22589,6 +22632,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22639,6 +22683,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22683,6 +22728,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22733,6 +22779,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22783,6 +22830,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22833,6 +22881,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22883,6 +22932,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22933,6 +22983,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -22983,6 +23034,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23027,6 +23079,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23075,6 +23128,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23123,6 +23177,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23171,6 +23226,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23213,6 +23269,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23258,6 +23315,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23306,6 +23364,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23348,6 +23407,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23396,6 +23456,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23452,6 +23513,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23506,6 +23568,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23550,6 +23613,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23598,6 +23662,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23640,6 +23705,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23706,6 +23772,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23748,6 +23815,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23790,6 +23858,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23835,6 +23904,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23883,6 +23953,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23933,6 +24004,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -23983,6 +24055,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24027,6 +24100,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24071,6 +24145,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24115,6 +24190,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24171,6 +24247,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24219,6 +24296,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24263,6 +24341,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24313,6 +24392,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24355,6 +24435,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24399,6 +24480,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24455,6 +24537,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24505,6 +24588,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24561,6 +24645,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24611,6 +24696,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24659,6 +24745,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24701,6 +24788,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24749,6 +24837,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24799,6 +24888,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24855,6 +24945,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24903,6 +24994,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24947,6 +25039,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -24991,6 +25084,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25022,6 +25116,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25053,6 +25148,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25084,6 +25180,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25119,6 +25216,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25175,6 +25273,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25206,6 +25305,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25241,6 +25341,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25301,6 +25402,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25357,6 +25459,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25392,6 +25495,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25448,6 +25552,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25479,6 +25584,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25514,6 +25620,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25577,6 +25684,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25633,6 +25741,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25664,6 +25773,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25699,6 +25809,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25755,6 +25866,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25790,6 +25902,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25846,6 +25959,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25877,6 +25991,7 @@
             "icon": "images/icons/interior.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25908,6 +26023,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",
@@ -25939,6 +26055,7 @@
             "icon": "images/icons/grotto.svg",
             "areaTags": false,
             "map": {
+                "active": false,
                 "color": "",
                 "border": "",
                 "background": "",

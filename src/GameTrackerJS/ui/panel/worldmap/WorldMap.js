@@ -8,8 +8,6 @@ import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
-import WorldStateManagerRegistry from "../../../statemanager/WorldStateManagerRegistry.js";
-import UIRegistry from "../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
@@ -58,8 +56,7 @@ export default class WorldMap extends BaseClass {
     }
 
     get ref() {
-        // return this.getAttribute("ref") || WorldListState.default;
-        return WorldListState.default;
+        return this.getAttribute("ref") || WorldListState.default;
     }
 
     set ref(val) {

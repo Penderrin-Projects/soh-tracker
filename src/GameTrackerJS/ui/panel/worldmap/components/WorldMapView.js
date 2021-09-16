@@ -99,14 +99,6 @@ export default class WorldMapView extends BaseClass {
         OFFSET_Y.set(this, 0);
         ZOOM.set(this, 1);
 
-        /* state handler */
-        WorldListState.addEventListener("area", event => {
-            this.ref = event.data;
-        });
-        this.registerStateHandler("list_update", event => {
-            this.refreshList();
-        });
-
         /* MAP EVENTS */
         const mapEl = this.shadowRoot.getElementById("map");
         const mapEventManager = new EventTargetManager(mapEl, false);
@@ -202,7 +194,7 @@ export default class WorldMapView extends BaseClass {
     }
 
     get ref() {
-        return this.getAttribute("ref") || WorldListState.default;
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
@@ -227,7 +219,12 @@ export default class WorldMapView extends BaseClass {
             switch (name) {
                 case "ref": {
                     const state = AreaStateManager.get(this.ref);
-                    this.switchState(state);
+                    if (state?.hasMap) {
+                        this.switchState(state);
+                    } else {
+                        const defaultState = AreaStateManager.get(WorldListState.default);
+                        this.switchState(defaultState);
+                    }
                 } break;
             }
         }

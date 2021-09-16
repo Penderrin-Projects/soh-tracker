@@ -92,6 +92,10 @@ export default class DefaultAreaState extends VisibilityState {
         return super.visible && this.getListVisiblity();
     }
 
+    get hasMap() {
+        return this.props.map.active;
+    }
+
     getListVisiblity() {
         const listHandler = LIST_HANDLER.get(this);
         return listHandler.visible;

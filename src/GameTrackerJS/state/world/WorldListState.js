@@ -1,7 +1,9 @@
 import WorldResource from "../../resource/WorldResource.js";
 
 const CONFIG = WorldResource.get("config");
+const AREA_PROPS = WorldResource.get("area");
 const AREA = new WeakMap();
+const PROPS = new WeakMap();
 
 class WorldListState extends EventTarget {
 
@@ -15,11 +17,6 @@ class WorldListState extends EventTarget {
         return CONFIG.defaultArea;
     }
 
-    get isDefault() {
-        const area = AREA.get(this);
-        return area == CONFIG.defaultArea;
-    }
-
     get area() {
         return AREA.get(this);
     }
@@ -31,6 +28,7 @@ class WorldListState extends EventTarget {
         }
         if (old != value) {
             AREA.set(this, value);
+            PROPS.set(this, AREA_PROPS[value]);
             // external
             const ev = new Event("area");
             ev.data = value;
@@ -38,10 +36,21 @@ class WorldListState extends EventTarget {
         }
     }
 
+    get isDefault() {
+        const area = AREA.get(this);
+        return area == CONFIG.defaultArea;
+    }
+
+    get hasMap() {
+        const props = PROPS.get(this);
+        return props.map.active;
+    }
+
     reset() {
         const old = AREA.get(this);
         if (old != CONFIG.defaultArea) {
             AREA.set(this, CONFIG.defaultArea);
+            PROPS.set(this, AREA_PROPS[CONFIG.defaultArea]);
             // external
             const ev = new Event("area");
             ev.data = CONFIG.defaultArea;
