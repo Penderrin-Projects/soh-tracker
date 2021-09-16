@@ -77,8 +77,8 @@ export default class LogicExitAugmentor {
         const [source, target] = from.split(" -> ");
         if (source && target) {
             if (!to) {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: null});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: null});
+                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
+                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
             } else {
                 const [reroute] = to.split(" -> ");
                 if (reroute) {
