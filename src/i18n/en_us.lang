@@ -1548,17 +1548,17 @@ search=Search
 search_reset=Reset
 
 # exits
-dungeon_inner=Inside Dungeon
-dungeon_outer=Outside Dungeon
-grotto_inner=Inside Grotto
-grotto_outer=Outside Grotto
-interior_inner=Inside Interior
-interior_outer=Outside Interior
-overworld=Overworld Exits
-special=Special Exits
-flight=Owl Flight
-spawn=Child/Adult Spawn
-warp=Song Warp
+entrance_type[dungeon_inner]=Inside Dungeon
+entrance_type[dungeon_outer]=Outside Dungeon
+entrance_type[grotto_inner]=Inside Grotto
+entrance_type[grotto_outer]=Outside Grotto
+entrance_type[interior_inner]=Inside Interior
+entrance_type[interior_outer]=Outside Interior
+entrance_type[overworld]=Overworld Exits
+entrance_type[special]=Special Exits
+entrance_type[flight]=Owl Flight
+entrance_type[spawn]=Child/Adult Spawn
+entrance_type[warp]=Song Warp
 
 ## dungeons
 exit[region.deku_tree_entrance -> region.deku_tree_gateway]=Deku Tree Entrance

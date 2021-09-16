@@ -2,6 +2,7 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import { mix } from "/emcJS/util/Mixin.js";
+import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
@@ -23,7 +24,7 @@ const ZOOM_DEF = 60;
 const ZOOM_SPD = 2;
 
 const TPL = new Template(`
-<slot id="map" style="--map-zoom: ${ZOOM_DEF};">
+<slot id="map">
 </slot>
 `);
 
@@ -48,18 +49,19 @@ const STYLE = new GlobalStyle(`
     background-position: center;
     background-origin: content-box;
     transform-origin: center;
-    transform: translate(calc(var(--map-offset-x, 0) * 1px), calc(var(--map-offset-y, 0) * 1px)) scale(calc(var(--map-zoom, 100) / 100));
+    transform:
+        translate(
+            calc(var(--offset-x, 0) * 1px),
+            calc(var(--offset-y, 0) * 1px)
+        )
+        scale(
+            calc(var(--zoom, 100) / 100)
+        );
 }
 ::slotted(*) {
     position: absolute;
 }
 `);
-
-const BaseClass = mix(
-    Panel
-).with(
-    StateDataEventManagerMixin
-);
 
 const EL_MANAGER = new WeakMap();
 
@@ -75,12 +77,28 @@ function elementComposer(key, props) {
     }
 }
 
+const OFFSET_X = new WeakMap();
+const OFFSET_Y = new WeakMap();
+const ZOOM = new WeakMap();
+
+const BaseClass = mix(
+    Panel
+).with(
+    StateDataEventManagerMixin
+);
+
 export default class WorldMapView extends BaseClass {
 
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
+
+        /* VALUES */
+        OFFSET_X.set(this, 0);
+        OFFSET_Y.set(this, 0);
+        ZOOM.set(this, 1);
+
         /* state handler */
         WorldListState.addEventListener("area", event => {
             this.ref = event.data;
@@ -88,6 +106,45 @@ export default class WorldMapView extends BaseClass {
         this.registerStateHandler("list_update", event => {
             this.refreshList();
         });
+
+        /* MAP EVENTS */
+        const mapEl = this.shadowRoot.getElementById("map");
+        const mapEventManager = new EventTargetManager(mapEl, false);
+        mapEl.addEventListener("mousedown", (event) => {
+            if (!this.fixed && event.button === 0) {
+                const target = event.target;
+                target.classList.add("grabbed");
+                mapEventManager.setActive(true);
+            }
+            event.preventDefault();
+            return false;
+        });
+        mapEventManager.set("mousemove", (event) => {
+            if (event.button === 0) {
+                const vrtX = OFFSET_X.get(this);
+                const vrtY = OFFSET_Y.get(this);
+                const forceX = event.movementX;
+                const forceY = event.movementY;
+                this.setTranslation(vrtX + forceX, vrtY + forceY);
+            }
+        });
+        mapEventManager.set(["mouseup", "mouseleave"], (event) => {
+            if (event.button === 0) {
+                const target = event.target;
+                target.classList.remove("grabbed");
+                mapEventManager.setActive(false);
+            }
+        });
+        this.addEventListener("wheel", (event) => {
+            if (!this.fixed) {
+                const zoom = ZOOM.get(this);
+                const delta = Math.sign(event.deltaY) * ZOOM_SPD;
+                this.setZoom(zoom - delta);
+            }
+            event.preventDefault();
+            return false;
+        });
+
         /* --- */
         EL_MANAGER.set(this, new ElementManager(this, elementComposer));
     }
@@ -99,6 +156,19 @@ export default class WorldMapView extends BaseClass {
             mapEl.style.backgroundImage = "";
             mapEl.style.width = "600px";
             mapEl.style.height = "600px";
+            /* value */
+            mapEl.style.setProperty("--offset-x", 0);
+            mapEl.style.setProperty("--offset-y", 0);
+            mapEl.style.setProperty("--zoom", 100);
+            OFFSET_X.set(this, 0);
+            OFFSET_Y.set(this, 0);
+            ZOOM.set(this, 100);
+            /* event */
+            const ev = new Event("transform");
+            ev.zoom = 100;
+            ev.x = 0;
+            ev.y = 0;
+            this.dispatchEvent(ev);
         }
         /* list */
         this.refreshList();
@@ -112,6 +182,20 @@ export default class WorldMapView extends BaseClass {
             mapEl.style.backgroundImage = `url("/images/maps/${mapData.background}")`;
             mapEl.style.width = `${mapData.width}px`;
             mapEl.style.height = `${mapData.height}px`;
+            /* value */
+            const zoom = Math.min(Math.max(ZOOM_MIN, Math.floor(mapData.zoom ?? 100)), ZOOM_MAX);
+            mapEl.style.setProperty("--offset-x", 0);
+            mapEl.style.setProperty("--offset-y", 0);
+            mapEl.style.setProperty("--zoom", zoom);
+            OFFSET_X.set(this, 0);
+            OFFSET_Y.set(this, 0);
+            ZOOM.set(this, zoom);
+            /* event */
+            const ev = new Event("transform");
+            ev.zoom = zoom;
+            ev.x = 0;
+            ev.y = 0;
+            this.dispatchEvent(ev);
         }
         /* list */
         this.refreshList();
@@ -123,6 +207,15 @@ export default class WorldMapView extends BaseClass {
 
     set ref(val) {
         this.setAttribute("ref", val);
+    }
+
+    get fixed() {
+        const value = this.getAttribute("fixed");
+        return !!value && value != "false";
+    }
+
+    set fixed(val) {
+        this.setAttribute("fixed", !!val);
     }
 
     static get observedAttributes() {
@@ -140,11 +233,83 @@ export default class WorldMapView extends BaseClass {
         }
     }
 
+    setTranslation(x, y) {
+        x = Math.floor(x);
+        y = Math.floor(y);
+        const zoom = ZOOM.get(this);
+        const [offsetX, offsetY] = this./*#*/__containBoundaries(x, y, zoom);
+        const oldX = OFFSET_X.get(this);
+        const oldY = OFFSET_Y.get(this);
+        if (oldX != offsetX || oldY != offsetY) {
+            OFFSET_X.set(this, offsetX);
+            OFFSET_Y.set(this, offsetY);
+            /* style */
+            const mapEl = this.shadowRoot.getElementById("map");
+            mapEl.style.setProperty("--offset-x", offsetX);
+            mapEl.style.setProperty("--offset-y", offsetY);
+            /* event */
+            const ev = new Event("transform");
+            ev.zoom = zoom;
+            ev.x = offsetX;
+            ev.y = offsetY;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    setZoom(zoom) {
+        zoom = Math.min(Math.max(ZOOM_MIN, Math.floor(zoom)), ZOOM_MAX);
+        const old = ZOOM.get(this);
+        if (old != zoom) {
+            ZOOM.set(this, zoom);
+            const x = OFFSET_X.get(this);
+            const y = OFFSET_Y.get(this);
+            const [offsetX, offsetY] = this./*#*/__containBoundaries(x, y, zoom);
+            OFFSET_X.set(this, offsetX);
+            OFFSET_Y.set(this, offsetY);
+            /* style */
+            const mapEl = this.shadowRoot.getElementById("map");
+            mapEl.style.setProperty("--zoom", zoom);
+            mapEl.style.setProperty("--offset-x", offsetX);
+            mapEl.style.setProperty("--offset-y", offsetY);
+            /* event */
+            const ev = new Event("transform");
+            ev.zoom = zoom;
+            ev.x = offsetX;
+            ev.y = offsetY;
+            this.dispatchEvent(ev);
+        }
+    }
+
+    /*#*/__containBoundaries(vrtX, vrtY, zoom) {
+        const scale = zoom / 100;
+        const mapEl = this.shadowRoot.getElementById("map");
+        const parW = this.clientWidth;
+        const parH = this.clientHeight;
+        const vrtW = mapEl.clientWidth * scale;
+        const vrtH = mapEl.clientHeight * scale;
+
+        if (parW > vrtW) {
+            const dst = parW / 2 - vrtW / 2;
+            vrtX = Math.min(Math.max(-dst, vrtX), dst);
+        } else {
+            const dst = -(parW / 2 - vrtW / 2);
+            vrtX = Math.min(Math.max(-dst, vrtX), dst);
+        }
+        if (parH > vrtH) {
+            const dst = parH / 2 - vrtH / 2;
+            vrtY = Math.min(Math.max(-dst, vrtY), dst);
+        } else {
+            const dst = -(parH / 2 - vrtH / 2);
+            vrtY = Math.min(Math.max(-dst, vrtY), dst);
+        }
+
+        return [vrtX, vrtY];
+    }
+
     refreshList() {
         const elManager = EL_MANAGER.get(this);
         const elManagerData = [];
         const state = this.getState();
-        let hasElements = false;
         if (state != null) {
             const list = state.getList();
             if (list != null && list.length > 0) {
@@ -159,13 +324,9 @@ export default class WorldMapView extends BaseClass {
                         areaWidth: state.props.map.width,
                         areaHeight: state.props.map.height
                     });
-                    if (loc.isVisible()) {
-                        hasElements = true;
-                    }
                 }
             }
         }
-        // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
     }
 
@@ -188,97 +349,4 @@ function calculateTooltipPosition(posX, posY, mapW, mapH) {
         tooltip += "left";
     }
     return tooltip || "top";
-}
-
-// XXX there must be a better way
-
-let movePosX = 0;
-let movePosY = 0;
-
-function mapMoveBegin(event) {
-    if (event.button === 0) {
-        const target = event.target;
-        if (typeof event.movementX == "undefined") {
-            movePosX = event.x;
-            movePosY = event.y;
-        }
-        if (target.id === "map") {
-            target.classList.add("grabbed");
-            target.addEventListener("mousemove", moveMap);
-            target.addEventListener("mouseup", mapMoveEnd);
-            target.addEventListener("mouseleave", mapMoveEnd);
-        }
-    }
-}
-
-function mapMoveEnd(event) {
-    if (event.button === 0) {
-        const target = event.target;
-        target.classList.remove("grabbed");
-        target.removeEventListener("mousemove", moveMap);
-        target.removeEventListener("mouseup", mapMoveEnd);
-        target.removeEventListener("mouseleave", mapMoveEnd);
-    }
-}
-
-function moveMap(event) {
-    if (event.button === 0) {
-        const target = event.target;
-        if (target.id === "map") {
-            const vrtX = parseInt(target.style.getPropertyValue("--map-offset-x") || 0);
-            const vrtY = parseInt(target.style.getPropertyValue("--map-offset-y") || 0);
-            let forceX = 0;
-            let forceY = 0;
-            if (typeof event.movementX == "undefined") {
-                forceX = event.x - movePosX;
-                forceY = event.y - movePosY;
-                movePosX = event.x;
-                movePosY = event.y;
-            } else {
-                forceX = event.movementX;
-                forceY = event.movementY;
-            }
-            target.style.setProperty("--map-offset-x", vrtX + forceX);
-            target.style.setProperty("--map-offset-y", vrtY + forceY);
-            mapContainBoundaries(target, target.parentNode);
-        }
-    }
-}
-
-function mapContainBoundaries(target, parent) {
-    const mapvp = parent.querySelector("#map-viewport");
-
-    const parW = parent.clientWidth;
-    const parH = parent.clientHeight;
-
-    const zoom = parseInt(target.style.getPropertyValue("--map-zoom") || 100) / 100;
-
-    let vrtX = parseInt(target.style.getPropertyValue("--map-offset-x") || 0);
-    let vrtY = parseInt(target.style.getPropertyValue("--map-offset-y") || 0);
-    const vrtW = target.clientWidth * zoom;
-    const vrtH = target.clientHeight * zoom;
-
-    if (parW > vrtW) {
-        const dst = parW / 2 - vrtW / 2;
-        vrtX = Math.min(Math.max(-dst, vrtX), dst);
-    } else {
-        const dst = -(parW / 2 - vrtW / 2);
-        vrtX = Math.min(Math.max(-dst, vrtX), dst);
-    }
-    if (parH > vrtH) {
-        const dst = parH / 2 - vrtH / 2;
-        vrtY = Math.min(Math.max(-dst, vrtY), dst);
-    } else {
-        const dst = -(parH / 2 - vrtH / 2);
-        vrtY = Math.min(Math.max(-dst, vrtY), dst);
-    }
-
-    target.style.setProperty("--map-offset-x", vrtX);
-    target.style.setProperty("--map-offset-y", vrtY);
-
-    const sW = 246 / vrtW * parW;
-    const sH = 138 / vrtH * parH;
-    mapvp.style.width = sW + "px";
-    mapvp.style.height = sH + "px";
-    mapvp.style.transform = `translate(${-vrtX * 246 / vrtW}px, ${-vrtY * 138 / vrtH}px)`;
 }

@@ -120,7 +120,7 @@ export default class ExitBindingContextMenu extends BaseClass {
                             const entranceName = Language.generateLabel(`entrance[${entrance.ref}]`);
                             opt.append(entranceName);
                             const category = CTG_TPL.generate(0);
-                            const categoryName = Language.generateLabel(entrance.props.type);
+                            const categoryName = Language.generateLabel(`entrance_type[${entrance.props.type}]`);
                             category.append(categoryName);
                             opt.append(category);
                             exitSelectEl.append(opt);

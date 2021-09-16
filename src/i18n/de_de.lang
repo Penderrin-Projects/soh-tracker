@@ -1539,17 +1539,17 @@ search=Suche
 search_reset=Zurücksetzen
 
 # exits
-dungeon_inner=Tempel Innen
-dungeon_outer=Tempel Draußen
-grotto_inner=Grotte Innen
-grotto_outer=Grotte Draußen
-interior_inner=Innenbereich Innen
-interior_outer=Innenbereich Draußen
-overworld=Oberwelt Durchgang
-special=Besonderer Durchgang
-flight=Eulenflug
-spawn=Kind/Erwachsener-Spawn
-warp=Musik-Teleport
+entrance_type[dungeon_inner]=Tempel Innen
+entrance_type[dungeon_outer]=Tempel Draußen
+entrance_type[grotto_inner]=Grotte Innen
+entrance_type[grotto_outer]=Grotte Draußen
+entrance_type[interior_inner]=Innenbereich Innen
+entrance_type[interior_outer]=Innenbereich Draußen
+entrance_type[overworld]=Oberwelt Durchgang
+entrance_type[special]=Besonderer Durchgang
+entrance_type[flight]=Eulenflug
+entrance_type[spawn]=Kind/Erwachsener-Spawn
+entrance_type[warp]=Musik-Teleport
 
 ## dungeons
 region.deku_tree_entrance -> region.deku_tree_gateway=Dekubaum Eingang
