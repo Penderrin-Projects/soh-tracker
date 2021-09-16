@@ -17,24 +17,33 @@ export default createMixin((superclass) => class StateDataEventManager extends s
     switchState(newTarget) {
         const subs = SUBS.get(this);
         const oldTarget = TARGET.get(this);
-        if (oldTarget != null) {
-            subs.forEach(function(fns, name) {
-                fns.forEach(function(fn) {
-                    oldTarget.removeEventListener(name, fn);
-                });
-            });
-        }
         if (newTarget instanceof DataState) {
-            TARGET.set(this, newTarget);
-            if (this.isConnected) {
-                subs.forEach(function(fns, name) {
-                    fns.forEach(function(fn) {
-                        newTarget.addEventListener(name, fn);
+            if (oldTarget != newTarget) {
+                if (oldTarget != null) {
+                    subs.forEach(function(fns, name) {
+                        fns.forEach(function(fn) {
+                            oldTarget.removeEventListener(name, fn);
+                        });
                     });
-                });
-                this.applyStateValues(newTarget);
+                }
+                TARGET.set(this, newTarget);
+                if (this.isConnected) {
+                    subs.forEach(function(fns, name) {
+                        fns.forEach(function(fn) {
+                            newTarget.addEventListener(name, fn);
+                        });
+                    });
+                    this.applyStateValues(newTarget);
+                }
             }
         } else {
+            if (oldTarget != null) {
+                subs.forEach(function(fns, name) {
+                    fns.forEach(function(fn) {
+                        oldTarget.removeEventListener(name, fn);
+                    });
+                });
+            }
             TARGET.set(this, null);
             if (this.isConnected) {
                 this.applyDefaultValues();
