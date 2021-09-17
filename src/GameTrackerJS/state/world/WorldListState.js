@@ -13,8 +13,8 @@ class WorldListState extends EventTarget {
         AREA.set(this, CONFIG.defaultArea);
     }
 
-    get default() {
-        return CONFIG.defaultArea;
+    get config() {
+        return CONFIG;
     }
 
     get area() {
@@ -56,10 +56,6 @@ class WorldListState extends EventTarget {
             ev.data = CONFIG.defaultArea;
             this.dispatchEvent(ev);
         }
-    }
-
-    forceReload() {
-        this.dispatchEvent(new Event("reload"));
     }
 
 }

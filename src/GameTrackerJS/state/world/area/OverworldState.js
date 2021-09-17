@@ -70,6 +70,10 @@ export default class OverworldState extends DataState {
         const overworldHandler = OVERWORLD_HANDLER.get(this);
         return overworldHandler?.access ?? this.defaultAccess;
     }
+
+    get hasMap() {
+        return this.props.map.active;
+    }
     
     /* list */
     generateList() {

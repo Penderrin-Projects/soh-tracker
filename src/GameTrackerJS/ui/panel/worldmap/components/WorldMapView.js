@@ -18,11 +18,6 @@ import "./entries/Location.js";
 import "./entries/Area.js";
 import "./entries/Exit.js";
 
-const ZOOM_MIN = 10;
-const ZOOM_MAX = 200;
-const ZOOM_DEF = 60;
-const ZOOM_SPD = 2;
-
 const TPL = new Template(`
 <slot id="map">
 </slot>
@@ -77,6 +72,9 @@ function elementComposer(key, props) {
     }
 }
 
+const ZOOM_MIN = 10;
+const ZOOM_MAX = 200;
+const ZOOM_SPD = 2;
 const OFFSET_X = new WeakMap();
 const OFFSET_Y = new WeakMap();
 const ZOOM = new WeakMap();
@@ -222,7 +220,7 @@ export default class WorldMapView extends BaseClass {
                     if (state?.hasMap) {
                         this.switchState(state);
                     } else {
-                        const defaultState = AreaStateManager.get(WorldListState.default);
+                        const defaultState = AreaStateManager.get(WorldListState.config.default);
                         this.switchState(defaultState);
                     }
                 } break;
