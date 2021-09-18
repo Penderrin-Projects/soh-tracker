@@ -228,7 +228,7 @@ export default class WorldMapOverview extends BaseClass {
                     if (state?.hasMap) {
                         this.switchState(state);
                     } else {
-                        const defaultState = AreaStateManager.get(WorldListState.config.default);
+                        const defaultState = AreaStateManager.get(WorldListState.config.defaultArea);
                         this.switchState(defaultState);
                     }
                 } break;
