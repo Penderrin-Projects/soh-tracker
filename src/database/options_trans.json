@@ -451,10 +451,7 @@
         "slingshot3": "item.slingshot",
         "ocarina": "item.ocarina",
         "ocarina2": "item.ocarina",
-        "bombchus": {
-            "name": "item.bombchu",
-            "values": 1
-        },
+        "bombchus": "item.bombchu",
         "hookshot": "item.hookshot",
         "hookshot2": "item.hookshot",
         "ice_arrow": "item.arrow_ice",
