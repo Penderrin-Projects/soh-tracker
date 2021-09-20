@@ -27,19 +27,22 @@ const TPL = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
+:host {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
 #map {
     position: relative;
     box-sizing: border-box;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     background-color: #000000;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     background-origin: content-box;
     overflow: hidden;
-    
-    border: solid 2px red;
 }
 #shadow {
     position: relative;
@@ -99,24 +102,38 @@ export default class WorldMapOverview extends BaseClass {
 
         /* MAP EVENTS */
         const mapEl = this.shadowRoot.getElementById("map");
-        const mapEventManager = new EventTargetManager(mapEl);
-        mapEventManager.set(["mousedown", "mousemove"], (event) => {
-            if (!this.fixed && event.buttons === 1) {
+        const mapEventManager = new EventTargetManager(mapEl, false);
+        mapEl.addEventListener("mousedown", (event) => {
+            if (!this.fixed && event.button === 0) {
                 const evX = event.layerX;
                 const evY = event.layerY;
-                const zoom = ZOOM.get(this);
-                const width = WIDTH.get(this);
-                const height = HEIGHT.get(this);
-                const vrtW = width * zoom / 100;
-                const vrtH = height * zoom / 100;
-                /* event */
-                const ev = new Event("move");
-                ev.x = -(evX - 100) * (vrtW / 200);
-                ev.y = -(evY - 100) * (vrtH / 200);
-                this.dispatchEvent(ev);
+                this./*#*/__moveFocus(evX, evY);
+                mapEventManager.setActive(true);
             }
             event.preventDefault();
             return false;
+        });
+        mapEventManager.set("mousemove", (event) => {
+            if (event.button === 0) {
+                const evX = event.layerX;
+                const evY = event.layerY;
+                this./*#*/__moveFocus(evX, evY);
+            }
+            event.preventDefault();
+            return false;
+        });
+        mapEventManager.set(["mouseup", "mouseleave"], (event) => {
+            if (event.button === 0) {
+                mapEventManager.setActive(false);
+            }
+        });
+        window.addEventListener("resize", () => {
+            const width = WIDTH.get(this);
+            const height = HEIGHT.get(this);
+            const zoom = ZOOM.get(this);
+            const x = OFFSET_X.get(this);
+            const y = OFFSET_Y.get(this);
+            this./*#*/__calcutlateMask(width, height, x, y, zoom);
         });
     }
 
@@ -129,6 +146,20 @@ export default class WorldMapOverview extends BaseClass {
         this./*#*/__calcutlateMask(width, height, x, y, zoom);
     }
 
+    /*#*/__moveFocus(x, y) {
+            const oWidth = this.clientWidth;
+            const oHeight = this.clientHeight;
+            const zoom = ZOOM.get(this);
+            const width = WIDTH.get(this);
+            const height = HEIGHT.get(this);
+            const scale = Math.max(width, height) * zoom / 100;
+            /* event */
+            const ev = new Event("move");
+            ev.x = -(x - oWidth / 2) * (scale / oWidth);
+            ev.y = -(y - oHeight / 2) * (scale / oHeight);
+            this.dispatchEvent(ev);
+    }
+
     /*#*/__calcutlateMask(width, height, x, y, zoom) {
         const focusEl = this.shadowRoot.getElementById("focus");
         if (focusEl != null) {
@@ -138,15 +169,19 @@ export default class WorldMapOverview extends BaseClass {
                 focusEl.style.setProperty("--right", 0);
                 focusEl.style.setProperty("--bottom", 0);
             } else {
-                const scale = 200 / Math.max(width, height);
+                const oWidth = this.clientWidth;
+                const oHeight = this.clientHeight;
+
+                const scaleX = oWidth / Math.max(width, height);
+                const scaleY = oHeight / Math.max(width, height);
                 const container = this.getRootNode().host;
                 const cntW = container.clientWidth;
                 const cntH = container.clientHeight;
                 const mapW = width * zoom / 100;
                 const mapH = height * zoom / 100;
 
-                const minmapW = width * scale;
-                const minmapH = height * scale;
+                const minmapW = width * scaleX;
+                const minmapH = height * scaleY;
                 const rectW = minmapW / mapW * cntW;
                 const rectH = minmapH / mapH * cntH;
                 const halfW = rectW / 2;
@@ -155,10 +190,10 @@ export default class WorldMapOverview extends BaseClass {
                 const posX = -x * minmapW / mapW;
                 const posY = -y * minmapH / mapH;
                 
-                const left = 100 + posX - halfW;
-                const top = 100 + posY - halfH;
-                const right = 100 - posX - halfW;
-                const bottom = 100 - posY - halfH;
+                const left = oWidth / 2 + posX - halfW;
+                const top = oHeight / 2 + posY - halfH;
+                const right = oWidth / 2 - posX - halfW;
+                const bottom = oHeight / 2 - posY - halfH;
 
                 focusEl.style.setProperty("--left", left);
                 focusEl.style.setProperty("--top", top);
@@ -172,6 +207,9 @@ export default class WorldMapOverview extends BaseClass {
         /* VALUES */
         WIDTH.set(this, 0);
         HEIGHT.set(this, 0);
+        ZOOM.set(this, 100);
+        OFFSET_X.set(this, 0);
+        OFFSET_Y.set(this, 0);
         /* map */
         const mapEl = this.shadowRoot.getElementById("map");
         if (mapEl != null) {
@@ -181,13 +219,20 @@ export default class WorldMapOverview extends BaseClass {
         if (focusEl != null) {
             focusEl.style.backgroundImage = "";
         }
+        this./*#*/__calcutlateMask(0, 0, 0, 0, 100);
     }
 
     applyStateValues(state) {
         const mapData = state.props.map;
         /* VALUES */
-        WIDTH.set(this, mapData.width ?? 0);
-        HEIGHT.set(this, mapData.height ?? 0);
+        const width = mapData.width ?? 0;
+        const height = mapData.height ?? 0;
+        const zoom = mapData.zoom ?? 100;
+        WIDTH.set(this, width);
+        HEIGHT.set(this, height);
+        ZOOM.set(this, zoom);
+        OFFSET_X.set(this, 0);
+        OFFSET_Y.set(this, 0);
         /* map */
         const mapEl = this.shadowRoot.getElementById("map");
         if (mapEl != null) {
@@ -197,6 +242,7 @@ export default class WorldMapOverview extends BaseClass {
         if (focusEl != null) {
             focusEl.style.backgroundImage = `url("/images/maps/${mapData.background}")`;
         }
+        this./*#*/__calcutlateMask(width, height, 0, 0, zoom);
     }
 
     get ref() {

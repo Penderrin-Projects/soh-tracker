@@ -17,7 +17,9 @@ import "./components/WorldMapOverview.js";
 
 const TPL = new Template(`
 <gt-worldmap-view id="view"></gt-worldmap-view>
-<gt-worldmap-overview id="overview"></gt-worldmap-overview>
+<div class="overview-wrapper">
+    <gt-worldmap-overview id="overview"></gt-worldmap-overview>
+</div>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -30,10 +32,19 @@ const STYLE = new GlobalStyle(`
     height: 200px;
     user-select: none;
 }
-#overview {
+.overview-wrapper {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 10px;
+    left: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--page-border-color, #ffffff);
+    transform-origin: bottom left;
+    transform: scale(0.2);
+    transition: transform .2s;
+}
+.overview-wrapper:hover {
+    transform: scale(1);
 }
 `);
 
@@ -88,15 +99,15 @@ export default class WorldMap extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    /* view */
-                    const viewEl = this.shadowRoot.getElementById("view");
-                    if (viewEl != null) {
-                        viewEl.ref = this.ref;
-                    }
                     /* overview */
                     const overviewEl = this.shadowRoot.getElementById("overview");
                     if (overviewEl != null) {
                         overviewEl.ref = this.ref;
+                    }
+                    /* view */
+                    const viewEl = this.shadowRoot.getElementById("view");
+                    if (viewEl != null) {
+                        viewEl.ref = this.ref;
                     }
                 } break;
             }

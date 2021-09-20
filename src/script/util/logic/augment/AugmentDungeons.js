@@ -13,8 +13,7 @@ const ACCEPTED_KEY_GROUPS = [
 ];
 
 const ACCEPTED_BOSSKEY_GROUPS = [
-    "dungeon",
-    "ganon"
+    "dungeon"
 ];
 
 const KEY_VNL_AUGMENTS = {
@@ -58,6 +57,16 @@ function augmentBossKeys(cache, keys, group) {
     return keys;
 }
 
+function augmentGanonBossKey(cache, keys) {
+    if (!cache.get("option.track_bosskeys")) {
+        return 9999;
+    }
+    if (cache.get("option.ganon_boss_door_open")) {
+        return 9999;
+    }
+    return keys;
+}
+
 function augment(cache, data) {
     const dungeonData = DungeonstateResource.get();
     const res = {};
@@ -76,9 +85,16 @@ function augment(cache, data) {
         }
         // augment bosskeys
         if (dData.bosskey) {
-            if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
-                const augKeys = augmentBossKeys(cache, cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
-                res[dData.bosskey] = augKeys;
+            if (ref == "castle_ganon") {
+                if (data["option.ganon_boss_door_open"] != null || data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                    const augKeys = augmentGanonBossKey(cache, cache.get(dData.bosskey) ?? 0);
+                    res[dData.bosskey] = augKeys;
+                }
+            } else {
+                if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                    const augKeys = augmentBossKeys(cache, cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
+                    res[dData.bosskey] = augKeys;
+                }
             }
         }
     }
