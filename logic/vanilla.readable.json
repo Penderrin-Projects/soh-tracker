@@ -1965,7 +1965,8 @@
                 "type": "true"
             },
             "region.woods_river_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.river_woods_gateway[adult]": {
@@ -1973,7 +1974,8 @@
                 "type": "true"
             },
             "region.woods_river_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.meadow_woods_gateway[child]": {
@@ -2106,7 +2108,8 @@
         },
         "region.domain_lake_gateway[child]": {
             "region.lake_domain_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.zoras_domain[child]": {
                 "type": "true"
@@ -2114,7 +2117,8 @@
         },
         "region.domain_lake_gateway[adult]": {
             "region.lake_domain_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.zoras_domain[adult]": {
                 "type": "true"
@@ -2406,7 +2410,8 @@
         },
         "region.woods_river_gateway[child]": {
             "region.river_woods_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.lost_woods[child]": {
                 "type": "true"
@@ -2414,7 +2419,8 @@
         },
         "region.woods_river_gateway[adult]": {
             "region.river_woods_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             },
             "region.lost_woods[adult]": {
                 "type": "true"
@@ -2553,7 +2559,8 @@
                 "type": "true"
             },
             "region.domain_lake_gateway[child]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.lake_domain_gateway[adult]": {
@@ -2561,7 +2568,8 @@
                 "type": "true"
             },
             "region.domain_lake_gateway[adult]": {
-                "type": "true"
+                "type": "value",
+                "el": "item.scale"
             }
         },
         "region.fortress_valley_gateway[child]": {
@@ -15527,103 +15535,112 @@
                 "type": "true"
             },
             "region.ganons_castle_tower[child]": {
-                "type": "and",
+                "type": "gte",
                 "el": [
                     {
-                        "type": "or",
+                        "type": "add",
                         "el": [
                             {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.forest_trial"
-                                }
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.forest_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.forest_trial_clear"
+                                    }
+                                ]
                             },
                             {
-                                "type": "value",
-                                "el": "event.forest_trial_clear"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.fire_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.fire_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.water_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.water_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.shadow_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.shadow_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.spirit_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.spirit_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.light_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.light_trial_clear"
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.fire_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.fire_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.water_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.water_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.shadow_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.shadow_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.spirit_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.spirit_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.light_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.light_trial_clear"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "option.number_trials"
                     }
                 ]
             },
@@ -15678,103 +15695,112 @@
                 "el": "function.can_use(mixin.golden_gauntlets)[adult]"
             },
             "region.ganons_castle_tower[adult]": {
-                "type": "and",
+                "type": "gte",
                 "el": [
                     {
-                        "type": "or",
+                        "type": "add",
                         "el": [
                             {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.forest_trial"
-                                }
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.forest_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.forest_trial_clear"
+                                    }
+                                ]
                             },
                             {
-                                "type": "value",
-                                "el": "event.forest_trial_clear"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.fire_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.fire_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.water_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.water_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.shadow_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.shadow_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.spirit_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.spirit_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.light_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.light_trial_clear"
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.fire_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.fire_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.water_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.water_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.shadow_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.shadow_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.spirit_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.spirit_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.light_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.light_trial_clear"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "option.number_trials"
                     }
                 ]
             },
@@ -17011,103 +17037,112 @@
                 "type": "true"
             },
             "region.ganons_castle_tower[child]": {
-                "type": "and",
+                "type": "gte",
                 "el": [
                     {
-                        "type": "or",
+                        "type": "add",
                         "el": [
                             {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.forest_trial"
-                                }
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.forest_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.forest_trial_clear"
+                                    }
+                                ]
                             },
                             {
-                                "type": "value",
-                                "el": "event.forest_trial_clear"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.fire_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.fire_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.water_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.water_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.shadow_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.shadow_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.spirit_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.spirit_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.light_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.light_trial_clear"
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.fire_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.fire_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.water_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.water_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.shadow_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.shadow_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.spirit_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.spirit_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.light_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.light_trial_clear"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "option.number_trials"
                     }
                 ]
             },
@@ -17162,103 +17197,112 @@
                 "el": "function.can_use(mixin.golden_gauntlets)[adult]"
             },
             "region.ganons_castle_tower[adult]": {
-                "type": "and",
+                "type": "gte",
                 "el": [
                     {
-                        "type": "or",
+                        "type": "add",
                         "el": [
                             {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.forest_trial"
-                                }
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.forest_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.forest_trial_clear"
+                                    }
+                                ]
                             },
                             {
-                                "type": "value",
-                                "el": "event.forest_trial_clear"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.fire_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.fire_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.water_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.water_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.shadow_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.shadow_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.spirit_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.spirit_trial_clear"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "not",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "option.light_trial"
+                                        }
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "event.light_trial_clear"
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.fire_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.fire_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.water_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.water_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.shadow_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.shadow_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.spirit_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.spirit_trial_clear"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option.light_trial"
-                                }
-                            },
-                            {
-                                "type": "value",
-                                "el": "event.light_trial_clear"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "option.number_trials"
                     }
                 ]
             },
@@ -34664,8 +34708,17 @@
                         "type": "and",
                         "el": [
                             {
-                                "type": "value",
-                                "el": "item.key_boss_ganon"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "item.key_boss_ganon"
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "option.ganon_boss_door_open"
+                                    }
+                                ]
                             },
                             {
                                 "type": "mixin",
