@@ -369,6 +369,25 @@
         "type": "check",
         "default": false
     },
+    "option.trials_random": {
+        "category": "lacsAndGanon",
+        "type": "check",
+        "default": false
+    },
+    "option.number_trials": {
+        "category": "lacsAndGanon",
+        "type": "number",
+        "default": 6,
+        "visible": {
+            "type": "not",
+            "el": {
+                "type": "value",
+                "el": "option.trials_random"
+            }
+        },
+        "min": 0,
+        "max": 6
+    },
     "trials": {
         "category": "lacsAndGanon",
         "type": "list",

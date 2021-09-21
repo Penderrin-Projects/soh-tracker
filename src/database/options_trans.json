@@ -203,7 +203,7 @@
                 "remove": false
             }
         },
-        "shuffle_ganon_bosskey": {
+        "shuffle_ganon_bosskey": [{
             "name": "option.light_arrow_cutscene",
             "values": {
                 "remove": "light_arrow_cutscene_vanilla",
@@ -217,6 +217,14 @@
                 "lacs_tokens": "light_arrow_cutscene_skulltulas"
             }
         },
+        {
+            
+            "name": "option.ganon_boss_door_open",
+            "values": {
+                "remove": true,
+                "default": false
+            }
+        }],
         "lacs_tokens": "option.lacs_skulltulas",
         "lacs_stones": "option.stone_count_lacs",
         "lacs_medallions": "option.medallion_count_lacs",
@@ -244,6 +252,8 @@
                 "random": "child"
             }
         },
+        "trials": "option.number_trials",
+        "trials_random": "option.trials_random",
         "allowed_tricks": [
             "logic_shadow_freestanding_key",
             "logic_zora_with_hovers",
