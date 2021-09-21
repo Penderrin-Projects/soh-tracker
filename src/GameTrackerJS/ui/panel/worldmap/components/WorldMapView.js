@@ -1,10 +1,10 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import { mix } from "/emcJS/util/Mixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
-import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../../state/world/WorldListState.js";
@@ -80,7 +80,7 @@ const OFFSET_Y = new WeakMap();
 const ZOOM = new WeakMap();
 
 const BaseClass = mix(
-    Panel
+    CustomElement
 ).with(
     StateDataEventManagerMixin
 );
@@ -217,12 +217,7 @@ export default class WorldMapView extends BaseClass {
             switch (name) {
                 case "ref": {
                     const state = AreaStateManager.get(this.ref);
-                    if (state?.hasMap) {
-                        this.switchState(state);
-                    } else {
-                        const defaultState = AreaStateManager.get(WorldListState.config.defaultArea);
-                        this.switchState(defaultState);
-                    }
+                    this.switchState(state);
                 } break;
             }
         }

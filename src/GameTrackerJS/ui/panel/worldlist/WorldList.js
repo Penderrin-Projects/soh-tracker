@@ -54,7 +54,6 @@ const STYLE = new GlobalStyle(`
     font-size: 1.5em;
     line-height: 1em;
     border-bottom: solid 1px var(--page-text-color, #000000);
-    -moz-user-select: none;
     user-select: none;
 }
 #text {
@@ -65,16 +64,16 @@ const STYLE = new GlobalStyle(`
     overflow: hidden;
     text-overflow: ellipsis;
 }
-#text[data-state="opened"] {
+:host([access="opened"]) #text {
     color: var(--location-status-opened-color, var(--page-text-color, #000000));
 }
-#text[data-state="available"] {
+:host([access="available"]) #text {
     color: var(--location-status-available-color, var(--page-text-color, #000000));
 }
-#text[data-state="unavailable"] {
+:host([access="unavailable"]) #text {
     color: var(--location-status-unavailable-color, var(--page-text-color, #000000));
 }
-#text[data-state="possible"] {
+:host([access="possible"]) #text {
     color: var(--location-status-possible-color, var(--page-text-color, #000000));
 }
 #title > .button {
@@ -158,6 +157,16 @@ export default class WorldList extends BaseClass {
     applyDefaultValues() {
         /* access */
         this.applyAccess("unavailable", {});
+        /* text */
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.i18nValue = "";
+        }
+        /* hint button */
+        const hintEl = this.shadowRoot.getElementById("hint");
+        if (hintEl != null) {
+            hintEl.ref = "";
+        }
         /* list */
         this.refreshList();
     }
@@ -167,6 +176,16 @@ export default class WorldList extends BaseClass {
         const access = this.getStateAccess(state);
         const accessValue = AccessStateEnum.getName(access.value);
         this.applyAccess(accessValue.toLowerCase(), access);
+        /* text */
+        const textEl = this.shadowRoot.getElementById("text");
+        if (textEl != null) {
+            textEl.i18nValue = `area[${state.ref}]`;
+        }
+        /* hint button */
+        const hintEl = this.shadowRoot.getElementById("hint");
+        if (hintEl != null) {
+            hintEl.ref = state.ref;
+        }
         /* list */
         this.refreshList();
     }
@@ -176,10 +195,7 @@ export default class WorldList extends BaseClass {
     }
     
     applyAccess(value = "unavailable", data = {}) {
-        const textEl = this.shadowRoot.getElementById("text");
-        if (textEl != null) {
-            textEl.dataset.state = value;
-        }
+        this.access = value;
     }
 
     get ref() {
@@ -188,6 +204,14 @@ export default class WorldList extends BaseClass {
 
     set ref(val) {
         this.setAttribute("ref", val);
+    }
+
+    get access() {
+        return this.getAttribute("access");
+    }
+
+    set access(val) {
+        this.setAttribute("access", val);
     }
 
     static get observedAttributes() {
@@ -200,16 +224,6 @@ export default class WorldList extends BaseClass {
                 case "ref": {
                     const state = AreaStateManager.get(this.ref);
                     this.switchState(state);
-                    /* text */
-                    const textEl = this.shadowRoot.getElementById("text");
-                    if (textEl != null) {
-                        textEl.i18nValue = `area[${this.ref}]`;
-                    }
-                    /* hint button */
-                    const hintEl = this.shadowRoot.getElementById("hint");
-                    if (hintEl != null) {
-                        hintEl.ref = this.ref;
-                    }
                     /* back button */
                     const backEl = this.shadowRoot.getElementById("back");
                     if (backEl != null) {

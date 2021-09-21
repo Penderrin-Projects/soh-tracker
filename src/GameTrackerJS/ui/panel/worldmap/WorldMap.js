@@ -6,12 +6,13 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
-import AccessStateEnum from "../../../enum/AccessStateEnum.js";
+import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
 import "./components/WorldMapView.js";
 import "./components/WorldMapOverview.js";
+import "./components/WorldMapTitle.js";
 
 //TODO save map settings per map
 
@@ -20,6 +21,12 @@ const TPL = new Template(`
 <div class="overview-wrapper">
     <gt-worldmap-overview id="overview"></gt-worldmap-overview>
 </div>
+<gt-worldmap-title id="title">
+    <gt-hintbutton class="button" id="hint">
+    </gt-hintbutton>
+    <gt-filtermenubutton class="button">
+    </gt-filtermenubutton>
+</gt-worldmap-title>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -45,6 +52,19 @@ const STYLE = new GlobalStyle(`
 }
 .overview-wrapper:hover {
     transform: scale(1);
+}
+#title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+#title > .button {
+    width: 38px;
+    height: 38px;
+    padding: 4px;
+    margin-left: 8px;
+    border: solid 2px var(--navigation-background-color, #ffffff);
+    border-radius: 10px;
 }
 `);
 
@@ -83,6 +103,52 @@ export default class WorldMap extends BaseClass {
         this.ref = WorldListState.area;
     }
 
+    applyDefaultValues() {
+        /* title */
+        const titleEl = this.shadowRoot.getElementById("title");
+        if (titleEl != null) {
+            titleEl.ref = "";
+        }
+        /* overview */
+        const overviewEl = this.shadowRoot.getElementById("overview");
+        if (overviewEl != null) {
+            overviewEl.ref = "";
+        }
+        /* view */
+        const viewEl = this.shadowRoot.getElementById("view");
+        if (viewEl != null) {
+            viewEl.ref = "";
+        }
+        /* hint button */
+        const hintEl = this.shadowRoot.getElementById("hint");
+        if (hintEl != null) {
+            hintEl.ref = "";
+        }
+    }
+
+    applyStateValues(state) {
+        /* title */
+        const titleEl = this.shadowRoot.getElementById("title");
+        if (titleEl != null) {
+            titleEl.ref = state.ref;
+        }
+        /* overview */
+        const overviewEl = this.shadowRoot.getElementById("overview");
+        if (overviewEl != null) {
+            overviewEl.ref = state.ref;
+        }
+        /* view */
+        const viewEl = this.shadowRoot.getElementById("view");
+        if (viewEl != null) {
+            viewEl.ref = state.ref;
+        }
+        /* hint button */
+        const hintEl = this.shadowRoot.getElementById("hint");
+        if (hintEl != null) {
+            hintEl.ref = state.ref;
+        }
+    }
+
     get ref() {
         return this.getAttribute("ref") || WorldListState.config.default;
     }
@@ -99,15 +165,12 @@ export default class WorldMap extends BaseClass {
         if (oldValue != newValue) {
             switch (name) {
                 case "ref": {
-                    /* overview */
-                    const overviewEl = this.shadowRoot.getElementById("overview");
-                    if (overviewEl != null) {
-                        overviewEl.ref = this.ref;
-                    }
-                    /* view */
-                    const viewEl = this.shadowRoot.getElementById("view");
-                    if (viewEl != null) {
-                        viewEl.ref = this.ref;
+                    const state = AreaStateManager.get(this.ref);
+                    if (state?.hasMap) {
+                        this.switchState(state);
+                    } else {
+                        const defaultState = AreaStateManager.get(WorldListState.config.defaultArea);
+                        this.switchState(defaultState);
                     }
                 } break;
             }
