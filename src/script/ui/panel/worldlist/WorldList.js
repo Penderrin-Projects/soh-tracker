@@ -47,16 +47,31 @@ export default class WorldList extends GTWorldList {
 
     applyDefaultValues() {
         super.applyDefaultValues();
-        /* buttons */
+        /* dungeontype */
+        const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
+        dungeontypeEl.ref = "";
+        /* vanilla */
         const vanillaEl = this.shadowRoot.getElementById("vanilla");
-        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        vanillaEl.ref = "";
         vanillaEl.classList.add("hidden");
+        /* masterquest */
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        masterquestEl.ref = "";
         masterquestEl.classList.add("hidden");
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
-        /* buttons */
+        /* dungeontype */
+        const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
+        dungeontypeEl.ref = state.ref;
+        /* vanilla */
+        const vanillaEl = this.shadowRoot.getElementById("vanilla");
+        vanillaEl.ref = state.ref;
+        /* masterquest */
+        const masterquestEl = this.shadowRoot.getElementById("masterquest");
+        masterquestEl.ref = state.ref;
+        /* type */
         this.applyType(state.type);
     }
 
@@ -69,25 +84,6 @@ export default class WorldList extends GTWorldList {
         } else {
             vanillaEl.classList.add("hidden");
             masterquestEl.classList.add("hidden");
-        }
-    }
-    
-    attributeChangedCallback(name, oldValue, newValue) {
-        super.attributeChangedCallback(name, oldValue, newValue);
-        if (oldValue != newValue) {
-            switch (name) {
-                case "ref": {
-                    /* dungeontype */
-                    const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
-                    dungeontypeEl.ref = newValue;
-                    /* vanilla */
-                    const vanillaEl = this.shadowRoot.getElementById("vanilla");
-                    vanillaEl.ref = newValue;
-                    /* masterquest */
-                    const masterquestEl = this.shadowRoot.getElementById("masterquest");
-                    masterquestEl.ref = newValue;
-                } break;
-            }
         }
     }
     

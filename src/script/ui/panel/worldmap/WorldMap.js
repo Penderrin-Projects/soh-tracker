@@ -1,4 +1,5 @@
 // frameworks
+import Template from "/emcJS/util/html/Template.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
@@ -18,7 +19,42 @@ import "../../../state/world/WorldStates.js";
 // import "./listitems/ListCollection.js";
 // import "../dungeonstate/DungeonType.js";
 
+const TPL = new Template(`
+<ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
+`);
+
+function applyElements(target) {
+    const hintEl = target.getElementById("hint");
+    const tpl = TPL.generate();
+    /* dungeontype */
+    const dungeontypeEl = tpl.getElementById("dungeontype");
+    hintEl.insertAdjacentElement("beforebegin", dungeontypeEl);
+}
+
 export default class WorldMap extends GTWorldMap {
+    
+    constructor() {
+        super();
+        applyElements(this.shadowRoot);
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues();
+        /* title */
+        const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
+        if (dungeontypeEl != null) {
+            dungeontypeEl.ref = "";
+        }
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        /* title */
+        const dungeontypeEl = this.shadowRoot.getElementById("dungeontype");
+        if (dungeontypeEl != null) {
+            dungeontypeEl.ref = state.ref;
+        }
+    }
     
 }
 
