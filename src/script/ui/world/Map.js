@@ -333,7 +333,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         this.shadowRoot.getElementById("back").addEventListener("click", () => {
             this.ref = "overworld"
