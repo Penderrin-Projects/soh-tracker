@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 import ItemStates from "../../state/item/StateManager.js";
@@ -71,11 +72,10 @@ function getAlign(value) {
     }
 }
 
-export default class Item extends StateDataEventManager(HTMLElement) {
+export default class Item extends StateDataEventManager(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -83,7 +83,6 @@ class HTMLTrackerItemGrid extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

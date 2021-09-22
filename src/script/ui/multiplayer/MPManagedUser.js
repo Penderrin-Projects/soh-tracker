@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 const TPL = new Template(`
@@ -52,11 +53,10 @@ const TPL = new Template(`
     </div>
 `);
 
-class HTMLMultiplayerManagedUser extends HTMLElement {
+class HTMLMultiplayerManagedUser extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         this.shadowRoot.getElementById('editor').addEventListener("click", function() {
             this.dispatchEvent(new Event("editor"));

@@ -107,7 +107,6 @@ export default class MapSubArea extends AbstractSubArea {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

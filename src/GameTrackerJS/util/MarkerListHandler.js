@@ -1,6 +1,6 @@
 // frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 import WorldStateManager from "../state/world/WorldStateManager.js";
 import AccessStateEnum from "../enum/AccessStateEnum.js";

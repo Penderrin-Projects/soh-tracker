@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
@@ -87,11 +88,10 @@ function getLoneFilterIndex(name, filter, data) {
     return current;
 }
 
-export default class Badge extends EventTargetMixin(HTMLElement) {
+export default class Badge extends EventTargetMixin(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

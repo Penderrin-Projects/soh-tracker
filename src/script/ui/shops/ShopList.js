@@ -1,6 +1,7 @@
 // frameworks
 //import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -20,11 +21,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class HTMLTrackerShopList extends HTMLElement {
+export default class HTMLTrackerShopList extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         //this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

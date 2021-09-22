@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -44,11 +45,10 @@ const TPL = new Template(`
     </div>
 `);
 
-class HTMLMultiplayerRoomClient extends HTMLElement {
+class HTMLMultiplayerRoomClient extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const leave_button = this.shadowRoot.getElementById("leave_button");

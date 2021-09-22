@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import "/emcJS/ui/input/Option.js";
 
@@ -82,11 +83,10 @@ function composer(key, params) {
     return el;
 }
 
-export default class ViewChoice extends HTMLElement {
+export default class ViewChoice extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

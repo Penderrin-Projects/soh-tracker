@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 
@@ -82,11 +83,10 @@ const TPL = new Template(`
     </div>
 `);
 
-class HTMLMultiplayerLobby extends HTMLElement {
+class HTMLMultiplayerLobby extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
 
         const host_name = this.shadowRoot.getElementById("host_name");
