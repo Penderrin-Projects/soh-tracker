@@ -61,42 +61,42 @@ function resolveIcon(icon, value = 0) {
     return icon;
 }
 
-function createOption(value, icon, data, max_value) {
-    const opt = document.createElement("emc-option");
-    opt.value = value;
-    opt.style.backgroundImage = `url("${icon}")`;
+function createOption(value, icon, data, maxValue) {
+    const optionEl = document.createElement("emc-option");
+    optionEl.value = value;
+    optionEl.style.backgroundImage = `url("${icon}")`;
     if (value == 0 && !data.alwaysActive) {
-        opt.style.filter = "contrast(0.8) grayscale(0.5)";
-        opt.style.opacity = "0.4";
+        optionEl.style.filter = "contrast(0.8) grayscale(0.5)";
+        optionEl.style.opacity = "0.4";
     }
     if (data.counting) {
         if (Array.isArray(data.counting)) {
-            opt.innerHTML = data.counting[value];
+            optionEl.innerHTML = data.counting[value];
         } else if (typeof data.counting == "string") {
-            opt.innerHTML = data.counting;
+            optionEl.innerHTML = data.counting;
         } else {
             if (value > 0 || data.alwaysCounting) {
                 if (data.showMax) {
-                    opt.innerHTML = `${value} / ${max_value}`;
+                    optionEl.innerHTML = `${value} / ${maxValue}`;
                 } else {
-                    opt.innerHTML = value;
+                    optionEl.innerHTML = value;
                 }
             }
         }
         if (data.mark !== false) {
             const mark = parseInt(data.mark);
-            if (value >= max_value || (!isNaN(mark) && value >= mark)) {
-                opt.classList.add("mark");
+            if (value >= maxValue || (!isNaN(mark) && value >= mark)) {
+                optionEl.classList.add("mark");
             }
         }
     } else if (data.label) {
         if (Array.isArray(data.label)) {
-            opt.innerHTML = data.label[value];
+            optionEl.innerHTML = data.label[value];
         } else if (typeof data.label == "string") {
-            opt.innerHTML = data.label;
+            optionEl.innerHTML = data.label;
         }
     }
-    return opt;
+    return optionEl;
 }
 
 function applyElements(target) {
@@ -137,12 +137,12 @@ export default class ProgressiveItem extends ItemElement {
         this./*#*/__fillItemChoices();
     }
 
-    applyValueChange(value) {
+    refreshValue() {
         const activeEl = this.querySelector(".active");
         if (activeEl != null) {
             activeEl.classList.remove("active");
         }
-        const newEl = this.querySelector(`[value="${value}"]`);
+        const newEl = this.querySelector(`[value="${this.value}"]`);
         if (newEl != null) {
             newEl.classList.add("active");
         }

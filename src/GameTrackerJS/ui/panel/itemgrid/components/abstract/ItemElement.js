@@ -54,18 +54,18 @@ export default class ItemElement extends BaseClass {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("value", event => {
+        this.registerStateHandler("value", (event) => {
             this.value = event.data;
         });
-        this.registerStateHandler("visibility", event => {
+        this.registerStateHandler("visibility", (event) => {
             if (event.data) {
                 this.style.visibility = "";
             } else {
                 this.style.visibility = "hidden";
             }
         });
-        this.addEventListener("click", event => this.next(event));
-        this.addEventListener("contextmenu", event => this.prev(event));
+        this.addEventListener("click", (event) => this.next(event));
+        this.addEventListener("contextmenu", (event) => this.prev(event));
     }
 
     applyDefaultValues() {
@@ -142,7 +142,7 @@ export default class ItemElement extends BaseClass {
                     }
                 } break;
                 case "value": {
-                    this.applyValueChange(newValue);
+                    this.refreshValue();
                 } break;
             }
         }
@@ -218,7 +218,7 @@ export default class ItemElement extends BaseClass {
         return false;
     }
 
-    applyValueChange(value) {
+    refreshValue() {
         // nothing
     }
 

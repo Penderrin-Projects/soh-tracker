@@ -25,7 +25,7 @@ const STYLE = new GlobalStyle(`
 :host(:hover) #icon {
     background-size: 100%;
 }
-:host(.alwaysActive) #icon,
+#icon.alwaysActive,
 :host([value]:not([value="0"])) #icon {
     filter: none;
     opacity: 1;
@@ -47,7 +47,7 @@ const STYLE = new GlobalStyle(`
     line-height: 0.7em;
     font-weight: bold;
 }
-:host(.alwaysActive) #value,
+#value.alwaysActive,
 :host([value]:not([value="0"])) #value {
     display: inline-flex;
 }
@@ -81,54 +81,66 @@ export default class Item extends ItemElement {
         applyElements(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
+        this.registerStateHandler("max", () => {
+            this.refreshValue();
+        });
     }
 
     applyDefaultValues() {
         super.applyDefaultValues();
-        // image
-        this.style.backgroundImage = "";
+        const iconEl = this.shadowRoot.getElementById("icon");
+        const valueEl = this.shadowRoot.getElementById("value");
+        // icon
+        iconEl.style.backgroundImage = "";
         // always active
-        this.classList.remove("alwaysActive");
+        iconEl.classList.remove("alwaysActive");
+        // always counting
+        valueEl.classList.remove("alwaysActive");
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
+        const data = state.props;
+        const iconEl = this.shadowRoot.getElementById("icon");
+        const valueEl = this.shadowRoot.getElementById("value");
+        // icon
+        const icon = resolveIcon(data.icon, this.value);
+        iconEl.style.backgroundImage = `url("${icon}")`;
         // always active
-        if (state.props.alwaysActive) {
-            this.classList.add("alwaysActive");
-        } else {
-            this.classList.remove("alwaysActive");
-        }
+        iconEl.classList.toggle("alwaysActive", !!data.alwaysActive);
+        // always counting
+        valueEl.classList.toggle("alwaysActive", !data.counting || !!data.alwaysCounting);
     }
 
-    applyValueChange(value) {
+    refreshValue() {
         const state = this.getState();
+        const value = this.value;
+        const maxValue = state?.max;
+        const data = state?.props ?? {};
         const valueEl = this.shadowRoot.getElementById("value");
-        if (state.props.counting) {
-            if (Array.isArray(state.props.counting)) {
-                valueEl.innerHTML = state.props.counting[value];
-            } else if (typeof state.props.counting == "string") {
-                valueEl.innerHTML = state.props.counting;
+        if (data.counting) {
+            if (Array.isArray(data.counting)) {
+                valueEl.innerHTML = data.counting[value];
+            } else if (typeof data.counting == "string") {
+                valueEl.innerHTML = data.counting;
             } else {
-                if (value > 0 || data.alwaysCounting) {
-                    if (data.showMax) {
-                        opt.innerHTML = `${value} / ${max_value}`;
-                    } else {
-                        opt.innerHTML = value;
-                    }
+                if (data.showMax && maxValue != null) {
+                    valueEl.innerHTML = `${value} / ${maxValue}`;
+                } else {
+                    valueEl.innerHTML = value;
                 }
             }
-            valueEl.classList.toggle("mark", state.isMarked());
-        } else if (state.props.label) {
-            if (Array.isArray(state.props.label)) {
-                valueEl.innerHTML = state.props.label[value];
+            valueEl.classList.toggle("mark", state?.isMarked() ?? false);
+        } else if (data.label) {
+            if (Array.isArray(data.label)) {
+                valueEl.innerHTML = data.label[value];
             } else {
-                valueEl.innerHTML = state.props.label;
+                valueEl.innerHTML = data.label;
             }
         }
         // image
         const iconEl = this.shadowRoot.getElementById("icon");
-        const icon = resolveIcon(state.props.icon, this.value);
+        const icon = resolveIcon(data.icon, value);
         iconEl.style.backgroundImage = `url("${icon}")`;
     }
 
