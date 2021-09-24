@@ -25,7 +25,7 @@ const STYLE = new GlobalStyle(`
 :host(:hover) #icon {
     background-size: 100%;
 }
-:host(.always_active) #icon,
+:host(.alwaysActive) #icon,
 :host([value]:not([value="0"])) #icon {
     filter: none;
     opacity: 1;
@@ -47,7 +47,7 @@ const STYLE = new GlobalStyle(`
     line-height: 0.7em;
     font-weight: bold;
 }
-:host(.always_active) #value,
+:host(.alwaysActive) #value,
 :host([value]:not([value="0"])) #value {
     display: inline-flex;
 }
@@ -88,16 +88,16 @@ export default class Item extends ItemElement {
         // image
         this.style.backgroundImage = "";
         // always active
-        this.classList.remove("always_active");
+        this.classList.remove("alwaysActive");
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
         // always active
-        if (state.props.always_active) {
-            this.classList.add("always_active");
+        if (state.props.alwaysActive) {
+            this.classList.add("alwaysActive");
         } else {
-            this.classList.remove("always_active");
+            this.classList.remove("alwaysActive");
         }
     }
 
@@ -110,7 +110,13 @@ export default class Item extends ItemElement {
             } else if (typeof state.props.counting == "string") {
                 valueEl.innerHTML = state.props.counting;
             } else {
-                valueEl.innerHTML = value;
+                if (value > 0 || data.alwaysCounting) {
+                    if (data.showMax) {
+                        opt.innerHTML = `${value} / ${max_value}`;
+                    } else {
+                        opt.innerHTML = value;
+                    }
+                }
             }
             valueEl.classList.toggle("mark", state.isMarked());
         } else if (state.props.label) {

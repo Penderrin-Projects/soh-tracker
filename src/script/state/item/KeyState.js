@@ -14,18 +14,18 @@ export default class KeyState extends DefaultItemState {
 
         /* VALUES */
         MAX.set(this, super.max);
-        if (props["type_max"] != null && props["related_dungeon"] != null) {
+        if (props.typeMax != null && props.relatedDungeon != null) {
             const area = AreaStateManager.get(ref);
             if (area != null) {
                 AREA.set(this, area);
                 if (area.list_mq != null) {
                     area.addEventListener("type", (event) => {
-                        this./*#*/__setMax(props["type_max"][event.data] ?? super.max);
+                        this./*#*/__setMax(props.typeMax[event.data] ?? super.max);
                         const ev = new Event("type");
                         ev.data = event.data;
                         this.dispatchEvent(ev);
                     });
-                    MAX.set(this, props["type_max"][area.type] ?? super.max);
+                    MAX.set(this, props.typeMax[area.type] ?? super.max);
                 }
             }
         }
