@@ -303,7 +303,7 @@ function createOption(value, img, data, max_value) {
     const opt = document.createElement("emc-option");
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
-    if (value == 0 && !data.always_active) {
+    if (value == 0 && !data.alwaysActive) {
         opt.style.filter = "contrast(0.8) grayscale(0.5)";
         opt.style.opacity = "0.4";
     }
@@ -311,8 +311,12 @@ function createOption(value, img, data, max_value) {
         if (Array.isArray(data.counting)) {
             opt.innerHTML = data.counting[value];
         } else {
-            if (value > 0 || data.always_active) {
-                opt.innerHTML = value;
+            if (value > 0 || data.alwaysCounting) {
+                if (data.showMax) {
+                    opt.innerHTML = `${value} / ${max_value}`;
+                } else {
+                    opt.innerHTML = value;
+                }
             }
         }
         if (data.mark !== false) {

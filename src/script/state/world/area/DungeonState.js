@@ -163,10 +163,10 @@ export default class DungeonState extends DefaultState {
     stateLoaded(event) {
         const props = this.props;
         // type
-        if (props["maxmq"] != null && props["related_dungeon"] != null) {
+        if (props["maxmq"] != null && props["relatedDungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
+                this./*#*/__applyTypeValue(types[props.relatedDungeon]);
             } else {
                 this./*#*/__applyTypeValue("n");
             }
