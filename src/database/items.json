@@ -251,7 +251,7 @@
     "item.egg": {
         "type": "item",
         "max": 8,
-        "var_min": {
+        "varMin": {
             "option": "option.skip_child_zelda",
             "values": {
                 "true": 3
