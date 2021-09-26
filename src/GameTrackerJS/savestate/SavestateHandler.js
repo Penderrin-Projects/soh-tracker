@@ -1,25 +1,13 @@
 // frameworks
-import Import from "/emcJS/util/import/Import.js";
-import Path from "/emcJS/util/Path.js";
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
 
+import DataSync from "../data/DataSync.js";
 import Counter from "../util/Counter.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 import BusyIndicator from "../ui/BusyIndicator.js";
 
-const path = new Path(import.meta.url);
-
-async function getWorker() {
-    if ("SharedWorker" in window) {
-        const [SharedWorkerRegistry] = await Import.module("/emcJS/worker/SharedWorkerRegistry.js");
-        const workerPath = path.getAbsolute("./SavestateHandler.worker.js");
-        return SharedWorkerRegistry.register("SavestateHandler", workerPath);
-    }
-}
-
-const SHARED_WORKER = await getWorker();
 const PERSISTANCE_NAME = "savestate";
 const STATE_DIRTY = "state_dirty";
 const TITLE_PREFIX = document.title;
@@ -35,9 +23,9 @@ function updateTitle() {
     }
 }
 
-if (SHARED_WORKER != null) {
+/* SYNC */ {
     const muted = new Counter();
-    SHARED_WORKER.addEventListener("message", (event) => {
+    DataSync.addEventListener("message", (event) => {
         muted.add();
         if (event.data.type == "load") {
             const {state = {}} = event.data;
@@ -51,13 +39,13 @@ if (SHARED_WORKER != null) {
     Savestate.addEventListener("change", (event) => {
         if (!muted.value) {
             const {category = "", data = {}} = event;
-            SHARED_WORKER.postMessage({type: "change", category, data});
+            DataSync.postMessage({type: "change", category, data});
         }
     });
     Savestate.addEventListener("load", (event) => {
         if (!muted.value) {
             const {data = {}} = event;
-            SHARED_WORKER.postMessage({type: "load", data});
+            DataSync.postMessage({type: "load", data});
         }
     });
 }

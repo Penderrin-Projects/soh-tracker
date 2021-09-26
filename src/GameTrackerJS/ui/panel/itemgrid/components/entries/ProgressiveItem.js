@@ -42,6 +42,7 @@ const STYLE = new GlobalStyle(`
     white-space: normal;
     line-height: 0.7em;
     font-weight: bold;
+    word-break: normal;
 }
 ::slotted([value]:hover) {
     background-size: 100%;

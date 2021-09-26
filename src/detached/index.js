@@ -1,6 +1,5 @@
 
 // frameworks
-import Import from "/emcJS/util/import/Import.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/layout/Layout.js";
 
@@ -14,6 +13,7 @@ import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/dungeonstate/DungeonState.js";
+import "./sync.js";
 
 try {
     // load current language

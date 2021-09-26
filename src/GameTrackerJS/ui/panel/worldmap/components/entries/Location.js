@@ -16,7 +16,10 @@ const STYLE = new GlobalStyle(`
 :host {
     width: 32px;
     height: 32px;
-    transform: translate(-8px, -8px);
+    transform: translate(-16px, -16px);
+}
+#marker {
+    border-radius: 50%;
 }
 #item {
     width: 32px;
@@ -25,6 +28,14 @@ const STYLE = new GlobalStyle(`
     font-size: 0.7em;
 }
 `);
+
+function resolveIcon(icon) {
+    if (Array.isArray(icon)) {
+        return icon[0];
+    } else {
+        return icon;
+    }
+}
 
 function applyElements(target) {
     const textEl = target.getElementById("text");
@@ -43,36 +54,34 @@ export default class MapLocation extends WorldMapMarkedEntry {
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
         /* state handler */
-        this.registerStateHandler("item", event => {
-            this.applyItem(event.data);
+        this.registerStateHandler("item", () => {
+            const state = this.getState();
+            this.applyItem(state?.itemData);
         });
         /* context menu */
         this.setDefaultContextMenu(LocationContextMenu);
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("associate", event => {
-            const mnu_ctx = this.getDefaultContextMenu();
-            const mnu_itm = this.getContextMenu("itempicker");
-            mnu_itm.loadItems("pickable");
-            mnu_itm.show(mnu_ctx.left, mnu_ctx.top);
+        this.addDefaultContextMenuHandler("associate", (event) => {
+            this.showContextMenu("itempicker", event, "pickable");
         });
-        this.addDefaultContextMenuHandler("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", () => {
             const state = this.getState();
             if (state != null) {
                 state.item = "";
             }
         });
-        this.addDefaultContextMenuHandler("show_logic", event => {
+        this.addDefaultContextMenuHandler("show_logic", () => {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(this.ref);
@@ -87,6 +96,33 @@ export default class MapLocation extends WorldMapMarkedEntry {
                 state.item = event.item;
             }
         });
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues("images/icons/location.svg");
+        this.applyItem();
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state, "images/icons/location.svg");
+        this.applyItem(state.itemData);
+    }
+
+    applyItem(itemData) {
+        const itemEl = this.shadowRoot.getElementById("item");
+        if (itemEl != null) {
+            if (itemData != null) {
+                itemEl.src = resolveIcon(itemData?.icon) ?? "/images/items/unknown.png";
+                itemEl.text = itemData?.label ?? "";
+                itemEl.valign = itemData?.valign ?? "center";
+                itemEl.halign = itemData?.halign ?? "center";
+            } else {
+                itemEl.src = "";
+                itemEl.text = "";
+                itemEl.valign = "center";
+                itemEl.halign = "center";
+            }
+        }
     }
 
     get left() {
@@ -132,24 +168,6 @@ export default class MapLocation extends WorldMapMarkedEntry {
                         tooltip.position = newValue;
                     }
                     break;
-            }
-        }
-    }
-
-    applyItem(item = "") {
-        const itemEl = this.shadowRoot.getElementById("item");
-        if (itemEl != null) {
-            const itemData = ItemStateManager.get(item);
-            if (itemData != null) {
-                itemEl.src = itemData?.image ?? "/images/items/unknown.png";
-                itemEl.text = itemData?.label ?? "";
-                itemEl.valign = itemData?.valign ?? "center";
-                itemEl.halign = itemData?.halign ?? "center";
-            } else {
-                itemEl.src = "";
-                itemEl.text = "";
-                itemEl.valign = "center";
-                itemEl.halign = "center";
             }
         }
     }

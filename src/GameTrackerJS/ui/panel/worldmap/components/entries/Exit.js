@@ -25,6 +25,9 @@ const STYLE = new GlobalStyle(`
     height: 48px;
     transform: translate(-24px, -24px);
 }
+#marker {
+    border-radius: 25%;
+}
 #value:empty:after {
     display: inline;
     font-style: italic;

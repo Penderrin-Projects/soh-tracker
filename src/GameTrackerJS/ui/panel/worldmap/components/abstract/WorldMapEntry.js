@@ -27,7 +27,6 @@ const STYLE = new GlobalStyle(`
     width: 100%;
     height: 100%;
     border: solid 4px black;
-    border-radius: 25%;
     color: black;
     background-color: var(--page-text-color, #000000);
     font-size: 1em;

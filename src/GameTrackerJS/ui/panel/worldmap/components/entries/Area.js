@@ -21,6 +21,9 @@ const STYLE = new GlobalStyle(`
     height: 48px;
     transform: translate(-24px, -24px);
 }
+#marker {
+    border-radius: 25%;
+}
 #marker[data-entrances="true"]:after {
     position: absolute;
     right: -2px;
@@ -117,13 +120,13 @@ export default class MapArea extends WorldMapMarkedEntry {
     }
 
     applyDefaultValues() {
-        super.applyDefaultValues("images/icons/location.svg");
+        super.applyDefaultValues("images/icons/area.svg");
         /* hint */
         this.applyHint();
     }
 
     applyStateValues(state) {
-        super.applyStateValues(state, "images/icons/location.svg");
+        super.applyStateValues(state, "images/icons/area.svg");
         /* hint */
         this.applyHint(state.hint);
     }

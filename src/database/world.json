@@ -16264,7 +16264,7 @@
                 "active": true,
                 "color": "",
                 "border": "",
-                "background": "main.png",
+                "background": "hyrule.png",
                 "width": 1920,
                 "height": 1080,
                 "zoom": 60
@@ -20041,13 +20041,13 @@
             "icon": "images/icons/dungeon.svg",
             "areaTags": false,
             "map": {
-                "active": false,
+                "active": true,
                 "color": "",
                 "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0,
-                "zoom": 0
+                "background": "dungeon_deku.png",
+                "width": 2000,
+                "height": 3200,
+                "zoom": 50
             },
             "list": [
                 {
@@ -20070,14 +20070,14 @@
                 },
                 {
                     "id": "deku.c_compass",
-                    "x": 0,
-                    "y": 0,
+                    "x": 100,
+                    "y": 213,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_compass_side",
-                    "x": 0,
-                    "y": 0,
+                    "x": 264,
+                    "y": 369,
                     "category": "location"
                 },
                 {
@@ -20094,8 +20094,8 @@
                 },
                 {
                     "id": "deku.s_3f_compass_side_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 263,
+                    "y": 410,
                     "category": "location"
                 },
                 {

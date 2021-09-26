@@ -7,6 +7,11 @@ const ITEMS = new WeakMap();
 
 export default class ItemPickerContextMenu extends ContextMenu {
 
+    show(posX, posY, items) {
+        super.show(posX, posY);
+        this.loadItems(items);
+    }
+
     initItems() {
         const itemPickerEl = document.createElement("gt-itempicker");
         itemPickerEl.id = "item-picker";

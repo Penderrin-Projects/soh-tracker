@@ -23,11 +23,11 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-function resolveImage(images) {
-    if (Array.isArray(images)) {
-        return images[0];
+function resolveIcon(icon) {
+    if (Array.isArray(icon)) {
+        return icon[0];
     } else {
-        return images;
+        return icon;
     }
 }
 
@@ -73,7 +73,7 @@ export default class WorldListLocation extends BaseClass {
             }
         });
         this.addDefaultContextMenuHandler("associate", (event) => {
-            this.showContextMenu("itempicker", event);
+            this.showContextMenu("itempicker", event, "pickable");
         });
         this.addDefaultContextMenuHandler("disassociate", () => {
             const state = this.getState();
@@ -119,7 +119,7 @@ export default class WorldListLocation extends BaseClass {
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
             if (itemData != null) {
-                itemEl.src = resolveImage(itemData?.images) ?? "/images/items/unknown.png";
+                itemEl.src = resolveIcon(itemData?.icon) ?? "/images/items/unknown.png";
                 itemEl.text = itemData?.label ?? "";
                 itemEl.valign = itemData?.valign ?? "center";
                 itemEl.halign = itemData?.halign ?? "center";

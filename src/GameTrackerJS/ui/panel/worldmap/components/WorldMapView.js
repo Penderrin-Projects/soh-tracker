@@ -103,6 +103,7 @@ export default class WorldMapView extends BaseClass {
         mapEl.addEventListener("mousedown", (event) => {
             if (!this.fixed && event.button === 0) {
                 const target = event.target;
+                console.log("map position\n\"x\": %d, \"y\": %d", event.offsetX, event.offsetY);
                 target.classList.add("grabbed");
                 mapEventManager.setActive(true);
             }

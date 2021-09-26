@@ -46,6 +46,7 @@ const STYLE = new GlobalStyle(`
     white-space: normal;
     line-height: 0.7em;
     font-weight: bold;
+    word-break: normal;
 }
 #value.alwaysActive,
 :host([value]:not([value="0"])) #value {
