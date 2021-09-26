@@ -3,7 +3,7 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 
-import WorldMapStateEntry from "./WorldMapStateEntry.js";
+import WorldMapStateEntry from "./StateEntry.js";
 import Badge from "../../../../Badge.js";
 import "../../../../BadgeAccess.js";
 

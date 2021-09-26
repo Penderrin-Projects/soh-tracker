@@ -7,7 +7,7 @@ import "/emcJS/ui/Icon.js";
 import WorldListState from "../../../../../state/world/WorldListState.js";
 import DefaultAreaState from "../../../../../state/world/area/DefaultAreaState.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
-import WorldMapMarkedEntry from "../abstract/WorldMapMarkedEntry.js";
+import WorldMapMarkedEntry from "../abstract/MarkedEntry.js";
 import ExitContextMenu from "../../../../ctxmenu/ExitContextMenu.js";
 import ExitBindingContextMenu from "../../../../ctxmenu/ExitBindingContextMenu.js";
 

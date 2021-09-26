@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 
 import UIRegistry from "../../../../../registry/UIRegistry.js";
-import WorldMapMarkedEntry from "../abstract/WorldMapMarkedEntry.js";
+import WorldMapMarkedEntry from "../abstract/MarkedEntry.js";
 import LocationContextMenu from "../../../../ctxmenu/LocationContextMenu.js";
 import ItemPickerContextMenu from "../../../../ctxmenu/ItemPickerContextMenu.js";
 
@@ -96,6 +96,13 @@ export default class MapLocation extends WorldMapMarkedEntry {
                 state.item = event.item;
             }
         });
+    }
+
+    clickHandler(event) {
+        const state = this.getState();
+        if (state != null) {
+            state.value = !state.value;
+        }
     }
 
     applyDefaultValues() {

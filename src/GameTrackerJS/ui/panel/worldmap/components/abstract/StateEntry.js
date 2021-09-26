@@ -6,7 +6,7 @@ import { mix } from "/emcJS/util/Mixin.js";
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
 import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
-import WorldMapEntry from "./WorldMapEntry.js";
+import WorldMapEntry from "./Entry.js";
 
 const TPL = new Template(`
 <emc-tooltip position="top" id="tooltip">

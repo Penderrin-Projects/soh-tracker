@@ -6,7 +6,7 @@ import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
-import WorldMapMarkedEntry from "../abstract/WorldMapMarkedEntry.js";
+import WorldMapMarkedEntry from "../abstract/MarkedEntry.js";
 import AreaContextMenu from "../../../../ctxmenu/AreaContextMenu.js";
 import "../../../../../state/world/area/OverworldState.js";
 
