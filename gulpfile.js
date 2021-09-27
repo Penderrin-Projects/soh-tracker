@@ -125,7 +125,7 @@ function copyInitializer(dest = DEV_PATH) {
 
 function copyDetachedScript(dest = DEV_PATH) {
     const FILES = [
-        `${SRC_PATH}/detached/index.js`
+        `${SRC_PATH}/detached/**/*.js`
     ];
     const SRC = `${SRC_PATH}/detached`;
     const DST = `${dest}/detached`;

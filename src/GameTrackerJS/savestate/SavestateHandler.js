@@ -13,11 +13,13 @@ const TITLE_PREFIX = document.title;
 const STORAGE = new IDBStorage("savestates");
 
 function updateTitle() {
-    const name = Savestate.name || "new state";
-    if (LocalStorage.get(STATE_DIRTY)) {
-        document.title = `${TITLE_PREFIX} - ${name} *`;
-    } else {
-        document.title = `${TITLE_PREFIX} - ${name}`;
+    if (!TITLE_PREFIX.startsWith("[D]")) {
+        const name = Savestate.name || "new state";
+        if (LocalStorage.get(STATE_DIRTY)) {
+            document.title = `${TITLE_PREFIX} - ${name} *`;
+        } else {
+            document.title = `${TITLE_PREFIX} - ${name}`;
+        }
     }
 }
 

@@ -41,8 +41,10 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 :host([value="0"]) {
-    filter: contrast(0.8) grayscale(0.5);
-    opacity: 0.4;
+    filter:
+        contrast(var(--shallow-item-contrast, 0.8))
+        saturate(var(--shallow-item-saturate, 0.5))
+        brightness(var(--shallow-item-brightness, 0.4));
 }
 #value {
     display: inline-flex;

@@ -14,6 +14,7 @@ import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/world/LocationList.js";
 import "/script/ui/world/Map.js";
+import "./styles.js";
 
 try {
     // load current language
