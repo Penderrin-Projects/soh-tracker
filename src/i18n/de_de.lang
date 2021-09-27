@@ -18,6 +18,7 @@ debug_logic=Logic debugger
 debug=Debug Optionen
 credits=Credits
 about=Über
+detached_window_background=Entkoppeltes Fenster Hintergrundfarbe
 show_state_init_window=Zeige State initialisierungs Dialog
 Initialize new state=Initialisiere den neuen State
 Clear data=Lösche Daten
