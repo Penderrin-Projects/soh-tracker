@@ -18,8 +18,8 @@ const TPL = new Template(`
 const STYLE = new GlobalStyle(`
 :host {
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    width: calc(var(--item-size, 40) * 1px);
+    height: calc(var(--item-size, 40) * 1px);
     cursor: pointer;
     user-select: none;
 }

@@ -14,6 +14,7 @@ import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "./sync.js";
+import "./styles.js";
 
 try {
     // load current language

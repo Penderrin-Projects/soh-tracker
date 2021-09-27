@@ -19,16 +19,20 @@ const STYLE = new GlobalStyle(`
     background-repeat: no-repeat;
     background-position: center;
     background-origin: border-box;
-    filter: contrast(0.8) grayscale(0.5);
-    opacity: 0.4;
-}
-:host(:hover) #icon {
-    background-size: 100%;
+    filter:
+        contrast(var(--shallow-item-contrast, 0.8))
+        saturate(var(--shallow-item-saturate, 0.5))
+        brightness(var(--shallow-item-brightness, 0.4));
 }
 #icon.alwaysActive,
 :host([value]:not([value="0"])) #icon {
-    filter: none;
-    opacity: 1;
+    filter:
+        contrast(var(--solid-item-contrast, 1))
+        saturate(var(--solid-item-saturate, 1))
+        brightness(var(--solid-item-brightness, 1));
+}
+:host(:hover) #icon {
+    background-size: 100%;
 }
 #value {
     display: none;

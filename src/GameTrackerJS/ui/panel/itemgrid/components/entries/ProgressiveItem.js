@@ -43,6 +43,17 @@ const STYLE = new GlobalStyle(`
     line-height: 0.7em;
     font-weight: bold;
     word-break: normal;
+    filter:
+        contrast(var(--shallow-item-contrast, 0.8))
+        saturate(var(--shallow-item-saturate, 0.5))
+        brightness(var(--shallow-item-brightness, 0.4));
+}
+#slot.alwaysActive ::slotted([value]),
+::slotted([value]:not([value="0"])) {
+    filter:
+        contrast(var(--solid-item-contrast, 1))
+        saturate(var(--solid-item-saturate, 1))
+        brightness(var(--solid-item-brightness, 1));
 }
 ::slotted([value]:hover) {
     background-size: 100%;
@@ -66,10 +77,6 @@ function createOption(value, icon, data, maxValue) {
     const optionEl = document.createElement("emc-option");
     optionEl.value = value;
     optionEl.style.backgroundImage = `url("${icon}")`;
-    if (value == 0 && !data.alwaysActive) {
-        optionEl.style.filter = "contrast(0.8) grayscale(0.5)";
-        optionEl.style.opacity = "0.4";
-    }
     if (data.counting) {
         if (Array.isArray(data.counting)) {
             optionEl.innerHTML = data.counting[value];
@@ -128,14 +135,21 @@ export default class ProgressiveItem extends ItemElement {
 
     applyDefaultValues() {
         super.applyDefaultValues();
+        const slotEl = this.shadowRoot.getElementById("slot");
         // choices
         this./*#*/__fillItemChoices();
+        // always active
+        slotEl.classList.remove("alwaysActive");
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
+        const data = state.props;
+        const slotEl = this.shadowRoot.getElementById("slot");
         // choices
         this./*#*/__fillItemChoices();
+        // always active
+        slotEl.classList.toggle("alwaysActive", !!data.alwaysActive);
     }
 
     refreshValue() {

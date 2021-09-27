@@ -11,10 +11,13 @@ Application:    Track-OOT
 - reduce logic file size further
     - remove unnessecary tokens
     - minified by nature and must not be re-transpiled
+- add background color option for detached item window
+- add max keys indicator
 
 ### BUGFIXES
 
 - fix some logic misbehaviour applying filters
+- fix ganon bossdoor open option
 
 ---
 

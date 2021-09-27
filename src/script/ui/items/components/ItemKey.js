@@ -304,8 +304,7 @@ function createOption(value, img, data, max_value) {
     opt.value = value;
     opt.style.backgroundImage = `url("${img}"`;
     if (value == 0 && !data.alwaysActive) {
-        opt.style.filter = "contrast(0.8) grayscale(0.5)";
-        opt.style.opacity = "0.4";
+        opt.style.filter = "contrast(0.8) saturate(0.5) brightness(0.4)";
     }
     if (data.counting) {
         if (Array.isArray(data.counting)) {
