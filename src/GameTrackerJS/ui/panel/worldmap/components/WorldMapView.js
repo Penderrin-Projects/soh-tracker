@@ -7,7 +7,6 @@ import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
-import WorldListState from "../../../../state/world/WorldListState.js";
 import WorldStateManagerRegistry from "../../../../statemanager/WorldStateManagerRegistry.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../../registry/UIRegistry.js";
@@ -56,6 +55,34 @@ const STYLE = new GlobalStyle(`
 ::slotted(*) {
     position: absolute;
 }
+::slotted(.anchor) {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    padding: 3px;
+    background-color: white;
+    transform-origin: center center;
+    transform:
+        translate(-5px, -5px)
+        scale(
+            calc(100 / var(--zoom, 100))
+        );
+    background-clip: content-box;
+    border: 1px solid white;
+    z-index: 2000;
+}
+::slotted(.anchor-zoom) {
+    background-color: cyan;
+    border: 1px solid cyan;
+}
+::slotted(.anchor-zoom-old) {
+    background-color: red;
+    border: 1px solid red;
+}
+::slotted(.anchor-zoom-diff) {
+    background-color: lime;
+    border: 1px solid lime;
+}
 `);
 
 const EL_MANAGER = new WeakMap();
@@ -74,7 +101,6 @@ function elementComposer(key, props) {
 
 const ZOOM_MIN = 10;
 const ZOOM_MAX = 200;
-const ZOOM_SPD = 2;
 const OFFSET_X = new WeakMap();
 const OFFSET_Y = new WeakMap();
 const ZOOM = new WeakMap();
@@ -84,6 +110,15 @@ const BaseClass = mix(
 ).with(
     StateDataEventManagerMixin
 );
+
+const anchorEl = document.createElement("div");
+anchorEl.className = "anchor";
+const anchorZoomEl = document.createElement("div");
+anchorZoomEl.className = "anchor anchor-zoom";
+const anchorZoomOldEl = document.createElement("div");
+anchorZoomOldEl.className = "anchor anchor-zoom-old";
+const anchorZoomDiffEl = document.createElement("div");
+anchorZoomDiffEl.className = "anchor anchor-zoom-diff";
 
 export default class WorldMapView extends BaseClass {
 
@@ -125,15 +160,6 @@ export default class WorldMapView extends BaseClass {
                 target.classList.remove("grabbed");
                 mapEventManager.setActive(false);
             }
-        });
-        this.addEventListener("wheel", (event) => {
-            if (!this.fixed) {
-                const zoom = ZOOM.get(this);
-                const delta = Math.sign(event.deltaY) * ZOOM_SPD;
-                this.setZoom(zoom - delta);
-            }
-            event.preventDefault();
-            return false;
         });
 
         /* --- */
@@ -224,6 +250,18 @@ export default class WorldMapView extends BaseClass {
         }
     }
 
+    get zoom() {
+        return ZOOM.get(this);
+    }
+
+    get x() {
+        return OFFSET_X.get(this);
+    }
+
+    get y() {
+        return OFFSET_Y.get(this);
+    }
+
     setTranslation(x, y) {
         x = Math.floor(x);
         y = Math.floor(y);
@@ -247,21 +285,47 @@ export default class WorldMapView extends BaseClass {
         }
     }
 
-    setZoom(zoom) {
+    setZoom(zoom, anchorX = 0, anchorY = 0) {
         zoom = Math.min(Math.max(ZOOM_MIN, Math.floor(zoom)), ZOOM_MAX);
         const old = ZOOM.get(this);
         if (old != zoom) {
+            const mapEl = this.shadowRoot.getElementById("map");
             ZOOM.set(this, zoom);
             const x = OFFSET_X.get(this);
             const y = OFFSET_Y.get(this);
+
+            /* calculate anchor focus shift */
+            const scale = 100 / zoom;
+            const oldScale = 100 / old;
+            const vrtW = mapEl.clientWidth;
+            const vrtH = mapEl.clientHeight;
+            const focusDiffX = (anchorX * scale + vrtW / 2) - (anchorX * oldScale + vrtW / 2);
+            const focusDiffY = (anchorY * scale + vrtH / 2) - (anchorY * oldScale + vrtH / 2);
+
+            /* view focus */
+            this.append(anchorEl);
+            anchorEl.style.left = `${vrtW / 2 - x}px`;
+            anchorEl.style.top = `${vrtH / 2 - y}px`;
+            this.append(anchorZoomEl);
+            anchorZoomEl.style.left = `${anchorX * scale + vrtW / 2}px`;
+            anchorZoomEl.style.top = `${anchorY * scale + vrtH / 2}px`;
+            this.append(anchorZoomOldEl);
+            anchorZoomOldEl.style.left = `${anchorX * oldScale + vrtW / 2}px`;
+            anchorZoomOldEl.style.top = `${anchorY * oldScale + vrtH / 2}px`;
+            this.append(anchorZoomDiffEl);
+            anchorZoomDiffEl.style.left = `${-focusDiffX + vrtW / 2 - x}px`;
+            anchorZoomDiffEl.style.top = `${-focusDiffY + vrtH / 2 - y}px`;
+
+            /* recalculate offsets to stay inside boundaries */
             const [offsetX, offsetY] = this./*#*/__containBoundaries(x, y, zoom);
             OFFSET_X.set(this, offsetX);
             OFFSET_Y.set(this, offsetY);
+
             /* style */
-            const mapEl = this.shadowRoot.getElementById("map");
             mapEl.style.setProperty("--zoom", zoom);
             mapEl.style.setProperty("--offset-x", offsetX);
             mapEl.style.setProperty("--offset-y", offsetY);
+
             /* event */
             const ev = new Event("transform");
             ev.zoom = zoom;

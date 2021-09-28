@@ -68,6 +68,8 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const ZOOM_SPD = 2;
+
 const BaseClass = mix(
     Panel
 ).with(
@@ -95,6 +97,20 @@ export default class WorldMap extends BaseClass {
             // console.log("move", event.x, event.y);
             viewEl.setTranslation(event.x, event.y);
         });
+
+        /* --- */
+        this.addEventListener("wheel", (event) => {
+            if (!this.fixed) {
+                const parW = viewEl.clientWidth;
+                const parH = viewEl.clientHeight;
+                const anchorX = event.layerX - parW / 2;
+                const anchorY = event.layerY - parH / 2;
+                const zoom = viewEl.zoom;
+                const delta = Math.sign(event.deltaY) * ZOOM_SPD;
+                viewEl.setZoom(zoom - delta, anchorX, anchorY);
+            }
+            // event.stopPropagation();
+        }, {capture: true});
     }
 
     connectedCallback() {
