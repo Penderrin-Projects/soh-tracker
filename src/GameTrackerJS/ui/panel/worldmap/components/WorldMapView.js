@@ -55,34 +55,6 @@ const STYLE = new GlobalStyle(`
 ::slotted(*) {
     position: absolute;
 }
-::slotted(.anchor) {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    padding: 3px;
-    background-color: white;
-    transform-origin: center center;
-    transform:
-        translate(-5px, -5px)
-        scale(
-            calc(100 / var(--zoom, 100))
-        );
-    background-clip: content-box;
-    border: 1px solid white;
-    z-index: 2000;
-}
-::slotted(.anchor-zoom) {
-    background-color: cyan;
-    border: 1px solid cyan;
-}
-::slotted(.anchor-zoom-old) {
-    background-color: red;
-    border: 1px solid red;
-}
-::slotted(.anchor-zoom-diff) {
-    background-color: lime;
-    border: 1px solid lime;
-}
 `);
 
 const EL_MANAGER = new WeakMap();
@@ -110,15 +82,6 @@ const BaseClass = mix(
 ).with(
     StateDataEventManagerMixin
 );
-
-const anchorEl = document.createElement("div");
-anchorEl.className = "anchor";
-const anchorZoomEl = document.createElement("div");
-anchorZoomEl.className = "anchor anchor-zoom";
-const anchorZoomOldEl = document.createElement("div");
-anchorZoomOldEl.className = "anchor anchor-zoom-old";
-const anchorZoomDiffEl = document.createElement("div");
-anchorZoomDiffEl.className = "anchor anchor-zoom-diff";
 
 export default class WorldMapView extends BaseClass {
 
@@ -297,27 +260,11 @@ export default class WorldMapView extends BaseClass {
             /* calculate anchor focus shift */
             const scale = 100 / zoom;
             const oldScale = 100 / old;
-            const vrtW = mapEl.clientWidth;
-            const vrtH = mapEl.clientHeight;
-            const focusDiffX = (anchorX * scale + vrtW / 2) - (anchorX * oldScale + vrtW / 2);
-            const focusDiffY = (anchorY * scale + vrtH / 2) - (anchorY * oldScale + vrtH / 2);
-
-            /* view focus */
-            this.append(anchorEl);
-            anchorEl.style.left = `${vrtW / 2 - x}px`;
-            anchorEl.style.top = `${vrtH / 2 - y}px`;
-            this.append(anchorZoomEl);
-            anchorZoomEl.style.left = `${anchorX * scale + vrtW / 2}px`;
-            anchorZoomEl.style.top = `${anchorY * scale + vrtH / 2}px`;
-            this.append(anchorZoomOldEl);
-            anchorZoomOldEl.style.left = `${anchorX * oldScale + vrtW / 2}px`;
-            anchorZoomOldEl.style.top = `${anchorY * oldScale + vrtH / 2}px`;
-            this.append(anchorZoomDiffEl);
-            anchorZoomDiffEl.style.left = `${-focusDiffX + vrtW / 2 - x}px`;
-            anchorZoomDiffEl.style.top = `${-focusDiffY + vrtH / 2 - y}px`;
+            const focusDiffX = anchorX * (oldScale - scale) * 4;
+            const focusDiffY = anchorY * (oldScale - scale) * 4;
 
             /* recalculate offsets to stay inside boundaries */
-            const [offsetX, offsetY] = this./*#*/__containBoundaries(x, y, zoom);
+            const [offsetX, offsetY] = this./*#*/__containBoundaries(x - focusDiffX, y - focusDiffY, zoom);
             OFFSET_X.set(this, offsetX);
             OFFSET_Y.set(this, offsetY);
 
