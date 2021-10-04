@@ -1,18 +1,17 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import Panel from "/emcJS/ui/layout/Panel.js";
 import SearchAnd from "/emcJS/util/search/SearchAnd.js";
 import "/emcJS/ui/input/SearchField.js";
 import "/emcJS/ui/input/SearchSelect.js";
 import "/emcJS/ui/input/TokenSelect.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
-import WorldResource from "../../resource/WorldResource.js";
-import WorldStateManagerRegistry from "../../statemanager/WorldStateManagerRegistry.js";
-import "../../statemanager/world/exit/ExitStateManager.js";
-import Language from "../../util/Language.js";
-import "./ExitChoice.js";
+import WorldResource from "../../../resource/WorldResource.js";
+import WorldStateManagerRegistry from "../../../statemanager/WorldStateManagerRegistry.js";
+import Language from "../../../util/Language.js";
+import "./components/ExitChoice.js";
 
 const TPL = new Template(`
 <div id="searchbar">
@@ -116,9 +115,10 @@ label {
 }
 `);
 
+const EXITS = WorldResource.get("exit");
 const CATEGORIES = new WeakMap();
 
-export default class ExitList extends CustomElement {
+export default class ExitList extends Panel {
     
     constructor() {
         super();
@@ -126,35 +126,29 @@ export default class ExitList extends CustomElement {
         STYLE.apply(this.shadowRoot);
         /* --- */
         CATEGORIES.set(this, new Set());
-        const exits = WorldResource.get("marker/exit");
-        for (const name in exits) {
+        for (const name in EXITS) {
             const state = WorldStateManagerRegistry.get("exit").get(name);
-            this.addEntrance(state);
-        }
-        const subexits = WorldResource.get("marker/subexit");
-        for (const name in subexits) {
-            const state = WorldStateManagerRegistry.get("subexit").get(name);
             this.addEntrance(state);
         }
         /* --- */
         const search = this.shadowRoot.getElementById("search");
-        search.addEventListener("change", event => {
+        search.addEventListener("change", () => {
             this.calculateItems();
         }, true);
         const searchMode = this.shadowRoot.getElementById("search-mode");
-        searchMode.addEventListener("change", event => {
+        searchMode.addEventListener("change", () => {
             this.calculateItems();
         }, true);
         const tokenizer = this.shadowRoot.getElementById("tokenizer");
-        tokenizer.addEventListener("change", event => {
+        tokenizer.addEventListener("change", () => {
             this.calculateItems();
         }, true);
         const strict = this.shadowRoot.getElementById("strict");
-        strict.addEventListener("change", event => {
+        strict.addEventListener("change", () => {
             this.calculateItems();
         }, true);
         const unbound = this.shadowRoot.getElementById("unbound");
-        unbound.addEventListener("change", event => {
+        unbound.addEventListener("change", () => {
             this.calculateItems();
         }, true);
     }
@@ -233,13 +227,13 @@ export default class ExitList extends CustomElement {
     addEntrance(state) {
         const el = document.createElement("gt-exitchoice");
         el.ref = state.ref;
-        el.setAttribute("access", state.props.access);
-        el.setAttribute("type", state.exitData.type);
+        el.setAttribute("access", state.props.logicAccess);
+        el.setAttribute("type", state.props.type);
         el.setAttribute("categories", JSON.stringify(state.props.categories));
         for (const cat of state.props.categories) {
             this.addCategory(cat);
         }
-        el.addEventListener("change", event => {
+        el.addEventListener("change", () => {
             this.calculateItems();
         });
         this.append(el);
@@ -247,4 +241,5 @@ export default class ExitList extends CustomElement {
 
 }
 
+Panel.registerReference("exitlist", ExitList);
 customElements.define("gt-exitlist", ExitList);

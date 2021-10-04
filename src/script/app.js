@@ -23,6 +23,7 @@ import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
+import "/GameTrackerJS/ui/panel/exitlist/ExitList.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
@@ -45,7 +46,6 @@ import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/shops/ShopList.js";
 import "/script/ui/songs/SongList.js";
-import "/script/ui/exits/ExitList.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
 import "/script/ui/LocationStatus.js";

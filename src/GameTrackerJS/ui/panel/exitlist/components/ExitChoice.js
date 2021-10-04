@@ -4,12 +4,14 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
-import ExitStateManager from "../../statemanager/world/exit/ExitStateManager.js";
-import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import Badge from "../Badge.js";
-import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
-import ExitBindingContextMenu from "../ctxmenu/ExitBindingContextMenu.js";
-import Language from "../../util/Language.js";
+import ExitStateManager from "../../../../statemanager/world/exit/ExitStateManager.js";
+import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
+import Badge from "../../../Badge.js";
+import ExitChoiceContextMenu from "../../../ctxmenu/ExitChoiceContextMenu.js";
+import ExitBindingContextMenu from "../../../ctxmenu/ExitBindingContextMenu.js";
+import Language from "../../../../util/Language.js";
+
+// TODO use i18n-label instead of apply label method
 
 const TPL = new Template(`
 <div class="textarea">
@@ -32,6 +34,9 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 3px;
     user-select: none;
+}
+:host([hidden]:not([hidden="false"])) {
+    display: none;
 }
 :host(:hover) {
     background-color: var(--main-hover-color, #ffffff32);
@@ -95,25 +100,8 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("visible", event => {
-            const state = this.getState();
-            if (state != null) {
-                if (state.isVisible()) {
-                    this.style.display = "";
-                } else {
-                    this.style.display = "none";
-                }
-            }
-        });
-        this.registerStateHandler("filter", event => {
-            const state = this.getState();
-            if (state != null) {
-                if (state.isVisible()) {
-                    this.style.display = "";
-                } else {
-                    this.style.display = "none";
-                }
-            }
+        this.registerStateHandler("visiblity", (event) => {
+            this.hidden = !event.data;
         });
         this.registerStateHandler("value", event => {
             this.value = event.data;
@@ -130,17 +118,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         });
         this.addDefaultContextMenuHandler("associate", event => {
             const state = this.getState();
-            const mnu_ctx = this.getDefaultContextMenu();
-            const mnu_ext = this.getContextMenu("exitbinding");
-            if (state != null) {
-                mnu_ext.fillEntranceSelection(state.props.access, state.value);
-                mnu_ext.setValue(state.value);
-            } else {
-                mnu_ext.fillEntranceSelection("", "");
-                mnu_ext.setValue("");
-            }
-            mnu_ext.setValue(state.value);
-            mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
+            this.showContextMenu("exitbinding", event, this.ref, state.value);
         });
         this.addDefaultContextMenuHandler("deassociate", event => {
             const state = this.getState();
@@ -155,10 +133,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
             if (state != null) {
                 const area = state.area;
                 if (area == null) {
-                    const mnu_ext = this.getContextMenu("exitbinding");
-                    mnu_ext.fillEntranceSelection(state.props.access, state.value);
-                    mnu_ext.setValue(state.value);
-                    mnu_ext.show(event.clientX, event.clientY);
+                    this.showContextMenu("exitbinding", event, this.ref, state.value);
                 }
             }
             event.stopPropagation();
@@ -175,30 +150,30 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
 
     applyDefaultValues() {
         super.applyDefaultValues();
+        /* value */
         this.value = "";
+        /* badge */
         const badge = this.shadowRoot.getElementById("badge");
         if (badge instanceof Badge) {
             badge.typeIcon = "images/icons/entrance.svg";
             badge.setFilterData({});
         }
-        this.style.display = "none";
+        /* visible */
+        this.hidden = true;
     }
 
     applyStateValues(state) {
         super.applyStateValues(state);
-        if (state != null) {
-            this.value = state.value;
-            const badge = this.shadowRoot.getElementById("badge");
-            if (badge instanceof Badge) {
-                badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
-                badge.setFilterData(state.props.filter);
-            }
-            if (state.isVisible()) {
-                this.style.display = "";
-            } else {
-                this.style.display = "none";
-            }
+        /* value */
+        this.value = state.value;
+        /* badge */
+        const badge = this.shadowRoot.getElementById("badge");
+        if (badge instanceof Badge) {
+            badge.typeIcon = state.props.icon ?? "images/icons/entrance.svg";
+            badge.setFilterData(state.props.filter);
         }
+        /* visible */
+        this.hidden = !state.isVisible();
     }
 
     set ref(val) {
@@ -217,6 +192,14 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         return this.getAttribute("value");
     }
 
+    get hidden() {
+        return this.getAttribute("hidden") != "false";
+    }
+
+    set hidden(val) {
+        this.setAttribute("hidden", !!val);
+    }
+
     static get observedAttributes() {
         return ["ref", "value"];
     }
@@ -228,7 +211,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
                     const state = ExitStateManager.get(this.ref);
                     const textEl = this.shadowRoot.getElementById("text");
                     if (textEl != null) {
-                        Language.applyLabel(textEl, `exit[${state.props.access}]`);
+                        Language.applyLabel(textEl, `exit[${this.ref}]`);
                     }
                     this.switchState(state);
                 } break;
