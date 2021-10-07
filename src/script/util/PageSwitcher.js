@@ -1,6 +1,5 @@
 // frameworks
-import "/emcJS/ui/navigation/NavBar.js";
-
+import NavBar from "/emcJS/ui/navigation/NavBar.js";
 
 const NAV = document.querySelector("emc-navbar");
 const PAGER = document.getElementById("view-pager");
@@ -19,6 +18,10 @@ class PageSwitcher {
         } else {
             NAV.loadNavigation([]);
         }
+    }
+
+    addNavigationMixin(name, config) {
+        NavBar.addMixin(name, config);
     }
 
 }

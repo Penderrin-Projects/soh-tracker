@@ -6,6 +6,7 @@
 import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
@@ -20,35 +21,29 @@ import Language from "/GameTrackerJS/util/Language.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
-import "/GameTrackerJS/ui/panel/exitlist/ExitList.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
+import "/script/content/index.js";
+import "/script/content/Tracker.js";
+import "/script/content/EditorChoice.js";
 import "/script/savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/augment/AugmentDungeons.js";
 import "/script/util/logic/augment/AugmentZoraLetter.js";
 import "/script/util/logic/augment/ReachEpona.js";
 import "/script/util/A11y.js";
-import "/script/content/Tracker.js";
-import "/script/content/EditorChoice.js"
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
-import "/script/ui/panel/itemgrid/ItemGrid.js";
-import "/script/ui/panel/worldlist/WorldList.js";
-import "/script/ui/panel/worldmap/WorldMap.js";
-import "/script/ui/dungeonstate/DungeonState.js";
-import "/script/ui/shops/ShopList.js";
-import "/script/ui/songs/SongList.js";
-import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
 import "/script/ui/LocationStatus.js";
+
+import "/script/ui/multiplayer/Multiplayer.js";
 
 const spl = document.getElementById("loading-info");
 function updateLoadingMessage(msg = "loading...") {

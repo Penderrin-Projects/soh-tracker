@@ -1,9 +1,8 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
 // GameTrackerJS
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
-
 // Track-OOT
 import OptionsTransResource from "/script/resource/OptionsTransResource.js";
 import parseSettings from "./parseSettings.js";

@@ -4,12 +4,12 @@ import Template from "/emcJS/util/html/Template.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Paging.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import AbstractSettingsWindow from "/GameTrackerJS/ui/window/settings/AbstractSettingsWindow.js";
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";

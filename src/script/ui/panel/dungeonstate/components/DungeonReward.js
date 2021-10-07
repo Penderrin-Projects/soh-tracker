@@ -10,7 +10,7 @@ import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
 // Track-OOT
-import DungeonstateStates from "../../state/dungeon/DungeonStateManager.js";
+import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
 
 const TPL = new Template(`
 <slot>

@@ -1,7 +1,6 @@
 // frameworks
 import "/editors/EditorChoice.js";
 
-
 // Track-OOT
 import PageSwitcher from "/script/util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";
@@ -16,8 +15,7 @@ const MAIN_NAV = [{
         PageSwitcher.switch("main");
     }
 }, {
-    "content": " TOGGLE FULLSCREEN",
-    "handler": toggleFullscreen
+    "mixin": "fullscreen"
 }];
 
 const DEFAULT_NAV = [{
@@ -26,23 +24,10 @@ const DEFAULT_NAV = [{
         editorChoice.closeCurrent();
     }
 }, {
-    "content": " TOGGLE FULLSCREEN",
-    "handler": toggleFullscreen
+    "mixin": "fullscreen"
 }];
 
 PageSwitcher.register("editor_choice", MAIN_NAV);
-
-function toggleFullscreen() {
-    if (document.fullscreenEnabled) {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-        }
-    }
-}
 
 const PANELS = new Map();
 
@@ -56,8 +41,7 @@ editorChoice.addEventListener("choice", function(event) {
         }
         if (data.navigation != null) {
             nav.loadNavigation(data.navigation.concat({
-                "content": " TOGGLE FULLSCREEN",
-                "handler": toggleFullscreen
+                "mixin": "fullscreen"
             }));
         } else {
             nav.loadNavigation(DEFAULT_NAV);

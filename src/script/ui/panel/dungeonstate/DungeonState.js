@@ -4,16 +4,15 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
-import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/panel/itemgrid/components/entries/Item.js";
 import "/GameTrackerJS/ui/panel/itemgrid/components/entries/ProgressiveItem.js";
 // Track-OOT
-import DungeonstateResource from "../../resource/DungeonstateResource.js";
-import "../panel/itemgrid/components/RewardItem.js";
-import "./DungeonReward.js";
-import "./DungeonType.js";
-import "./DungeonHint.js";
+import DungeonstateResource from "../../../resource/DungeonstateResource.js";
+import "../itemgrid/components/RewardItem.js";
+import "./components/DungeonReward.js";
+import "./components/DungeonType.js";
+import "./components/DungeonHint.js";
 
 const STYLE = new GlobalStyle(`
 :host {
@@ -93,7 +92,7 @@ function createItemPlaceholder() {
     return el;
 }
 
-class HTMLTrackerDungeonState extends Panel {
+class DungeonState extends Panel {
 
     constructor() {
         super();
@@ -143,8 +142,8 @@ class HTMLTrackerDungeonState extends Panel {
 
 }
 
-Panel.registerReference("dungeon-status", HTMLTrackerDungeonState);
-customElements.define("ootrt-dungeonstate", HTMLTrackerDungeonState);
+Panel.registerReference("dungeon-status", DungeonState);
+customElements.define("ootrt-dungeonstate", DungeonState);
 
 function switchActive(value) {
     if (typeof value === "string") {

@@ -1,12 +1,12 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
 import DataSync from "../data/DataSync.js";
 import Counter from "../util/Counter.js";
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
-import BusyIndicator from "../ui/BusyIndicator.js";
 
 const PERSISTANCE_NAME = "savestate";
 const STATE_DIRTY = "state_dirty";

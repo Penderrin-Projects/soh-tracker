@@ -5,11 +5,11 @@ import Panel from "/emcJS/ui/layout/Panel.js";
 // GameTrackerJS
 import GTWorldList from "/GameTrackerJS/ui/panel/worldlist/WorldList.js";
 // Track-OOT
-import "../../../state/world/WorldStates.js";
+import "/script/state/world/WorldStates.js";
 import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
 import "./components/button/TypeButton.js";
-import "../../dungeonstate/DungeonType.js";
+import "../dungeonstate/components/DungeonType.js";
 
 const TPL = new Template(`
 <ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>

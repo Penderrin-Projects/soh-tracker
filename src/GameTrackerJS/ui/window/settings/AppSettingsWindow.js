@@ -1,10 +1,10 @@
 // frameworks
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
 import AbstractSettingsWindow from "./AbstractSettingsWindow.js";
 import SettingsResource from "../../../resource/SettingsResource.js";
 import SettingsStorage from "../../../storage/SettingsStorage.js";
-import BusyIndicator from "../../../ui/BusyIndicator.js";
 import AutosaveHandler from "../../../savestate/AutosaveHandler.js";
 
 // TODO bind erase stored data button

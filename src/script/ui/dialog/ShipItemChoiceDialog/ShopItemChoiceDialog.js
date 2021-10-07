@@ -3,12 +3,11 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
 
-
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
-import "./ShopEditItem.js";
+import "./components/ShopEditItem.js";
 
 const TPL = new Template(`
 <div id="categories">

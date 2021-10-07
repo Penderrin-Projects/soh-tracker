@@ -1,8 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import "/emcJS/ui/navigation/NavBar.js";
-
 
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
@@ -40,8 +38,7 @@ PageSwitcher.register("main", [{
 }, {
     "content": "EXTRAS",
     "submenu": [{
-        "content": "TOGGLE FULLSCREEN",
-        "handler": toggleFullscreen
+        "mixin": "fullscreen"
     }, {
         "content": "UPLOAD SPOILER",
         "handler": openSpoilerSettingsWindow
@@ -155,16 +152,4 @@ function openClearDataWindow() {
 
 function showEditors() {
     PageSwitcher.switch("editor_choice");
-}
-
-function toggleFullscreen() {
-    if (document.fullscreenEnabled) {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-        }
-    }
 }

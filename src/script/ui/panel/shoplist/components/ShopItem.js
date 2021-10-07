@@ -9,9 +9,9 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import ShopStates from "../../state/shop/ShopStateManager.js";
-import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
-import ShopSlotContextMenu from "../ctxmenu/ShopSlotContextMenu.js";
+import ShopItemChoiceDialog from "/script/ui/dialog/ShipItemChoiceDialog/ShopItemChoiceDialog.js";
+import ShopSlotContextMenu from "/script/ui/ctxmenu/ShopSlotContextMenu.js";
+import ShopStates from "/script/state/shop/ShopStateManager.js";
 
 const TPL = new Template(`
 <div id="image"></div>

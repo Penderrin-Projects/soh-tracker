@@ -1,11 +1,10 @@
 // frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
-
+import Panel from "/emcJS/ui/layout/Panel.js";
 
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
-import "./ShopField.js";
+import "./components/ShopField.js";
 
 const STYLE = new GlobalStyle(`
 :host {
@@ -14,7 +13,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class HTMLTrackerShopList extends CustomElement {
+export default class ShopList extends Panel {
     
     constructor() {
         super();
@@ -30,4 +29,5 @@ export default class HTMLTrackerShopList extends CustomElement {
 
 }
 
-customElements.define("ootrt-shoplist", HTMLTrackerShopList);
+Panel.registerReference("shoplist", ShopList);
+customElements.define("ootrt-shoplist", ShopList);

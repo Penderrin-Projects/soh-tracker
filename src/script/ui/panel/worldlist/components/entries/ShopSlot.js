@@ -10,8 +10,8 @@ import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 // Track-OOT
-import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
-import ShopItemChoiceDialog from "../../../../shops/ShopItemChoiceDialog.js";
+import ShopItemChoiceDialog from "/script/ui/dialog/ShipItemChoiceDialog/ShopItemChoiceDialog.js";
+import ShopSlotContextMenu from "/script/ui/ctxmenu/ShopSlotContextMenu.js";
 
 const TPL = new Template(`
 <emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>

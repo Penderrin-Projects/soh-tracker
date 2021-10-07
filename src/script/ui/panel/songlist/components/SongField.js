@@ -4,12 +4,11 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
-
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import SongStateManager from "../../state/song/SongStateManager.js"
+import SongStateManager from "/script/state/song/SongStateManager.js"
 import "./SongStave.js";
 import "./SongBuilder.js";
 
