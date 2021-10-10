@@ -1931,7 +1931,7 @@ entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Wüstenkoloss aus Richtung Gespensterwüste
 
 ## specials
-entrance[]=Leer
+entrance[]=Leerer Bereich
 
 exit[region.lh_owl_flight -> region.hyrule_field]=Hyliasee Eule
 entrance[region.hyrule_field -> region.lh_owl_flight]= Hylianische Steppe Eulen-Drop

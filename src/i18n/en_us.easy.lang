@@ -1942,7 +1942,7 @@ entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Desert Colossus From Haunted Wasteland
 
 ## specials
-entrance[]=Empty
+entrance[]=Empty Area
 
 exit[region.lh_owl_flight -> region.hyrule_field]=Lake Hylia Owl
 entrance[region.hyrule_field -> region.lh_owl_flight]= Hyrule Field Owl Drop
