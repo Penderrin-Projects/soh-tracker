@@ -5,7 +5,6 @@
 // frameworks
 import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import EventBus from "/emcJS/event/EventBus.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
@@ -71,9 +70,6 @@ try {
         logPanel.append(logScreen);
         document.getElementById("main-content").append(logPanel);
         Logger.addOutput(logScreen);
-        EventBus.register(function(event) {
-            Logger.info(JSON.stringify(event), "Event");
-        });
     }
 
     updateLoadingMessage("learn languages...");
@@ -92,11 +88,6 @@ try {
     notePad.addEventListener("change", function() {
         Savestate.notes = notePad.value;
     });
-    // shared worker
-    // if ("SharedWorker" in window) {
-    //     const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
-    //     EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
-    // }
     // register hotkey - detached window
     HotkeyHandler.setAction("detached_window", () => {
         window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);

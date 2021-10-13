@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 
 // Track-OOT
 import OverworldListHandler from "../util/handler/OverworldListHandler.js";
@@ -22,7 +21,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class LocationState extends UIEventBusMixin(CustomElement) {
+export default class LocationState extends CustomElement {
 
     constructor() {
         super();

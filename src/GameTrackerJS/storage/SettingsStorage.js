@@ -1,5 +1,4 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
 import IDBProxyStorage from "/emcJS/datastorage/IDBProxyStorage.js";
 
 import SettingsResource from "../resource/SettingsResource.js";

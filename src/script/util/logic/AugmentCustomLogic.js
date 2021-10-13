@@ -68,6 +68,7 @@ async function update() {
     }
 }
 
+// FIXME use Observers instead, as EventBus is no longer supported
 // register event for (de-)activate entrances
 EventBus.register("options", event => {
     if (event.data["option.logic_rules"] != null && logic_rule_type != event.data["option.logic_rules"]) {

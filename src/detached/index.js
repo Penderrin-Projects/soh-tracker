@@ -1,8 +1,6 @@
 
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/layout/Layout.js";
-
 
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
@@ -27,13 +25,6 @@ try {
     const waw = window.outerWidth - window.innerWidth;
     const wah = window.outerHeight - window.innerHeight;
     window.resizeTo(waw + el.clientWidth, wah + el.clientHeight);
-    // shared worker
-    // if ("SharedWorker" in window) {
-    //     const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
-    //     EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
-    // }
-    // notify parent
-    EventBus.trigger("detached-window-created", {});
 } catch(err) {
     console.error(err);
 }

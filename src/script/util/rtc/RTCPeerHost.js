@@ -8,7 +8,6 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
-const EVENT_BUS_SUBSET = new WeakMap();
 const EVENT_TARGET_MANAGER = new WeakMap();
 
 const RTC = new WeakMap();
@@ -91,9 +90,7 @@ export default class RTCPeerHost extends RTCPeer {
         spectators.clear();
         /* EVENTS */
         const eventTargetManager = EVENT_TARGET_MANAGER.get(this);
-        const eventBusSubset = EVENT_BUS_SUBSET.get(this);
         eventTargetManager.clear();
-        eventBusSubset.clear();
     }
 
     getUserList() {
