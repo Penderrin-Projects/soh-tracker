@@ -1,16 +1,14 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
-import "/script/state/item/InfiniteItemState.js";
 import "./Item.js";
 
 const TPL = new Template(`
@@ -40,8 +38,6 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 #value {
-    width: 100%;
-    height: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -84,8 +80,6 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     connectedCallback() {
@@ -186,14 +180,7 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if (value < 9999) {
-                    value++;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value++;
             }
         }
         if (!event) return;
@@ -205,16 +192,7 @@ export default class InfiniteItem extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
-                    value = 0;
-                } else if (value > 0) {
-                    value--;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value--;
             }
         }
         if (!event) return;

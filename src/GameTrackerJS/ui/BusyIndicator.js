@@ -1,7 +1,7 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+
 
 const TPL = new Template(`
 <slot>

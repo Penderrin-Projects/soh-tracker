@@ -1,16 +1,18 @@
-/* asym-import: off */
+// frameworks
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 import LogicExecutor from "../../util/logic/LogicExecutor.js";
 import DataState from "./DataState.js";
+
+// TODO this should be a mixin
 
 const VISIBLE = new WeakMap();
 const VISIBLE_LOGIC = new WeakMap();
 
 export default class VisibilityState extends DataState {
 
-    constructor(ref, props) {
+    constructor(ref, props = {}) {
         super(ref, props);
         /* VISIBLE */
         if (typeof props.visible == "object") {

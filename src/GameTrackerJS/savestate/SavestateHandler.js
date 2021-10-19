@@ -1,12 +1,7 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
-import DateUtil from "/emcJS/util/DateUtil.js";
-/* asym-import: on */
-import VersionData from "../data/VersionData.js";
-import "../storage/SettingsStorage.js";
-import OptionsStorage from "../storage/OptionsStorage.js";
-import FilterStorage from "../storage/FilterStorage.js";
+
 import Savestate from "./Savestate.js";
 import SavestateConverter from "./SavestateConverter.js";
 import BusyIndicator from "../ui/BusyIndicator.js";
@@ -16,57 +11,6 @@ const STATE_DIRTY = "state_dirty";
 const TITLE_PREFIX = document.title;
 
 const STORAGE = new IDBStorage("savestates");
-
-let autosaveMax = 0;
-let autosaveTime = 0;
-let autosaveTimeout = null;
-
-function cacheData(data, dirty = true) {
-    LocalStorage.set(PERSISTANCE_NAME, data);
-    LocalStorage.set(STATE_DIRTY, !!dirty);
-    updateTitle();
-}
-
-function sortStates(a, b) {
-    if (a < b) {
-        return 1;
-    } else if (a > b) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
-
-async function removeOverflowAutosaves() {
-    const saves = await STORAGE.getAll();
-    const keys = Object.keys(saves);
-    const autoKeys = [];
-    for (const key of keys) {
-        if (saves[key].autosave) {
-            autoKeys.push(key);
-        }
-    }
-    autoKeys.sort(sortStates);
-    while (autoKeys.length > 0 && autoKeys.length >= autosaveMax) {
-        const key = autoKeys.pop();
-        if (saves[key].autosave) {
-            await STORAGE.delete(key);
-        }
-    }
-}
-
-async function autosave() {
-    if (LocalStorage.get(STATE_DIRTY, false)) {
-        const tmp = Object.assign({}, Savestate.serialize());
-        tmp.timestamp = new Date();
-        tmp.autosave = true;
-        tmp.app_version = VersionData.versionString;
-        tmp.user_agent = VersionData.userAgent;
-        await STORAGE.set(`${DateUtil.convert(new Date(tmp.timestamp), "YMDhms")}_${tmp.name}`, tmp);
-        await removeOverflowAutosaves();
-    }
-    autosaveTimeout = setTimeout(autosave, autosaveTime);
-}
 
 function updateTitle() {
     const name = Savestate.name || "new state";
@@ -86,64 +30,57 @@ class SavestateHandler extends EventTarget {
         if (initState != null) {
             this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(initState);
-            const {options, filter, ...data} = state;
-            Savestate.deserialize(data);
-            OptionsStorage.deserialize(options);
-            FilterStorage.deserialize(filter);
+            Savestate.deserialize(state);
             updateTitle();
             // trigger event
             this.dispatchEvent(new Event("reset"));
             const ev = new Event("load");
-            ev.state = {
-                notes: state.notes,
-                data: state.data,
-                options: state.options,
-                filter: state.filter
-            };
+            ev.state = state;
             this.dispatchEvent(ev);
             this.dispatchEvent(new Event("afterload"));
         }
         /* --- */
         Savestate.addEventListener("change", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
-            cacheData(state, true);
+            this./*#*/__cacheData(state, true);
             if (!event.category) {
                 const ev = new Event("change");
                 ev.data = event.data;
-                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             } else {
                 const ev = new Event(`change_${event.category}`);
                 ev.data = event.data;
-                ev.changes = event.changes;
                 this.dispatchEvent(ev);
             }
         });
         Savestate.addEventListener("notes", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
-            cacheData(state, true);
+            this./*#*/__cacheData(state, true);
             const ev = new Event("notes");
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
         Savestate.addEventListener("options", event => {
-        });
-        OptionsStorage.addEventListener("change", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
-            cacheData(state, true);
+            this./*#*/__cacheData(state, true);
         });
-        FilterStorage.addEventListener("persistedchange", event => {
+        Savestate.addEventListener("filter", event => {
             const state = Savestate.serialize();
-            state.options = OptionsStorage.serialize();
-            state.filter = FilterStorage.serialize();
-            cacheData(state, true);
+            this./*#*/__cacheData(state, true);
         });
+        Savestate.addEventListener("startitems", event => {
+            const state = Savestate.serialize();
+            this./*#*/__cacheData(state, true);
+        });
+    }
+
+    /*#*/__cacheData(data, dirty = true) {
+        LocalStorage.set(PERSISTANCE_NAME, data);
+        LocalStorage.set(STATE_DIRTY, !!dirty);
+        const ev = new Event("dirty");
+        ev.data = !!dirty;
+        this.dispatchEvent(ev);
+        updateTitle();
     }
 
     async save(name = Savestate.name) {
@@ -151,17 +88,9 @@ class SavestateHandler extends EventTarget {
         const state = Savestate.serialize();
         state.timestamp = new Date();
         state.autosave = false;
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
-        state.app_version = VersionData.versionString;
-        state.user_agent = VersionData.userAgent;
         await STORAGE.set(name, state);
-        if (autosaveTimeout != null) {
-            clearTimeout(autosaveTimeout);
-            autosaveTimeout = setTimeout(autosave, autosaveTime);
-        }
         // write state data
-        cacheData(state, false);
+        this./*#*/__cacheData(state, false);
     }
 
     async load(name) {
@@ -169,44 +98,17 @@ class SavestateHandler extends EventTarget {
         if (await STORAGE.has(name)) {
             this.dispatchEvent(new Event("beforeload"));
             const state = SavestateConverter.convert(await STORAGE.get(name));
-            if (autosaveTimeout != null) {
-                clearTimeout(autosaveTimeout);
-                autosaveTimeout = setTimeout(autosave, autosaveTime);
-            }
             // write state data
-            const {options, filter, ...data} = state;
-            Savestate.deserialize(data);
-            OptionsStorage.deserialize(options);
-            FilterStorage.deserialize(filter);
-            cacheData(state, false);
+            Savestate.deserialize(state);
+            this./*#*/__cacheData(state, false);
             // trigger event
             this.dispatchEvent(new Event("reset"));
             const ev = new Event("load");
-            ev.state = {
-                notes: state.notes,
-                data: state.data,
-                options: state.options,
-                filter: state.filter
-            };
+            ev.state = state;
             this.dispatchEvent(ev);
             this.dispatchEvent(new Event("afterload"));
         }
         await BusyIndicator.unbusy();
-    }
-
-    async setAutosave(time, amount) {
-        if (time > 0) {
-            autosaveMax = amount;
-            autosaveTime = time * 60000;
-            await removeOverflowAutosaves();
-            if (autosaveTimeout != null) {
-                clearTimeout(autosaveTimeout);
-            }
-            autosaveTimeout = setTimeout(autosave, autosaveTime);
-        } else if (autosaveTimeout != null) {
-            clearTimeout(autosaveTimeout);
-            autosaveTimeout = null;
-        }
     }
 
     getName() {
@@ -221,27 +123,18 @@ class SavestateHandler extends EventTarget {
      * Resets the state and initializes the savestate, options and filter with the given data, handling it as a stateload
      * @param {Object} stateData an Object containing data for savestate, options and filter
      */
-    async reset({data = {}, options = {}, filter = {}} = {}) {
+    async reset(data = {}) {
         await BusyIndicator.busy();
         this.dispatchEvent(new Event("beforeload"));
         // write state data
-        Savestate.deserialize({data});
-        OptionsStorage.deserialize(options);
-        FilterStorage.deserialize(filter);
+        Savestate.deserialize(data);
         // cache data
         const state = Savestate.serialize();
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
-        cacheData(state, false);
+        this./*#*/__cacheData(state, false);
         // trigger event
         this.dispatchEvent(new Event("reset"));
         const ev = new Event("load");
-        ev.state = {
-            notes: state.notes,
-            data: state.data,
-            options: state.options,
-            filter: state.filter
-        };
+        ev.state = state;
         this.dispatchEvent(ev);
         this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
@@ -251,26 +144,17 @@ class SavestateHandler extends EventTarget {
      * Overwrites the savestate, options and filter with the given data, handling it as a stateload
      * @param {Object} stateData an Object containing data for savestate, options and filter
      */
-    async overwrite({data = {}, options = {}, filter = {}} = {}) {
+    async overwrite(data = {}) {
         await BusyIndicator.busy();
         this.dispatchEvent(new Event("beforeload"));
         // write state data
         Savestate.overwrite(data);
-        OptionsStorage.overwrite(options);
-        FilterStorage.overwrite(filter);
         // cache data
         const state = Savestate.serialize();
-        state.options = OptionsStorage.serialize();
-        state.filter = FilterStorage.serialize();
-        cacheData(state, true);
+        this./*#*/__cacheData(state, true);
         // trigger event
         const ev = new Event("load");
-        ev.state = {
-            notes: state.notes,
-            data: state.data,
-            options: state.options,
-            filter: state.filter
-        };
+        ev.state = state;
         this.dispatchEvent(ev);
         this.dispatchEvent(new Event("afterload"));
         await BusyIndicator.unbusy();
@@ -302,6 +186,40 @@ class SavestateHandler extends EventTarget {
 
     getAll(category) {
         return Savestate.getAll(category);
+    }
+
+    delete(category, key) {
+        Savestate.delete(category, key);
+    }
+
+    /* additional storages */
+    
+    get options() {
+        return Savestate.options;
+    }
+    
+    get filter() {
+        return Savestate.filter;
+    }
+    
+    get startitems() {
+        return Savestate.startitems;
+    }
+
+    /* debug */
+    testConverter() {
+        const offset = SavestateConverter.offset;
+        const version = SavestateConverter.version;
+        console.group("StateConverter - Test");
+        try {
+            for (let i = offset; i < version; ++i) {
+                console.log(`Version[${i}]: `, SavestateConverter.convert({version: i, data: {}}));
+            }
+        } catch(err) {
+            console.error(err);
+        } finally {
+            console.groupEnd("StateConverter - Test");
+        }
     }
 
 }

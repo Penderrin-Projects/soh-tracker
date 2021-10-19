@@ -1,13 +1,13 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -15,17 +15,15 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
-import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
+import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 
-const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
-
 const TPL = new Template(`
 <div id="header" class="textarea">
     <div id="text"></div>
-    <gt-badge id="badge"></gt-badge>
+    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 <div id="list">
     <slot></slot>
@@ -49,11 +47,12 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(:empty) {
-    display: none;
-}
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
+}
+:host(.empty) {
+    display: none;
 }
 .textarea {
     display: flex;
@@ -87,7 +86,7 @@ const STYLE = new GlobalStyle(`
 #text[data-state="possible"] {
     color: var(--location-status-possible-color, #000000);
 }
-:host(:not(:empty)) #text.collapsible:before {
+:host(:not(:empty)) #header.collapsible:before {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +98,7 @@ const STYLE = new GlobalStyle(`
     text-align: center;
     content: "+"
 }
-:host(:not(:empty)) #text.collapsible.expanded:before {
+:host(:not(:empty)) #header.collapsible.expanded:before {
     content:"-"
 }
 .menu-tip {
@@ -112,15 +111,17 @@ const STYLE = new GlobalStyle(`
     width: 100%;
     margin-top: 5px;
 }
-#list.collapsible {
+#header.collapsible + #list {
     display: none;
 }
-:host(:not(:empty)) #list.collapsible.expanded {
+:host(:not(:empty)) #header.collapsible.expanded + #list {
     display: block;
 }
 `);
 
-export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(AbstractSubArea)) {
+const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
+
+export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
 
     constructor() {
         super();
@@ -128,71 +129,54 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerGlobal("state", event => {
-            if (this.isConnected) {
-                this.refreshList();
-            }
-        });
-        /* --- */
-        const textEl = this.shadowRoot.getElementById("text");
-        const listEl = this.shadowRoot.getElementById("list");
-        textEl.addEventListener("click", (event) => {
-            if (textEl.classList.contains("collapsible") && this.value != "") {
-                if (textEl.classList.contains("expanded")) {
-                    textEl.classList.remove("expanded");
-                    listEl.classList.remove("expanded");
+        const headerEl = this.shadowRoot.getElementById("header");
+        headerEl.addEventListener("click", (event) => {
+            if (headerEl.classList.contains("collapsible") && this.value != "") {
+                if (headerEl.classList.contains("expanded")) {
+                    headerEl.classList.remove("expanded");
                 } else {
-                    textEl.classList.add("expanded");
-                    listEl.classList.add("expanded");
+                    headerEl.classList.add("expanded");
                 }
             }
         });
         /* --- */
-        this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
+        this.switchTarget("sublistCollapsible", sublistCollapsibleObserver);
         this.setTargetEventListener("sublistCollapsible", "change", event => {
             const collapsible = event.data;
             if (collapsible != "off") {
-                textEl.classList.add("collapsible");
-                listEl.classList.add("collapsible");
+                headerEl.classList.add("collapsible");
                 if (collapsible == "start_expanded") {
-                    textEl.classList.add("startexpanded");
+                    headerEl.classList.add("startexpanded");
                 }
             } else {
-                textEl.classList.remove("collapsible");
-                listEl.classList.remove("collapsible");
+                headerEl.classList.remove("collapsible");
             }
         });
-        const collapsible = sublistCollapsibleSpy.getValue();
+        const collapsible = sublistCollapsibleObserver.value;
         if (collapsible != "off") {
-            textEl.classList.add("collapsible");
-            listEl.classList.add("collapsible");
+            headerEl.classList.add("collapsible");
             if (collapsible == "start_expanded") {
-                textEl.classList.add("expanded");
-                listEl.classList.add("expanded");
-                textEl.classList.add("startexpanded");
+                headerEl.classList.add("expanded");
+                headerEl.classList.add("startexpanded");
             }
         }
     }
 
     setCollapsed(value) {
-        const textEl = this.shadowRoot.getElementById("text");
-        const listEl = this.shadowRoot.getElementById("list");
-        if (textEl.classList.contains("collapsible")) {
+        const headerEl = this.shadowRoot.getElementById("header");
+        if (headerEl.classList.contains("collapsible")) {
             if (value) {
-                textEl.classList.remove("expanded");
-                listEl.classList.remove("expanded");
+                headerEl.classList.remove("expanded");
             } else {
-                textEl.classList.add("expanded");
-                listEl.classList.add("expanded");
+                headerEl.classList.add("expanded");
             }
         }
     }
-
-    connectedCallback() {
-        if (super.connectedCallback) {
-            super.connectedCallback();
-        }
-        this.refreshList();
+    
+    applyAccess(data) {
+        super.applyAccess(data);
+        /* collapsed */
+        this.setCollapsed(data.value == AccessStateEnum.OPENED);
     }
 
     refreshList() {
@@ -200,22 +184,21 @@ export default class ListSubArea extends EventTargetMixin(UIEventBusMixin(Abstra
         const state = this.getState();
         if (state != null) {
             const list = state.getList();
-            if (list != null) {
+            if (list != null && list.length > 0) {
+                let visible = false;
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
+                    if (loc.isVisible()) {
+                        visible = true;
+                    }
                 }
+                this.classList.toggle("empty", !visible);
+            } else {
+                this.classList.add("empty");
             }
         }
-    }
-
-    get expanded() {
-        return this.getAttribute("expanded");
-    }
-
-    set expanded(val) {
-        this.setAttribute("expanded", val);
     }
 
 }

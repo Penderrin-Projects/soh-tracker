@@ -1,10 +1,6 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
-
-// GameTrackerJS
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 
 const TPL = new Template(`
 <div class="textarea">
@@ -30,7 +26,8 @@ const STYLE = new GlobalStyle(`
     padding: 5px;
     color: #ffffff;
 }
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {
@@ -80,9 +77,6 @@ export default class ListButton extends HTMLElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
 }

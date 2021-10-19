@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
-import Toast from "/emcJS/ui/overlay/Toast.js";
+// frameworks
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
@@ -46,6 +46,9 @@ PageSwitcher.register("main", [{
         "content": "UPLOAD SPOILER",
         "handler": openSpoilerSettingsWindow
     }, {
+        "content": "CLEAR SPECIFIC DATA",
+        "handler": openClearDataWindow
+    }, {
         "content": "DETACHED ITEM WINDOW",
         "handler": openDetachedItems
     }, {
@@ -65,7 +68,7 @@ async function state_Save() {
     const activestate = await SavestateHandler.getName();
     if (activestate) {
         await SavestateHandler.save();
-        Toast.show(`Saved "${activestate}" successfully.`);
+        Toast.success(`Saved "${activestate}" successfully.`);
     } else {
         state_SaveAs();
     }
@@ -111,7 +114,7 @@ async function states_Manage() {
 }
 
 function openDetachedItems() {
-    window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
+    window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
 }
 
 function openDiscortJoin() {
@@ -142,6 +145,14 @@ function openSpoilerSettingsWindow() {
         spoilerLogWindow.show();
     }
 }
+
+function openClearDataWindow() {
+    const clearDataWindow = GlobalContext.get("ClearDataWindow");
+    if (clearDataWindow) {
+        clearDataWindow.show();
+    }
+}
+
 function showEditors() {
     PageSwitcher.switch("editor_choice");
 }

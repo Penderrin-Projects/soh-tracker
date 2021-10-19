@@ -1,9 +1,11 @@
+// frameworks
+import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
+
+import AbstractSettingsWindow from "./AbstractSettingsWindow.js";
 import SettingsResource from "../../../resource/SettingsResource.js";
 import SettingsStorage from "../../../storage/SettingsStorage.js";
-import SettingsBuilder from "../../../util/SettingsBuilder.js";
-import SettingsWindow from "./SettingsWindow.js";
 import BusyIndicator from "../../../ui/BusyIndicator.js";
-import SavestateHandler from "../../../savestate/SavestateHandler.js";
+import AutosaveHandler from "../../../savestate/AutosaveHandler.js";
 
 // TODO bind erase stored data button
 
@@ -11,15 +13,15 @@ function applySettingsChoices(settings) {
     const viewpane = document.getElementById("main-content");
     viewpane.setAttribute("data-font", settings.font);
     document.querySelector("#layout-container").setAttribute("layout", settings.layout);
-    document.body.style.setProperty("--item-size", settings.itemsize);
-    SavestateHandler.setAutosave(settings.autosave_amount, settings.autosave_time);
+    AutosaveHandler.time = settings.autosave_time;
+    AutosaveHandler.slots = settings.autosave_amount;
 }
 applySettingsChoices(SettingsStorage.getAll());
 
-export default class AppSettingsWindow extends SettingsWindow {
+export default class AppSettingsWindow extends AbstractSettingsWindow {
 
     constructor() {
-        super() ;
+        super("App settings") ;
         /* --- */
         const options = SettingsResource.get();
         SettingsBuilder.build(this, options);

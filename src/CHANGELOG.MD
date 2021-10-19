@@ -4,6 +4,502 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.46
+
+### BUGFIXES
+
+- fix entrance binding initial focus not on searchbox
+- fix all carpenters rescued check to only show if active
+- fix "Guards Cleared" translation to now say "Rescued all Carpenters"
+- fix "Stage" translations to now say "Deku Theatre"
+
+---
+
+## VERSION 2.1.45
+
+### BUGFIXES
+
+- fix settings value lists default values
+
+---
+
+## VERSION 2.1.44
+
+### IMPROVEMENTS
+
+- add overworld only skulltula filter
+
+### BUGFIXES
+
+- fix context menu layer shift
+- fix context menu keyboard navigation
+
+---
+
+## VERSION 2.1.43
+
+### IMPROVEMENTS
+
+- add variable minimum item count to child trading sequence
+    - depending on skip child zelda option
+
+### BUGFIXES
+
+- fix starting items not handled correctly in logic
+- fix fountain access without zora letter for always open fountain option
+- fix starting items from spoiler log no longer cleared on options window open
+- fix translations for options
+
+---
+
+## VERSION 2.1.42
+
+### IMPROVEMENTS
+
+- add check color choice for a11y
+- add a11y options tab to tracker settings
+
+### BUGFIXES
+
+- fix subareas were not hidden if empty
+- fix location list now scrolls to top on reference change
+
+---
+
+## VERSION 2.1.41
+
+### BUGFIXES
+
+- fix filter context menu not positioned correctly
+- fix filter context menu not blocking page interaction
+
+---
+
+## VERSION 2.1.40
+
+### BUGFIXES
+
+- fix dungeon reward choice context menu not positioned correctly
+- fix dungeon reward choice context menu not blocking page interaction
+
+---
+
+## VERSION 2.1.39
+
+### IMPROVEMENTS
+
+- change order in songs tab to reflect the in-game order
+
+### BUGFIXES
+
+- fix "ganons castle grounds" reachable from "hc storms grotto" due to entrance binding leak
+
+---
+
+## VERSION 2.1.38
+
+### NOT USED
+
+---
+
+## VERSION 2.1.37
+
+### BUGFIXES
+
+- fix savestate export not triggering correctly
+
+---
+
+## VERSION 2.1.36
+
+### IMPROVEMENTS
+
+- add collection list item for spawn exits
+    - will auto open if exits become bindable
+    - will not auto close
+    - text color is always white
+
+### BUGFIXES
+
+- fix render layers for overlays and navigation
+- fix subarea and collection collapse behavior
+
+---
+
+## VERSION 2.1.35
+
+### BUGFIXES
+
+- fix SFM GS not checking for nighttime skulltula option
+- fix king zora thawed to consider ice cavern mq
+- fix kakriko potion shop not visible on simple interior shuffle
+
+---
+
+## VERSION 2.1.34
+
+### BUGFIXES
+
+- fix some min requirements in logic did wrongly check against 0
+
+---
+
+## VERSION 2.1.33
+
+### BUGFIXES
+
+- fix states not prviding correct visibility data
+
+---
+
+## VERSION 2.1.32
+
+### IMPROVEMENTS
+
+- add big poe item counter
+- add big poe requirements to rom options
+
+### BUGFIXES
+
+- fix big poe check was accessible without eponas song if skip epona race was active
+
+---
+
+## VERSION 2.1.31
+
+### IMPROVEMENTS
+
+- auto close location sublists if they are empty
+
+### BUGFIXES
+
+- fix shop items could not be applied to vanilla on shopsanity
+- fix load spoiler shopitems trading sequence wrong values
+
+---
+
+## VERSION 2.1.30
+
+### PERFORMANCE
+
+- create and cache contextmenus only when they are needed
+- remove unnecessary data handling in datastorages
+
+### BUGFIXES
+
+- fix smaller issues with persisiting data concerning filters
+- fix small issue with state converters missing initial data
+
+---
+
+## VERSION 2.1.29
+
+### BUGFIXES
+
+- fix presets would not apply correctly
+- fix filters would not initialize on new game as intended
+- fix error in custom logic type change
+
+---
+
+## VERSION 2.1.28
+
+### IMPROVEMENTS
+
+- add remove starting items to clear data window
+
+### BUGFIXES
+
+- fix detached window not loading correctly due to race condition
+- fix start items not loaded after tracker initialization
+- fix item marker style not applied correctly
+
+---
+
+## VERSION 2.1.27
+
+### BUGFIXES
+
+- remove private class methods as the compressor does not handle them correctly
+
+---
+
+## VERSION 2.1.26
+
+### ITEMS
+
+- change how min/max values are applied
+    - do not overwrite value, apply boundaries only visually
+- store start item values as seperate data
+
+### SPOILER PARSER
+
+- warn on unknown version instead of throwing an error
+
+### BUGFIXES
+
+- fix unwanted persisted filter dropping on state conversion
+- fix mixed entrance pool to include common region targets
+- fix full area list was shown when bound to subexits
+
+---
+
+## VERSION 2.1.25
+
+### RULE PRESETS
+
+- updated S3 scrub tournament ruleset
+- added weekly and league settings
+- enable item presetting for rulesets
+    - only items less than the specified value will be set
+
+---
+
+## VERSION 2.1.24
+
+### ROM OPTIONS
+
+- change shopsanity option type from number to choice
+- add missing shopsanity option values
+
+### BUGFIXES
+
+- fix presets not loading lists correctly
+- fix empty subareas did not hide properly
+- fix shop slots did not update all item data correctly
+- fix shopsanity active slot order
+- fix shop item dialog title translations
+
+---
+
+## VERSION 2.1.23
+
+### RULE PRESETS
+
+- update scrub tournament for S3
+
+---
+
+## VERSION 2.1.22
+
+### IMPROVEMENTS
+
+- add shopsanity mode for itemslots (unknown item marker)
+- rename well chests (small/large) to east/west
+- add junk item counter to large item grid
+
+---
+
+## VERSION 2.1.21
+
+### IMPROVEMENTS
+
+- added language file for tagged grotto/interior names to simplify the search for scrub/generic/useless grottos and useless interiors
+
+### BUGFIXES
+
+- fix key logic was always considered on
+- fix custom logic tried overwriting immutable resource
+
+---
+
+## VERSION 2.1.20
+
+### BUGFIXES
+
+- fix warp pads not accessible on warp pad/spawn/overworld shuffle
+- fix genons castle not handled like a dungeon in location state footer
+    - dungeontype was ignored and all (vanilla/mq) locations were checked all the time
+
+---
+
+## VERSION 2.1.19
+
+### IMPROVEMENTS
+
+- make [ctrl] + [click] auto de-junk junked shop slots
+- add dirty check to autosave handling
+
+---
+
+## VERSION 2.1.18
+
+### BUGFIXES
+
+- fix entrances not triggering worldlist change
+
+---
+
+## VERSION 2.1.17
+
+### IMPROVEMENTS
+
+- make filter badges optional
+    - toggle by tracker settings, default: on
+
+### BUGFIXES
+
+- prevent linebreak in access numbers badge
+
+---
+
+## VERSION 2.1.16
+
+### BUGFIXES
+
+- add empty world states
+    - handle access for entrance bindings to empty values
+- add exception for single entrance binding checks
+    - empty entrances can now be bound multiple times
+- add exception empty entrances to not trigger worldlist change
+- remove redundant world state handling
+
+---
+
+## VERSION 2.1.15
+
+### IMPROVEMENTS
+
+- add empty exit to fast bind entrances without any checks
+- add optional available/unopened check counter to badges
+    - toggle by tracker settings, default: off
+
+### BUGFIXES
+
+- fix water temple no longer adds extra keys
+
+---
+
+## VERSION 2.1.14
+
+### BUGFIXES
+
+- fix entrance binding menu size
+
+---
+
+## VERSION 2.1.13
+
+### BUGFIXES
+
+- fix entrance binding menu not opening
+- fix check all for unknown dungeon type bound to vanilla dungeon
+    - vanilla dungeon type was ignored
+
+---
+
+## VERSION 2.1.12
+
+### BUGFIXES
+
+- fix shop tab slots not being able to buy/unbuy items
+
+---
+
+## VERSION 2.1.11
+
+### SHOPS
+
+- add junk submenu entry
+- make [ctrl] + [click] auto junk shop slots
+- add clear submenu entry
+- make initial click open item selection
+- make shop tab slots behave the same as location list slots
+
+### OVERHAUL
+
+- better contextmenu generation
+
+---
+
+## VERSION 2.1.10
+
+### NOTES PANEL
+
+- add font size control
+    - persisted in new parameter storage
+
+### SONGS
+
+- add song reset button
+- add song clear button
+
+### CLEAR DATA WINDOW
+
+- clear specific data
+    - shop items
+    - songs
+    - area hints (woth/fool)
+    - dungeon rewards
+    - dungeon types
+    - item locations
+    - gossipstone hints
+
+### BUGFIXES
+
+- fix error in update handler not showing correct download status (settings > about)
+- fix gossipstones not writing hint data to state
+- fix gossipstones not retrieving hint data after state load
+- fix loading shopsanity slot count from spoiler log
+- fix loading shop triforce pieces from spoiler log
+
+---
+
+## VERSION 2.1.9
+
+### SERVICEWORKER
+
+- cache.put seems to have problems, so replace it with cache.add
+    - only use the own override cache method to ensure resource removal first
+- output error message from serviceworker
+
+---
+
+## VERSION 2.1.8
+
+### BUGFIXES
+
+- fix shop dialog item choice not working
+
+---
+
+## VERSION 2.1.7
+
+### SHOPS
+
+- added check for wallet upgrades to access
+- added price indicator to locationlist
+
+### TOP LEVEL AWAIT
+
+- streamline application with top level await
+- remove compatibility code since firefox, chrome, edge and opera now support this natively
+
+---
+
+## VERSION 2.1.6
+
+### BUGFIXES
+
+- fixed list choices ruleset presets in rom options
+- fixed translations not loading in detached window
+
+### SETTINGS WINDOWS
+
+- added functionality to hide unnecessary settings
+    - cleans up the presentation of the settings to enhance the user experience
+    - used for lacs and bridge
+
+---
+
+## VERSION 2.1.5
+
+### LAYOUTS
+
+- added a standard settings based essential layout
+
+---
+
 ## VERSION 2.1.4
 
 ### BUGFIXES

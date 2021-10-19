@@ -1,11 +1,11 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-/* asym-import: on */
 
 // GameTrackerJS
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import "/GameTrackerJS/state/world/OverworldState.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
@@ -15,6 +15,7 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
+import "/GameTrackerJS/ui/button/FilterMenuButton.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./mapmarker/Location.js";
@@ -24,8 +25,7 @@ import "./mapmarker/Area.js";
 import "./mapmarker/SubArea.js";
 import "./mapmarker/Exit.js";
 import "./mapmarker/SubExit.js";
-import "/script/ui/dungeonstate/DungeonType.js";
-import "/script/ui/FilterMenu.js";
+import "../dungeonstate/DungeonType.js";
 
 const ZOOM_MIN = 10;
 const ZOOM_MAX = 200;
@@ -228,8 +228,8 @@ const TPL = new Template(`
                 </div>
                 -->
                 <div class="button-wrapper">
-                    <ootrt-filtermenu class="button map-menu">
-                    </ootrt-filtermenu>
+                    <gt-filtermenubutton class="button map-menu">
+                    </gt-filtermenubutton>
                 </div>
             </div>
             <div id="map-options-body" class="hidden">
@@ -440,6 +440,18 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         areaEventManager.set("list_update", event => {
             this.refresh();
         });
+        /* --- */
+        SavestateHandler.addEventListener("load", event => {
+            this.refresh();
+        });
+        SavestateHandler.addEventListener("change_dungeontype", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.refresh();
+                }
+            }
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -450,14 +462,6 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
         });
         this.registerGlobal("state", () => {
             this.refresh();
-        });
-        this.registerGlobal("statechange_dungeontype", event => {
-            if (event.data != null) {
-                const data = event.data[this.ref];
-                if (data != null) {
-                    this.refresh();
-                }
-            }
         });
     }
 

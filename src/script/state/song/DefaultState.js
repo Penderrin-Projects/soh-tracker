@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
@@ -51,6 +51,9 @@ export default class DefaultState extends DataState {
     /*#*/__setNotes(value) {
         if (this.props.editable) {
             const ref = this.ref;
+            if (value == null) {
+                value = this.props.notes;
+            }
             if (typeof value == "string") {
                 const old = this.notes;
                 if (value != old) {

@@ -1,12 +1,12 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
+import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubArea from "/GameTrackerJS/ui/world/SubArea.js";
@@ -18,7 +18,7 @@ const TPL = new Template(`
     <div class="textarea">
         <div id="text"></div>
         <div id="hint"></div>
-        <gt-badge id="badge"></gt-badge>
+        <gt-badge-access id="badge"></gt-badge-access>
     </div>
 </emc-tooltip>
 `);
@@ -62,10 +62,12 @@ const STYLE = new GlobalStyle(`
 #marker[data-state="possible"] {
     background-color: var(--location-status-possible-color, #000000);
 }
-#marker:hover {
+#marker:hover,
+:host(.ctx-marked) #marker {
     box-shadow: 0 0 2px 4px #67ffea;
 }
-#marker:hover + #tooltip {
+#marker:hover + #tooltip,
+:host(.ctx-marked) #marker + #tooltp {
     display: block;
 }
 #tooltip {
@@ -101,7 +103,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
+export default class MapSubArea extends AbstractSubArea {
 
     constructor() {
         super();
@@ -176,6 +178,25 @@ export default class MapSubArea extends UIEventBusMixin(AbstractSubArea) {
                     tooltip.position = newValue;
                 }
                 break;
+        }
+    }
+
+    refreshList() {
+        const state = this.getState();
+        if (state != null) {
+            const list = state.getList();
+            if (list != null && list.length > 0) {
+                let visible = false;
+                for (const record of list) {
+                    const loc = WorldStateManager.get(record.category, record.id);
+                    if (loc.isVisible()) {
+                        visible = true;
+                    }
+                }
+                this.classList.toggle("empty", !visible);
+            } else {
+                this.classList.add("empty");
+            }
         }
     }
 

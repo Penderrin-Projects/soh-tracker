@@ -1,15 +1,16 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 // GameTrackerJS
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import ShopStates from "/script/state/shop/StateManager.js";
 import ShopItemChoiceDialog from "./ShopItemChoiceDialog.js";
+import ShopSlotContextMenu from "../ctxmenu/ShopSlotContextMenu.js";
 
 const TPL = new Template(`
 <div id="image"></div>
@@ -105,6 +106,18 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const shopsanityObserver = new OptionsObserver("option.shopsanity");
+const SHOP_SLOT_IDS = [
+    "left/top-left",
+    "left/top-right",
+    "right/top-left",
+    "right/top-right",
+    "left/bottom-left",
+    "left/bottom-right",
+    "right/bottom-left",
+    "right/bottom-right"
+];
+
 function getIcon(itemData, bought) {
     if (itemData == null) {
         return "/images/items/unknown.png";
@@ -118,7 +131,18 @@ function getIcon(itemData, bought) {
     return itemData.image ?? "/images/items/unknown.png";
 }
 
-export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLElement) {
+function getDialogTitle(ref) {
+    const [shopRef, slotRef] = ref.split("/");
+    const shopTitleEl = Language.generateLabel(shopRef);
+    const slotTitleEl = Language.generateLabel(SHOP_SLOT_IDS[slotRef]);
+    const titleEl = document.createElement("span");
+    titleEl.append(shopTitleEl);
+    titleEl.append(document.createTextNode(" "));
+    titleEl.append(slotTitleEl);
+    return titleEl;
+}
+
+export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
     
     constructor() {
         super();
@@ -126,6 +150,22 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
+        shopsanityObserver.addEventListener("change", () => {
+            const state = this.getState();
+            if (state != null) {
+                // title
+                const titleEl = this.shadowRoot.getElementById("title");
+                if (titleEl != null) {
+                    Language.applyLabel(titleEl, state.item);
+                }
+                // cost
+                const priceEl = this.shadowRoot.getElementById("price");
+                if (priceEl != null) {
+                    priceEl.innerHTML = state.price;
+                }
+            }
+            this./*#*/__applyItem();
+        });
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
@@ -149,20 +189,69 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             }
         });
 
+        /* context menu */
+        this.setDefaultContextMenu(ShopSlotContextMenu);
+        this.addDefaultContextMenuHandler("check", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = true;
+            }
+        });
+        this.addDefaultContextMenuHandler("uncheck", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = false;
+            }
+        });
+        this.addDefaultContextMenuHandler("associate", event => {
+            this./*#*/__editItem();
+        });
+        this.addDefaultContextMenuHandler("junk", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.item = "item.refill_item";
+                state.price = "0";
+                state.value = true;
+            }
+        });
+        this.addDefaultContextMenuHandler("disassociate", event => {
+            const state = this.getState();
+            if (state != null) {
+                state.reset();
+            }
+        });
+
         /* mouse events */
         this.addEventListener("click", event => {
             const state = this.getState();
             if (state != null) {
-                state.bought = !state.bought;
+                if (event.ctrlKey) {
+                    if (state.item != "item.refill_item") {
+                        state.item = "item.refill_item";
+                        state.price = "0";
+                        state.value = true;
+                    } else {
+                        state.reset();
+                    }
+                } else {
+                    if (state.isDefault()) {
+                        this./*#*/__editItem();
+                    } else {
+                        state.bought = !state.bought;
+                    }
+                }
             }
+            /* --- */
             event.preventDefault();
             event.stopPropagation();
             return false;
         });
+        
+        /* mouse events */
         this.addEventListener("contextmenu", event => {
-            this./*#*/__editItem();
-            event.preventDefault();
+            this.showDefaultContextMenu(event);
             event.stopPropagation();
+            event.preventDefault();
             return false;
         });
         const nameEl = this.shadowRoot.getElementById("name");
@@ -177,9 +266,6 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
             event.stopPropagation();
             return false;
         });
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     applyDefaultValues() {
@@ -231,11 +317,10 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
 
     /*#*/__applyItem() {
         const state = this.getState();
-        const itemData = state.itemData;
         const imageEl = this.shadowRoot.getElementById("image");
+        const itemData = state?.itemData;
         if (itemData != null) {
             // icon
-            const imageEl = this.shadowRoot.getElementById("image");
             if (imageEl != null) {
                 const icon = getIcon(itemData, state.bought);
                 imageEl.style.backgroundImage = `url("${icon}")`;
@@ -253,15 +338,16 @@ export default class HTMLTrackerShopItem extends StateDataEventManager(HTMLEleme
                 imageEl.style.backgroundImage = `url("/images/items/unknown.png")`;
             }
             // mark
-            delete document.body.dataset.mark;
+            this.dataset.mark = "";
         }
     }
 
     /*#*/__editItem(event) {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(Language.generateLabel(this.ref));
-            d.value = state.item;
+            const d = new ShopItemChoiceDialog(getDialogTitle(this.ref));
+            d.item = state.item;
+            d.price = state.price;
             d.addEventListener("submit", function(result) {
                 if (result) {
                     const state = this.getState();

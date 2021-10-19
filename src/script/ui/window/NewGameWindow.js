@@ -1,10 +1,10 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import Window from "/emcJS/ui/overlay/Window.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import Window from "/emcJS/ui/overlay/window/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";

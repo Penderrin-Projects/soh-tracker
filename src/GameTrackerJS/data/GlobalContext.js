@@ -1,6 +1,5 @@
-/* asym-import: off */
+// frameworks
 import Context from "/emcJS/data/Context.js";
-/* asym-import: on */
 
 const GlobalContext = new Context();
 /*global globalThis*/

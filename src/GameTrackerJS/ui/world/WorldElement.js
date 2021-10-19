@@ -1,12 +1,12 @@
-/* asym-import: off */
+// frameworks
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
+import "../BadgeAccess.js";
 
 const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
 export default class WorldElement extends BaseClass {
@@ -34,8 +34,30 @@ export default class WorldElement extends BaseClass {
                 }
             }
         });
-        /* fck iOS */
-        iOSTouchHandler.register(this);
+        /* mouse events */
+        this.addEventListener("click", event => {
+            this.clickHandler(event);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+        this.addEventListener("contextmenu", event => {
+            this.contextmenuHandler(event);
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+    }
+
+    clickHandler(event) {
+        // nothing
+    }
+
+    contextmenuHandler(event) {
+        this.showDefaultContextMenu(event);
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
     }
 
     applyDefaultValues(defaultIcon) {
@@ -73,6 +95,8 @@ export default class WorldElement extends BaseClass {
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
             badgeEl.access = value;
+            badgeEl.available = data.reachable;
+            badgeEl.unopened = data.unopened;
         }
     }
 

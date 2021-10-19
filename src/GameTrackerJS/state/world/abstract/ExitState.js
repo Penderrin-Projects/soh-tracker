@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
@@ -10,19 +10,22 @@ import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import WorldState from "./WorldState.js";
 import {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
-import WorldStateManagers from "../StateManagers.js";
+import WorldStateManager from "../WorldStateManager.js";
 import EntranceStates from "../entrance/StateManager.js";
 
 function getEntranceArea(value) {
     if (value == "") {
         return null;
     }
+    if (value == "\u0000") {
+        return WorldStateManager.getEmpty();
+    }
     const entrance = EntranceStates.get(value) ?? EntranceStates.get(value.split(" -> ").reverse().join(" -> "));
     if (entrance == null) {
         console.error(`exit "${value}" not found`);
         return null;
     }
-    const area = WorldStateManagers.getByRef(entrance.props.area);
+    const area = WorldStateManager.getByRef(entrance.props.area);
     if (area == null) {
         console.error(`area "${entrance.props.area}" not found for exit "${value}"`);
         return null;
@@ -58,7 +61,7 @@ const AREA = new WeakMap();
 
 export default class ExitState extends WorldState {
 
-    constructor(ref, props, exitData) {
+    constructor(ref, props = {}, exitData = {}) {
         super(ref, props);
         /* --- */
         const manager = new StateDataEventManager();
@@ -70,6 +73,11 @@ export default class ExitState extends WorldState {
         });
         manager.registerStateHandler("hint", event => {
             const ev = new Event("hint");
+            ev.data = event.data;
+            this.dispatchEvent(ev);
+        });
+        manager.registerStateHandler("list_update", event => {
+            const ev = new Event("list_update");
             ev.data = event.data;
             this.dispatchEvent(ev);
         });

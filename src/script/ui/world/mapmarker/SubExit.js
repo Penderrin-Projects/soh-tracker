@@ -1,10 +1,9 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
@@ -13,14 +12,14 @@ import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-import "../../ctxmenu/ExitBindingMenu.js";
+import ExitBindingMenu from "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
 <emc-tooltip position="top" id="tooltip">
     <div class="textarea">
         <div id="text"></div>
-        <gt-badge id="badge"></gt-badge>
+        <gt-badge-access id="badge"></gt-badge-access>
     </div>
     <div class="textarea">
         <div id="value"></div>
@@ -68,10 +67,12 @@ const STYLE = new GlobalStyle(`
 #marker[data-state="possible"] {
     background-color: var(--location-status-possible-color, #000000);
 }
-#marker:hover {
+#marker:hover,
+:host(.ctx-marked) #marker {
     box-shadow: 0 0 2px 4px #67ffea;
 }
-#marker:hover + #tooltip {
+#marker:hover + #tooltip,
+:host(.ctx-marked) #marker + #tooltp {
     display: block;
 }
 #tooltip {
@@ -107,7 +108,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
+export default class MapSubExit extends AbstractSubExit {
 
     constructor() {
         super();
@@ -115,7 +116,7 @@ export default class MapSubExit extends UIEventBusMixin(AbstractSubExit) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
+        this.setContextMenu("exitbinding", ExitBindingMenu);
     }
     
     applyAccess(data) {

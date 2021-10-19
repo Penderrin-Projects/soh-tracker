@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
@@ -14,7 +14,6 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import ListLogic from "/GameTrackerJS/util/logic/ListLogic.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
@@ -47,7 +46,8 @@ const STYLE = new GlobalStyle(`
     padding: 5px;
     color: #ffffff;
 }
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {
@@ -124,9 +124,6 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
             event.preventDefault();
             return false;
         });
-
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
     
     applyAccess(data) {

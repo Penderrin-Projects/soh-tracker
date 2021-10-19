@@ -1,10 +1,9 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/ui/input/SwitchButton.js";
-/* asym-import: on */
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
@@ -18,7 +17,7 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
+import "/GameTrackerJS/ui/button/FilterMenuButton.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
 import "./listitems/Button.js";
@@ -30,8 +29,8 @@ import "./listitems/Area.js";
 import "./listitems/SubArea.js";
 import "./listitems/Exit.js";
 import "./listitems/SubExit.js";
-import "/script/ui/dungeonstate/DungeonType.js";
-import "/script/ui/FilterMenu.js";
+import "./listitems/ListCollection.js";
+import "../dungeonstate/DungeonType.js";
 
 const TPL = new Template(`
     <style>
@@ -136,8 +135,8 @@ const TPL = new Template(`
         <div id="hint"></div>
         <ootrt-dungeontype id="location-version" class="button" ref="overworld" value="v" readonly="true">
         </ootrt-dungeontype>
-        <ootrt-filtermenu class="button">
-        </ootrt-filtermenu>
+        <gt-filtermenubutton class="button">
+        </gt-filtermenubutton>
     </div>
     <div id="body">
         <ootrt-list-button id="back"></ootrt-list-button>
@@ -179,6 +178,18 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         areaEventManager.set("list_update", event => {
             this.refresh();
         });
+        /* --- */
+        SavestateHandler.addEventListener("load", event => {
+            this.refresh();
+        });
+        SavestateHandler.addEventListener("change_area_hint", event => {
+            if (event.data != null) {
+                const data = event.data[this.ref];
+                if (data != null) {
+                    this.hint = data;
+                }
+            }
+        });
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
@@ -190,9 +201,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         this.registerGlobal("logic", event => {
             this.updateHeader();
         });
-        this.registerGlobal("state", () => {
-            this.refresh();
-        });
         this.registerGlobal("state::dungeontype", event => {
             if (event.data != null) {
                 const data = event.data;
@@ -202,17 +210,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                 }
             }
         });
-        this.registerGlobal("statechange_area_hint", event => {
-            let data;
-            if (event.data != null) {
-                data = event.data[this.ref];
-            }
-            if (data != null) {
-                this.hint = data.newValue;
-            }
-        });
-        /* fck iOS */
-        iOSTouchHandler.register(this.shadowRoot.getElementById("body"));
     }
 
     connectedCallback() {
@@ -250,6 +247,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
                     this.shadowRoot.getElementById("masterquest").ref = newValue;
                     this.hint = SavestateHandler.get("area_hint", newValue, "");
                     this.refresh();
+                    this.shadowRoot.getElementById("body").scroll(0, 0);
                 }
                 break;
             case "hint":

@@ -1,11 +1,19 @@
-const spl = document.getElementById("splash").querySelector(".loading");
-function updateLoadingMessage(msg = "loading...") {
-    spl.innerHTML = msg;
+const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
+
+const spl = document.getElementById("loading-info");
+function updateLoadingMessage(msg = "loading...", blockUpdates = false) {
+    if (messageUpdateAllowed) {
+        spl.innerHTML = msg;
+        if (blockUpdates) {
+            messageUpdateAllowed = false;
+        }
+    }
 }
 
+let messageUpdateAllowed = true;
 function printError(msg = "Error", url = "index", line = 1) {
     //alert(`${msg}\n${url}:${line}`);
-    updateLoadingMessage(msg);
+    updateLoadingMessage(msg, true);
     console.error(`${msg}\n${url}:${line}`);
     return false;
 }
@@ -22,7 +30,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
 
             updateLoadingMessage("load framework...");
             if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.removeEventListener("message", swStateRecieve);
+                navigator.serviceWorker.removeEventListener("message", swMsgRecieve);
             }
             updateLoadingMessage("add structure...");
             const r = await Import.html("/content/app.html");
@@ -38,7 +46,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
         }
     }
 
-    const swStateRecieve = (event) => {
+    const swMsgRecieve = (event) => {
         if (event.data.type == "state") {
             switch (event.data.msg) {
                 case "start":
@@ -46,19 +54,29 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
                     break;
                 case "need_download":
                     load_files = 0;
-                    max_files = event.data.value;
+                    max_files = event.data.total;
                     updateLoadingMessage(`installing, please wait... 0/${max_files}`);
                     break;
                 case "file_downloaded":
-                    updateLoadingMessage(`installing, please wait... ${++load_files}/${max_files}`);
+                    load_files = event.data.loaded;
+                    max_files = event.data.total;
+                    updateLoadingMessage(`installing, please wait... ${load_files}/${max_files}`);
                     break;
             }
+        } else if (event.data.type == "error") {
+            console.error("recieved sw error:", event.data);
+            updateLoadingMessage(`
+                SW_ERR: ${event.data.msg}
+                <br><br>
+                if this error keeps coming up, try the following link to disable service worker<br>
+                <a class="button" href="${location.origin}?nosw">NO SERVICEWORKER</a>
+            `, true);
         }
     }
     
     updateLoadingMessage("loading...");
 
-    if ("serviceWorker" in navigator) {
+    if (!NOSW && "serviceWorker" in navigator) {
         const refBtn = document.getElementById("splash-refresh");
         refBtn.innerHTML = "FORCE DOWNLOAD";
         refBtn.onclick = function() {
@@ -76,12 +94,12 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
                     setTimeout(callSW, 10);
                     return;
                 }
-                navigator.serviceWorker.addEventListener("message", swStateRecieve);
+                navigator.serviceWorker.addEventListener("message", swMsgRecieve);
                 registration.active.postMessage("start");
             }
             callSW();
         }, function(err) {
-            updateLoadingMessage("ServiceWorker registration failed");
+            updateLoadingMessage("ServiceWorker registration failed", true);
             console.log("ServiceWorker registration failed: ", err);
         });
     } else {

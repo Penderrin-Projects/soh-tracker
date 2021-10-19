@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
@@ -14,7 +14,6 @@ import "./components/Item.js";
 import "./components/ItemKey.js";
 import "./components/InfiniteItem.js";
 import "./components/RewardItem.js";
-import "./components/VariableMaxItem.js";
 
 const TPL = new Template(`
 <div id="content">

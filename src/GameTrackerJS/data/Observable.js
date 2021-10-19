@@ -29,4 +29,17 @@ export default class Observable extends EventTarget {
         return buffer.get(key) ?? value;
     }
 
+    delete(key) {
+        const buffer = BUFFER.get(this);
+        buffer.delete(key);
+        const ev = new Event(key);
+        ev.value = undefined;
+        this.dispatchEvent(ev);
+    }
+
+    has(key) {
+        const buffer = BUFFER.get(this);
+        return buffer.has(key);
+    }
+
 }

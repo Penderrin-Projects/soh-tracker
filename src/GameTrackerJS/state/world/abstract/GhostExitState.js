@@ -1,12 +1,12 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
-import WorldStateManagers from "../StateManagers.js";
+
+import EntranceStateManager from "../entrance/StateManager.js";
 import ExitState from "./ExitState.js";
 
 export default class GhostExitState extends ExitState {
 
-    constructor(ref, props, exitData) {
+    constructor(ref, props = {}, exitData = {}) {
         super(ref, props, exitData);
         /* --- */
         EventBus.register("state::exit_binding", event => {
@@ -28,14 +28,14 @@ export default class GhostExitState extends ExitState {
                 super.value = change.value;
             } else if (change.value == access) {
                 // if this entrance got bound
-                const otherExit = WorldStateManagers.getEntrance(change.ref);
+                const otherExit = EntranceStateManager.get(change.ref);
                 if (otherExit != null && otherExit.props.isBiDir) {
                     super.value = change.ref;
                 }
             } else if (change.value != "" && change.value == this.value) {
                 // if another exit got bound to this ones entrance
                 if (!this.exitData.ignoreBound) {
-                    const otherExit = WorldStateManagers.getEntrance(change.ref);
+                    const otherExit = EntranceStateManager.get(change.ref);
                     if (otherExit != null && !otherExit.props.ignoreBound) {
                         super.value = "";
                     }
@@ -44,7 +44,7 @@ export default class GhostExitState extends ExitState {
                 // if another entrance got bound to this ones exit
                 // if the exit does no longer bind to this
                 if (!this.exitData.ignoreBound) {
-                    const otherExit = WorldStateManagers.getEntrance(change.ref);
+                    const otherExit = EntranceStateManager.get(change.ref);
                     if (otherExit == null || !otherExit.props.ignoreBound) {
                         super.value = "";
                     }

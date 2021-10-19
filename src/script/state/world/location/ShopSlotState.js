@@ -1,6 +1,7 @@
 // GameTrackerJS
 import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
 import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopStates from "/script/state/shop/StateManager.js";
@@ -9,6 +10,8 @@ import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 // TODO only show item if it is not a refill item
 
 const SHOP_STATE = new WeakMap();
+const WALLET = ItemStateManager.get("item.wallet");
+const WALLET_CAPACITIES = [99, 200, 500, 999];
 
 {
     const shops = ShopsResource.get();
@@ -39,8 +42,27 @@ export default class ShopSlotState extends DefaultState {
                 ev.data = event.data;
                 this.dispatchEvent(ev);
             });
+            shopState.addEventListener("price", event => {
+                this.refreshAccess();
+                const ev = new Event("price");
+                ev.data = event.data;
+                this.dispatchEvent(ev);
+            });
+            WALLET.addEventListener("value", event => {
+                this.refreshAccess();
+            });
         }
         this.refreshAccess();
+    }
+
+    getAccessValue(checked, reachable) {
+        if (!checked && reachable) {
+            const shopState = SHOP_STATE.get(this);
+            if (WALLET_CAPACITIES[WALLET.value] < shopState.price) {
+                reachable = false;
+            }
+        }
+        return super.getAccessValue(checked, reachable);
     }
 
     stateLoaded(event) {
@@ -75,6 +97,47 @@ export default class ShopSlotState extends DefaultState {
             return shopState.item;
         }
         return "";
+    }
+
+    set price(value) {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            shopState.price = value;
+        }
+    }
+
+    get price() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            return shopState.price;
+        }
+        return "";
+    }
+
+    get price() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            return shopState.price;
+        }
+        return "";
+    }
+
+    get itemData() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            return shopState.itemData;
+        }
+        return null;
+    }
+
+    isDefault() {
+        const shopState = SHOP_STATE.get(this);
+        return shopState.isDefault();
+    }
+
+    reset() {
+        const shopState = SHOP_STATE.get(this);
+        shopState.reset();
     }
 
 }

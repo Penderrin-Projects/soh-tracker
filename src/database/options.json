@@ -69,10 +69,17 @@
     },
     "option.shopsanity": {
         "category": "options",
-        "type": "number",
-        "default": 0,
-        "min": 0,
-        "max": 4
+        "type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "random"
+        ]
     },
     "option.beansanity": {
         "category": "options",
@@ -133,32 +140,26 @@
         "category": "options",
         "type": "choice",
         "default": 1,
-        "values": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11
-        ],
-        "names": [
-            "item.pocket_egg",
-            "item.pocket_cucco",
-            "item.pocket_cojiro",
-            "item.mushroom",
-            "item.medicine",
-            "item.saw",
-            "item.broken_sword",
-            "item.prescription",
-            "item.frog",
-            "item.eyedrops",
-            "item.claim"
-        ]
+        "values": {
+            "1": "item.pocket_egg",
+            "2": "item.pocket_cucco",
+            "3": "item.pocket_cojiro",
+            "4": "item.mushroom",
+            "5": "item.medicine",
+            "6": "item.saw",
+            "7": "item.broken_sword",
+            "8": "item.prescription",
+            "9": "item.frog",
+            "10": "item.eyedrops",
+            "11": "item.claim"
+        }
+    },
+    "option.big_poe_count": {
+        "category": "options",
+        "type": "number",
+        "default": 10,
+        "min": 1,
+        "max": 10
     },
     "option.keysanity_small_old": {
         "category": "options",
@@ -252,6 +253,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_skulltulas"
+        },
         "min": 0,
         "max": 100
     },
@@ -259,6 +265,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_stones"
+        },
         "min": 1,
         "max": 3
     },
@@ -266,6 +277,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_medallions"
+        },
         "min": 1,
         "max": 6
     },
@@ -273,6 +289,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
+        "visible": {
+            "type": "state",
+            "el": "option.light_arrow_cutscene",
+            "value": "light_arrow_cutscene_dungeons"
+        },
         "min": 1,
         "max": 9
     },
@@ -294,6 +315,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_skulltulas"
+        },
         "min": 0,
         "max": 100
     },
@@ -301,6 +327,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_stones"
+        },
         "min": 1,
         "max": 3
     },
@@ -308,6 +339,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_medallion"
+        },
         "min": 1,
         "max": 6
     },
@@ -315,6 +351,11 @@
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
+        "visible": {
+            "type": "state",
+            "el": "option.ganon_castle_open",
+            "value": "ganon_castle_open_dungeon"
+        },
         "min": 1,
         "max": 9
     },

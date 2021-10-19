@@ -1,9 +1,11 @@
-/* asym-import: off */
-import PopOver from "/emcJS/ui/overlay/PopOver.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
-/* asym-import: on */
+// frameworks
+import ActionMessage from "/emcJS/ui/overlay/message/ActionMessage.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+
 
 // GameTrackerJS
+
+import Language from "/GameTrackerJS/util/Language.js";
 import AppSettingsWindow from "/GameTrackerJS/ui/window/settings/AppSettingsWindow.js";
 // Track-OOT
 import "./tabs/CreditsTab.js";
@@ -28,8 +30,10 @@ export default class TrackerSettingsWindow extends AppSettingsWindow {
         about.addEventListener("updateavailable", () => {
             if (showUpdatePopup) {
                 showUpdatePopup = false;
-                const popover = PopOver.show("A new update is available. Click here to download!", 60);
-                popover.addEventListener("click", () => {
+                ActionMessage.info({
+                    text: "A new update is available.\nClick here to download!",
+                    time: 60
+                }).addEventListener("action", () => {
                     super.show("about");
                 });
             }

@@ -1,7 +1,7 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+
 
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -34,7 +34,8 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {

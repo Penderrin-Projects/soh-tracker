@@ -3,7 +3,7 @@ const PROPS = new WeakMap();
 
 export default class DataState extends EventTarget {
 
-    constructor(ref, props) {
+    constructor(ref, props = {}) {
         super();
         /* --- */
         REF.set(this, ref);

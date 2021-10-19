@@ -1,11 +1,10 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 import ItemStates from "../../state/item/StateManager.js";
 import StateDataEventManager from "../mixin/StateDataEventManager.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 const TPL = new Template(`
 <div id="value">
@@ -85,8 +84,6 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     applyDefaultValues() {
@@ -220,14 +217,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if (value < 9999) {
-                    value++;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.value++;
             }
         }
         if (!event) return;
@@ -239,16 +229,7 @@ export default class Item extends StateDataEventManager(HTMLElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                const oldValue = state.value;
-                let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
-                    value = 0;
-                } else if (value > 0) {
-                    value--;
-                }
-                if (value != oldValue) {
-                    state.value = value;
-                }
+                state.val--;
             }
         }
         if (!event) return;

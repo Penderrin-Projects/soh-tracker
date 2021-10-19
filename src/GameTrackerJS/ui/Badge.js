@@ -1,17 +1,19 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
-import FilterResource from "../resource/FilterResource.js";
-import SettingsSpy from "../util/spy/SettingsSpy.js";
 
-const colorBlindSpy = new SettingsSpy("color_blind_mode");
+import FilterResource from "../resource/FilterResource.js";
+import SettingsObserver from "../util/observer/SettingsObserver.js";
+
+const colorBlindObserver = new SettingsObserver("color_blind_badge_icons");
+const showFiltersObserver = new SettingsObserver("show_filter_badges");
 
 const TPL = new Template(`
 <emc-icon id="access"></emc-icon>
 <emc-icon id="type"></emc-icon>
+<div id="filters"></div>
 `);
 
 const STYLE = new GlobalStyle(`
@@ -40,6 +42,9 @@ emc-icon {
 emc-icon:not([src]),
 emc-icon[src=""] {
     display: none;
+}
+#filters {
+    display: contents;
 }
 `);
 
@@ -91,24 +96,33 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
         STYLE.apply(this.shadowRoot);
         /* --- */
         const filter = FilterResource.get();
+        const filtersEl = this.shadowRoot.getElementById("filters");
         for (const name in filter) {
             const value = filter[name];
             if (value.badge) {
                 const el = document.createElement("emc-icon");
                 el.id = `badge-${name}`;
-                this.shadowRoot.append(el);
+                filtersEl.append(el);
             }
         }
+        if (filtersEl != null) {
+            filtersEl.style.display = showFiltersObserver.value ? "" : "none";
+        }
+        this.switchTarget("showFilters", showFiltersObserver);
+        this.setTargetEventListener("showFilters", "change", event => {
+            if (filtersEl != null) {
+                filtersEl.style.display = !!event.data ? "" : "none";
+            }
+        });
         /* --- */
-        this.switchTarget("colorBlind", colorBlindSpy);
+        const colorBlindEl = this.shadowRoot.getElementById("access");
+        if (colorBlindEl != null) {
+            colorBlindEl.style.display = colorBlindObserver.value ? "" : "none";
+        }
+        this.switchTarget("colorBlind", colorBlindObserver);
         this.setTargetEventListener("colorBlind", "change", event => {
-            const accessEl = this.shadowRoot.getElementById("access");
-            if (accessEl != null) {
-                if (!!event.data && ACCESS_VALUES.indexOf(this.access) >= 0) {
-                    accessEl.src = `images/icons/access_${this.access}.svg`;
-                } else {
-                    accessEl.src = "";
-                }
+            if (colorBlindEl != null) {
+                colorBlindEl.style.display = !!event.data ? "" : "none";
             }
         });
     }
@@ -136,26 +150,22 @@ export default class Badge extends EventTargetMixin(HTMLElement) {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case "type-icon":
-                    {
-                        const typeEl = this.shadowRoot.getElementById("type");
-                        if (typeEl != null) {
-                            typeEl.src = newValue;
+                case "type-icon": {
+                    const typeEl = this.shadowRoot.getElementById("type");
+                    if (typeEl != null) {
+                        typeEl.src = newValue;
+                    }
+                } break;
+                case "access": {
+                    const colorBlindEl = this.shadowRoot.getElementById("access");
+                    if (colorBlindEl != null) {
+                        if (ACCESS_VALUES.indexOf(newValue) >= 0) {
+                            colorBlindEl.src = `images/icons/access_${newValue}.svg`;
+                        } else {
+                            colorBlindEl.src = "";
                         }
                     }
-                    break;
-                case "access":
-                    {
-                        const accessEl = this.shadowRoot.getElementById("access");
-                        if (accessEl != null) {
-                            if (colorBlindSpy.getValue() && ACCESS_VALUES.indexOf(newValue) >= 0) {
-                                accessEl.src = `images/icons/access_${newValue}.svg`;
-                            } else {
-                                accessEl.src = "";
-                            }
-                        }
-                    }
-                    break;
+                } break;
             }
         }
     }

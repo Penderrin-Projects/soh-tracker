@@ -1,11 +1,10 @@
-/* asym-import: off */
+// frameworks
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
-import "../ctxmenu/SubAreaContextMenu.js";
+import AreaContextMenu from "../ctxmenu/AreaContextMenu.js";
 import Language from "../../util/Language.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class AbstractSubArea extends WorldElement {
 
@@ -18,6 +17,9 @@ export default class AbstractSubArea extends WorldElement {
         this.registerStateHandler("hint", event => {
             this.hint = event.data;
         });
+        this.registerStateHandler("list_update", event => {
+            this.refreshList();
+        });
         this.registerGlobal(["state", "options"], event => {
             if (this.isConnected) {
                 this.refreshList();
@@ -25,36 +27,26 @@ export default class AbstractSubArea extends WorldElement {
         });
 
         /* context menu */
-        this.setContextMenu("main", document.createElement("gt-ctxmenu-subarea"));
-        this.addContextMenuHandler("main", "check", event => {
+        this.setDefaultContextMenu(AreaContextMenu);
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(true);
             }
         });
-        this.addContextMenuHandler("main", "uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 state.setAllEntries(false);
             }
         });
-        
-        /* mouse events */
-        this.addEventListener("click", event => {
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getContextMenu("main");
-            mnu_ctx.show(event.clientX, event.clientY);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        
-        /* fck iOS */
-        iOSTouchHandler.register(this);
+    }
+
+    connectedCallback() {
+        if (super.connectedCallback) {
+            super.connectedCallback();
+        }
+        this.refreshList();
     }
     
     applyAccess(data) {

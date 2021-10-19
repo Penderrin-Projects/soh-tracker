@@ -1,13 +1,12 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import "/script/state/world/area/AreaState.js";
 import "/script/state/world/area/DungeonState.js";
@@ -74,8 +73,6 @@ class HTMLTrackerDungeonHint extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.revert(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     connectedCallback() {

@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+import DataStorage from "/emcJS/datastorage/DataStorage.js";
+
 import FilterResource from "../resource/FilterResource.js";
-import DataStorage from "./DataStorage.js";
 
 const DEFAULTS = new Map();
 const PERSISTED = new Set();
@@ -34,16 +34,14 @@ class FilterStorage extends DataStorage {
             }, 100);
             const data = {};
             const changes = {};
-            for (const key in event.changes) {
+            for (const key in event.data) {
                 if (PERSISTED.has(key)) {
                     data[key] = event.data[key];
-                    changes[key] = event.changes[key];
                 }
             }
             if (Object.keys(changes).length) {
                 const ev = new Event("persistedchange");
                 ev.data = data;
-                ev.changes = changes;
                 this.dispatchEvent(ev);
             }
         });
@@ -53,20 +51,26 @@ class FilterStorage extends DataStorage {
     }
 
     set(key, value) {
-        // TODO check if value is valid; else set default/remove value
-        super.set(key, value);
+        if (DEFAULTS.has(key)) {
+            super.set(key, value);
+        }
     }
 
     setAll(values) {
-        // TODO check if values are valid; else set default/remove value
-        super.setAll(values);
+        const res = {};
+        for (const key in values) {
+            const value = values[key];
+            if (DEFAULTS.has(key)) {
+                res[key] = value;
+            }
+        }
+        super.setAll(res);
     }
 
-    get(key, value = DEFAULTS.get(key)) {
+    get(key) {
         if (DEFAULTS.has(key)) {
-            return super.get(key, value);
+            return super.get(key, DEFAULTS.get(key));
         }
-        return value;
     }
 
     getAll() {
@@ -86,26 +90,38 @@ class FilterStorage extends DataStorage {
     }
     
     serialize() {
-        const data = super.serialize();
         const res = {};
-        for (const [key, value] of Object.entries(data)) {
-            if (PERSISTED.has(key)) {
-                res[key] = value;
-            }
+        for (const key of PERSISTED) {
+            res[key] = super.get(key, DEFAULTS.get(key));
         }
         return res;
     }
 
     deserialize(data = {}) {
         const res = {};
-        for (const [key, value] of DEFAULTS) {
+        for (const [key] of DEFAULTS) {
             if (PERSISTED.has(key)) {
-                res[key] = data[key] ?? value;
+                const newValue = data[key];
+                if (newValue != null) {
+                    res[key] = newValue;
+                }
             } else {
-                res[key] = super.get(key, value);
+                const newValue = super.get(key);
+                if (newValue != null) {
+                    res[key] = newValue;
+                }
             }
         }
         super.deserialize(res);
+    }
+
+    overwrite(data = {}) {
+        const res = {};
+        for (const [key] of DEFAULTS) {
+            const newValue = data[key];
+            res[key] = newValue;
+        }
+        super.overwrite(res);
     }
 
 }

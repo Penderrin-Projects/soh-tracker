@@ -7,7 +7,9 @@
 
 ### FIX MINOR BUGS
 
-- shopsanity location wrong slots on 1,2,3
+- spoiler parser (items) fvalues from settings
+    - child trade
+    - free scarecrow
 
 ---
 
@@ -87,12 +89,14 @@ to:
     
 - add tooltips to location badges
 
-- after import state ask to load the state or not
-    - dialog "state imported --- do you want to load the imported state? --- Yes - No"
-
 - message to deactivate the following for detached window
     - chrome://flags/#web-contents-occlusion
     - chrome://flags/#calculate-native-win-occlusion
+
+- include this https://developer.mozilla.org/en-US/docs/Web/API/StorageManager
+    - persist option
+        - if not persisted aske for persistence
+    - show storage usage
 
 ---
 
@@ -101,7 +105,5 @@ to:
 - optionally increase skully token count with ticking off skullies
 
 - on network play make location- and mode change (locationlist/map) synchronize optional
-
-- add shops to map / list
 
 - add notes to each location/area

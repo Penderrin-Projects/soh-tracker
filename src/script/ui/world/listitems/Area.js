@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -16,7 +16,7 @@ const TPL = new Template(`
     <div id="entrances"></div>
     <div id="text"></div>
     <div id="hint"></div>
-    <gt-badge id="badge"></gt-badge>
+    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 `);
 
@@ -37,7 +37,8 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {

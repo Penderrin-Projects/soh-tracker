@@ -1,15 +1,14 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/input/Option.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import iOSTouchHandler from "/GameTrackerJS/util/iOSTouchHandler.js";
 // Track-OOT
 import "/script/state/item/RewardItemState.js";
 import "./Item.js";
@@ -45,8 +44,6 @@ const STYLE = new GlobalStyle(`
     opacity: 0.4;
 }
 #value {
-    width: 100%;
-    height: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -92,8 +89,6 @@ export default class RewardItem extends StateDataEventManager(HTMLElement) {
         });
         this.addEventListener("click", event => this.next(event));
         this.addEventListener("contextmenu", event => this.prev(event));
-        /* fck iOS */
-        iOSTouchHandler.register(this);
     }
 
     connectedCallback() {

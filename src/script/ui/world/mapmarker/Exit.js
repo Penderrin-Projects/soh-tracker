@@ -1,9 +1,9 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
@@ -12,7 +12,7 @@ import AbstractExit from "/GameTrackerJS/ui/world/Exit.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-import "../../ctxmenu/ExitBindingMenu.js";
+import ExitBindingMenu from "../../ctxmenu/ExitBindingMenu.js";
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
@@ -20,7 +20,7 @@ const TPL = new Template(`
     <div class="textarea">
         <div id="entrances"></div>
         <div id="text"></div>
-        <gt-badge id="badge"></gt-badge>
+        <gt-badge-access id="badge"></gt-badge-access>
     </div>
     <div class="textarea">
         <div id="value"></div>
@@ -79,10 +79,12 @@ const STYLE = new GlobalStyle(`
     border-radius: 50%;
     content: " ";
 }
-#marker:hover {
+#marker:hover,
+:host(.ctx-marked) #marker {
     box-shadow: 0 0 2px 4px #67ffea;
 }
-#marker:hover + #tooltip {
+#marker:hover + #tooltip,
+:host(.ctx-marked) #marker + #tooltp {
     display: block;
 }
 #tooltip {
@@ -144,7 +146,7 @@ export default class MapExit extends AbstractExit {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
+        this.setContextMenu("exitbinding", ExitBindingMenu);
     }
     
     applyAccess(data) {

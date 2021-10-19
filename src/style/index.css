@@ -12,6 +12,10 @@ body {
     /*-webkit-touch-callout: none !important;*/
 }
 
+emc-page {
+    flex: 1;
+}
+
 /* footer design (until there is a custom element) */
 .footer {
     display: flex;

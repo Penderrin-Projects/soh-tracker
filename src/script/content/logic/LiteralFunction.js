@@ -1,7 +1,7 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
 import AbstractElement from "/editors/ui/logic/AbstractElement.js";
-/* asym-import: on */
+
 
 const TPL_CAPTION = "FUNCTION";
 const TPL_BACKGROUND = "#ffffff";

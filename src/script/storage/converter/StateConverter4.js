@@ -6,29 +6,30 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter3.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
         data: {},
-        extra: state.extra || {},
-        notes: state.notes || state.data.notes || "",
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        extra: state.extra ?? {},
+        notes: state.notes ?? state.data.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
-    for (const i of Object.keys(state.data)) {
+    for (const i of Object.keys(state.data ?? {})) {
         if (i == "notes") continue;
         if (i.startsWith("shop.")) {
             if (i.endsWith(".names")) {
-                res.extra.shops_names = res.extra.shops_names || {};
+                res.extra.shops_names = res.extra.shops_names ?? {};
                 res.extra.shops_names[i.slice(0, -6)] = state.data[i];
             } else if (i.endsWith(".bought")) {
-                res.extra.shops_bought = res.extra.shops_bought || {};
+                res.extra.shops_bought = res.extra.shops_bought ?? {};
                 res.extra.shops_bought[i.slice(0, -7)] = state.data[i];
             } else {
-                res.extra.shops_items = res.extra.shops_items || {};
+                res.extra.shops_items = res.extra.shops_items ?? {};
                 res.extra.shops_items[i] = state.data[i];
             }
         } else if (i.startsWith("song.")) {
-            res.extra.songs = res.extra.songs || {};
+            res.extra.songs = res.extra.songs ?? {};
             res.extra.songs[i] = state.data[i];
         } else if (i == "option.keysanity_small") {
             const val = state.data[i];
@@ -59,9 +60,9 @@ SavestateConverter.register(function(state) {
     if (res.data["option.doors_open_forest"] === false) {
         res.data["option.doors_open_forest"] = "doors_open_forest_closed";
     }
-    if (state.extra != null && state.extra.exits != null) {
+    if (state.extra?.exits != null) {
         const buf = {};
-        for (const i of Object.keys(state.extra.exits)) {
+        for (const i of Object.keys(state.extra.exits ?? {})) {
             const [k1, k2] = i.split(" -> ");
             const [v1, v2] = state.extra.exits[i].split(" -> ");
             buf[`${EXIT_TRANS[k1] || k1} -> ${EXIT_TRANS[k2] || k2}`] = `${EXIT_TRANS[v1] || v1} -> ${EXIT_TRANS[v2] || v2}`;

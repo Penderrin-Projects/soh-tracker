@@ -1,12 +1,13 @@
 
-/* asym-import: off */
+// frameworks
 import Import from "/emcJS/util/import/Import.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/layout/Layout.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
-
+import Language from "/GameTrackerJS/util/Language.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 // -------------
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/items/ItemGrid.js";
@@ -15,6 +16,8 @@ import "/script/ui/world/LocationList.js";
 import "/script/ui/world/Map.js";
 
 try {
+    // load current language
+    await Language.load(SettingsStorage.get("language"));
     // load layout
     const conf = decodeURI(window.location.hash.slice(1));
     const layout = LayoutsResource.get(conf);

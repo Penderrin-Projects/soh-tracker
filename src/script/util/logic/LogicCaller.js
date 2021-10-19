@@ -1,12 +1,13 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import FilterStorage from "/GameTrackerJS/storage/FilterStorage.js";
+import StartItemsStorage from "/GameTrackerJS/storage/StartItemsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
@@ -32,7 +33,27 @@ const ACCEPTED_BOSSKEY_GROUPS = [
     "ganon"
 ];
 
+const KEY_VNL_AUGMENTS = {
+    "v": {
+        "temple_fire": 1
+    },
+    "mq": {
+        "temple_spirit": 3
+    }
+};
+const KEY_SAN_AUGMENTS = {};
+
 const cache = new Map();
+
+function getDungeonType(type, hasmq) {
+    if (hasmq) {
+        if (type == "v" || type == "mq") {
+            return type;
+        }
+        return "n";
+    }
+    return "v";
+}
 
 function renameKeys(src = {}, prefix = "") {
     const res = {};
@@ -42,19 +63,23 @@ function renameKeys(src = {}, prefix = "") {
     return res;
 }
 
-function augmentKeys(ref, type, keys) {
-    if (!cache.get("option.keysanity_small")) {
-        if (ref == "temple_spirit" && type == "mq") {
-            return keys + 3;
-        }
-        if (ref == "temple_fire" && type == "v") {
-            return keys + 1;
-        }
-    } else {
-        // nothing
+function augmentKeys(ref, type, keys, group) {
+    if (ACCEPTED_KEY_GROUPS.includes(group) && !cache.get("option.track_keys")) {
+        return 9999;
     }
-    if (ref == "temple_water" && type == "v") {
-        return keys + 1;
+    const ks = cache.get("option.keysanity_small");
+    const aug = !ks ? KEY_VNL_AUGMENTS : KEY_SAN_AUGMENTS;
+    if (!type || type == "n") {
+        const vAug = aug["v"]?.[ref] ?? 0;
+        const mqAug = aug["mq"]?.[ref] ?? 0;
+        return keys + Math.max(vAug, mqAug);
+    }
+    return keys + (aug[type]?.[ref] ?? 0);
+}
+
+function augmentBossKeys(keys, group) {
+    if (ACCEPTED_BOSSKEY_GROUPS.includes(group) && !cache.get("option.track_bosskeys")) {
+        return 9999;
     }
     return keys;
 }
@@ -68,47 +93,31 @@ function augmentData(data) {
     const res = {};
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment dungeontypes
-        let updateKeys = false;
         const dTypeKey = `dungeontype.area/${ref}`;
         if (data[dTypeKey] != null) {
-            updateKeys = true;
-            if (dData.hasmq) {
-                if (data[dTypeKey] === "") {
-                    res[dTypeKey] = "n";
-                } else {
-                    res[dTypeKey] = data[dTypeKey];
-                }
-            } else {
-                res[dTypeKey] = "v";
-            }
+            res[dTypeKey] = getDungeonType(data[dTypeKey], dData.hasmq);
         }
         // augment keys
         if (dData.keys) {
-            if (data["option.track_keys"] != null) {
-                if (ACCEPTED_KEY_GROUPS.includes(dData.keys_group) && !cache.get("option.track_keys")) {
-                    res[dData.keys] = 9999;
-                    updateKeys = false;
-                } else {
-                    updateKeys = true;
-                }
-            } else if (data[dData.keys] != null) {
-                updateKeys = true;
-            }
-            if (updateKeys) {
-                res[dData.keys] = augmentKeys(ref, res[dTypeKey] ?? cache.get(dTypeKey), cache.get(dData.keys) ?? 0);
+            if (data["option.track_keys"] != null || data[dData.keys] != null || data[dTypeKey] != null) {
+                const augKeys = augmentKeys(ref, res[dTypeKey] ?? getDungeonType(cache.get(dTypeKey), dData.hasmq), cache.get(dData.keys) ?? 0, dData.keys_group);
+                res[dData.keys] = augKeys;
             }
         }
         // augment bosskeys
         if (dData.bosskey) {
-            if (data["option.track_bosskeys"] != null) {
-                if (ACCEPTED_BOSSKEY_GROUPS.includes(dData.bosskey_group) && !cache.get("option.track_bosskeys")) {
-                    res[dData.bosskey] = 9999;
-                } else {
-                    res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
-                }
-            } else if (data[dData.bosskey] != null && cache.get("option.track_bosskeys")) {
-                res[dData.bosskey] = cache.get(dData.bosskey) ?? 0;
+            if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                const augKeys = augmentBossKeys(cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
+                res[dData.bosskey] = augKeys;
             }
+        }
+    }
+    // special augments
+    if (data["item.zora_letter"] != null || data["option.doors_open_zora"] != null) {
+        if ((data["option.doors_open_zora"] ?? cache.get("option.doors_open_zora")) == "doors_open_zora_both") {
+            res["item.zora_letter"] = 1;
+        } else {
+            res["item.zora_letter"] = data["item.zora_letter"] ?? cache.get("item.zora_letter")
         }
     }
     // ---
@@ -137,6 +146,14 @@ function init() {
         ...OptionsStorage.getAll(),
         ...FilterStorage.getAll()
     };
+    // startitems
+    const startItems = StartItemsStorage.getAll();
+    for (const [key, value] of Object.entries(startItems)) {
+        if (data[key] == null || data[key] < value) {
+            data[key] = value;
+        }
+    }
+    // ---
     cache.clear();
     for (const [key, value] of Object.entries(data)) {
         cache.set(key, value);
@@ -162,17 +179,38 @@ function changeData(newData) {
     }
 }
 
+function changeDataWithItems(newData, items) {
+    const changes = {};
+    for (const [key, value] of Object.entries(newData)) {
+        if (items[key] != null && items[key] > value) {
+            if (cache.get(key) != items[key]) {
+                changes[key] = items[key];
+                cache.set(key, items[key]);
+            }
+        } else if (cache.get(key) != value) {
+            changes[key] = value;
+            cache.set(key, value);
+        }
+    }
+    if (Object.keys(changes).length > 0) {
+        const augmentedData = augmentData(changes);
+        augmentReachables(augmentedData);
+        Logic.execute(augmentedData, "region.root");
+    }
+}
+
 class LogicCaller {
 
     constructor() {
         init();
         /* EVENTS */
-        SavestateHandler.addEventListener("load",               event => init());
-        SavestateHandler.addEventListener("change",             event => changeData(event.data));
-        SavestateHandler.addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
-        OptionsStorage  .addEventListener("change",             event => changeData(event.data));
-        SettingsStorage .addEventListener("change",             event => changeData(event.data));
-        FilterStorage   .addEventListener("change",             event => changeData(event.data));
+        SavestateHandler .addEventListener("load",               event => init());
+        SavestateHandler .addEventListener("change",             event => changeDataWithItems(event.data, StartItemsStorage.getAll()));
+        SavestateHandler .addEventListener("change_dungeontype", event => changeData(renameKeys(event.data, "dungeontype.")));
+        OptionsStorage   .addEventListener("change",             event => changeData(event.data));
+        SettingsStorage  .addEventListener("change",             event => changeData(event.data));
+        FilterStorage    .addEventListener("change",             event => changeData(event.data));
+        StartItemsStorage.addEventListener("change",             event => changeDataWithItems(event.data, SavestateHandler.getAll("")));
     }
 
 }

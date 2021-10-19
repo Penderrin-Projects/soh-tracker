@@ -6,14 +6,15 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter0.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
         data: {},
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
     for (const i of Object.keys(state.data)) {
-        res.data[translation[i] || i] = state.data[i];
+        res.data[translation[i] ?? i] = state.data[i];
     }
     return res;
 });

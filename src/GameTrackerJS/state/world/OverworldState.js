@@ -1,9 +1,8 @@
-/* asym-import: off */
+// frameworks
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
+
 import WorldResource from "../../resource/WorldResource.js";
 import MarkerListHandler from "../../util/MarkerListHandler.js";
-import WorldStateManagers from "./StateManagers.js";
 import "./area/StateManager.js";
 import "./subarea/StateManager.js";
 import "./exit/StateManager.js";
@@ -24,8 +23,6 @@ export default class OverworldState extends EventTarget {
         const listHandler = this.generateList();
         ACCESS.set(this, listHandler.access);
         LIST_HANDLER.set(this, listHandler);
-        /* --- */
-        WorldStateManagers.overworld = this;
     }
 
     setAccess(value) {
@@ -75,3 +72,5 @@ export default class OverworldState extends EventTarget {
     }
 
 }
+
+export const overworldState = new OverworldState();

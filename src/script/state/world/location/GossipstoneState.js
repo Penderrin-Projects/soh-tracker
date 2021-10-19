@@ -1,7 +1,6 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
@@ -32,8 +31,12 @@ export default class GossipstoneState extends DefaultState {
     stateLoaded(event) {
         super.stateLoaded(event);
         const ref = this.ref;
-        // savesatate
-        this.hint = event.data.state[ref];
+        // hint
+        if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
+            this.hint = event.data.extra["gossipstone"][ref];
+        } else {
+            this.hint = "";
+        }
     }
 
     /*#*/__setHint(value) {
@@ -50,7 +53,7 @@ export default class GossipstoneState extends DefaultState {
         const old = this.hint;
         if (!Helper.isEqual(old, value)) {
             HINT.set(this, value);
-            SavestateHandler.get("gossipstone", ref, value);
+            SavestateHandler.set("gossipstone", ref, value);
             // external
             const event = new Event("hint");
             event.data = value;

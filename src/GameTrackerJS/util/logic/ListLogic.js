@@ -1,6 +1,6 @@
-/* asym-import: off */
+// frameworks
 import Logger from "/emcJS/util/Logger.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import "../../state/world/area/StateManager.js";
 import "../../state/world/exit/StateManager.js";
@@ -16,8 +16,8 @@ class ListLogic {
             done: 0,
             unopened: 0,
             reachable: 0,
-            entrances: false,
-            value: AccessStateEnum.UNAVAILABLE
+            entrances: 0,
+            value: AccessStateEnum.OPENED
         };
     }
     
@@ -26,7 +26,7 @@ class ListLogic {
             done: 0,
             unopened: 0,
             reachable: 0,
-            entrances: false,
+            entrances: 0,
             value: AccessStateEnum.OPENED
         };
         if (!!list && Array.isArray(list)) {
@@ -74,7 +74,7 @@ class ListLogic {
                             // }
                         } else {
                             if (state.access) {
-                                res.entrances = true;
+                                res.entrances++;
                             }
                         }
                     }
@@ -84,7 +84,7 @@ class ListLogic {
                     const state = WorldStateManager.get("exit", id);
                     const {reachable} = state.access;
                     if (!state.area && !!reachable) {
-                        res.entrances = true;
+                        res.entrances++;
                     }
                 } else {
                     Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");

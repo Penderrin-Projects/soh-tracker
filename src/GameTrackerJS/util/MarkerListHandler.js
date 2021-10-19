@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
-import WorldStateManagers from "../state/world/StateManagers.js";
+
+import WorldStateManager from "../state/world/WorldStateManager.js";
 import AccessStateEnum from "../enum/AccessStateEnum.js";
 
 const REF = new WeakMap();
@@ -29,8 +29,10 @@ export default class MarkerListHandler extends EventTarget {
         ACCESS.set(this, DEFAULT_ACCESS);
         LIST_RAW.set(this, list);
         REF.set(this, ref);
-        this./*#*/__createLists(list);
-        this./*#*/__refreshAccess();
+        setTimeout(() => {
+            this./*#*/__createLists(list);
+            this./*#*/__refreshAccess();
+        }, 0);
     }
 
     /*#*/__createLists(list) {
@@ -38,7 +40,7 @@ export default class MarkerListHandler extends EventTarget {
         const filteredEntityList = new Map();
         if (list != null) {
             list.forEach(record => {
-                const loc = WorldStateManagers.get(record.category, record.id);
+                const loc = WorldStateManager.get(record.category, record.id);
                 if (loc != null) {
                     entityList.set(loc, record);
                     if (loc.isVisible()) {

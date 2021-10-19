@@ -6,15 +6,16 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter5.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
         data: {},
-        extra: state.extra,
-        notes: state.notes,
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        extra: state.extra ?? {},
+        notes: state.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
-    for (const i of Object.keys(state.data)) {
+    for (const i of Object.keys(state.data ?? {})) {
         if (i == "location.kokiri.c_midos_house") {
             const val = state.data["location.kokiri.c_midos_house"];
             res.data["location.kokiri.c_midos_house_1"] = val;

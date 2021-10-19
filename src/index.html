@@ -87,7 +87,7 @@
                     document.body.append(dl);
                     dl.click();
                     window.URL.revokeObjectURL(url);
-                    document.body.removeChild(dl);
+                    dl.remove();
                 }
                 !async function() {
                     const files = await getAll();
@@ -128,9 +128,6 @@
                 color: white;
                 z-index: 1000000;
             }
-            #splash span {
-                margin-top: 20px;
-            }
             #splash.inactive {
                 display: none;
             }
@@ -142,15 +139,62 @@
                 margin-top: 20px;
                 text-align: center;
             }
+            .button {
+                display: inline-block;
+                padding: 5px;
+                margin: 5px;
+                color: white;
+                background-color: black;
+                border: solid 1px white;
+                appearance: none;
+                text-decoration: none;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+            .button:hover {
+                background-color: #333333;
+            }
+            .out-links {
+                position: absolute;
+                display: flex;
+                justify-content: flex-end;
+                left: 0;
+                right: 0;
+                top: 0;
+                background: black;
+            }
+            .out-links .out-link {
+                margin: 5px;
+            }
+            .out-links  .out-link .out-link-image {
+                width: 17.5vmin;
+                height: 5.6vmin;
+            }
+            @media (max-width: 500px) {
+                .out-links  .out-link .out-link-image {
+                    width: 35vmin;
+                    height: 11.2vmin;
+                }
+                #git-link {
+                    display: none;
+                }
+            }
         </style>
     </head>
     <body>
         <div id="splash">
+            <div class="out-links">
+                <a id="discord-link" class="out-link" href="https://discord.gg/wgFVtuv" target="_BLANK">
+                    <img class="out-link-image" src="/images/discord.png">
+                </a>
+                <a id="git-link" class="out-link" href="https://bitbucket.org/zidargs/track-oot" target="_BLANK">
+                    <img class="out-link-image" src="/images/git.png">
+                </a>
+            </div>
             <img class="splash-image" src="/images/logo.svg">
-            <span class="loading">[state]</span>
+            <span id="loading-info" class="info">[state]</span>
             <noscript>
                 <style>
-                    .loading,
                     .info {
                         display: none
                     }
@@ -167,16 +211,16 @@
             </noscript>
             <div class="info">
                 After updating, the tracker can freeze on startup.<br>
-                If this happens to you, you can try this:<br>
+                If this happens to you, you can try this<br>
                 <div class="controls">
-                    <button id="splash-refresh" onclick="window.location.reload(true)">REFRESH PAGE</button>
+                    <button id="splash-refresh" class="button" onclick="window.location.reload(true)">REFRESH PAGE</button>
                 </div>
             </div>
             <div class="info">
                 Safestates emergency backup<br>
-                Download all savestates in storage:<br>
+                Download all savestates in storage<br>
                 <div class="controls">
-                    <button id="splash-refresh" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
+                    <button id="emergency-download" class="button" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
                 </div>
             </div>
         </div>

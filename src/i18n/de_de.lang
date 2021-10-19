@@ -1,12 +1,14 @@
 # language file for track-oot
-# language: deutsch
-# author: ZidArgs (2deep4real), Fraggerman, Luigimeansme, TotallyABot
+# language: Deutsch
+# ---------------------------
+# author: ZidArgs, Fraggerman, Luigimeansme, TotallyABot
 
-language=Sprache (Neustart erforderlich)
+language=Sprache
 
 # INTERFACE
 on=an
 off=aus
+random=zufällig
 extended=erweitert
 sublist_collapsible=Einklappbare unterlisten
 start_expanded=starte ausgeklappt
@@ -15,7 +17,9 @@ debug_logic=Logic debugger
 debug=Debug Optionen
 credits=Credits
 about=Über
-show_state_init_window=Zeige state initialisierungs Dialog
+show_state_init_window=Zeige State initialisierungs Dialog
+Initialize new state=Initialisiere den neuen State
+Clear data=Lösche Daten
 
 # LOCATIONS - OVERWORLD
 overworld=Hyrule
@@ -538,8 +542,8 @@ area/well=Brunnen von Kakariko
 location/well.c_front_left_hidden_wall=Versteckter Wand-Raum - Vorne Links
 location/well.c_front_center_bombable=Bombbar Vorne Mitte
 location/well.c_right_bottom_hidden_wall=Versteckter Wand-Raum - Vorne Rechts
-location/well.c__center_large=Kompass - Große Truhe in Mitte
-location/well.c_center_small=Kleine Truhe in Mitte
+location/well.c__center_large=Westliche Truhe in Mitte
+location/well.c_center_small=Östliche Truhe in Mitte
 location/well.c_back_left_bombable=Bombbar Hinten Links
 location/well.c_coffin_key=Schlüssel im Sarg
 location/well.c_defeat_boss=Besiege Dead Hand
@@ -1029,15 +1033,20 @@ item.compass_generic=Kompass
 item.dungeon_map_generic=Karte
 
 # SETTINGS
+App settings=App-Einstellungen
+Randomizer options=Randomizer-Optionen
+Spoiler parser=Spoiler Parser
 settings=Allgemeine Einstellungen
 options=Randomizer Optionen
 lacsAndGanon=Lichtpfeil-Cutscene und Brückenoptionen
 skips=Aktive Skips
+a11y=Barrierefreiheit
 
 # SETTINGS - GENERAL
 font=Wähle Font
 layout=Wähle Layout
-color_blind_mode=Farbenblind Modus aktivieren
+show_filter_badges=Filter-Marken an Checks anzeigen
+show_access_values=Zeige erreichbare/ungeöffnete Checks an Umgebungen
 item_size=Item Größe
 autosave_time=Zeit für automatisches Speichern in Minuten (0 zum Deaktivieren)
 autosave_amount=Anzahl zu behaltender automatischer Speicherungen
@@ -1047,6 +1056,11 @@ edit_custom_logic=Ändere eigene Logik
 button_edit_logic=Ändern
 erase_all_data=Lösche alle gespeicherten Daten
 button_erase_data=Löschen
+color_blind_badge_icons=Farbenblind Badge Icons aktivieren
+location_status_opened_color=Farbe für erledigte Checks
+location_status_available_color=Farbe für erreichbare Checks
+location_status_unavailable_color=Farbe für unerreichbare Checks
+location_status_possible_color=Farbe für teilweise erreichbare Checks
 
 # SETTINGS - ROM OPTIONS
 option.consider_buyable=Berücksichtige kaufbare Items (Rüstungen / Blaues Feuer) in Logik
@@ -1058,6 +1072,7 @@ option.scrubsanity=Scrubsanity
 option.cowsanity=Cowsanity
 option.beansanity=Beansanity
 option.skullsanity=Skullsanity (zählt nicht automatisch) [WIP]
+option.big_poe_count=Benötigte Big Poes
 option.doors_open_forest=Offener Wald
 option.doors_open_kakariko=Offenes Kakariko-Tor
 option.doors_open_temple=Offener Tempel der Zeit
@@ -1385,6 +1400,7 @@ flat=Flach (Schlüssel/Belohnung/Typ)
 map-right-dtr=Minimal Items with Map (Belohnung/Typ)
 essential-map=Essenzielle Items mit Karte (Belohnung)
 essential-map-key=Essenzielle Items mit Karte (Schlüssel/Belohnung)
+standard-essential-map=Standard Essenzielle Items mit Karte (Schlüssel/Belohnung)
 
 # SETTINGS - RULESET
 load-preset-button=Vorlage laden
@@ -1531,445 +1547,446 @@ overworld_exit=Oberwelt Ausgänge
 special=Besondere Ausgänge
 
 ## dungeons
-region.deku_tree_entrance\u0020->\u0020region.deku_tree_gateway=Dekubaum Eingang
-region.deku_tree_gateway\u0020->\u0020region.deku_tree_entrance=Dekubaum Ausgang
+region.deku_tree_entrance -> region.deku_tree_gateway=Dekubaum Eingang
+region.deku_tree_gateway -> region.deku_tree_entrance=Dekubaum Ausgang
 
-region.dodongos_cavern_entrance\u0020->\u0020region.dodongos_cavern_gateway=Dodongos Höhle Eingang
-region.dodongos_cavern_gateway\u0020->\u0020region.dodongos_cavern_entrance=Dodongos Höhle Ausgang
+region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway=Dodongos Höhle Eingang
+region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance=Dodongos Höhle Ausgang
 
-region.jabu_jabus_belly_entrance\u0020->\u0020region.jabu_jabus_belly_gateway=Jabu-Jabu Eingang
-region.jabu_jabus_belly_gateway\u0020->\u0020region.jabu_jabus_belly_entrance=Jabu-Jabu Ausgang
+region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway=Jabu-Jabu Eingang
+region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance=Jabu-Jabu Ausgang
 
-region.bottom_of_the_well_entrance\u0020->\u0020region.bottom_of_the_well_gateway=Brunnen Eingang
-region.bottom_of_the_well_gateway\u0020->\u0020region.bottom_of_the_well_entrance=Brunnen Ausgang
+region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway=Brunnen Eingang
+region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance=Brunnen Ausgang
 
-region.forest_temple_entrance\u0020->\u0020region.forest_temple_gateway=Waldtempel Eingang
-region.forest_temple_gateway\u0020->\u0020region.forest_temple_entrance=Waldtempel Ausgang
+region.forest_temple_entrance -> region.forest_temple_gateway=Waldtempel Eingang
+region.forest_temple_gateway -> region.forest_temple_entrance=Waldtempel Ausgang
 
-region.fire_temple_entrance\u0020->\u0020region.fire_temple_gateway=Feuertempel Eingang
-region.fire_temple_gateway\u0020->\u0020region.fire_temple_entrance=Feuertempel Ausgang
+region.fire_temple_entrance -> region.fire_temple_gateway=Feuertempel Eingang
+region.fire_temple_gateway -> region.fire_temple_entrance=Feuertempel Ausgang
 
-region.water_temple_entrance\u0020->\u0020region.water_temple_gateway=Wassertempel Eingang
-region.water_temple_gateway\u0020->\u0020region.water_temple_entrance=Wassertempel Ausgang
+region.water_temple_entrance -> region.water_temple_gateway=Wassertempel Eingang
+region.water_temple_gateway -> region.water_temple_entrance=Wassertempel Ausgang
 
-region.spirit_temple_entrance\u0020->\u0020region.spirit_temple_gateway=Geistertempel Eingang
-region.spirit_temple_gateway\u0020->\u0020region.spirit_temple_entrance=Geistertempel Ausgang
+region.spirit_temple_entrance -> region.spirit_temple_gateway=Geistertempel Eingang
+region.spirit_temple_gateway -> region.spirit_temple_entrance=Geistertempel Ausgang
 
-region.shadow_temple_entrance\u0020->\u0020region.shadow_temple_gateway=Schattentempel Eingang
-region.shadow_temple_gateway\u0020->\u0020region.shadow_temple_entrance=Schattentempel Ausgang
+region.shadow_temple_entrance -> region.shadow_temple_gateway=Schattentempel Eingang
+region.shadow_temple_gateway -> region.shadow_temple_entrance=Schattentempel Ausgang
 
-region.ice_cavern_entrance\u0020->\u0020region.ice_cavern_gateway=Eishöhle Eingang
-region.ice_cavern_gateway\u0020->\u0020region.ice_cavern_entrance=Eishöhle Ausgang
+region.ice_cavern_entrance -> region.ice_cavern_gateway=Eishöhle Eingang
+region.ice_cavern_gateway -> region.ice_cavern_entrance=Eishöhle Ausgang
 
-region.gerudo_training_grounds_entrance\u0020->\u0020region.gerudo_training_grounds_gateway=Trainingsarena Eingang
-region.gerudo_training_grounds_gateway\u0020->\u0020region.gerudo_training_grounds_entrance=Trainingsarena Ausgang
+region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway=Trainingsarena Eingang
+region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance=Trainingsarena Ausgang
 
 ## simple indoors
-region.dmt_storms_grotto_entrance\u0020->\u0020region.dmt_storms_grotto=Gebirgspfad - Sturmgrotte Eingang
-region.dmt_storms_grotto\u0020->\u0020region.dmt_storms_grotto_entrance=Gebirgspfad - Sturmgrotte Ausgang
+region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto=Gebirgspfad - Sturmgrotte Eingang
+region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance=Gebirgspfad - Sturmgrotte Ausgang
 
-region.dmc_hammer_grotto_entrance\u0020->\u0020region.dmc_hammer_grotto=Krater - Hammer-Grotte Eingang
-region.dmc_hammer_grotto\u0020->\u0020region.dmc_hammer_grotto_entrance=Krater - Hammer-Grotte Ausgang
+region.dmc_hammer_grotto_entrance -> region.dmc_hammer_grotto=Krater - Hammer-Grotte Eingang
+region.dmc_hammer_grotto -> region.dmc_hammer_grotto_entrance=Krater - Hammer-Grotte Ausgang
 
-region.dmc_upper_grotto_entrance\u0020->\u0020region.dmc_upper_grotto=Krater - Bomben-Grotte Eingang
-region.dmc_upper_grotto\u0020->\u0020region.dmc_upper_grotto_entrance=Krater - Bomben-Grotte Ausgang
+region.dmc_upper_grotto_entrance -> region.dmc_upper_grotto=Krater - Bomben-Grotte Eingang
+region.dmc_upper_grotto -> region.dmc_upper_grotto_entrance=Krater - Bomben-Grotte Ausgang
 
-region.dmt_cow_grotto_entrance\u0020->\u0020region.dmt_cow_grotto=Gebirgspfad - Kuhgrotte Eingang
-region.dmt_cow_grotto\u0020->\u0020region.dmt_cow_grotto_entrance=Gebirgspfad - Kuhgrotte Ausgang
+region.dmt_cow_grotto_entrance -> region.dmt_cow_grotto=Gebirgspfad - Kuhgrotte Eingang
+region.dmt_cow_grotto -> region.dmt_cow_grotto_entrance=Gebirgspfad - Kuhgrotte Ausgang
 
-region.colossus_grotto_entrance\u0020->\u0020region.colossus_grotto=Wüstenkoloss - Grotte-Eingang
-region.colossus_grotto\u0020->\u0020region.colossus_grotto_entrance=Wüstenkoloss - Grotte-Ausgang
+region.colossus_grotto_entrance -> region.colossus_grotto=Wüstenkoloss - Grotte-Eingang
+region.colossus_grotto -> region.colossus_grotto_entrance=Wüstenkoloss - Grotte-Ausgang
 
-region.gf_storms_grotto_entrance\u0020->\u0020region.gf_storms_grotto=Gerudo-Festung - Feengrotte (Sturmgrotte) Eingang
-region.gf_storms_grotto\u0020->\u0020region.gf_storms_grotto_entrance=Gerudo-Festung - Feengrotte (Sturmgrotte) Ausgang
+region.gf_storms_grotto_entrance -> region.gf_storms_grotto=Gerudo-Festung - Feengrotte (Sturmgrotte) Eingang
+region.gf_storms_grotto -> region.gf_storms_grotto_entrance=Gerudo-Festung - Feengrotte (Sturmgrotte) Ausgang
 
-region.gv_octorok_grotto_entrance\u0020->\u0020region.gv_octorok_grotto=Gerudo-Tal Octorok-Grotte Eingang
-region.gv_octorok_grotto\u0020->\u0020region.gv_octorok_grotto_entrance=Gerudo-Tal Octorok-Grotte Ausgang
+region.gv_octorok_grotto_entrance -> region.gv_octorok_grotto=Gerudo-Tal Octorok-Grotte Eingang
+region.gv_octorok_grotto -> region.gv_octorok_grotto_entrance=Gerudo-Tal Octorok-Grotte Ausgang
 
-region.gv_storms_grotto_entrance\u0020->\u0020region.gv_storms_grotto=Gerudo-Tal Sturmgrotte Eingang
-region.gv_storms_grotto\u0020->\u0020region.gv_storms_grotto_entrance=Gerudo-Tal Sturmgrotte Ausgang
+region.gv_storms_grotto_entrance -> region.gv_storms_grotto=Gerudo-Tal Sturmgrotte Eingang
+region.gv_storms_grotto -> region.gv_storms_grotto_entrance=Gerudo-Tal Sturmgrotte Ausgang
 
-region.gc_grotto_entrance\u0020->\u0020region.gc_grotto=Goronia - Grotte Eingang
-region.gc_grotto\u0020->\u0020region.gc_grotto_entrance=Goronia - Grotte Ausgang
+region.gc_grotto_entrance -> region.gc_grotto=Goronia - Grotte Eingang
+region.gc_grotto -> region.gc_grotto_entrance=Goronia - Grotte Ausgang
 
-region.graveyard_composers_grave_entrance\u0020->\u0020region.graveyard_composers_grave=Königsgrab Eingang
-region.graveyard_composers_grave\u0020->\u0020region.graveyard_composers_grave_entrance=Königsgrab Ausgang
+region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave=Königsgrab Eingang
+region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance=Königsgrab Ausgang
 
-region.graveyard_heart_piece_grave_entrance\u0020->\u0020region.graveyard_heart_piece_grave=Zombie-Grab Eingang
-region.graveyard_heart_piece_grave\u0020->\u0020region.graveyard_heart_piece_grave_entrance=Zombie-Grab Ausgang
+region.graveyard_heart_piece_grave_entrance -> region.graveyard_heart_piece_grave=Zombie-Grab Eingang
+region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance=Zombie-Grab Ausgang
 
-region.graveyard_shield_grave_entrance\u0020->\u0020region.graveyard_shield_grave=Schild-Grab Eingang
-region.graveyard_shield_grave\u0020->\u0020region.graveyard_shield_grave_entrance=Schild-Grab Ausgang
+region.graveyard_shield_grave_entrance -> region.graveyard_shield_grave=Schild-Grab Eingang
+region.graveyard_shield_grave -> region.graveyard_shield_grave_entrance=Schild-Grab Ausgang
 
-region.hc_storms_grotto_entrance\u0020->\u0020region.hc_storms_grotto=Schloss Hyrule - Sturmgrotte Eingang
-region.hc_storms_grotto\u0020->\u0020region.hc_storms_grotto_entrance=Schloss Hyrule - Sturmgrotte Ausgang
+region.hc_storms_grotto_entrance -> region.hc_storms_grotto=Schloss Hyrule - Sturmgrotte Eingang
+region.hc_storms_grotto -> region.hc_storms_grotto_entrance=Schloss Hyrule - Sturmgrotte Ausgang
 
-region.hf_fairy_grotto_entrance\u0020->\u0020region.hf_fairy_grotto=Hylianische Steppe - Feen-Grotte Eingang
-region.hf_fairy_grotto\u0020->\u0020region.hf_fairy_grotto_entrance=Hylianische Steppe - Feen-Grotte Ausgang
+region.hf_fairy_grotto_entrance -> region.hf_fairy_grotto=Hylianische Steppe - Feen-Grotte Eingang
+region.hf_fairy_grotto -> region.hf_fairy_grotto_entrance=Hylianische Steppe - Feen-Grotte Ausgang
 
-region.hf_near_kak_grotto_entrance\u0020->\u0020region.hf_near_kak_grotto=Nahe Kakariko Grotte Eingang
-region.hf_near_kak_grotto\u0020->\u0020region.hf_near_kak_grotto_entrance=Nahe Kakariko Grotte Ausgang
+region.hf_near_kak_grotto_entrance -> region.hf_near_kak_grotto=Nahe Kakariko Grotte Eingang
+region.hf_near_kak_grotto -> region.hf_near_kak_grotto_entrance=Nahe Kakariko Grotte Ausgang
 
-region.hf_inside_fence_grotto_entrance\u0020->\u0020region.hf_inside_fence_grotto=Umzäunte Grotte nahe Hyliasee - Eingang
-region.hf_inside_fence_grotto\u0020->\u0020region.hf_inside_fence_grotto_entrance=Umzäunte Grotte nahe Hyliasee - Ausgang
+region.hf_inside_fence_grotto_entrance -> region.hf_inside_fence_grotto=Umzäunte Grotte nahe Hyliasee - Eingang
+region.hf_inside_fence_grotto -> region.hf_inside_fence_grotto_entrance=Umzäunte Grotte nahe Hyliasee - Ausgang
 
-region.hf_open_grotto_entrance\u0020->\u0020region.hf_open_grotto=Hylianische Steppe - Offene Grotte nahe Hyliasee Eingang
-region.hf_open_grotto\u0020->\u0020region.hf_open_grotto_entrance=Hylianische Steppe - Offene Grotte nahe Hyliasee Ausgang
+region.hf_open_grotto_entrance -> region.hf_open_grotto=Hylianische Steppe - Offene Grotte nahe Hyliasee Eingang
+region.hf_open_grotto -> region.hf_open_grotto_entrance=Hylianische Steppe - Offene Grotte nahe Hyliasee Ausgang
 
-region.hf_tektite_grotto_entrance\u0020->\u0020region.hf_tektite_grotto=Hylianische Steppe - Tauch-Grotte Eingang
-region.hf_tektite_grotto\u0020->\u0020region.hf_tektite_grotto_entrance=Hylianische Steppe - Tauch-Grotte Ausgang
+region.hf_tektite_grotto_entrance -> region.hf_tektite_grotto=Hylianische Steppe - Tauch-Grotte Eingang
+region.hf_tektite_grotto -> region.hf_tektite_grotto_entrance=Hylianische Steppe - Tauch-Grotte Ausgang
 
-region.hf_cow_grotto_entrance\u0020->\u0020region.hf_cow_grotto=Hylianische Steppe - Kuhgrotte Eingang
-region.hf_cow_grotto\u0020->\u0020region.hf_cow_grotto_entrance=Hylianische Steppe - Kuhgrotte Ausgang
+region.hf_cow_grotto_entrance -> region.hf_cow_grotto=Hylianische Steppe - Kuhgrotte Eingang
+region.hf_cow_grotto -> region.hf_cow_grotto_entrance=Hylianische Steppe - Kuhgrotte Ausgang
 
-region.hf_near_market_grotto_entrance\u0020->\u0020region.hf_near_market_grotto=Nahe Hyrule-Stadt - Grotte Eingang
-region.hf_near_market_grotto\u0020->\u0020region.hf_near_market_grotto_entrance=Nahe Hyrule-Stadt - Grotte Ausgang
+region.hf_near_market_grotto_entrance -> region.hf_near_market_grotto=Nahe Hyrule-Stadt - Grotte Eingang
+region.hf_near_market_grotto -> region.hf_near_market_grotto_entrance=Nahe Hyrule-Stadt - Grotte Ausgang
 
-region.hf_southeast_grotto_entrance\u0020->\u0020region.hf_southeast_grotto=Hylianische Steppe - Südöstliche-Grotte Eingang
-region.hf_southeast_grotto\u0020->\u0020region.hf_southeast_grotto_entrance=Hylianische Steppe - Südöstliche-Grotte Ausgang
+region.hf_southeast_grotto_entrance -> region.hf_southeast_grotto=Hylianische Steppe - Südöstliche-Grotte Eingang
+region.hf_southeast_grotto -> region.hf_southeast_grotto_entrance=Hylianische Steppe - Südöstliche-Grotte Ausgang
 
-region.kak_redead_grotto_entrance\u0020->\u0020region.kak_redead_grotto=Kakariko - Zombie-Grotte Eingang
-region.kak_redead_grotto\u0020->\u0020region.kak_redead_grotto_entrance=Kakariko - Zombie-Grotte Ausgang
+region.kak_redead_grotto_entrance -> region.kak_redead_grotto=Kakariko - Zombie-Grotte Eingang
+region.kak_redead_grotto -> region.kak_redead_grotto_entrance=Kakariko - Zombie-Grotte Ausgang
 
-region.kak_open_grotto_entrance\u0020->\u0020region.kak_open_grotto=Kakariko - Offene Grotte Eingang
-region.kak_open_grotto\u0020->\u0020region.kak_open_grotto_entrance=Kakariko - Offene Grotte Ausgang
+region.kak_open_grotto_entrance -> region.kak_open_grotto=Kakariko - Offene Grotte Eingang
+region.kak_open_grotto -> region.kak_open_grotto_entrance=Kakariko - Offene Grotte Ausgang
 
-region.kf_storms_grotto_entrance\u0020->\u0020region.kf_storms_grotto=Kokiri - Sturmgrotte Eingang
-region.kf_storms_grotto\u0020->\u0020region.kf_storms_grotto_entrance=Kokiri - Sturmgrotte Ausgang
+region.kf_storms_grotto_entrance -> region.kf_storms_grotto=Kokiri - Sturmgrotte Eingang
+region.kf_storms_grotto -> region.kf_storms_grotto_entrance=Kokiri - Sturmgrotte Ausgang
 
-region.lh_grotto_entrance\u0020->\u0020region.lh_grotto=Hyliasee - Grabstein-Grotte Eingang
-region.lh_grotto\u0020->\u0020region.lh_grotto_entrance=Hyliasee - Grabstein-Grotte Ausgang
+region.lh_grotto_entrance -> region.lh_grotto=Hyliasee - Grabstein-Grotte Eingang
+region.lh_grotto -> region.lh_grotto_entrance=Hyliasee - Grabstein-Grotte Ausgang
 
-region.llr_grotto_entrance\u0020->\u0020region.llr_grotto=Lon-Lon Farm - Grotte Eingang
-region.llr_grotto\u0020->\u0020region.llr_grotto_entrance=Lon-Lon Farm - Grotte Ausgang
+region.llr_grotto_entrance -> region.llr_grotto=Lon-Lon Farm - Grotte Eingang
+region.llr_grotto -> region.llr_grotto_entrance=Lon-Lon Farm - Grotte Ausgang
 
-region.lw_near_shortcuts_grotto_entrance\u0020->\u0020region.lw_near_shortcuts_grotto=Wälder Nahe Goronia - Grotte Eingang
-region.lw_near_shortcuts_grotto\u0020->\u0020region.lw_near_shortcuts_grotto_entrance=Wälder Nahe Goronia - Grotte Ausgang
+region.lw_near_shortcuts_grotto_entrance -> region.lw_near_shortcuts_grotto=Wälder Nahe Goronia - Grotte Eingang
+region.lw_near_shortcuts_grotto -> region.lw_near_shortcuts_grotto_entrance=Wälder Nahe Goronia - Grotte Ausgang
 
-region.deku_theater_entrance\u0020->\u0020region.deku_theater=Deku Theater Eingang
-region.deku_theater\u0020->\u0020region.deku_theater_entrance=Deku Theater Ausgang
+region.deku_theater_entrance -> region.deku_theater=Deku Theater Eingang
+region.deku_theater -> region.deku_theater_entrance=Deku Theater Ausgang
 
-region.lw_scrubs_grotto_entrance\u0020->\u0020region.lw_scrubs_grotto=Nahe Lichtung - Grotte Eingang
-region.lw_scrubs_grotto\u0020->\u0020region.lw_scrubs_grotto_entrance=Nahe Lichtung - Grotte Ausgang
+region.lw_scrubs_grotto_entrance -> region.lw_scrubs_grotto=Nahe Lichtung - Grotte Eingang
+region.lw_scrubs_grotto -> region.lw_scrubs_grotto_entrance=Nahe Lichtung - Grotte Ausgang
 
-region.sfm_fairy_grotto_entrance\u0020->\u0020region.sfm_fairy_grotto=Heilige Lichtung - Feengrotte (Sturmgrotte) Eingang
-region.sfm_fairy_grotto\u0020->\u0020region.sfm_fairy_grotto_entrance=Heilige Lichtung - Feengrotte (Sturmgrotte) Ausgang
+region.sfm_fairy_grotto_entrance -> region.sfm_fairy_grotto=Heilige Lichtung - Feengrotte (Sturmgrotte) Eingang
+region.sfm_fairy_grotto -> region.sfm_fairy_grotto_entrance=Heilige Lichtung - Feengrotte (Sturmgrotte) Ausgang
 
-region.sfm_storms_grotto_entrance\u0020->\u0020region.sfm_storms_grotto=Heilige Lichtung - Sturmgrotte Eingang
-region.sfm_storms_grotto\u0020->\u0020region.sfm_storms_grotto_entrance=Heilige Lichtung - Sturmgrotte Ausgang
+region.sfm_storms_grotto_entrance -> region.sfm_storms_grotto=Heilige Lichtung - Sturmgrotte Eingang
+region.sfm_storms_grotto -> region.sfm_storms_grotto_entrance=Heilige Lichtung - Sturmgrotte Ausgang
 
-region.sfm_wolfos_grotto_entrance\u0020->\u0020region.sfm_wolfos_grotto=Heilige Lichtung - Wolfos-Grotte Eingang
-region.sfm_wolfos_grotto\u0020->\u0020region.sfm_wolfos_grotto_entrance=Heilige Lichtung - Wolfos-Grotte Ausgang
+region.sfm_wolfos_grotto_entrance -> region.sfm_wolfos_grotto=Heilige Lichtung - Wolfos-Grotte Eingang
+region.sfm_wolfos_grotto -> region.sfm_wolfos_grotto_entrance=Heilige Lichtung - Wolfos-Grotte Ausgang
 
-region.zr_fairy_grotto_entrance\u0020->\u0020region.zr_fairy_grotto=Zora-Fluss - Feen-Grotte Eingang
-region.zr_fairy_grotto\u0020->\u0020region.zr_fairy_grotto_entrance=Zora-Fluss - Feen-Grotte Ausgang
+region.zr_fairy_grotto_entrance -> region.zr_fairy_grotto=Zora-Fluss - Feen-Grotte Eingang
+region.zr_fairy_grotto -> region.zr_fairy_grotto_entrance=Zora-Fluss - Feen-Grotte Ausgang
 
-region.zr_open_grotto_entrance\u0020->\u0020region.zr_open_grotto=Zora-Fluss - Offene Grotte Eingang
-region.zr_open_grotto\u0020->\u0020region.zr_open_grotto_entrance=Zora-Fluss - Offene Grotte Ausgang
+region.zr_open_grotto_entrance -> region.zr_open_grotto=Zora-Fluss - Offene Grotte Eingang
+region.zr_open_grotto -> region.zr_open_grotto_entrance=Zora-Fluss - Offene Grotte Ausgang
 
-region.zr_storms_grotto_entrance\u0020->\u0020region.zr_storms_grotto=Zora-Fluss - Sturmgrotte Eingang
-region.zr_storms_grotto\u0020->\u0020region.zr_storms_grotto_entrance=Zora-Fluss - Sturmgrotte Ausgang
+region.zr_storms_grotto_entrance -> region.zr_storms_grotto=Zora-Fluss - Sturmgrotte Eingang
+region.zr_storms_grotto -> region.zr_storms_grotto_entrance=Zora-Fluss - Sturmgrotte Ausgang
 
-region.zd_storms_grotto_entrance\u0020->\u0020region.zd_storms_grotto=Zoras Reich - Feengrotte (Sturmgrotte) Eingang
-region.zd_storms_grotto\u0020->\u0020region.zd_storms_grotto_entrance=Zoras Reich - Feengrotte (Sturmgrotte) Ausgang
+region.zd_storms_grotto_entrance -> region.zd_storms_grotto=Zoras Reich - Feengrotte (Sturmgrotte) Eingang
+region.zd_storms_grotto -> region.zd_storms_grotto_entrance=Zoras Reich - Feengrotte (Sturmgrotte) Ausgang
 
-region.market_bazaar_entrance\u0020->\u0020region.market_bazaar=Hyrule Markt - Kind Basar Eingang
-region.market_bazaar\u0020->\u0020region.market_bazaar_entrance=Hyrule Markt - Kind Basar Ausgang
+region.market_bazaar_entrance -> region.market_bazaar=Hyrule Markt - Kind Basar Eingang
+region.market_bazaar -> region.market_bazaar_entrance=Hyrule Markt - Kind Basar Ausgang
 
-region.market_bombchu_bowling_entrance\u0020->\u0020region.market_bombchu_bowling=Hyrule Markt - Minenbowlingbahn Eingang
-region.market_bombchu_bowling\u0020->\u0020region.market_bombchu_bowling_entrance=Hyrule Markt - Minenbowlingbahn Ausgang
+region.market_bombchu_bowling_entrance -> region.market_bombchu_bowling=Hyrule Markt - Minenbowlingbahn Eingang
+region.market_bombchu_bowling -> region.market_bombchu_bowling_entrance=Hyrule Markt - Minenbowlingbahn Ausgang
 
-region.market_bombchu_shop_entrance\u0020->\u0020region.market_bombchu_shop=Hyrule Markt - Krabbelminenladen Eingang
-region.market_bombchu_shop\u0020->\u0020region.market_bombchu_shop_entrance=Hyrule Markt - Krabbelminenladen Ausgang
+region.market_bombchu_shop_entrance -> region.market_bombchu_shop=Hyrule Markt - Krabbelminenladen Eingang
+region.market_bombchu_shop -> region.market_bombchu_shop_entrance=Hyrule Markt - Krabbelminenladen Ausgang
 
-region.market_man_in_green_house_entrance\u0020->\u0020region.market_man_in_green_house=Hyrule Markt -  Hinteres Haus Eingang
-region.market_man_in_green_house\u0020->\u0020region.market_man_in_green_house_entrance=Hyrule Markt -  Hinteres Haus Ausgang
+region.market_man_in_green_house_entrance -> region.market_man_in_green_house=Hyrule Markt -  Hinteres Haus Eingang
+region.market_man_in_green_house -> region.market_man_in_green_house_entrance=Hyrule Markt -  Hinteres Haus Ausgang
 
-region.market_mask_shop_entrance\u0020->\u0020region.market_mask_shop=Hyrule Markt - Maskenladen Eingang
-region.market_mask_shop\u0020->\u0020region.market_mask_shop_entrance=Hyrule Markt - Maskenladen Ausgang
+region.market_mask_shop_entrance -> region.market_mask_shop=Hyrule Markt - Maskenladen Eingang
+region.market_mask_shop -> region.market_mask_shop_entrance=Hyrule Markt - Maskenladen Ausgang
 
-region.market_potion_shop_entrance\u0020->\u0020region.market_potion_shop=Hyrule Markt - Kind Trankladen Eingang
-region.market_potion_shop\u0020->\u0020region.market_potion_shop_entrance=Hyrule Markt - Kind Trankladen Ausgang
+region.market_potion_shop_entrance -> region.market_potion_shop=Hyrule Markt - Kind Trankladen Eingang
+region.market_potion_shop -> region.market_potion_shop_entrance=Hyrule Markt - Kind Trankladen Ausgang
 
-region.market_shooting_gallery_entrance\u0020->\u0020region.market_shooting_gallery=Hyrule Markt - Kind Schießbude Eingang
-region.market_shooting_gallery\u0020->\u0020region.market_shooting_gallery_entrance=Hyrule Markt - Kind Schießbude Ausgang
+region.market_shooting_gallery_entrance -> region.market_shooting_gallery=Hyrule Markt - Kind Schießbude Eingang
+region.market_shooting_gallery -> region.market_shooting_gallery_entrance=Hyrule Markt - Kind Schießbude Ausgang
 
-region.market_treasure_chest_game_entrance\u0020->\u0020region.market_treasure_chest_game=Hyrule Markt - Schatzkistenpoker Eingang
-region.market_treasure_chest_game\u0020->\u0020region.market_treasure_chest_game_entrance=Hyrule Markt - Schatzkistenpoker Ausgang
+region.market_treasure_chest_game_entrance -> region.market_treasure_chest_game=Hyrule Markt - Schatzkistenpoker Eingang
+region.market_treasure_chest_game -> region.market_treasure_chest_game_entrance=Hyrule Markt - Schatzkistenpoker Ausgang
 
-region.market_guard_house_entrance\u0020->\u0020region.market_guard_house=Hyrule Markt - Wachturm Eingang
-region.market_guard_house\u0020->\u0020region.market_guard_house_entrance=Hyrule Markt - Wachturm Ausgang
+region.market_guard_house_entrance -> region.market_guard_house=Hyrule Markt - Wachturm Eingang
+region.market_guard_house -> region.market_guard_house_entrance=Hyrule Markt - Wachturm Ausgang
 
-region.dmc_great_fairy_fountain_entrance\u0020->\u0020region.dmc_great_fairy_fountain=Krater - Große Fee Eingang
-region.dmc_great_fairy_fountain\u0020->\u0020region.dmc_great_fairy_fountain_entrance=Krater - Große Fee Ausgang
+region.dmc_great_fairy_fountain_entrance -> region.dmc_great_fairy_fountain=Krater - Große Fee Eingang
+region.dmc_great_fairy_fountain -> region.dmc_great_fairy_fountain_entrance=Krater - Große Fee Ausgang
 
-region.dmt_great_fairy_fountain_entrance\u0020->\u0020region.dmt_great_fairy_fountain=Gebirgspfad - Große Fee Eingang
-region.dmt_great_fairy_fountain\u0020->\u0020region.dmt_great_fairy_fountain_entrance=Gebirgspfad - Große Fee Ausgang
+region.dmt_great_fairy_fountain_entrance -> region.dmt_great_fairy_fountain=Gebirgspfad - Große Fee Eingang
+region.dmt_great_fairy_fountain -> region.dmt_great_fairy_fountain_entrance=Gebirgspfad - Große Fee Ausgang
 
-region.colossus_great_fairy_fountain_entrance\u0020->\u0020region.colossus_great_fairy_fountain=Wüstenkoloss - Große Fee Eingang
-region.colossus_great_fairy_fountain\u0020->\u0020region.colossus_great_fairy_fountain_entrance=Wüstenkoloss - Große Fee Ausgang
+region.colossus_great_fairy_fountain_entrance -> region.colossus_great_fairy_fountain=Wüstenkoloss - Große Fee Eingang
+region.colossus_great_fairy_fountain -> region.colossus_great_fairy_fountain_entrance=Wüstenkoloss - Große Fee Ausgang
 
-region.ogc_great_fairy_fountain_entrance\u0020->\u0020region.ogc_great_fairy_fountain=Ganons Schloss - Erwachsener Große Fee Eingang
-region.ogc_great_fairy_fountain\u0020->\u0020region.ogc_great_fairy_fountain_entrance=Ganons Schloss - Erwachsener Große Fee Ausgang
+region.ogc_great_fairy_fountain_entrance -> region.ogc_great_fairy_fountain=Ganons Schloss - Erwachsener Große Fee Eingang
+region.ogc_great_fairy_fountain -> region.ogc_great_fairy_fountain_entrance=Ganons Schloss - Erwachsener Große Fee Ausgang
 
-region.gv_carpenter_tent_entrance\u0020->\u0020region.gv_carpenter_tent=Gerudo-Tal - Handwerker-Zelt Eingang
-region.gv_carpenter_tent\u0020->\u0020region.gv_carpenter_tent_entrance=Gerudo-Tal - Handwerker-Zelt Ausgang
+region.gv_carpenter_tent_entrance -> region.gv_carpenter_tent=Gerudo-Tal - Handwerker-Zelt Eingang
+region.gv_carpenter_tent -> region.gv_carpenter_tent_entrance=Gerudo-Tal - Handwerker-Zelt Ausgang
 
-region.gc_shop_entrance\u0020->\u0020region.gc_shop=Goronia - Goronen-Laden Eingang
-region.gc_shop\u0020->\u0020region.gc_shop_entrance=Goronia - Goronen-Laden Ausgang
+region.gc_shop_entrance -> region.gc_shop=Goronia - Goronen-Laden Eingang
+region.gc_shop -> region.gc_shop_entrance=Goronia - Goronen-Laden Ausgang
 
-region.graveyard_dampes_house_entrance\u0020->\u0020region.graveyard_dampes_house=Friedhof - Boris Haus Eingang
-region.graveyard_dampes_house\u0020->\u0020region.graveyard_dampes_house_entrance=Friedhof - Boris Haus Ausgang
+region.graveyard_dampes_house_entrance -> region.graveyard_dampes_house=Friedhof - Boris Haus Eingang
+region.graveyard_dampes_house -> region.graveyard_dampes_house_entrance=Friedhof - Boris Haus Ausgang
 
-region.hc_great_fairy_fountain_entrance\u0020->\u0020region.hc_great_fairy_fountain=Schloss Hyrule - Kind Große Fee Eingang
-region.hc_great_fairy_fountain\u0020->\u0020region.hc_great_fairy_fountain_entrance=Schloss Hyrule - Kind Große Fee Ausgang
+region.hc_great_fairy_fountain_entrance -> region.hc_great_fairy_fountain=Schloss Hyrule - Kind Große Fee Eingang
+region.hc_great_fairy_fountain -> region.hc_great_fairy_fountain_entrance=Schloss Hyrule - Kind Große Fee Ausgang
 
-region.kak_impas_house_back_entrance\u0020->\u0020region.kak_impas_house_back=Kakariko - Impas Haus Hintereingang
-region.kak_impas_house_back\u0020->\u0020region.kak_impas_house_back_entrance=Kakariko - Impas Haus hinterausgang
+region.kak_impas_house_back_entrance -> region.kak_impas_house_back=Kakariko - Impas Haus Hintereingang
+region.kak_impas_house_back -> region.kak_impas_house_back_entrance=Kakariko - Impas Haus hinterausgang
 
-region.kak_carpenter_boss_house_entrance\u0020->\u0020region.kak_carpenter_boss_house=Kakariko - Handwerker Boss Haus Eingang
-region.kak_carpenter_boss_house\u0020->\u0020region.kak_carpenter_boss_house_entrance=Kakariko - Handwerker Boss Haus Ausgang
+region.kak_carpenter_boss_house_entrance -> region.kak_carpenter_boss_house=Kakariko - Handwerker Boss Haus Eingang
+region.kak_carpenter_boss_house -> region.kak_carpenter_boss_house_entrance=Kakariko - Handwerker Boss Haus Ausgang
 
-region.kak_house_of_skulltula_entrance\u0020->\u0020region.kak_house_of_skulltula=Kakariko - Skulltula Haus Eingang
-region.kak_house_of_skulltula\u0020->\u0020region.kak_house_of_skulltula_entrance=Kakariko - Skulltula Haus Ausgang
+region.kak_house_of_skulltula_entrance -> region.kak_house_of_skulltula=Kakariko - Skulltula Haus Eingang
+region.kak_house_of_skulltula -> region.kak_house_of_skulltula_entrance=Kakariko - Skulltula Haus Ausgang
 
-region.kak_impas_house_entrance\u0020->\u0020region.kak_impas_house=Kakariko - Impas Haus Eingang
-region.kak_impas_house\u0020->\u0020region.kak_impas_house_entrance=Kakariko - Impas Haus Ausgang
+region.kak_impas_house_entrance -> region.kak_impas_house=Kakariko - Impas Haus Eingang
+region.kak_impas_house -> region.kak_impas_house_entrance=Kakariko - Impas Haus Ausgang
 
-region.kak_bazaar_entrance\u0020->\u0020region.kak_bazaar=Kakariko - Erwachsener Basar Eingang
-region.kak_bazaar\u0020->\u0020region.kak_bazaar_entrance=Kakariko - Erwachsener Basar Ausgang
+region.kak_bazaar_entrance -> region.kak_bazaar=Kakariko - Erwachsener Basar Eingang
+region.kak_bazaar -> region.kak_bazaar_entrance=Kakariko - Erwachsener Basar Ausgang
 
-region.kak_shooting_gallery_entrance\u0020->\u0020region.kak_shooting_gallery=Kakariko - Erwachsener Schießbude Eingang
-region.kak_shooting_gallery\u0020->\u0020region.kak_shooting_gallery_entrance=Kakariko - Erwachsener Schießbude Ausgang
+region.kak_shooting_gallery_entrance -> region.kak_shooting_gallery=Kakariko - Erwachsener Schießbude Eingang
+region.kak_shooting_gallery -> region.kak_shooting_gallery_entrance=Kakariko - Erwachsener Schießbude Ausgang
 
-region.kak_windmill_entrance\u0020->\u0020region.kak_windmill=Kakariko -  Windmühle Eingang
-region.kak_windmill\u0020->\u0020region.kak_windmill_entrance=Kakariko -  Windmühle Ausgang
+region.kak_windmill_entrance -> region.kak_windmill=Kakariko -  Windmühle Eingang
+region.kak_windmill -> region.kak_windmill_entrance=Kakariko -  Windmühle Ausgang
 
-region.kak_odd_medicine_building_entrance\u0020->\u0020region.kak_odd_medicine_building=Kakariko - Medizinladen Eingang
-region.kak_odd_medicine_building\u0020->\u0020region.kak_odd_medicine_building_entrance=Kakariko - Medizinladen Ausgang
+region.kak_odd_medicine_building_entrance -> region.kak_odd_medicine_building=Kakariko - Medizinladen Eingang
+region.kak_odd_medicine_building -> region.kak_odd_medicine_building_entrance=Kakariko - Medizinladen Ausgang
 
-region.kf_house_of_twins_entrance\u0020->\u0020region.kf_house_of_twins=Kokiri-Wald - Zwillinge Haus Eingang
-region.kf_house_of_twins\u0020->\u0020region.kf_house_of_twins_entrance=Kokiri-Wald - Zwillinge Haus Ausgang
+region.kf_house_of_twins_entrance -> region.kf_house_of_twins=Kokiri-Wald - Zwillinge Haus Eingang
+region.kf_house_of_twins -> region.kf_house_of_twins_entrance=Kokiri-Wald - Zwillinge Haus Ausgang
 
-region.kf_know_it_all_house_entrance\u0020->\u0020region.kf_know_it_all_house=Kokiri-Wald - Allwissender Haus Eingang
-region.kf_know_it_all_house\u0020->\u0020region.kf_know_it_all_house_entrance=Kokiri-Wald - Allwissender Haus Ausgang
+region.kf_know_it_all_house_entrance -> region.kf_know_it_all_house=Kokiri-Wald - Allwissender Haus Eingang
+region.kf_know_it_all_house -> region.kf_know_it_all_house_entrance=Kokiri-Wald - Allwissender Haus Ausgang
 
-region.kf_kokiri_shop_entrance\u0020->\u0020region.kf_kokiri_shop=Kokiri-Wald - Laden Eingang
-region.kf_kokiri_shop\u0020->\u0020region.kf_kokiri_shop_entrance=Kokiri-Wald - Laden Ausgang
+region.kf_kokiri_shop_entrance -> region.kf_kokiri_shop=Kokiri-Wald - Laden Eingang
+region.kf_kokiri_shop -> region.kf_kokiri_shop_entrance=Kokiri-Wald - Laden Ausgang
 
-region.kf_midos_house_entrance\u0020->\u0020region.kf_midos_house=Kokiri-Wald - Midos Haus Eingang
-region.kf_midos_house\u0020->\u0020region.kf_midos_house_entrance=Kokiri-Wald - Midos Haus Ausgang
+region.kf_midos_house_entrance -> region.kf_midos_house=Kokiri-Wald - Midos Haus Eingang
+region.kf_midos_house -> region.kf_midos_house_entrance=Kokiri-Wald - Midos Haus Ausgang
 
-region.kf_sarias_house_entrance\u0020->\u0020region.kf_sarias_house=Kokiri-Wald - Sarias Haus Eingang
-region.kf_sarias_house\u0020->\u0020region.kf_sarias_house_entrance=Kokiri-Wald - Sarias Haus Ausgang
+region.kf_sarias_house_entrance -> region.kf_sarias_house=Kokiri-Wald - Sarias Haus Eingang
+region.kf_sarias_house -> region.kf_sarias_house_entrance=Kokiri-Wald - Sarias Haus Ausgang
 
-region.lh_fishing_hole_entrance\u0020->\u0020region.lh_fishing_hole=Hyliasee - Angelteich Eingang
-region.lh_fishing_hole\u0020->\u0020region.lh_fishing_hole_entrance=Hyliasee - Angelteich Ausgang
+region.lh_fishing_hole_entrance -> region.lh_fishing_hole=Hyliasee - Angelteich Eingang
+region.lh_fishing_hole -> region.lh_fishing_hole_entrance=Hyliasee - Angelteich Ausgang
 
-region.lh_lab_entrance\u0020->\u0020region.lh_lab=Hyliasee - Labor Eingang
-region.lh_lab\u0020->\u0020region.lh_lab_entrance=Hyliasee - Labor Ausgang
+region.lh_lab_entrance -> region.lh_lab=Hyliasee - Labor Eingang
+region.lh_lab -> region.lh_lab_entrance=Hyliasee - Labor Ausgang
 
-region.llr_stables_entrance\u0020->\u0020region.llr_stables=Lon-Lon Farm - Stall Eingang
-region.llr_stables\u0020->\u0020region.llr_stables_entrance=Lon-Lon Farm - Stall Ausgang
+region.llr_stables_entrance -> region.llr_stables=Lon-Lon Farm - Stall Eingang
+region.llr_stables -> region.llr_stables_entrance=Lon-Lon Farm - Stall Ausgang
 
-region.llr_tower_entrance\u0020->\u0020region.llr_tower=Lon-Lon Farm - Turm Eingang
-region.llr_tower\u0020->\u0020region.llr_tower_entrance=Lon-Lon Farm - Turm Ausgang
+region.llr_tower_entrance -> region.llr_tower=Lon-Lon Farm - Turm Eingang
+region.llr_tower -> region.llr_tower_entrance=Lon-Lon Farm - Turm Ausgang
 
-region.llr_talons_house_entrance\u0020->\u0020region.llr_talons_house=Lon-Lon Farm - Talons Haus Eingang
-region.llr_talons_house\u0020->\u0020region.llr_talons_house_entrance=Lon-Lon Farm - Talons Haus Ausgang
+region.llr_talons_house_entrance -> region.llr_talons_house=Lon-Lon Farm - Talons Haus Eingang
+region.llr_talons_house -> region.llr_talons_house_entrance=Lon-Lon Farm - Talons Haus Ausgang
 
-region.zd_shop_entrance\u0020->\u0020region.zd_shop=Zora-Laden Eingang
-region.zd_shop\u0020->\u0020region.zd_shop_entrance=Zora-Laden Ausgang
+region.zd_shop_entrance -> region.zd_shop=Zora-Laden Eingang
+region.zd_shop -> region.zd_shop_entrance=Zora-Laden Ausgang
 
-region.zf_great_fairy_fountain_entrance\u0020->\u0020region.zf_great_fairy_fountain=Zora-Quelle - Große Fee Eingang
-region.zf_great_fairy_fountain\u0020->\u0020region.zf_great_fairy_fountain_entrance=Zora-Quelle - Große Fee Ausgang
+region.zf_great_fairy_fountain_entrance -> region.zf_great_fairy_fountain=Zora-Quelle - Große Fee Eingang
+region.zf_great_fairy_fountain -> region.zf_great_fairy_fountain_entrance=Zora-Quelle - Große Fee Ausgang
 
 ## special indoors
-region.graveyard_dampes_grave_entrance\u0020->\u0020region.graveyard_dampes_grave=Boris’ Grab Eingang
-region.graveyard_dampes_grave\u0020->\u0020region.graveyard_dampes_grave_entrance=Boris’ Grab Ausgang
+region.graveyard_dampes_grave_entrance -> region.graveyard_dampes_grave=Boris’ Grab Eingang
+region.graveyard_dampes_grave -> region.graveyard_dampes_grave_entrance=Boris’ Grab Ausgang
 
-region.kak_potion_shop_front_entrance\u0020->\u0020region.kak_potion_shop_front=Kakariko - Erwachsener Magie-Laden Eingang
-region.kak_potion_shop_front\u0020->\u0020region.kak_potion_shop_front_entrance=Kakariko - Erwachsener Magie-Laden Ausgang
+region.kak_potion_shop_front_entrance -> region.kak_potion_shop_front=Kakariko - Erwachsener Magie-Laden Eingang
+region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance=Kakariko - Erwachsener Magie-Laden Ausgang
 
-region.kak_potion_shop_back_entrance\u0020->\u0020region.kak_potion_shop_back=Kakariko - Erwachsener Magie-Laden Hintereingang
-region.kak_potion_shop_back\u0020->\u0020region.kak_potion_shop_back_entrance=Kakariko - Erwachsener Magie-Laden Hinterausgang
+region.kak_potion_shop_back_entrance -> region.kak_potion_shop_back=Kakariko - Erwachsener Magie-Laden Hintereingang
+region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance=Kakariko - Erwachsener Magie-Laden Hinterausgang
 
-region.kf_links_house_entrance\u0020->\u0020region.kf_links_house=Kokiri-Dorf - Links Haus Eingang
-region.kf_links_house\u0020->\u0020region.kf_links_house_entrance=Kokiri-Dorf - Links Haus Ausgang
+region.kf_links_house_entrance -> region.kf_links_house=Kokiri-Dorf - Links Haus Eingang
+region.kf_links_house -> region.kf_links_house_entrance=Kokiri-Dorf - Links Haus Ausgang
 
-region.tot_entrance\u0020->\u0020region.temple_of_time=Zitadelle der Zeit Eingang
-region.temple_of_time\u0020->\u0020region.tot_entrance=Zitadelle der Zeit Ausgang
+region.tot_entrance -> region.temple_of_time=Zitadelle der Zeit Eingang
+region.temple_of_time -> region.tot_entrance=Zitadelle der Zeit Ausgang
 
 ## overworld
 
-exit[region.field_woods_gateway\u0020->\u0020region.woods_field_gateway]=Brücke Hylianische Steppe nach Verlorene Wälder
-exit[region.field_lake_gateway\u0020->\u0020region.lake_field_gateway]=Hylianische Steppe nach Hyliasee
-exit[region.field_marketentrance_gateway\u0020->\u0020region.marketentrance_field_gateway]=Hylianische Steppe nach Stadt Hyrule Eingang
-exit[region.field_ranch_gateway\u0020->\u0020region.ranch_field_gateway]=Hylianische Steppe nach Lon Lon-Farm
-exit[region.field_kakariko_gateway\u0020->\u0020region.kakariko_field_gateway]=Hylianische Steppe nach Kakariko
-exit[region.field_river_gateway\u0020->\u0020region.river_field_gateway]=Hylianische Steppe nach Zora-Fluss
-exit[region.field_valley_gateway\u0020->\u0020region.valley_field_gateway]=Hylianische Steppe nach Gerudo-Tal
-exit[region.kokiri_bridge_gateway\u0020->\u0020region.bridge_kokiri_gateway]=Brücke Kokiri-Wald nach Verlorene Wälder
-exit[region.kokiri_woods_gateway\u0020->\u0020region.woods_kokiri_gateway]=Kokiri-Wald nach Verlorene Wälder
-exit[region.woods_field_gateway\u0020->\u0020region.field_woods_gateway]=Brücke Verlorene Wälder nach Hylianische Steppe
-exit[region.bridge_kokiri_gateway\u0020->\u0020region.kokiri_bridge_gateway]=Brücke Verlorene Wälder nach Kokiri-Wald
-exit[region.woods_kokiri_gateway\u0020->\u0020region.kokiri_woods_gateway]=Verlorene Wälder nach Kokiri-Wald
-exit[region.woods_gc_gateway\u0020->\u0020region.gc_woods_gateway]=Verlorene Wälder nach Goronia
-exit[region.woods_river_gateway\u0020->\u0020region.river_woods_gateway]=Verlorene Wälder nach Zora-Fluss
-exit[region.woods_meadow_gateway\u0020->\u0020region.meadow_woods_gateway]=Verlorene Wälder nach Heiliger Lichtung
-exit[region.meadow_woods_gateway\u0020->\u0020region.woods_meadow_gateway]=Heilige Lichtung nach Verlorene Wälder
-exit[region.lake_field_gateway\u0020->\u0020region.field_lake_gateway]=Hyliasee nach Hylianische Steppe
-exit[region.lake_domain_gateway\u0020->\u0020region.domain_lake_gateway]=Hyliasee nach Zora-Reich
-exit[region.ranch_field_gateway\u0020->\u0020region.field_ranch_gateway]=Lon Lon-Farm nach Hylianischer Steppe
-exit[region.marketentrance_field_gateway\u0020->\u0020region.field_marketentrance_gateway]=Hyrule-Stadt Eingang nach Hylianische Steppe
-exit[region.marketentrance_market_gateway\u0020->\u0020region.market_marketentrance_gateway]=Hyrule-Stadt Eingang nach Hyrule Marktplatz
-exit[region.market_marketentrance_gateway\u0020->\u0020region.marketentrance_market_gateway]=Hyrule Marktplatz nach Hyrule-Stadt
-exit[region.market_grounds_gateway\u0020->\u0020region.grounds_market_gateway]=Hyrule Marktplatz nach Hyrule Schlossgelände
-exit[region.market_tot_gateway\u0020->\u0020region.tot_market_gateway]=Hyrule Marktplatz nach Zitadelle der Zeit Vorhof
-exit[region.grounds_market_gateway\u0020->\u0020region.market_grounds_gateway]=Hyrule Schlossgelände nach Hyrule Marktplatz
-exit[region.tot_market_gateway\u0020->\u0020region.market_tot_gateway]=Zitadelle der Zeit Vorhof nach Hyrule Marktplatz
-exit[region.kakariko_field_gateway\u0020->\u0020region.field_kakariko_gateway]=Kakariko Dorf nach Hylianische Steppe
-exit[region.kakariko_graveyard_gateway\u0020->\u0020region.graveyard_kakariko_gateway]=Kakariko Dorf nach Friedhof
-exit[region.graveyard_kakariko_gateway\u0020->\u0020region.kakariko_graveyard_gateway]=Friedhof nach Kakariko Dorf
-exit[region.kakariko_mountain_gateway\u0020->\u0020region.mountain_kakariko_gateway]=Kakariko Dorf nach Todesberg
-exit[region.mountain_kakariko_gateway\u0020->\u0020region.kakariko_mountain_gateway]=Todesberg nach Kakariko Dorf
-exit[region.mountain_goron_gateway\u0020->\u0020region.goron_mountain_gateway]=Todesberg nach Goronia
-exit[region.mountain_crater_gateway\u0020->\u0020region.crater_mountain_gateway]=Todesbergspitze nach nach Todesberg - Krater
-exit[region.crater_mountain_gateway\u0020->\u0020region.mountain_crater_gateway]=Todesberg Krater nach Todesbergspitze
-exit[region.crater_goron_gateway\u0020->\u0020region.goron_crater_gateway]=Todesberg Krater nach Goronia
-exit[region.goron_crater_gateway\u0020->\u0020region.crater_goron_gateway]=Goronia nach Todesberg Krater
-exit[region.goron_mountain_gateway\u0020->\u0020region.mountain_goron_gateway]=Goronia nach Todesberg
-exit[region.gc_woods_gateway\u0020->\u0020region.woods_gc_gateway]=Goronia nach Verlorene Wälder
-exit[region.river_field_gateway\u0020->\u0020region.field_river_gateway]=Zora-Fluss nach Hylianische Steppe
-exit[region.river_woods_gateway\u0020->\u0020region.woods_river_gateway]=Zora-Fluss nach Verlorene Wälder
-exit[region.river_domain_gateway\u0020->\u0020region.domain_river_gateway]=Zora-Fluss nach Zora-Reich
-exit[region.domain_river_gateway\u0020->\u0020region.river_domain_gateway]=Zora-Reich nach Zora-Fluss
-exit[region.domain_lake_gateway\u0020->\u0020region.lake_domain_gateway]=Zora-Reich nach Hyliasee
-exit[region.domain_fountain_gateway\u0020->\u0020region.fountain_domain_gateway]=Zora-Reich nach Zora-Quelle
-exit[region.fountain_domain_gateway\u0020->\u0020region.domain_fountain_gateway]=Zora-Quelle nach Zora-Reich
-exit[region.valley_field_gateway\u0020->\u0020region.field_valley_gateway]=Gerudo-Tal nach Hylianische Steppe
-exit[region.valley_fortress_gateway\u0020->\u0020region.fortress_valley_gateway]=Gerudo-Tal nach Gerudo-Festung
-exit[region.fortress_valley_gateway\u0020->\u0020region.valley_fortress_gateway]=Gerudo-Festung nach Gerudo-Tal
-exit[region.fortress_wasteland_gateway\u0020->\u0020region.wasteland_fortress_gateway]=Gerudo-Festung nach Gespensterwüste
-exit[region.wasteland_fortress_gateway\u0020->\u0020region.fortress_wasteland_gateway]=Gespensterwüste nach Gerudo-Festung
-exit[region.wasteland_colossus_gateway\u0020->\u0020region.colossus_wasteland_gateway]=Gespensterwüste nach Wüstenkoloss
-exit[region.colossus_wasteland_gateway\u0020->\u0020region.wasteland_colossus_gateway]=Wüstenkoloss nach Gespensterwüste
+exit[region.field_woods_gateway -> region.woods_field_gateway]=Brücke Hylianische Steppe nach Verlorene Wälder
+exit[region.field_lake_gateway -> region.lake_field_gateway]=Hylianische Steppe nach Hyliasee
+exit[region.field_marketentrance_gateway -> region.marketentrance_field_gateway]=Hylianische Steppe nach Stadt Hyrule Eingang
+exit[region.field_ranch_gateway -> region.ranch_field_gateway]=Hylianische Steppe nach Lon Lon-Farm
+exit[region.field_kakariko_gateway -> region.kakariko_field_gateway]=Hylianische Steppe nach Kakariko
+exit[region.field_river_gateway -> region.river_field_gateway]=Hylianische Steppe nach Zora-Fluss
+exit[region.field_valley_gateway -> region.valley_field_gateway]=Hylianische Steppe nach Gerudo-Tal
+exit[region.kokiri_bridge_gateway -> region.bridge_kokiri_gateway]=Brücke Kokiri-Wald nach Verlorene Wälder
+exit[region.kokiri_woods_gateway -> region.woods_kokiri_gateway]=Kokiri-Wald nach Verlorene Wälder
+exit[region.woods_field_gateway -> region.field_woods_gateway]=Brücke Verlorene Wälder nach Hylianische Steppe
+exit[region.bridge_kokiri_gateway -> region.kokiri_bridge_gateway]=Brücke Verlorene Wälder nach Kokiri-Wald
+exit[region.woods_kokiri_gateway -> region.kokiri_woods_gateway]=Verlorene Wälder nach Kokiri-Wald
+exit[region.woods_gc_gateway -> region.gc_woods_gateway]=Verlorene Wälder nach Goronia
+exit[region.woods_river_gateway -> region.river_woods_gateway]=Verlorene Wälder nach Zora-Fluss
+exit[region.woods_meadow_gateway -> region.meadow_woods_gateway]=Verlorene Wälder nach Heiliger Lichtung
+exit[region.meadow_woods_gateway -> region.woods_meadow_gateway]=Heilige Lichtung nach Verlorene Wälder
+exit[region.lake_field_gateway -> region.field_lake_gateway]=Hyliasee nach Hylianische Steppe
+exit[region.lake_domain_gateway -> region.domain_lake_gateway]=Hyliasee nach Zora-Reich
+exit[region.ranch_field_gateway -> region.field_ranch_gateway]=Lon Lon-Farm nach Hylianischer Steppe
+exit[region.marketentrance_field_gateway -> region.field_marketentrance_gateway]=Hyrule-Stadt Eingang nach Hylianische Steppe
+exit[region.marketentrance_market_gateway -> region.market_marketentrance_gateway]=Hyrule-Stadt Eingang nach Hyrule Marktplatz
+exit[region.market_marketentrance_gateway -> region.marketentrance_market_gateway]=Hyrule Marktplatz nach Hyrule-Stadt
+exit[region.market_grounds_gateway -> region.grounds_market_gateway]=Hyrule Marktplatz nach Hyrule Schlossgelände
+exit[region.market_tot_gateway -> region.tot_market_gateway]=Hyrule Marktplatz nach Zitadelle der Zeit Vorhof
+exit[region.grounds_market_gateway -> region.market_grounds_gateway]=Hyrule Schlossgelände nach Hyrule Marktplatz
+exit[region.tot_market_gateway -> region.market_tot_gateway]=Zitadelle der Zeit Vorhof nach Hyrule Marktplatz
+exit[region.kakariko_field_gateway -> region.field_kakariko_gateway]=Kakariko Dorf nach Hylianische Steppe
+exit[region.kakariko_graveyard_gateway -> region.graveyard_kakariko_gateway]=Kakariko Dorf nach Friedhof
+exit[region.graveyard_kakariko_gateway -> region.kakariko_graveyard_gateway]=Friedhof nach Kakariko Dorf
+exit[region.kakariko_mountain_gateway -> region.mountain_kakariko_gateway]=Kakariko Dorf nach Todesberg
+exit[region.mountain_kakariko_gateway -> region.kakariko_mountain_gateway]=Todesberg nach Kakariko Dorf
+exit[region.mountain_goron_gateway -> region.goron_mountain_gateway]=Todesberg nach Goronia
+exit[region.mountain_crater_gateway -> region.crater_mountain_gateway]=Todesbergspitze nach nach Todesberg - Krater
+exit[region.crater_mountain_gateway -> region.mountain_crater_gateway]=Todesberg Krater nach Todesbergspitze
+exit[region.crater_goron_gateway -> region.goron_crater_gateway]=Todesberg Krater nach Goronia
+exit[region.goron_crater_gateway -> region.crater_goron_gateway]=Goronia nach Todesberg Krater
+exit[region.goron_mountain_gateway -> region.mountain_goron_gateway]=Goronia nach Todesberg
+exit[region.gc_woods_gateway -> region.woods_gc_gateway]=Goronia nach Verlorene Wälder
+exit[region.river_field_gateway -> region.field_river_gateway]=Zora-Fluss nach Hylianische Steppe
+exit[region.river_woods_gateway -> region.woods_river_gateway]=Zora-Fluss nach Verlorene Wälder
+exit[region.river_domain_gateway -> region.domain_river_gateway]=Zora-Fluss nach Zora-Reich
+exit[region.domain_river_gateway -> region.river_domain_gateway]=Zora-Reich nach Zora-Fluss
+exit[region.domain_lake_gateway -> region.lake_domain_gateway]=Zora-Reich nach Hyliasee
+exit[region.domain_fountain_gateway -> region.fountain_domain_gateway]=Zora-Reich nach Zora-Quelle
+exit[region.fountain_domain_gateway -> region.domain_fountain_gateway]=Zora-Quelle nach Zora-Reich
+exit[region.valley_field_gateway -> region.field_valley_gateway]=Gerudo-Tal nach Hylianische Steppe
+exit[region.valley_fortress_gateway -> region.fortress_valley_gateway]=Gerudo-Tal nach Gerudo-Festung
+exit[region.fortress_valley_gateway -> region.valley_fortress_gateway]=Gerudo-Festung nach Gerudo-Tal
+exit[region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway]=Gerudo-Festung nach Gespensterwüste
+exit[region.wasteland_fortress_gateway -> region.fortress_wasteland_gateway]=Gespensterwüste nach Gerudo-Festung
+exit[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]=Gespensterwüste nach Wüstenkoloss
+exit[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Wüstenkoloss nach Gespensterwüste
 
-entrance[region.field_woods_gateway\u0020->\u0020region.woods_field_gateway]=Hylianische Steppe aus Richtung Verlorene Wälder Brücke
-entrance[region.field_lake_gateway\u0020->\u0020region.lake_field_gateway]=Hylianische Steppe aus Richtung Hyliasee
-entrance[region.field_marketentrance_gateway\u0020->\u0020region.marketentrance_field_gateway]=Hylianische Steppe aus Richtung Stadt Hyrule
-entrance[region.field_ranch_gateway\u0020->\u0020region.ranch_field_gateway]=Hylianische Steppe aus Richtung Lon Lon-Farm
-entrance[region.field_kakariko_gateway\u0020->\u0020region.kakariko_field_gateway]=Hylianische Steppe aus Richtung Kakariko
-entrance[region.field_river_gateway\u0020->\u0020region.river_field_gateway]=Hylianische Steppe aus Richtung Zora-Fluss
-entrance[region.field_valley_gateway\u0020->\u0020region.valley_field_gateway]=Hylianische Steppe aus Richtung Gerudo-Tal
-entrance[region.kokiri_bridge_gateway\u0020->\u0020region.bridge_kokiri_gateway]=Kokiri-Dorf aus Richtung Verlorene Wälder Brücke
-entrance[region.kokiri_woods_gateway\u0020->\u0020region.woods_kokiri_gateway]=Kokiri-Dorf aus Richtung Verlorene Wälder
-entrance[region.woods_field_gateway\u0020->\u0020region.field_woods_gateway]=Verlorene Wälder aus Richtung Hylianische Steppe
-entrance[region.bridge_kokiri_gateway\u0020->\u0020region.kokiri_bridge_gateway]=Verlorene Wälder Brücke aus Richtung Kokiri-Dorf
-entrance[region.woods_kokiri_gateway\u0020->\u0020region.kokiri_woods_gateway]=Verlorene Wälder aus Richtung Kokiri-Dorf
-entrance[region.woods_gc_gateway\u0020->\u0020region.gc_woods_gateway]=Verlorene Wälder aus Richtung Goronia
-entrance[region.woods_river_gateway\u0020->\u0020region.river_woods_gateway]=Verlorene Wälder aus Richtung Zora-Fluss
-entrance[region.woods_meadow_gateway\u0020->\u0020region.meadow_woods_gateway]=Verlorene Wälder aus Richtung Heiliger Lichtung
-entrance[region.meadow_woods_gateway\u0020->\u0020region.woods_meadow_gateway]=Heilige Lichtung aus Richtung Verlorene Wälder
-entrance[region.lake_field_gateway\u0020->\u0020region.field_lake_gateway]=Hyliasee aus Richtung Hylianische Steppe
-entrance[region.lake_domain_gateway\u0020->\u0020region.domain_lake_gateway]=Hyliasee aus Richtung Zora-Reich
-entrance[region.ranch_field_gateway\u0020->\u0020region.field_ranch_gateway]=Lon Lon-Farm aus Richtung Hylianische Steppe
-entrance[region.marketentrance_field_gateway\u0020->\u0020region.field_marketentrance_gateway]=Stadt Hyrule Eingangsbereich aus Richtung Hylianische Steppe
-entrance[region.marketentrance_market_gateway\u0020->\u0020region.market_marketentrance_gateway]=Stadt Hyrule Eingangsbereich aus Richtung Hyrule Marktplatz
-entrance[region.market_marketentrance_gateway\u0020->\u0020region.marketentrance_market_gateway]=Hyrule Marktplatz aus Richtung Stadt Hyrule Eingangsbereich
-entrance[region.market_grounds_gateway\u0020->\u0020region.grounds_market_gateway]=Hyrule Marktplatz aus Richtung Schloss Hyrule
-entrance[region.market_tot_gateway\u0020->\u0020region.tot_market_gateway]=Hyrule Marktplatz aus Richtung Zitadelle der Zeit
-entrance[region.grounds_market_gateway\u0020->\u0020region.market_grounds_gateway]=Schloss Hyrule aus Richtung Hyrule Marktplatz
-entrance[region.tot_market_gateway\u0020->\u0020region.market_tot_gateway]=Zitadelle der Zeit aus Richtung Hyrule Marktplatz
-entrance[region.kakariko_field_gateway\u0020->\u0020region.field_kakariko_gateway]=Kakariko aus Richtung Hylianische Steppe
-entrance[region.kakariko_graveyard_gateway\u0020->\u0020region.graveyard_kakariko_gateway]=Kakariko aus Richtung Friedhof
-entrance[region.graveyard_kakariko_gateway\u0020->\u0020region.kakariko_graveyard_gateway]=Friedhof aus Richtung Kakariko
-entrance[region.kakariko_mountain_gateway\u0020->\u0020region.mountain_kakariko_gateway]=Kakariko aus Richtung Todesberg
-entrance[region.mountain_kakariko_gateway\u0020->\u0020region.kakariko_mountain_gateway]=Todesberg aus Richtung Kakariko
-entrance[region.mountain_goron_gateway\u0020->\u0020region.goron_mountain_gateway]=Todesberg aus Richtung Goronia
-entrance[region.mountain_crater_gateway\u0020->\u0020region.crater_mountain_gateway]=Todesbergspitze aus Richtung Todesberg Krater
-entrance[region.crater_mountain_gateway\u0020->\u0020region.mountain_crater_gateway]=Todesberg Krater aus Richtung Todesbergspitze
-entrance[region.crater_goron_gateway\u0020->\u0020region.goron_crater_gateway]=Todesberg Krater aus Richtung Goronia
-entrance[region.goron_crater_gateway\u0020->\u0020region.crater_goron_gateway]=Goronia aus Richtung Todesberg Krater
-entrance[region.goron_mountain_gateway\u0020->\u0020region.mountain_goron_gateway]=Goronia aus Richtung Todesberg
-entrance[region.gc_woods_gateway\u0020->\u0020region.woods_gc_gateway]=Goronia aus Richtung Verlorene Wälder
-entrance[region.river_field_gateway\u0020->\u0020region.field_river_gateway]=Zora-Fluss aus Richtung Hylianische Steppe
-entrance[region.river_woods_gateway\u0020->\u0020region.woods_river_gateway]=Zora-Fluss aus Richtung Verlorene Wälder
-entrance[region.river_domain_gateway\u0020->\u0020region.domain_river_gateway]=Zora-Fluss aus Richtung Zora-Reich
-entrance[region.domain_river_gateway\u0020->\u0020region.river_domain_gateway]=Zora-Reich aus Richtung Zora-Fluss
-entrance[region.domain_lake_gateway\u0020->\u0020region.lake_domain_gateway]=Zora-Reich aus Richtung Hyliasee
-entrance[region.domain_fountain_gateway\u0020->\u0020region.fountain_domain_gateway]=Zora-Reich aus Richtung Zora-Quelle
-entrance[region.fountain_domain_gateway\u0020->\u0020region.domain_fountain_gateway]=Zora-Quelle aus Richtung Zora-Reich
-entrance[region.valley_field_gateway\u0020->\u0020region.field_valley_gateway]=Gerudo-Tal aus Richtung Hylianische Steppe
-entrance[region.valley_fortress_gateway\u0020->\u0020region.fortress_valley_gateway]=Gerudo-Tal aus Richtung Gerudo-Festung
-entrance[region.fortress_valley_gateway\u0020->\u0020region.valley_fortress_gateway]=Gerudo-Festung aus Richtung Gerudo-Tal
-entrance[region.fortress_wasteland_gateway\u0020->\u0020region.wasteland_fortress_gateway]=Gerudo-Festung aus Richtung Gespensterwüste
-entrance[region.wasteland_fortress_gateway\u0020->\u0020region.fortress_wasteland_gateway]=Gespensterwüste aus Richtung Gerudo-Festung
-entrance[region.wasteland_colossus_gateway\u0020->\u0020region.colossus_wasteland_gateway]=Gespensterwüste aus Richtung Wüstenkoloss
-entrance[region.colossus_wasteland_gateway\u0020->\u0020region.wasteland_colossus_gateway]=Wüstenkoloss aus Richtung Gespensterwüste
+entrance[region.field_woods_gateway -> region.woods_field_gateway]=Hylianische Steppe aus Richtung Verlorene Wälder Brücke
+entrance[region.field_lake_gateway -> region.lake_field_gateway]=Hylianische Steppe aus Richtung Hyliasee
+entrance[region.field_marketentrance_gateway -> region.marketentrance_field_gateway]=Hylianische Steppe aus Richtung Stadt Hyrule
+entrance[region.field_ranch_gateway -> region.ranch_field_gateway]=Hylianische Steppe aus Richtung Lon Lon-Farm
+entrance[region.field_kakariko_gateway -> region.kakariko_field_gateway]=Hylianische Steppe aus Richtung Kakariko
+entrance[region.field_river_gateway -> region.river_field_gateway]=Hylianische Steppe aus Richtung Zora-Fluss
+entrance[region.field_valley_gateway -> region.valley_field_gateway]=Hylianische Steppe aus Richtung Gerudo-Tal
+entrance[region.kokiri_bridge_gateway -> region.bridge_kokiri_gateway]=Kokiri-Dorf aus Richtung Verlorene Wälder Brücke
+entrance[region.kokiri_woods_gateway -> region.woods_kokiri_gateway]=Kokiri-Dorf aus Richtung Verlorene Wälder
+entrance[region.woods_field_gateway -> region.field_woods_gateway]=Verlorene Wälder aus Richtung Hylianische Steppe
+entrance[region.bridge_kokiri_gateway -> region.kokiri_bridge_gateway]=Verlorene Wälder Brücke aus Richtung Kokiri-Dorf
+entrance[region.woods_kokiri_gateway -> region.kokiri_woods_gateway]=Verlorene Wälder aus Richtung Kokiri-Dorf
+entrance[region.woods_gc_gateway -> region.gc_woods_gateway]=Verlorene Wälder aus Richtung Goronia
+entrance[region.woods_river_gateway -> region.river_woods_gateway]=Verlorene Wälder aus Richtung Zora-Fluss
+entrance[region.woods_meadow_gateway -> region.meadow_woods_gateway]=Verlorene Wälder aus Richtung Heiliger Lichtung
+entrance[region.meadow_woods_gateway -> region.woods_meadow_gateway]=Heilige Lichtung aus Richtung Verlorene Wälder
+entrance[region.lake_field_gateway -> region.field_lake_gateway]=Hyliasee aus Richtung Hylianische Steppe
+entrance[region.lake_domain_gateway -> region.domain_lake_gateway]=Hyliasee aus Richtung Zora-Reich
+entrance[region.ranch_field_gateway -> region.field_ranch_gateway]=Lon Lon-Farm aus Richtung Hylianische Steppe
+entrance[region.marketentrance_field_gateway -> region.field_marketentrance_gateway]=Stadt Hyrule Eingangsbereich aus Richtung Hylianische Steppe
+entrance[region.marketentrance_market_gateway -> region.market_marketentrance_gateway]=Stadt Hyrule Eingangsbereich aus Richtung Hyrule Marktplatz
+entrance[region.market_marketentrance_gateway -> region.marketentrance_market_gateway]=Hyrule Marktplatz aus Richtung Stadt Hyrule Eingangsbereich
+entrance[region.market_grounds_gateway -> region.grounds_market_gateway]=Hyrule Marktplatz aus Richtung Schloss Hyrule
+entrance[region.market_tot_gateway -> region.tot_market_gateway]=Hyrule Marktplatz aus Richtung Zitadelle der Zeit
+entrance[region.grounds_market_gateway -> region.market_grounds_gateway]=Schloss Hyrule aus Richtung Hyrule Marktplatz
+entrance[region.tot_market_gateway -> region.market_tot_gateway]=Zitadelle der Zeit aus Richtung Hyrule Marktplatz
+entrance[region.kakariko_field_gateway -> region.field_kakariko_gateway]=Kakariko aus Richtung Hylianische Steppe
+entrance[region.kakariko_graveyard_gateway -> region.graveyard_kakariko_gateway]=Kakariko aus Richtung Friedhof
+entrance[region.graveyard_kakariko_gateway -> region.kakariko_graveyard_gateway]=Friedhof aus Richtung Kakariko
+entrance[region.kakariko_mountain_gateway -> region.mountain_kakariko_gateway]=Kakariko aus Richtung Todesberg
+entrance[region.mountain_kakariko_gateway -> region.kakariko_mountain_gateway]=Todesberg aus Richtung Kakariko
+entrance[region.mountain_goron_gateway -> region.goron_mountain_gateway]=Todesberg aus Richtung Goronia
+entrance[region.mountain_crater_gateway -> region.crater_mountain_gateway]=Todesbergspitze aus Richtung Todesberg Krater
+entrance[region.crater_mountain_gateway -> region.mountain_crater_gateway]=Todesberg Krater aus Richtung Todesbergspitze
+entrance[region.crater_goron_gateway -> region.goron_crater_gateway]=Todesberg Krater aus Richtung Goronia
+entrance[region.goron_crater_gateway -> region.crater_goron_gateway]=Goronia aus Richtung Todesberg Krater
+entrance[region.goron_mountain_gateway -> region.mountain_goron_gateway]=Goronia aus Richtung Todesberg
+entrance[region.gc_woods_gateway -> region.woods_gc_gateway]=Goronia aus Richtung Verlorene Wälder
+entrance[region.river_field_gateway -> region.field_river_gateway]=Zora-Fluss aus Richtung Hylianische Steppe
+entrance[region.river_woods_gateway -> region.woods_river_gateway]=Zora-Fluss aus Richtung Verlorene Wälder
+entrance[region.river_domain_gateway -> region.domain_river_gateway]=Zora-Fluss aus Richtung Zora-Reich
+entrance[region.domain_river_gateway -> region.river_domain_gateway]=Zora-Reich aus Richtung Zora-Fluss
+entrance[region.domain_lake_gateway -> region.lake_domain_gateway]=Zora-Reich aus Richtung Hyliasee
+entrance[region.domain_fountain_gateway -> region.fountain_domain_gateway]=Zora-Reich aus Richtung Zora-Quelle
+entrance[region.fountain_domain_gateway -> region.domain_fountain_gateway]=Zora-Quelle aus Richtung Zora-Reich
+entrance[region.valley_field_gateway -> region.field_valley_gateway]=Gerudo-Tal aus Richtung Hylianische Steppe
+entrance[region.valley_fortress_gateway -> region.fortress_valley_gateway]=Gerudo-Tal aus Richtung Gerudo-Festung
+entrance[region.fortress_valley_gateway -> region.valley_fortress_gateway]=Gerudo-Festung aus Richtung Gerudo-Tal
+entrance[region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway]=Gerudo-Festung aus Richtung Gespensterwüste
+entrance[region.wasteland_fortress_gateway -> region.fortress_wasteland_gateway]=Gespensterwüste aus Richtung Gerudo-Festung
+entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]=Gespensterwüste aus Richtung Wüstenkoloss
+entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Wüstenkoloss aus Richtung Gespensterwüste
 
 ## specials
+entrance[\u0000]=Leer
 
-exit[region.lh_owl_flight\u0020->\u0020region.hyrule_field]=Hyliasee Eule
-entrance[region.hyrule_field\u0020->\u0020region.lh_owl_flight]= Hylianische Steppe Eulen-Drop
+exit[region.lh_owl_flight -> region.hyrule_field]=Hyliasee Eule
+entrance[region.hyrule_field -> region.lh_owl_flight]= Hylianische Steppe Eulen-Drop
 
-exit[region.dmt_owl_flight\u0020->\u0020region.kak_impas_rooftop]= Todesberg Eule
-entrance[region.kak_impas_rooftop\u0020->\u0020region.dmt_owl_flight]= Kakariko Eulen-Drop
+exit[region.dmt_owl_flight -> region.kak_impas_rooftop]= Todesberg Eule
+entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]= Kakariko Eulen-Drop
 
-exit[region.child_spawn\u0020->\u0020region.kf_links_house]=Kind-Spawn
-entrance[region.kf_links_house\u0020->\u0020region.child_spawn]= Links Haus Spawn
+exit[region.child_spawn -> region.kf_links_house]=Kind-Spawn
+entrance[region.kf_links_house -> region.child_spawn]= Links Haus Spawn
 
-exit[region.adult_spawn\u0020->\u0020region.temple_of_time]=Erwachsenen-Spawn
-entrance[region.temple_of_time\u0020->\u0020region.adult_spawn]= Zitadelle der Zeit Spawn
+exit[region.adult_spawn -> region.temple_of_time]=Erwachsenen-Spawn
+entrance[region.temple_of_time -> region.adult_spawn]= Zitadelle der Zeit Spawn
 
-exit[region.prelude_of_light_warp\u0020->\u0020region.temple_of_time]=Prelude des Lichts Warp
-entrance[region.temple_of_time\u0020->\u0020region.prelude_of_light_warp]=Prelude Warpfläche
+exit[region.prelude_of_light_warp -> region.temple_of_time]=Prelude des Lichts Warp
+entrance[region.temple_of_time -> region.prelude_of_light_warp]=Prelude Warpfläche
 
-exit[region.minuet_of_forest_warp\u0020->\u0020region.sacred_forest_meadow]=Menuett des Waldes Warp
-entrance[region.sacred_forest_meadow\u0020->\u0020region.minuet_of_forest_warp]=Minuet Warpfläche
+exit[region.minuet_of_forest_warp -> region.sacred_forest_meadow]=Menuett des Waldes Warp
+entrance[region.sacred_forest_meadow -> region.minuet_of_forest_warp]=Minuet Warpfläche
 
-exit[region.bolero_of_fire_warp\u0020->\u0020region.dmc_central_local]=Bolero des Feuers Warp
-entrance[region.dmc_central_local\u0020->\u0020region.bolero_of_fire_warp]=Bolero Warpfläche
+exit[region.bolero_of_fire_warp -> region.dmc_central_local]=Bolero des Feuers Warp
+entrance[region.dmc_central_local -> region.bolero_of_fire_warp]=Bolero Warpfläche
 
-exit[region.serenade_of_water_warp\u0020->\u0020region.lake_hylia]=Serenade des Wassers Warp
-entrance[region.lake_hylia\u0020->\u0020region.serenade_of_water_warp]=Serenade Warpfläche
+exit[region.serenade_of_water_warp -> region.lake_hylia]=Serenade des Wassers Warp
+entrance[region.lake_hylia -> region.serenade_of_water_warp]=Serenade Warpfläche
 
-exit[region.nocturne_of_shadow_warp\u0020->\u0020region.graveyard_warp_pad_region]=Nocturne des Schattens Warp
-entrance[region.graveyard_warp_pad_region\u0020->\u0020region.nocturne_of_shadow_warp]=Nocturne Warpfläche
+exit[region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region]=Nocturne des Schattens Warp
+entrance[region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp]=Nocturne Warpfläche
 
-exit[region.requiem_of_spirit_warp\u0020->\u0020region.desert_colossus]=Requiem der Geister Warp
-entrance[region.desert_colossus\u0020->\u0020region.requiem_of_spirit_warp]=Requiem Warpfläche
+exit[region.requiem_of_spirit_warp -> region.desert_colossus]=Requiem der Geister Warp
+entrance[region.desert_colossus -> region.requiem_of_spirit_warp]=Requiem Warpfläche
 
 ## inverted grottos/interiors
 
-entrance[region.hyrule_field\u0020->\u0020region.hf_tektite_grotto_entrance]=Hyrule-Ebene - Tauchgrotten Eingang
-entrance[region.kokiri_forest\u0020->\u0020region.kf_midos_house_entrance]=Kokiri-Wald - Midos Haus Eingang
-entrance[region.lost_woods\u0020->\u0020region.lw_near_shortcuts_grotto_entrance]=Verlorene Wälder - Grotte nahe Goronia Eingang
-entrance[region.lw_beyond_mido\u0020->\u0020region.deku_theater_entrance]=Verlorene Wälder - Deku-Theater Grotte Eingang
-entrance[region.sfm_entryway\u0020->\u0020region.sfm_wolfos_grotto_entrance]=Heilige Lichtung - Wolfos-Grotte Eingang
-entrance[region.sacred_forest_meadow\u0020->\u0020region.sfm_storms_grotto_entrance]=Heilige Lichtung - Sturmgrotte Eingang
-entrance[region.market_entrance\u0020->\u0020region.market_guard_house_entrance]=Hyrule-Stadt - Wachturm Eingang
-entrance[region.market\u0020->\u0020region.market_mask_shop_entrance]=Hyrule-Stadt - Maskenladen Eingang
-entrance[region.market_back_alley\u0020->\u0020region.market_bombchu_shop_entrance]=Hyrule-Stadt - Bombchu-Laden Eingang
-entrance[region.lon_lon_ranch\u0020->\u0020region.llr_grotto_entrance]=Lon Lon-Farm - Offene Grotte Eingang
-entrance[region.hyrule_castle_grounds\u0020->\u0020region.hc_storms_grotto_entrance]=Hyrule Schlossgelände - Sturmgrotte Eingang
-entrance[region.ganons_castle_grounds\u0020->\u0020region.ogc_great_fairy_fountain_entrance]=Ganon Schlossgelände - Große Fee Eingang
-entrance[region.kak_impas_ledge\u0020->\u0020region.kak_impas_house_back_entrance]=Kakariko - Impas Haus Hintereingang
-entrance[region.kak_backyard\u0020->\u0020region.kak_odd_medicine_building_entrance]=Kakariko - Trankladen Hinterhof
-entrance[region.kakariko_village\u0020->\u0020region.kak_bazaar_entrance]=Kakariko - Basar Eingang
-entrance[region.graveyard\u0020->\u0020region.graveyard_dampes_grave_entrance]=Friedhof - Dampes Grab Eingang
-entrance[region.death_mountain_summit\u0020->\u0020region.dmt_great_fairy_fountain_entrance]=Todesbergspitze - Große Fee Eingang
-entrance[region.death_mountain\u0020->\u0020region.dmt_storms_grotto_entrance]=Todesberg - Sturmgrotte Eingang
-entrance[region.dmc_lower_nearby\u0020->\u0020region.dmc_hammer_grotto_entrance]=Todesberg Krater - Hammergrotte Eingang
-entrance[region.dmc_upper_nearby\u0020->\u0020region.dmc_upper_grotto_entrance]=Todesberg Krater - Bombengrotte Eingang
-entrance[region.goron_city\u0020->\u0020region.gc_shop_entrance]=Goronia - Laden Eingang
-entrance[region.gc_grotto_platform\u0020->\u0020region.gc_grotto_entrance]=Goronia - Grotte nahe Lavafeld Eingang
-entrance[region.zora_river\u0020->\u0020region.zr_open_grotto_entrance]=Zora-Fluss - Offene Grotte Eingang
-entrance[region.zoras_domain\u0020->\u0020region.zd_storms_grotto_entrance]=Zora-Reich - Feengrotte (Sturmgrotte) Eingang
-entrance[region.zoras_fountain\u0020->\u0020region.zf_great_fairy_fountain_entrance]=Zora-Quelle - Große Fee Eingang
-entrance[region.lh_fishing_island\u0020->\u0020region.lh_fishing_hole_entrance]=Hyliasee - Angelteich Eingang
-entrance[region.lake_hylia\u0020->\u0020region.lh_grotto_entrance]=Hyliasee - Grotte unter Grabstein Eingang
-entrance[region.gv_fortress_side\u0020->\u0020region.gv_storms_grotto_entrance]=Gerudo-Tal - Sturmgrotte Eingang
-entrance[region.gv_grotto_ledge\u0020->\u0020region.gv_octorok_grotto_entrance]=Gerudo-Tal - Octorok-Grotte mit Rubinen unter Felsen Eingang
-entrance[region.gerudo_fortress\u0020->\u0020region.gf_storms_grotto_entrance]=Gerudo-Festung - Feengrotte (Sturmgrotte) Eingang
-entrance[region.desert_colossus\u0020->\u0020region.colossus_grotto_entrance]=Wüstenkoloss - Grotte unter Felsen Eingang
+entrance[region.hyrule_field -> region.hf_tektite_grotto_entrance]=Hyrule-Ebene - Tauchgrotten Eingang
+entrance[region.kokiri_forest -> region.kf_midos_house_entrance]=Kokiri-Wald - Midos Haus Eingang
+entrance[region.lost_woods -> region.lw_near_shortcuts_grotto_entrance]=Verlorene Wälder - Grotte nahe Goronia Eingang
+entrance[region.lw_beyond_mido -> region.deku_theater_entrance]=Verlorene Wälder - Deku-Theater Grotte Eingang
+entrance[region.sfm_entryway -> region.sfm_wolfos_grotto_entrance]=Heilige Lichtung - Wolfos-Grotte Eingang
+entrance[region.sacred_forest_meadow -> region.sfm_storms_grotto_entrance]=Heilige Lichtung - Sturmgrotte Eingang
+entrance[region.market_entrance -> region.market_guard_house_entrance]=Hyrule-Stadt - Wachturm Eingang
+entrance[region.market -> region.market_mask_shop_entrance]=Hyrule-Stadt - Maskenladen Eingang
+entrance[region.market_back_alley -> region.market_bombchu_shop_entrance]=Hyrule-Stadt - Bombchu-Laden Eingang
+entrance[region.lon_lon_ranch -> region.llr_grotto_entrance]=Lon Lon-Farm - Offene Grotte Eingang
+entrance[region.hyrule_castle_grounds -> region.hc_storms_grotto_entrance]=Hyrule Schlossgelände - Sturmgrotte Eingang
+entrance[region.ganons_castle_grounds -> region.ogc_great_fairy_fountain_entrance]=Ganon Schlossgelände - Große Fee Eingang
+entrance[region.kak_impas_ledge -> region.kak_impas_house_back_entrance]=Kakariko - Impas Haus Hintereingang
+entrance[region.kak_backyard -> region.kak_odd_medicine_building_entrance]=Kakariko - Trankladen Hinterhof
+entrance[region.kakariko_village -> region.kak_bazaar_entrance]=Kakariko - Basar Eingang
+entrance[region.graveyard -> region.graveyard_dampes_grave_entrance]=Friedhof - Dampes Grab Eingang
+entrance[region.death_mountain_summit -> region.dmt_great_fairy_fountain_entrance]=Todesbergspitze - Große Fee Eingang
+entrance[region.death_mountain -> region.dmt_storms_grotto_entrance]=Todesberg - Sturmgrotte Eingang
+entrance[region.dmc_lower_nearby -> region.dmc_hammer_grotto_entrance]=Todesberg Krater - Hammergrotte Eingang
+entrance[region.dmc_upper_nearby -> region.dmc_upper_grotto_entrance]=Todesberg Krater - Bombengrotte Eingang
+entrance[region.goron_city -> region.gc_shop_entrance]=Goronia - Laden Eingang
+entrance[region.gc_grotto_platform -> region.gc_grotto_entrance]=Goronia - Grotte nahe Lavafeld Eingang
+entrance[region.zora_river -> region.zr_open_grotto_entrance]=Zora-Fluss - Offene Grotte Eingang
+entrance[region.zoras_domain -> region.zd_storms_grotto_entrance]=Zora-Reich - Feengrotte (Sturmgrotte) Eingang
+entrance[region.zoras_fountain -> region.zf_great_fairy_fountain_entrance]=Zora-Quelle - Große Fee Eingang
+entrance[region.lh_fishing_island -> region.lh_fishing_hole_entrance]=Hyliasee - Angelteich Eingang
+entrance[region.lake_hylia -> region.lh_grotto_entrance]=Hyliasee - Grotte unter Grabstein Eingang
+entrance[region.gv_fortress_side -> region.gv_storms_grotto_entrance]=Gerudo-Tal - Sturmgrotte Eingang
+entrance[region.gv_grotto_ledge -> region.gv_octorok_grotto_entrance]=Gerudo-Tal - Octorok-Grotte mit Rubinen unter Felsen Eingang
+entrance[region.gerudo_fortress -> region.gf_storms_grotto_entrance]=Gerudo-Festung - Feengrotte (Sturmgrotte) Eingang
+entrance[region.desert_colossus -> region.colossus_grotto_entrance]=Wüstenkoloss - Grotte unter Felsen Eingang

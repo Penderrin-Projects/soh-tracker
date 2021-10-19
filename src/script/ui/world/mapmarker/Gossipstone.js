@@ -1,7 +1,7 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+
 
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -59,10 +59,12 @@ const STYLE = new GlobalStyle(`
 #marker[data-state="possible"] {
     background-color: var(--location-status-possible-color, #000000);
 }
-#marker:hover {
+#marker:hover,
+:host(.ctx-marked) #marker {
     box-shadow: 0 0 2px 4px #67ffea;
 }
-#marker:hover + #tooltip {
+#marker:hover + #tooltip,
+:host(.ctx-marked) #marker + #tooltp {
     display: block;
 }
 #tooltip {

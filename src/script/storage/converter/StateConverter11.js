@@ -1,32 +1,29 @@
 /**
- * move to serverside earliest past TBD
+ * move to serverside earliest past 2022‑06‑27
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter10.js";
 
 SavestateConverter.register(function(state) {
+    state = state ?? {};
     const res = {
-        data: state.data,
+        data: state.data ?? {},
         extra: {},
-        notes: state.notes,
-        autosave: state.autosave,
-        timestamp: state.timestamp,
-        name: state.name
+        notes: state.notes ?? "",
+        autosave: state.autosave ?? false,
+        timestamp: state.timestamp ?? new Date(),
+        name: state.name ?? ""
     };
     // change dungeonreward
     const dungeonreward = {};
-    if (state.extra.dungeonreward != null) {
-        for (const i of Object.keys(state.extra.dungeonreward)) {
-            dungeonreward[translation[i] || i] = translation[state.extra.dungeonreward[i]] || state.extra.dungeonreward[i];
-        }
+    for (const i of Object.keys(state.extra?.dungeonreward ?? {})) {
+        dungeonreward[translation[i] ?? i] = translation[state.extra.dungeonreward[i]] ?? state.extra.dungeonreward[i];
     }
     // change dungeontype
     const dungeontype = {};
-    if (state.extra.dungeontype != null) {
-        for (const i of Object.keys(state.extra.dungeontype)) {
-            dungeontype[translation[i] || i] = translation[state.extra.dungeontype[i]] || state.extra.dungeontype[i];
-        }
+    for (const i of Object.keys(state.extra?.dungeontype ?? {})) {
+        dungeontype[translation[i] ?? i] = translation[state.extra.dungeontype[i]] ?? state.extra.dungeontype[i];
     }
     // collect data
     res.extra = {...state.extra, dungeonreward, dungeontype};

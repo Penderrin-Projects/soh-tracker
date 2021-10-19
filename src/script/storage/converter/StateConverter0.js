@@ -6,25 +6,25 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
 SavestateConverter.register(function(state) {
     if (!state["data"] != null) {
-        state = {data: state};
+        state = {data: state ?? {}};
     }
     const res = {
         data: {},
         autosave: false,
         timestamp: new Date(),
-        name: state.name || ""
+        name: state.name ?? ""
     };
-    for (const i of Object.keys(state.data)) {
-        for (const j of Object.keys(state.data[i])) {
-            if (i != "meta") {
+    for (const i of Object.keys(state.data ?? {})) {
+        if (i != "meta") {
+            for (const j of Object.keys(state.data[i])) {
                 if (i == "extras") {
                     res.data[j] = state.data[i][j];
                 } else {
                     res.data[`${i}.${j}`] = state.data[i][j];
                 }
-            } else {
-                res.name = state.data["meta"]["active_state"];
             }
+        } else {
+            res.name = state.data["meta"]["active_state"] ?? "";
         }
     }
     return res;

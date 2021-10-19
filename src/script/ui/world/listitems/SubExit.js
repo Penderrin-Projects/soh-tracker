@@ -1,13 +1,13 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
+import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import "/GameTrackerJS/state/world/area/StateManager.js";
 import "/GameTrackerJS/state/world/exit/StateManager.js";
 import "/GameTrackerJS/state/world/location/StateManager.js";
@@ -15,18 +15,18 @@ import "/GameTrackerJS/state/world/subarea/StateManager.js";
 import "/GameTrackerJS/state/world/subexit/StateManager.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractSubExit from "/GameTrackerJS/ui/world/SubExit.js";
-import SettingsSpy from "/GameTrackerJS/util/spy/SettingsSpy.js";
+import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-import "../../ctxmenu/ExitBindingMenu.js";
+import ExitBindingMenu from "../../ctxmenu/ExitBindingMenu.js";
 
-const sublistCollapsibleSpy = new SettingsSpy("sublist_collapsible");
+const sublistCollapsibleObserver = new SettingsObserver("sublist_collapsible");
 
 const TPL = new Template(`
 <div class="textarea">
     <div id="text"></div>
-    <gt-badge id="badge"></gt-badge>
+    <gt-badge-access id="badge"></gt-badge-access>
 </div>
 <div class="textarea">
     <div id="value"></div>
@@ -53,7 +53,8 @@ const STYLE = new GlobalStyle(`
     cursor: pointer;
     padding: 5px;
 }
-:host(:hover) {
+:host(:hover),
+:host(.ctx-marked) {
     background-color: var(--main-hover-color, #ffffff32);
 }
 .textarea {
@@ -130,7 +131,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(AbstractSubExit)) {
+export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
 
     constructor() {
         super();
@@ -138,7 +139,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.setContextMenu("exitbinding", document.createElement("ootrt-ctxmenu-exitbinding"));
+        this.setContextMenu("exitbinding", ExitBindingMenu);
         /* --- */
         const textEl = this.shadowRoot.getElementById("text");
         const listEl = this.shadowRoot.getElementById("list");
@@ -154,7 +155,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
             }
         });
         /* --- */
-        this.switchTarget("sublistCollapsible", sublistCollapsibleSpy);
+        this.switchTarget("sublistCollapsible", sublistCollapsibleObserver);
         this.setTargetEventListener("sublistCollapsible", "change", event => {
             const collapsible = event.data;
             if (collapsible != "off") {
@@ -168,7 +169,7 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
                 listEl.classList.remove("collapsible");
             }
         });
-        const collapsible = sublistCollapsibleSpy.getValue();
+        const collapsible = sublistCollapsibleObserver.value;
         if (collapsible != "off") {
             textEl.classList.add("collapsible");
             listEl.classList.add("collapsible");
@@ -193,13 +194,19 @@ export default class ListSubExit extends EventTargetMixin(UIEventBusMixin(Abstra
             }
         }
     }
+    
+    applyAccess(data) {
+        super.applyAccess(data);
+        /* collapsed */
+        this.setCollapsed(data.value == AccessStateEnum.OPENED);
+    }
 
     refreshList() {
-        this.innerHTML = ""; // TODO use ElementManager
+        this.innerHTML = "";
         const state = this.getState();
         if (state != null) {
             const area = state.area;
-            if (area != null) {
+            if (area != null && area.ref.startsWith("subarea/")) {
                 const list = area.getList();
                 if (list != null) {
                     for (const record of list) {

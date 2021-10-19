@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+
 
 // Track-OOT
 import DeveloperData from "/script/data/DeveloperData.js";

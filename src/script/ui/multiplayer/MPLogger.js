@@ -1,6 +1,6 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+
 
 const TPL = new Template(`
     <style>

@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+
 
 // GameTrackerJS
 import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
@@ -15,7 +15,9 @@ import "./SongBuilder.js";
 const TPL = new Template(`
 <div class="caption">
     <span id="title"></span>
-    <button id="edit" class="hidden">✎</button>
+    <button id="edit" class="button hidden" title="edit">✎</button>
+    <button id="reset" class="button hidden" title="reset">↶</button>
+    <button id="clear" class="button hidden" title="clear">✕</button>
 </div>
 <ootrt-stave id="stave"></ootrt-stave>
 `);
@@ -37,19 +39,21 @@ const STYLE = new GlobalStyle(`
     align-items: center;
     height: 30px;
 }
-#edit {
-    appearance: none;
+.button {
+    height: 24px;
     color: white;
     background-color: black;
     border: solid 1px white;
     margin-left: 15px;
+    font-size: 1em;
+    appearance: none;
     cursor: pointer;
 }
-#edit:hover {
+.button:hover {
     color: black;
     background-color: white;
 }
-#edit.hidden {
+.button.hidden {
     display: none;
 }
 `);
@@ -70,6 +74,20 @@ function editSong(event) {
     d.show();
 }
 
+function resetSong(event) {
+    const state = this.getState();
+    if (state != null) {
+        state.notes = null;
+    }
+}
+
+function clearSong(event) {
+    const state = this.getState();
+    if (state != null) {
+        state.notes = "";
+    }
+}
+
 export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElement) {
     
     constructor() {
@@ -86,14 +104,26 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
         });
 
         /* mouse events */
-        const buttonEl = this.shadowRoot.getElementById("edit");
-        buttonEl.onclick = editSong.bind(this);
+        const editEl = this.shadowRoot.getElementById("edit");
+        editEl.onclick = editSong.bind(this);
+        const resetEl = this.shadowRoot.getElementById("reset");
+        resetEl.onclick = resetSong.bind(this);
+        const clearEl = this.shadowRoot.getElementById("clear");
+        clearEl.onclick = clearSong.bind(this);
     }
 
     applyDefaultValues() {
-        const buttonEl = this.shadowRoot.getElementById("edit");
-        if (buttonEl != null) {
-            buttonEl.classList.add("hidden");
+        const editEl = this.shadowRoot.getElementById("edit");
+        if (editEl != null) {
+            editEl.classList.add("hidden");
+        }
+        const resetEl = this.shadowRoot.getElementById("reset");
+        if (resetEl != null) {
+            resetEl.classList.add("hidden");
+        }
+        const clearEl = this.shadowRoot.getElementById("clear");
+        if (clearEl != null) {
+            clearEl.classList.add("hidden");
         }
         const staveEl = this.shadowRoot.getElementById("stave");
         if (staveEl != null) {
@@ -103,13 +133,17 @@ export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElem
 
     applyStateValues(state) {
         if (state != null) {
-            const buttonEl = this.shadowRoot.getElementById("edit");
-            if (buttonEl != null) {
-                if (state.props.editable) {
-                    buttonEl.classList.remove("hidden");
-                } else {
-                    buttonEl.classList.add("hidden");
-                }
+            const editEl = this.shadowRoot.getElementById("edit");
+            if (editEl != null) {
+                editEl.classList.toggle("hidden", !state.props.editable);
+            }
+            const resetEl = this.shadowRoot.getElementById("reset");
+            if (resetEl != null) {
+                resetEl.classList.toggle("hidden", !state.props.editable);
+            }
+            const clearEl = this.shadowRoot.getElementById("clear");
+            if (clearEl != null) {
+                clearEl.classList.toggle("hidden", !state.props.editable);
             }
             const staveEl = this.shadowRoot.getElementById("stave");
             if (staveEl != null) {

@@ -1,9 +1,9 @@
-/* asym-import: off */
+// frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import Dialog from "/emcJS/ui/overlay/Dialog.js";
+import EventBus from "/emcJS/event/EventBus.js";
+import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/editors/modules/logic/Editor.js";
-/* asym-import: on */
 
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
@@ -50,6 +50,7 @@ export default async function(glitched = false) {
     // events
     logicEditor.addEventListener("save", async event => {
         await LogicsStorage.set(event.key, event.logic);
+        EventBus.trigger("custom_logic_update");
     });
     logicEditor.addEventListener("clear", async event => {
         await LogicsStorage.delete(event.key);
@@ -65,9 +66,7 @@ export default async function(glitched = false) {
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {
                         const [key, target] = i.split(" -> ");
-                        if (logic.edges[key] == null) {
-                            logic.edges[key] = {};
-                        }
+                        logic.edges[key] = logic.edges[key] ?? {};
                         logic.edges[key][target] = patch[i];
                     } else {
                         logic.logic[i] = patch[i];
@@ -105,9 +104,7 @@ export default async function(glitched = false) {
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {
                         const [key, target] = i.split(" -> ");
-                        if (logic.edges[key] == null) {
-                            logic.edges[key] = {};
-                        }
+                        logic.edges[key] = logic.edges[key] ?? {};
                         logic.edges[key][target] = patch[i];
                     } else {
                         logic.logic[i] = patch[i];

@@ -1,8 +1,8 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
-/* asym-import: on */
+import DataStorage from "/emcJS/datastorage/DataStorage.js";
+
 import OptionsResource from "../resource/OptionsResource.js";
-import DataStorage from "./DataStorage.js";
 
 const SET_TYPES = [
     "list",
@@ -37,20 +37,26 @@ class OptionsStorage extends DataStorage {
     }
 
     set(key, value) {
-        // TODO check if value is valid; else set default/remove value
-        super.set(key, value);
+        if (DEFAULTS.has(key)) {
+            super.set(key, value);
+        }
     }
 
     setAll(values) {
-        // TODO check if values are valid; else set default/remove value
-        super.setAll(values);
+        const res = {};
+        for (const key in values) {
+            const value = values[key];
+            if (DEFAULTS.has(key)) {
+                res[key] = value;
+            }
+        }
+        super.setAll(res);
     }
 
-    get(key, value = DEFAULTS.get(key)) {
+    get(key) {
         if (DEFAULTS.has(key)) {
-            return super.get(key, value);
+            return super.get(key, DEFAULTS.get(key));
         }
-        return value;
     }
 
     getAll() {
@@ -67,6 +73,26 @@ class OptionsStorage extends DataStorage {
 
     keys() {
         return DEFAULTS.keys();
+    }
+
+    deserialize(data = {}) {
+        const res = {};
+        for (const [key] of DEFAULTS) {
+            const newValue = data[key];
+            if (newValue != null) {
+                res[key] = newValue;
+            }
+        }
+        super.deserialize(res);
+    }
+
+    overwrite(data = {}) {
+        const res = {};
+        for (const [key] of DEFAULTS) {
+            const newValue = data[key];
+            res[key] = newValue;
+        }
+        super.overwrite(res);
     }
 
 }

@@ -1,7 +1,7 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/Helper.js";
-/* asym-import: on */
+
 import SavestateHandler from "../../../savestate/SavestateHandler.js";
 import Logic from "../../../util/logic/Logic.js";
 import FilteredState from "../../abstract/FilteredState.js";
@@ -11,36 +11,6 @@ const ACCESS = new WeakMap();
 const REACHABLE = new WeakMap();
 const VALUE = new WeakMap();
 
-function getAccessValue(checked, reachable) {
-    const res = {
-        done: 0,
-        unopened: 0,
-        reachable: 0,
-        entrances: false,
-        value: AccessStateEnum.OPENED
-    };
-    if (checked) {
-        res.done = 1;
-    } else if (reachable) {
-        res.unopened = 1;
-        res.reachable = 1;
-        res.value = AccessStateEnum.AVAILABLE;
-    } else {
-        res.unopened = 1;
-        res.value = AccessStateEnum.UNAVAILABLE;
-    }
-    return res;
-}
-
-function internalChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this./*#*/__setValue(change.value);
-    }
-}
-
 export default class DefaultState extends FilteredState {
 
     constructor(ref, props) {
@@ -48,9 +18,16 @@ export default class DefaultState extends FilteredState {
         /* --- */
         VALUE.set(this, SavestateHandler.get("", ref, false));
         REACHABLE.set(this, Logic.getValue(props.access));
-        ACCESS.set(this, getAccessValue(VALUE.get(this), REACHABLE.get(this)));
+        ACCESS.set(this, this.getAccessValue(VALUE.get(this), REACHABLE.get(this)));
         /* EVENTS */
-        EventBus.register("state::location", internalChange.bind(this));
+        EventBus.register("state::location", (event) => {
+            const ref = this.ref;
+            // savesatate
+            const change = event.data;
+            if (change != null && change.ref == ref) {
+                this./*#*/__setValue(change.value);
+            }
+        });
         EventBus.register("state", event => {
             this.stateLoaded(event);
         });
@@ -66,6 +43,27 @@ export default class DefaultState extends FilteredState {
         });
     }
 
+    getAccessValue(checked, reachable) {
+        const res = {
+            done: 0,
+            unopened: 0,
+            reachable: 0,
+            entrances: false,
+            value: AccessStateEnum.OPENED
+        };
+        if (checked) {
+            res.done = 1;
+        } else if (reachable) {
+            res.unopened = 1;
+            res.reachable = 1;
+            res.value = AccessStateEnum.AVAILABLE;
+        } else {
+            res.unopened = 1;
+            res.value = AccessStateEnum.UNAVAILABLE;
+        }
+        return res;
+    }
+
     executeSpecialFilter(name) {
         switch (name) {
             case "access": return REACHABLE.get(this);
@@ -79,7 +77,7 @@ export default class DefaultState extends FilteredState {
     refreshAccess() {
         const value = this.value;
         const reachable = REACHABLE.get(this);
-        const access = getAccessValue(value, reachable);
+        const access = this.getAccessValue(value, reachable);
         const old = ACCESS.get(this);
         if (!Helper.isEqual(access, old)) {
             ACCESS.set(this, access);

@@ -1,7 +1,6 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
+// frameworks
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-/* asym-import: on */
 
 // GameTrackerJS
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
@@ -16,67 +15,68 @@ import "../items/components/Item.js";
 import "../items/components/ItemKey.js";
 import "../items/components/InfiniteItem.js";
 import "../items/components/RewardItem.js";
-import "../items/components/VariableMaxItem.js";
 
-const TPL = new Template(`
-    <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-            cursor: default;
-        }
-        :host {
-            display: flex;
-            flex-direction: row;
-            min-width: min-content;
-            min-height: min-content;
-        }
-        :host([orientation="column"]) {
-            flex-direction: column;
-        }
-        div.item-row {
-            display: flex;
-            flex-direction: column;
-        }
-        div.item-row:hover {
-            background-color: var(--main-hover-color, #ffffff32);
-        }
-        :host([orientation="column"]) div.item-row {
-            flex-direction: row;
-        }
-        ootrt-item {
-            display: block;
-            padding: 2px;
-        }
-        .dungeon-status {
-            display: block;
-            padding: 5px;
-        }
-        .dungeon-status:hover {
-            padding: 2px;
-        }
-        div.text {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 20px;
-            padding: 2px;
-            font-size: 1em;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        :host([orientation="column"]) div.text {
-            height: 40px;
-        }
-        div.placeholder {
-            width: 40px;
-            height: 40px;
-        }
-        [type].inactive {
-            display: none;
-        }
-    </style>
+const STYLE = new GlobalStyle(`
+* {
+    position: relative;
+    box-sizing: border-box;
+    cursor: default;
+}
+:host {
+    display: flex;
+    flex-direction: row;
+    min-width: min-content;
+    min-height: min-content;
+}
+:host([orientation="column"]) {
+    flex-direction: column;
+}
+div.item-row {
+    display: flex;
+    flex-direction: column;
+}
+div.item-row:hover {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+:host([orientation="column"]) div.item-row {
+    flex-direction: row;
+}
+ootrt-item {
+    display: block;
+    padding: 2px;
+}
+.dungeon-status {
+    display: block;
+    padding: 5px;
+}
+.dungeon-status:hover {
+    padding: 2px;
+}
+div.text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 20px;
+    padding: 2px;
+    font-size: 1em;
+    -moz-user-select: none;
+    user-select: none;
+}
+:host([orientation="column"]) div.text {
+    height: 40px;
+}
+div.placeholder {
+    width: 40px;
+    height: 40px;
+}
+[type]:hover,
+[type].ctx-marked {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+[type].inactive {
+    display: none;
+}
 `);
 
 function createItemText(text) {
@@ -97,8 +97,8 @@ class HTMLTrackerDungeonState extends Panel {
     constructor() {
         super();
         this.attachShadow({mode: "open"});
-        this.shadowRoot.append(TPL.generate());
-
+        STYLE.apply(this.shadowRoot);
+        /* --- */
         const dungeonData = DungeonstateResource.get("area");
         for (const ref in dungeonData) {
             const dData = dungeonData[ref];

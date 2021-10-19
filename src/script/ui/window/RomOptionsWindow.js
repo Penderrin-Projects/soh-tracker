@@ -1,8 +1,8 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
 
 // GameTrackerJS
+import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
@@ -19,8 +19,6 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
 
     constructor() {
         super() ;
-        /* --- */
-        
         // add preset choice
         const loadRulesetRow = LOAD_RULESET.generate();
         const loadRulesetWrapper = loadRulesetRow.getElementById("options-preset-wrapper");
@@ -48,24 +46,36 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
             if (!ruleset) { return }
 
             if (ruleset.items != null) {
-                for (const i in ruleset.items) {
-                    items[i] = ruleset.items[i];
-                }
-            }
-            if (ruleset.options != null) {
-                for (const i in ruleset.options) {
-                    options[i] = ruleset.options[i];
+                for (const key in ruleset.items) {
+                    const value = ruleset.items[key];
+                    items[key] = value;
                 }
             }
 
-            this.storage.setAll(options);
+            const optionsData = OptionsResource.get();
+            for (const key in optionsData) {
+                const oData = optionsData[key];
+                if (oData.type == "list") {
+                    const list = ruleset.options?.[key];
+                    if (list != null) {
+                        for (const name of oData.values) {
+                            options[name] = ruleset.options?.[name] ?? list.includes(name);
+                        }
+                    } else {
+                        for (const name of oData.values) {
+                            options[name] = ruleset.options?.[name] ?? oData.default.includes(name);
+                        }
+                    }
+                } else {
+                    options[key] = ruleset.options?.[key] ?? oData.default;
+                }
+            }
+
+            this.overwriteValues(options);
+            this.overwriteItems(items);
         });
 
         this.shadowRoot.getElementById("footer").prepend(loadRulesetRow);
-    }
-
-    show() {
-        super.show();
     }
 
 }

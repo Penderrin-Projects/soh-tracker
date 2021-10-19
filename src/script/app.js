@@ -2,17 +2,16 @@
  * Starting point for Track-OOT
  */
 
-/* asym-import: off */
+// frameworks
 import Import from "/emcJS/util/import/Import.js";
 import Logger from "/emcJS/util/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import EventBus from "/emcJS/event/EventBus.js";
+import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
-import "/emcJS/ui/input/TextEditor.js";
 import "/emcJS/ui/LogScreen.js";
 import "/emcJS/ui/Icon.js";
 import "/emcJS/ui/layout/Layout.js";
-/* asym-import: on */
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
@@ -20,21 +19,25 @@ import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import "/GameTrackerJS/ui/TextEditor.js";
+import "/GameTrackerJS/ui/ViewChoice.js";
 // Track-OOT
 import "/script/storage/converter/StateConverter.js";
 import "/script/storage/StateStorage.js";
 import "/script/util/logic/AugmentExits.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/LogicCaller.js";
+import "/script/util/A11y.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorChoice.js"
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
-import SpoilerLogWindow from "/script/ui/SpoilerLogWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
-import "/script/ui/ViewChoice.js";
+import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
+import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/items/ItemGrid.js";
 import "/script/ui/dungeonstate/DungeonState.js";
 import "/script/ui/world/LocationList.js";
@@ -46,7 +49,7 @@ import "/script/ui/exits/ExitList.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
 
-const spl = document.getElementById("splash").querySelector(".loading");
+const spl = document.getElementById("loading-info");
 function updateLoadingMessage(msg = "loading...") {
     spl.innerHTML = msg;
 }
@@ -121,6 +124,7 @@ try {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         newGameWindow.addEventListener("close", event => {
             SavestateHandler.set("meta", "init_window_shown", true);

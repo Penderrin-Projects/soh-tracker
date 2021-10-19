@@ -3,12 +3,12 @@
         "notes": "LURLUR",
         "editable": true
     },
-    "song.saria": {
-        "notes": "DRLDRL",
-        "editable": true
-    },
     "song.epona": {
         "notes": "ULRULR",
+        "editable": true
+    },
+    "song.saria": {
+        "notes": "DRLDRL",
         "editable": true
     },
     "song.sun": {
@@ -35,12 +35,12 @@
         "notes": "ADRRL",
         "editable": true
     },
-    "song.warp_shadow": {
-        "notes": "LRRALRD",
-        "editable": true
-    },
     "song.warp_spirit": {
         "notes": "ADARDA",
+        "editable": true
+    },
+    "song.warp_shadow": {
+        "notes": "LRRALRD",
         "editable": true
     },
     "song.warp_light": {

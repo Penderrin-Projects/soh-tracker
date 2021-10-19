@@ -1,9 +1,9 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-/* asym-import: on */
+
 
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
@@ -31,6 +31,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
+const DUNGEON_TYPES = [
+    "dungeon",
+    "boss_dungeon"
+];
 const locationMarkerData = WorldResource.get("marker/location");
 const areaMarkerData = WorldResource.get("marker/area");
 
@@ -145,7 +149,7 @@ export default class LocationState extends UIEventBusMixin(HTMLElement) {
         const dungeonList = new Set();
         for (const key in areaMarkerData) {
             const area = AreaStateManager.get(key);
-            if (area.props.type == "dungeon") {
+            if (DUNGEON_TYPES.includes(area.props.type)) {
                 dungeonList.add(area);
                 const eventManager = new EventTargetManager(area);
                 eventManager.set("access", () => {

@@ -1,13 +1,13 @@
-/* asym-import: off */
-import Template from "/emcJS/util/Template.js";
-import GlobalStyle from "/emcJS/util/GlobalStyle.js";
-/* asym-import: on */
+// frameworks
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
 import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
-import ContextMenuManagerMixin from "../mixin/ContextMenuManager.js";
 import Badge from "../Badge.js";
-import "../ctxmenu/ExitChoiceContextMenu.js";
-import "../ctxmenu/ExitBindingMenu.js";
+import ExitChoiceContextMenu from "../ctxmenu/ExitChoiceContextMenu.js";
+import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
 import Language from "../../util/Language.js";
 
 const TPL = new Template(`
@@ -126,17 +126,17 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         });
 
         /* context menu */
-        this.setContextMenu("main", document.createElement("gt-ctxmenu-exitchoice"));
-        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
+        this.setDefaultContextMenu(ExitChoiceContextMenu);
+        this.setContextMenu("exitbinding", ExitBindingMenu);
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;
             }
         });
-        this.addContextMenuHandler("main", "associate", event => {
+        this.addDefaultContextMenuHandler("associate", event => {
             const state = this.getState();
-            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ctx = this.getDefaultContextMenu();
             const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
@@ -148,7 +148,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
             mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
-        this.addContextMenuHandler("main", "deassociate", event => {
+        this.addDefaultContextMenuHandler("deassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
@@ -172,8 +172,7 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
             return false;
         });
         this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getContextMenu("main");
-            mnu_ctx.show(event.clientX, event.clientY);
+            this.showDefaultContextMenu(event);
             event.stopPropagation();
             event.preventDefault();
             return false;

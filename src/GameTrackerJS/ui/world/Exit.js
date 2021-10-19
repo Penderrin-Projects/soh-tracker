@@ -1,13 +1,13 @@
-/* asym-import: off */
+// frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/Icon.js";
-/* asym-import: on */
+
 import WorldStateManager from "../../state/world/WorldStateManager.js";
+import EmptyState from "../../state/world/EmptyState.js";
 import WorldElement from "./WorldElement.js";
-import "../ctxmenu/ExitContextMenu.js";
-import "../ctxmenu/ExitBindingMenu.js";
+import ExitContextMenu from "../ctxmenu/ExitContextMenu.js";
+import ExitBindingMenu from "../ctxmenu/ExitBindingMenu.js";
 import Language from "../../util/Language.js";
-import iOSTouchHandler from "../../util/iOSTouchHandler.js";
 
 export default class MapExit extends WorldElement {
 
@@ -25,17 +25,17 @@ export default class MapExit extends WorldElement {
         });
 
         /* context menu */
-        this.setContextMenu("main", document.createElement("gt-ctxmenu-exit"));
-        this.setContextMenu("exitbinding", document.createElement("gt-ctxmenu-exitbinding"));
+        this.setDefaultContextMenu(ExitContextMenu);
+        this.setContextMenu("exitbinding", ExitBindingMenu);
         this.addContextMenuHandler("exitbinding", "change", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = event.value;
             }
         });
-        this.addContextMenuHandler("main", "associate", event => {
+        this.addDefaultContextMenuHandler("associate", event => {
             const state = this.getState();
-            const mnu_ctx = this.getContextMenu("main");
+            const mnu_ctx = this.getDefaultContextMenu();
             const mnu_ext = this.getContextMenu("exitbinding");
             if (state != null) {
                 mnu_ext.fillEntranceSelection(state.props.access, state.value);
@@ -45,13 +45,13 @@ export default class MapExit extends WorldElement {
             mnu_ext.setValue(state.value);
             mnu_ext.show(mnu_ctx.left, mnu_ctx.top);
         });
-        this.addContextMenuHandler("main", "deassociate", event => {
+        this.addDefaultContextMenuHandler("deassociate", event => {
             const state = this.getState();
             if (state != null) {
                 state.value = "";
             }
         });
-        this.addContextMenuHandler("main", "check", event => {
+        this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -60,7 +60,7 @@ export default class MapExit extends WorldElement {
                 }
             }
         });
-        this.addContextMenuHandler("main", "uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -69,7 +69,7 @@ export default class MapExit extends WorldElement {
                 }
             }
         });
-        this.addContextMenuHandler("main", "setwoth", event => {
+        this.addDefaultContextMenuHandler("setwoth", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -78,7 +78,7 @@ export default class MapExit extends WorldElement {
                 }
             }
         });
-        this.addContextMenuHandler("main", "setbarren", event => {
+        this.addDefaultContextMenuHandler("setbarren", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -87,7 +87,7 @@ export default class MapExit extends WorldElement {
                 }
             }
         });
-        this.addContextMenuHandler("main", "clearhint", event => {
+        this.addDefaultContextMenuHandler("clearhint", event => {
             const state = this.getState();
             if (state != null) {
                 const area = state.area;
@@ -96,37 +96,30 @@ export default class MapExit extends WorldElement {
                 }
             }
         });
+    }
 
-        /* mouse events */
-        this.addEventListener("click", event => {
-            const state = this.getState();
-            if (state != null) {
-                const area = state.area;
-                if (area != null) {
+    clickHandler(event) {
+        const state = this.getState();
+        if (state != null) {
+            const area = state.area;
+            if (area != null) {
+                if (area instanceof EmptyState) {
+                    // nothing
+                } else /*if (area instanceof AreaState)*/ {
                     EventBus.trigger("location_change", {
                         name: area.ref
                     });
-                } else {
-                    const mnu_ext = this.getContextMenu("exitbinding");
-                    mnu_ext.fillEntranceSelection(state.props.access, state.value);
-                    mnu_ext.setValue(state.value);
-                    mnu_ext.show(event.clientX, event.clientY);
                 }
+            } else {
+                const mnu_ext = this.getContextMenu("exitbinding");
+                mnu_ext.fillEntranceSelection(state.props.access, state.value);
+                mnu_ext.setValue(state.value);
+                mnu_ext.show(event.clientX, event.clientY);
             }
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        this.addEventListener("contextmenu", event => {
-            const mnu_ctx = this.getContextMenu("main");
-            mnu_ctx.show(event.clientX, event.clientY);
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-        
-        /* fck iOS */
-        iOSTouchHandler.register(this);
+        }
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
     }
     
     applyAccess(data) {

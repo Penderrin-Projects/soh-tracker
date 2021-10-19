@@ -1,6 +1,5 @@
-/* asym-import: off */
+// frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
-/* asym-import: on */
 
 const PROXY_HANDLER = {
     get(target, key) {
@@ -66,7 +65,7 @@ export default class JSONCResourceFile extends EventTarget {
                 ev.data = proxyData;
                 this.dispatchEvent(ev);
             }).catch(err => {
-                console.error(err);
+                console.warn(err);
                 DATA.set(this, {});
                 const ev = new Event("error");
                 this.dispatchEvent(ev);
