@@ -12,7 +12,11 @@
     "parse.ignore_world_locking": {
         "category": "spoilerOptions",
         "type": "check",
-        "default": false
+        "default": false,
+        "visible": {
+            "type": "value",
+            "el": "parse.item_association"
+        }
     },
     "parse.woth_hints": {
         "category": "spoilerOptions",
