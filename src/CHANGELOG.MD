@@ -3,6 +3,14 @@
 Application:    Track-OOT
 
 ***
+## VERSION 2.1.47
+
+### BUGFIXES
+
+- added option to reveal all multiworld items from spoiler
+- updated translation on item association from spoiler
+
+---
 
 ## VERSION 2.1.46
 

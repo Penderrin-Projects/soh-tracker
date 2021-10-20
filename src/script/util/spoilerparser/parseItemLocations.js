@@ -1,4 +1,4 @@
-export default function parseItemLocations(target = {}, data = {}, targetWorld = null, trans = {}) {
+export default function parseItemLocations(target = {}, data = {}, targetWorld = null, worldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
     const location_hearts_mq = location_trans["MQ"];
     const item_trans = trans["itemList"];
@@ -17,7 +17,7 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
                 if (item_trans[v] === undefined) {
                     console.warn("[" + v + "] is a invalid value. Please report this bug")
                 } else {
-                    if (targetWorld == null || player === targetWorld) buffer["location/" + location_trans[i]] = item_trans[v];
+                    if (targetWorld == null || player === targetWorld || worldLocking) buffer["location/" + location_trans[i]] = item_trans[v];
                     if (location_hearts_mq[i] != null) {
                         buffer["location/" + location_hearts_mq[i]] = item_trans[v];
                     }

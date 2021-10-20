@@ -9,6 +9,11 @@
         "type": "check",
         "default": false
     },
+    "parse.ignore_world_locking": {
+        "category": "spoilerOptions",
+        "type": "check",
+        "default": false
+    },
     "parse.woth_hints": {
         "category": "spoilerOptions",
         "type": "check",
