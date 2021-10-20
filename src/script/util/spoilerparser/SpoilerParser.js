@@ -88,7 +88,7 @@ class SpoilerParser {
         if (settings["parse.settings"]) parseSettings(options, spoiler["settings"], trans);
         if (settings["parse.starting_items"]) parseStartingInventory(startitems, spoiler["settings"], trans);
         if (settings["parse.random_settings"]) parseSettings(options, getWorldData(spoiler["randomized_settings"], world), trans);
-        if (settings["parse.item_association"]) parseItemLocations(extraData, getWorldData(spoiler["locations"], world), world, trans);
+        if (settings["parse.item_association"]) parseItemLocations(extraData, getWorldData(spoiler["locations"], world), world, settings["parse.ignore_world_locking"], trans);
         if (settings["parse.woth_hints"]) parseWoth(areahint, getWorldData(spoiler[":woth_locations"], world), trans);
         if (settings["parse.barren"]) parseBarren(areahint, getWorldData(spoiler[":barren_regions"], world), trans);
         if (settings["parse.shops"]) parseShops(extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
