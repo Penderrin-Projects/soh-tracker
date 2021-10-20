@@ -27931,17 +27931,8 @@
                         "type": "and",
                         "el": [
                             {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "value",
-                                        "el": "item.key_boss_ganon"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "el": "option.ganon_boss_door_open"
-                                    }
-                                ]
+                                "type": "value",
+                                "el": "item.key_boss_ganon"
                             },
                             {
                                 "type": "mixin",

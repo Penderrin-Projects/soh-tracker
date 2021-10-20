@@ -32094,7 +32094,7 @@
             }
         },
         "region.dmc_upper_nearby[child]": {
-            "region.dmc_ladder_area_nearby[child]": {
+            "region.crater_mountain_gateway[child]": {
                 "type": "true"
             },
             "region.dmc_upper_grotto_entrance[child]": {
@@ -32142,7 +32142,7 @@
                 "type": "mixin",
                 "el": "function.can_use(item.tunic_fire)[adult]"
             },
-            "region.dmc_ladder_area_nearby[adult]": {
+            "region.crater_mountain_gateway[adult]": {
                 "type": "true"
             },
             "region.dmc_upper_grotto_entrance[adult]": {
@@ -32189,7 +32189,7 @@
             "region.dmc_upper_nearby[child]": {
                 "type": "true"
             },
-            "region.crater_mountain_gateway[child]": {
+            "region.dmc_ladder_area_nearby[child]": {
                 "type": "true"
             },
             "logic.location.mountain.c_crater_wall": {
@@ -32262,7 +32262,7 @@
             "region.dmc_upper_nearby[adult]": {
                 "type": "true"
             },
-            "region.crater_mountain_gateway[adult]": {
+            "region.dmc_ladder_area_nearby[adult]": {
                 "type": "true"
             },
             "region.dmc_central_nearby[adult]": {
@@ -34708,17 +34708,8 @@
                         "type": "and",
                         "el": [
                             {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "value",
-                                        "el": "item.key_boss_ganon"
-                                    },
-                                    {
-                                        "type": "value",
-                                        "el": "option.ganon_boss_door_open"
-                                    }
-                                ]
+                                "type": "value",
+                                "el": "item.key_boss_ganon"
                             },
                             {
                                 "type": "mixin",
