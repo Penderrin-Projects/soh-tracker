@@ -7,7 +7,7 @@ import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 // Track-OOT
 import OptionsTransResource from "/script/resource/OptionsTransResource.js";
 import parseSettings from "./parseSettings.js";
-import parseStartingItems from "./parseStartingItems.js";
+import parseStartingInventory from "./parseStartingInventory.js";
 import parseItemLocations from "./parseItemLocations.js";
 import parseWoth from "./parseWoth.js";
 import parseBarren from "./parseBarren.js";
@@ -79,7 +79,7 @@ class SpoilerParser {
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
         if (settings["parse.settings"]) parseSettings(options, spoiler["settings"], trans);
-        if (settings["parse.starting_items"]) parseStartingItems(startitems, getWorldData(spoiler["starting_items"], world), trans);
+        if (settings["parse.starting_items"]) parseStartingInventory(startitems, spoiler["settings"], trans);
         if (settings["parse.random_settings"]) parseSettings(options, getWorldData(spoiler["randomized_settings"], world), trans);
         if (settings["parse.item_association"]) parseItemLocations(extraData, getWorldData(spoiler["locations"], world), world, settings["parse.ignore_world_locking"], trans);
         if (settings["parse.woth_hints"]) parseWoth(areahint, getWorldData(spoiler[":woth_locations"], world), trans);

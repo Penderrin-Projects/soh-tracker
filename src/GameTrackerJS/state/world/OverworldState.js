@@ -1,5 +1,5 @@
 // frameworks
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 import WorldResource from "../../resource/WorldResource.js";
 import MarkerListHandler from "../../util/MarkerListHandler.js";

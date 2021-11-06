@@ -101,7 +101,6 @@ export default class MapGossipstone extends AbstractGossipstone {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 
 
@@ -91,11 +92,10 @@ const STYLE = new GlobalStyle(`
 
 const TYPE_STATE = new WeakMap();
 
-export default class ListButton extends StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)) {
+export default class ListButton extends StateDataEventManagerMixin(UIEventBusMixin(CustomElement)) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

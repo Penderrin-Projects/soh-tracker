@@ -96,7 +96,6 @@ class HTMLTrackerDungeonState extends Panel {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         STYLE.apply(this.shadowRoot);
         /* --- */
         const dungeonData = DungeonstateResource.get("area");

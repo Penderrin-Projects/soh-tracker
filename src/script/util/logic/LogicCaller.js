@@ -84,6 +84,16 @@ function augmentBossKeys(keys, group) {
     return keys;
 }
 
+function augmentGanonBossKey(keys) {
+    if (!cache.get("option.track_bosskeys")) {
+        return 9999;
+    }
+    if (cache.get("option.ganon_boss_door_open")) {
+        return 9999;
+    }
+    return keys;
+}
+
 Logic.addEventListener("change", event => {
     EventBus.trigger("logic", event.data);
 });
@@ -106,9 +116,16 @@ function augmentData(data) {
         }
         // augment bosskeys
         if (dData.bosskey) {
-            if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
-                const augKeys = augmentBossKeys(cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
-                res[dData.bosskey] = augKeys;
+            if (ref == "castle_ganon") {
+                if (data["option.ganon_boss_door_open"] != null || data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                    const augKeys = augmentGanonBossKey(cache.get(dData.bosskey) ?? 0);
+                    res[dData.bosskey] = augKeys;
+                }
+            } else {
+                if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                    const augKeys = augmentBossKeys(cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
+                    res[dData.bosskey] = augKeys;
+                }
             }
         }
     }

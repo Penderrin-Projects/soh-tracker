@@ -152,7 +152,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         this.attributeChangedCallback("", "");
         this.shadowRoot.getElementById("back").addEventListener("click", event => {

@@ -1,5 +1,6 @@
 // frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // GameTrackerJS
@@ -28,11 +29,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-export default class HTMLTrackerSelectableItem extends HTMLElement {
+export default class HTMLTrackerSelectableItem extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.addEventListener("click", event => this.select(event));

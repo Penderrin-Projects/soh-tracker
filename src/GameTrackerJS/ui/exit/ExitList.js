@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import SearchAnd from "/emcJS/util/search/SearchAnd.js";
 import "/emcJS/ui/input/SearchField.js";
 import "/emcJS/ui/input/SearchSelect.js";
@@ -122,11 +123,10 @@ label {
 
 const CATEGORIES = new WeakMap();
 
-export default class ExitList extends HTMLElement {
+export default class ExitList extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

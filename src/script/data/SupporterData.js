@@ -1,6 +1,6 @@
 // frameworks
 import LocalStorage from "/emcJS/storage/LocalStorage.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 
 
 const SUPPORTER_URL = new URL("/patreon", location);

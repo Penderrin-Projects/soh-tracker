@@ -15,10 +15,10 @@ export default class KeyState extends DefaultState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        if (props["type_max"] != null && props["related_dungeon"] != null) {
-            const type = SavestateHandler.get("dungeontype", props.related_dungeon, "n");
+        if (props["typeMax"] != null && props["relatedDungeon"] != null) {
+            const type = SavestateHandler.get("dungeontype", props.relatedDungeon, "n");
             TYPE.set(this, type);
-            MAX.set(this, props["type_max"][type] ?? super.max);
+            MAX.set(this, props["typeMax"][type] ?? super.max);
         } else {
             TYPE.set(this, "v");
             MAX.set(this, super.max);
@@ -27,9 +27,9 @@ export default class KeyState extends DefaultState {
         EventBus.register("state::dungeontype", (event) => {
             const props = this.props;
             // savesatate
-            if (props["type_max"] != null && props["related_dungeon"] != null) {
+            if (props["typeMax"] != null && props["relatedDungeon"] != null) {
                 const change = event.data;
-                if (change != null && change.ref == props.related_dungeon) {
+                if (change != null && change.ref == props.relatedDungeon) {
                     this./*#*/__applyTypeValue(change.value || "n");
                 }
             }
@@ -41,7 +41,7 @@ export default class KeyState extends DefaultState {
         if (type != newValue) {
             TYPE.set(this, newValue);
             const props = this.props;
-            this./*#*/__setMax(props["type_max"][newValue]);
+            this./*#*/__setMax(props["typeMax"][newValue]);
             // external
             const event = new Event("type");
             event.data = newValue;
@@ -72,10 +72,10 @@ export default class KeyState extends DefaultState {
     stateLoaded(event) {
         const props = this.props;
         // type
-        if (props["type_max"] != null && props.hasOwnProperty["related_dungeon"] != null) {
+        if (props["typeMax"] != null && props.hasOwnProperty["relatedDungeon"] != null) {
             const types = event.data.extra.dungeontype;
             if (types != null) {
-                this./*#*/__applyTypeValue(types[props.related_dungeon]);
+                this./*#*/__applyTypeValue(types[props.relatedDungeon]);
             } else {
                 this./*#*/__applyTypeValue("n");
             }

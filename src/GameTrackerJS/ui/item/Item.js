@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 import ItemStates from "../../state/item/StateManager.js";
@@ -21,20 +22,26 @@ const STYLE = new GlobalStyle(`
 }
 :host {
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    width: calc(var(--item-size, 40) * 1px);
+    height: calc(var(--item-size, 40) * 1px);
     cursor: pointer;
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     background-origin: border-box;
+    filter:
+        contrast(var(--solid-item-contrast, 1))
+        saturate(var(--solid-item-saturate, 1))
+        brightness(var(--solid-item-brightness, 1));
+}
+:host([value="0"]) {
+    filter:
+    contrast(var(--shallow-item-contrast, 0.8))
+    saturate(var(--shallow-item-saturate, 0.5))
+    brightness(var(--shallow-item-brightness, 0.4));
 }
 :host(:hover) {
     background-size: 100%;
-}
-:host([value="0"]) {
-    filter: contrast(0.8) grayscale(0.5);
-    opacity: 0.4;
 }
 #value {
     width: 100%;
@@ -71,11 +78,10 @@ function getAlign(value) {
     }
 }
 
-export default class Item extends StateDataEventManager(HTMLElement) {
+export default class Item extends StateDataEventManager(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -8,28 +8,49 @@ export default function parseSetting(target = {}, data = {}, trans = {}) {
                 if (Array.isArray(transData)) {
                     const valueSet = new Set(value);
                     transData.forEach(el => {
-                        target[el.replace("logic_", "skip.")] = valueSet.has(el);
-                    });
-                } else {
-                    const name = transData["name"];
-                    const values = transData["values"];
-                    if (values != null) {
-                        if (typeof values == "object") {
-                            if (values[parsedValue] == null) {
-                                console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug")
-                            } else {
-                                target[name] = values[parsedValue];
+                        if (typeof el == "object") {
+                            try {
+                                setSettingToTarget(target, el, parsedValue);
+                            } catch {
+                                console.warn("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
                             }
                         } else {
-                            target[name] = values;
+                            target[el.replace("logic_", "skip.")] = valueSet.has(el);
                         }
-                    } else {
-                        target[name] = parsedValue;
+                        
+                    });
+                } else {
+                    try {
+                        setSettingToTarget(target, transData, parsedValue);
+                    } catch {
+                        console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
                     }
                 }
             } else {
                 target[transData] = parsedValue;
             }
         }
+    }
+}
+
+function setSettingToTarget(target, transData, parsedValue) {
+    const name = transData["name"];
+    const values = transData["values"];
+    if (values != null) {
+        if (typeof values == "object") {
+            if (values[parsedValue] == null) {
+                if (values["default"] == null) {
+                    throw 'Invalid value'
+                } else {
+                    target[name] = values["default"]
+                }
+            } else {
+                target[name] = values[parsedValue];
+            }
+        } else {
+            target[name] = values;
+        }
+    } else {
+        target[name] = parsedValue;
     }
 }

@@ -6,11 +6,26 @@ Application:    Track-OOT
 
 ## VERSION 2.1.48
 
+### IMPROVEMENTS
+
+- reduce logic file size further
+    - remove unnessecary tokens
+    - minified by nature and must not be re-transpiled
+- add background color option for detached item window
+- add max keys indicator
+
 ### BUGFIXES
 
-- added error item for shops
+- fix some logic misbehaviour applying filters
+- fix ganon bossdoor open option
+- fix death mountain crater to summit gateway
+- fix some minor bugs in start item parser
+- fix lake domain dive for adult
+- fix minor layout issues for context menus
+- add some missing translations
+- add error item for shops
     - gets set if spoiler log can not find the item
-- added giants knife to shop items
+- add giants knife to shop items
 
 ---
 

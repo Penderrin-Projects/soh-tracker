@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 const TPL = new Template(`
@@ -65,11 +66,10 @@ const TPL = new Template(`
     </div>
 `);
 
-export default class HTMLTrackerStave extends HTMLElement {
+export default class HTMLTrackerStave extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
     }
 

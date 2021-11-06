@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
@@ -75,11 +76,10 @@ const TPL = new Template(`
 </div>
 `);
 
-export default class AboutTab extends HTMLElement {
+export default class AboutTab extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         /* --- */
         this.shadowRoot.getElementById("tracker-version").innerHTML = VersionData.version;

@@ -1,0 +1,58 @@
+{
+    "item_size": {
+        "category": "item",
+        "type": "range",
+        "min": 32,
+        "max": 64,
+        "default": 40,
+        "resettable": true
+    },
+    "detached_window_solid_item_brightness": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 100,
+        "resettable": true
+    },
+    "detached_window_solid_item_contrast": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 100,
+        "resettable": true
+    },
+    "detached_window_solid_item_saturate": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 100,
+        "resettable": true
+    },
+    "detached_window_shallow_item_brightness": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 40,
+        "resettable": true
+    },
+    "detached_window_shallow_item_contrast": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 80,
+        "resettable": true
+    },
+    "detached_window_shallow_item_saturate": {
+        "category": "item",
+        "type": "number",
+        "min": 0,
+        "max": 200,
+        "default": 50,
+        "resettable": true
+    }
+}

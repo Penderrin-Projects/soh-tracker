@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 
@@ -88,11 +89,10 @@ function clearSong(event) {
     }
 }
 
-export default class HTMLTrackerSongField extends StateDataEventManager(HTMLElement) {
+export default class HTMLTrackerSongField extends StateDataEventManager(CustomElement) {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

@@ -218,7 +218,7 @@
             "500",
             "999"
         ],
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -251,7 +251,7 @@
     "item.egg": {
         "type": "item",
         "max": 8,
-        "var_min": {
+        "varMin": {
             "option": "option.skip_child_zelda",
             "values": {
                 "true": 3
@@ -328,7 +328,7 @@
         "type": "item",
         "max": 0,
         "images": "/images/items/tunic_forest.png",
-        "always_active": true,
+        "alwaysActive": true,
         "blacklist_shop": true
     },
     "item.tunic_fire": {
@@ -377,7 +377,7 @@
         "type": "item",
         "max": 0,
         "images": "/images/items/boots_normal.png",
-        "always_active": true,
+        "alwaysActive": true,
         "blacklist_shop": true
     },
     "item.boots_iron": {
@@ -629,11 +629,13 @@
     "item.key_small_forest": {
         "type": "key",
         "max": 6,
-        "type_max": {
+        "typeMax": {
             "v": 5
         },
-        "related_dungeon": "area/temple_forest",
+        "relatedDungeon": "area/temple_forest",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -641,17 +643,19 @@
     "item.key_boss_forest": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/temple_forest",
+        "relatedDungeon": "area/temple_forest",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_fire": {
         "type": "key",
         "max": 8,
-        "type_max": {
+        "typeMax": {
             "mq": 5
         },
-        "related_dungeon": "area/temple_fire",
+        "relatedDungeon": "area/temple_fire",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -659,17 +663,19 @@
     "item.key_boss_fire": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/temple_fire",
+        "relatedDungeon": "area/temple_fire",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_water": {
         "type": "key",
         "max": 6,
-        "type_max": {
+        "typeMax": {
             "mq": 2
         },
-        "related_dungeon": "area/temple_water",
+        "relatedDungeon": "area/temple_water",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -677,17 +683,19 @@
     "item.key_boss_water": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/temple_water",
+        "relatedDungeon": "area/temple_water",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_shadow": {
         "type": "key",
         "max": 6,
-        "type_max": {
+        "typeMax": {
             "v": 5
         },
-        "related_dungeon": "area/temple_shadow",
+        "relatedDungeon": "area/temple_shadow",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -695,17 +703,19 @@
     "item.key_boss_shadow": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/temple_shadow",
+        "relatedDungeon": "area/temple_shadow",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_spirit": {
         "type": "key",
         "max": 7,
-        "type_max": {
+        "typeMax": {
             "v": 5
         },
-        "related_dungeon": "area/temple_spirit",
+        "relatedDungeon": "area/temple_spirit",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -713,17 +723,19 @@
     "item.key_boss_spirit": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/temple_spirit",
+        "relatedDungeon": "area/temple_spirit",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_ganon": {
         "type": "key",
         "max": 3,
-        "type_max": {
+        "typeMax": {
             "v": 2
         },
-        "related_dungeon": "area/castle_ganon",
+        "relatedDungeon": "area/castle_ganon",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -731,13 +743,13 @@
     "item.key_boss_ganon": {
         "type": "item",
         "max": 1,
-        "related_dungeon": "area/castle_ganon",
+        "relatedDungeon": "area/castle_ganon",
         "images": "/images/items/key_boss.png"
     },
     "item.key_small_gerudo": {
         "type": "item",
         "max": 4,
-        "var_max": {
+        "varMax": {
             "option": "option.gerudo_fortress_open",
             "values": {
                 "gerudo_fortress_open_one": 1,
@@ -745,6 +757,8 @@
             }
         },
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -752,11 +766,13 @@
     "item.key_small_training": {
         "type": "key",
         "max": 9,
-        "type_max": {
+        "typeMax": {
             "mq": 3
         },
-        "related_dungeon": "area/training_grounds",
+        "relatedDungeon": "area/training_grounds",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -764,11 +780,13 @@
     "item.key_small_well": {
         "type": "key",
         "max": 3,
-        "type_max": {
+        "typeMax": {
             "mq": 2
         },
-        "related_dungeon": "area/well",
+        "relatedDungeon": "area/well",
         "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
         "images": "/images/items/key_small.png",
         "halign": "end",
         "valign": "end"
@@ -913,42 +931,42 @@
     "item.sold_out": {
         "type": "visual",
         "images": "/images/items/sold_out.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.blue_fire": {
         "type": "visual",
         "images": "/images/items/bottle_blue_fire.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.bugs": {
         "type": "visual",
         "images": "/images/items/bottle_bugs.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.fairy_spirit": {
         "type": "visual",
         "images": "/images/items/bottle_fairy.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.fish": {
         "type": "visual",
         "images": "/images/items/bottle_fish.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.milk": {
         "type": "visual",
         "images": "/images/items/sold_out.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.poe": {
         "type": "visual",
         "images": "/images/items/bottle_poe.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.poe_big": {
         "type": "item",
         "max": 10,
-        "var_max": "option.big_poe_count",
+        "varMax": "option.big_poe_count",
         "counting": true,
         "images": "/images/items/bottle_poe_big.png",
         "halign": "end",
@@ -957,23 +975,23 @@
     "item.potion_red": {
         "type": "visual",
         "images": "/images/items/bottle_potion_red.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.potion_green": {
         "type": "visual",
         "images": "/images/items/bottle_potion_green.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.potion_blue": {
         "type": "visual",
         "images": "/images/items/bottle_potion_blue.png",
-        "always_active": true
+        "alwaysActive": true
     },
     "item.rupee_green":{
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/rupee_green.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -981,7 +999,7 @@
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/rupee_blue.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -989,7 +1007,7 @@
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/rupee_red.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -997,7 +1015,7 @@
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/rupee_purple.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -1005,7 +1023,7 @@
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/rupee_yellow.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     },
@@ -1013,7 +1031,7 @@
         "type": "infinite",
         "max": 99999,
         "images": "/images/items/refill_item.png",
-        "always_active": true,
+        "alwaysActive": true,
         "halign": "end",
         "valign": "end"
     }

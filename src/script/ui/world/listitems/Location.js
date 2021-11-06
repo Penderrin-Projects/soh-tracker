@@ -85,7 +85,6 @@ export default class ListLocation extends AbstractLocation {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

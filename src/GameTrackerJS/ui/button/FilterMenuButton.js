@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import FilterMenu from "../ctxmenu/FilterMenu.js";
@@ -36,11 +37,10 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-class FilterMenuButton extends ContextMenuManagerMixin(HTMLElement) {
+class FilterMenuButton extends ContextMenuManagerMixin(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

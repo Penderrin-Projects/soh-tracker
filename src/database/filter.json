@@ -48,7 +48,7 @@
         "badge": false
     },
     "filter.time": {
-        "choice": false,
+        "choice": true,
         "persist": false,
         "default": "both",
         "values": [
