@@ -906,6 +906,7 @@ subarea/desert.fairy_fountain=Colossus Great Fairy
 subarea/desert.strength_grotto=Colossus Grotto
 
 # ITEMS
+item.bad_item=ERROR: unknown
 item.bow=Bow
 item.hookshot=Hookshot
 item.hammer=Hammer
@@ -929,6 +930,7 @@ item.cojiro=Adult Trade Sequence
 item.sword_kokiri=Kokiri Sword
 item.sword_master=Master Sword
 item.sword_biggoron=Biggoron's Sword
+item.sword_medigoron=Giants Knife
 item.shield_kokiri=Deku Shield
 item.shield_hylia=Hylian Shield
 item.shield_mirror=Mirror Shield

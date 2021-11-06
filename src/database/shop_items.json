@@ -202,6 +202,13 @@
         "mark": "red",
         "price": false
     },
+    "item.sword_medigoron": {
+        "image": "/images/items/sword_medigoron.png",
+        "category": "junk_items",
+        "refill": false,
+        "mark": "red",
+        "price": false
+    },
     "item.rupee_green":{
         "image": "/images/items/rupee_green.png",
         "category": "junk_items",
@@ -1003,7 +1010,7 @@
         "price": false
     },
     "item.bad_item": {
-        "image": "/images/unknown.svg",
+        "image": "/images/items/error.png",
         "category": "hidden_items",
         "refill": false,
         "mark": false,

@@ -22,6 +22,16 @@ Application:    Track-OOT
 
 ---
 
+## VERSION 2.1.48
+
+### BUGFIXES
+
+- added error item for shops
+    - gets set if spoiler log can not find the item
+- added giants knife to shop items
+
+---
+
 ## VERSION 2.1.47
 
 ### IMPROVEMENTS
