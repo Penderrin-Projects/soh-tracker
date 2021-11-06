@@ -905,6 +905,7 @@ subarea/desert.fairy_fountain=Große Fee
 subarea/desert.strength_grotto=Grotte unter Felsen nahe Teleportplatz
 
 # ITEMS
+item.bad_item=ERROR: unbekannt
 item.bow=Bogen
 item.hookshot=Fanghaken
 item.hammer=Hammer
@@ -928,6 +929,7 @@ item.cojiro=Tauschgeschäft Erwachsen
 item.sword_kokiri=Kokiri Schwert
 item.sword_master=Masterschwert
 item.sword_biggoron=Biggoron-Schwert
+item.sword_medigoron=Medigoron-Schwert
 item.shield_kokiri=Dekuschild
 item.shield_hylia=Hyliaschild
 item.shield_mirror=Spiegelschild
