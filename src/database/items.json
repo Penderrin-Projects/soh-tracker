@@ -308,6 +308,11 @@
         "max": 1,
         "icon": "/images/items/sword_biggoron.png"
     },
+    "sword_medigoron": {
+        "type": "item",
+        "max": 1,
+        "images": "/images/items/sword_medigoron.png"
+    },
     "shield_kokiri": {
         "type": "item",
         "max": 1,

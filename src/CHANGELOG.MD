@@ -4,7 +4,7 @@ Application:    Track-OOT
 
 ***
 
-## VERSION DEV
+## VERSION 2.1.48
 
 ### IMPROVEMENTS
 
@@ -19,6 +19,13 @@ Application:    Track-OOT
 - fix some logic misbehaviour applying filters
 - fix ganon bossdoor open option
 - fix death mountain crater to summit gateway
+- fix some minor bugs in start item parser
+- fix lake domain dive for adult
+- fix minor layout issues for context menus
+- add some missing translations
+- add error item for shops
+    - gets set if spoiler log can not find the item
+- add giants knife to shop items
 
 ---
 
