@@ -192,11 +192,11 @@
             "known_sequence_breaks": []
         },
         "items": {
-            "item.shield_kokiri": 1,
-            "item.ocarina": 1,
-            "item.egg": 3,
-            "item.stick": 1,
-            "item.nut": 1
+            "shield_kokiri": 1,
+            "ocarina": 1,
+            "egg": 3,
+            "stick": 1,
+            "nut": 1
         }
     },
     "Easy Mode": {
@@ -330,12 +330,12 @@
             ]
         },
         "items": {
-            "item.shield_kokiri": 1,
-            "item.ocarina": 1,
-            "item.egg": 3,
-            "item.stick": 1,
-            "item.nut": 1,
-            "item.lens": 1
+            "shield_kokiri": 1,
+            "ocarina": 1,
+            "egg": 3,
+            "stick": 1,
+            "nut": 1,
+            "lens": 1
         }
     },
     "Weekly Settings": {
@@ -412,11 +412,11 @@
             ]
         },
         "items": {
-            "item.shield_kokiri": 1,
-            "item.ocarina": 1,
-            "item.egg": 3,
-            "item.stick": 1,
-            "item.nut": 1
+            "shield_kokiri": 1,
+            "ocarina": 1,
+            "egg": 3,
+            "stick": 1,
+            "nut": 1
         }
     },
     "League Settings": {
@@ -488,10 +488,10 @@
             ]
         },
         "items": {
-            "item.shield_kokiri": 1,
-            "item.ocarina": 1,
-            "item.egg": 3,
-            "item.lens": 1
+            "shield_kokiri": 1,
+            "ocarina": 1,
+            "egg": 3,
+            "lens": 1
         }
     },
     "Multiworld": {
@@ -553,7 +553,7 @@
             "area.temple_spirit": []
         },
         "items": {
-            "item.shield_kokiri": 1
+            "shield_kokiri": 1
         }
     },
     "Hell Mode": {

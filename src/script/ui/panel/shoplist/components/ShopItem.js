@@ -152,7 +152,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                 // title
                 const titleEl = this.shadowRoot.getElementById("title");
                 if (titleEl != null) {
-                    Language.applyLabel(titleEl, state.item);
+                    Language.applyLabel(titleEl, `item[${state.item}]`);
                 }
                 // cost
                 const priceEl = this.shadowRoot.getElementById("price");
@@ -165,7 +165,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                Language.applyLabel(titleEl, event.data);
+                Language.applyLabel(titleEl, `item[${event.data}]`);
             }
             this./*#*/__applyItem();
         });
@@ -205,7 +205,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.addDefaultContextMenuHandler("junk", event => {
             const state = this.getState();
             if (state != null) {
-                state.item = "item.refill_item";
+                state.item = "item[refill_item]";
                 state.price = "0";
                 state.value = true;
             }
@@ -222,8 +222,8 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             const state = this.getState();
             if (state != null) {
                 if (event.ctrlKey) {
-                    if (state.item != "item.refill_item") {
-                        state.item = "item.refill_item";
+                    if (state.item != "item[refill_item]") {
+                        state.item = "item[refill_item]";
                         state.price = "0";
                         state.value = true;
                     } else {
@@ -268,7 +268,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         // title
         const titleEl = this.shadowRoot.getElementById("title");
         if (titleEl != null) {
-            titleEl.innerHTML = "???";
+            Language.applyLabel(titleEl, "???");
         }
         // image
         const imageEl = this.shadowRoot.getElementById("image");
@@ -294,7 +294,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             // title
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                Language.applyLabel(titleEl, state.item);
+                Language.applyLabel(titleEl, `item[${state.item}]`);
             }
             // item
             this./*#*/__applyItem();

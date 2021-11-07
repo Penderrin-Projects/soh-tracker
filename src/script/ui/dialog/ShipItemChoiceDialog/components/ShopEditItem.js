@@ -91,7 +91,7 @@ export default class HTMLTrackerShopEditItem extends CustomElement {
         switch (name) {
             case "ref":
                 if (oldValue != newValue) {
-                    Language.applyLabel(this.shadowRoot.getElementById("title"), newValue);
+                    Language.applyLabel(this.shadowRoot.getElementById("title"), `item[${newValue}]`);
                     if (!!this.checked && this.checked == "true") {
                         this.shadowRoot.getElementById("image").style.backgroundImage = `url("/images/items/sold_out.png")`;
                     } else {

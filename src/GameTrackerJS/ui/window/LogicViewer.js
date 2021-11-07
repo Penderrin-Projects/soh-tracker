@@ -17,7 +17,7 @@ const customLogicObserver = new SettingsObserver("use_custom_logic");
 function extractLogic(data, customData, ref) {
     const res = [];
     for (const name in data.logic) {
-        if (name == ref || name == `${ref}[child]` || name == `${ref}[adult]`) {
+        if (name == ref || name == `${ref}{child}` || name == `${ref}{adult}`) {
             if (customData[name] != null) {
                 res.push({logic: customData[name], parent: ""});
             } else {
@@ -27,7 +27,7 @@ function extractLogic(data, customData, ref) {
     }
     for (const region in data.edges) {
         for (const name in data.edges[region]) {
-            if (name == ref || name == `${ref}[child]` || name == `${ref}[adult]`) {
+            if (name == ref || name == `${ref}{child}` || name == `${ref}{adult}`) {
                 const key = `${region} -> ${name}`;
                 if (customData[key] != null) {
                     res.push({logic: customData[key], parent: region});

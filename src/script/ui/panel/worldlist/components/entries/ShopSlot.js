@@ -59,20 +59,20 @@ export default class ListShopSlot extends BaseClass {
         /* observer */
         shopsanityObserver.addEventListener("change", () => {
             const state = this.getState();
-            this.applyItem(state?.itemData);
+            this./*#*/__applyItem(state?.itemData, state?.price);
         });
         /* state handler */
         this.registerStateHandler("item", () => {
             const state = this.getState();
-            this.applyItem(state?.itemData);
+            this./*#*/__applyItem(state?.itemData, state?.price);
         });
         this.registerStateHandler("bought", () => {
             const state = this.getState();
-            this.applyItem(state?.itemData);
+            this./*#*/__applyItem(state?.itemData, state?.price);
         });
-        this.registerStateHandler("price", () => {
+        this.registerStateHandler("price", event => {
             const state = this.getState();
-            this.applyItem(state?.itemData);
+            this./*#*/__applyItem(state?.itemData, state?.price);
         });
         /* context menu */
         this.setDefaultContextMenu(ShopSlotContextMenu);
@@ -94,7 +94,7 @@ export default class ListShopSlot extends BaseClass {
         this.addDefaultContextMenuHandler("junk", event => {
             const state = this.getState();
             if (state != null) {
-                state.item = "item.refill_item";
+                state.item = "item[refill_item]";
                 state.price = "0";
                 state.value = true;
             }
@@ -111,8 +111,8 @@ export default class ListShopSlot extends BaseClass {
         const state = this.getState();
         if (state != null) {
             if (event.ctrlKey) {
-                if (state.item != "item.refill_item") {
-                    state.item = "item.refill_item";
+                if (state.item != "item[refill_item]") {
+                    state.item = "item[refill_item]";
                     state.price = "0";
                     state.value = true;
                 } else {
@@ -130,20 +130,20 @@ export default class ListShopSlot extends BaseClass {
 
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/shops.svg");
-        this.applyItem();
+        this./*#*/__applyItem();
     }
 
     applyStateValues(state) {
         super.applyStateValues(state, "images/icons/shops.svg");
-        this.applyItem(state.itemData);
+        this./*#*/__applyItem(state.itemData, state.price);
     }
 
-    applyItem(itemData) {
+    /*#*/__applyItem(itemData, price) {
         const itemEl = this.shadowRoot.getElementById("item");
         if (itemEl != null) {
             if (itemData != null) {
-                itemEl.src = itemData?.image ?? "/images/items/unknown.png";
-                itemEl.text = itemData?.price ?? "?";
+                itemEl.src = itemData?.image ?? "/images/items/error.png";
+                itemEl.text = price ?? "?";
             } else {
                 itemEl.src = "/images/items/unknown.png";
                 itemEl.text = "?";

@@ -40,6 +40,9 @@ const DEFAULT_DATA = {
 };
 
 function getVersionType(version) {
+    if (typeof version != "string") {
+        throw Error("The file you loaded is not a valid OOTR Spoiler Log.");
+    }
     if (version.split(" ")[1] === "Release") return "prod";
     if (version.split(" ")[1] === "f.LUM") return "dev";
     if (version != null) return "unknown";
@@ -70,11 +73,12 @@ class SpoilerParser {
         const areahint = {};
         const trans = OptionsTransResource.get();
 
-        const version = getVersionType(spoiler[":version"]);
-        if (version == null) {
+        const version = spoiler[":version"];
+        const versionType = getVersionType(version);
+        if (versionType == null) {
             throw new Error("Not a valid OOTR Spoiler log found");
         }
-        if (version == "unknown") {
+        if (versionType == "unknown") {
             await BusyIndicator.unbusy();
             const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
             await BusyIndicator.busy();
@@ -108,11 +112,11 @@ class SpoilerParser {
             warps: settings["parse.entro_warps"]
         });
 
-        if (version == "prod") {
+        if (versionType == "prod") {
             // nothing
         }
 
-        if (version == "dev") {
+        if (versionType == "dev") {
             // nothing
         }
 

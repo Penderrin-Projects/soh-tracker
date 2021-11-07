@@ -155,7 +155,7 @@ function createItemOperatorCategory(data) {
     for (const name in data) {
         res.children.push({
             "type": "tracker-logic-custom",
-            "ref": `item.${name}`,
+            "ref": `item[${name}]`,
             "category": "item"
         });
     }

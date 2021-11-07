@@ -66,6 +66,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
                     spoiler = {};
                     await BusyIndicator.unbusy();
                 } catch(err) {
+                    console.error(err);
                     await BusyIndicator.unbusy();
                     await Dialog.alert("Error loading spoiler", err.message);
                 }

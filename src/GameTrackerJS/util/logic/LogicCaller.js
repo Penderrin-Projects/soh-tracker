@@ -29,10 +29,10 @@ function execAugment(data) {
     return data;
 }
 
-function renameKeys(src = {}, prefix = "") {
+function renameKeys(src = {}, prefix = "", postfix = "") {
     const res = {};
     for (const [key, value] of Object.entries(src)) {
-        res[`${prefix}${key}`] = value;
+        res[`${prefix}${key}${postfix}`] = value;
     }
     return res;
 }
@@ -102,10 +102,10 @@ class LogicCaller extends EventTarget {
             init();
         });
         STORAGES.items.addEventListener("change", (event) => {
-            this./*#*/__changeData(renameKeys(augmentItemValues(event.data), "item."));
+            this./*#*/__changeData(renameKeys(augmentItemValues(event.data), "item[", "]"));
         });
         STORAGES.startItems.addEventListener("change", (event) => {
-            this./*#*/__changeData(renameKeys(augmentStartItemValues(event.data), "item."));
+            this./*#*/__changeData(renameKeys(augmentStartItemValues(event.data), "item[", "]"));
         });
         STORAGES.locations.addEventListener("change", (event) => {
             this./*#*/__changeData(renameKeys(event.data, "location."));
@@ -128,7 +128,7 @@ class LogicCaller extends EventTarget {
 
     /*#*/__init() {
         const data = {
-            ...renameKeys(initItemValues(), "item."),
+            ...renameKeys(initItemValues(), "item[", "]"),
             ...renameKeys(STORAGES.locations.getAll(), "location."),
             ...STORAGES.options.getAll(),
             ...STORAGES.filter.getAll(),

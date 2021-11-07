@@ -56,9 +56,11 @@ export default class DefaultShopState extends DataState {
             this.name = event.data;
         });
 
-        const itemData = ShopItemsResource.get(this.item);
-        if (itemData != null) {
-            ITEM_DATA.set(this, itemData);
+        if (this.item) {
+            const itemData = ShopItemsResource.get(this.item);
+            if (itemData != null) {
+                ITEM_DATA.set(this, itemData);
+            }
         }
 
         /* --- */
@@ -77,17 +79,21 @@ export default class DefaultShopState extends DataState {
             ITEM.set(this, value);
             STORAGES.shopItems.set(ref, value);
             // data
-            const itemData = ShopItemsResource.get(value);
-            if (itemData != null) {
-                ITEM_DATA.set(this, itemData);
+            if (!!value) {
+                const itemData = ShopItemsResource.get(value);
+                if (itemData != null) {
+                    ITEM_DATA.set(this, itemData);
+                } else {
+                    ITEM_DATA.delete(this);
+                }
+                // bought
+                if (itemData != null && itemData.refill) {
+                    STORAGES.shopItemsBought.set(ref, true);
+                } else {
+                    STORAGES.shopItemsBought.set(ref, false);
+                }
             } else {
                 ITEM_DATA.delete(this);
-            }
-            // bought
-            if (itemData != null && itemData.refill) {
-                STORAGES.shopItemsBought.set(ref, true);
-            } else {
-                STORAGES.shopItemsBought.set(ref, false);
             }
             // external
             const event = new Event("item");

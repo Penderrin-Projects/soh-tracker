@@ -41,7 +41,7 @@ export default function parseShops(target = {}, data = {}, trans = {}, shopsanit
     for (const i in data) {
         const v = data[i]
         if (shop_trans.has(i)) {
-            const item = item_trans[v["item"]] ?? "item.bad_item";
+            const item = item_trans[v["item"]] ?? "item[bad_item]";
             let price = 0;
             let player = 0;
             let placement = 0;
