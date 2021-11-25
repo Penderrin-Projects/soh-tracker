@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.49
+
+### RULESETS
+
+- add s5 standard ruleset
+- set weekly settings to match s5 standard
+- add trial count of 0 to some existing rulesets since default is 6
+
+---
+
 ## VERSION 2.1.48
 
 ### IMPROVEMENTS
