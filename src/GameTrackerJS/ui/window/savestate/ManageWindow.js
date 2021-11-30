@@ -68,8 +68,11 @@ export default class ManageWindow extends AbstractSavestateWindow {
             await SavestateManager.delete(stateName);
             Toast.info(`State "${stateName}" deleted.`);
             snm.value = "";
-            await fillStates(lst);
+            // refresh
+            await this.refreshList();
+            lst.value = "";
         };
+
         // RENAME
         const rnm = this.shadowRoot.getElementById("rename");
         rnm.onclick = async () => {
@@ -80,8 +83,8 @@ export default class ManageWindow extends AbstractSavestateWindow {
             }
             let newName = "";
             while (!newName) {
-                const name = await Dialog.prompt("New state", `Please enter a new name for "${stateName}"!`);
-                if (name === false) {
+                const name = await Dialog.prompt("New state", `Please enter a new name for "${stateName}"!`, stateName);
+                if (name === false || name === stateName) {
                     return;
                 }
                 if (name == "") {
@@ -98,8 +101,11 @@ export default class ManageWindow extends AbstractSavestateWindow {
             await SavestateManager.rename(stateName, newName);
             Toast.info(`State "${stateName}" renamed to "${newName}".`);
             snm.value = "";
-            await fillStates(lst);
+            // refresh
+            await this.refreshList();
+            lst.value = newName;
         };
+
         // IMPORT
         const imp = this.shadowRoot.getElementById("import");
         imp.onclick = async () => {
@@ -136,10 +142,11 @@ export default class ManageWindow extends AbstractSavestateWindow {
                 this.close();
                 return;
             }
-
-            // repaint
-            await fillStates(lst);
+            // refresh
+            await this.refreshList();
+            lst.value = name;
         };
+        
         // IMPORT STRING
         const ist = this.shadowRoot.getElementById("import-string");
         ist.onclick = async () => {
@@ -174,8 +181,11 @@ export default class ManageWindow extends AbstractSavestateWindow {
             await SavestateManager.importSavestate(data);
             Toast.info(`State "${name}" imported.`);
             snm.value = "";
-            await fillStates(lst);
+            // refresh
+            await this.refreshList();
+            lst.value = name;
         };
+
         // EXPORT
         const exp = this.shadowRoot.getElementById("export");
         exp.onclick = async () => {

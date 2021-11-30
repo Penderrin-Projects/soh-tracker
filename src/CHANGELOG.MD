@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.50
+
+### BUGFIXES
+
+- fix check inputs on clear/load settings in settings windows
+- fix savestate manager to refresh list after operation
+
+### IMPROVEMENTS
+- show show old filename in rename prompt for savestate manager
+- make savestate manager keep active item after refresh
+- add settings/filter info to safestate export
+
+---
+
 ## VERSION 2.1.49
 
 ### RULESETS
