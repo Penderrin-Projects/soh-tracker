@@ -3,6 +3,8 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 
 import VersionData from "../data/VersionData.js";
 import SavestateConverter from "./SavestateConverter.js";
+import FilterStorage from "../storage/FilterStorage.js";
+import SettingsStorage from "../storage/SettingsStorage.js";
 
 const STORAGE = new IDBStorage("savestates");
 
@@ -11,6 +13,7 @@ class SavestateManager {
     async rename(current, target) {
         const save = await STORAGE.get(current);
         save.autosave = false;
+        save.name = target;
         await STORAGE.delete(current);
         await STORAGE.set(target, save);
     }
@@ -41,7 +44,9 @@ class SavestateManager {
         const data = await STORAGE.get(name, {});
         data["_meta"] = {
             app: VersionData.versionString,
-            browser: VersionData.browserData
+            browser: VersionData.browserData,
+            filter: FilterStorage.getAll(),
+            settings: SettingsStorage.getAll()
         };
         return data;
     }

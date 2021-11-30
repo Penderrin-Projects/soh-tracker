@@ -155,14 +155,6 @@ emc-option .auto {
 }
 `);
 
-async function fillStates(list) {
-    list.innerHTML = "";
-    const states = await SavestateManager.getStates();
-    for (const state in states) {
-        list.append(createOption(state, states[state]));
-    }
-}
-
 export default class AbstractSavestateWindow extends Window {
 
     constructor(title = "Savestates", options = {}) {
@@ -177,11 +169,20 @@ export default class AbstractSavestateWindow extends Window {
 
     async show(activeState) {
         const lst = this.shadowRoot.getElementById("statelist");
-        await fillStates(lst);
+        await this.refreshList();
         if (activeState != null) {
             lst.value = activeState;
         }
         super.show();
+    }
+
+    async refreshList() {
+        const lst = this.shadowRoot.getElementById("statelist");
+        lst.innerHTML = "";
+        const states = await SavestateManager.getStates();
+        for (const state in states) {
+            lst.append(createOption(state, states[state]));
+        }
     }
 
 }
