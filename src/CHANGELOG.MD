@@ -4,6 +4,20 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.51
+
+### BUGFIXES
+
+- fix check inputs on clear/load settings in settings windows
+- fix translation for new state window footer switch
+
+### IMPROVEMENTS
+
+- make prompts submit from input on enter key press
+- let force download button be active after download
+
+---
+
 ## VERSION 2.1.50
 
 ### BUGFIXES
@@ -12,6 +26,7 @@ Application:    Track-OOT
 - fix savestate manager to refresh list after operation
 
 ### IMPROVEMENTS
+
 - show show old filename in rename prompt for savestate manager
 - make savestate manager keep active item after refresh
 - add settings/filter info to safestate export

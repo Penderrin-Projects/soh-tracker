@@ -42,7 +42,7 @@ const FOOTER = new Template(`
             <input id="show-init-checkbox" class="settings-input" type="checkbox">
         </emc-input-wrapper>
         <span class="option-text">
-            <emc-i18n-label i18n-key="show_state_init_window"></emc-i18n-label>
+            <emc-i18n-label i18n-value="show_state_init_window"></emc-i18n-label>
         </span>
     </label>
 </div>
