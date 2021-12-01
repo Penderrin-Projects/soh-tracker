@@ -1,5 +1,6 @@
 @import "./theme.css";
 @import "./font.css";
+@import "./iOS-fix.css";
 
 body {
     display: flex;
