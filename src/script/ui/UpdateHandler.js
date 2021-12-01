@@ -98,7 +98,7 @@ export default class UpdateHandler extends CustomElement {
                             prog.max = 0;
                             progtext.innerHTML = `0/0`;
                             check.style.display = "none";
-                            force.style.display = "none";
+                            force.style.display = "block";
                             avail.style.display = "none";
                             unavail.style.display = "none";
                             running.style.display = "none";
