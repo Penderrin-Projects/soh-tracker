@@ -1,7 +1,7 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
-import Helper from "/emcJS/util/Helper.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 
 
@@ -102,7 +102,7 @@ export default async function() {
             "content": "SAVE WORLD",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
-                const world = Helper.elevate(patch, "/", WorldResource.get());
+                const world = Helper.Object.elevate(patch, "/", WorldResource.get());
                 FileSystem.save(JSON.stringify(world, " ", 4), "world.json");
             }
         },{
@@ -111,7 +111,7 @@ export default async function() {
                 const res = await FileSystem.load(".json");
                 if (!!res && !!res.data) {
                     const data = res.data;
-                    const world = Helper.flatten(data, "/");
+                    const world = Helper.Object.flatten(data, "/");
                     // load logic
                     await WorldStorage.setAll(world);
                     // refresh
@@ -123,7 +123,7 @@ export default async function() {
             "content": "SAVE PATCH",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
-                const world = Helper.elevate(patch, "/");
+                const world = Helper.Object.elevate(patch, "/");
                 FileSystem.save(JSON.stringify(world, " ", 4), `world.${(new Date).valueOf()}.json`);
             }
         },{

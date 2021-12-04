@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import { mix } from "/emcJS/util/Mixin.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/Icon.js";
@@ -68,7 +69,7 @@ const STYLE = new GlobalStyle(`
 `);
 
 const BaseClass = mix(
-    HTMLElement
+    CustomElement
 ).with(
     StateDataEventManagerMixin,
     ContextMenuManagerMixin
@@ -78,7 +79,6 @@ export default class WorldElement extends BaseClass {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* state handler */

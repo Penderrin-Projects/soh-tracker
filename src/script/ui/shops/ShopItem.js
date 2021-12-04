@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 // GameTrackerJS
@@ -142,11 +143,10 @@ function getDialogTitle(ref) {
     return titleEl;
 }
 
-export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(HTMLElement)) {
+export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

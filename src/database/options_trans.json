@@ -203,7 +203,7 @@
                 "remove": false
             }
         },
-        "shuffle_ganon_bosskey": {
+        "shuffle_ganon_bosskey": [{
             "name": "option.light_arrow_cutscene",
             "values": {
                 "remove": "light_arrow_cutscene_vanilla",
@@ -217,6 +217,14 @@
                 "lacs_tokens": "light_arrow_cutscene_skulltulas"
             }
         },
+        {
+            
+            "name": "option.ganon_boss_door_open",
+            "values": {
+                "remove": true,
+                "default": false
+            }
+        }],
         "lacs_tokens": "option.lacs_skulltulas",
         "lacs_stones": "option.stone_count_lacs",
         "lacs_medallions": "option.medallion_count_lacs",
@@ -244,6 +252,8 @@
                 "random": "child"
             }
         },
+        "trials": "option.number_trials",
+        "trials_random": "option.trials_random",
         "allowed_tricks": [
             "logic_shadow_freestanding_key",
             "logic_zora_with_hovers",
@@ -410,74 +420,76 @@
         },
         "big_poe_count": "option.big_poe_count"
     },
+    "starting_equipment": {
+        "kokiri_sword": "item.sword_kokiri", 
+        "biggoron_sword": "item.sword_biggoron",
+        "hylian_shield": "item.shield_hylia",
+        "mirror_shield": "item.shield_mirror",
+        "goron_tunic": "item.tunic_fire",
+        "zora_tunic": "item.tunic_water",
+        "iron_boots": "item.boots_iron",
+        "hover_boots": "item.boots_hover",
+        "magic": "item.magic_power",
+        "magic2": "item.magic_power",
+        "strength": "item.glove",
+        "strength2": "item.glove",
+        "strength3": "item.glove",
+        "scale": "item.scale",
+        "scale2": "item.scale",
+        "wallet": "item.wallet",
+        "wallet2": "item.wallet",
+        "wallet3": "item.wallet",
+        "stone_of_agony": "item.stone_of_agony",
+        "defense": "item.heart_double",
+        "deku_shield": "item.shield_kokiri"
+    },
     "starting_items": {
-        "Biggoron Sword": "item.sword_biggoron",
-        "Bolero of Fire": "item.warp_fire",
-        "Bomb Bag": "item.bombs",
-        "Bombchus": {
-            "name": "item.bombchu",
-            "values": 1
-        },
-        "Boomerang": "item.boomerang",
-        "Bottle with Letter": "item.zora_letter",
-        "Rutos Letter": "item.zora_letter",
-        "Bottle": "item.bottle",
-        "Bow": "item.bow",
-        "Deku Nut Capacity": {
-            "name": "item.nut",
-            "values": {
-                "1": 2,
-                "2": 3
-            }
-        },
-        "Deku Shield": "item.shield_kokiri",
-        "Deku Stick Capacity": {
-            "name": "item.stick",
-            "values": {
-                "1": 2,
-                "2": 3
-            }
-        },
-        "Dins Fire": "item.magic_din",
-        "Double Defense": "item.heart_double",
-        "Eponas Song": "item.song_epona",
-        "Farores Wind": "item.magic_farore",
-        "Fire Arrows": "item.arrow_fire",
-        "Goron Tunic": "item.tunic_fire",
-        "Heart Container": "item.heart_container",
-        "Hammer": "item.hammer",
-        "Megaton Hammer": "item.hammer",
-        "Hover Boots": "item.boots_hover",
-        "Hylian Shield": "item.shield_hylia",
-        "Ice Arrows": "item.arrow_ice",
-        "Iron Boots": "item.boots_iron",
-        "Kokiri Sword": "item.sword_kokiri",
-        "Lens of Truth": "item.lens",
-        "Light Arrows": "item.arrow_light",
-        "Magic Bean": "item.bean",
-        "Magic Meter": "item.magic_power",
-        "Minuet of Forest": "item.warp_forest",
-        "Mirror Shield": "item.shield_mirror",
-        "Nayrus Love": "item.magic_nayru",
-        "Nocturne of Shadow": "item.warp_shadow",
-        "Ocarina": "item.ocarina",
-        "Piece of Heart (Treasure Chest Game)": "item.heart_piece",
-        "Piece of Heart": "item.heart_piece",
-        "Prelude of Light": "item.warp_light",
-        "Progressive Hookshot": "item.hookshot",
-        "Progressive Scale": "item.scale",
-        "Progressive Strength Upgrade": "item.glove",
-        "Progressive Wallet": "item.wallet",
-        "Requiem of Spirit": "item.warp_spirit",
-        "Sarias Song": "item.song_saria",
-        "Serenade of Water": "item.warp_water",
-        "Slingshot": "item.slingshot",
-        "Song of Storms": "item.song_storm",
-        "Song of Time": "item.song_time",
-        "Stone of Agony": "item.stone_of_agony",
-        "Suns Song": "item.song_sun",
-        "Zeldas Lullaby": "item.song_zelda",
-        "Zora Tunic": "item.tunic_water"
+        "deku_stick": "item.stick",
+        "deku_stick2": "item.stick",
+        "deku_nut": "item.nut",
+        "deku_nut2": "item.nut",
+        "bombs": "item.bombs",
+        "bombs2": "item.bombs",
+        "bombs3": "item.bombs",
+        "bow": "item.bow",
+        "bow2": "item.bow",
+        "bow3": "item.bow",
+        "fire_arrow": "item.arrow_fire",
+        "dins_fire": "item.magic_din",
+        "slingshot": "item.slingshot",
+        "slingshot2": "item.slingshot",
+        "slingshot3": "item.slingshot",
+        "ocarina": "item.ocarina",
+        "ocarina2": "item.ocarina",
+        "bombchus": "item.bombchu",
+        "hookshot": "item.hookshot",
+        "hookshot2": "item.hookshot",
+        "ice_arrow": "item.arrow_ice",
+        "farores_wind": "item.magic_farore",
+        "boomerang": "item.boomerang",
+        "lens": "item.lens",
+        "beans": "item.bean",
+        "megaton_hammer": "item.hammer",
+        "light_arrow": "item.arrow_light",
+        "nayrus_love": "item.magic_nayru",
+        "bottle": "item.bottle",
+        "bottle2": "item.bottle",
+        "bottle3": "item.bottle",
+        "letter": "item.zora_letter"
+    },
+    "starting_songs": {
+        "lullaby": "item.song_zelda",
+        "eponas_song": "item.song_epona",
+        "sarias_song": "item.song_saria",
+        "suns_song": "item.song_sun",
+        "song_of_time": "item.song_time",
+        "song_of_storms": "item.song_storm",
+        "minuet": "item.warp_forest",
+        "bolero": "item.warp_fire",
+        "serenade": "item.warp_water",
+        "requiem": "item.warp_spirit",
+        "nocturne": "item.warp_shadow",
+        "prelude": "item.warp_light"
     },
     "dungeons": {
         "Deku Tree": {
@@ -2305,7 +2317,7 @@
         "Bottle with Blue Potion": "item.potion_blue",
         "Bottle with Fish": "item.fish",
         "Bottle with Poe": "item.poe",
-        "Giants Knife": "item.sword_biggoron",
+        "Giants Knife": "item.sword_medigoron",
         "Gold Skulltula Token": "item.skulltula",
         "Megaton Hammer": "item.hammer",
         "Rupee (Treasure Chest Game)": "item.rupee_green",
@@ -2484,6 +2496,7 @@
         "Arrows (10)": "item.refill_item",
         "Arrows (30)": "item.refill_item",
         "Arrows (5)": "item.refill_item",
+        "Giants Knife": "item.sword_medigoron",
         "Biggoron Sword": "item.sword_biggoron",
         "Bolero of Fire": "item.warp_fire",
         "Bomb Bag": "item.bombs",

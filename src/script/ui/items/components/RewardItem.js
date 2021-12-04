@@ -1,6 +1,7 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 
@@ -40,8 +41,10 @@ const STYLE = new GlobalStyle(`
     background-size: 100%;
 }
 :host([value="0"]) {
-    filter: contrast(0.8) grayscale(0.5);
-    opacity: 0.4;
+    filter:
+        contrast(var(--shallow-item-contrast, 0.8))
+        saturate(var(--shallow-item-saturate, 0.5))
+        brightness(var(--shallow-item-brightness, 0.4));
 }
 #value {
     display: inline-flex;
@@ -73,11 +76,10 @@ function getAlign(value) {
     }
 }
 
-export default class RewardItem extends StateDataEventManager(HTMLElement) {
+export default class RewardItem extends StateDataEventManager(CustomElement) {
 
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */

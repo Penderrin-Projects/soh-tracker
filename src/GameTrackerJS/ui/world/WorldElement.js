@@ -1,4 +1,5 @@
 // frameworks
+import CustomElement from "/emcJS/ui/CustomElement.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 import "/emcJS/ui/Icon.js";
@@ -8,7 +9,7 @@ import StateDataEventManagerMixin from "../mixin/StateDataEventManager.js";
 import Badge from "../Badge.js";
 import "../BadgeAccess.js";
 
-const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(HTMLElement)));
+const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(CustomElement)));
 export default class WorldElement extends BaseClass {
 
     constructor() {

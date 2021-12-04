@@ -44,23 +44,23 @@ export default class DefaultState extends DataState {
             });
         }
 
-        /* VAR_MAX */
-        if (props.var_max != null) {
-            if (typeof props.var_max == "object") {
-                if (props.var_max.option != null && props.var_max.values != null) {
+        /* VAR MAX */
+        if (props.varMax != null) {
+            if (typeof props.varMax == "object") {
+                if (props.varMax.option != null && props.varMax.values != null) {
                     const defMax = DEF_MAX.get(this);
-                    const optionObserver = new OptionsObserver(props.var_max.option);
-                    const maxVal = parseSafeRange(props.var_max.values[optionObserver.value], defMax);
+                    const optionObserver = new OptionsObserver(props.varMax.option);
+                    const maxVal = parseSafeRange(props.varMax.values[optionObserver.value], defMax);
                     if (maxVal != null) {
                         MAX.set(this, maxVal);
                     }
                     optionObserver.addEventListener("change", (event) => {
-                        this./*#*/__setMax(props.var_max.values[event.data]);
+                        this./*#*/__setMax(props.varMax.values[event.data]);
                     });
                 }
-            } else if (typeof props.var_max == "string") {
+            } else if (typeof props.varMax == "string") {
                 const defMax = DEF_MAX.get(this);
-                const optionObserver = new OptionsObserver(props.var_max);
+                const optionObserver = new OptionsObserver(props.varMax);
                 const maxVal = parseSafeRange(optionObserver.value, defMax);
                 if (maxVal != null) {
                     MAX.set(this, maxVal);
@@ -71,23 +71,23 @@ export default class DefaultState extends DataState {
             }
         }
 
-        /* VAR_MIN */
-        if (props.var_min != null) {
-            if (typeof props.var_min == "object") {
-                if (props.var_min.option != null && props.var_min.values != null) {
+        /* VAR MIN */
+        if (props.varMin != null) {
+            if (typeof props.varMin == "object") {
+                if (props.varMin.option != null && props.varMin.values != null) {
                     const defMin = DEF_MIN.get(this);
-                    const optionObserver = new OptionsObserver(props.var_min.option);
-                    const minVal = parseSafeRange(props.var_min.values[optionObserver.value], defMin);
+                    const optionObserver = new OptionsObserver(props.varMin.option);
+                    const minVal = parseSafeRange(props.varMin.values[optionObserver.value], defMin);
                     if (minVal != null) {
                         MIN.set(this, minVal);
                     }
                     optionObserver.addEventListener("change", (event) => {
-                        this./*#*/__setMin(props.var_min.values[event.data]);
+                        this./*#*/__setMin(props.varMin.values[event.data]);
                     });
                 }
-            } else if (typeof props.var_min == "string") {
+            } else if (typeof props.varMin == "string") {
                 const defMin = DEF_MIN.get(this);
-                const optionObserver = new OptionsObserver(props.var_min);
+                const optionObserver = new OptionsObserver(props.varMin);
                 const minVal = parseSafeRange(optionObserver.value, defMin);
                 if (minVal != null) {
                     MIN.set(this, minVal);

@@ -60,16 +60,24 @@
             "start_collapsed"
         ]
     },
-    "item_size": {
+    "unknown_dungeon_need_both": {
         "category": "settings",
-        "type": "-range",
-        "min": 32,
-        "max": 64,
-        "default": 40,
+        "type": "check",
+        "default": false
+    },
+    "detached_window_background": {
+        "category": "settings",
+        "type": "color",
+        "default": "#000000",
         "resettable": true
     },
-    "autosave_time": {
+    "use_custom_logic": {
         "category": "settings",
+        "type": "check",
+        "default": false
+    },
+    "autosave_time": {
+        "category": "savestate",
         "type": "number",
         "min": 0,
         "max": 120,
@@ -77,25 +85,15 @@
         "resettable": true
     },
     "autosave_amount": {
-        "category": "settings",
+        "category": "savestate",
         "type": "number",
         "min": 1,
         "max": 10,
         "default": 4,
         "resettable": true
     },
-    "unknown_dungeon_need_both": {
-        "category": "settings",
-        "type": "check",
-        "default": false
-    },
-    "use_custom_logic": {
-        "category": "settings",
-        "type": "check",
-        "default": false
-    },
     "show_state_init_window": {
-        "category": "settings",
+        "category": "savestate",
         "type": "check",
         "default": true
     },

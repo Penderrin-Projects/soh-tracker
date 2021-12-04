@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -18,11 +19,10 @@ const TPL = new Template(`
     </style>
 `);
 
-export default class HTMLTrackerSongList extends HTMLElement {
+export default class HTMLTrackerSongList extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: "open"});
         this.shadowRoot.append(TPL.generate());
         const songs = SongsResource.get();
         for (const i in songs) {

@@ -3,9 +3,74 @@
 Application:    Track-OOT
 
 ***
-## VERSION 2.1.47
+
+## VERSION 2.1.51
 
 ### BUGFIXES
+
+- fix check inputs on clear/load settings in settings windows
+- fix translation for new state window footer switch
+
+### IMPROVEMENTS
+
+- make prompts submit from input on enter key press
+- let force download button be active after download
+
+---
+
+## VERSION 2.1.50
+
+### BUGFIXES
+
+- fix check inputs on clear/load settings in settings windows
+- fix savestate manager to refresh list after operation
+
+### IMPROVEMENTS
+
+- show show old filename in rename prompt for savestate manager
+- make savestate manager keep active item after refresh
+- add settings/filter info to safestate export
+
+---
+
+## VERSION 2.1.49
+
+### RULESETS
+
+- add s5 standard ruleset
+- set weekly settings to match s5 standard
+- add trial count of 0 to some existing rulesets since default is 6
+
+---
+
+## VERSION 2.1.48
+
+### IMPROVEMENTS
+
+- reduce logic file size further
+    - remove unnessecary tokens
+    - minified by nature and must not be re-transpiled
+- add background color option for detached item window
+- add max keys indicator
+
+### BUGFIXES
+
+- fix some logic misbehaviour applying filters
+- fix ganon bossdoor open option
+- fix death mountain crater to summit gateway
+- fix some minor bugs in start item parser
+- fix lake domain dive for adult
+- fix minor layout issues for context menus
+- add some missing translations
+- add error item for shops
+    - gets set if spoiler log can not find the item
+- add giants knife to shop items
+
+---
+
+## VERSION 2.1.47
+
+### IMPROVEMENTS
 
 - added option to reveal all multiworld items from spoiler
 - updated translation on item association from spoiler

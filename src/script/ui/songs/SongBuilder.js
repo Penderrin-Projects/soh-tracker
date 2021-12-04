@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 // Track-OOT
@@ -84,11 +85,10 @@ function buttonClick(event) {
     }
 }
 
-export default class HTMLTrackerSongBuilder extends HTMLElement {
+export default class HTMLTrackerSongBuilder extends CustomElement {
     
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
         this.shadowRoot.getElementById("buttons").onclick = buttonClick.bind(this);
     }

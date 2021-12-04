@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import CustomElement from "/emcJS/ui/CustomElement.js";
 
 
 const TPL = new Template(`
@@ -30,11 +31,10 @@ const TPL = new Template(`
     <textarea id="text" readonly></textarea>
 `);
 
-export default class MPLogger extends HTMLElement {
+export default class MPLogger extends CustomElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
         this.shadowRoot.append(TPL.generate());
     }
 
