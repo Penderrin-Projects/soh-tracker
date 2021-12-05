@@ -6,6 +6,29 @@
 language=Language
 
 # INTERFACE
+FILE=FILE
+NEW=NEW
+LOAD=LOAD
+SAVE=SAVE
+SAVE AS=SAVE AS
+MANAGE=MANAGE
+DISCORD=DISCORD
+PATREON=PATREON
+EXTRAS=EXTRAS
+TOGGLE FULLSCREEN=TOGGLE FULLSCREEN
+UPLOAD SPOILER=UPLOAD SPOILER
+CLEAR SPECIFIC DATA=CLEAR SPECIFIC DATA
+DETACHED ITEM WINDOW=DETACHED ITEM WINDOW
+EDITORS=EDITORS
+RANDOMIZER OPTIONS=RANDOMIZER OPTIONS
+TRACKER SETTINGS=TRACKER SETTINGS
+Spoiler Loaded Partially=Spoiler Loaded Partially
+(to overworld)=(to overworld)
+Exit and bound entrance=All Entrances
+Exit only=Only Exits
+Bound entrance only=Only Bound Entrances
+Strict categories=Strict Categories
+Unbound only=Only Unbound Entrances
 on=on
 off=off
 random=random
@@ -33,6 +56,7 @@ area/gerudo_valley=Gerudo Valley
 area/lake=Lake Hylia
 area/overworld=Overworld
 area/colossus=Desert Colossus
+area/pocket_reward=Reward in Link's Pocket
 time_ocarina=Ocarina of Time
 location/hyrule_field.c_ocarina_of_time=Ocarina of Time
 location/hyrule_field.c_song_of_time=Song of Time
@@ -82,6 +106,7 @@ location/lonlon.c_maron_song=Epona's Song
 location/lonlon.c_hp=Tower Heart Piece
 
 # LOCATIONS - GERUDO
+area/gerudo_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/gerudo=Gerudo Fortress
 location/gerudo.c_rooftop=Fortress Rooftop Chest
 location/gerudo.c_guard_1=Carpenter Guard 1
@@ -93,6 +118,9 @@ location/gerudo.c_archer_1=Horseback Archery Game 1000pts
 location/gerudo.c_archer_2=Horseback Archery Game 1500pts
 
 # LOCATIONS - DEKU
+area/deku_reward=Reward From Gohma
+area/deku_type=Dungeon Style (Vanilla or MQ)
+area/deku_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/deku=Deku Tree
 area/deku.short=DEKU
 location/deku.c_lobby=Lobby Chest
@@ -113,6 +141,9 @@ location/deku_mq.c_after_log=After Spinning Log
 location/deku_mq.c_gohma=Gohma
 
 # LOCATIONS - DODONGO
+area/dodongo_reward=Reward From King Dodongo
+area/dodongo_type=Dungeon Style (Vanilla or MQ)
+area/dodongo_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/dodongo=Dodongo's Cavern
 area/dodongo.short=DCVN
 location/dodongo.c_map=Map Chest
@@ -133,6 +164,9 @@ location/dodongo_mq.c_chest_above_dodongo=Chest Above King Dodongo
 location/dodongo_mq.c_dodongo=King Dodongo
 
 # LOCATIONS - JABU JABU
+area/jabujabu_reward=Reward From Barinade
+area/jabujabu_type=Dungeon Style (Vanilla or MQ)
+area/jabujabu_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/jabujabu=Jabu Jabu's Belly
 area/jabujabu.short=JABU
 location/jabujabu.c_boomerang=Boomerang Chest
@@ -154,6 +188,9 @@ location/jabujabu_mq.c_near_boss=Near Boss Chest
 location/jabujabu_mq.c_barinade=Barinade
 
 # LOCATIONS - TEMPLE FOREST
+area/temple_forest_reward=Reward From Phantom Ganon
+area/temple_forest_type=Dungeon Style (Vanilla or MQ)
+area/temple_forest_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/temple_forest=Forest Temple
 area/temple_forest.short=FRST
 location/temple_forest.c_entrance=First Chest
@@ -186,6 +223,9 @@ location/temple_forest_mq.c_near_boss=Near Boss Chest
 location/temple_forest_mq.c_phantomganon=Phantom Ganon
 
 # LOCATIONS - TEMPLE FIRE
+area/temple_fire_reward=Reward From Volvagia
+area/temple_fire_type=Dungeon Style (Vanilla or MQ)
+area/temple_fire_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/temple_fire=Fire Temple
 area/temple_fire.short=FIRE
 location/temple_fire.c_near_boss=Chest Near Boss
@@ -219,6 +259,9 @@ location/temple_fire_mq.c_west_tower_top=West Tower Top
 location/temple_fire_mq.c_volvagia=Volvagia
 
 # LOCATIONS - TEMPLE WATER
+area/temple_water_reward=Reward From Morpha
+area/temple_water_type=Dungeon Style (Vanilla or MQ)
+area/temple_water_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/temple_water=Water Temple
 area/temple_water.short=WATR
 location/temple_water.c_map=Map Chest
@@ -242,6 +285,9 @@ location/temple_water_mq.c_freestanding_key=Freestanding Key
 location/temple_water_mq.c_morpha=Morpha
 
 # LOCATIONS - TEMPLE SHADOW
+area/temple_shadow_reward=Reward From Bongo Bongo
+area/temple_shadow_type=Dungeon Style (Vanilla or MQ)
+area/temple_shadow_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/temple_shadow=Shadow Temple
 area/temple_shadow.short=SHDW
 location/temple_shadow.c_map=Map Chest
@@ -286,6 +332,9 @@ location/temple_shadow_mq.c_freestanding_key=Freestanding Key
 location/temple_shadow_mq.c_bongobongo=Bongo Bongo
 
 # LOCATIONS - TEMPLE SPIRIT
+area/temple_spirit_reward=Reward From Twinrova
+area/temple_spirit_type=Dungeon Style (Vanilla or MQ)
+area/temple_spirit_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/temple_spirit=Spirit Temple
 area/temple_spirit.short=SPRT
 location/temple_spirit.c_child_left=Child Left Chest
@@ -334,6 +383,8 @@ location/temple_spirit_mq.c_mirror_puzzle_invisible=Mirror Puzzle Invisible Ches
 location/temple_spirit_mq.c_twinrova=Twinrova
 
 # LOCATIONS - GANON
+area/castle_ganon_type=Dungeon Style (Vanilla or MQ)
+area/castle_ganon_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/castle_ganon=Ganon's Castle
 location/castle_ganon.c_forest_trial=Forest Trial Chest
 location/castle_ganon.c_water_trial_left=Water Trial Left Chest
@@ -497,6 +548,8 @@ location/zoras.zoras_shop_6=Zora Shop Left - Top Right
 location/zoras.zoras_shop_5=Zora Shop Left - Bottom Right
 
 # LOCATIONS - TRAINING
+area/training_grounds_type=Dungeon Style (Vanilla or MQ)
+area/training_grounds_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/training_grounds=Gerudo Training Grounds
 location/training_grounds.c_lobby_left=Lobby Left Chest
 location/training_grounds.c_lobby_right=Lobby Right Chest
@@ -539,6 +592,8 @@ location/training_grounds_mq.c_maze_right_side=Maze Right Side Chest
 location/training_grounds_mq.c_ice_arrows=Ice Arrows Chest
 
 # LOCATIONS - WELL
+area/well_type=Dungeon Style (Vanilla or MQ)
+area/well_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/well=Bottom of the Well
 location/well.c_front_left_hidden_wall=Front Left Hidden Wall
 location/well.c_front_center_bombable=Front Center Bombable
@@ -562,6 +617,8 @@ location/well_mq.c_deadhand_freestanding_key=Deadhand Freestanding Key
 location/well_mq.c_east_inner_freestanding_key=East Inner Room Freestanding Key
 
 # LOCATIONS - ICE
+area/ice_cavern_type=Dungeon Style (Vanilla or MQ)
+area/ice_cavern_hint=Unsure Where This Is? Ping @Takacomic on discord.
 area/ice_cavern=Ice Cavern
 location/ice_cavern.c_map=Map Chest
 location/ice_cavern.c_compass=Compass Chest
@@ -1206,7 +1263,8 @@ skip.trail_gs_upper=Death Mountain Trail Upper Red Rock GS without Hammer
 skip.trail_gs_lower_hookshot=Death Mountain Trail Lower Red Rock GS with Hookshot
 skip.trail_gs_lower_bean=Death Mountain Trail Lower Red Rock GS with Magic Bean
 skip.crater_upper_to_lower=Death Mountain Crater Upper to Lower with Hammer
-skip.zora_with_hover=Zora's Domain Entry with Hover Boots
+skip.zora_with_hovers=Zora's Domain Entry with Hover Boots
+skip.king_zora_skip=Behind King Zora with Hover Boots
 skip.domain_gs=Zora's Domain GS with No Additional Items
 skip.shadow_statue=Shadow Temple River Statue with Bombchu
 skip.link_goron_dins=Stop Link the Goron with Din's Fire
@@ -1553,6 +1611,114 @@ dun_reward=Reward
 dun_type=Type (V/MQ)
 search=Search
 search_reset=Reset
+search...=Search
+Reset search=Reset
+savestate=Savestate
+
+#categories
+forest=forest
+deku=deku
+mountain=mountain
+dodongo=dodongo
+zoras=zoras
+fountain=fountain
+jabujabu=jabujabu
+kakariko=kakariko
+well=well
+meadow=meadow
+temple=temple
+crater=crater
+fire=fire
+lake=lake
+water=water
+colossus=colossus
+spirit=spirit
+graveyard=graveyard
+shadow=shadow
+ice=ice
+cavern=cavern
+fortress=fortress
+gerudo=gerudo
+training_grounds=training_grounds
+hyrule_field=hyrule_field
+to=to
+field=field
+kokiri=kokiri
+woods=woods
+lonlon=lonlon
+market=market
+castle=castle
+grounds=grounds
+time=time
+mountian=mountian
+goron=goron
+river=river
+domain=domain
+valley=valley
+wasteland=wasteland
+owl=owl
+drop=drop
+links=links
+spawn=spawn
+song=song
+warp=warp
+diving=diving
+near=near
+fairy=fairy
+cow=cow
+inside=inside
+fence=fence
+scrub=scrub
+open=open
+southeast=southeast
+midos=midos
+sarias=sarias
+twins=twins
+know_it_all_house=know_it_all_house
+shop=shop
+storms=storms
+lost=lost
+theatre=theatre
+sacred=sacred
+wolfos=wolfos
+guard=guard
+mask=mask
+house=house
+bombchu=bombchu
+bowling=bowling
+potion=potion
+treasure=treasure
+chest=chest
+man_in_green=man_in_green
+bazaar=bazaar
+shooting=shooting
+talon=talon
+stables=stables
+tower=tower
+carpenter=carpenter
+impa=impa
+odd_medicine=odd_medicine
+gallery=gallery
+windmill=windmill
+front=front
+redead=redead
+dampe=dampe
+shield=shield
+grave=grave
+sun=sun
+composers=composers
+death=death
+hammer=hammer
+upper=upper
+bomb=bomb
+fariy=fariy
+hilya=hylia
+lab=lab
+fishing=fishing
+tent=tent
+octorok=octorok
+silver=silver
+gantlets=gantlets
 
 # exits
 dungeon=Dungeon Exits

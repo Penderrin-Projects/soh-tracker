@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 const INVENTORY_KEYS = ["starting_items", "starting_equipment", "starting_songs"];
 
 function addValue(target, key, value) {
@@ -14,18 +16,21 @@ export default function parseStartingInventory(target = {}, settingsSpoiler = {}
         const starting_trans = trans[key] ?? {};
         for (const item of data) {
             if (typeof item != "string") {
-                console.warn(`Unexpected type "${typeof item}" within starting items, please report this!`);
+                console.warn(`Unexpected type "${typeof item}" within starting items`);
+                spoilerErrorAlert.prepareAlert();
             } else {
                 const transData = starting_trans[item];
                 if (transData == null) {
-                    console.warn(`Unknown item "${item}" for "${key}", please report this!`);
+                    console.warn(`Unknown Starting item "${item}" for "${key}"`);
+                    spoilerErrorAlert.prepareAlert();
                 } else {
                     if (typeof transData == "string") {
                         addValue(target, transData, 1);
                     } else {
                         const name = transData["name"];
                         if (typeof name != "string") {
-                            console.warn(`Translation for item "${item}" in "${key}" is errornous`);
+                            console.warn(`Translation for Starting item "${item}" in "${key}" is errornous`);
+                            spoilerErrorAlert.prepareAlert();
                         } else {
                             const value = parseInt(transData["value"]);
                             if (!isNaN(value)) {

@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 export default function parseEntrances(target = {}, data = {}, trans = {}, opt = {}) {
     const {dungeon, grottos, indoors, overworld, owls, spawns, warps} = opt;
     const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps} = trans.entrances.entrances;
@@ -27,7 +29,10 @@ export default function parseEntrances(target = {}, data = {}, trans = {}, opt =
         if (typeof i === "object" && i !== null) {
             console.warn("Unexpected Array within entrances")
         } else {
-            if (edgeThere === null || edgeBack === null) console.warn("[" + i + ": " + v + "] is a invalid value.")
+            if (edgeThere === null || edgeBack === null) {
+                console.warn("[" + i + ": " + v + "] is a invalid Entrance value.")
+                spoilerErrorAlert.prepareAlert();
+            }
             else {
                 if (dungeon) {
                     if (entro_dungeons[i] === edgeThere) buffer[edgeThere] = edgeBack;

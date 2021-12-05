@@ -17,6 +17,7 @@ import parseDungeonTypes from "./parseDungeonTypes.js";
 import parseDungeonRewards from "./parseDungeonRewards.js";
 import parseEntrances from "./parseEntrances.js";
 import parseDisabledLocations from "./parseDisabledLocations.js";
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
 
 const DEFAULT_DATA = {
     "": {},
@@ -108,6 +109,8 @@ class SpoilerParser {
         if (version == "dev") {
             // nothing
         }
+        
+        spoilerErrorAlert.sendAlert();
 
         return {
             data: {

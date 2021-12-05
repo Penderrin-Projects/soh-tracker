@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.52
+
+### IMPROVEMENTS
+
+- alert now appears if spoiler log options weren't fully loaded
+
+---
+
 ## VERSION 2.1.51
 
 ### BUGFIXES
