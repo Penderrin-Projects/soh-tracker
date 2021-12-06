@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 export default function parseDungeonTypes(target = {}, data = {}, trans = {}) {
     const dungeon_trans = trans["dungeons"];
 
@@ -6,10 +8,11 @@ export default function parseDungeonTypes(target = {}, data = {}, trans = {}) {
         const v = data[i];
         if (dungeon_trans[i] != null) {
             if (Array.isArray(i)) {
-                console.warn("Unexpected Array within dungeon types, please report this!")
+                console.warn("Unexpected Array within dungeon types.")
             } else {
                 if (dungeon_trans[i]["values"][v] === undefined) {
-                    console.warn("[" + i + ": " + v + "] is a invalid value. Please report this bug")
+                    console.warn("[" + i + ": " + v + "] is a invalid Dungeon value.")
+                    spoilerErrorAlert.prepareAlert();
                 } else {
                     buffer["area/" + dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
                 }

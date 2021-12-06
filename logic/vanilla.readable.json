@@ -18320,87 +18320,9 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_lobby_mq[child]": {
+        "region.gerudo_training_ground_lobby_mq[child]": {
             "region.gerudo_training_grounds_gateway[child]": {
                 "type": "true"
-            },
-            "region.gerudo_training_grounds_left_side_mq[child]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[child]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "mixin.has_fire_source[child]"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[adult]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "mixin.has_fire_source[adult]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "region.gerudo_training_grounds_right_side_mq[child]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[child]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "function.can_use(item.slingshot)[child]"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[adult]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "function.can_use(item.bow)[adult]"
-                                }
-                            }
-                        ]
-                    }
-                ]
             },
             "logic.location.training_grounds_mq.c_lobby_left": {
                 "type": "mixin",
@@ -18471,87 +18393,9 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_lobby_mq[adult]": {
+        "region.gerudo_training_ground_lobby_mq[adult]": {
             "region.gerudo_training_grounds_gateway[adult]": {
                 "type": "true"
-            },
-            "region.gerudo_training_grounds_left_side_mq[adult]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[child]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "mixin.has_fire_source[child]"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[adult]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "mixin.has_fire_source[adult]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "region.gerudo_training_grounds_right_side_mq[adult]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[child]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "function.can_use(item.slingshot)[child]"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby_mq[adult]",
-                                "el": {
-                                    "type": "mixin",
-                                    "el": "function.can_use(item.bow)[adult]"
-                                }
-                            }
-                        ]
-                    }
-                ]
             },
             "logic.location.training_grounds_mq.c_lobby_left": {
                 "type": "mixin",
@@ -18622,8 +18466,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_right_side_mq[adult]": {
-            "region.gerudo_training_grounds_underwater_mq[adult]": {
+        "region.gerudo_training_ground_right_side_mq[adult]": {
+            "region.gerudo_training_ground_underwater_mq[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -18681,7 +18525,7 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_underwater_mq[adult]": {
+        "region.gerudo_training_ground_underwater_mq[adult]": {
             "logic.location.training_grounds_mq.c_underwater": {
                 "type": "and",
                 "el": [
@@ -18722,8 +18566,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_left_side_mq[child]": {
-            "region.gerudo_training_grounds_stalfos_room_mq[child]": {
+        "region.gerudo_training_ground_left_side_mq[child]": {
+            "region.gerudo_training_ground_stalfos_room_mq[child]": {
                 "type": "value",
                 "el": "skip.gtg_mq_without_hookshot"
             },
@@ -18750,8 +18594,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_left_side_mq[adult]": {
-            "region.gerudo_training_grounds_stalfos_room_mq[adult]": {
+        "region.gerudo_training_ground_left_side_mq[adult]": {
+            "region.gerudo_training_ground_stalfos_room_mq[adult]": {
                 "type": "or",
                 "el": [
                     {
@@ -18804,7 +18648,7 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_stalfos_room_mq[child]": {
+        "region.gerudo_training_ground_stalfos_room_mq[child]": {
             "logic.location.blue_fire": {
                 "type": "and",
                 "el": [
@@ -18819,8 +18663,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_stalfos_room_mq[adult]": {
-            "region.gerudo_training_grounds_back_areas_mq[adult]": {
+        "region.gerudo_training_ground_stalfos_room_mq[adult]": {
+            "region.gerudo_training_ground_back_areas_mq[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -18921,8 +18765,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_back_areas_mq[child]": {
-            "region.gerudo_training_grounds_central_maze_right_mq[child]": {
+        "region.gerudo_training_ground_back_areas_mq[child]": {
+            "region.gerudo_training_ground_central_maze_right_mq[child]": {
                 "type": "value",
                 "el": "item.hammer"
             },
@@ -18966,12 +18810,12 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_back_areas_mq[adult]": {
-            "region.gerudo_training_grounds_central_maze_right_mq[adult]": {
+        "region.gerudo_training_ground_back_areas_mq[adult]": {
+            "region.gerudo_training_ground_central_maze_right_mq[adult]": {
                 "type": "value",
                 "el": "item.hammer"
             },
-            "region.gerudo_training_grounds_right_side_mq[adult]": {
+            "region.gerudo_training_ground_right_side_mq[adult]": {
                 "type": "mixin",
                 "el": "function.can_use(mixin.longshot)[adult]"
             },
@@ -19019,7 +18863,7 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_central_maze_right_mq[child]": {
+        "region.gerudo_training_ground_central_maze_right_mq[child]": {
             "logic.location.training_grounds_mq.c_maze_right_central": {
                 "type": "mixin",
                 "el": "mixin.filter_era[child]"
@@ -19046,8 +18890,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_central_maze_right_mq[adult]": {
-            "region.gerudo_training_grounds_underwater_mq[adult]": {
+        "region.gerudo_training_ground_central_maze_right_mq[adult]": {
+            "region.gerudo_training_ground_underwater_mq[adult]": {
                 "type": "or",
                 "el": [
                     {
@@ -19069,7 +18913,7 @@
                     }
                 ]
             },
-            "region.gerudo_training_grounds_right_side_mq[adult]": {
+            "region.gerudo_training_ground_right_side_mq[adult]": {
                 "type": "mixin",
                 "el": "function.can_use(item.hookshot)[adult]"
             },
@@ -19099,11 +18943,11 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_lobby[child]": {
+        "region.gerudo_training_ground_lobby[child]": {
             "region.gerudo_training_grounds_gateway[child]": {
                 "type": "true"
             },
-            "region.gerudo_training_grounds_heavy_block_room[child]": {
+            "region.gerudo_training_ground_heavy_block_room[child]": {
                 "type": "and",
                 "el": [
                     {
@@ -19116,73 +18960,7 @@
                     }
                 ]
             },
-            "region.gerudo_training_grounds_lava_room[child]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby[child]",
-                                "el": {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin.has_explosives[child]"
-                                        },
-                                        {
-                                            "type": "value",
-                                            "el": "item.sword_kokiri"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby[adult]",
-                                "el": {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin.has_explosives[adult]"
-                                        },
-                                        {
-                                            "type": "or",
-                                            "el": [
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "mixin.is_adult[adult]"
-                                                },
-                                                {
-                                                    "type": "value",
-                                                    "el": "item.sword_kokiri"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "region.gerudo_training_grounds_central_maze[child]": {
+            "region.gerudo_training_ground_central_maze[child]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_lobby_left": {
@@ -19247,11 +19025,11 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_lobby[adult]": {
+        "region.gerudo_training_ground_lobby[adult]": {
             "region.gerudo_training_grounds_gateway[adult]": {
                 "type": "true"
             },
-            "region.gerudo_training_grounds_heavy_block_room[adult]": {
+            "region.gerudo_training_ground_heavy_block_room[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -19282,73 +19060,7 @@
                     }
                 ]
             },
-            "region.gerudo_training_grounds_lava_room[adult]": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[child]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby[child]",
-                                "el": {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin.has_explosives[child]"
-                                        },
-                                        {
-                                            "type": "value",
-                                            "el": "item.sword_kokiri"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.filter_era[adult]"
-                            },
-                            {
-                                "type": "at",
-                                "node": "region.gerudo_training_grounds_lobby[adult]",
-                                "el": {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin.has_explosives[adult]"
-                                        },
-                                        {
-                                            "type": "or",
-                                            "el": [
-                                                {
-                                                    "type": "mixin",
-                                                    "el": "mixin.is_adult[adult]"
-                                                },
-                                                {
-                                                    "type": "value",
-                                                    "el": "item.sword_kokiri"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "region.gerudo_training_grounds_central_maze[adult]": {
+            "region.gerudo_training_ground_central_maze[adult]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_lobby_left": {
@@ -19453,8 +19165,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_central_maze[child]": {
-            "region.gerudo_training_grounds_central_maze_right[child]": {
+        "region.gerudo_training_ground_central_maze[child]": {
+            "region.gerudo_training_ground_central_maze_right[child]": {
                 "type": "min",
                 "el": {
                     "type": "value",
@@ -19579,8 +19291,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_central_maze[adult]": {
-            "region.gerudo_training_grounds_central_maze_right[adult]": {
+        "region.gerudo_training_ground_central_maze[adult]": {
+            "region.gerudo_training_ground_central_maze_right[adult]": {
                 "type": "min",
                 "el": {
                     "type": "value",
@@ -19705,8 +19417,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_central_maze_right[child]": {
-            "region.gerudo_training_grounds_lava_room[child]": {
+        "region.gerudo_training_ground_central_maze_right[child]": {
+            "region.gerudo_training_ground_lava_room[child]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_maze_right_central": {
@@ -19722,12 +19434,12 @@
                 "el": "mixin.filter_era[child]"
             }
         },
-        "region.gerudo_training_grounds_central_maze_right[adult]": {
-            "region.gerudo_training_grounds_hammer_room[adult]": {
+        "region.gerudo_training_ground_central_maze_right[adult]": {
+            "region.gerudo_training_ground_hammer_room[adult]": {
                 "type": "mixin",
                 "el": "function.can_use(item.hookshot)[adult]"
             },
-            "region.gerudo_training_grounds_lava_room[adult]": {
+            "region.gerudo_training_ground_lava_room[adult]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_maze_right_central": {
@@ -19743,8 +19455,8 @@
                 "el": "mixin.filter_era[adult]"
             }
         },
-        "region.gerudo_training_grounds_lava_room[child]": {
-            "region.gerudo_training_grounds_central_maze_right[child]": {
+        "region.gerudo_training_ground_lava_room[child]": {
+            "region.gerudo_training_ground_central_maze_right[child]": {
                 "type": "or",
                 "el": [
                     {
@@ -19758,12 +19470,12 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_lava_room[adult]": {
-            "region.gerudo_training_grounds_central_maze_right[adult]": {
+        "region.gerudo_training_ground_lava_room[adult]": {
+            "region.gerudo_training_ground_central_maze_right[adult]": {
                 "type": "mixin",
                 "el": "function.can_play(item.song_time)[adult]"
             },
-            "region.gerudo_training_grounds_hammer_room[adult]": {
+            "region.gerudo_training_ground_hammer_room[adult]": {
                 "type": "or",
                 "el": [
                     {
@@ -19825,8 +19537,8 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_hammer_room[child]": {
-            "region.gerudo_training_grounds_lava_room[child]": {
+        "region.gerudo_training_ground_hammer_room[child]": {
+            "region.gerudo_training_ground_lava_room[child]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_hammer_room_clear": {
@@ -19834,8 +19546,8 @@
                 "el": "mixin.filter_era[child]"
             }
         },
-        "region.gerudo_training_grounds_hammer_room[adult]": {
-            "region.gerudo_training_grounds_eye_statue_lower[adult]": {
+        "region.gerudo_training_ground_hammer_room[adult]": {
+            "region.gerudo_training_ground_eye_statue_lower[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -19848,7 +19560,7 @@
                     }
                 ]
             },
-            "region.gerudo_training_grounds_lava_room[adult]": {
+            "region.gerudo_training_ground_lava_room[adult]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_hammer_room_clear": {
@@ -19869,13 +19581,13 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_eye_statue_lower[child]": {
-            "region.gerudo_training_grounds_hammer_room[child]": {
+        "region.gerudo_training_ground_eye_statue_lower[child]": {
+            "region.gerudo_training_ground_hammer_room[child]": {
                 "type": "true"
             }
         },
-        "region.gerudo_training_grounds_eye_statue_lower[adult]": {
-            "region.gerudo_training_grounds_hammer_room[adult]": {
+        "region.gerudo_training_ground_eye_statue_lower[adult]": {
+            "region.gerudo_training_ground_hammer_room[adult]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_eye_statue": {
@@ -19892,13 +19604,13 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_eye_statue_upper[child]": {
-            "region.gerudo_training_grounds_eye_statue_lower[child]": {
+        "region.gerudo_training_ground_eye_statue_upper[child]": {
+            "region.gerudo_training_ground_eye_statue_lower[child]": {
                 "type": "true"
             }
         },
-        "region.gerudo_training_grounds_eye_statue_upper[adult]": {
-            "region.gerudo_training_grounds_eye_statue_lower[adult]": {
+        "region.gerudo_training_ground_eye_statue_upper[adult]": {
+            "region.gerudo_training_ground_eye_statue_lower[adult]": {
                 "type": "true"
             },
             "logic.location.training_grounds.c_scarecrow": {
@@ -19915,14 +19627,14 @@
                 ]
             }
         },
-        "region.gerudo_training_grounds_heavy_block_room[child]": {
+        "region.gerudo_training_ground_heavy_block_room[child]": {
             "logic.location.training_grounds.c_heavy_block_before": {
                 "type": "mixin",
                 "el": "mixin.filter_era[child]"
             }
         },
-        "region.gerudo_training_grounds_heavy_block_room[adult]": {
-            "region.gerudo_training_grounds_eye_statue_upper[adult]": {
+        "region.gerudo_training_ground_heavy_block_room[adult]": {
+            "region.gerudo_training_ground_eye_statue_upper[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -19975,7 +19687,7 @@
                     }
                 ]
             },
-            "region.gerudo_training_grounds_like_like_room[adult]": {
+            "region.gerudo_training_ground_like_like_room[adult]": {
                 "type": "and",
                 "el": [
                     {
@@ -20037,7 +19749,7 @@
                 "el": "mixin.filter_era[adult]"
             }
         },
-        "region.gerudo_training_grounds_like_like_room[child]": {
+        "region.gerudo_training_ground_like_like_room[child]": {
             "logic.location.training_grounds.c_heavy_block_1": {
                 "type": "mixin",
                 "el": "mixin.filter_era[child]"
@@ -20055,7 +19767,7 @@
                 "el": "mixin.filter_era[child]"
             }
         },
-        "region.gerudo_training_grounds_like_like_room[adult]": {
+        "region.gerudo_training_ground_like_like_room[adult]": {
             "logic.location.training_grounds.c_heavy_block_1": {
                 "type": "mixin",
                 "el": "mixin.filter_era[adult]"
@@ -21904,6 +21616,19 @@
             "logic.location.links_pocket": {
                 "type": "mixin",
                 "el": "mixin.filter_era[child]"
+            },
+            "logic.location.sages_gift": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.filter_era[child]"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin.can_receive_ganon_bosskey[child]"
+                    }
+                ]
             }
         },
         "region.root[adult]": {
@@ -21914,6 +21639,19 @@
             "logic.location.links_pocket": {
                 "type": "mixin",
                 "el": "mixin.filter_era[adult]"
+            },
+            "logic.location.sages_gift": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.filter_era[adult]"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin.can_receive_ganon_bosskey[adult]"
+                    }
+                ]
             }
         },
         "region.root_exits[child]": {
@@ -25511,6 +25249,19 @@
                         "el": "mixin.filter_era[child]"
                     },
                     {
+                        "type": "value",
+                        "el": "item.sword_kokiri"
+                    }
+                ]
+            },
+            "logic.location.gerudo.c_guard_3": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.filter_era[child]"
+                    },
+                    {
                         "type": "and",
                         "el": [
                             {
@@ -25531,19 +25282,6 @@
                                 ]
                             }
                         ]
-                    }
-                ]
-            },
-            "logic.location.gerudo.c_guard_3": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin.filter_era[child]"
-                    },
-                    {
-                        "type": "value",
-                        "el": "item.sword_kokiri"
                     }
                 ]
             },
@@ -25711,6 +25449,28 @@
                         "el": "mixin.filter_era[adult]"
                     },
                     {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.is_adult[adult]"
+                            },
+                            {
+                                "type": "value",
+                                "el": "item.sword_kokiri"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "logic.location.gerudo.c_guard_3": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.filter_era[adult]"
+                    },
+                    {
                         "type": "and",
                         "el": [
                             {
@@ -25750,28 +25510,6 @@
                                         "el": "skip.gerudo_kitchen"
                                     }
                                 ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            "logic.location.gerudo.c_guard_3": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin.filter_era[adult]"
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin.is_adult[adult]"
-                            },
-                            {
-                                "type": "value",
-                                "el": "item.sword_kokiri"
                             }
                         ]
                     }
@@ -29662,7 +29400,7 @@
                 ]
             }
         },
-        "region.graveyard_composers_grave[child]": {
+        "region.graveyard_royal_familys_tomb[child]": {
             "region.graveyard_composers_grave_entrance[child]": {
                 "type": "true"
             },
@@ -29714,7 +29452,7 @@
                 ]
             }
         },
-        "region.graveyard_composers_grave[adult]": {
+        "region.graveyard_royal_familys_tomb[adult]": {
             "region.graveyard_composers_grave_entrance[adult]": {
                 "type": "true"
             },
@@ -33289,7 +33027,7 @@
                             },
                             {
                                 "type": "value",
-                                "el": "skip.zora_with_hover"
+                                "el": "skip.zora_with_hovers"
                             }
                         ]
                     }
@@ -33708,6 +33446,19 @@
                                 "type": "state",
                                 "el": "option.doors_open_zora",
                                 "value": "doors_open_zora_adult"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin.is_adult[adult]"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "skip.king_zora_skip"
                             },
                             {
                                 "type": "mixin",
@@ -50873,7 +50624,7 @@
                         {
                             "type": "state",
                             "el": "option.light_arrow_cutscene",
-                            "value": "light_arrow_cutscene_skulltulas"
+                            "value": "light_arrow_cutscene_tokens"
                         },
                         {
                             "type": "gte",
@@ -50961,7 +50712,7 @@
                         {
                             "type": "state",
                             "el": "option.light_arrow_cutscene",
-                            "value": "light_arrow_cutscene_skulltulas"
+                            "value": "light_arrow_cutscene_tokens"
                         },
                         {
                             "type": "gte",
@@ -50975,6 +50726,230 @@
                                     "el": "option.lacs_skulltulas"
                                 }
                             ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin.can_receive_ganon_bosskey[child]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_stones"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_stones(ganon_bosskey_stones)[child]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_medallions"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_medallions(ganon_bosskey_medallions)[child]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_dungeons"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_dungeon_rewards(ganon_bosskey_rewards)[child]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_tokens"
+                                },
+                                {
+                                    "type": "gte",
+                                    "el": [
+                                        {
+                                            "type": "value",
+                                            "el": "item.skulltula"
+                                        },
+                                        {
+                                            "type": "value",
+                                            "el": "option.gbk_skulltulas"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_stones"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_medallions"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_dungeons"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_tokens"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin.can_receive_ganon_bosskey[adult]": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "or",
+                    "el": [
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_stones"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_stones(ganon_bosskey_stones)[adult]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_medallions"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_medallions(ganon_bosskey_medallions)[adult]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_dungeons"
+                                },
+                                {
+                                    "type": "mixin",
+                                    "el": "function.has_dungeon_rewards(ganon_bosskey_rewards)[adult]"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "and",
+                            "el": [
+                                {
+                                    "type": "state",
+                                    "el": "option.shuffle_ganon_bosskey",
+                                    "value": "gbk_tokens"
+                                },
+                                {
+                                    "type": "gte",
+                                    "el": [
+                                        {
+                                            "type": "value",
+                                            "el": "item.skulltula"
+                                        },
+                                        {
+                                            "type": "value",
+                                            "el": "option.gbk_skulltulas"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_stones"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_medallions"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_dungeons"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option.shuffle_ganon_bosskey",
+                                "value": "gbk_tokens"
+                            }
                         }
                     ]
                 }
@@ -53046,6 +53021,234 @@
             ]
         },
         "function.has_dungeon_rewards(bridge_rewards)[adult]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.medallion_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_water"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_spirit"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_shadow"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_light"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_water"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.dungeon_count_bridge"
+                }
+            ]
+        },
+        "function.has_stones(ganon_bosskey_stones)[child]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.stone_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_water"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.stone_count_bridge"
+                }
+            ]
+        },
+        "function.has_stones(ganon_bosskey_stones)[adult]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.stone_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_water"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.stone_count_bridge"
+                }
+            ]
+        },
+        "function.has_medallions(ganon_bosskey_medallions)[child]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.medallion_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_water"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_spirit"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_shadow"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_light"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.medallion_count_bridge"
+                }
+            ]
+        },
+        "function.has_medallions(ganon_bosskey_medallions)[adult]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.medallion_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_water"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_spirit"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_shadow"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_light"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.medallion_count_bridge"
+                }
+            ]
+        },
+        "function.has_dungeon_rewards(ganon_bosskey_rewards)[child]": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "add",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "item.medallion_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_water"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_spirit"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_shadow"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.medallion_light"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_forest"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_fire"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item.stone_water"
+                        }
+                    ]
+                },
+                {
+                    "type": "value",
+                    "el": "option.dungeon_count_bridge"
+                }
+            ]
+        },
+        "function.has_dungeon_rewards(ganon_bosskey_rewards)[adult]": {
             "type": "gte",
             "el": [
                 {

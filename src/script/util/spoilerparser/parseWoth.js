@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 export default function parseWoth(target = {}, data = {}, trans = {}) {
     const woth_trans = trans["woth"];
 
@@ -5,7 +7,8 @@ export default function parseWoth(target = {}, data = {}, trans = {}) {
         if (woth_trans[i] != null) {
             target["area/" + woth_trans[i]] = "woth";
         } else {
-            console.warn("[" + i + "] is a invalid value. Please report this bug")
+            console.warn("[" + i + "] is a invalid Way of the Hero value.")
+            spoilerErrorAlert.prepareAlert();
         }
     }
 }

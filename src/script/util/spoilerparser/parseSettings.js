@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 export default function parseSetting(target = {}, data = {}, trans = {}) {
     const setting_trans = trans["setting"];
     for (const [key, value] of Object.entries(data)) {
@@ -13,6 +15,7 @@ export default function parseSetting(target = {}, data = {}, trans = {}) {
                                 setSettingToTarget(target, el, parsedValue);
                             } catch {
                                 console.warn("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
+                                spoilerErrorAlert.prepareAlert();
                             }
                         } else {
                             target[el.replace("logic_", "skip.")] = valueSet.has(el);
@@ -24,6 +27,7 @@ export default function parseSetting(target = {}, data = {}, trans = {}) {
                         setSettingToTarget(target, transData, parsedValue);
                     } catch {
                         console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
+                        spoilerErrorAlert.prepareAlert();
                     }
                 }
             } else {

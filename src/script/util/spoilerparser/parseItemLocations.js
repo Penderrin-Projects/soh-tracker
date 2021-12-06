@@ -1,3 +1,5 @@
+import spoilerErrorAlert from "./spoilerErrorAlert.js";
+
 export default function parseItemLocations(target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
     const location_hearts_mq = location_trans["MQ"];
@@ -15,7 +17,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
             }
             if (location_trans[i] !== "") {
                 if (item_trans[v] === undefined) {
-                    console.warn("[" + v + "] is a invalid value. Please report this bug")
+                    console.warn("[" + v + "] is a invalid Item value.")
+                    spoilerErrorAlert.prepareAlert();
                 } else {
                     if (targetWorld == null || player === targetWorld || ignoreWorldLocking) buffer["location/" + location_trans[i]] = item_trans[v];
                     if (location_hearts_mq[i] != null) {
@@ -24,7 +27,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
                 }
             }
         } else {
-            console.warn("[" + i + "] is a invalid value. Please report this bug")
+            console.warn("[" + i + "] is a invalid Item Location value.")
+            spoilerErrorAlert.prepareAlert();
         }
     }
     target["item_location"] = buffer;
