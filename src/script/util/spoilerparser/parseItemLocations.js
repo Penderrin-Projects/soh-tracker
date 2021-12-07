@@ -1,4 +1,4 @@
-export default function parseItemLocations(target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
+export default function parseItemLocations(errorDialogHandler, target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
     const location_trans_mq = trans["locations_mq"];
     const item_trans = trans["itemList"];
@@ -15,7 +15,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
             }
             if (location_trans[i] !== "") {
                 if (item_trans[v] === undefined) {
-                    console.warn("[" + v + "] is a invalid value. Please report this bug")
+                    console.warn("[" + v + "] is a invalid Item value.");
+                    errorDialogHandler.add("[" + v + "] is a invalid Item value.");
                 } else {
                     if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
                         if (location_trans[i] != null) {
@@ -28,7 +29,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
                 }
             }
         } else {
-            console.warn("[" + i + "] is a invalid value. Please report this bug")
+            console.warn("[" + i + "] is a invalid Item Location value.");
+            errorDialogHandler.add("[" + i + "] is a invalid Item Location value.");
         }
     }
     target["item_location"] = buffer;

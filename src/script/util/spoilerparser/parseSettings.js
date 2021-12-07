@@ -1,4 +1,4 @@
-export default function parseSetting(target = {}, data = {}, trans = {}) {
+export default function parseSetting(errorDialogHandler, target = {}, data = {}, trans = {}) {
     const setting_trans = trans["setting"];
     for (const [key, value] of Object.entries(data)) {
         const transData = setting_trans[key];
@@ -13,17 +13,18 @@ export default function parseSetting(target = {}, data = {}, trans = {}) {
                                 setSettingToTarget(target, el, parsedValue);
                             } catch {
                                 console.warn("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
+                                errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
                             }
                         } else {
                             target[el.replace("logic_", "skip.")] = valueSet.has(el);
                         }
-                        
                     });
                 } else {
                     try {
                         setSettingToTarget(target, transData, parsedValue);
                     } catch {
                         console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
+                        errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
                     }
                 }
             } else {

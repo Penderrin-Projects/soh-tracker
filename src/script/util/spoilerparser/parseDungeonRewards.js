@@ -1,4 +1,4 @@
-export default function parseDungeonRewards(target = {}, data = {}, trans = {}) {
+export default function parseDungeonRewards(errorDialogHandler, target = {}, data = {}, trans = {}) {
     const location_trans = trans["dungeonReward"];
     const item_trans = trans["itemList"];
 
@@ -9,7 +9,8 @@ export default function parseDungeonRewards(target = {}, data = {}, trans = {}) 
             if (typeof v === "object" && v !== null) v = v["item"];
 
             if (item_trans[v] === undefined) {
-                console.warn("[" + i + ": " + v + "] is a invalid value. Please report this bug")
+                console.warn("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");
+                errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");
             } else {
                 buffer["area/" + location_trans[i]] = item_trans[v];
             }

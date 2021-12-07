@@ -1,4 +1,4 @@
-export default function parseShops(target = {}, data = {}, trans = {}, shopsanity = false) {
+export default function parseShops(errorDialogHandler, target = {}, data = {}, trans = {}, shopsanity = false) {
     const shop_trans = new Set(trans["shops"]);
     const item_trans = trans["shopItems"];
 

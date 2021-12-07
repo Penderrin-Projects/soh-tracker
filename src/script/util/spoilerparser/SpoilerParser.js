@@ -16,6 +16,15 @@ import parseDungeonTypes from "./parseDungeonTypes.js";
 import parseDungeonRewards from "./parseDungeonRewards.js";
 import parseEntrances from "./parseEntrances.js";
 import parseDisabledLocations from "./parseDisabledLocations.js";
+import ErrorDialogHandler from "../ErrorDialogHandler.js";
+
+const errorDialogHandler = new ErrorDialogHandler(
+"Spoiler Loaded Partially",
+`Not all settings in your spoiler log were loaded correctly.
+Please report this issue on discord and provide the affected spoiler log and the errors listed below.
+
+The following errors were recorded:`
+);
 
 const DEFAULT_DATA = {
     items: {},
@@ -89,20 +98,20 @@ class SpoilerParser {
         
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
-        if (settings["parse.settings"]) parseSettings(options, spoiler["settings"], trans);
-        if (settings["parse.starting_items"]) parseStartingInventory(startitems, spoiler["settings"], trans);
-        if (settings["parse.random_settings"]) parseSettings(options, getWorldData(spoiler["randomized_settings"], world), trans);
-        if (settings["parse.item_association"]) parseItemLocations(extraData, getWorldData(spoiler["locations"], world), world, settings["parse.ignore_world_locking"], trans);
-        if (settings["parse.woth_hints"]) parseWoth(areahint, getWorldData(spoiler[":woth_locations"], world), trans);
-        if (settings["parse.barren"]) parseBarren(areahint, getWorldData(spoiler[":barren_regions"], world), trans);
-        if (settings["parse.shops"]) parseShops(extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
-        // if(settings["parse.gossip_stones"]) parseStones(extraData, getWorldData(spoiler["gossip_stones"], world), trans);
-        if (settings["parse.trials"]) parseTrials(options, getWorldData(spoiler["trials"], world), trans);
-        if (settings["parse.dungeonReward"]) parseDungeonRewards(extraData, getWorldData(spoiler["locations"], world), trans);
-        if (settings["parse.dungeons"]) parseDungeonTypes(extraData, getWorldData(spoiler["dungeons"], world), trans);
-        if (settings["parse.disabled_locations"]) parseDisabledLocations(mainData, spoiler["settings"]?.["disabled_locations"], trans);
+        if (settings["parse.settings"]) parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
+        if (settings["parse.starting_items"]) parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
+        if (settings["parse.random_settings"]) parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
+        if (settings["parse.item_association"]) parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, settings["parse.ignore_world_locking"], trans);
+        if (settings["parse.woth_hints"]) parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
+        if (settings["parse.barren"]) parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
+        if (settings["parse.shops"]) parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+        // if(settings["parse.gossip_stones"]) parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
+        if (settings["parse.trials"]) parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
+        if (settings["parse.dungeonReward"]) parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
+        if (settings["parse.dungeons"]) parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
+        if (settings["parse.disabled_locations"]) parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
 
-        parseEntrances(extraData, getWorldData(spoiler["entrances"], world), trans, {
+        parseEntrances(errorDialogHandler, extraData, getWorldData(spoiler["entrances"], world), trans, {
             dungeon: settings["parse.entro_dungeons"],
             grottos: settings["parse.entro_grottos"],
             indoors: settings["parse.entro_indoors"],
@@ -119,6 +128,8 @@ class SpoilerParser {
         if (versionType == "dev") {
             // nothing
         }
+        
+        errorDialogHandler.send();
 
         return {
             ...DEFAULT_DATA,

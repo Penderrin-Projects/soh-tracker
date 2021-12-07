@@ -1,4 +1,4 @@
-export default function parseDisabledLocations(target = {}, data = {}, trans = {}) {
+export default function parseDisabledLocations(errorDialogHandler, target = {}, data = {}, trans = {}) {
     const location_trans = trans["locations"];
     const location_hearts_mq = location_trans["MQ"];
 
@@ -11,7 +11,8 @@ export default function parseDisabledLocations(target = {}, data = {}, trans = {
                 }
             }
         } else {
-            console.warn("[" + i + "] is a invalid value. Please report this bug")
+            console.warn("[" + i + "] is a invalid Location value.");
+            errorDialogHandler.add("[" + i + "] is a invalid Location value.");
         }
     }
 }
