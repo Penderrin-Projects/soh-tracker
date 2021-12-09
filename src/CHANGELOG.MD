@@ -4,6 +4,12 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.53
+
+### BUGFIXES
+
+- fix logic keys for GTG and family tomb
+
 ## VERSION 2.1.52
 
 ### IMPROVEMENTS
