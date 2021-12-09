@@ -1,6 +1,4 @@
-import spoilerErrorAlert from "./spoilerErrorAlert.js";
-
-export default function parseItemLocations(target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
+export default function parseItemLocations(errorDialogHandler, target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
     const location_hearts_mq = location_trans["MQ"];
     const item_trans = trans["itemList"];
@@ -17,8 +15,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
             }
             if (location_trans[i] !== "") {
                 if (item_trans[v] === undefined) {
-                    console.warn("[" + v + "] is a invalid Item value.")
-                    spoilerErrorAlert.prepareAlert();
+                    console.warn("[" + v + "] is a invalid Item value.");
+                    errorDialogHandler.add("[" + v + "] is a invalid Item value.");
                 } else {
                     if (targetWorld == null || player === targetWorld || ignoreWorldLocking) buffer["location/" + location_trans[i]] = item_trans[v];
                     if (location_hearts_mq[i] != null) {
@@ -27,8 +25,8 @@ export default function parseItemLocations(target = {}, data = {}, targetWorld =
                 }
             }
         } else {
-            console.warn("[" + i + "] is a invalid Item Location value.")
-            spoilerErrorAlert.prepareAlert();
+            console.warn("[" + i + "] is a invalid Item Location value.");
+            errorDialogHandler.add("[" + i + "] is a invalid Item Location value.");
         }
     }
     target["item_location"] = buffer;

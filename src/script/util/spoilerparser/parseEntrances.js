@@ -1,11 +1,9 @@
-import spoilerErrorAlert from "./spoilerErrorAlert.js";
-
-export default function parseEntrances(target = {}, data = {}, trans = {}, opt = {}) {
-    const {dungeon, grottos, indoors, overworld, owls, spawns, warps} = opt;
-    const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps} = trans.entrances.entrances;
-    const {exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld, exit_extras} = trans.entrances.exits;
-    const entrance = {entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld, entro_owls: entro_owls, entro_spawns: entro_spawns, entro_warps: entro_warps}
-    const exit = {exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld, exit_extra: exit_extras}
+export default function parseEntrances(errorDialogHandler, target = {}, data = {}, trans = {}, opt = {}) {
+    const { dungeon, grottos, indoors, overworld, owls, spawns, warps } = opt;
+    const { entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps } = trans.entrances.entrances;
+    const { exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld, exit_extras } = trans.entrances.exits;
+    const entrance = { entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld, entro_owls: entro_owls, entro_spawns: entro_spawns, entro_warps: entro_warps }
+    const exit = { exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld, exit_extra: exit_extras }
 
     const buffer = {};
 
@@ -27,11 +25,12 @@ export default function parseEntrances(target = {}, data = {}, trans = {}, opt =
         }
 
         if (typeof i === "object" && i !== null) {
-            console.warn("Unexpected Array within entrances")
+            console.warn("Unexpected Array within entrances.");
+            errorDialogHandler.add("Unexpected Array within entrances.");
         } else {
             if (edgeThere === null || edgeBack === null) {
-                console.warn("[" + i + ": " + v + "] is a invalid Entrance value.")
-                spoilerErrorAlert.prepareAlert();
+                console.warn("[" + i + ": " + v + "] is a invalid Entrance value.");
+                errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Entrance value.");
             }
             else {
                 if (dungeon) {

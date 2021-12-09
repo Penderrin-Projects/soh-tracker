@@ -1,6 +1,4 @@
-import spoilerErrorAlert from "./spoilerErrorAlert.js";
-
-export default function parseBarren(target = {}, data = {}, trans = {}) {
+export default function parseBarren(errorDialogHandler, target = {}, data = {}, trans = {}) {
     const barren_trans = trans["barren"];
     let castle = 0;
 
@@ -15,8 +13,8 @@ export default function parseBarren(target = {}, data = {}, trans = {}) {
                 target["area/" + barren_trans[i]] = "barren";
             }
         } else {
-            console.warn("[" + i + "] is a invalid Barren value.")
-            spoilerErrorAlert.prepareAlert();
+            console.warn("[" + i + "] is a invalid Barren value.");
+            errorDialogHandler.add("[" + i + "] is a invalid Barren value.");
         }
     });
 }
