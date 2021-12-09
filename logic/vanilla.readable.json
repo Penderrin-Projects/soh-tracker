@@ -310,7 +310,7 @@
             "region.gerudo_training_grounds_entrance[child]": {
                 "type": "true"
             },
-            "region.gerudo_training_grounds_lobby[child]": {
+            "region.gerudo_training_ground_lobby[child]": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -318,7 +318,7 @@
                     "value": "mq"
                 }
             },
-            "region.gerudo_training_grounds_lobby_mq[child]": {
+            "region.gerudo_training_ground_lobby_mq[child]": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -331,7 +331,7 @@
             "region.gerudo_training_grounds_entrance[adult]": {
                 "type": "true"
             },
-            "region.gerudo_training_grounds_lobby[adult]": {
+            "region.gerudo_training_ground_lobby[adult]": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -339,7 +339,7 @@
                     "value": "mq"
                 }
             },
-            "region.gerudo_training_grounds_lobby_mq[adult]": {
+            "region.gerudo_training_ground_lobby_mq[adult]": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -1513,7 +1513,7 @@
             }
         },
         "region.graveyard_composers_grave_entrance[child]": {
-            "region.graveyard_composers_grave[child]": {
+            "region.graveyard_royal_familys_tomb[child]": {
                 "type": "true"
             },
             "region.graveyard[child]": {
@@ -1521,7 +1521,7 @@
             }
         },
         "region.graveyard_composers_grave_entrance[adult]": {
-            "region.graveyard_composers_grave[adult]": {
+            "region.graveyard_royal_familys_tomb[adult]": {
                 "type": "true"
             },
             "region.graveyard[adult]": {
@@ -18324,6 +18324,84 @@
             "region.gerudo_training_grounds_gateway[child]": {
                 "type": "true"
             },
+            "region.gerudo_training_ground_left_side_mq[child]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[child]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "mixin.has_fire_source[child]"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[adult]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "mixin.has_fire_source[adult]"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "region.gerudo_training_ground_right_side_mq[child]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[child]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "function.can_use(item.slingshot)[child]"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[adult]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "function.can_use(item.bow)[adult]"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
             "logic.location.training_grounds_mq.c_lobby_left": {
                 "type": "mixin",
                 "el": "mixin.filter_era[child]"
@@ -18396,6 +18474,84 @@
         "region.gerudo_training_ground_lobby_mq[adult]": {
             "region.gerudo_training_grounds_gateway[adult]": {
                 "type": "true"
+            },
+            "region.gerudo_training_ground_left_side_mq[adult]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[child]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "mixin.has_fire_source[child]"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[adult]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "mixin.has_fire_source[adult]"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "region.gerudo_training_ground_right_side_mq[adult]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[child]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "function.can_use(item.slingshot)[child]"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby_mq[adult]",
+                                "el": {
+                                    "type": "mixin",
+                                    "el": "function.can_use(item.bow)[adult]"
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
             "logic.location.training_grounds_mq.c_lobby_left": {
                 "type": "mixin",
@@ -18960,6 +19116,72 @@
                     }
                 ]
             },
+            "region.gerudo_training_ground_lava_room[child]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby[child]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.has_explosives[child]"
+                                        },
+                                        {
+                                            "type": "value",
+                                            "el": "item.sword_kokiri"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby[adult]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.has_explosives[adult]"
+                                        },
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin.is_adult[adult]"
+                                                },
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.sword_kokiri"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
             "region.gerudo_training_ground_central_maze[child]": {
                 "type": "true"
             },
@@ -19055,6 +19277,72 @@
                             {
                                 "type": "value",
                                 "el": "skip.gtg_without_hookshot"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "region.gerudo_training_ground_lava_room[adult]": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[child]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby[child]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.has_explosives[child]"
+                                        },
+                                        {
+                                            "type": "value",
+                                            "el": "item.sword_kokiri"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin.filter_era[adult]"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region.gerudo_training_ground_lobby[adult]",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin.has_explosives[adult]"
+                                        },
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin.is_adult[adult]"
+                                                },
+                                                {
+                                                    "type": "value",
+                                                    "el": "item.sword_kokiri"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
