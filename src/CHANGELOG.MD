@@ -3,12 +3,26 @@
 Application:    Track-OOT
 
 ***
+## VERSION 2.1.54
+
+### BUGFIXES
+
+- fix spoiler parser not parsing overworld exits against non overworld entrances
+
+### IMPROVEMENTS
+
+- updated skip.king_zora_skip en translation
+- added missing gbk setting for the spoiler parser
+
+---
 
 ## VERSION 2.1.53
 
 ### BUGFIXES
 
 - fix logic keys for GTG and family tomb
+
+---
 
 ## VERSION 2.1.52
 
