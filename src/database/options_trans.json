@@ -28,7 +28,6 @@
             "values": {
                 "closed": "doors_open_zora_closed",
                 "adult": "doors_open_zora_adult",
-                "both": "doors_open_zora_both",
                 "open": "doors_open_zora_both"
             }
         },
@@ -48,7 +47,8 @@
                 "medallions": "ganon_castle_open_medallion",
                 "stones": "ganon_castle_open_stones",
                 "tokens": "ganon_castle_open_skulltulas",
-                "open": "ganon_castle_open_open"
+                "open": "ganon_castle_open_open",
+                "random": "ganon_castle_open_default"
             }
         },
         "bridge_tokens": "option.ganon_castle_skulltulas",
@@ -62,7 +62,6 @@
                 "false": false
             }
         },
-        "shopsanity": "option.shopsanity",
         "logic_rules": {
             "name": "option.logic_rules",
             "values": {
@@ -172,6 +171,18 @@
                 "random": true
             }
         },
+        "shopsanity": {
+            "name": "option.shopsanity",
+            "values": {
+                "off": "off",
+                "0": "0",
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "random": "random"
+            }
+        },
         "shuffle_smallkeys": {
             "name": "option.keysanity_small",
             "values": {
@@ -183,7 +194,7 @@
                 "remove": false
             }
         },
-        "shuffle_fortesskeys": {
+        "shuffle_hideoutkeys": {
             "name": "option.fortress_key_small",
             "values": {
                 "keysanity": true,
@@ -209,7 +220,14 @@
                 "remove": "light_arrow_cutscene_vanilla",
                 "vanilla": "light_arrow_cutscene_vanilla",
                 "dungeon": "light_arrow_cutscene_vanilla",
+                "overworld": "light_arrow_cutscene_vanilla",
+                "any_dungeon": "light_arrow_cutscene_vanilla",
                 "keysanity": "light_arrow_cutscene_vanilla",
+                "on_lacs": "light_arrow_cutscene_vanilla",
+                "stones": "light_arrow_cutscene_vanilla",
+                "medallions": "light_arrow_cutscene_vanilla",
+                "dungeons": "light_arrow_cutscene_vanilla",
+                "tokens": "light_arrow_cutscene_vanilla",
                 "lacs_vanilla": "light_arrow_cutscene_vanilla",
                 "lacs_medallions": "light_arrow_cutscene_medallions",
                 "lacs_stones": "light_arrow_cutscene_stones",

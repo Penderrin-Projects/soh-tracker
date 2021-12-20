@@ -9,7 +9,7 @@ export default function parseEntrances(errorDialogHandler, target = {}, data = {
 
     for (const i in data) {
         let v = data[i];
-        if (typeof v === "object" && v !== null) if (entro_overworld[i] !== undefined) v = data[i]["region"] + " -> " + data[i]["from"];
+        if (typeof v === "object" && v !== null) if (exit_overworld[data[i]["region"] + " -> " + data[i]["from"]]) v = data[i]["region"] + " -> " + data[i]["from"];
         else v = data[i]["region"];
         let edgeThere = null;
         let edgeBack = null;
