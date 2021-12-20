@@ -135,5 +135,10 @@
             "on",
             "extended"
         ]
+    },
+    "debug_spoiler": {
+        "category": "debug",
+        "type": "check",
+        "default": false
     }
 }

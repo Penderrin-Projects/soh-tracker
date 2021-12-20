@@ -3,6 +3,9 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
 // GameTrackerJS
+import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+
 // Track-OOT
 import OptionsTransResource from "/script/resource/OptionsTransResource.js";
 import parseSettings from "./parseSettings.js";
@@ -98,27 +101,29 @@ class SpoilerParser {
         
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
-        if (settings["parse.settings"]) parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
-        if (settings["parse.starting_items"]) parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
-        if (settings["parse.random_settings"]) parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
-        if (settings["parse.item_association"]) parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, settings["parse.ignore_world_locking"], trans);
-        if (settings["parse.woth_hints"]) parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
-        if (settings["parse.barren"]) parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
-        if (settings["parse.shops"]) parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
-        // if(settings["parse.gossip_stones"]) parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
-        if (settings["parse.trials"]) parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
-        if (settings["parse.dungeonReward"]) parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
-        if (settings["parse.dungeons"]) parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
-        if (settings["parse.disabled_locations"]) parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
+        const debugSpoiler = SettingsStorage.get("debug_spoiler")
+            
+        if (debugSpoiler || settings["parse.settings"]) parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
+        if (debugSpoiler || settings["parse.starting_items"]) parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
+        if (debugSpoiler || settings["parse.random_settings"]) parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
+        if (debugSpoiler || settings["parse.item_association"]) parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, (debugSpoiler || settings["parse.ignore_world_locking"]), trans);
+        if (debugSpoiler || settings["parse.woth_hints"]) parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
+        if (debugSpoiler || settings["parse.barren"]) parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
+        if (debugSpoiler || settings["parse.shops"]) parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+        // if(debugSpoiler || settings["parse.gossip_stones"]) parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
+        if (debugSpoiler || settings["parse.trials"]) parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
+        if (debugSpoiler || settings["parse.dungeonReward"]) parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
+        if (debugSpoiler || settings["parse.dungeons"]) parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
+        if (debugSpoiler || settings["parse.disabled_locations"]) parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
 
         parseEntrances(errorDialogHandler, extraData, getWorldData(spoiler["entrances"], world), trans, {
-            dungeon: settings["parse.entro_dungeons"],
-            grottos: settings["parse.entro_grottos"],
-            indoors: settings["parse.entro_indoors"],
-            overworld: settings["parse.entro_overworld"],
-            owls: settings["parse.entro_owls"],
-            spawns: settings["parse.entro_spawns"],
-            warps: settings["parse.entro_warps"]
+            dungeon: debugSpoiler || settings["parse.entro_dungeons"],
+            grottos: debugSpoiler || settings["parse.entro_grottos"],
+            indoors: debugSpoiler || settings["parse.entro_indoors"],
+            overworld: debugSpoiler || settings["parse.entro_overworld"],
+            owls: debugSpoiler || settings["parse.entro_owls"],
+            spawns: debugSpoiler || settings["parse.entro_spawns"],
+            warps: debugSpoiler || settings["parse.entro_warps"]
         });
 
         if (versionType == "prod") {
