@@ -7616,9 +7616,9 @@
             "area": "subarea/graveyard.redead_grave",
             "isBiDir": true
         },
-        "region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave": {
+        "region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb": {
             "type": "grotto",
-            "target": "region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance",
+            "target": "region.graveyard_royal_familys_tomb -> region.graveyard_composers_grave_entrance",
             "bindsTo": [
                 "grotto"
             ],
