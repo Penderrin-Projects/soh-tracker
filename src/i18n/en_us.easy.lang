@@ -1628,8 +1628,8 @@ entrance[region.gv_storms_grotto -> region.gv_storms_grotto_entrance]=Valley Sto
 exit[region.gc_grotto_entrance -> region.gc_grotto]=Goron City Grotto Entrance
 entrance[region.gc_grotto -> region.gc_grotto_entrance]=Goron City Grotto
 
-exit[region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave]=Royal Tomb Entrance
-entrance[region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance]=Royal Tomb
+exit[region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb]=Royal Tomb Entrance
+entrance[region.graveyard_royal_familys_tomb -> region.graveyard_composers_grave_entrance]=Royal Tomb
 
 exit[region.graveyard_heart_piece_grave_entrance -> region.graveyard_heart_piece_grave]=Redead Grave Entrance
 entrance[region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance]=Redead Grave

@@ -18,6 +18,7 @@ import "./StateConverter15.js";
 import "./StateConverter16.js";
 import "./StateConverter17.js";
 import "./StateConverter18.js";
+import "./StateConverter19.js";
 import "./StateConverter20.js";
 // ---
 

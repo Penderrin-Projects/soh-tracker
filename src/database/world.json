@@ -34784,9 +34784,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave": {
+        "region.graveyard_royal_familys_tomb -> region.graveyard_composers_grave_entrance": {
             "type": "grotto_outer",
-            "target": "region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance",
+            "target": "region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb",
             "logicAccess": "region.graveyard_composers_grave_entrance",
             "area": "graveyard",
             "categories": [
@@ -34827,9 +34827,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance": {
+        "region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb": {
             "type": "grotto_inner",
-            "target": "region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave",
+            "target": "region.graveyard_royal_familys_tomb -> region.graveyard_composers_grave_entrance",
             "logicAccess": "region.graveyard_composers_grave",
             "area": "graveyard.royal_grave",
             "categories": [

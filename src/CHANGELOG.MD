@@ -3,6 +3,14 @@
 Application:    Track-OOT
 
 ***
+## VERSION 2.1.55
+
+### BUGFIXES
+
+- fix royal tomb redirects
+
+---
+
 ## VERSION 2.1.54
 
 ### BUGFIXES
