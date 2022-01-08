@@ -1612,8 +1612,8 @@ region.gv_storms_grotto -> region.gv_storms_grotto_entrance=Gerudo-Tal Sturmgrot
 region.gc_grotto_entrance -> region.gc_grotto=Goronia - Grotte Eingang
 region.gc_grotto -> region.gc_grotto_entrance=Goronia - Grotte Ausgang
 
-region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave=Königsgrab Eingang
-region.graveyard_composers_grave -> region.graveyard_composers_grave_entrance=Königsgrab Ausgang
+region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb=Königsgrab Eingang
+region.graveyard_royal_familys_tomb -> region.graveyard_composers_grave_entrance=Königsgrab Ausgang
 
 region.graveyard_heart_piece_grave_entrance -> region.graveyard_heart_piece_grave=Zombie-Grab Eingang
 region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance=Zombie-Grab Ausgang
