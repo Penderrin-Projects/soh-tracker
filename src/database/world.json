@@ -5927,6 +5927,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "location"
+                },
+                {
+                    "id": "kakariko.c_impas_cow",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
                 }
             ]
         },

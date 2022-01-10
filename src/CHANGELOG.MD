@@ -9,6 +9,10 @@ Application:    Track-OOT
 
 - fix royal tomb redirects
 
+### IMPROVEMENTS
+
+- added impas cow check to impas house back region
+
 ---
 
 ## VERSION 2.1.54
