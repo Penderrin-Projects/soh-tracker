@@ -3,15 +3,23 @@
 Application:    Track-OOT
 
 ***
+## VERSION 2.1.56
+
+### BUGFIXES
+
+- fix royal tomb redirects again
+
+### IMPROVEMENTS
+
+- added impas cow check to impas house back region
+
+---
+
 ## VERSION 2.1.55
 
 ### BUGFIXES
 
 - fix royal tomb redirects
-
-### IMPROVEMENTS
-
-- added impas cow check to impas house back region
 
 ---
 
