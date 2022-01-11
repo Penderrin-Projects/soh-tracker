@@ -1965,8 +1965,7 @@
                 "type": "true"
             },
             "region.woods_river_gateway[child]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[child]"
+                "type": "true"
             }
         },
         "region.river_woods_gateway[adult]": {
@@ -1974,8 +1973,7 @@
                 "type": "true"
             },
             "region.woods_river_gateway[adult]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[adult]"
+                "type": "true"
             }
         },
         "region.meadow_woods_gateway[child]": {
@@ -2415,8 +2413,7 @@
         },
         "region.woods_river_gateway[child]": {
             "region.river_woods_gateway[child]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[child]"
+                "type": "true"
             },
             "region.lost_woods[child]": {
                 "type": "true"
@@ -2424,8 +2421,7 @@
         },
         "region.woods_river_gateway[adult]": {
             "region.river_woods_gateway[adult]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[adult]"
+                "type": "true"
             },
             "region.lost_woods[adult]": {
                 "type": "true"
