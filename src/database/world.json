@@ -5927,6 +5927,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "location"
+                },
+                {
+                    "id": "kakariko.c_impas_cow",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
                 }
             ]
         },
@@ -32325,7 +32331,7 @@
                 "icon": "images/icons/grotto.svg"
             },
             "graveyard.royal_grave": {
-                "access": "region.graveyard_composers_grave_entrance -> region.graveyard_composers_grave",
+                "access": "region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb",
                 "visible": {
                     "type": "value",
                     "el": "option.shuffle_grottos"

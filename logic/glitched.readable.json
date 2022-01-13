@@ -1974,8 +1974,17 @@
                 "type": "true"
             },
             "region.woods_river_gateway[adult]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[adult]"
+                "type": "or",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.can_dive[adult]"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "function.can_use(item.boots_iron)[adult]"
+                    }
+                ]
             }
         },
         "region.meadow_woods_gateway[child]": {
@@ -2424,8 +2433,17 @@
         },
         "region.woods_river_gateway[adult]": {
             "region.river_woods_gateway[adult]": {
-                "type": "mixin",
-                "el": "mixin.can_dive[adult]"
+                "type": "or",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin.can_dive[adult]"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "function.can_use(item.boots_iron)[adult]"
+                    }
+                ]
             },
             "region.lost_woods[adult]": {
                 "type": "true"
