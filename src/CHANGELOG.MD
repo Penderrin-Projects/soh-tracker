@@ -8,6 +8,7 @@ Application:    Track-OOT
 ### BUGFIXES
 
 - fix royal tomb redirects again
+- fix dive gateways to include boots for adult
 
 ### IMPROVEMENTS
 
