@@ -29,7 +29,7 @@ SavestateConverter.register(function(state) {
         autosave = false,
         timestamp = new Date(),
         name = ""
-    } = state.data ?? {};
+    } = state ?? {};
 
     // example - BEGIN
 
