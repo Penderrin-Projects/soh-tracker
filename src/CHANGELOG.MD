@@ -3,6 +3,15 @@
 Application:    Track-OOT
 
 ***
+
+## VERSION 2.1.57
+
+### BUGFIXES
+
+- fix latest asvestate converter expecting older structure
+
+---
+
 ## VERSION 2.1.56
 
 ### BUGFIXES
