@@ -6,7 +6,6 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter{^-1}.js";
 
 SavestateConverter.register(function(state) {
-    state = state ?? {};
 
     const {
         data: {
@@ -29,7 +28,7 @@ SavestateConverter.register(function(state) {
         autosave = false,
         timestamp = new Date(),
         name = ""
-    } = state.data ?? {};
+    } = state ?? {};
 
     // example - BEGIN
 
