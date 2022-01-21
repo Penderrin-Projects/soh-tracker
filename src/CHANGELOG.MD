@@ -8,7 +8,7 @@ Application:    Track-OOT
 
 ### BUGFIXES
 
-- fix latest asvestate converter expecting older structure
+- fix latest savestate converter expecting older structure
 
 ---
 
