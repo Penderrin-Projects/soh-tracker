@@ -59,6 +59,10 @@
                 }
             }
         ],
+        "function-call-argument-newline": [
+            "error",
+            "consistent"
+        ],
         "space-before-function-paren": [
             "error",
             {
@@ -99,6 +103,18 @@
         "nonblock-statement-body-position": [
             "error",
             "beside"
+        ],
+        "object-property-newline": [
+            "error",
+            {
+                "allowAllPropertiesOnSameLine": false
+            }
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "minProperties": 1
+            }
         ],
         "lines-between-class-members": [
             "error",
