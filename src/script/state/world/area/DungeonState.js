@@ -7,7 +7,9 @@ import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import StateManager from "/GameTrackerJS/state/world/area/StateManager.js";
-import MarkerListHandler, {defaultAccess as defaultMarkerAccess} from "/GameTrackerJS/util/MarkerListHandler.js";
+import MarkerListHandler, {
+    defaultAccess as defaultMarkerAccess
+} from "/GameTrackerJS/util/MarkerListHandler.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 const TYPE = new WeakMap();

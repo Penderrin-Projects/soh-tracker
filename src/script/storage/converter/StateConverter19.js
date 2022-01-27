@@ -29,7 +29,5 @@ SavestateConverter.register(function(state) {
     return res;
 });
 
-const EXIT_TRANS = {
-    "region.graveyard_composers_grave": "region.graveyard_royal_familys_tomb"
-};
+const EXIT_TRANS = {"region.graveyard_composers_grave": "region.graveyard_royal_familys_tomb"};
  

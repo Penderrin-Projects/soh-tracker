@@ -183,7 +183,9 @@ export default class InfiniteItem extends StateDataEventManager(CustomElement) {
                 state.value++;
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -195,7 +197,9 @@ export default class InfiniteItem extends StateDataEventManager(CustomElement) {
                 state.value--;
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }

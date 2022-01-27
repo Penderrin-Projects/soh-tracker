@@ -71,12 +71,10 @@ export default class ShopSlot extends AbstractLocation {
                 } else {
                     state.reset();
                 }
+            } else if (state.isDefault()) {
+                this./*#*/__editItem();
             } else {
-                if (state.isDefault()) {
-                    this./*#*/__editItem();
-                } else {
-                    super.clickHandler(event);
-                }
+                super.clickHandler(event);
             }
         }
     }

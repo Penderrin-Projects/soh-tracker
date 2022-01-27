@@ -34,6 +34,6 @@ try {
     }
     // notify parent
     EventBus.trigger("detached-window-created", {});
-} catch(err) {
+} catch (err) {
     console.error(err);
 }

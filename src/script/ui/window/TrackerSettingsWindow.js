@@ -4,8 +4,6 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 
 // GameTrackerJS
-
-import Language from "/GameTrackerJS/util/Language.js";
 import AppSettingsWindow from "/GameTrackerJS/ui/window/settings/AppSettingsWindow.js";
 // Track-OOT
 import "./tabs/CreditsTab.js";

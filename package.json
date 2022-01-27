@@ -2,7 +2,7 @@
   "license": "MIT",
   "author": "Denis Peters (ZidArgs)",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.27",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.28",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
@@ -10,6 +10,7 @@
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
+		"eslint": "^8.0.0",
     "del": "^5.1.0",
     "electron": "^13.1.1",
     "glob-all": "^3.1.0",
@@ -40,6 +41,8 @@
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
     "serve": "serve dev",
-    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
+    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1",
+    "lint": "yarn eslint ./src",
+    "lintfix": "yarn eslint --fix ./src"
   }
 }

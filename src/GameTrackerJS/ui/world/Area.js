@@ -54,9 +54,7 @@ export default class AbstractArea extends WorldElement {
     }
 
     clickHandler(event) {
-        EventBus.trigger("location_change", {
-            name: this.ref
-        });
+        EventBus.trigger("location_change", {name: this.ref});
     }
 
     getMainContextMenuEntries() {

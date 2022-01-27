@@ -161,10 +161,8 @@ function toggleFullscreen() {
     if (document.fullscreenEnabled) {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
         }
     }
 }

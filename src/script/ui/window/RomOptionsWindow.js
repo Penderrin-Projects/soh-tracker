@@ -43,7 +43,9 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
             const ruleset = RulesetsResource.get(name);
             const items = {};
             const options = {};
-            if (!ruleset) { return }
+            if (!ruleset) {
+                return
+            }
 
             if (ruleset.items != null) {
                 for (const key in ruleset.items) {

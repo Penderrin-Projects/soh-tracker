@@ -20,7 +20,7 @@ export default class DefaultState extends ExitState {
         const newValue = this.value;
         if (newValue != null && newValue != oldValue) {
             // internal
-            EventBus.trigger("state::exit_binding", { ref: this.props.access, value: newValue });
+            EventBus.trigger("state::exit_binding", {ref: this.props.access, value: newValue});
         }
     }
 

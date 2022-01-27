@@ -78,15 +78,13 @@ export default class MarkerListHandler extends EventTarget {
                         ev.filtered = this.filteredList;
                         this.dispatchEvent(ev);
                     }
-                } else {
-                    if (filteredEntityList.has(loc)) {
-                        filteredEntityList.delete(loc);
-                        this./*#*/__refreshAccess();
-                        // external
-                        const ev = new Event("change");
-                        ev.filtered = this.filteredList;
-                        this.dispatchEvent(ev);
-                    }
+                } else if (filteredEntityList.has(loc)) {
+                    filteredEntityList.delete(loc);
+                    this./*#*/__refreshAccess();
+                    // external
+                    const ev = new Event("change");
+                    ev.filtered = this.filteredList;
+                    this.dispatchEvent(ev);
                 }
             });
         }

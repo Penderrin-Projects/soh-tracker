@@ -10,7 +10,9 @@ export default function parseItemLocations(errorDialogHandler, target = {}, data
             let v = data[i];
             let player = 1;
             if (typeof v === "object" && v !== null) {
-                if (v["player"] !== undefined) player = v["player"];
+                if (v["player"] !== undefined) {
+                    player = v["player"];
+                }
                 v = v["item"];
             }
             if (location_trans[i] !== "") {
@@ -18,7 +20,9 @@ export default function parseItemLocations(errorDialogHandler, target = {}, data
                     console.warn("[" + v + "] is a invalid Item value.");
                     errorDialogHandler.add("[" + v + "] is a invalid Item value.");
                 } else {
-                    if (targetWorld == null || player === targetWorld || ignoreWorldLocking) buffer["location/" + location_trans[i]] = item_trans[v];
+                    if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
+                        buffer["location/" + location_trans[i]] = item_trans[v];
+                    }
                     if (location_hearts_mq[i] != null) {
                         buffer["location/" + location_hearts_mq[i]] = item_trans[v];
                     }

@@ -30,6 +30,4 @@ SavestateConverter.register(function(state) {
     return res;
 });
 
-const translation = {
-    "pocket": "area/pocket"
-};
+const translation = {"pocket": "area/pocket"};

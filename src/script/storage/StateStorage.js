@@ -8,7 +8,6 @@ import EventBus from "/emcJS/event/EventBus.js";
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 class StateStorage {

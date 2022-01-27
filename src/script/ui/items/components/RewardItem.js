@@ -210,7 +210,9 @@ export default class RewardItem extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -224,7 +226,9 @@ export default class RewardItem extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }

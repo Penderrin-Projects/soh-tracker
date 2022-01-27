@@ -174,8 +174,6 @@ export default class Item extends StateDataEventManager(CustomElement) {
                         // state
                         const state = ItemStates.get(this.ref);
                         this.switchState(state);
-                        if (state != null) {
-                        }
                     }
                     break;
                 case "halign":
@@ -232,7 +230,7 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = 0; i < data.alternate_counting.length; ++i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -255,7 +253,9 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -267,7 +267,7 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -290,7 +290,9 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -312,13 +314,11 @@ function createOption(value, img, data, max_value) {
             opt.innerHTML = data.counting[value];
         } else if (typeof data.counting == "string") {
             opt.innerHTML = data.counting;
-        } else {
-            if (value > 0 || data.alwaysCounting) {
-                if (data.showMax) {
-                    opt.innerHTML = `${value} / ${max_value}`;
-                } else {
-                    opt.innerHTML = value;
-                }
+        } else if (value > 0 || data.alwaysCounting) {
+            if (data.showMax) {
+                opt.innerHTML = `${value} / ${max_value}`;
+            } else {
+                opt.innerHTML = value;
             }
         }
         if (data.mark !== false) {

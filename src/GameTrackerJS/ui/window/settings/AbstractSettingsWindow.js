@@ -3,9 +3,7 @@ import SettingsWindow from "/emcJS/ui/overlay/window/settings/SettingsWindow.js"
 
 import Language from "../../../util/Language.js";
 
-const VARS = {
-    "I18n.languages": Language.getLanguages
-};
+const VARS = {"I18n.languages": Language.getLanguages};
 
 function convertValueList(values = {}) {
     if (typeof values == "string") {

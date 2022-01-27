@@ -87,7 +87,7 @@ class HTMLTrackerItemPicker extends Panel {
             for (const element of row) {
                 if (element.type == "item") {
                     const item = createItem(element.value, event => {
-                        this.dispatchEvent(new CustomEvent("pick", { detail: event.item }));
+                        this.dispatchEvent(new CustomEvent("pick", {detail: event.item}));
                         event.preventDefault();
                         return false;
                     });
@@ -132,7 +132,7 @@ class HTMLTrackerItemPicker extends Panel {
                 break;
             case "items":
                 if (oldValue != newValue) {
-                    if (!!newValue) {
+                    if (newValue) {
                         const config = JSON.parse(newValue);
                         this./*#*/__loadItems(config);
                     }

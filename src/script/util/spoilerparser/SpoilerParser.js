@@ -21,8 +21,8 @@ import parseDisabledLocations from "./parseDisabledLocations.js";
 import ErrorDialogHandler from "../ErrorDialogHandler.js";
 
 const errorDialogHandler = new ErrorDialogHandler(
-"Spoiler Loaded Partially",
-`Not all settings in your spoiler log were loaded correctly.
+    "Spoiler Loaded Partially",
+    `Not all settings in your spoiler log were loaded correctly.
 Please report this issue on discord and provide the affected spoiler log and the errors listed below.
 
 The following errors were recorded:`
@@ -43,17 +43,27 @@ const DEFAULT_DATA = {
 };
 
 function getVersionType(version) {
-    if (version.split(" ")[1] === "Release") return "prod";
-    if (version.split(" ")[1] === "f.LUM") return "dev";
-    if (version != null) return "unknown";
+    if (version.split(" ")[1] === "Release") {
+        return "prod";
+    }
+    if (version.split(" ")[1] === "f.LUM") {
+        return "dev";
+    }
+    if (version != null) {
+        return "unknown";
+    }
 }
 
 function getWorldNumber(multiWorld, worldCount) {
     if (Number.isNaN(worldCount)) {
         worldCount = 0;
     }
-    if (multiWorld > worldCount) throw new Error(`World index (${multiWorld}) is higher than the maximum world count (${worldCount})`);
-    if (worldCount > 1) return multiWorld;
+    if (multiWorld > worldCount) {
+        throw new Error(`World index (${multiWorld}) is higher than the maximum world count (${worldCount})`);
+    }
+    if (worldCount > 1) {
+        return multiWorld;
+    }
 }
 
 function getWorldData(data, world) {
@@ -90,18 +100,40 @@ class SpoilerParser {
 
         const debugSpoiler = SettingsStorage.get("debug_spoiler")
             
-        if (debugSpoiler || settings["parse.settings"]) parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
-        if (debugSpoiler || settings["parse.starting_items"]) parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
-        if (debugSpoiler || settings["parse.random_settings"]) parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
-        if (debugSpoiler || settings["parse.item_association"]) parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, (debugSpoiler || settings["parse.ignore_world_locking"]), trans);
-        if (debugSpoiler || settings["parse.woth_hints"]) parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
-        if (debugSpoiler || settings["parse.barren"]) parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
-        if (debugSpoiler || settings["parse.shops"]) parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+        if (debugSpoiler || settings["parse.settings"]) {
+            parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
+        }
+        if (debugSpoiler || settings["parse.starting_items"]) {
+            parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
+        }
+        if (debugSpoiler || settings["parse.random_settings"]) {
+            parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.item_association"]) {
+            parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["parse.ignore_world_locking"], trans);
+        }
+        if (debugSpoiler || settings["parse.woth_hints"]) {
+            parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.barren"]) {
+            parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.shops"]) {
+            parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+        }
         // if(debugSpoiler || settings["parse.gossip_stones"]) parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
-        if (debugSpoiler || settings["parse.trials"]) parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
-        if (debugSpoiler || settings["parse.dungeonReward"]) parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
-        if (debugSpoiler || settings["parse.dungeons"]) parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
-        if (debugSpoiler || settings["parse.disabled_locations"]) parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
+        if (debugSpoiler || settings["parse.trials"]) {
+            parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.dungeonReward"]) {
+            parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.dungeons"]) {
+            parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
+        }
+        if (debugSpoiler || settings["parse.disabled_locations"]) {
+            parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
+        }
 
         parseEntrances(errorDialogHandler, extraData, getWorldData(spoiler["entrances"], world), trans, {
             dungeon: debugSpoiler || settings["parse.entro_dungeons"],

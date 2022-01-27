@@ -226,7 +226,9 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 state.value++;
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -238,7 +240,9 @@ export default class Item extends StateDataEventManager(CustomElement) {
                 state.val--;
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }

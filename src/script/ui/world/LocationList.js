@@ -192,7 +192,6 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
         /* event bus */
         this.registerGlobal("location_change", event => {
             this.ref = event.data.name;
-            areaEventManager
             if (event.data.focus) {
                 // TODO
             }
@@ -306,7 +305,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     async updateHeader() {
         const titleEl = this.shadowRoot.querySelector("#title");
         if (titleEl != null) {
-            if ((!this.ref || this.ref === "overworld")) {
+            if (!this.ref || this.ref === "overworld") {
                 titleEl.className = "";
             } else {
                 const data = WorldStateManager.getByRef(this.ref);

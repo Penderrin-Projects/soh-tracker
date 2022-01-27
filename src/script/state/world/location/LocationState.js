@@ -40,7 +40,9 @@ export default class LocationState extends DefaultState {
 
     /*#*/__setItem(value) {
         const ref = this.ref;
-        if (typeof value != "string") value = "";
+        if (typeof value != "string") {
+            value = "";
+        }
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);

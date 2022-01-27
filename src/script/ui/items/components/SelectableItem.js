@@ -67,7 +67,9 @@ export default class HTMLTrackerSelectableItem extends CustomElement {
     }
 
     select(event) {
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
 
         const ev = new Event("select");

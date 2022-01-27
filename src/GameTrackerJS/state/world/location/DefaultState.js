@@ -122,7 +122,7 @@ export default class DefaultState extends FilteredState {
         value = this./*#*/__setValue(value);
         if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::location", { ref, value });
+            EventBus.trigger("state::location", {ref, value});
         }
     }
 

@@ -60,7 +60,7 @@ export default class DefaultState extends AreaState {
         value = this./*#*/__setHint(value);
         if (value != null && value != old) {
             // internal
-            EventBus.trigger("state::area_hint", { ref, value });
+            EventBus.trigger("state::area_hint", {ref, value});
         }
     }
 
