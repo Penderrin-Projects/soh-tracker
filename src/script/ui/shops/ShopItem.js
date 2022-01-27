@@ -233,12 +233,10 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                     } else {
                         state.reset();
                     }
+                } else if (state.isDefault()) {
+                    this./*#*/__editItem();
                 } else {
-                    if (state.isDefault()) {
-                        this./*#*/__editItem();
-                    } else {
-                        state.bought = !state.bought;
-                    }
+                    state.bought = !state.bought;
                 }
             }
             /* --- */

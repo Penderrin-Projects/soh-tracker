@@ -92,4 +92,4 @@ export default class MPLogger extends CustomElement {
 
 }
 
-customElements.define('ootrt-mplogger', MPLogger);
+customElements.define("ootrt-mplogger", MPLogger);

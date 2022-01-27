@@ -74,15 +74,15 @@ export default class HTMLTrackerStave extends CustomElement {
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
-        this.setAttribute('value', val);
+        this.setAttribute("value", val);
     }
 
     static get observedAttributes() {
-        return ['value'];
+        return ["value"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -99,4 +99,4 @@ export default class HTMLTrackerStave extends CustomElement {
 
 }
 
-customElements.define('ootrt-stave', HTMLTrackerStave);
+customElements.define("ootrt-stave", HTMLTrackerStave);

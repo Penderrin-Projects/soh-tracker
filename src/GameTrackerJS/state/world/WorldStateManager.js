@@ -1,5 +1,9 @@
-import { emptyState } from "./EmptyState.js";
-import { overworldState } from "./OverworldState.js";
+import {
+    emptyState
+} from "./EmptyState.js";
+import {
+    overworldState
+} from "./OverworldState.js";
 import AreaStateManager from "./area/StateManager.js";
 import EntranceStateManager from "./entrance/StateManager.js";
 import ExitStateManager from "./exit/StateManager.js";

@@ -60,11 +60,7 @@ async function clearData(event) {
     if (!await Dialog.confirm("Warning", `Do you really want to "${buttonEl.innerHTML}"? This can not be undone.`)) {
         return;
     }
-    SavestateHandler.overwrite({
-        data: {
-            [buttonEl.dataset.type]: null
-        }
-    });
+    SavestateHandler.overwrite({data: {[buttonEl.dataset.type]: null}});
 }
 
 export default class ClearDataWindow extends Window {

@@ -9,7 +9,9 @@ import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";
 import WorldState from "./WorldState.js";
-import {defaultAccess as defaultMarkerAccess} from "../../../util/MarkerListHandler.js";
+import {
+    defaultAccess as defaultMarkerAccess
+} from "../../../util/MarkerListHandler.js";
 import WorldStateManager from "../WorldStateManager.js";
 import EntranceStates from "../entrance/StateManager.js";
 
@@ -41,7 +43,7 @@ function getLogicAccess(access) {
         entrances: false,
         value: AccessStateEnum.OPENED
     };
-    const reachable = (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+    const reachable = !!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`);
     if (reachable) {
         res.entrances = true;
         res.value = AccessStateEnum.AVAILABLE;

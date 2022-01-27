@@ -6,7 +6,6 @@ import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 import "./StateConverter{^-1}.js";
 
 SavestateConverter.register(function(state) {
-
     const {
         data: {
             "": main = {},
@@ -36,9 +35,9 @@ SavestateConverter.register(function(state) {
 
     for (const [key, value] of Object.entries(dungeonreward)) {
         if (key == "area/gerudo_fortress") {
-            res.data.dungeonreward["area/gerudo"] = value;
+            res_dungeonreward["area/gerudo"] = value;
         } else {
-            res.data.dungeonreward[key] = value;
+            res_dungeonreward[key] = value;
         }
     }
 
@@ -89,6 +88,5 @@ SavestateConverter.register(function(state) {
         timestamp,
         name
     }; */
-
 });
   

@@ -170,14 +170,14 @@ export default class ListCollection extends EventTargetMixin(AbstractSubArea) {
         if (state != null) {
             const list = state.getList();
             if (list != null && list.length > 0) {
-                let visible = false;
+                // let visible = false;
                 for (const record of list) {
                     const loc = WorldStateManager.get(record.category, record.id);
                     const uiReg = UIRegistry.get(`list-${record.category}`);
                     this.append(uiReg.create(loc.props.type, loc.ref));
-                    if (loc.isVisible()) {
-                        visible = true;
-                    }
+                    // if (loc.isVisible()) {
+                    //     visible = true;
+                    // }
                 }
             }
         }

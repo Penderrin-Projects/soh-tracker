@@ -209,7 +209,9 @@ export default class ItemKey extends StateDataEventManager(CustomElement) {
 
         const state = ItemStates.get(this.ref);
         const data = state.props;
-        if (!data) return;
+        if (!data) {
+            return;
+        }
 
         for (let i = 0; i <= state.max; ++i) {
             let img = data.images;
@@ -231,7 +233,7 @@ export default class ItemKey extends StateDataEventManager(CustomElement) {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = 0; i < data.alternate_counting.length; ++i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -254,7 +256,9 @@ export default class ItemKey extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -266,7 +270,7 @@ export default class ItemKey extends StateDataEventManager(CustomElement) {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -289,7 +293,9 @@ export default class ItemKey extends StateDataEventManager(CustomElement) {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -309,13 +315,11 @@ function createOption(value, img, data, max_value) {
     if (data.counting) {
         if (Array.isArray(data.counting)) {
             opt.innerHTML = data.counting[value];
-        } else {
-            if (value > 0 || data.alwaysCounting) {
-                if (data.showMax) {
-                    opt.innerHTML = `${value} / ${max_value}`;
-                } else {
-                    opt.innerHTML = value;
-                }
+        } else if (value > 0 || data.alwaysCounting) {
+            if (data.showMax) {
+                opt.innerHTML = `${value} / ${max_value}`;
+            } else {
+                opt.innerHTML = value;
             }
         }
         if (data.mark !== false) {

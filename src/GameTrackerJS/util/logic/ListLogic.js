@@ -72,10 +72,8 @@ class ListLogic {
                                 // }
                             }
                             // }
-                        } else {
-                            if (state.access) {
-                                res.entrances++;
-                            }
+                        } else if (state.access) {
+                            res.entrances++;
                         }
                     }
                 } else if (category == "area") {
@@ -87,7 +85,7 @@ class ListLogic {
                         res.entrances++;
                     }
                 } else {
-                    Logger.error((new Error(`unknown category "${category}" for entry "${id}"`)), "ListLogic");
+                    Logger.error(new Error(`unknown category "${category}" for entry "${id}"`), "ListLogic");
                 }
             }
         }

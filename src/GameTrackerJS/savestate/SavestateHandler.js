@@ -217,7 +217,7 @@ class SavestateHandler extends EventTarget {
             for (let i = offset; i < version; ++i) {
                 console.log(`Version[${i}]: `, SavestateConverter.convert({version: i, data: {}}));
             }
-        } catch(err) {
+        } catch (err) {
             console.error(err);
         } finally {
             console.groupEnd("StateConverter - Test");

@@ -27,15 +27,15 @@ class Language {
                     try {
                         const trans = await FileLoader.properties(`/i18n/${key}.lang`);
                         I18n.setTranslation(key, Object.assign(trans, languages));
-                    } catch(err) {
+                    } catch (err) {
                         console.error(err);
-                        Logger.error((new Error(`could not load lang ${key}`)), "I18n");
+                        Logger.error(new Error(`could not load lang ${key}`), "I18n");
                     }
                     I18n.setLanguage(code);
                 }
-            } catch(err) {
+            } catch (err) {
                 console.error(err);
-                Logger.error((new Error(`could not load language names`)), "I18n");
+                Logger.error(new Error(`could not load language names`), "I18n");
             }
         }
     }
@@ -45,7 +45,9 @@ class Language {
     }
 
     translate(index) {
-        if (!index) return "";
+        if (!index) {
+            return "";
+        }
         return I18n.get(index);
     }
 

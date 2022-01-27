@@ -106,9 +106,7 @@ export default class MapExit extends WorldElement {
                 if (area instanceof EmptyState) {
                     // nothing
                 } else /*if (area instanceof AreaState)*/ {
-                    EventBus.trigger("location_change", {
-                        name: area.ref
-                    });
+                    EventBus.trigger("location_change", {name: area.ref});
                 }
             } else {
                 const mnu_ext = this.getContextMenu("exitbinding");

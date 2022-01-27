@@ -36,10 +36,8 @@ function toggleFullscreen() {
     if (document.fullscreenEnabled) {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
         }
     }
 }
@@ -78,8 +76,8 @@ function registerWindow({name, panel, navigation, refreshFn}) {
 }
 
 // add editors
-!async function() {
+(async function() {
     registerWindow(await createLogicEditor(false));
     registerWindow(await createLogicEditor(true));
     //registerWindow(await createWorldEditor());
-}();
+})();

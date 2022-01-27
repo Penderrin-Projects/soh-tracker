@@ -5,6 +5,7 @@ import WorldStateManager from "../../state/world/WorldStateManager.js";
 import WorldElement from "./WorldElement.js";
 import LocationContextMenu from "../ctxmenu/LocationContextMenu.js";
 import Language from "../../util/Language.js";
+import Badge from "../Badge.js";
 
 export default class AbstractLocation extends WorldElement {
 
@@ -41,8 +42,8 @@ export default class AbstractLocation extends WorldElement {
     applyDefaultValues() {
         super.applyDefaultValues("images/icons/location.svg");
         this.applyAccess("unavailable");
-        const badge = this.shadowRoot.getElementById("badge");
-        if (badge instanceof Badge) {
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        if (badgeEl instanceof Badge) {
             badgeEl.hideValues = true;
         }
     }

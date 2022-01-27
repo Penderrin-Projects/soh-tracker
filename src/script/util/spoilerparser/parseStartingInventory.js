@@ -21,21 +21,19 @@ export default function parseStartingInventory(errorDialogHandler, target = {}, 
                 if (transData == null) {
                     console.warn(`Unknown Starting item "${item}" for "${key}"`);
                     errorDialogHandler.add(`Unknown Starting item "${item}" for "${key}"`);
+                } else if (typeof transData == "string") {
+                    addValue(target, transData, 1);
                 } else {
-                    if (typeof transData == "string") {
-                        addValue(target, transData, 1);
+                    const name = transData["name"];
+                    if (typeof name != "string") {
+                        console.warn(`Translation for Starting item "${item}" in "${key}" is errornous`);
+                        errorDialogHandler.add(`Translation for Starting item "${item}" in "${key}" is errornous`);
                     } else {
-                        const name = transData["name"];
-                        if (typeof name != "string") {
-                            console.warn(`Translation for Starting item "${item}" in "${key}" is errornous`);
-                            errorDialogHandler.add(`Translation for Starting item "${item}" in "${key}" is errornous`);
+                        const value = parseInt(transData["value"]);
+                        if (!isNaN(value)) {
+                            addValue(target, name, value);
                         } else {
-                            const value = parseInt(transData["value"]);
-                            if (!isNaN(value)) {
-                                addValue(target, name, value);
-                            } else {
-                                addValue(target, name, 1);
-                            }
+                            addValue(target, name, 1);
                         }
                     }
                 }

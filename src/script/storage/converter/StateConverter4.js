@@ -16,7 +16,9 @@ SavestateConverter.register(function(state) {
         name: state.name ?? ""
     };
     for (const i of Object.keys(state.data ?? {})) {
-        if (i == "notes") continue;
+        if (i == "notes") {
+            continue;
+        }
         if (i.startsWith("shop.")) {
             if (i.endsWith(".names")) {
                 res.extra.shops_names = res.extra.shops_names ?? {};

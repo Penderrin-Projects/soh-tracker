@@ -17,7 +17,7 @@ async function getData() {
         const supporters = await r.json();
         LocalStorage.set("supporters", supporters);
         return supporters;
-    } catch(err) {
+    } catch (err) {
         console.error(err);
     }
     return LocalStorage.get("supporters", {});

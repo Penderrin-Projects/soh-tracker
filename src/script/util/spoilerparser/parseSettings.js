@@ -41,7 +41,7 @@ function setSettingToTarget(target, transData, parsedValue) {
         if (typeof values == "object") {
             if (values[parsedValue] == null) {
                 if (values["default"] == null) {
-                    throw 'Invalid value'
+                    throw "Invalid value"
                 } else {
                     target[name] = values["default"]
                 }

@@ -18,10 +18,10 @@ async function getDeviceData() {
     };
     if (navigator.userAgentData != null) {
         const uaData = navigator.userAgentData;
-        data.platform = await getOSData(),
+        data.platform = await getOSData();
         data.application = {
             mobile: uaData.mobile,
-            brands: Helper.deepClone(uaData.brands) 
+            brands: Helper.deepClone(uaData.brands)
         };
     }
     return data;
@@ -43,7 +43,7 @@ async function getData() {
             res.version = resourceData.version || 0;
         }
         res.date = DateUtil.convert(new Date(resourceData.date), "D.M.Y h:m:s");
-    } catch(err) {
+    } catch (err) {
         console.error("Could not load version file", err);
     }
     res.versionString = `${res.version} (${res.date})`;

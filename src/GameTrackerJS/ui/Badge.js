@@ -111,7 +111,7 @@ export default class Badge extends EventTargetMixin(CustomElement) {
         this.switchTarget("showFilters", showFiltersObserver);
         this.setTargetEventListener("showFilters", "change", event => {
             if (filtersEl != null) {
-                filtersEl.style.display = !!event.data ? "" : "none";
+                filtersEl.style.display = event.data ? "" : "none";
             }
         });
         /* --- */
@@ -122,7 +122,7 @@ export default class Badge extends EventTargetMixin(CustomElement) {
         this.switchTarget("colorBlind", colorBlindObserver);
         this.setTargetEventListener("colorBlind", "change", event => {
             if (colorBlindEl != null) {
-                colorBlindEl.style.display = !!event.data ? "" : "none";
+                colorBlindEl.style.display = event.data ? "" : "none";
             }
         });
     }
