@@ -69,7 +69,7 @@ class HTMLMultiplayerUser extends CustomElement {
     static get observedAttributes() {
         return ["name", "role"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

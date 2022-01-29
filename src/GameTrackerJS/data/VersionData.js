@@ -68,7 +68,7 @@ class VersionData extends EventTarget {
     get version() {
         return Helper.deepClone(APP_DATA.version);
     }
-    
+
     get date() {
         return Helper.deepClone(APP_DATA.date);
     }

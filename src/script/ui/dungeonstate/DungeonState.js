@@ -129,7 +129,7 @@ class HTMLTrackerDungeonState extends Panel {
     static get observedAttributes() {
         return ["active"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "active":

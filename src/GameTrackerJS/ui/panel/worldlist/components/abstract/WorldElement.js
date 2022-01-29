@@ -146,7 +146,7 @@ export default class WorldElement extends BaseClass {
             }
         }
     }
-    
+
     applyAccess(data) {
         const value = AccessStateEnum.getName(data.value).toLowerCase();
         /* access */

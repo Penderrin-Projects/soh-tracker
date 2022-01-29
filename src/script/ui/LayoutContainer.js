@@ -37,7 +37,7 @@ class HTMLTrackerLayoutContainer extends Layout {
     static get observedAttributes() {
         return ["layout"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "layout":

@@ -49,7 +49,7 @@ export default class HTMLTrackerSelectableItem extends CustomElement {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const state = ItemStates.get(this.ref);

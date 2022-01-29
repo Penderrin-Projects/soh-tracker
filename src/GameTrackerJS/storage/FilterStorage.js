@@ -88,7 +88,7 @@ class FilterStorage extends DataStorage {
     keys() {
         return DEFAULTS.keys();
     }
-    
+
     serialize() {
         const res = {};
         for (const key of PERSISTED) {
@@ -127,4 +127,5 @@ class FilterStorage extends DataStorage {
 }
 
 const storage = new FilterStorage();
+
 export default storage;

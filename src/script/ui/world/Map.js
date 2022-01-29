@@ -482,7 +482,7 @@ class HTMLTrackerMap extends UIEventBusMixin(Panel) {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             if (name == "ref") {

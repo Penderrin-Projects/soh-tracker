@@ -8,7 +8,7 @@ const AREA_DATA = new WeakMap();
 const LIST_HANDLER = new WeakMap();
 
 export default class AreaState extends FilteredState {
-    
+
     constructor(ref, props = {}, areaData = {}) {
         super(ref, props);
         /* --- */
@@ -17,7 +17,7 @@ export default class AreaState extends FilteredState {
         const listHandler = this.generateList();
         LIST_HANDLER.set(this, listHandler);
     }
-    
+
     generateList() {
         const list = this.areaData.list;
         const listHandler = new MarkerListHandler(list, this.ref);

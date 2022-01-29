@@ -155,7 +155,7 @@ export default class ListCollection extends EventTargetMixin(AbstractSubArea) {
             }
         }
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* collapsed */

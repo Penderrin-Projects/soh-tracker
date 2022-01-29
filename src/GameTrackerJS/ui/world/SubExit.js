@@ -115,7 +115,7 @@ export default class MapSubExit extends WorldElement {
         event.preventDefault();
         return false;
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* entrances */
@@ -176,7 +176,7 @@ export default class MapSubExit extends WorldElement {
     static get observedAttributes() {
         return ["ref", "value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

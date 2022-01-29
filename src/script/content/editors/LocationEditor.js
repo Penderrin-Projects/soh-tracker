@@ -87,6 +87,7 @@ export default async function(editorChoice) {
         const patch = await DataStorage.getAll();
         locationEditor.setPatch(patch);
     }
+
     await refreshLocationEditor();
     // register
     locationEditor.addEventListener("save", async event => {

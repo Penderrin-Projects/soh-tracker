@@ -130,7 +130,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
                 state.reward = value;
             }
         });
-        
+
         /* mouse events */
         this.addEventListener("click", event => {
             const mnu_itm = this.getContextMenu("itempicker");
@@ -175,7 +175,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
     static get observedAttributes() {
         return ["ref", "value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

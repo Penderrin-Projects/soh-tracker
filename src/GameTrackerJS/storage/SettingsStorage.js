@@ -98,4 +98,5 @@ class SettingsStorage extends IDBProxyStorage {
 }
 
 const storage = new SettingsStorage();
+
 export default await storage.awaitLoaded();

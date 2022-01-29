@@ -38,13 +38,13 @@ export default class ManageWindow extends AbstractSavestateWindow {
         /* --- */
         const window = this.shadowRoot.getElementById("window");
         window.append(els.getElementById("footer"));
-        
+
         const lst = this.shadowRoot.getElementById("statelist");
         const snm = this.shadowRoot.getElementById("statename");
         lst.addEventListener("change", function(event) {
             snm.value = event.newValue;
         });
-        
+
         // DELETE
         const dlt = this.shadowRoot.getElementById("delete");
         dlt.onclick = async () => {
@@ -124,7 +124,7 @@ export default class ManageWindow extends AbstractSavestateWindow {
             await SavestateManager.importSavestate(res.data);
             Toast.info(`State "${name}" imported.`);
             snm.value = "";
-            
+
             // load
             if (await Dialog.confirm("Load imported state?", "Do you want to load the newly imported state?\nUnsafed changes will be lost!")) {
                 await SavestateHandler.load(name);
@@ -137,7 +137,7 @@ export default class ManageWindow extends AbstractSavestateWindow {
             await this.refreshList();
             lst.value = name;
         };
-        
+
         // IMPORT STRING
         const ist = this.shadowRoot.getElementById("import-string");
         ist.onclick = async () => {

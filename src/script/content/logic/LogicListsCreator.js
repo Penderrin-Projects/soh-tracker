@@ -77,7 +77,7 @@ class LogicListsCreator {
 
         const mixins = {};
         const functions = {};
-        
+
         if (logic) {
             for (const i in logic.logic) {
                 if (i.startsWith("mixin.")) {
@@ -113,14 +113,14 @@ class LogicListsCreator {
             result.operators.push(cat);
         }*/
         result.operators.push(createOperatorLocationDoneCategory(world));
-        
+
         for (const cat of createOperatorReachCategories(logic.edges)) {
             result.operators.push(cat);
         }
 
         result.operators.push(createOperatorMixins(mixins));
         result.operators.push(createOperatorFunctions(functions));
-        
+
         // LOGICS
         //for (let cat of createLogicWorldCategories(world_lists, world)) {
         //    result.logics.push(cat);

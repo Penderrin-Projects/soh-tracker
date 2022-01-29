@@ -58,7 +58,7 @@ const TPL = new Template(`
 `);
 
 export default class HTMLTrackerShopEditItem extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -91,7 +91,7 @@ export default class HTMLTrackerShopEditItem extends CustomElement {
     static get observedAttributes() {
         return ["ref", "price", "checked"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "ref":

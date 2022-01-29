@@ -130,7 +130,7 @@ export default class MapLocation extends AbstractLocation {
     static get observedAttributes() {
         return [...super.observedAttributes, "left", "top", "tooltip"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

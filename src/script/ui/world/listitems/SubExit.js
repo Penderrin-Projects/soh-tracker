@@ -193,7 +193,7 @@ export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
             }
         }
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* collapsed */
@@ -217,7 +217,7 @@ export default class ListSubExit extends EventTargetMixin(AbstractSubExit) {
             }
         }
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {

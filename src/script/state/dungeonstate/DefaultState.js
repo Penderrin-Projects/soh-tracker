@@ -107,7 +107,7 @@ export default class DefaultState extends DataState {
             return value;
         }
     }
-    
+
     set type(value) {
         const ref = this.ref;
         const old = this.reward;
@@ -137,7 +137,7 @@ export default class DefaultState extends DataState {
             return value;
         }
     }
-    
+
     set reward(value) {
         const ref = this.ref;
         const old = this.reward;

@@ -93,7 +93,7 @@ class Savestate extends EventTarget {
         autosave = false;
         notes = "";
     }
-    
+
     serialize() {
         const res = {
             name,

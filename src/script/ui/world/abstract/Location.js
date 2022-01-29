@@ -57,7 +57,7 @@ export default class Location extends AbstractLocation {
                 LogicViewer.show(state.props.access, title);
             }
         });
-        
+
         /* mouse events */
         this.addEventListener("contextmenu", event => {
             this.showDefaultContextMenu(event);

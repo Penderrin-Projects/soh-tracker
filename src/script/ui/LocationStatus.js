@@ -23,7 +23,7 @@ const TPL = new Template(`
     <span id="locations-done">#</span> done / <span id="locations-available">#</span> avail / <span id="locations-missing">#</span> miss
 </div>
 `);
-    
+
 const STYLE = new GlobalStyle(`
 .state {
     display: inline;
@@ -69,7 +69,7 @@ export default class LocationState extends UIEventBusMixin(CustomElement) {
         DUNGEON_LIST.set(this, dungeonList);
         this.updateStates();
     }
-    
+
     updateStates() {
         const dungeonList = DUNGEON_LIST.get(this);
         const entityList = LIST.get(this);

@@ -50,9 +50,11 @@ import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
 
 const spl = document.getElementById("loading-info");
+
 function updateLoadingMessage(msg = "loading...") {
     spl.innerHTML = msg;
 }
+
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
 window.onbeforeunload = function() {

@@ -20,7 +20,7 @@ const TPL = new Template(`
 `);
 
 export default class HTMLTrackerSongList extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());

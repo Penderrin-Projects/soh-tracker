@@ -144,7 +144,7 @@ function getDialogTitle(ref) {
 }
 
 export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -244,7 +244,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             event.stopPropagation();
             return false;
         });
-        
+
         /* mouse events */
         this.addEventListener("contextmenu", event => {
             this.showDefaultContextMenu(event);
@@ -370,7 +370,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const state = ShopStates.get(this.ref);

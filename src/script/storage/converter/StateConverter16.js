@@ -19,7 +19,7 @@ SavestateConverter.register(function(state) {
         timestamp: state.timestamp ?? new Date(),
         name: state.name ?? ""
     };
-    
+
     for (const [key, value] of Object.entries(state.data ?? {})) {
         if (key.startsWith("option.") || key.startsWith("skip.")) {
             res.options[key] = value;

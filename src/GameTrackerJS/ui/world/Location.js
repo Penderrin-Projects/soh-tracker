@@ -66,7 +66,7 @@ export default class AbstractLocation extends WorldElement {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

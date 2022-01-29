@@ -131,7 +131,7 @@ export default class MapShopSlot extends AbstractShopSlot {
     static get observedAttributes() {
         return [...super.observedAttributes, "left", "top", "tooltip"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

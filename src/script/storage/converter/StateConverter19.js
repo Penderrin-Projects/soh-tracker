@@ -19,7 +19,7 @@ SavestateConverter.register(function(state) {
         timestamp: state.timestamp ?? new Date(),
         name: state.name ?? ""
     };
-    
+
     for (const [key, value] of Object.entries(exits)) {
         const [k1, k2] = key.split(" -> ");
         const [v1, v2] = value.split(" -> ");
@@ -30,4 +30,4 @@ SavestateConverter.register(function(state) {
 });
 
 const EXIT_TRANS = {"region.graveyard_composers_grave": "region.graveyard_royal_familys_tomb"};
- 
+

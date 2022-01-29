@@ -22,7 +22,7 @@ const STYLE = new GlobalStyle(`
 `);
 
 export default class HTMLTrackerShopList extends CustomElement {
-    
+
     constructor() {
         super();
         //this.shadowRoot.append(TPL.generate());

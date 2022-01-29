@@ -17,7 +17,7 @@ SavestateConverter.register(function(state) {
         timestamp: state.timestamp ?? new Date(),
         name: state.name ?? ""
     };
-    
+
     for (const [key, value] of Object.entries(dungeontype)) {
         if (key == "area/gerudo_fortress") {
             res.data.dungeontype["area/gerudo"] = value;
@@ -25,7 +25,7 @@ SavestateConverter.register(function(state) {
             res.data.dungeontype[key] = value;
         }
     }
-    
+
     for (const [key, value] of Object.entries(dungeonreward)) {
         if (key == "area/gerudo_fortress") {
             res.data.dungeonreward["area/gerudo"] = value;

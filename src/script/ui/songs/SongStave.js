@@ -67,7 +67,7 @@ const TPL = new Template(`
 `);
 
 export default class HTMLTrackerStave extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -84,7 +84,7 @@ export default class HTMLTrackerStave extends CustomElement {
     static get observedAttributes() {
         return ["value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const notes = this.shadowRoot.getElementById("notes");

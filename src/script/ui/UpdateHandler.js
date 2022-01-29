@@ -114,11 +114,11 @@ export default class UpdateHandler extends CustomElement {
                     finished.style.display = "none";
                     this.dispatchEvent(new Event("noconnection"));
                 }
-            
+
                 this.shadowRoot.getElementById("check-update").onclick = function() {
                     this.checkUpdate();
                 }.bind(this);
-            
+
                 this.shadowRoot.getElementById("download-update").onclick = function() {
                     check.style.display = "none";
                     force.style.display = "none";
@@ -130,7 +130,7 @@ export default class UpdateHandler extends CustomElement {
                         registration.active.postMessage("update");
                     });
                 }
-            
+
                 this.shadowRoot.getElementById("download-forced").onclick = function() {
                     check.style.display = "none";
                     force.style.display = "none";

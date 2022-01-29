@@ -107,7 +107,7 @@ export default class DefaultState extends DataState {
         // SavestateHandler.addEventListener("load", event => {
         //     console.log("load", event);
         // });
-        
+
         /* EVENTS */
         EventBus.register("state::item", (event) => {
             const ref = this.ref;
