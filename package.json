@@ -37,8 +37,8 @@
     "iOS >= 10"
   ],
   "scripts": {
-    "lint": "yarn eslint ./src",
-    "lintfix": "yarn eslint --fix ./src",
+    "lint": "yarn eslint .",
+    "lintfix": "yarn eslint --fix .",
     "build": "gulp build",
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
