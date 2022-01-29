@@ -6,7 +6,7 @@ const resourceData = WorldResource.get("marker/subarea");
 const DATA = WorldResource.get("subarea");
 
 class StateManager extends AbstractStateManager {
-    
+
     constructor() {
         super(DefaultState, resourceData);
     }

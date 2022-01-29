@@ -15,7 +15,7 @@ export default class RTCPeerClient extends RTCPeer {
 
     constructor(rtcClient, username, version) {
         super(rtcClient, username, version);
-        
+
         /* RTC */
         const eventTargetManager = new EventTargetManager(rtcClient);
         EVENT_TARGET_MANAGER.set(this, eventTargetManager);

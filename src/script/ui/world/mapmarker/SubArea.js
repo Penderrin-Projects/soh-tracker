@@ -111,7 +111,7 @@ export default class MapSubArea extends AbstractSubArea {
         STYLE.apply(this.shadowRoot);
         /* --- */
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         const markerEl = this.shadowRoot.getElementById("marker");
@@ -160,7 +160,7 @@ export default class MapSubArea extends AbstractSubArea {
     static get observedAttributes() {
         return [...super.observedAttributes, "left", "top", "tooltip"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {

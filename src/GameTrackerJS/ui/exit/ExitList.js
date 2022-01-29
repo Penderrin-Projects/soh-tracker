@@ -124,7 +124,7 @@ label {
 const CATEGORIES = new WeakMap();
 
 export default class ExitList extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -163,7 +163,7 @@ export default class ExitList extends CustomElement {
             this.calculateItems();
         }, true);
     }
-    
+
     calculateItems() {
         const search = this.shadowRoot.getElementById("search");
         const searchMode = this.shadowRoot.getElementById("search-mode");

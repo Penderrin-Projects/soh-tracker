@@ -68,7 +68,7 @@ export default class DefaultState extends DataState {
             }
         }
     }
-        
+
     set notes(value) {
         const ref = this.ref;
         const old = this.hint;

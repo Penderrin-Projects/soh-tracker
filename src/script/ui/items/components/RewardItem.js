@@ -158,7 +158,7 @@ export default class RewardItem extends StateDataEventManager(CustomElement) {
     static get observedAttributes() {
         return ["ref", "dungeon", "halign", "valign"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

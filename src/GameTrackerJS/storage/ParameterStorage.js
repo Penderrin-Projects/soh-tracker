@@ -19,4 +19,5 @@ class ParameterStorage extends IDBProxyStorage {
 }
 
 const storage = new ParameterStorage();
+
 export default await storage.awaitLoaded();

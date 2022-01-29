@@ -5,7 +5,7 @@ export default class EmptyState extends EventTarget {
     setAccess() {
         // empty
     }
-    
+
     generateList() {
         // empty
     }

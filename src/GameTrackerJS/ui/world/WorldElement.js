@@ -10,6 +10,7 @@ import Badge from "../Badge.js";
 import "../BadgeAccess.js";
 
 const BaseClass = ContextMenuManagerMixin(StateDataEventManagerMixin(UIEventBusMixin(CustomElement)));
+
 export default class WorldElement extends BaseClass {
 
     constructor() {
@@ -84,7 +85,7 @@ export default class WorldElement extends BaseClass {
             }
         }
     }
-    
+
     applyAccess(data) {
         const value = AccessStateEnum.getName(data.value).toLowerCase();
         /* access */

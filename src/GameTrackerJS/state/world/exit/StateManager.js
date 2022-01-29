@@ -6,7 +6,7 @@ const resourceData = WorldResource.get("marker/exit");
 const DATA = WorldResource.get("exit");
 
 class StateManager extends AbstractStateManager {
-    
+
     constructor() {
         super(DefaultState, resourceData);
     }

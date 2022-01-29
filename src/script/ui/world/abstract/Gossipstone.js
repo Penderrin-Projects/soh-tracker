@@ -63,7 +63,7 @@ export default class Gossipstone extends AbstractLocation {
                 LogicViewer.show(state.props.access, title);
             }
         });
-        
+
         /* mouse events */
         this.addEventListener("contextmenu", event => {
             this.showDefaultContextMenu(event);
@@ -166,7 +166,7 @@ function hintstoneDialog(ref) {
         const items = Object.keys(ItemsResource.get());
         items.push("WOTH");
         items.push("FOOL");
-    
+
         const lbl_loc = document.createElement("label");
         lbl_loc.style.display = "flex";
         lbl_loc.style.justifyContent = "space-between";
@@ -195,7 +195,7 @@ function hintstoneDialog(ref) {
         slt_loc.style.width = "300px";
         slt_loc.value = location;
         lbl_loc.append(slt_loc);
-    
+
         const lbl_itm = document.createElement("label");
         lbl_itm.style.display = "flex";
         lbl_itm.style.justifyContent = "space-between";
@@ -213,7 +213,7 @@ function hintstoneDialog(ref) {
         slt_itm.style.width = "300px";
         slt_itm.value = item;
         lbl_itm.append(slt_itm);
-        
+
         const d = new Dialog({title: Language.generateLabel(ref), submit: true, cancel: true});
         d.onsubmit = function(result) {
             if (result) {

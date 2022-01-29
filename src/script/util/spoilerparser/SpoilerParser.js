@@ -95,11 +95,11 @@ class SpoilerParser {
                 return;
             }
         }
-        
+
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
         const debugSpoiler = SettingsStorage.get("debug_spoiler")
-            
+
         if (debugSpoiler || settings["parse.settings"]) {
             parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
         }
@@ -144,7 +144,7 @@ class SpoilerParser {
             spawns: debugSpoiler || settings["parse.entro_spawns"],
             warps: debugSpoiler || settings["parse.entro_warps"]
         });
-        
+
         if (version == "prod") {
             // nothing
         }
@@ -152,7 +152,7 @@ class SpoilerParser {
         if (version == "dev") {
             // nothing
         }
-        
+
         errorDialogHandler.send();
 
         return {

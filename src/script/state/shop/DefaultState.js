@@ -273,7 +273,7 @@ export default class DefaultState extends DataState {
             return value;
         }
     }
-    
+
     set bought(value) {
         const ref = this.ref;
         const old = this.reward;

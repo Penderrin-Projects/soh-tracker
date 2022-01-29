@@ -112,7 +112,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
                 }
             }
         });
-        
+
         /* mouse events */
         this.addEventListener("click", event => {
             const state = TYPE_STATE.get(this);
@@ -125,7 +125,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
             return false;
         });
     }
-    
+
     applyAccess(data) {
         const textEl = this.shadowRoot.getElementById("text");
         const badgeEl = this.shadowRoot.getElementById("badge");
@@ -176,7 +176,7 @@ export default class ListButton extends StateDataEventManagerMixin(UIEventBusMix
     static get observedAttributes() {
         return ["ref", "type"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

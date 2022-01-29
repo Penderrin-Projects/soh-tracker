@@ -5,7 +5,7 @@ import "./ExitChoice.js";
 
 export default class HTMLTrackerExitList extends ExitList {
 
-    
+
     addEntrance(state) {
         if (state.exitData.type !== "not_seen") {
             const el = document.createElement("ootrt-exitchoice");

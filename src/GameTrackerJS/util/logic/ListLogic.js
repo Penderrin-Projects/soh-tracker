@@ -20,7 +20,7 @@ class ListLogic {
             value: AccessStateEnum.OPENED
         };
     }
-    
+
     check(list) {
         const res = {
             done: 0,

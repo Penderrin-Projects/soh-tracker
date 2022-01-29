@@ -27,6 +27,7 @@ export default async function(glitched = false) {
     }
     const LogicsStorage = new IDBStorage(`logics${postfix}`);
     const logicEditor = document.createElement("jse-logic-editor");
+
     // refresh
     async function refreshLogicEditor() {
         const lists = await LogicListsCreator.createLists(glitched);
@@ -46,6 +47,7 @@ export default async function(glitched = false) {
         const patch = await LogicsStorage.getAll();
         logicEditor.setPatch(patch);
     }
+
     await refreshLogicEditor();
     // events
     logicEditor.addEventListener("save", async event => {

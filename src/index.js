@@ -1,6 +1,7 @@
 const NOSW = (new URL(location.href)).searchParams.get("nosw") !== null;
 
 const spl = document.getElementById("loading-info");
+
 function updateLoadingMessage(msg = "loading...", blockUpdates = false) {
     if (messageUpdateAllowed) {
         spl.innerHTML = msg;
@@ -11,12 +12,14 @@ function updateLoadingMessage(msg = "loading...", blockUpdates = false) {
 }
 
 let messageUpdateAllowed = true;
+
 function printError(msg = "Error", url = "index", line = 1) {
     //alert(`${msg}\n${url}:${line}`);
     updateLoadingMessage(msg, true);
     console.error(`${msg}\n${url}:${line}`);
     return false;
 }
+
 window.onerror = printError;
 
 if (document.head.createShadowRoot || document.head.attachShadow) {
@@ -73,7 +76,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
             `, true);
         }
     }
-    
+
     updateLoadingMessage("loading...");
 
     if (!NOSW && "serviceWorker" in navigator) {
@@ -89,6 +92,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
         };
         navigator.serviceWorker.register("/sw.js").then(function(registration) {
             updateLoadingMessage("call servant...");
+
             function callSW() {
                 if (!registration.active) {
                     setTimeout(callSW, 10);
@@ -97,6 +101,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
                 navigator.serviceWorker.addEventListener("message", swMsgRecieve);
                 registration.active.postMessage("start");
             }
+
             callSW();
         }, function(err) {
             updateLoadingMessage("ServiceWorker registration failed", true);

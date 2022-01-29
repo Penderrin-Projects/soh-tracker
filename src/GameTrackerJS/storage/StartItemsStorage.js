@@ -90,4 +90,5 @@ class StartItemsStorage extends DataStorage {
 }
 
 const storage = new StartItemsStorage();
+
 export default storage;

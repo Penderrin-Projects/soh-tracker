@@ -60,7 +60,7 @@ export default class AbstractArea extends WorldElement {
     getMainContextMenuEntries() {
         // empty
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* entrances */
@@ -111,7 +111,7 @@ export default class AbstractArea extends WorldElement {
     static get observedAttributes() {
         return ["ref", "hint"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

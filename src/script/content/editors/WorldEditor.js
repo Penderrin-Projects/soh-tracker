@@ -80,6 +80,7 @@ export default async function() {
     worldEditor.addMarkerCategory("exit", await createMarkerDetailConfig("exit", AREA_TYPES));
     worldEditor.addMarkerCategory("subexit", await createMarkerDetailConfig("subexit", SUBAREA_TYPES));
     worldEditor.addMarkerCategory("location", await createMarkerDetailConfig("location", LOCATION_TYPES));
+
     // refresh
     async function refreshWorldEditor() {
         // TODO
@@ -87,6 +88,7 @@ export default async function() {
         worldEditor.loadList(lists);
         worldEditor.setData(WorldResource.get());
     }
+
     await refreshWorldEditor();
     // events
     worldEditor.addEventListener("save", async event => {

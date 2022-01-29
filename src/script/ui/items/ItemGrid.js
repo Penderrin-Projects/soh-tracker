@@ -114,7 +114,7 @@ class HTMLTrackerItemGrid extends Panel {
     static get observedAttributes() {
         return ["items", "grid"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "grid":

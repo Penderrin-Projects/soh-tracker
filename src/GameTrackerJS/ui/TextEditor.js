@@ -124,7 +124,7 @@ export default class TextEditor extends CustomElement {
     static get observedAttributes() {
         return ["title"];
     }
-      
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "title":
@@ -135,7 +135,7 @@ export default class TextEditor extends CustomElement {
                 break;
         }
     }
-    
+
 
 }
 

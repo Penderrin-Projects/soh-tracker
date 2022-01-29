@@ -138,7 +138,7 @@ export default class InfiniteItem extends StateDataEventManager(CustomElement) {
     static get observedAttributes() {
         return ["ref", "value", "halign", "valign"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

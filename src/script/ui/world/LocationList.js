@@ -234,7 +234,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
     static get observedAttributes() {
         return ["ref", "hint"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "ref":
@@ -318,7 +318,7 @@ class HTMLTrackerLocationList extends UIEventBusMixin(Panel) {
             }
         }
     }
-    
+
 }
 
 Panel.registerReference("location-list", HTMLTrackerLocationList);

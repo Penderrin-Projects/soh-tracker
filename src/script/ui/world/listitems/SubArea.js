@@ -171,7 +171,7 @@ export default class ListSubArea extends EventTargetMixin(AbstractSubArea) {
             }
         }
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* collapsed */

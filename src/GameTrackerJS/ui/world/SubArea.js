@@ -48,7 +48,7 @@ export default class AbstractSubArea extends WorldElement {
         }
         this.refreshList();
     }
-    
+
     applyAccess(data) {
         super.applyAccess(data);
         /* entrances */
@@ -95,7 +95,7 @@ export default class AbstractSubArea extends WorldElement {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

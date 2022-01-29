@@ -44,10 +44,10 @@ class FilterMenuButton extends ContextMenuManagerMixin(CustomElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        
+
         /* context menu */
         this.setContextMenu("filter", FilterMenu);
-        
+
         /* mouse events */
         this.addEventListener("click", event => {
             const rect = this.getBoundingClientRect();

@@ -80,7 +80,7 @@ export default class DungeonState extends DefaultState {
         /* EVENTS */
         EventBus.register("state::dungeontype", internalTypeChange.bind(this));
     }
-    
+
     generateList() {
         const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
@@ -108,7 +108,7 @@ export default class DungeonState extends DefaultState {
         });
         return listHandler;
     }
-    
+
     generateMQList() {
         const listHandler = new MarkerListHandler(this.areaData.lists["mq"], `${this.ref}/mq`);
         listHandler.addEventListener("access", event => {
@@ -155,7 +155,7 @@ export default class DungeonState extends DefaultState {
             const ev = new Event("type");
             ev.data = newValue;
             this.dispatchEvent(ev);
-            
+
             const ev2 = new Event("access");
             ev2.data = this.access;
             this.dispatchEvent(ev2);

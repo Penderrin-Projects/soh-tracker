@@ -3,7 +3,7 @@ import MarkerListHandler from "/GameTrackerJS/util/MarkerListHandler.js";
 import DefaultState from "/GameTrackerJS/state/world/area/DefaultState.js";
 
 export default class AreaState extends DefaultState {
-    
+
     generateList() {
         const listHandler = new MarkerListHandler(this.areaData.lists["v"], `${this.ref}/v`);
         listHandler.addEventListener("access", event => {
