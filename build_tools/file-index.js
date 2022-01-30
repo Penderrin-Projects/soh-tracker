@@ -13,10 +13,10 @@ function normalizePath(path) {
 class FileManager {
 
     register(src = "/", dest = "/", sourcemaps = false) {
-        let files = [];
+        const files = [];
         return through(function(file) {
             FILES.add(normalizePath(path.resolve(dest, path.relative(src, file.path))));
-            if (!!sourcemaps) {
+            if (sourcemaps) {
                 FILES.add(normalizePath(path.resolve(dest, path.relative(src, `${file.path}.map`))));
             }
             this.push(file);
@@ -42,7 +42,7 @@ class FileManager {
 
         console.log("deleting unused files");
         const srcFiles = Array.from(FILES);
-        for (let i in destFiles) {
+        for (const i in destFiles) {
             const fName = destFiles[i];
             if (fName != indexPathNormal && !(srcFiles.indexOf(fName) + 1)) {
                 console.log(`delete file: ${fName}`);
@@ -52,7 +52,7 @@ class FileManager {
 
         // TODO remove empty folders
 
-        let files = Array.from(FILES).map(el=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
+        const files = Array.from(FILES).map(el=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
         files.push("/");
         // TODO generate file structure object for sorting
         console.log("write new index");
