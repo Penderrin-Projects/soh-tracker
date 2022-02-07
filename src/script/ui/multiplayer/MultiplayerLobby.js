@@ -3,7 +3,6 @@ import Template from "/emcJS/util/html/Template.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
-
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
 // Track-OOT

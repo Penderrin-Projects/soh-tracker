@@ -4,7 +4,6 @@ import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventBusSubset from "/emcJS/event/EventBusSubset.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
@@ -81,7 +80,6 @@ export default class RTCPeerHost extends RTCPeer {
             ev.data = data;
             this.dispatchEvent(ev);
         });
-
 
         /* EVENTS */
         const eventBusSubset = new EventBusSubset();

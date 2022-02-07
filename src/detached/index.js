@@ -4,7 +4,6 @@ import Import from "/emcJS/util/import/Import.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import "/emcJS/ui/layout/Layout.js";
 
-
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";

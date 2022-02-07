@@ -4,7 +4,6 @@ import FileSystem from "/emcJS/util/FileSystem.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";

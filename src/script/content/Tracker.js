@@ -3,7 +3,6 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import "/emcJS/ui/navigation/NavBar.js";
 
-
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";

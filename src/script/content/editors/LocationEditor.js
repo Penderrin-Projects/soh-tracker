@@ -3,7 +3,6 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/editors/modules/properties/Editor.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";

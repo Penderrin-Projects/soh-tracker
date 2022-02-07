@@ -2,7 +2,6 @@
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 // GameTrackerJS
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";
 

@@ -88,8 +88,6 @@ function createWindow() {
     });
 }
 
-
-
 app.on("ready", async () => {
     //await startServer();
     createWindow();

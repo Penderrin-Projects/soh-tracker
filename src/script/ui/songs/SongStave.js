@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 const TPL = new Template(`
     <style>
         * {

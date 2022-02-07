@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
-
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";

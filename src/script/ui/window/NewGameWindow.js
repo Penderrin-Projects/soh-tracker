@@ -5,7 +5,6 @@ import Window from "/emcJS/ui/overlay/window/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
 
-
 // GameTrackerJS
 import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";

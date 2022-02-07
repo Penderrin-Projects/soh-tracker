@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 
-
 const TPL = new Template(`
 <slot>
     <div id="default-animation">

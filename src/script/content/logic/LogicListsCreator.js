@@ -1,7 +1,6 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";

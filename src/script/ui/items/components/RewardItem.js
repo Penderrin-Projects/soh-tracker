@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
-
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import ItemStates from "/GameTrackerJS/state/item/StateManager.js";

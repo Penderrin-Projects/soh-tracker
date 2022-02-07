@@ -1,7 +1,6 @@
 // frameworks
 import "/editors/EditorChoice.js";
 
-
 // Track-OOT
 import PageSwitcher from "/script/util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";

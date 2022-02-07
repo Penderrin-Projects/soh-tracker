@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
 import "/emcJS/ui/Icon.js";
 
-
 // GameTrackerJS
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -12,7 +11,6 @@ import AbstractArea from "/GameTrackerJS/ui/world/Area.js";
 import "/GameTrackerJS/ui/Badge.js";
 // Track-OOT
 import "/script/state/world/CustomWorldStates.js";
-
 
 const TPL = new Template(`
 <div id="marker" class="unavailable"></div>
