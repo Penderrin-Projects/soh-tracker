@@ -4,6 +4,12 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.1.58
+
+### BUGFIXES
+
+- added missing spoiler parser values
+
 ## VERSION 2.1.57
 
 ### BUGFIXES
