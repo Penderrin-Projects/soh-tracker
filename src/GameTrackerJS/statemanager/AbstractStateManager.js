@@ -51,6 +51,8 @@ export default class AbstractStateManager {
                 instances.set(ref, inst);
                 return inst;
             }
+        } else {
+            console.warn(`tried to get state for unknown entity "${ref}" from "${this.constructor.name}"`);
         }
     }
 
