@@ -28,6 +28,10 @@ if (process.argv.indexOf("-nolocal") < 0) {
     }
 }
 
+// const PATH_MATCHES = [
+
+// ];
+
 const server = http.createServer((request, response) => {
     console.log(request);
     return handler(request, response, {

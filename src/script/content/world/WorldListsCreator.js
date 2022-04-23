@@ -115,7 +115,9 @@ function createSettingsOperatorCategory(data, ref) {
     };
     for (const i in data) {
         const opt = data[i];
-        if (!!opt.type && opt.type.startsWith("-")) {continue;}
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
         if (opt.type === "choice") {
             for (const j of opt.values) {
                 res.children.push({

@@ -12,20 +12,37 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "treelogicjs": "git+https://bitbucket.org/zidargs/treelogicjs.git#0.1.6"
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.28",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-    "eslint": "^8.0.0"
-  },
-  "exports": {
-    "./*": "./src/*"
+    "eslint": "^8.0.0",
+    "del": "^5.1.0",
+    "electron": "^13.1.1",
+    "glob-all": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-filelist": "^2.0.5",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-jsonminify": "^1.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-svgo": "^2.1.0",
+    "gulp-terser": "^1.4.1",
+    "serve": "^11.3.2",
+    "through": "^2.3.8"
   },
   "scripts": {
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
-    "parse": "node src/parse.js"
+    "build": "gulp build",
+    "buildDev": "gulp buildDev",
+    "watch": "gulp watch -nocompress",
+    "serve": "serve dev",
+    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
   }
 }

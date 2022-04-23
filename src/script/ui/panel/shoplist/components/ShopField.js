@@ -44,7 +44,7 @@ const STYLE = new GlobalStyle(`
 `);
 
 export default class HTMLTrackerShopField extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -63,7 +63,7 @@ export default class HTMLTrackerShopField extends CustomElement {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const title = this.shadowRoot.getElementById("title-text");

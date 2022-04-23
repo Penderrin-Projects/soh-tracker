@@ -27,7 +27,7 @@ export default class SaveWindow extends AbstractSavestateWindow {
         /* --- */
         const window = this.shadowRoot.getElementById("window");
         window.append(els.getElementById("footer"));
-        
+
         const lst = this.shadowRoot.getElementById("statelist");
         const snm = this.shadowRoot.getElementById("statename");
         lst.addEventListener("change", function(event) {
@@ -36,7 +36,7 @@ export default class SaveWindow extends AbstractSavestateWindow {
         snm.addEventListener("change", function(event) {
             lst.value = event.target.value;
         });
-        
+
         const smt = this.shadowRoot.getElementById("submit");
         smt.onclick = async () => {
             const stateName = snm.value;

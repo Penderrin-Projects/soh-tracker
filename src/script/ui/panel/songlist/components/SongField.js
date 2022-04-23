@@ -85,7 +85,7 @@ function clearSong(event) {
 }
 
 export default class HTMLTrackerSongField extends StateDataEventManager(CustomElement) {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -158,7 +158,7 @@ export default class HTMLTrackerSongField extends StateDataEventManager(CustomEl
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const state = SongStateManager.get(this.ref);

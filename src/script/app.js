@@ -139,7 +139,7 @@ try {
             }
         }
     });
-} catch(err) {
+} catch (err) {
     console.error(err);
     updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
 }

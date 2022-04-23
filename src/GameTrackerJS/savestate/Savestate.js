@@ -89,7 +89,7 @@ class Savestate extends EventTarget {
             dataStorage.clear();
         }
     }
-    
+
     serialize() {
         const res = {
             ...INFO,

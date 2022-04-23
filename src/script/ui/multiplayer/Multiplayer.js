@@ -39,7 +39,7 @@ class HTMLMultiplayer extends CustomElement {
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
-        
+
         const lobby_view = this.shadowRoot.getElementById("lobby_view");
         const room_master = this.shadowRoot.getElementById("room_master");
         const room_client = this.shadowRoot.getElementById("room_client");

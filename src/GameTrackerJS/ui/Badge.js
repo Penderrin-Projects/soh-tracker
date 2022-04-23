@@ -143,7 +143,7 @@ export default class Badge extends EventTargetMixin(CustomElement) {
     static get observedAttributes() {
         return ["type-icon", "access"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

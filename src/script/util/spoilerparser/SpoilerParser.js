@@ -107,11 +107,10 @@ class SpoilerParser {
                 return;
             }
         }
-        
+
         const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
 
         const debugSpoiler = SettingsStorage.get("debug_spoiler")
-            
         if (debugSpoiler || settings["parse.settings"]) {
             parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
         }
@@ -166,7 +165,7 @@ class SpoilerParser {
         if (versionType == "dev") {
             // nothing
         }
-        
+
         errorDialogHandler.send();
 
         return {

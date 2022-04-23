@@ -153,7 +153,7 @@ export default class DungeonState extends DefaultAreaState {
             const event = new Event("type");
             event.data = value;
             this.dispatchEvent(event);
-            
+
             const ev2 = new Event("access");
             ev2.data = this.access;
             this.dispatchEvent(ev2);

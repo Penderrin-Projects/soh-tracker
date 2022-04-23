@@ -145,7 +145,7 @@ class SavestateHandler extends EventTarget {
     isDirty() {
         return LocalStorage.get(STATE_DIRTY);
     }
-    
+
     /**
      * Resets the state and initializes the savestate, options and filter with the given data, handling it as a stateload
      * @param {Object} stateData an Object containing data for savestate, options and filter
@@ -218,7 +218,7 @@ class SavestateHandler extends EventTarget {
             for (let i = offset; i < version; ++i) {
                 console.log(`Version[${i}]: `, SavestateConverter.convert({version: i, data: {}}));
             }
-        } catch(err) {
+        } catch (err) {
             console.error(err);
         } finally {
             console.groupEnd("StateConverter - Test");

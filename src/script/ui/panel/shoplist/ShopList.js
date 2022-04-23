@@ -14,7 +14,7 @@ const STYLE = new GlobalStyle(`
 `);
 
 export default class ShopList extends Panel {
-    
+
     constructor() {
         super();
         STYLE.apply(this.shadowRoot);

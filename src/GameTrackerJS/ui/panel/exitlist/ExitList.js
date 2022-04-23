@@ -119,7 +119,7 @@ const EXITS = WorldResource.get("exit");
 const CATEGORIES = new WeakMap();
 
 export default class ExitList extends Panel {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
@@ -152,7 +152,7 @@ export default class ExitList extends Panel {
             this.calculateItems();
         }, true);
     }
-    
+
     calculateItems() {
         const search = this.shadowRoot.getElementById("search");
         const searchMode = this.shadowRoot.getElementById("search-mode");

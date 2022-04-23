@@ -249,7 +249,7 @@ function copyFonts(dest = DEV_PATH) {
     return res;
 }
 
-function finish(dest = DEV_PATH, done = () => {}) {
+function finish(dest, done) {
     indexManager.add(languageManager.finish(`${dest}/i18n`));
     indexManager.finish(dest);
     done();

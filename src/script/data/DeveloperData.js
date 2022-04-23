@@ -22,7 +22,7 @@ class DeveloperData extends EventTarget {
     get team() {
         return Helper.deepClone(DATA.team);
     }
-    
+
     get contributors() {
         return Helper.deepClone(DATA.contributors);
     }

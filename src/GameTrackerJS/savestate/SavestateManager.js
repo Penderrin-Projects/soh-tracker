@@ -25,11 +25,11 @@ class SavestateManager {
     async exists(name) {
         return await STORAGE.has(name);
     }
-    
+
     async getNames() {
         return await STORAGE.keys();
     }
-    
+
     async getStates() {
         return await STORAGE.getAll();
     }

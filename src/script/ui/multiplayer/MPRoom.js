@@ -111,7 +111,7 @@ class HTMLMultiplayerLobbyRoom extends CustomElement {
     static get observedAttributes() {
         return ["pass", "name", "desc", "version"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

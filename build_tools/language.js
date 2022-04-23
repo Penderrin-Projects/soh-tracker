@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+// const glob = require("glob-all");
 const through = require("through");
+// const del = require("del");
 
 const LNBR_SEQ = /(?:\r\n|\n|\r)/g;
 const LANG_SEQ = /# language:\s+(.*)/;

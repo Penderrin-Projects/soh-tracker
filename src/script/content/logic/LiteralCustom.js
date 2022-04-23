@@ -23,6 +23,11 @@ const TPL = new Template(`
     <div id="ref" class="body"></div>
     <div id="value" class="body"></div>
 `);
+// const SVG = new Template(`
+//     <div class="logic-element" style="--logic-color-back: ${TPL_BACKGROUND}; --logic-color-border: ${TPL_BORDER};">
+//         <div class="header" data-value="0">${TPL_CAPTION}</div>
+//     </div>
+// `);
 
 export default class LogicElement extends AbstractElement {
 
@@ -98,7 +103,7 @@ export default class LogicElement extends AbstractElement {
         attr.push("ref", "category", "value");
         return attr;
     }
-      
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {

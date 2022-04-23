@@ -76,7 +76,7 @@ class LogicListsCreator {
 
         const mixins = {};
         const functions = {};
-        
+
         if (logic) {
             for (const i in logic.logic) {
                 if (i.startsWith("mixin.")) {
@@ -109,14 +109,14 @@ class LogicListsCreator {
         result.operators.push(createSettingsOperatorCategory(tracker_settings));
         result.operators.push(createFilterOperatorCategory(filter));
         result.operators.push(createOperatorLocationDoneCategory(locations));
-        
+
         for (const cat of createOperatorReachCategories(logic.edges)) {
             result.operators.push(cat);
         }
 
         result.operators.push(createOperatorMixins(mixins));
         result.operators.push(createOperatorFunctions(functions));
-        
+
         // LOGICS
         result.logics.push(createLogicGraphCategory(logic.edges, locations));
         result.logics.push(createLogicMixinCategory(mixins));
@@ -190,7 +190,9 @@ function createOptionsOperatorCategory(data) {
                 "children": []
             };
         }
-        if (!!opt.type && opt.type.startsWith("-")) {continue;}
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {
@@ -235,7 +237,9 @@ function createSettingsOperatorCategory(data) {
     };
     for (const i in data) {
         const opt = data[i];
-        if (!!opt.type && opt.type.startsWith("-")) {continue;}
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {

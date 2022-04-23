@@ -1,6 +1,7 @@
 const {app, protocol, BrowserWindow} = require("electron");
 const fs = require("fs");
 const path = require("path");
+// const {startServer} = require("./server.js");
 
 const __dirnameUnix = __dirname.replace(/\\/g, "/");
 

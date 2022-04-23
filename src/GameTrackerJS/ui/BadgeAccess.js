@@ -74,7 +74,7 @@ export default class BadgeAccess extends Badge {
     static get observedAttributes() {
         return [...super.observedAttributes, "available", "unopened"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {

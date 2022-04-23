@@ -129,7 +129,7 @@ class DungeonState extends Panel {
     static get observedAttributes() {
         return ["active"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "active":
@@ -155,7 +155,9 @@ function switchActive(value) {
         j.classList.add("inactive");
     });
     value.forEach(i => {
-        if (!i) {return;}
+        if (!i) {
+            return;
+        }
         this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach(j => {
             j.classList.remove("inactive");
         });

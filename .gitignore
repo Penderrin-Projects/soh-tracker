@@ -12,6 +12,3 @@ yarn.lock
 package-lock.json
 backup.json
 editor/info.log
-
-output
-input

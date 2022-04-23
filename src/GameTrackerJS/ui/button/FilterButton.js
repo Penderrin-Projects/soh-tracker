@@ -90,7 +90,7 @@ class FilterButton extends EventTargetMixin(CustomElement) {
     static get observedAttributes() {
         return ["ref", "value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "ref":

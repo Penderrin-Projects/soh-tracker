@@ -181,5 +181,5 @@ class LogicExecutor extends EventTarget {
     }
 
 }
-    
+
 export default new LogicExecutor();

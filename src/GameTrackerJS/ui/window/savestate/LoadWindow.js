@@ -27,13 +27,13 @@ export default class LoadWindow extends AbstractSavestateWindow {
         /* --- */
         const window = this.shadowRoot.getElementById("window");
         window.append(els.getElementById("footer"));
-        
+
         const lst = this.shadowRoot.getElementById("statelist");
         const snm = this.shadowRoot.getElementById("statename");
         lst.addEventListener("change", function(event) {
             snm.value = event.newValue;
         });
-        
+
         const smt = this.shadowRoot.getElementById("submit");
         smt.onclick = async () => {
             const stateName = snm.value;

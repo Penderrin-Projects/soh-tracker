@@ -39,6 +39,7 @@ start_expanded=start expanded
 start_collapsed=start collapsed
 debug_logic=Logic debugger
 debug=Debug options
+debug_spoiler=Debug Spoiler Importer
 credits=Credits
 about=About
 detached_window_background=Detached Window Background Color
@@ -2077,19 +2078,22 @@ entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Desert Colossus From Haunted Wasteland
 
 ## specials
-entrance[]=Empty Area
+entrance[\u0000]=Empty
+entrance[]=Empty
+
+entrance[region.market_back_alley -> region.market_man_in_green_house_entrance]=Market Back Alley
 
 exit[region.lh_owl_flight -> region.hyrule_field]=Lake Hylia Owl
-entrance[region.hyrule_field -> region.lh_owl_flight]= Hyrule Field Owl Drop
+entrance[region.hyrule_field -> region.lh_owl_flight]=Hyrule Field Owl Drop
 
 exit[region.dmt_owl_flight -> region.kak_impas_rooftop]= Death Mountain Owl
-entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]= Kakariko Owl Drop
+entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]=Kakariko Owl Drop
 
 exit[region.child_spawn -> region.kf_links_house]=Child Spawn
-entrance[region.kf_links_house -> region.child_spawn]= Links House Spawn
+entrance[region.kf_links_house -> region.child_spawn]=Links House Spawn
 
 exit[region.adult_spawn -> region.temple_of_time]=Adult Spawn
-entrance[region.temple_of_time -> region.adult_spawn]= Temple of Time Spawn
+entrance[region.temple_of_time -> region.adult_spawn]=Temple of Time Spawn
 
 exit[region.prelude_of_light_warp -> region.temple_of_time]=Prelude Warp
 entrance[region.temple_of_time -> region.prelude_of_light_warp]=Prelude Warp Pad

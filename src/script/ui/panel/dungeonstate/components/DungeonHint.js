@@ -116,7 +116,7 @@ class HTMLTrackerDungeonHint extends StateDataEventManager(CustomElement) {
     static get observedAttributes() {
         return ["ref", "value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

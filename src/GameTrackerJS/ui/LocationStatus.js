@@ -10,7 +10,7 @@ const TPL = new Template(`
     <span id="locations-done">#</span> done | <span id="locations-available">#</span> avail | <span id="locations-missing">#</span> miss
 </div>
 `);
-    
+
 const STYLE = new GlobalStyle(`
 .state {
     display: inline;
@@ -25,7 +25,7 @@ export default class LocationStatus extends CustomElement {
         super();
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
-        
+
         /* LIST HANDLER */
         const listHandler = this.generateList();
         listHandler.addEventListener("access", (event) => {

@@ -44,7 +44,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
             await Inject.css("/style/index.css");
             updateLoadingMessage("load app...");
             await Inject.module("/script/app.js");
-        } catch(e) {
+        } catch (e) {
             printError(e);
         }
     }
@@ -76,7 +76,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
             `, true);
         }
     }
-    
+
     updateLoadingMessage("loading...");
 
     if (!NOSW && "serviceWorker" in navigator) {

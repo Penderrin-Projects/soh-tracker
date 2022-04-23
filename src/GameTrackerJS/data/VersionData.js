@@ -47,7 +47,7 @@ async function getData() {
             res.version = resourceData.version || 0;
         }
         res.date = DateUtil.convert(new Date(resourceData.date), "D.M.Y h:m:s");
-    } catch(err) {
+    } catch (err) {
         console.error("Could not load version file", err);
     }
     res.versionString = `${res.version} (${res.date})`;
@@ -72,7 +72,7 @@ class VersionData extends EventTarget {
     get version() {
         return Helper.deepClone(APP_DATA.version);
     }
-    
+
     get date() {
         return Helper.deepClone(APP_DATA.date);
     }

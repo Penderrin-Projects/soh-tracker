@@ -61,7 +61,7 @@ class RTCController extends EventTarget {
     setLogger(value) {
         RTCClient.setLogger(value);
     }
-    
+
     async getInstances(supressError) {
         const res = await rtcClient.getInstances();
         if (res == null || !res.success) {

@@ -93,7 +93,9 @@ function createOptionsOperatorCategory(data) {
                 "children": []
             };
         }
-        if (!!opt.type && opt.type.startsWith("-")) {continue;}
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {
@@ -138,7 +140,9 @@ function createSettingsOperatorCategory(data) {
     };
     for (const i in data) {
         const opt = data[i];
-        if (!!opt.type && opt.type.startsWith("-")) {continue;}
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {

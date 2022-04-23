@@ -25,6 +25,6 @@ try {
     const waw = window.outerWidth - window.innerWidth;
     const wah = window.outerHeight - window.innerHeight;
     window.resizeTo(waw + el.clientWidth, wah + el.clientHeight);
-} catch(err) {
+} catch (err) {
     console.error(err);
 }

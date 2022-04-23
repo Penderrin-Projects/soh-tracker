@@ -149,7 +149,7 @@ function clickItem(event) {
 }
 
 export default class HTMLTrackerShopItemChoice extends Window {
-    
+
     constructor(title = "Item Choice", options = {}) {
         super(title, options.close);
         const els = TPL.generate();
@@ -184,7 +184,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
             ccl.setAttribute("title", options.cancel);
         }
         ccl.onclick = () => this.close();
-        
+
         const items = ShopItemsResource.get();
         for (const item in items) {
             const values = items[item];
@@ -220,7 +220,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
     static get observedAttributes() {
         return ["active", "item", "price"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case "active":
@@ -306,7 +306,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
         a.unshift(this.shadowRoot.getElementById("close"));
         a[0].focus();
     }
-    
+
     focusLast() {
         const a = Array.from(this.querySelectorAll(Q_TAB));
         a.push(this.shadowRoot.getElementById("submit"));

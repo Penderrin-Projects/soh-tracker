@@ -26,7 +26,7 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
         loadRulesetWrapper.style.flex = "1";
         const loadRulesetButton = loadRulesetRow.getElementById("load-options-preset");
         Language.applyLabel(loadRulesetButton, "load-preset-button");
-        
+
         const selector = loadRulesetRow.getElementById("select-options-preset");
         selector.style.width = "20%";
         const allRulesets = Object.keys(RulesetsResource.get());
@@ -39,11 +39,13 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
 
         loadRulesetButton.addEventListener("click", () => {
             const name = this.shadowRoot.getElementById("select-options-preset").value;
-            
+
             const ruleset = RulesetsResource.get(name);
             const items = {};
             const options = {};
-            if (!ruleset) { return }
+            if (!ruleset) {
+                return
+            }
 
             if (ruleset.items != null) {
                 for (const key in ruleset.items) {

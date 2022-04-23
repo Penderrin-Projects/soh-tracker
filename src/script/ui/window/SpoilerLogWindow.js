@@ -37,7 +37,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
         /* --- */
         const options = SpoilerOptionsResource.get();
         SettingsBuilder.build(this, options);
-        
+
         // add preset choice
         const loadSpoilerRow = LOAD_SPOILER.generate();
         const loadSpoilerWrapper = loadSpoilerRow.getElementById("options-spoiler-wrapper");
@@ -64,7 +64,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
                     Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                     spoiler = {};
                     await BusyIndicator.unbusy();
-                } catch(err) {
+                } catch (err) {
                     console.error(err);
                     await BusyIndicator.unbusy();
                     await Dialog.alert("Error loading spoiler", err.message);

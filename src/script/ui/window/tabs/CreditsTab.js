@@ -131,7 +131,7 @@ async function fillCredits(teamList, contributorList, supporterList) {
         }
         supporters = await r.json();
         LocalStorage.set("supporters", supporters);
-    } catch(err) {
+    } catch (err) {
         console.error(err);
     }
     for (const [key, value] of Object.entries(supporters).sort(sortTiers)) {

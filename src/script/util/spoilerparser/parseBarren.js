@@ -8,7 +8,9 @@ export default function parseBarren(errorDialogHandler, target = {}, data = {}, 
         if (barren_trans[i] != null) {
             if (barren_trans[i] === "castle") {
                 castle++;
-                if (castle === 2) {target["area/" + barren_trans[i]] = "barren";}
+                if (castle === 2) {
+                    target["area/" + barren_trans[i]] = "barren";
+                }
             } else {
                 target["area/" + barren_trans[i]] = "barren";
             }

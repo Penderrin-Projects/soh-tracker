@@ -14,7 +14,7 @@ export default class EmptyState extends DataState {
     setAccess() {
         // empty
     }
-    
+
     generateList() {
         // empty
     }

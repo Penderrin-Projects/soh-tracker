@@ -6,7 +6,9 @@ export default function parseDungeonRewards(errorDialogHandler, target = {}, dat
     for (const i in data) {
         let v = data[i];
         if (location_trans[i] != null) {
-            if (typeof v === "object" && v !== null) {v = v["item"];}
+            if (typeof v === "object" && v !== null) {
+                v = v["item"];
+            }
 
             if (item_trans[v] === undefined) {
                 console.warn("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");

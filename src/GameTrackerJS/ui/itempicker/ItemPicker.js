@@ -129,7 +129,7 @@ export default class ItemPicker extends Panel {
     static get observedAttributes() {
         return ["items", "grid"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
