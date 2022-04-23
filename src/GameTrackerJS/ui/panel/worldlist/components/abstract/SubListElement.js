@@ -42,7 +42,7 @@ export default class WorldListSubListElement extends WorldListSubList {
             badgeEl.setFilterData(state.props.filter);
         }
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* badge */

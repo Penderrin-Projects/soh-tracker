@@ -86,7 +86,7 @@ if (CONFIG.prefetchEntries) {
     setTimeout(() => {
         for (const [category, manager] of STATE_MANAGERS) {
             const data = WorldResource.get(category);
-    
+
             for (const id in data) {
                 manager.get(id);
             }

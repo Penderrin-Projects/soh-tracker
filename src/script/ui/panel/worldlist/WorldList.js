@@ -33,7 +33,7 @@ function applyElements(target) {
 }
 
 export default class WorldList extends GTWorldList {
-    
+
     constructor() {
         super();
         applyElements(this.shadowRoot);
@@ -86,7 +86,7 @@ export default class WorldList extends GTWorldList {
             masterquestEl.classList.add("hidden");
         }
     }
-    
+
 }
 
 Panel.registerReference("worldlist", WorldList);

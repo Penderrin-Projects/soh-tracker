@@ -1,13 +1,15 @@
-const fs = require("fs");
-const path = require("path");
-const gulp = require("gulp");
-const htmlmin = require("gulp-htmlmin");
-const jsonminify = require("gulp-jsonminify");
-const svgo = require("gulp-svgo");
-const newer = require("gulp-newer");
-const autoprefixer = require("gulp-autoprefixer");
-const indexManager = require("./build_tools/file-index.js");
-const languageManager = require("./build_tools/language.js");
+import fs from "fs";
+import path from "path";
+import gulp from "gulp";
+import htmlmin from "gulp-htmlmin";
+import jsonminify from "gulp-jsonminify";
+import svgo from "gulp-svgo";
+import newer from "gulp-newer";
+import autoprefixer from "gulp-autoprefixer";
+import IndexManager from "./build_tools/file-index.js";
+import LanguageManager from "./build_tools/language.js";
+
+const __dirname = path.resolve();
 
 const SRC_PATH = path.resolve(__dirname, "./src");
 const LOGIC_PATH = path.resolve(__dirname, "./logic");
@@ -54,7 +56,7 @@ if (!NOLOCAL) {
 /* JS START */
 function copyJS(files, src, dest) {
     let res = gulp.src(files);
-    res = res.pipe(indexManager.register(src, dest))
+    res = res.pipe(IndexManager.register(src, dest))
     if (!REBUILDJS && !REBUILD) {
         res = res.pipe(newer(dest))
     }
@@ -136,7 +138,7 @@ function copyHTML(dest = DEV_PATH) {
         `${SRC_PATH}/**/*.html`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(SRC_PATH, dest));
+    res = res.pipe(IndexManager.register(SRC_PATH, dest));
     if (!REBUILD) {
         res = res.pipe(newer(dest));
     }
@@ -150,7 +152,7 @@ function copyJSON(dest = DEV_PATH) {
         `${SRC_PATH}/**/*.json`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(SRC_PATH, dest));
+    res = res.pipe(IndexManager.register(SRC_PATH, dest));
     if (!REBUILD) {
         res = res.pipe(newer(dest));
     }
@@ -167,7 +169,7 @@ function copyLogic(dest = DEV_PATH) {
     ];
     const DST = `${dest}/logic`;
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(SRC_PATH, DST));
+    res = res.pipe(IndexManager.register(SRC_PATH, DST));
     if (!REBUILD) {
         res = res.pipe(newer(DST));
     }
@@ -180,8 +182,8 @@ function copyI18N(dest = DEV_PATH) {
         `${SRC_PATH}/i18n/*.lang`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(`${SRC_PATH}/i18n`, `${dest}/i18n`));
-    res = res.pipe(languageManager.register(`${SRC_PATH}/i18n`, `${dest}/i18n`));
+    res = res.pipe(IndexManager.register(`${SRC_PATH}/i18n`, `${dest}/i18n`));
+    res = res.pipe(LanguageManager.register(`${SRC_PATH}/i18n`, `${dest}/i18n`));
     if (!REBUILD) {
         res = res.pipe(newer(`${dest}/i18n`));
     }
@@ -195,7 +197,7 @@ function copyImg(dest = DEV_PATH) {
         `${SRC_PATH}/images/**/*.png`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(`${SRC_PATH}/images`, `${dest}/images`));
+    res = res.pipe(IndexManager.register(`${SRC_PATH}/images`, `${dest}/images`));
     if (!REBUILD) {
         res = res.pipe(newer(`${dest}/images`))
     }
@@ -209,7 +211,7 @@ function copyChangelog(dest = DEV_PATH) {
         `${SRC_PATH}/CHANGELOG.MD`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(SRC_PATH, dest))
+    res = res.pipe(IndexManager.register(SRC_PATH, dest))
     if (!REBUILD) {
         res = res.pipe(newer(dest))
     }
@@ -222,7 +224,7 @@ function copyCSS(dest = DEV_PATH) {
         `${SRC_PATH}/style/**/*.css`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(`${SRC_PATH}/style`, `${dest}/style`))
+    res = res.pipe(IndexManager.register(`${SRC_PATH}/style`, `${dest}/style`))
     if (!REBUILD) {
         res = res.pipe(newer(`${dest}/style`))
     }
@@ -241,7 +243,7 @@ function copyFonts(dest = DEV_PATH) {
         `${SRC_PATH}/fonts/**/*.svg`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(indexManager.register(`${SRC_PATH}/fonts`, `${dest}/fonts`))
+    res = res.pipe(IndexManager.register(`${SRC_PATH}/fonts`, `${dest}/fonts`))
     if (!REBUILD) {
         res = res.pipe(newer(`${dest}/fonts`))
     }
@@ -250,12 +252,12 @@ function copyFonts(dest = DEV_PATH) {
 }
 
 function finish(dest, done) {
-    indexManager.add(languageManager.finish(`${dest}/i18n`));
-    indexManager.finish(dest);
+    IndexManager.add(LanguageManager.finish(`${dest}/i18n`));
+    IndexManager.finish(dest);
     done();
 }
 
-exports.build = gulp.series(
+export const build = gulp.series(
     gulp.parallel(
         copyHTML.bind(this, PRD_PATH),
         copyJSON.bind(this, PRD_PATH),
@@ -276,7 +278,7 @@ exports.build = gulp.series(
     finish.bind(this, PRD_PATH)
 );
 
-exports.buildDev = gulp.series(
+export const buildDev = gulp.series(
     gulp.parallel(
         copyHTML.bind(this, DEV_PATH),
         copyJSON.bind(this, DEV_PATH),
@@ -297,7 +299,7 @@ exports.buildDev = gulp.series(
     finish.bind(this, DEV_PATH)
 );
 
-exports.watch = function() {
+export const watch = function() {
     exports.buildDev();
     return gulp.watch(
         SRC_PATH,

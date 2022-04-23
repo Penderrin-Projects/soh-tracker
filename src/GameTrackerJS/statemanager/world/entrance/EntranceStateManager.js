@@ -3,7 +3,7 @@ import WorldStateManager from "../WorldStateManager.js";
 import DefaultEntranceState from "../../../state/world/entrance/DefaultEntranceState.js";
 
 class EntranceStateManager extends WorldStateManager {
-    
+
     constructor() {
         super(DefaultEntranceState, "exit");
     }

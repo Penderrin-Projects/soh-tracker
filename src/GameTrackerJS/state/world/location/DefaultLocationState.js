@@ -52,7 +52,7 @@ export default class DefaultLocationState extends VisibilityState {
         locationsObserver.addEventListener("change", (event) => {
             this.value = event.data;
         });
-        
+
         const locationItemsObserver = new DataStorageValueObserver(STORAGES.locationItems, ref, "");
         ITEM.set(this, locationItemsObserver.value);
         locationItemsObserver.addEventListener("change", (event) => {
@@ -63,7 +63,7 @@ export default class DefaultLocationState extends VisibilityState {
             const itemData = ItemStateManager.get(this.item);
             ITEM_DATA.set(this, itemData?.props);
         }
-        
+
         REACHABLE.set(this, Logic.getValue(props.logicAccess));
         ACCESS.set(this, getLogicAccess(this.value, this.reachable));
 
@@ -138,7 +138,9 @@ export default class DefaultLocationState extends VisibilityState {
 
     set item(value) {
         const ref = this.ref;
-        if (typeof value != "string") {value = "";}
+        if (typeof value != "string") {
+            value = "";
+        }
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);

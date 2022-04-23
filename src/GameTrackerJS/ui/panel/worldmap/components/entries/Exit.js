@@ -179,7 +179,7 @@ export default class MapExit extends WorldMapMarkedEntry {
         /* value */
         this.applyValue(state.value);
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* entrances */
@@ -263,7 +263,7 @@ export default class MapExit extends WorldMapMarkedEntry {
     static get observedAttributes() {
         return [...super.observedAttributes, "left", "top", "tooltip"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {

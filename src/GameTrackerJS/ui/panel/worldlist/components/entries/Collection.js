@@ -29,7 +29,7 @@ export default class WorldListCollection extends WorldListSubList {
         /* collapsed */
         this.setCollapsed(true);
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* collapsed */

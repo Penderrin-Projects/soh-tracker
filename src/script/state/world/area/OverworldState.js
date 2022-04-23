@@ -10,7 +10,7 @@ export default class OverworldState extends GTOverworldState {
     get defaultAccess() {
         return getDefaultAccess();
     }
-    
+
     /* list */
     generateOverworldList() {
         return new OverworldListHandler();

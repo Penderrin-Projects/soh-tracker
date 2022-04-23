@@ -32,7 +32,7 @@ function applyElements(target) {
 }
 
 export default class WorldMap extends GTWorldMap {
-    
+
     constructor() {
         super();
         applyElements(this.shadowRoot);
@@ -60,7 +60,7 @@ export default class WorldMap extends GTWorldMap {
             dungeontypeEl.ref = state.ref;
         }
     }
-    
+
 }
 
 Panel.registerReference("worldmap", WorldMap);

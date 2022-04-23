@@ -31,7 +31,7 @@ export default class WorldListStateButton extends BaseClass {
     getStateAccess(state) {
         return state.access;
     }
-    
+
     applyAccess(value = "undefined", data = {}) {
         this.access = value;
     }
@@ -55,7 +55,7 @@ export default class WorldListStateButton extends BaseClass {
     static get observedAttributes() {
         return [...super.observedAttributes, "ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {

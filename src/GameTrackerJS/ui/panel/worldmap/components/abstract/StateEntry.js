@@ -112,7 +112,7 @@ export default class WorldMapStateEntry extends BaseClass {
     getStateAccess(state) {
         return state.access;
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         /* marker */
         const markerEl = this.shadowRoot.getElementById("marker");
@@ -137,7 +137,7 @@ export default class WorldMapStateEntry extends BaseClass {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

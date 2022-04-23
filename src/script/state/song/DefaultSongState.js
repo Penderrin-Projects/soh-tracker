@@ -25,7 +25,7 @@ export default class DefaultSongState extends DataState {
             NOTES.set(this, props.notes);
         }
     }
-        
+
     set notes(value) {
         if (this.props.editable) {
             const ref = this.ref;

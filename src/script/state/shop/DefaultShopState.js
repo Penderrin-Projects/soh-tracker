@@ -129,7 +129,7 @@ export default class DefaultShopState extends DataState {
     get price() {
         return PRICE.get(this);
     }
-    
+
     set bought(value) {
         const ref = this.ref;
         const itemData = ITEM_DATA.get(this);

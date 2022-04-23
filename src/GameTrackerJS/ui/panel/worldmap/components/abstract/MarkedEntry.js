@@ -72,7 +72,7 @@ export default class WorldMapMarkedEntry extends WorldMapStateEntry {
             badgeEl.setFilterData(state.props.filter);
         }
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* badge */

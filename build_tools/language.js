@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-// const glob = require("glob-all");
-const through = require("through");
-// const del = require("del");
+import fs from "fs";
+import path from "path";
+// import glob from "glob-all";
+import through from "through";
+// import del from "del";
 
 const LNBR_SEQ = /(?:\r\n|\n|\r)/g;
 const LANG_SEQ = /# language:\s+(.*)/;
@@ -51,4 +51,4 @@ class LanguageManager {
 
 }
 
-module.exports = new LanguageManager();
+export default new LanguageManager();

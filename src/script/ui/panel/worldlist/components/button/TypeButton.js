@@ -74,7 +74,7 @@ export default class ListButton extends BaseClass {
             return state.access;
         }
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* badge */
@@ -97,7 +97,7 @@ export default class ListButton extends BaseClass {
     static get observedAttributes() {
         return [...super.observedAttributes, "type"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {

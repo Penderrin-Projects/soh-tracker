@@ -172,7 +172,7 @@ export default class WorldListExit extends BaseClass {
         /* value */
         this.applyValue(state.value);
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* entrances */

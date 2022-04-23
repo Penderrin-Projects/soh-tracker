@@ -7,10 +7,10 @@ const LIST_HANDLER = new WeakMap();
 const VISIBLE = new WeakMap();
 
 export default class DefaultCollectionState extends DataState {
-    
+
     constructor(ref, props = {}) {
         super(ref, props);
-        
+
         /* VALUES */
         VISIBLE.set(this, false);
 

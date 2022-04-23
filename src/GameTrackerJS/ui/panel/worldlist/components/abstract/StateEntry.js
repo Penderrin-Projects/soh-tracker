@@ -64,7 +64,7 @@ export default class WorldListStateEntry extends BaseClass {
     getStateAccess(state) {
         return state.access;
     }
-    
+
     applyAccess(value = "undefined", data = {}) {
         this.access = value;
     }
@@ -88,7 +88,7 @@ export default class WorldListStateEntry extends BaseClass {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

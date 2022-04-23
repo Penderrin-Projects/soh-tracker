@@ -195,7 +195,7 @@ export default class WorldList extends BaseClass {
     getStateAccess(state) {
         return state.access;
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         this.access = value;
     }
@@ -219,7 +219,7 @@ export default class WorldList extends BaseClass {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
@@ -261,7 +261,7 @@ export default class WorldList extends BaseClass {
         // this.classList.toggle("empty", !hasElements);
         elManager.manage(elManagerData);
     }
-    
+
 }
 
 Panel.registerReference("worldlist", WorldList);

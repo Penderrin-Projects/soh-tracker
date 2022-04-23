@@ -11,7 +11,7 @@ export default function parseSetting(errorDialogHandler, target = {}, data = {},
                         if (typeof el == "object") {
                             try {
                                 setSettingToTarget(target, el, parsedValue);
-                            } catch{
+                            } catch {
                                 console.warn("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
                                 errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
                             }
@@ -22,7 +22,7 @@ export default function parseSetting(errorDialogHandler, target = {}, data = {},
                 } else {
                     try {
                         setSettingToTarget(target, transData, parsedValue);
-                    } catch{
+                    } catch {
                         console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
                         errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
                     }

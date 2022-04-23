@@ -129,7 +129,7 @@ export default class ItemElement extends BaseClass {
     static get observedAttributes() {
         return ["ref", "value"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
@@ -180,7 +180,9 @@ export default class ItemElement extends BaseClass {
                 }
             }
         }
-        if (!event) {return;}
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }
@@ -215,7 +217,9 @@ export default class ItemElement extends BaseClass {
                 }
             }
         }
-        if (!event) {return;}
+        if (!event) {
+            return;
+        }
         event.preventDefault();
         return false;
     }

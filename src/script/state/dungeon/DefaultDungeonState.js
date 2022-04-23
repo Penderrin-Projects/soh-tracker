@@ -30,14 +30,14 @@ export default class DefaultDungeonState extends DataState {
                 });
             }
         }
-        
+
         const dungeonRewardsObserver = new DataStorageValueObserver(STORAGES.dungeonRewards, ref, "");
         REWARD.set(this, dungeonRewardsObserver.value);
         dungeonRewardsObserver.addEventListener("change", (event) => {
             this.reward = event.data;
         });
     }
-    
+
     set type(value) {
         const area = AREA.get(this);
         if (area != null) {
@@ -52,7 +52,7 @@ export default class DefaultDungeonState extends DataState {
         }
         return "v";
     }
-    
+
     set reward(value) {
         const ref = this.ref;
         if (typeof value != "string") {

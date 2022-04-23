@@ -66,7 +66,7 @@ export default class WorldListElement extends BaseClass {
             badgeEl.setFilterData(state.props.filter);
         }
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* badge */

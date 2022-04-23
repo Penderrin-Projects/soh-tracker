@@ -83,7 +83,7 @@ function buttonClick(event) {
 }
 
 export default class HTMLTrackerSongBuilder extends CustomElement {
-    
+
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());

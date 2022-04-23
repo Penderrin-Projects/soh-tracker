@@ -3,7 +3,7 @@ import WorldStateManager from "../WorldStateManager.js";
 import DefaultExitState from "../../../state/world/exit/DefaultExitState.js";
 
 class ExitStateManager extends WorldStateManager {
-    
+
     constructor() {
         super(DefaultExitState, "exit");
     }

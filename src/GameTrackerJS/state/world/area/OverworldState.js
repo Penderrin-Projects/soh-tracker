@@ -12,14 +12,14 @@ export default class OverworldState extends DataState {
 
     constructor(ref, props) {
         super(ref, props);
-        
+
         /* LIST HANDLER */
         const listHandler = this.generateList();
         listHandler.addEventListener("change", (event) => {
             this.onListEntriesChange(event)
         });
         LIST_HANDLER.set(this, listHandler);
-        
+
         /* OVERWORLD HANDLER */
         const overworldHandler = this.generateOverworldList();
         overworldHandler.addEventListener("access", (event) => {
@@ -59,7 +59,7 @@ export default class OverworldState extends DataState {
     get hint() {
         return "woth";
     }
-    
+
     get listContents() {
         return false;
     }
@@ -76,7 +76,7 @@ export default class OverworldState extends DataState {
     get hasMap() {
         return this.props.map.active;
     }
-    
+
     /* list */
     generateList() {
         const ref = this.ref;

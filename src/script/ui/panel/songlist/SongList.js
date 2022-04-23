@@ -13,7 +13,7 @@ const STYLE = new GlobalStyle(`
 `);
 
 export default class SongList extends Panel {
-    
+
     constructor() {
         super();
         STYLE.apply(this.shadowRoot);

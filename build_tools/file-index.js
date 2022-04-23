@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const glob = require("glob-all");
-const through = require("through");
-const del = require("del");
+import fs from "fs";
+import path from "path";
+import glob from "glob-all";
+import through from "through";
+import del from "del";
 
 const FILES = new Set();
 
@@ -63,4 +63,4 @@ class FileManager {
 
 }
 
-module.exports = new FileManager();
+export default new FileManager();

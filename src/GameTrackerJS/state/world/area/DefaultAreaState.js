@@ -74,7 +74,7 @@ export default class DefaultAreaState extends VisibilityState {
     get hint() {
         return HINT.get(this);
     }
-    
+
     get listContents() {
         return this.props.listContents ?? false;
     }

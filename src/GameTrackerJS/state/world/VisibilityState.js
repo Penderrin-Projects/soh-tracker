@@ -13,7 +13,7 @@ export default class VisibilityState extends DataState {
 
         /* VISIBILITY */
         VISIBLE.set(this, false);
-        
+
         const visibilityHandler = new VisibilityHandler(props.visible);
         VISIBILITY_HANDLER.set(this, visibilityHandler);
         visibilityHandler.addEventListener("change", () => {

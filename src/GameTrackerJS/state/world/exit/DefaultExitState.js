@@ -102,7 +102,7 @@ export default class DefaultExitState extends VisibilityState {
         /* VALUES */
         const logicAccess = props.logicAccess;
         ACCESS.set(this, getLogicAccess(logicAccess));
-        
+
         const exitBindingsObserver = new DataStorageValueObserver(STORAGES.exitBindings, ref, "");
         VALUE.set(this, exitBindingsObserver.value);
         exitBindingsObserver.addEventListener("change", (event) => {

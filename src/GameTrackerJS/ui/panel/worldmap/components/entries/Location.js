@@ -161,7 +161,7 @@ export default class MapLocation extends WorldMapMarkedEntry {
     static get observedAttributes() {
         return [...super.observedAttributes, "left", "top", "tooltip"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {

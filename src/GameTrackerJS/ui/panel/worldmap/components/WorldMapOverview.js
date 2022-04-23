@@ -180,10 +180,10 @@ export default class WorldMapOverview extends BaseClass {
                 const rectH = minmapH / mapH * cntH;
                 const halfW = rectW / 2;
                 const halfH = rectH / 2;
-                
+
                 const posX = -x * minmapW / mapW;
                 const posY = -y * minmapH / mapH;
-                
+
                 const left = oWidth / 2 + posX - halfW;
                 const top = oHeight / 2 + posY - halfH;
                 const right = oWidth / 2 - posX - halfW;
@@ -259,7 +259,7 @@ export default class WorldMapOverview extends BaseClass {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

@@ -3,7 +3,7 @@ import WorldStateManager from "../WorldStateManager.js";
 import DefaultAreaState from "../../../state/world/area/DefaultAreaState.js";
 
 class AreaStateManager extends WorldStateManager {
-    
+
     constructor() {
         super(DefaultAreaState, "area");
     }

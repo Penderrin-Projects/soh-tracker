@@ -125,7 +125,7 @@ export default class WorldListArea extends BaseClass {
         /* hint */
         this.applyHint(state.hint);
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
         /* entrances */

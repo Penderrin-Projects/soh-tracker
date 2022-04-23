@@ -18,7 +18,7 @@ export default class WorldListButton extends WorldListEntry {
     static get observedAttributes() {
         return ["text"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

@@ -99,7 +99,7 @@ export default class WorldMapTitle extends BaseClass {
     getStateAccess(state) {
         return state.access;
     }
-    
+
     applyAccess(value = "unavailable", data = {}) {
         this.access = value;
     }
@@ -123,7 +123,7 @@ export default class WorldMapTitle extends BaseClass {
     static get observedAttributes() {
         return ["ref"];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {

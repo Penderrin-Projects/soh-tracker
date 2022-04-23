@@ -54,7 +54,9 @@ export default class StartSettingsState extends DefaultItemState {
     }
 
     set value(value) {
-        if (typeof value != "number") {value = 0;}
+        if (typeof value != "number") {
+            value = 0;
+        }
         if (!!value && value < this.startvalue) {
             if (super.value > value) {
                 value = 0;

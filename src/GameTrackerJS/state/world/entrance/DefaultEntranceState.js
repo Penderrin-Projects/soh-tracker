@@ -22,7 +22,7 @@ export default class DefaultEntranceState extends DataState {
         } else {
             ACTIVE.set(this, !!props.entranceActive);
         }
-        
+
         /* EVENTS */
         const logicEventManager = new EventTargetManager(LogicExecutor);
         logicEventManager.set(["reset", "change"], event => {
