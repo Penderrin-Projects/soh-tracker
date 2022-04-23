@@ -10,7 +10,7 @@
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-		"eslint": "^8.0.0",
+    "eslint": "^8.0.0",
     "del": "^5.1.0",
     "electron": "^13.1.1",
     "glob-all": "^3.1.0",
@@ -37,12 +37,12 @@
     "iOS >= 10"
   ],
   "scripts": {
+    "lint": "yarn eslint .",
+    "lintfix": "yarn eslint --fix .",
     "build": "gulp build",
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
     "serve": "serve dev",
-    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1",
-    "lint": "yarn eslint ./src",
-    "lintfix": "yarn eslint --fix ./src"
+    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
   }
 }

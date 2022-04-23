@@ -4,7 +4,6 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 // Track-OOT
 import DeveloperData from "/script/data/DeveloperData.js";
 

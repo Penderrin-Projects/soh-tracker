@@ -109,7 +109,6 @@ const REWARDS = [
 ];
 const TAKEN_REWARDS = new Map();
 
-
 class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
 
     constructor() {

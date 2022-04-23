@@ -1,7 +1,6 @@
 // frameworks
 import EventBus from "/emcJS/event/EventBus.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";

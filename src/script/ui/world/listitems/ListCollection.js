@@ -4,7 +4,6 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
-
 // GameTrackerJS
 import WorldStateManager from "/GameTrackerJS/state/world/WorldStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";

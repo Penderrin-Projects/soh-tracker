@@ -3,7 +3,6 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 
-
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import AbstractArea from "/GameTrackerJS/ui/world/Area.js";

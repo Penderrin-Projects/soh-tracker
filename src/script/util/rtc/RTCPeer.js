@@ -2,7 +2,6 @@
 import EventBus from "/emcJS/event/EventBus.js";
 import EventBusModuleGeneric from "/emcJS/event/module/EventBusModuleGeneric.js";
 
-
 const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();
 const USERNAME = new WeakMap();

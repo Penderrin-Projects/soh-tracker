@@ -136,7 +136,6 @@ export default class TextEditor extends CustomElement {
         }
     }
 
-
 }
 
 customElements.define("gt-texteditor", TextEditor);

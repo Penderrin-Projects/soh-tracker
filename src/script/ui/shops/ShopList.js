@@ -3,7 +3,6 @@
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import "./ShopField.js";

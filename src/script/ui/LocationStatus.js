@@ -5,7 +5,6 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import UIEventBusMixin from "/emcJS/event/ui/EventBusMixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import LocationStateManager from "/GameTrackerJS/state/world/location/StateManager.js";

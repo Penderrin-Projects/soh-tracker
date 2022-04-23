@@ -3,7 +3,6 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import RTCClient from "/rtc/RTCClient.js";
 
-
 // Track-OOT
 import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
 import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";

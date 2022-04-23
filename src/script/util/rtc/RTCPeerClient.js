@@ -3,7 +3,6 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 // Track-OOT

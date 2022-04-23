@@ -3,7 +3,6 @@ import Template from "/emcJS/util/html/Template.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/input/SearchSelect.js";
 
-
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";

@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import AbstractElement from "/editors/ui/logic/AbstractElement.js";
 
-
 const TPL_CAPTION = "CUSTOM";
 const TPL_BACKGROUND = "#ffffff";
 const TPL_BORDER = "#777777";
