@@ -30,15 +30,6 @@ const TPL = new Template(`
 </div>
 `);
 
-const Q_TAB = [
-    "button:not([tabindex=\"-1\"])",
-    "[href]:not([tabindex=\"-1\"])",
-    "input:not([tabindex=\"-1\"])",
-    "select:not([tabindex=\"-1\"])",
-    "textarea:not([tabindex=\"-1\"])",
-    "[tabindex]:not([tabindex=\"-1\"])"
-].join(",");
-
 export default class ManageWindow extends AbstractSavestateWindow {
 
     constructor() {

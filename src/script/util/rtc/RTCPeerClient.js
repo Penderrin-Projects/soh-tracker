@@ -10,7 +10,7 @@ import RTCPeer from "/script/util/rtc/RTCPeer.js";
 
 const STORAGES = {
     // GameTrackerJS
-    filter: Savestate.getStorage("filter"),
+    filter: Savestate.getStorage("filter")
 };
 
 const EVENT_TARGET_MANAGER = new WeakMap();

@@ -85,4 +85,5 @@ class OptionsStorage extends DataStorage {
 }
 
 const storage = new OptionsStorage();
+
 export default storage;

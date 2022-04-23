@@ -19,7 +19,7 @@ let logic_rule_type = OptionsStorage.get("option.logic_rules");
 let use_custom_logic = SettingsStorage.get("use_custom_logic");
 
 function getLogicData() {
-    switch(logic_rule_type) {
+    switch (logic_rule_type) {
         case "logic_rules_glitched": {
             return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
         }
@@ -31,7 +31,7 @@ function getLogicData() {
 }
 
 function getCustomLogicData() {
-    switch(logic_rule_type) {
+    switch (logic_rule_type) {
         case "logic_rules_glitched": {
             return LogicsStorageGlitched.getAll() ?? {edges:{}, logic:{}};
         }
@@ -52,7 +52,7 @@ function augmentLogic(logic) {
             res.edges[key] = res.edges[key] ?? {};
             res.edges[key][target] = value;
         } else {
-            res.logic[key] = value;
+            res.logic[l] = value;
         }
     }
     return res;

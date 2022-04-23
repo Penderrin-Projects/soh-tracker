@@ -3,7 +3,6 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/FileSystem.js";
 import "/editors/modules/properties/Editor.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
@@ -12,32 +11,32 @@ import LogicResource from "/script/resource/LogicResource.js";
 import LocationListsCreator from "../locations/LocationListsCreator.js";
 
 export default async function(editorChoice) {
-    let DataStorage = new IDBStorage("locations");
-    let locationEditor = document.createElement("ted-properties-editor");
+    const DataStorage = new IDBStorage("locations");
+    const locationEditor = document.createElement("ted-properties-editor");
 
-    let filter = FilterResource.get();
-    let logic = LogicResource.get("edges");
+    const filter = FilterResource.get();
+    const logic = LogicResource.get("edges");
 
-    let locations = new Set();
+    const locations = new Set();
 
-    for (let region in logic) {
-        for (let ch in logic[region]) {
+    for (const region in logic) {
+        for (const ch in logic[region]) {
             if (ch.startsWith("logic.location.")) {
                 locations.add(ch);
             }
         }
     }
 
-    let detailConfig = {
+    const detailConfig = {
         "category": {
             "title": "Category",
             "type": "choice",
-            "values": ["","entrance","area","location"]
+            "values": ["", "entrance", "area", "location"]
         },
         "type": {
             "title": "Type",
             "type": "choice",
-            "values": ["","area","chest","skulltula","scrub","gossipstone","cow","bean"]
+            "values": ["", "area", "chest", "skulltula", "scrub", "gossipstone", "cow", "bean"]
         },
         "access": {
             "title": "Logic reference",
@@ -51,7 +50,7 @@ export default async function(editorChoice) {
         }
     };
 
-    for (let name in filter) {
+    for (const name in filter) {
         detailConfig[`filter/${name}`] = {
             "title": `Filter [${name}]`,
             "type": "list",
@@ -63,30 +62,31 @@ export default async function(editorChoice) {
 
     // refresh
     async function refreshLocationEditor() {
-        let lists = await LocationListsCreator.createLists();
+        const lists = await LocationListsCreator.createLists();
         locationEditor.loadList(lists);
-        let intData = {};
-        let data = WorldResource.get();
-        for (let name in data) {
+        const intData = {};
+        const data = WorldResource.get();
+        for (const name in data) {
             intData[name] = {};
-            for (let key in data[name]) {
+            for (const key in data[name]) {
                 if (key != "filter") {
                     intData[name][key] = data[name][key];
                 }
             }
-            for (let key in filter) {
+            for (const key in filter) {
                 if (data[name].filter[key] == null) {
                     intData[name][`filter/${key}`] = filter[key].values;
                 } else {
-                    let vals = data[name].filter[key];
+                    const vals = data[name].filter[key];
                     intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
                 }
             }
         }
         locationEditor.setData(intData);
-        let patch = await DataStorage.getAll();
+        const patch = await DataStorage.getAll();
         locationEditor.setPatch(patch);
     }
+
     await refreshLocationEditor();
     // register
     locationEditor.addEventListener("save", async event => {
@@ -100,9 +100,9 @@ export default async function(editorChoice) {
         "submenu": [{
             "content": "SAVE DATA",
             "handler": async () => {
-                let data = WorldResource.get();
-                let patch = await DataStorage.getAll();
-                for (let name in patch) {
+                const data = WorldResource.get();
+                const patch = await DataStorage.getAll();
+                for (const name in patch) {
                     if (data[name] == null) {
                         data[name] = {
                             "category": "",
@@ -112,11 +112,11 @@ export default async function(editorChoice) {
                             "filter": {}
                         };
                     }
-                    for (let key in patch[name]) {
+                    for (const key in patch[name]) {
                         if (key.startsWith("filter/")) {
-                            let fKey = key.slice(7);
+                            const fKey = key.slice(7);
                             data[name].filter[fKey] = {};
-                            for (let i of filter[fKey].values) {
+                            for (const i of filter[fKey].values) {
                                 data[name].filter[fKey][i] = patch[name][key].indexOf(i) >= 0;
                             }
                         } else {
@@ -126,25 +126,25 @@ export default async function(editorChoice) {
                 }
                 FileSystem.save(JSON.stringify(data, " ", 4), "world.json");
             }
-        },{
+        }, {
             "content": "LOAD PATCH",
             "handler": async () => {
-                let res = await FileSystem.load(".json");
+                const res = await FileSystem.load(".json");
                 if (!!res && !!res.data) {
-                    let data = res.data;
-                    let intData = {};
-                    for (let name in data) {
+                    const data = res.data;
+                    const intData = {};
+                    for (const name in data) {
                         intData[name] = {};
-                        for (let key in data[name]) {
+                        for (const key in data[name]) {
                             if (key != "filter") {
                                 intData[name][key] = data[name][key];
                             }
                         }
-                        for (let key in filter) {
+                        for (const key in filter) {
                             if (data[name].filter[key] == null) {
                                 intData[name][`filter/${key}`] = filter[key].values;
                             } else {
-                                let vals = data[name].filter[key];
+                                const vals = data[name].filter[key];
                                 intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
                             }
                         }
@@ -155,12 +155,12 @@ export default async function(editorChoice) {
                     //logicEditor.reset();
                 }
             }
-        },{
+        }, {
             "content": "SAVE PATCH",
             "handler": async () => {
-                let data = {};
-                let patch = await DataStorage.getAll();
-                for (let name in patch) {
+                const data = {};
+                const patch = await DataStorage.getAll();
+                for (const name in patch) {
                     if (data[name] == null) {
                         data[name] = {
                             "category": "",
@@ -170,11 +170,11 @@ export default async function(editorChoice) {
                             "filter": {}
                         };
                     }
-                    for (let key in patch[name]) {
+                    for (const key in patch[name]) {
                         if (key.startsWith("filter/")) {
-                            let fKey = key.slice(7);
+                            const fKey = key.slice(7);
                             data[name].filter[fKey] = {};
-                            for (let i of filter[fKey].values) {
+                            for (const i of filter[fKey].values) {
                                 data[name].filter[fKey][i] = patch[name][key].indexOf(i) >= 0;
                             }
                         } else {
@@ -184,14 +184,14 @@ export default async function(editorChoice) {
                 }
                 FileSystem.save(JSON.stringify(data, " ", 4), `world.${(new Date).valueOf()}.json`);
             }
-        },{
+        }, {
             "content": "REMOVE PATCH",
             "handler": async () => {
                 await DataStorage.clear();
                 await refreshLocationEditor();
                 //logicEditor.reset();
             }
-        },{
+        }, {
             "content": "EXIT EDITOR",
             "handler": () => {
                 locationEditor.reset();
@@ -201,4 +201,4 @@ export default async function(editorChoice) {
     }];
     // register
     editorChoice.register(locationEditor, "Locations", NAV, refreshLocationEditor);
-};
+}

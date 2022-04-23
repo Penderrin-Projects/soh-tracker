@@ -46,7 +46,6 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
         const loadSpoilerButton = loadSpoilerRow.getElementById("load-spoiler-preset");
         Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
 
-
         loadSpoilerButton.addEventListener("click", () => {
             loadSpoiler(loadSpoilerButton);
         });

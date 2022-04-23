@@ -110,4 +110,5 @@ class FilterStorage extends DataStorage {
 }
 
 const storage = new FilterStorage();
+
 export default storage;

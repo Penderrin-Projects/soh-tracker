@@ -1,4 +1,4 @@
-const VALID_NAME = /[a-zA-Z0-9_\.\/\-]+/;
+const VALID_NAME = /[a-zA-Z0-9_./-]+/;
 const REF = new WeakMap();
 const PROPS = new WeakMap();
 

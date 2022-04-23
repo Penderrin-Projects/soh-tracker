@@ -82,13 +82,11 @@ function createOption(value, icon, data, maxValue) {
             optionEl.innerHTML = data.counting[value];
         } else if (typeof data.counting == "string") {
             optionEl.innerHTML = data.counting;
-        } else {
-            if (value > 0 || data.alwaysCounting) {
-                if (data.showMax) {
-                    optionEl.innerHTML = `${value} / ${maxValue}`;
-                } else {
-                    optionEl.innerHTML = value;
-                }
+        } else if (value > 0 || data.alwaysCounting) {
+            if (data.showMax) {
+                optionEl.innerHTML = `${value} / ${maxValue}`;
+            } else {
+                optionEl.innerHTML = value;
             }
         }
         if (data.mark !== false) {

@@ -8,7 +8,7 @@ import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLoc
 
 const STORAGES = {
     gossipstoneItems: Savestate.getStorage("gossipstoneItems"),
-    gossipstoneLocations: Savestate.getStorage("gossipstoneLocations"),
+    gossipstoneLocations: Savestate.getStorage("gossipstoneLocations")
 };
 
 const LOCATION = new WeakMap();

@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 const TPL = new Template(`
     <style>
         :host {
@@ -88,4 +87,4 @@ export default class MPLogger extends CustomElement {
 
 }
 
-customElements.define('ootrt-mplogger', MPLogger);
+customElements.define("ootrt-mplogger", MPLogger);

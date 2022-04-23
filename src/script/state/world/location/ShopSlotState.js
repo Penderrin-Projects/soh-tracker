@@ -113,14 +113,6 @@ export default class ShopSlotState extends DefaultLocationState {
         return "";
     }
 
-    get price() {
-        const shopState = SHOP_STATE.get(this);
-        if (shopState != null) {
-            return shopState.price;
-        }
-        return "";
-    }
-
     get itemData() {
         const shopState = SHOP_STATE.get(this);
         if (shopState != null) {

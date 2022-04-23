@@ -17,37 +17,35 @@ const PRD_PATH = path.resolve(__dirname, "./prod");
 const MODULE_PATHS = {
     emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
     trackerEditor: path.resolve(__dirname, "node_modules/jseditors/src"),
-    RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src"),
+    RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src")
 };
 
 function fileExists(filename) {
     try {
         fs.accessSync(filename);
         return true;
-    } catch (e) {
+    } catch {
         return false;
     }
 }
 
-const NOLOCAL = process.argv.indexOf('-nolocal') >= 0;
-const NOCOMPRESS = process.argv.indexOf('-nocompress') >= 0;
-const REBUILD = process.argv.indexOf('-rebuild') >= 0;
-const REBUILDJS = process.argv.indexOf('-rebuildjs') >= 0;
+const NOLOCAL = process.argv.indexOf("-nolocal") >= 0;
+const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
+const REBUILD = process.argv.indexOf("-rebuild") >= 0;
+const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
-console.log({
-    NOLOCAL, NOCOMPRESS, REBUILDJS, REBUILD
-});
+console.log({NOLOCAL, NOCOMPRESS, REBUILDJS, REBUILD});
 
 if (!NOLOCAL) {
-    let emcJS = path.resolve(__dirname, '../emcJS/src');
+    const emcJS = path.resolve(__dirname, "../emcJS/src");
     if (fileExists(emcJS)) {
         MODULE_PATHS.emcJS = emcJS;
     }
-    let trackerEditor = path.resolve(__dirname, '../JSEditors/src');
+    const trackerEditor = path.resolve(__dirname, "../JSEditors/src");
     if (fileExists(trackerEditor)) {
         MODULE_PATHS.trackerEditor = trackerEditor;
     }
-    let RTCClient = path.resolve(__dirname, '../RTCClient/src');
+    const RTCClient = path.resolve(__dirname, "../RTCClient/src");
     if (fileExists(RTCClient)) {
         MODULE_PATHS.RTCClient = RTCClient;
     }
@@ -142,7 +140,7 @@ function copyHTML(dest = DEV_PATH) {
     if (!REBUILD) {
         res = res.pipe(newer(dest));
     }
-    res = res.pipe(htmlmin({ collapseWhitespace: true }));
+    res = res.pipe(htmlmin({collapseWhitespace: true}));
     res = res.pipe(gulp.dest(dest));
     return res;
 }
@@ -251,7 +249,7 @@ function copyFonts(dest = DEV_PATH) {
     return res;
 }
 
-function finish(dest = DEV_PATH, done) {
+function finish(dest = DEV_PATH, done = () => {}) {
     indexManager.add(languageManager.finish(`${dest}/i18n`));
     indexManager.finish(dest);
     done();

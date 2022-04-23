@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/LabeledIcon.js";
 
 // GameTrackerJS
@@ -118,12 +120,10 @@ export default class ListShopSlot extends BaseClass {
                 } else {
                     state.reset();
                 }
+            } else if (state.isDefault()) {
+                this./*#*/__editItem();
             } else {
-                if (state.isDefault()) {
-                    this./*#*/__editItem();
-                } else {
-                    super.clickHandler(event);
-                }
+                super.clickHandler(event);
             }
         }
     }

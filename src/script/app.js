@@ -45,9 +45,11 @@ import "/script/ui/LocationStatus.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 
 const spl = document.getElementById("loading-info");
+
 function updateLoadingMessage(msg = "loading...") {
     spl.innerHTML = msg;
 }
+
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
 window.onbeforeunload = function() {
@@ -137,7 +139,6 @@ try {
             }
         }
     });
-
 } catch(err) {
     console.error(err);
     updateLoadingMessage(err.message.replace(/\n/g, "<br>"));

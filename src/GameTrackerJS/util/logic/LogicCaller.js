@@ -14,7 +14,7 @@ const STORAGES = {
     options: Savestate.getStorage("options"),
     filter: Savestate.getStorage("filter"),
     // Track-OOT
-    dungeonTypes: Savestate.getStorage("dungeonTypes"),
+    dungeonTypes: Savestate.getStorage("dungeonTypes")
 };
 
 const AUGMENT = new Set();
@@ -99,7 +99,7 @@ class LogicCaller extends EventTarget {
             this.dispatchEvent(ev);
         });
         Savestate.addEventListener("load", () => {
-            init();
+            this./*#*/__init();
         });
         STORAGES.items.addEventListener("change", (event) => {
             this./*#*/__changeData(renameKeys(augmentItemValues(event.data), "item[", "]"));
@@ -132,7 +132,7 @@ class LogicCaller extends EventTarget {
             ...renameKeys(STORAGES.locations.getAll(), "location."),
             ...STORAGES.options.getAll(),
             ...STORAGES.filter.getAll(),
-            ...SettingsStorage.getAll(),
+            ...SettingsStorage.getAll()
         };
         // startitems
         const startItems = STORAGES.startItems.getAll();

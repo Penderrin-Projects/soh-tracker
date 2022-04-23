@@ -75,9 +75,9 @@ export default class AbstractStateManager {
             next: () => {
                 if (index < keys.length) {
                     const key = keys[index++];
-                    return { value: [key, this.get(key)], done: false };
+                    return {value: [key, this.get(key)], done: false};
                 } else {
-                    return { done: true };
+                    return {done: true};
                 }
             }
         }

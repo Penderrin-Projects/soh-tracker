@@ -155,7 +155,7 @@ function switchActive(value) {
         j.classList.add("inactive");
     });
     value.forEach(i => {
-        if (!i) return;
+        if (!i) {return;}
         this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach(j => {
             j.classList.remove("inactive");
         });

@@ -92,7 +92,6 @@ export default class RewardItem extends ItemElement {
         iconEl.style.backgroundImage = `url("${state.props.icon}")`;
         // dungeon
         this.dungeon = state.dungeon ?? "";
-        
     }
 
     get dungeon() {

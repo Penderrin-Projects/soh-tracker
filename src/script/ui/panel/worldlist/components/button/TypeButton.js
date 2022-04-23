@@ -1,6 +1,8 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 
 // GameTrackerJS
 import WorldListStateButton from "/GameTrackerJS/ui/panel/worldlist/components/button/StateButton.js";
@@ -16,7 +18,7 @@ const TPL = new Template(`
 const ICONS = {
     n: "images/icons/dungeontype_undefined.svg",
     v: "images/icons/dungeontype_vanilla.svg",
-    mq: "images/icons/dungeontype_masterquest.svg",
+    mq: "images/icons/dungeontype_masterquest.svg"
 };
 
 function applyElements(target) {

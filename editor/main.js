@@ -1,14 +1,11 @@
-const { app, protocol, BrowserWindow } = require("electron");
+const {app, protocol, BrowserWindow} = require("electron");
 const fs = require("fs");
 const path = require("path");
-const { startServer } = require("./server.js");
 
 const __dirnameUnix = __dirname.replace(/\\/g, "/");
 
-let OPTIONS = {
-    debug: false
-};
-if (process.argv.indexOf('-debug') >= 1) {
+const OPTIONS = {debug: false};
+if (process.argv.indexOf("-debug") >= 1) {
     OPTIONS.debug = true;
 }
 
@@ -21,19 +18,19 @@ function fileExists(filename) {
     try {
         fs.accessSync(filename);
         return true;
-    } catch (e) {
+    } catch {
         return false;
     }
 }
 
-if (process.argv.indexOf('-nolocal') < 0) {
-    let emcJS = path.resolve(__dirname, '../../emcJS/src');
+if (process.argv.indexOf("-nolocal") < 0) {
+    const emcJS = path.resolve(__dirname, "../../emcJS/src");
     if (fileExists(emcJS)) {
-        MODULE_PATHS.emcJS = '../../emcJS/src/';
+        MODULE_PATHS.emcJS = "../../emcJS/src/";
     }
-    let trackerEditor = path.resolve(__dirname, '../../JSEditors/src');
+    const trackerEditor = path.resolve(__dirname, "../../JSEditors/src");
     if (fileExists(trackerEditor)) {
-        MODULE_PATHS.trackerEditor = '../../JSEditors/src/';
+        MODULE_PATHS.trackerEditor = "../../JSEditors/src/";
     }
 }
 
@@ -42,10 +39,10 @@ console.log(MODULE_PATHS);
 function createWindow() {
     protocol.interceptFileProtocol("file", (request, callback) => {
         console.log("-------------------");
-        let url = request.url.replace(/file\:\/+/i, "");
+        let url = request.url.replace(/file:\/+/i, "");
         console.log(url);
         if (!url.startsWith(__dirnameUnix)) {
-            url = url.replace(/(:?[a-z]\:)?/i, "");
+            url = url.replace(/(:?[a-z]:)?/i, "");
         }
         console.log(url);
         url = url.replace(__dirnameUnix, "");
@@ -64,12 +61,12 @@ function createWindow() {
         callback({path: url});
     });
 
-    let win = new BrowserWindow({
+    const win = new BrowserWindow({
         width: 800,
         height: 700,
         show: false,
         webPreferences: {
-            nativeWindowOpen: true,
+            nativeWindowOpen: true
             //nodeIntegration: true
             //preload: `${__dirname}/../webutils/_preload.js`
         }
@@ -79,26 +76,24 @@ function createWindow() {
     win.setMenu(null);
     //win.loadURL("http://localhost:4242");
     win.loadFile("./web/index.html");
-    if (!!OPTIONS.debug) {
+    if (OPTIONS.debug) {
         win.toggleDevTools();
     }
-    win.once('ready-to-show', () => {
+    win.once("ready-to-show", () => {
         win.show();
     });
-    win.on('closed', () => {
+    win.on("closed", () => {
         app.quit();
     });
 }
 
-
-
-app.on('ready', async () => {
+app.on("ready", async () => {
     //await startServer();
     createWindow();
 });
 
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
         app.quit();
     }
 });

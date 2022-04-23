@@ -17,12 +17,8 @@ const ACCEPTED_BOSSKEY_GROUPS = [
 ];
 
 const KEY_VNL_AUGMENTS = {
-    "v": {
-        "temple_fire": 1
-    },
-    "mq": {
-        "temple_spirit": 3
-    }
+    "v": {"temple_fire": 1},
+    "mq": {"temple_spirit": 3}
 };
 const KEY_SAN_AUGMENTS = {};
 
@@ -90,11 +86,9 @@ function augment(cache, data) {
                     const augKeys = augmentGanonBossKey(cache, cache.get(dData.bosskey) ?? 0);
                     res[dData.bosskey] = augKeys;
                 }
-            } else {
-                if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
-                    const augKeys = augmentBossKeys(cache, cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
-                    res[dData.bosskey] = augKeys;
-                }
+            } else if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                const augKeys = augmentBossKeys(cache, cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
+                res[dData.bosskey] = augKeys;
             }
         }
     }

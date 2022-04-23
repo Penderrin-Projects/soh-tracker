@@ -5,7 +5,6 @@ import Window from "/emcJS/ui/overlay/window/Window.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 // GameTrackerJS
-import StartItemsStorage from "/GameTrackerJS/savestate/storage/StartItemsStorage.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 
 const TPL = new Template(`

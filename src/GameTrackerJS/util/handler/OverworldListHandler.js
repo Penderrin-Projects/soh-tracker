@@ -57,11 +57,9 @@ export default class OverworldListHandler extends EventTarget {
                         filteredEntityList.set(loc, entityList.get(loc));
                         this./*#*/__refreshAccess();
                     }
-                } else {
-                    if (filteredEntityList.has(loc)) {
-                        filteredEntityList.delete(loc);
-                        this./*#*/__refreshAccess();
-                    }
+                } else if (filteredEntityList.has(loc)) {
+                    filteredEntityList.delete(loc);
+                    this./*#*/__refreshAccess();
                 }
             });
         }

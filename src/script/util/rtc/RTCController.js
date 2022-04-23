@@ -3,7 +3,6 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import RTCClient from "/rtc/RTCClient.js";
 
-
 // Track-OOT
 import RTCPeerHost from "/script/util/rtc/RTCPeerHost.js";
 import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
@@ -12,11 +11,7 @@ import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
 
 const CONFIG = {
     iceTransportPolicy: "all", // all | relay
-    iceServers: [{
-        urls: "stun:stun.zidargs.net:18001"
-    }, {
-        urls: "stun:stun.l.google.com:19302"
-    }, {
+    iceServers: [{urls: "stun:stun.zidargs.net:18001"}, {urls: "stun:stun.l.google.com:19302"}, {
         urls: "turn:turn.zidargs.net:18001",
         credential: "fHNsIeqdgVcUAypvaxDVE6tywaMlP1fA",
         username: "iamgroot"

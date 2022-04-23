@@ -6,19 +6,19 @@ import RewardItemObserver from "../../util/observer/RewardItemObserver.js";
 
 const DUNGEON = new WeakMap();
 
-function internalRewardChange(event) {
-    const ref = this.ref;
-    const dungeon = DUNGEON.get(this);
-    // savesatate
-    const change = event.data;
-    if (change != null) {
-        if (change.ref == dungeon && change.value != ref) {
-            this./*#*/__setDungeon("");
-        } else if (change.value == ref) {
-            this./*#*/__setDungeon(change.ref);
-        }
-    }
-}
+// function internalRewardChange(event) {
+//     const ref = this.ref;
+//     const dungeon = DUNGEON.get(this);
+//     // savesatate
+//     const change = event.data;
+//     if (change != null) {
+//         if (change.ref == dungeon && change.value != ref) {
+//             this./*#*/__setDungeon("");
+//         } else if (change.value == ref) {
+//             this./*#*/__setDungeon(change.ref);
+//         }
+//     }
+// }
 
 export default class RewardItemState extends DefaultItemState {
 

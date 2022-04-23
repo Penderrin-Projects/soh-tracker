@@ -132,7 +132,6 @@ function addOverworld(target = {}, data = {}, ref = "") {
 }
 
 function modify(source = {}, target = {}) {
-
     // location
     console.log("location");
     const location = {};
@@ -193,7 +192,7 @@ function modify(source = {}, target = {}) {
         addArea(area, props, data, ref, true, true);
     }
     console.log("-----------------------");
-    
+
     // collection
     console.log("collection");
     const collection = {};

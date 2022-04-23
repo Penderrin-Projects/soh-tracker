@@ -1,45 +1,31 @@
 {
-  "license": "MIT",
+  "name": "logicparser",
+  "version": "0.0.0",
+  "description": "Logic Parser",
   "author": "Denis Peters (ZidArgs)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/zidargs/logicparser.git"
+  },
+  "homepage": "https://bitbucket.org/zidargs/logicparser/src",
+  "main": "parse.js",
+  "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.27",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
+    "treelogicjs": "git+https://bitbucket.org/zidargs/treelogicjs.git#0.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-    "del": "^5.1.0",
-    "electron": "^13.1.1",
-    "glob-all": "^3.1.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-eslint": "^6.0.0",
-    "gulp-filelist": "^2.0.5",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-jsonminify": "^1.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-svgo": "^2.1.0",
-    "gulp-terser": "^1.4.1",
-    "serve": "^11.3.2",
-    "through": "^2.3.8"
+    "eslint": "^8.0.0"
   },
-  "browserslist": [
-    "Chrome >= 76",
-    "Firefox >= 68",
-    "Safari >= 12",
-    "Edge >= 17",
-    "Android >= 76",
-    "ChromeAndroid >= 76",
-    "FirefoxAndroid >= 68",
-    "iOS >= 10"
-  ],
+  "exports": {
+    "./*": "./src/*"
+  },
   "scripts": {
-    "build": "gulp build",
-    "buildDev": "gulp buildDev",
-    "watch": "gulp watch -nocompress",
-    "serve": "serve dev",
-    "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
+    "lint": "yarn eslint .",
+    "lintfix": "yarn eslint --fix .",
+    "parse": "node src/parse.js"
   }
 }

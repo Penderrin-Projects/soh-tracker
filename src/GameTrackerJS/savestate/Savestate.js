@@ -24,7 +24,7 @@ function changeHandler(category, event) {
     ev.data = event.data;
     ev.changes = event.changes;
     this.dispatchEvent(ev);
-};
+}
 
 class Savestate extends EventTarget {
 

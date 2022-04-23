@@ -14,4 +14,5 @@ const exitStateManager = new ExitStateManager();
 if (!WorldStateManagerRegistry.has("exit")) {
     WorldStateManagerRegistry.register("exit", exitStateManager);
 }
+
 export default exitStateManager;

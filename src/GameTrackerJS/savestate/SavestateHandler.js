@@ -229,4 +229,5 @@ class SavestateHandler extends EventTarget {
 
 const savestate = Object.freeze(new SavestateHandler());
 window.savestate = savestate;
+
 export default savestate;

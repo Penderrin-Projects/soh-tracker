@@ -1,7 +1,9 @@
 // frameworks
 import DataStorage from "/emcJS/datastorage/DataStorage.js";
 
-import { parseSafeRange } from "../../util/helper/ItemHelper.js";
+import {
+    parseSafeRange
+} from "../../util/helper/ItemHelper.js";
 import ItemsResource from "../../resource/ItemsResource.js";
 
 const MAX = new Map();
@@ -75,4 +77,5 @@ class StartItemsStorage extends DataStorage {
 }
 
 const storage = new StartItemsStorage();
+
 export default storage;

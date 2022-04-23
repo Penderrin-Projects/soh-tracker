@@ -18,10 +18,10 @@ async function getDeviceData() {
     };
     if (navigator.userAgentData != null) {
         const uaData = navigator.userAgentData;
-        data.platform = await getOSData(),
+        data.platform = await getOSData();
         data.application = {
             mobile: uaData.mobile,
-            brands: Helper.deepClone(uaData.brands) 
+            brands: Helper.deepClone(uaData.brands)
         };
     }
     return data;

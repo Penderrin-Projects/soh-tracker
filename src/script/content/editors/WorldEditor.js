@@ -4,7 +4,6 @@ import FileSystem from "/emcJS/util/FileSystem.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
@@ -55,7 +54,7 @@ async function createMarkerDetailConfig(category, types, accessValues = [""]) {
             "operators": await WorldListsCreator.createOperators()
         }
     };
-    for (let name in filter) {
+    for (const name in filter) {
         if (EXCLUDE_FILTER.indexOf(name) >= 0) {
             continue;
         }
@@ -80,13 +79,15 @@ export default async function() {
     worldEditor.addMarkerCategory("exit", await createMarkerDetailConfig("exit", AREA_TYPES));
     worldEditor.addMarkerCategory("subexit", await createMarkerDetailConfig("subexit", SUBAREA_TYPES));
     worldEditor.addMarkerCategory("location", await createMarkerDetailConfig("location", LOCATION_TYPES));
+
     // refresh
     async function refreshWorldEditor() {
         // TODO
-        let lists = await WorldListsCreator.createLists();
+        const lists = await WorldListsCreator.createLists();
         worldEditor.loadList(lists);
         worldEditor.setData(WorldResource.get());
     }
+
     await refreshWorldEditor();
     // events
     worldEditor.addEventListener("save", async event => {
@@ -105,7 +106,7 @@ export default async function() {
                 const world = Helper.Object.elevate(patch, "/", WorldResource.get());
                 FileSystem.save(JSON.stringify(world, " ", 4), "world.json");
             }
-        },{
+        }, {
             "content": "LOAD PATCH",
             "handler": async () => {
                 const res = await FileSystem.load(".json");
@@ -119,25 +120,25 @@ export default async function() {
                     //worldEditor.reset();
                 }
             }
-        },{
+        }, {
             "content": "SAVE PATCH",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
                 const world = Helper.Object.elevate(patch, "/");
                 FileSystem.save(JSON.stringify(world, " ", 4), `world.${(new Date).valueOf()}.json`);
             }
-        },{
+        }, {
             "content": "REMOVE PATCH",
             "handler": async () => {
                 await WorldStorage.clear();
                 await refreshWorldEditor();
                 //worldEditor.reset();
             }
-        },{
+        }, {
             "content": "EXIT EDITOR",
             "handler": () => {
                 worldEditor.reset();
-                const event = new Event('close');
+                const event = new Event("close");
                 worldEditor.dispatchEvent(event);
             }
         }]
@@ -149,4 +150,4 @@ export default async function() {
         navigation: NAV,
         refreshFn: refreshWorldEditor
     }
-};
+}

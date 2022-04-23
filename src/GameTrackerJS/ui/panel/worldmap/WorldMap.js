@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 

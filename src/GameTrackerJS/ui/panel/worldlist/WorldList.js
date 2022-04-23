@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
@@ -243,7 +245,6 @@ export default class WorldList extends BaseClass {
         const elManager = EL_MANAGER.get(this);
         const elManagerData = [];
         const state = this.getState();
-        let hasElements = false;
         if (state != null) {
             const list = state.getList();
             if (list != null && list.length > 0) {
@@ -254,9 +255,6 @@ export default class WorldList extends BaseClass {
                         category: record.category,
                         type: loc.props.type
                     });
-                    if (loc.isVisible()) {
-                        hasElements = true;
-                    }
                 }
             }
         }

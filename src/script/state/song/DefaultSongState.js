@@ -5,9 +5,7 @@ import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserve
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
 
-const STORAGES = {
-    songNotes: Savestate.getStorage("songNotes"),
-};
+const STORAGES = {songNotes: Savestate.getStorage("songNotes")};
 
 const NOTES = new WeakMap();
 
@@ -44,7 +42,6 @@ export default class DefaultSongState extends DataState {
                     event.data = value;
                     this.dispatchEvent(event);
                 }
-                return value;
             }
         }
     }

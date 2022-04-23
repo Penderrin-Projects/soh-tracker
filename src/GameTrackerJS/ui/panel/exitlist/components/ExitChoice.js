@@ -92,7 +92,6 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-
 export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
 
     constructor() {

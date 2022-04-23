@@ -14,4 +14,5 @@ const locationStateManager = new LocationStateManager();
 if (!WorldStateManagerRegistry.has("location")) {
     WorldStateManagerRegistry.register("location", locationStateManager);
 }
+
 export default locationStateManager;

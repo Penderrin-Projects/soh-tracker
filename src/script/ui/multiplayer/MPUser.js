@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-
 const TPL = new Template(`
     <style>       
         :host {
@@ -51,32 +50,32 @@ class HTMLMultiplayerUser extends CustomElement {
     }
 
     get name() {
-        return this.getAttribute('name');
+        return this.getAttribute("name");
     }
 
     set name(val) {
-        this.setAttribute('name', val);
+        this.setAttribute("name", val);
     }
 
     get role() {
-        return this.getAttribute('role');
+        return this.getAttribute("role");
     }
 
     set role(val) {
-        this.setAttribute('role', val);
+        this.setAttribute("role", val);
     }
 
     static get observedAttributes() {
-        return ['name', 'role'];
+        return ["name", "role"];
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             switch (name) {
-                case 'name':
+                case "name":
                     this.shadowRoot.getElementById("name").innerHTML = newValue;
                     break;
-                case 'role':
+                case "role":
                     this.shadowRoot.getElementById("icon").setAttribute("title", newValue);
                     break;
             }
@@ -85,4 +84,4 @@ class HTMLMultiplayerUser extends CustomElement {
 
 }
 
-customElements.define('ootrt-mpuser', HTMLMultiplayerUser);
+customElements.define("ootrt-mpuser", HTMLMultiplayerUser);

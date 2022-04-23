@@ -2,10 +2,11 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
-import WorldListState from "../../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../../enum/AccessStateEnum.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";

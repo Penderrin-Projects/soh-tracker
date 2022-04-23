@@ -102,4 +102,4 @@ export default class HTMLTrackerSongBuilder extends CustomElement {
 
 }
 
-customElements.define('ootrt-songbuilder', HTMLTrackerSongBuilder);
+customElements.define("ootrt-songbuilder", HTMLTrackerSongBuilder);

@@ -1,6 +1,8 @@
 // frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import {createMixin} from "/emcJS/util/Mixin.js";
+import {
+    createMixin
+} from "/emcJS/util/Mixin.js";
 
 const STYLE = new GlobalStyle(`
 :host([access="opened"]) #text {

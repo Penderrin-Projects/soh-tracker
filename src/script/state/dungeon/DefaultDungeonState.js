@@ -8,9 +8,7 @@ import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import "../world/WorldStates.js";
 
-const STORAGES = {
-    dungeonRewards: Savestate.getStorage("dungeonRewards"),
-};
+const STORAGES = {dungeonRewards: Savestate.getStorage("dungeonRewards")};
 
 const AREA = new WeakMap();
 const REWARD = new WeakMap();

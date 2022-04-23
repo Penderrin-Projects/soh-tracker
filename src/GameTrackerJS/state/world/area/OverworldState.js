@@ -1,7 +1,9 @@
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import DataState from "../../DataState.js";
 import StateListHandler from "../../../util/handler/StateListHandler.js";
-import OverworldListHandler, { getDefaultAccess } from "../../../util/handler/OverworldListHandler.js";
+import OverworldListHandler, {
+    getDefaultAccess
+} from "../../../util/handler/OverworldListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
 const OVERWORLD_HANDLER = new WeakMap();

@@ -1,6 +1,8 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import WorldListStateEntry from "./StateEntry.js";

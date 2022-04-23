@@ -55,7 +55,6 @@ class FilterMenuButton extends ContextMenuManagerMixin(CustomElement) {
             event.preventDefault();
             return false;
         });
-
     }
 
 }

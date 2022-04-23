@@ -37,9 +37,7 @@ PageSwitcher.register("main", [{
     "handler": openPatreon
 }, {
     "content": "EXTRAS",
-    "submenu": [{
-        "mixin": "fullscreen"
-    }, {
+    "submenu": [{"mixin": "fullscreen"}, {
         "content": "UPLOAD SPOILER",
         "handler": openSpoilerSettingsWindow
     }, {

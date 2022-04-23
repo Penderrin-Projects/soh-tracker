@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
 
@@ -10,9 +12,7 @@ import Language from "../../util/Language.js";
 import ExitStateManager from "../../statemanager/world/exit/ExitStateManager.js";
 import EntranceStateManager from "../../statemanager/world/entrance/EntranceStateManager.js";
 
-const STORAGES = {
-    exitBindings: Savestate.getStorage("exitBindings"),
-};
+const STORAGES = {exitBindings: Savestate.getStorage("exitBindings")};
 
 const CTG_TPL = new Template(`
 <span style="color:#00000057;font-style:italic;font-size:0.8em;"></span>

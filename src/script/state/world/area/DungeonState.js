@@ -9,9 +9,7 @@ import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateMa
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultAreaState.js";
 import StateListHandler from "/GameTrackerJS/util/handler/StateListHandler.js";
 
-const STORAGES = {
-    dungeonTypes: Savestate.getStorage("dungeonTypes"),
-};
+const STORAGES = {dungeonTypes: Savestate.getStorage("dungeonTypes")};
 
 const ALLOWED_TYPES = ["n", "v", "mq"];
 const TYPE = new WeakMap();
@@ -171,7 +169,7 @@ export default class DungeonState extends DefaultAreaState {
     }
 
     getListVisiblity() {
-        return true; 
+        return true;
     }
 
     getAccess(type = this.type) {

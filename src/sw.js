@@ -37,7 +37,7 @@ self.addEventListener("fetch", function(event) {
 });
 
 async function getResponse(request) {
-    var cache = await caches.open(CACHE_NAME);
+    const cache = await caches.open(CACHE_NAME);
     let response = await cache.match(request.url);
     if (!response) {
         response = await fetch(request);
@@ -46,7 +46,7 @@ async function getResponse(request) {
 }
 
 async function getVersion(request) {
-    var cache = await caches.open(CACHE_NAME);
+    const cache = await caches.open(CACHE_NAME);
     const response = await cache.match(CACHE_INDEX);
     const version = await cache.match(request.url);
     if (response != null) {
@@ -60,7 +60,7 @@ async function getVersion(request) {
 self.addEventListener("message", async event => {
     const src = event.source;
     const dta = event.data;
-    if (!src) return;
+    if (!src) {return;}
     if (cmd[dta] != null) {
         try {
             await cmd[dta](src);
@@ -270,7 +270,7 @@ async function updateFile(cache, url) {
 }
 
 async function downloadFile(url, tries = 3) {
-    if (!tries) throw new Error("could not load file " + url);
+    if (!tries) {throw new Error("could not load file " + url);}
     try {
         return await fetchFile(url);
     } catch(err) {
@@ -280,6 +280,6 @@ async function downloadFile(url, tries = 3) {
 }
 
 function diff(a, b) {
-    var c = new Set(b);
+    const c = new Set(b);
     return a.filter(d => !c.has(d));
 }

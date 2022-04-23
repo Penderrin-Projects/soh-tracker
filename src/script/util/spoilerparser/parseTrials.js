@@ -7,13 +7,11 @@ export default function parseTrials(errorDialogHandler, target = {}, data = {}, 
             if (Array.isArray(i)) {
                 console.warn("Unexpected Array within active trials");
                 errorDialogHandler.add("Unexpected Array within active trials");
+            } else if (trial_trans[i]["values"][v] === undefined) {
+                console.warn("[" + i + ": " + v + "] is a invalid Trials value.");
+                errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Trials value.");
             } else {
-                if (trial_trans[i]["values"][v] === undefined) {
-                    console.warn("[" + i + ": " + v + "] is a invalid Trials value.");
-                    errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Trials value.");
-                } else {
-                    target[trial_trans[i]["name"]] = trial_trans[i]["values"][v];
-                }
+                target[trial_trans[i]["name"]] = trial_trans[i]["values"][v];
             }
         }
     }

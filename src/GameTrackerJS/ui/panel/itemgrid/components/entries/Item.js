@@ -128,12 +128,10 @@ export default class Item extends ItemElement {
                 valueEl.innerHTML = data.counting[value];
             } else if (typeof data.counting == "string") {
                 valueEl.innerHTML = data.counting;
+            } else if (data.showMax && maxValue != null) {
+                valueEl.innerHTML = `${value} / ${maxValue}`;
             } else {
-                if (data.showMax && maxValue != null) {
-                    valueEl.innerHTML = `${value} / ${maxValue}`;
-                } else {
-                    valueEl.innerHTML = value;
-                }
+                valueEl.innerHTML = value;
             }
             valueEl.classList.toggle("mark", state?.isMarked() ?? false);
         } else if (data.label) {

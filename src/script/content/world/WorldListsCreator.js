@@ -1,12 +1,11 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
 
-let DataStorage = new IDBStorage("world");
+const DataStorage = new IDBStorage("world");
 
 const LOGIC_OPERATORS = [
     // literals
@@ -41,7 +40,6 @@ const LOGIC_OPERATORS = [
 class WorldListsCreator {
 
     async createLists() {
-
         const world = WorldResource.get();
         const custom_data = await DataStorage.getAll();
 
@@ -104,9 +102,7 @@ function createDefaultOperatorCategory() {
         "children": []
     };
     for (const i in LOGIC_OPERATORS) {
-        res.children.push({
-            "type": LOGIC_OPERATORS[i]
-        });
+        res.children.push({"type": LOGIC_OPERATORS[i]});
     }
     return res;
 }
@@ -119,7 +115,7 @@ function createSettingsOperatorCategory(data, ref) {
     };
     for (const i in data) {
         const opt = data[i];
-        if (!!opt.type && opt.type.startsWith("-")) continue;
+        if (!!opt.type && opt.type.startsWith("-")) {continue;}
         if (opt.type === "choice") {
             for (const j of opt.values) {
                 res.children.push({
@@ -129,22 +125,20 @@ function createSettingsOperatorCategory(data, ref) {
                     "category": ref
                 });
             }
-        } else {
-            if (opt.type === "list") {
-                for (const j of opt.values) {
-                    res.children.push({
-                        "type": "tracker-logic-custom",
-                        "ref": j,
-                        "category": ref
-                    });
-                }
-            } else {
+        } else if (opt.type === "list") {
+            for (const j of opt.values) {
                 res.children.push({
                     "type": "tracker-logic-custom",
-                    "ref": i,
+                    "ref": j,
                     "category": ref
                 });
             }
+        } else {
+            res.children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": ref
+            });
         }
     }
     return res;

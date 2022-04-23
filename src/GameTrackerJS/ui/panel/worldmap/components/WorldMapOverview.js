@@ -2,11 +2,12 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import EventTargetManager from "/emcJS/event/EventTargetManager.js";
 import "/emcJS/i18n/ui/I18nLabel.js";
 
-import WorldListState from "../../../../state/world/WorldListState.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
 
@@ -140,17 +141,17 @@ export default class WorldMapOverview extends BaseClass {
     }
 
     /*#*/__moveFocus(x, y) {
-            const oWidth = this.clientWidth;
-            const oHeight = this.clientHeight;
-            const zoom = ZOOM.get(this);
-            const width = WIDTH.get(this);
-            const height = HEIGHT.get(this);
-            const scale = Math.max(width, height) * zoom / 100;
-            /* event */
-            const ev = new Event("move");
-            ev.x = -(x - oWidth / 2) * (scale / oWidth);
-            ev.y = -(y - oHeight / 2) * (scale / oHeight);
-            this.dispatchEvent(ev);
+        const oWidth = this.clientWidth;
+        const oHeight = this.clientHeight;
+        const zoom = ZOOM.get(this);
+        const width = WIDTH.get(this);
+        const height = HEIGHT.get(this);
+        const scale = Math.max(width, height) * zoom / 100;
+        /* event */
+        const ev = new Event("move");
+        ev.x = -(x - oWidth / 2) * (scale / oWidth);
+        ev.y = -(y - oHeight / 2) * (scale / oHeight);
+        this.dispatchEvent(ev);
     }
 
     /*#*/__calcutlateMask(width, height, x, y, zoom) {

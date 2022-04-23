@@ -2,7 +2,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import AbstractElement from "/editors/ui/logic/AbstractElement.js";
 
-
 const TPL_CAPTION = "CUSTOM";
 const TPL_BACKGROUND = "#ffffff";
 const TPL_BORDER = "#777777";
@@ -24,11 +23,6 @@ const TPL = new Template(`
     <div id="ref" class="body"></div>
     <div id="value" class="body"></div>
 `);
-const SVG = new Template(`
-    <div class="logic-element" style="--logic-color-back: ${TPL_BACKGROUND}; --logic-color-border: ${TPL_BORDER};">
-        <div class="header" data-value="0">${TPL_CAPTION}</div>
-    </div>
-`);
 
 export default class LogicElement extends AbstractElement {
 
@@ -38,40 +32,40 @@ export default class LogicElement extends AbstractElement {
     }
 
     get ref() {
-        return this.getAttribute('ref');
+        return this.getAttribute("ref");
     }
 
     set ref(val) {
-        this.setAttribute('ref', val);
+        this.setAttribute("ref", val);
     }
 
     get category() {
-        return this.getAttribute('category');
+        return this.getAttribute("category");
     }
 
     set category(val) {
-        this.setAttribute('category', val);
+        this.setAttribute("category", val);
     }
 
     get value() {
-        return this.getAttribute('value');
+        return this.getAttribute("value");
     }
 
     set value(val) {
         if (typeof val != "undefined" && val != null) {
-            this.setAttribute('value', val);
+            this.setAttribute("value", val);
         } else {
-            this.removeAttribute('value');
+            this.removeAttribute("value");
         }
     }
 
     calculate(state = {}) {
-        if (state.hasOwnProperty(this.ref)) {
-            let val = !!this.value ? +(state[this.ref] == this.value) : +!!state[this.ref];
-            this.shadowRoot.getElementById('header').setAttribute('value', val);
+        if (state[this.ref] != null) {
+            const val = this.value ? +(state[this.ref] == this.value) : +!!state[this.ref];
+            this.shadowRoot.getElementById("header").setAttribute("value", val);
             return val;
         } else {
-            this.shadowRoot.getElementById('header').setAttribute('value', "0");
+            this.shadowRoot.getElementById("header").setAttribute("value", "0");
             return 0;
         }
     }
@@ -83,7 +77,7 @@ export default class LogicElement extends AbstractElement {
     }
 
     toJSON() {
-        if (!!this.value) {
+        if (this.value) {
             return {
                 type: "state",
                 el: this.ref,
@@ -100,19 +94,19 @@ export default class LogicElement extends AbstractElement {
     }
 
     static get observedAttributes() {
-        let attr = AbstractElement.observedAttributes;
-        attr.push('ref', 'category', 'value');
+        const attr = AbstractElement.observedAttributes;
+        attr.push("ref", "category", "value");
         return attr;
     }
       
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
-            case 'ref':
-            case 'value':
+            case "ref":
+            case "value":
                 if (oldValue != newValue) {
                     if (typeof newValue == "string") {
-                        if (!!newValue) {
+                        if (newValue) {
                             this.shadowRoot.getElementById(name).innerHTML = newValue;
                             this.shadowRoot.getElementById(name).classList.remove("blank");
                         } else {
@@ -124,12 +118,12 @@ export default class LogicElement extends AbstractElement {
                     }
                 }
                 break;
-            case 'category':
+            case "category":
                 if (oldValue != newValue) {
-                    if (!!newValue) {
-                        this.shadowRoot.getElementById('header').innerHTML = newValue.toUpperCase();
+                    if (newValue) {
+                        this.shadowRoot.getElementById("header").innerHTML = newValue.toUpperCase();
                     } else {
-                        this.shadowRoot.getElementById('header').innerHTML = TPL_CAPTION;
+                        this.shadowRoot.getElementById("header").innerHTML = TPL_CAPTION;
                     }
                 }
                 break;

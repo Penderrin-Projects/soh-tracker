@@ -1,8 +1,10 @@
 import WorldResource from "../resource/WorldResource.js";
-import { emptyState } from "../state/world/EmptyState.js";
+import {
+    emptyState
+} from "../state/world/EmptyState.js";
 import WorldStateManager from "./world/WorldStateManager.js";
 
-const VALID_NAME = /[a-zA-Z0-9_\.\/\-]+/;
+const VALID_NAME = /[a-zA-Z0-9_./-]+/;
 const CONFIG = WorldResource.get("config");
 const STATE_MANAGERS = new Map();
 
@@ -27,7 +29,7 @@ class EmptyStateManager {
     [Symbol.iterator]() {
         return {
             next: () => {
-                return { done: true };
+                return {done: true};
             }
         }
     }
@@ -80,9 +82,8 @@ class WorldStateManagerRegistry {
 
 }
 
-if (!!CONFIG.prefetchEntries) {
+if (CONFIG.prefetchEntries) {
     setTimeout(() => {
-
         for (const [category, manager] of STATE_MANAGERS) {
             const data = WorldResource.get(category);
     
@@ -90,7 +91,6 @@ if (!!CONFIG.prefetchEntries) {
                 manager.get(id);
             }
         }
-    
     }, 0);
 }
 

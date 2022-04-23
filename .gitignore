@@ -2,11 +2,16 @@
 node_modules
 dev
 prod
+out
+dist
 yarn-error.log
 yarn.lock
 *.zip
+*.exe
 .idea
 package-lock.json
 backup.json
 editor/info.log
-.vscode
+
+output
+input

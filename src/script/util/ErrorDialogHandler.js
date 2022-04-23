@@ -19,7 +19,7 @@ export default class ErrorDialogHandler {
 
     async send() {
         const errors = ERRORS.get(this);
-        if(errors.size) {
+        if (errors.size) {
             const title = TITLE.get(this);
             const message = MESSAGE.get(this);
             await Dialog.error(title, message, Array.from(errors.values()));

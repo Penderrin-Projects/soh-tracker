@@ -6,18 +6,20 @@ import OptionsObserver from "../../../util/observer/OptionsObserver.js";
 import StateDataEventManager from "../../../util/StateDataEventManager.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import Logic from "../../../util/logic/Logic.js";
-import { getDefaultAccess } from "../../../util/handler/StateListHandler.js";
+import {
+    getDefaultAccess
+} from "../../../util/handler/StateListHandler.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import EntranceStateManager from "../../../statemanager/world/entrance/EntranceStateManager.js";
-import { emptyState } from "../EmptyState.js";
+import {
+    emptyState
+} from "../EmptyState.js";
 import VisibilityState from "../VisibilityState.js";
 import DefaultEntranceState from "../entrance/DefaultEntranceState.js";
 
 const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
 
-const STORAGES = {
-    exitBindings: Savestate.getStorage("exitBindings"),
-};
+const STORAGES = {exitBindings: Savestate.getStorage("exitBindings")};
 
 const ENTRANCE = new WeakMap();
 const MANAGER = new WeakMap();
@@ -54,7 +56,7 @@ function getLogicAccess(access) {
         value: AccessStateEnum.OPENED,
         entrances: 0
     };
-    const reachable = (!!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`));
+    const reachable = !!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`);
     if (reachable) {
         res.entrances = 1;
         res.value = AccessStateEnum.AVAILABLE;
@@ -164,7 +166,6 @@ export default class DefaultExitState extends VisibilityState {
             ev2.data = this.access;
             this.dispatchEvent(ev2);
         }
-        return value;
     }
 
     get value() {

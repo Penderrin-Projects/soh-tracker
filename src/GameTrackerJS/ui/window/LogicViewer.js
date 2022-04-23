@@ -3,7 +3,6 @@ import IDBStorage from "/emcJS/storage/IDBStorage.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import LogicUIAbstractElement from "/editors/ui/logic/AbstractElement.js";
 
-
 // GameTrackerJS
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";

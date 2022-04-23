@@ -1,5 +1,7 @@
 import DataState from "../../DataState.js";
-import StateListHandler, { getDefaultAccess } from "../../../util/handler/StateListHandler.js";
+import StateListHandler, {
+    getDefaultAccess
+} from "../../../util/handler/StateListHandler.js";
 
 const LIST_HANDLER = new WeakMap();
 const VISIBLE = new WeakMap();

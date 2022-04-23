@@ -16,6 +16,7 @@ function applySettingsChoices(settings) {
     AutosaveHandler.time = settings.autosave_time;
     AutosaveHandler.slots = settings.autosave_amount;
 }
+
 applySettingsChoices(SettingsStorage.getAll());
 
 export default class AppSettingsWindow extends AbstractSettingsWindow {

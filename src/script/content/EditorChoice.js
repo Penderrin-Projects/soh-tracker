@@ -14,18 +14,14 @@ const MAIN_NAV = [{
     "handler": () => {
         PageSwitcher.switch("main");
     }
-}, {
-    "mixin": "fullscreen"
-}];
+}, {"mixin": "fullscreen"}];
 
 const DEFAULT_NAV = [{
     "content": "EXIT",
     "handler": () => {
         editorChoice.closeCurrent();
     }
-}, {
-    "mixin": "fullscreen"
-}];
+}, {"mixin": "fullscreen"}];
 
 PageSwitcher.register("editor_choice", MAIN_NAV);
 
@@ -40,9 +36,7 @@ editorChoice.addEventListener("choice", function(event) {
             data.refreshFn();
         }
         if (data.navigation != null) {
-            nav.loadNavigation(data.navigation.concat({
-                "mixin": "fullscreen"
-            }));
+            nav.loadNavigation(data.navigation.concat({"mixin": "fullscreen"}));
         } else {
             nav.loadNavigation(DEFAULT_NAV);
         }
@@ -62,8 +56,8 @@ function registerWindow({name, panel, navigation, refreshFn}) {
 }
 
 // add editors
-!async function() {
+(async function() {
     registerWindow(await createLogicEditor(false));
     registerWindow(await createLogicEditor(true));
     //registerWindow(await createWorldEditor());
-}();
+})();

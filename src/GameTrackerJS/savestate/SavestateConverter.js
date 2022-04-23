@@ -1,6 +1,6 @@
 const CONVERTER_FN = [];
 let OFFSET = 0;
-let NO_UPDATE = new Set();
+const NO_UPDATE = new Set();
 
 class SavestateConverter {
 

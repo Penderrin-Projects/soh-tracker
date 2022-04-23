@@ -1,7 +1,9 @@
 // frameworks
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
-import { parseSafeRange } from "../../util/helper/ItemHelper.js";
+import {
+    parseSafeRange
+} from "../../util/helper/ItemHelper.js";
 import Savestate from "../../savestate/Savestate.js";
 import OptionsObserver from "../../util/observer/OptionsObserver.js";
 import DataState from "../DataState.js";
@@ -9,7 +11,7 @@ import VisibilityHandler from "../../util/handler/VisibilityHandler.js";
 
 const STORAGES = {
     items: Savestate.getStorage("items"),
-    startItems: Savestate.getStorage("startItems"),
+    startItems: Savestate.getStorage("startItems")
 };
 
 const VISIBILITY_HANDLER = new WeakMap();

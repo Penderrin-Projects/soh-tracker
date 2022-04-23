@@ -1,7 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 import "/emcJS/i18n/ui/I18nTooltip.js";
@@ -155,7 +157,7 @@ export default class ItemElement extends BaseClass {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = 0; i < data.alternate_counting.length; ++i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -178,7 +180,7 @@ export default class ItemElement extends BaseClass {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {return;}
         event.preventDefault();
         return false;
     }
@@ -190,7 +192,7 @@ export default class ItemElement extends BaseClass {
                 const data = state.props;
                 const oldValue = state.value;
                 let value = oldValue;
-                if ((event.shiftKey || event.ctrlKey)) {
+                if (event.shiftKey || event.ctrlKey) {
                     if (data.alternate_counting) {
                         for (let i = data.alternate_counting.length - 1; i >= 0; --i) {
                             let alt = parseInt(data.alternate_counting[i]);
@@ -213,7 +215,7 @@ export default class ItemElement extends BaseClass {
                 }
             }
         }
-        if (!event) return;
+        if (!event) {return;}
         event.preventDefault();
         return false;
     }

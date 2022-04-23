@@ -1,8 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const glob = require("glob-all");
 const through = require("through");
-const del = require("del");
 
 const LNBR_SEQ = /(?:\r\n|\n|\r)/g;
 const LANG_SEQ = /# language:\s+(.*)/;
@@ -26,7 +24,7 @@ function getLanguage(file) {
 class LanguageManager {
 
     register(src = "/", dest = "/", sourcemaps = false) {
-        let files = [];
+        const files = [];
         return through(function(file) {
             const lang = getLanguage(file);
             if (lang != null) {
@@ -43,7 +41,7 @@ class LanguageManager {
         const metaPath = path.resolve(dest, metaFile);
         const metaPathNormal = normalizePath(metaPath);
         console.log(`meta file: ${metaPathNormal}`);
-        let files = Object.fromEntries(FILES.entries());
+        const files = Object.fromEntries(FILES.entries());
         fs.writeFileSync(metaPath, JSON.stringify(files, null, 4));
         FILES.clear();
         return metaPath;

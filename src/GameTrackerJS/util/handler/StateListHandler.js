@@ -73,12 +73,10 @@ export default class StateListHandler extends EventTarget {
                                 this./*#*/__refreshAccess();
                                 this./*#*/__setVisibility(!!filteredEntityList.size);
                             }
-                        } else {
-                            if (filteredEntityList.has(loc)) {
-                                filteredEntityList.delete(loc);
-                                this./*#*/__refreshAccess();
-                                this./*#*/__setVisibility(!!filteredEntityList.size);
-                            }
+                        } else if (filteredEntityList.has(loc)) {
+                            filteredEntityList.delete(loc);
+                            this./*#*/__refreshAccess();
+                            this./*#*/__setVisibility(!!filteredEntityList.size);
                         }
                     });
                 }
@@ -188,6 +186,7 @@ export default class StateListHandler extends EventTarget {
                     }
                 }
             } else if (record.category == "collection") {
+                const area = loc.area;
                 area.setAllEntries(value);
             } else if (record.category == "location") {
                 loc.value = value;

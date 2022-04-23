@@ -2,7 +2,6 @@
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
-
 async function getData() {
     const res = {};
     const resourceData = await FileLoader.json("/devs.json");

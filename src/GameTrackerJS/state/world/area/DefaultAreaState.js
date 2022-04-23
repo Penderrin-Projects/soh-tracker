@@ -3,11 +3,11 @@ import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserve
 
 import Savestate from "../../../savestate/Savestate.js";
 import VisibilityState from "../VisibilityState.js";
-import StateListHandler, { getDefaultAccess } from "../../../util/handler/StateListHandler.js";
+import StateListHandler, {
+    getDefaultAccess
+} from "../../../util/handler/StateListHandler.js";
 
-const STORAGES = {
-    areaHints: Savestate.getStorage("areaHints"),
-};
+const STORAGES = {areaHints: Savestate.getStorage("areaHints")};
 
 const LIST_HANDLER = new WeakMap();
 const HINT = new WeakMap();

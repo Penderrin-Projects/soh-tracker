@@ -10,7 +10,7 @@ import ItemStateManager from "../../item/ItemStateManager.js";
 
 const STORAGES = {
     locations: Savestate.getStorage("locations"),
-    locationItems: Savestate.getStorage("locationItems"),
+    locationItems: Savestate.getStorage("locationItems")
 };
 
 const ACCESS = new WeakMap();
@@ -138,7 +138,7 @@ export default class DefaultLocationState extends VisibilityState {
 
     set item(value) {
         const ref = this.ref;
-        if (typeof value != "string") value = "";
+        if (typeof value != "string") {value = "";}
         const old = this.item;
         if (value != old) {
             ITEM.set(this, value);
@@ -165,6 +165,7 @@ export default class DefaultLocationState extends VisibilityState {
         if (ITEM_DATA.has(this)) {
             return ITEM_DATA.get(this);
         }
+        return void 0;
     }
 
 }

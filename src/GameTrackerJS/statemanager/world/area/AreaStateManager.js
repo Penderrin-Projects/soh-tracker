@@ -14,4 +14,5 @@ const areaStateManager = new AreaStateManager();
 if (!WorldStateManagerRegistry.has("area")) {
     WorldStateManagerRegistry.register("area", areaStateManager);
 }
+
 export default areaStateManager;

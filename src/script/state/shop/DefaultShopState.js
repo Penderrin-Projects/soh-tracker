@@ -13,7 +13,7 @@ const STORAGES = {
     shopItems: Savestate.getStorage("shopItems"),
     shopItemsPrice: Savestate.getStorage("shopItemsPrice"),
     shopItemsBought: Savestate.getStorage("shopItemsBought"),
-    shopItemsName: Savestate.getStorage("shopItemsName"),
+    shopItemsName: Savestate.getStorage("shopItemsName")
 };
 
 const DEF_ITEM_DATA = new WeakMap();
@@ -79,7 +79,7 @@ export default class DefaultShopState extends DataState {
             ITEM.set(this, value);
             STORAGES.shopItems.set(ref, value);
             // data
-            if (!!value) {
+            if (value) {
                 const itemData = ShopItemsResource.get(value);
                 if (itemData != null) {
                     ITEM_DATA.set(this, itemData);

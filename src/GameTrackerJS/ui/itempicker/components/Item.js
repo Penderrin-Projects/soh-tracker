@@ -2,7 +2,9 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import { mix } from "/emcJS/util/Mixin.js";
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
 
 import ItemStates from "../../../state/item/ItemStateManager.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";

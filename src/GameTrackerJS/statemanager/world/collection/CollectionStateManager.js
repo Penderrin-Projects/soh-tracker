@@ -14,4 +14,5 @@ const collectionStateManager = new CollectionStateManager();
 if (!WorldStateManagerRegistry.has("collection")) {
     WorldStateManagerRegistry.register("collection", collectionStateManager);
 }
+
 export default collectionStateManager;

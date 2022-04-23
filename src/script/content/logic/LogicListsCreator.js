@@ -1,7 +1,6 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
 
-
 // GameTrackerJS
 import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
 import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
@@ -139,9 +138,7 @@ function createDefaultOperatorCategory() {
         "children": []
     };
     for (const i in LOGIC_OPERATORS) {
-        res.children.push({
-            "type": LOGIC_OPERATORS[i]
-        });
+        res.children.push({"type": LOGIC_OPERATORS[i]});
     }
     return res;
 }
@@ -193,7 +190,7 @@ function createOptionsOperatorCategory(data) {
                 "children": []
             };
         }
-        if (!!opt.type && opt.type.startsWith("-")) continue;
+        if (!!opt.type && opt.type.startsWith("-")) {continue;}
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {
@@ -238,7 +235,7 @@ function createSettingsOperatorCategory(data) {
     };
     for (const i in data) {
         const opt = data[i];
-        if (!!opt.type && opt.type.startsWith("-")) continue;
+        if (!!opt.type && opt.type.startsWith("-")) {continue;}
         if (opt.type === "choice") {
             if (Array.isArray(opt.values)) {
                 for (const j of opt.values) {

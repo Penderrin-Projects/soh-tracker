@@ -76,7 +76,7 @@ SavestateConverter.register(function(state) {
             res.data.shopItemsBought[ref.slice(0, -7)] = value;
         } else if (ref.endsWith(".name")) {
             res.data.shopItemsName[ref.slice(0, -5)] = value;
-        } 
+        }
     }
     for (const [key, value] of Object.entries(state.data?.songs ?? {})) {
         res.data.songNotes[key.slice(5)] = value;

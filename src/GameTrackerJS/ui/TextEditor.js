@@ -131,7 +131,6 @@ export default class TextEditor extends CustomElement {
                 break;
         }
     }
-    
 
 }
 

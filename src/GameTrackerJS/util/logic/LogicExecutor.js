@@ -10,7 +10,7 @@ const STORAGES = {
     locations: Savestate.getStorage("locations"),
     startItems: Savestate.getStorage("startItems"),
     options: Savestate.getStorage("options"),
-    filter: Savestate.getStorage("filter"),
+    filter: Savestate.getStorage("filter")
 };
 
 const AUGMENT = new Set();
@@ -125,7 +125,7 @@ class LogicExecutor extends EventTarget {
             ...renameKeys(STORAGES.locations.getAll(), "location."),
             ...STORAGES.options.getAll(),
             ...STORAGES.filter.getAll(),
-            ...SettingsStorage.getAll(),
+            ...SettingsStorage.getAll()
         };
         // startitems
         const startItems = STORAGES.startItems.getAll();

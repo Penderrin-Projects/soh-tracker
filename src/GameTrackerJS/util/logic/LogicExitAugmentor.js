@@ -16,7 +16,7 @@ function checkForBindingCorrections(exit, newValue, oldValue) {
                 // leave it as is
             } else if (exit.props.isBiDir) {
                 if (oldEntrance.value == exit.ref) {
-                    oldEntrance.value == "";
+                    oldEntrance.value = "";
                 }
             }
         }
@@ -28,7 +28,7 @@ function checkForBindingCorrections(exit, newValue, oldValue) {
                 if (newEntrance.value != "") {
                     const otherEntrance = INSTANCES.get(newEntrance.value);
                     if (otherEntrance != null) {
-                        otherEntrance.value == "";
+                        otherEntrance.value = "";
                     }
                 }
                 newEntrance.value = exit.ref;
@@ -57,7 +57,6 @@ export default class LogicExitAugmentor {
 
     changeBinding() {
         const exit = EXIT.get(this);
-        const values = [];
         const changes = [];
         if (exit.active) {
             LogicExitAugmentor.applyBinding(changes, exit.ref, exit.value);
