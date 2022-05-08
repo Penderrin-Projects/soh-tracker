@@ -2,6 +2,7 @@
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
+import OptionsStorage from "../../../savestate/storage/OptionsStorage.js";
 import VisibilityState from "../VisibilityState.js";
 import StateListHandler, {
     getDefaultAccess
@@ -76,7 +77,7 @@ export default class DefaultAreaState extends VisibilityState {
     }
 
     get listContents() {
-        return this.props.listContents ?? false;
+        return !OptionsStorage.get("option.mixed_entrance_pool") && (this.props.listContents ?? false);
     }
 
     get defaultAccess() {

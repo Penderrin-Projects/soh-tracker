@@ -10,18 +10,20 @@ const EXIT = new WeakMap();
 
 function checkForBindingCorrections(exit, newValue, oldValue) {
     if (!detachedEntrancesObserver.value) {
-        const oldEntrance = INSTANCES.get(oldValue);
-        if (oldEntrance != null) {
-            if (exit.ref == oldEntrance.ref) {
+        const oldInstance = INSTANCES.get(oldValue);
+        if (oldInstance != null) {
+            const oldExit = oldInstance.exit;
+            if (exit.ref == oldExit.ref) {
                 // leave it as is
             } else if (exit.props.isBiDir) {
-                if (oldEntrance.value == exit.ref) {
-                    oldEntrance.value = "";
+                if (oldExit.value == exit.ref) {
+                    oldExit.value = "";
                 }
             }
         }
-        const newEntrance = INSTANCES.get(newValue);
-        if (newEntrance != null) {
+        const newInstance = INSTANCES.get(newValue);
+        if (newInstance != null) {
+            const newEntrance = newInstance.exit;
             if (exit.ref == newEntrance.ref) {
                 exit.value = "";
             } else if (exit.props.isBiDir) {
@@ -76,13 +78,13 @@ export default class LogicExitAugmentor {
         const [source, target] = from.split(" -> ");
         if (source && target) {
             if (!to) {
-                changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: to});
-                changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: to});
+                changes.push({source: `${source}{child}`, target: `${target}{child}`, reroute: to});
+                changes.push({source: `${source}{adult}`, target: `${target}{adult}`, reroute: to});
             } else {
                 const [reroute] = to.split(" -> ");
                 if (reroute) {
-                    changes.push({source: `${source}[child]`, target: `${target}[child]`, reroute: `${reroute}[child]`});
-                    changes.push({source: `${source}[adult]`, target: `${target}[adult]`, reroute: `${reroute}[adult]`});
+                    changes.push({source: `${source}{child}`, target: `${target}{child}`, reroute: `${reroute}{child}`});
+                    changes.push({source: `${source}{adult}`, target: `${target}{adult}`, reroute: `${reroute}{adult}`});
                 }
             }
         }

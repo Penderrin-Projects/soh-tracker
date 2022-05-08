@@ -466,7 +466,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -491,7 +491,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -1377,7 +1377,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -1402,7 +1402,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -3466,7 +3466,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -3841,7 +3841,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -3863,7 +3863,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -4540,7 +4540,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -4565,7 +4565,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -4590,7 +4590,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -4681,7 +4681,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -5155,7 +5155,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -5180,7 +5180,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -5205,7 +5205,7 @@
             },
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6163,7 +6163,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6185,7 +6185,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6207,7 +6207,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6229,7 +6229,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6273,7 +6273,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6295,7 +6295,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6317,7 +6317,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6339,7 +6339,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6383,7 +6383,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6406,7 +6406,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6429,7 +6429,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6452,7 +6452,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6498,7 +6498,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6521,7 +6521,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6543,7 +6543,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6565,7 +6565,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6587,7 +6587,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6609,7 +6609,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6631,7 +6631,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6653,7 +6653,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6675,7 +6675,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6697,7 +6697,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6719,7 +6719,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6741,7 +6741,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -6763,7 +6763,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7005,7 +7005,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7027,7 +7027,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7049,7 +7049,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7071,7 +7071,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7093,7 +7093,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7115,7 +7115,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7137,7 +7137,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7313,7 +7313,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -7335,7 +7335,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9286,7 +9286,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9308,7 +9308,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9330,7 +9330,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9352,7 +9352,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9396,7 +9396,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9440,7 +9440,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9462,7 +9462,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9528,7 +9528,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9594,7 +9594,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9616,7 +9616,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9638,7 +9638,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -9660,7 +9660,7 @@
             "visible": true,
             "filter": {
                 "filter.era": {
-                    "child": false,
+                    "child": true,
                     "adult": true
                 },
                 "filter.time": {
@@ -16704,6 +16704,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.deku_tree_entrance -> region.deku_tree_gateway",
+                    "x": 1690,
+                    "y": 605,
+                    "category": "exit"
                 }
             ]
         },
@@ -16865,6 +16871,12 @@
                     "id": "region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway",
                     "x": 0,
                     "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.spirit_temple_entrance -> region.spirit_temple_gateway",
+                    "x": 48,
+                    "y": 184,
                     "category": "exit"
                 }
             ]
@@ -17466,6 +17478,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.water_temple_entrance -> region.water_temple_gateway",
+                    "x": 693,
+                    "y": 983,
+                    "category": "exit"
                 }
             ]
         },
@@ -17693,6 +17711,12 @@
                     "id": "region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway",
                     "x": 0,
                     "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway",
+                    "x": 361,
+                    "y": 302,
                     "category": "exit"
                 }
             ]
@@ -17969,6 +17993,12 @@
                     "id": "region.meadow_woods_gateway -> region.woods_meadow_gateway",
                     "x": 0,
                     "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.forest_temple_entrance -> region.forest_temple_gateway",
+                    "x": 1507,
+                    "y": 421,
                     "category": "exit"
                 }
             ]
@@ -18681,6 +18711,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway",
+                    "x": 1306,
+                    "y": 248,
+                    "category": "exit"
                 }
             ]
         },
@@ -18803,6 +18839,12 @@
                     "id": "region.graveyard_kakariko_gateway -> region.kakariko_graveyard_gateway",
                     "x": 0,
                     "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.shadow_temple_entrance -> region.shadow_temple_gateway",
+                    "x": 1459,
+                    "y": 227,
                     "category": "exit"
                 }
             ]
@@ -18945,6 +18987,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway",
+                    "x": 1133,
+                    "y": 146,
+                    "category": "exit"
                 }
             ]
         },
@@ -19067,6 +19115,12 @@
                     "id": "region.crater_goron_gateway -> region.goron_crater_gateway",
                     "x": 0,
                     "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.fire_temple_entrance -> region.fire_temple_gateway",
+                    "x": 1306,
+                    "y": 70,
                     "category": "exit"
                 }
             ]
@@ -19407,6 +19461,18 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.ice_cavern_entrance -> region.ice_cavern_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
                 }
             ]
         },
@@ -19447,6 +19513,18 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance",
+                    "x": 1306,
+                    "y": 248,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.fountain_domain_gateway -> region.domain_fountain_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "well.c_front_left_hidden_wall",
                     "x": 0,
@@ -19552,6 +19630,12 @@
             ],
             "list_mq": [
                 {
+                    "id": "region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance",
+                    "x": 1306,
+                    "y": 248,
+                    "category": "exit"
+                },
+                {
                     "id": "well_mq.c_compass_chest",
                     "x": 0,
                     "y": 0,
@@ -19639,6 +19723,12 @@
             },
             "list": [
                 {
+                    "id": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
+                    "x": 1738,
+                    "y": 173,
+                    "category": "exit"
+                },
+                {
                     "id": "ice_cavern.c_map",
                     "x": 0,
                     "y": 0,
@@ -19688,6 +19778,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
+                    "x": 1738,
+                    "y": 173,
+                    "category": "exit"
+                },
                 {
                     "id": "ice_cavern_mq.c_map",
                     "x": 0,
@@ -19775,6 +19871,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
+                    "x": 361,
+                    "y": 302,
+                    "category": "exit"
+                },
                 {
                     "id": "training_grounds.c_lobby_left",
                     "x": 0,
@@ -19909,6 +20011,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
+                    "x": 361,
+                    "y": 302,
+                    "category": "exit"
+                },
                 {
                     "id": "training_grounds_mq.c_lobby_left",
                     "x": 0,
@@ -20051,6 +20159,12 @@
             },
             "list": [
                 {
+                    "id": "region.deku_tree_gateway -> region.deku_tree_entrance",
+                    "x": 1690,
+                    "y": 605,
+                    "category": "exit"
+                },
+                {
                     "id": "deku.c_lobby",
                     "x": 0,
                     "y": 0,
@@ -20118,6 +20232,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.deku_tree_gateway -> region.deku_tree_entrance",
+                    "x": 1690,
+                    "y": 605,
+                    "category": "exit"
+                },
                 {
                     "id": "deku_mq.c_lobby",
                     "x": 0,
@@ -20236,6 +20356,12 @@
             },
             "list": [
                 {
+                    "id": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
+                    "x": 1133,
+                    "y": 146,
+                    "category": "exit"
+                },
+                {
                     "id": "dodongo.c_lobby_salesman",
                     "x": 0,
                     "y": 0,
@@ -20339,6 +20465,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
+                    "x": 1133,
+                    "y": 146,
+                    "category": "exit"
+                },
                 {
                     "id": "dodongo_mq.c_map",
                     "x": 0,
@@ -20481,6 +20613,12 @@
             },
             "list": [
                 {
+                    "id": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
+                    "x": 1757,
+                    "y": 227,
+                    "category": "exit"
+                },
+                {
                     "id": "jabujabu.c_elevator_dive_salesman",
                     "x": 0,
                     "y": 0,
@@ -20536,6 +20674,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
+                    "x": 1757,
+                    "y": 227,
+                    "category": "exit"
+                },
                 {
                     "id": "jabujabu_mq.c_map",
                     "x": 0,
@@ -20678,6 +20822,12 @@
             },
             "list": [
                 {
+                    "id": "region.forest_temple_gateway -> region.forest_temple_entrance",
+                    "x": 1507,
+                    "y": 421,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_forest.c_entrance",
                     "x": 0,
                     "y": 0,
@@ -20793,6 +20943,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.forest_temple_gateway -> region.forest_temple_entrance",
+                    "x": 1507,
+                    "y": 421,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_forest_mq.c_entrance",
                     "x": 0,
@@ -20941,6 +21097,12 @@
             },
             "list": [
                 {
+                    "id": "region.fire_temple_gateway -> region.fire_temple_entrance",
+                    "x": 1306,
+                    "y": 70,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_fire.c_near_boss",
                     "x": 0,
                     "y": 0,
@@ -21062,6 +21224,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.fire_temple_gateway -> region.fire_temple_entrance",
+                    "x": 1306,
+                    "y": 70,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_fire_mq.c_chest_near_boss",
                     "x": 0,
@@ -21210,6 +21378,12 @@
             },
             "list": [
                 {
+                    "id": "region.water_temple_gateway -> region.water_temple_entrance",
+                    "x": 693,
+                    "y": 983,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_water.c_map",
                     "x": 0,
                     "y": 0,
@@ -21307,6 +21481,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.water_temple_gateway -> region.water_temple_entrance",
+                    "x": 693,
+                    "y": 983,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_water_mq.c_map",
                     "x": 0,
@@ -21418,6 +21598,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
+                    "x": 1459,
+                    "y": 227,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_shadow.c_map",
                     "x": 0,
@@ -21558,6 +21744,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
+                    "x": 1459,
+                    "y": 227,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_shadow_mq.c_compass",
                     "x": 0,
@@ -21754,6 +21946,12 @@
             },
             "list": [
                 {
+                    "id": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
+                    "x": 48,
+                    "y": 184,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_spirit.c_child_left",
                     "x": 0,
                     "y": 0,
@@ -21905,6 +22103,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
+                    "x": 48,
+                    "y": 184,
+                    "category": "exit"
+                },
                 {
                     "id": "temple_spirit_mq.c_entrance_front_left",
                     "x": 0,
