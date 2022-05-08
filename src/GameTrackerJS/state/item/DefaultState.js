@@ -52,7 +52,7 @@ export default class DefaultItemState extends DataState {
                         MAX.set(this, maxVal);
                     }
                     optionObserver.addEventListener("change", (event) => {
-                        this./*#*/__setMax(props.varMax.values[event.data]);
+                        this.#setMax(props.varMax.values[event.data]);
                     });
                 }
             } else if (typeof props.varMax == "string") {
@@ -63,7 +63,7 @@ export default class DefaultItemState extends DataState {
                     MAX.set(this, maxVal);
                 }
                 optionObserver.addEventListener("change", (event) => {
-                    this./*#*/__setMax(event.data);
+                    this.#setMax(event.data);
                 });
             }
         }
@@ -79,7 +79,7 @@ export default class DefaultItemState extends DataState {
                         MIN.set(this, minVal);
                     }
                     optionObserver.addEventListener("change", (event) => {
-                        this./*#*/__setMin(props.varMin.values[event.data]);
+                        this.#setMin(props.varMin.values[event.data]);
                     });
                 }
             } else if (typeof props.varMin == "string") {
@@ -90,7 +90,7 @@ export default class DefaultItemState extends DataState {
                     MIN.set(this, minVal);
                 }
                 optionObserver.addEventListener("change", (event) => {
-                    this./*#*/__setMin(event.data);
+                    this.#setMin(event.data);
                 });
             }
         }
@@ -99,17 +99,17 @@ export default class DefaultItemState extends DataState {
         const startItemsObserver = new DataStorageValueObserver(STORAGES.startItems, ref, 0);
         START.set(this, parseSafeRange(startItemsObserver.value, 0));
         startItemsObserver.addEventListener("change", (event) => {
-            this./*#*/__setStart(event.data);
+            this.#setStart(event.data);
         });
 
         const itemsObserver = new DataStorageValueObserver(STORAGES.items, ref, 0);
-        VALUE.set(this, this./*#*/__restrictValue(itemsObserver.value));
+        VALUE.set(this, this.#restrictValue(itemsObserver.value));
         itemsObserver.addEventListener("change", (event) => {
             this.value = event.data;
         });
     }
 
-    /*#*/__restrictValue(value) {
+    #restrictValue(value) {
         const max = this.max;
         const min = this.min;
         if (value > max) {
@@ -121,7 +121,7 @@ export default class DefaultItemState extends DataState {
         return value;
     }
 
-    /*#*/__setMax(value) {
+    #setMax(value) {
         const newMax = parseSafeRange(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {
@@ -141,7 +141,7 @@ export default class DefaultItemState extends DataState {
         }
     }
 
-    /*#*/__setMin(value) {
+    #setMin(value) {
         const newMin = parseSafeRange(value, 0);
         const oldMin = MIN.get(this);
         if (newMin != oldMin) {
@@ -161,7 +161,7 @@ export default class DefaultItemState extends DataState {
         }
     }
 
-    /*#*/__setStart(value) {
+    #setStart(value) {
         const newStart = parseSafeRange(value, 0);
         const oldStart = MIN.get(this);
         if (newStart != oldStart) {
@@ -201,7 +201,7 @@ export default class DefaultItemState extends DataState {
         const ref = this.ref;
         const rValue = parseSafeRange(value);
         if (rValue != null) {
-            const newValue = this./*#*/__restrictValue(rValue);
+            const newValue = this.#restrictValue(rValue);
             const oldValue = this.value;
             if (newValue != oldValue) {
                 VALUE.set(this, newValue);
@@ -216,7 +216,7 @@ export default class DefaultItemState extends DataState {
 
     get value() {
         const value = VALUE.get(this);
-        return this./*#*/__restrictValue(value);
+        return this.#restrictValue(value);
     }
 
     isMarked() {

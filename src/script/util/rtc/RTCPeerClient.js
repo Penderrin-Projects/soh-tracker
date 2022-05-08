@@ -1,7 +1,7 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";

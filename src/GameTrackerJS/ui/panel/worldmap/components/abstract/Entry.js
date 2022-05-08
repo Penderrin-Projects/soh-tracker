@@ -6,7 +6,7 @@ import {
     mix
 } from "/emcJS/util/Mixin.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 const TPL = new Template(`
 <div id="marker"></div>

@@ -1,5 +1,5 @@
 // frameworks
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
 import WorldStateManagerRegistry from "../../statemanager/WorldStateManagerRegistry.js";
@@ -31,11 +31,11 @@ export default class StateListHandler extends EventTarget {
         ACCESS.set(this, getDefaultAccess());
         REF.set(this, ref);
         setTimeout(() => {
-            this./*#*/__generateList(list);
+            this.#generateList(list);
         }, 0);
     }
 
-    /*#*/__generateList(list) {
+    #generateList(list) {
         const entityList = new Map();
         const filteredEntityList = new Map();
         if (list != null) {
@@ -52,17 +52,17 @@ export default class StateListHandler extends EventTarget {
                         if (filteredEntityList.has(loc)) {
                             if (record.category == "area") {
                                 if (loc.props.accessPenetration) {
-                                    this./*#*/__refreshAccess();
+                                    this.#refreshAccess();
                                 }
                             } else if (record.category == "exit") {
                                 const area = loc.area;
                                 if (area != null) {
                                     if (area.props.accessPenetration) {
-                                        this./*#*/__refreshAccess();
+                                        this.#refreshAccess();
                                     }
                                 }
                             } else if (record.category == "location" || record.category == "collection") {
-                                this./*#*/__refreshAccess();
+                                this.#refreshAccess();
                             }
                         }
                     });
@@ -70,13 +70,13 @@ export default class StateListHandler extends EventTarget {
                         if (loc.isVisible()) {
                             if (!filteredEntityList.has(loc)) {
                                 filteredEntityList.set(loc, entityList.get(loc));
-                                this./*#*/__refreshAccess();
-                                this./*#*/__setVisibility(!!filteredEntityList.size);
+                                this.#refreshAccess();
+                                this.#setVisibility(!!filteredEntityList.size);
                             }
                         } else if (filteredEntityList.has(loc)) {
                             filteredEntityList.delete(loc);
-                            this./*#*/__refreshAccess();
-                            this./*#*/__setVisibility(!!filteredEntityList.size);
+                            this.#refreshAccess();
+                            this.#setVisibility(!!filteredEntityList.size);
                         }
                     });
                 }
@@ -85,11 +85,11 @@ export default class StateListHandler extends EventTarget {
         /* --- */
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        this./*#*/__setVisibility(!!filteredEntityList.size);
-        this./*#*/__refreshAccess();
+        this.#setVisibility(!!filteredEntityList.size);
+        this.#refreshAccess();
     }
 
-    /*#*/__setVisibility(value) {
+    #setVisibility(value) {
         const old = VISIBLE.get(this);
         if (old != value) {
             VISIBLE.set(this, value);
@@ -100,7 +100,7 @@ export default class StateListHandler extends EventTarget {
         }
     }
 
-    /*#*/__setAccess(value) {
+    #setAccess(value) {
         if (value != null) {
             const old = ACCESS.get(this);
             if (!Helper.isEqual(old, value)) {
@@ -113,7 +113,7 @@ export default class StateListHandler extends EventTarget {
         }
     }
 
-    /*#*/__refreshAccess() {
+    #refreshAccess() {
         const list = LIST_FILTERED.get(this) ?? new Map();
         const access = {
             done: 0,
@@ -168,7 +168,7 @@ export default class StateListHandler extends EventTarget {
                 access.value = AccessStateEnum.UNAVAILABLE;
             }
         }
-        this./*#*/__setAccess(access);
+        this.#setAccess(access);
     }
 
     setAllEntries(value = true) {

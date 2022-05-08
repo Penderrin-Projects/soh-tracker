@@ -5,7 +5,7 @@ import {
     mix
 } from "/emcJS/util/Mixin.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";

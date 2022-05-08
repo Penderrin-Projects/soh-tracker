@@ -1,6 +1,6 @@
 // frameworks
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
 import LogicExecutor from "../logic/LogicExecutor.js";
 import FilterStorage from "../../savestate/storage/FilterStorage.js";
@@ -88,7 +88,7 @@ export default class FilterHandler extends EventTarget {
             const changes = {};
             for (const [id, oVal] of filter_values) {
                 const value = FilterStorage.get(id);
-                const nVal = this./*#*/__executeFilter(`${id}/${value}`);
+                const nVal = this.#executeFilter(`${id}/${value}`);
                 if (oVal != nVal) {
                     filter_values.set(id, nVal);
                     changes[id] = nVal;
@@ -102,7 +102,7 @@ export default class FilterHandler extends EventTarget {
         }
     }
 
-    /*#*/__executeFilter(name) {
+    #executeFilter(name) {
         const filter_logics = FILTER_LOGICS.get(this);
         if (filter_logics != null) {
             const logicFn = filter_logics.get(name);

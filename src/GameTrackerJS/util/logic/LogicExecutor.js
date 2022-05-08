@@ -95,31 +95,31 @@ class LogicExecutor extends EventTarget {
         super();
         /* EVENTS */
         Savestate.addEventListener("load", () => {
-            this./*#*/__init();
+            this.#init();
         });
         STORAGES.items.addEventListener("change", (event) => {
-            this./*#*/__changeData(renameKeys(augmentItemValues(event.data), "item[", "]"));
+            this.#changeData(renameKeys(augmentItemValues(event.data), "item[", "]"));
         });
         STORAGES.startItems.addEventListener("change", (event) => {
-            this./*#*/__changeData(renameKeys(augmentStartItemValues(event.data), "item[", "]"));
+            this.#changeData(renameKeys(augmentStartItemValues(event.data), "item[", "]"));
         });
         STORAGES.locations.addEventListener("change", (event) => {
-            this./*#*/__changeData(renameKeys(event.data, "location."));
+            this.#changeData(renameKeys(event.data, "location."));
         });
         STORAGES.options.addEventListener("change", (event) => {
-            this./*#*/__changeData(event.data);
+            this.#changeData(event.data);
         });
         STORAGES.filter.addEventListener("change", (event) => {
-            this./*#*/__changeData(event.data);
+            this.#changeData(event.data);
         });
         SettingsStorage.addEventListener("change", (event) => {
-            this./*#*/__changeData(event.data);
+            this.#changeData(event.data);
         });
         /* --- */
-        this./*#*/__init();
+        this.#init();
     }
 
-    /*#*/__init() {
+    #init() {
         const data = {
             ...renameKeys(initItemValues(), "item[", "]"),
             ...renameKeys(STORAGES.locations.getAll(), "location."),
@@ -147,7 +147,7 @@ class LogicExecutor extends EventTarget {
         this.dispatchEvent(ev);
     }
 
-    /*#*/__changeData(newData) {
+    #changeData(newData) {
         const changes = {};
         for (const [key, value] of Object.entries(newData)) {
             const oldValue = CACHE.get(key);

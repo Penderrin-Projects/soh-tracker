@@ -189,9 +189,9 @@
         "price": 300
     },
     "refill_item": {
-        "image": "/images/items/refill_png",
+        "image": "/images/items/refill_item.png",
         "category": "junk_items",
-        "refill": false,
+        "refill": true,
         "mark": "red",
         "price": false
     },
@@ -209,35 +209,35 @@
         "mark": "red",
         "price": false
     },
-    "rupee_green":{
+    "rupee_green": {
         "image": "/images/items/rupee_green.png",
         "category": "junk_items",
         "refill": false,
         "mark": "red",
         "price": false
     },
-    "rupee_blue":{
+    "rupee_blue": {
         "image": "/images/items/rupee_blue.png",
         "category": "junk_items",
         "refill": false,
         "mark": "red",
         "price": false
     },
-    "rupee_red":{
+    "rupee_red": {
         "image": "/images/items/rupee_red.png",
         "category": "junk_items",
         "refill": false,
         "mark": "red",
         "price": false
     },
-    "rupee_purple":{
+    "rupee_purple": {
         "image": "/images/items/rupee_purple.png",
         "category": "junk_items",
         "refill": false,
         "mark": "red",
         "price": false
     },
-    "rupee_yellow":{
+    "rupee_yellow": {
         "image": "/images/items/rupee_yellow.png",
         "category": "junk_items",
         "refill": false,
@@ -265,7 +265,7 @@
         "mark": "gold",
         "price": false
     },
-    "magic_power":{
+    "magic_power": {
         "image": "/images/items/magic_power_small.png",
         "category": "equipment_items",
         "refill": false,
@@ -286,84 +286,84 @@
         "mark": "gold",
         "price": false
     },
-    "sword_kokiri":{
+    "sword_kokiri": {
         "image": "/images/items/sword_kokiri.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "sword_biggoron":{
+    "sword_biggoron": {
         "image": "/images/items/sword_biggoron.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "shield_kokiri":{
+    "shield_kokiri": {
         "image": "/images/items/shield_kokiri.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "shield_hylia":{
+    "shield_hylia": {
         "image": "/images/items/shield_hylia.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "shield_mirror":{
+    "shield_mirror": {
         "image": "/images/items/shield_mirror.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "tunic_fire":{
+    "tunic_fire": {
         "image": "/images/items/tunic_fire.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "tunic_water":{
+    "tunic_water": {
         "image": "/images/items/tunic_water.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "boots_iron":{
+    "boots_iron": {
         "image": "/images/items/boots_iron.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "boots_hover":{
+    "boots_hover": {
         "image": "/images/items/boots_hover.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "glove":{
+    "glove": {
         "image": "/images/items/glove_goron.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "scale":{
+    "scale": {
         "image": "/images/items/scale_silver.png",
         "category": "equipment_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "stone_of_agony":{
+    "stone_of_agony": {
         "image": "/images/items/stoneofagony.png",
         "category": "equipment_items",
         "refill": false,
@@ -538,13 +538,13 @@
         "mark": "gold",
         "price": false
     },
-    "membership":{
+    "membership": {
         "image": "/images/items/membership.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
-    }, 
+    },
     "key_small_training": {
         "image": "/images/items/key_small.png",
         "category": "unlocking_items",
@@ -698,7 +698,7 @@
         "mark": "gold",
         "price": false
     },
-    "bow":{
+    "bow": {
         "image": "/images/items/bow.png",
         "category": "inventory_items",
         "refill": false,
@@ -712,84 +712,84 @@
         "mark": "gold",
         "price": false
     },
-    "hammer":{
+    "hammer": {
         "image": "/images/items/hammer.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "stick":{
+    "stick": {
         "image": "/images/items/stick.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "nut":{
+    "nut": {
         "image": "/images/items/nut.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "slingshot":{
+    "slingshot": {
         "image": "/images/items/slingshot.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "boomerang":{
+    "boomerang": {
         "image": "/images/items/boomerang.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "bomb_bag":{
+    "bomb_bag": {
         "image": "/images/items/bomb_bag.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "bombchu":{
+    "bombchu": {
         "image": "/images/items/bombchu.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "lens":{
+    "lens": {
         "image": "/images/items/lens.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "magic_din":{
+    "magic_din": {
         "image": "/images/items/magic_din.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "magic_farore":{
+    "magic_farore": {
         "image": "/images/items/magic_farore.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "magic_nayru":{
+    "magic_nayru": {
         "image": "/images/items/magic_nayru.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "arrow_fire":{
+    "arrow_fire": {
         "max": 1,
         "image": "/images/items/arrow_fire.png",
         "category": "inventory_items",
@@ -797,7 +797,7 @@
         "mark": "gold",
         "price": false
     },
-    "arrow_ice":{
+    "arrow_ice": {
         "max": 1,
         "image": "/images/items/arrow_ice.png",
         "category": "inventory_items",
@@ -805,7 +805,7 @@
         "mark": "gold",
         "price": false
     },
-    "arrow_light":{
+    "arrow_light": {
         "max": 1,
         "image": "/images/items/arrow_light.png",
         "category": "inventory_items",
@@ -813,7 +813,7 @@
         "mark": "gold",
         "price": false
     },
-    "ocarina":{
+    "ocarina": {
         "image": "/images/items/ocarina_saria.png",
         "category": "inventory_items",
         "refill": false,
@@ -827,7 +827,7 @@
         "mark": "gold",
         "price": false
     },
-    "zora_letter":{
+    "zora_letter": {
         "image": "/images/items/zora_letter.png",
         "category": "inventory_items",
         "refill": false,
@@ -925,84 +925,84 @@
         "mark": "gold",
         "price": false
     },
-    "song_zelda":{
+    "song_zelda": {
         "image": "/images/items/song_zelda.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "song_epona":{
+    "song_epona": {
         "image": "/images/items/song_epona.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "song_sun":{
+    "song_sun": {
         "image": "/images/items/song_sun.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "song_saria":{
+    "song_saria": {
         "image": "/images/items/song_saria.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "song_time":{
+    "song_time": {
         "image": "/images/items/song_time.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "song_storm":{
+    "song_storm": {
         "image": "/images/items/song_storm.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_forest":{
+    "warp_forest": {
         "image": "/images/items/warp_forest.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_fire":{
+    "warp_fire": {
         "image": "/images/items/warp_fire.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_water":{
+    "warp_water": {
         "image": "/images/items/warp_water.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_shadow":{
+    "warp_shadow": {
         "image": "/images/items/warp_shadow.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_spirit":{
+    "warp_spirit": {
         "image": "/images/items/warp_spirit.png",
         "category": "song_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "warp_light":{
+    "warp_light": {
         "image": "/images/items/warp_light.png",
         "category": "song_items",
         "refill": false,

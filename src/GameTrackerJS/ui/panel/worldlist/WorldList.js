@@ -6,7 +6,7 @@ import {
 } from "/emcJS/util/Mixin.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";

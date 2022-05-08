@@ -13,9 +13,9 @@ const DUNGEON = new WeakMap();
 //     const change = event.data;
 //     if (change != null) {
 //         if (change.ref == dungeon && change.value != ref) {
-//             this./*#*/__setDungeon("");
+//             this.#setDungeon("");
 //         } else if (change.value == ref) {
-//             this./*#*/__setDungeon(change.ref);
+//             this.#setDungeon(change.ref);
 //         }
 //     }
 // }
@@ -29,11 +29,11 @@ export default class RewardItemState extends DefaultItemState {
         const rewardItemObserver = new RewardItemObserver(ref);
         DUNGEON.set(this, rewardItemObserver.value);
         rewardItemObserver.addEventListener("change", (event) => {
-            this./*#*/__setDungeon(event.data);
+            this.#setDungeon(event.data);
         });
     }
 
-    /*#*/__setDungeon(newValue) {
+    #setDungeon(newValue) {
         const dungeon = DUNGEON.get(this);
         if (dungeon != newValue) {
             DUNGEON.set(this, newValue);

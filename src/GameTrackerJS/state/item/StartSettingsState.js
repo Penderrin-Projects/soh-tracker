@@ -20,12 +20,12 @@ export default class StartSettingsState extends DefaultItemState {
                 STARTVALUE.set(this, parseInt(startValue));
             }
             optionObserver.addEventListener("change", (event) => {
-                this./*#*/__applyStartValue(parseInt(event.data));
+                this.#applyStartValue(parseInt(event.data));
             });
         }
     }
 
-    /*#*/__applyStartValue(newValue) {
+    #applyStartValue(newValue) {
         const startvalue = STARTVALUE.get(this);
         newValue = parseInt(newValue) || 1;
         const max = this.max;

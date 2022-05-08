@@ -73,7 +73,7 @@ class SavestateHandler extends EventTarget {
         /* --- */
         Savestate.addEventListener("change", event => {
             const state = Savestate.serialize();
-            this./*#*/__cacheData(state, true);
+            this.#cacheData(state, true);
             if (!event.category) {
                 const ev = new Event("change");
                 ev.data = event.data;
@@ -86,22 +86,22 @@ class SavestateHandler extends EventTarget {
         });
         Savestate.addEventListener("notes", event => {
             const state = Savestate.serialize();
-            this./*#*/__cacheData(state, true);
+            this.#cacheData(state, true);
             const ev = new Event("notes");
             ev.data = event.data;
             this.dispatchEvent(ev);
         });
         Savestate.addEventListener("options", event => {
             const state = Savestate.serialize();
-            this./*#*/__cacheData(state, true);
+            this.#cacheData(state, true);
         });
         Savestate.addEventListener("filter", event => {
             const state = Savestate.serialize();
-            this./*#*/__cacheData(state, true);
+            this.#cacheData(state, true);
         });
     }
 
-    /*#*/__cacheData(data, dirty = true) {
+    #cacheData(data, dirty = true) {
         LocalStorage.set(PERSISTANCE_NAME, data);
         LocalStorage.set(STATE_DIRTY, !!dirty);
         const ev = new Event("dirty");
@@ -117,7 +117,7 @@ class SavestateHandler extends EventTarget {
         state.autosave = false;
         await STORAGE.set(name, state);
         // write state data
-        this./*#*/__cacheData(state, false);
+        this.#cacheData(state, false);
     }
 
     async load(name) {
@@ -127,7 +127,7 @@ class SavestateHandler extends EventTarget {
             const state = SavestateConverter.convert(await STORAGE.get(name));
             // write state data
             Savestate.deserialize(state);
-            this./*#*/__cacheData(state, false);
+            this.#cacheData(state, false);
             // trigger event
             this.dispatchEvent(new Event("reset"));
             const ev = new Event("load");
@@ -158,7 +158,7 @@ class SavestateHandler extends EventTarget {
         Savestate.deserialize(data);
         // cache data
         const state = Savestate.serialize();
-        this./*#*/__cacheData(state, false);
+        this.#cacheData(state, false);
         // trigger event
         const ev = new Event("load");
         ev.state = state;
@@ -178,7 +178,7 @@ class SavestateHandler extends EventTarget {
         Savestate.overwrite(data);
         // cache data
         const state = Savestate.serialize();
-        this./*#*/__cacheData(state, true);
+        this.#cacheData(state, true);
         // trigger event
         const ev = new Event("load");
         ev.state = state;

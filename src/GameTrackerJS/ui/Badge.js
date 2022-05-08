@@ -2,7 +2,7 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
+import EventTargetMixin from "/emcJS/ui/mixin/EventTargetMixin.js";
 import "/emcJS/ui/Icon.js";
 
 import FilterResource from "../resource/FilterResource.js";

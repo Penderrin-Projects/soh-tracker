@@ -160,17 +160,17 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                     priceEl.innerHTML = state.price;
                 }
             }
-            this./*#*/__applyItem();
+            this.#applyItem();
         });
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
                 Language.applyLabel(titleEl, `item[${event.data}]`);
             }
-            this./*#*/__applyItem();
+            this.#applyItem();
         });
         this.registerStateHandler("bought", event => {
-            this./*#*/__applyItem();
+            this.#applyItem();
         });
         this.registerStateHandler("price", event => {
             const priceEl = this.shadowRoot.getElementById("price");
@@ -200,12 +200,12 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             }
         });
         this.addDefaultContextMenuHandler("associate", event => {
-            this./*#*/__editItem();
+            this.#editItem();
         });
         this.addDefaultContextMenuHandler("junk", event => {
             const state = this.getState();
             if (state != null) {
-                state.item = "item[refill_item]";
+                state.item = "refill_item";
                 state.price = "0";
                 state.value = true;
             }
@@ -222,15 +222,15 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             const state = this.getState();
             if (state != null) {
                 if (event.ctrlKey) {
-                    if (state.item != "item[refill_item]") {
-                        state.item = "item[refill_item]";
+                    if (state.item != "refill_item") {
+                        state.item = "refill_item";
                         state.price = "0";
                         state.value = true;
                     } else {
                         state.reset();
                     }
                 } else if (state.isDefault()) {
-                    this./*#*/__editItem();
+                    this.#editItem();
                 } else {
                     state.bought = !state.bought;
                 }
@@ -295,7 +295,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                 Language.applyLabel(titleEl, `item[${state.item}]`);
             }
             // item
-            this./*#*/__applyItem();
+            this.#applyItem();
             // cost
             const priceEl = this.shadowRoot.getElementById("price");
             if (priceEl != null) {
@@ -309,7 +309,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         }
     }
 
-    /*#*/__applyItem() {
+    #applyItem() {
         const state = this.getState();
         const imageEl = this.shadowRoot.getElementById("image");
         const itemData = state?.itemData;
@@ -336,7 +336,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         }
     }
 
-    /*#*/__editItem(event) {
+    #editItem(event) {
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(getDialogTitle(this.ref));

@@ -1,9 +1,9 @@
 // frameworks
 import FileLoader from "/emcJS/util/FileLoader.js";
 import Logger from "/emcJS/util/Logger.js";
-import I18n from "/emcJS/i18n/I18n.js";
-import I18nLabel from "/emcJS/i18n/ui/I18nLabel.js";
-import I18nTooltip from "/emcJS/i18n/ui/I18nTooltip.js";
+import I18n from "/emcJS/util/I18n.js";
+import I18nLabel from "/emcJS/ui/i18n/I18nLabel.js";
+import I18nTooltip from "/emcJS/ui/i18n/I18nTooltip.js";
 
 import SettingsObserver from "./observer/SettingsObserver.js";
 

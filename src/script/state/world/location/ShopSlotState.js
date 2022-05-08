@@ -36,6 +36,7 @@ export default class ShopSlotState extends DefaultLocationState {
                 this.dispatchEvent(ev);
             });
             shopState.addEventListener("item", event => {
+                this.refreshAccess();
                 const ev = new Event("item");
                 ev.data = event.data;
                 this.dispatchEvent(ev);
@@ -49,6 +50,7 @@ export default class ShopSlotState extends DefaultLocationState {
             WALLET.addEventListener("value", event => {
                 this.refreshAccess();
             });
+            this.refreshAccess();
         }
     }
 
@@ -78,7 +80,7 @@ export default class ShopSlotState extends DefaultLocationState {
     get value() {
         const shopState = SHOP_STATE.get(this);
         if (shopState != null) {
-            return shopState.bought;
+            return shopState.isRefill() || shopState.bought;
         }
         return false;
     }

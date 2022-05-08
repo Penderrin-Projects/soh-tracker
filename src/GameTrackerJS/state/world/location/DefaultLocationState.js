@@ -111,10 +111,6 @@ export default class DefaultLocationState extends VisibilityState {
         return ACCESS.get(this) ?? this.defaultAccess;
     }
 
-    /*#*/__setValue(value) {
-        return value;
-    }
-
     set value(value) {
         if (typeof value != "boolean") {
             value = !!value;

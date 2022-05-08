@@ -930,7 +930,8 @@ area[desert.fairy_fountain]=Colossus Great Fairy
 area[desert.strength_grotto]=Colossus Grotto
 
 # ITEMS
-item[bad_item]=ERROR: unknown
+item[]=unknown
+item[bad_item]=ERROR
 item[bow]=Bow
 item[hookshot]=Hookshot
 item[hammer]=Hammer

@@ -2,7 +2,7 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 const TPL = new Template(`
 <div id="header">

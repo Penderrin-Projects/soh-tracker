@@ -121,13 +121,13 @@ export default class ProgressiveItem extends ItemElement {
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("max", event => {
-            this./*#*/__fillItemChoices();
+            this.#fillItemChoices();
         });
         this.registerStateHandler("min", event => {
-            this./*#*/__fillItemChoices();
+            this.#fillItemChoices();
         });
         this.registerStateHandler("start", event => {
-            this./*#*/__fillItemChoices();
+            this.#fillItemChoices();
         });
     }
 
@@ -135,7 +135,7 @@ export default class ProgressiveItem extends ItemElement {
         super.applyDefaultValues();
         const slotEl = this.shadowRoot.getElementById("slot");
         // choices
-        this./*#*/__fillItemChoices();
+        this.#fillItemChoices();
         // always active
         slotEl.classList.remove("alwaysActive");
     }
@@ -145,7 +145,7 @@ export default class ProgressiveItem extends ItemElement {
         const data = state.props;
         const slotEl = this.shadowRoot.getElementById("slot");
         // choices
-        this./*#*/__fillItemChoices();
+        this.#fillItemChoices();
         // always active
         slotEl.classList.toggle("alwaysActive", !!data.alwaysActive);
     }
@@ -161,7 +161,7 @@ export default class ProgressiveItem extends ItemElement {
         }
     }
 
-    /*#*/__fillItemChoices() {
+    #fillItemChoices() {
         this.innerHTML = "";
         const state = this.getState();
         if (state != null) {

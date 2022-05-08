@@ -1,5 +1,5 @@
 // frameworks
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 
 import LogicExecutor from "../../../util/logic/LogicExecutor.js";

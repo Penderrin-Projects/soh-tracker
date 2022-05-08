@@ -22,7 +22,7 @@ export default class KeyState extends DefaultItemState {
                 AREA.set(this, area);
                 if (area.props.list_mq != null) {
                     area.addEventListener("type", (event) => {
-                        this./*#*/__setMax(props.typeMax[event.data] ?? super.max);
+                        this.#setMax(props.typeMax[event.data] ?? super.max);
                         const ev = new Event("type");
                         ev.data = event.data;
                         this.dispatchEvent(ev);
@@ -33,7 +33,7 @@ export default class KeyState extends DefaultItemState {
         }
     }
 
-    /*#*/__setMax(value) {
+    #setMax(value) {
         const newMax = parseSafeRange(value, this.defaultMax);
         const oldMax = MAX.get(this);
         if (newMax != oldMax) {

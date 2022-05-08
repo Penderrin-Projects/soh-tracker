@@ -1,5 +1,5 @@
 // frameworks
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
@@ -37,11 +37,11 @@ export default class OverworldListHandler extends EventTarget {
         /* --- */
         ACCESS.set(this, getDefaultAccess());
         setTimeout(() => {
-            this./*#*/__generateList();
+            this.#generateList();
         }, 0);
     }
 
-    /*#*/__generateList() {
+    #generateList() {
         const usedLocations = new Set();
         const dungeonList = new Set();
         const entityList = new Map();
@@ -51,7 +51,7 @@ export default class OverworldListHandler extends EventTarget {
                 dungeonList.add(area);
                 const eventManager = new EventTargetManager(area);
                 eventManager.set("access", () => {
-                    this./*#*/__refreshAccess();
+                    this.#refreshAccess();
                 });
                 /* --- */
                 const listV = area.props.list.filter(r => r.category == "location").map(r => r.id);
@@ -80,18 +80,18 @@ export default class OverworldListHandler extends EventTarget {
                 const eventManager = new EventTargetManager(loc);
                 eventManager.set("access", () => {
                     if (filteredEntityList.has(loc)) {
-                        this./*#*/__refreshAccess();
+                        this.#refreshAccess();
                     }
                 });
                 eventManager.set("visiblity", () => {
                     if (loc.isVisible()) {
                         if (!filteredEntityList.has(loc)) {
                             filteredEntityList.set(loc, entityList.get(loc));
-                            this./*#*/__refreshAccess();
+                            this.#refreshAccess();
                         }
                     } else if (filteredEntityList.has(loc)) {
                         filteredEntityList.delete(loc);
-                        this./*#*/__refreshAccess();
+                        this.#refreshAccess();
                     }
                 });
             }
@@ -100,10 +100,10 @@ export default class OverworldListHandler extends EventTarget {
         DUNGEON_LIST.set(this, dungeonList);
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        this./*#*/__refreshAccess();
+        this.#refreshAccess();
     }
 
-    /*#*/__setAccess(value) {
+    #setAccess(value) {
         if (value != null) {
             const old = ACCESS.get(this);
             if (!Helper.isEqual(old, value)) {
@@ -116,7 +116,7 @@ export default class OverworldListHandler extends EventTarget {
         }
     }
 
-    /*#*/__refreshAccess() {
+    #refreshAccess() {
         const entityList = LIST_FILTERED.get(this);
         const dungeonList = DUNGEON_LIST.get(this);
         const access = {
@@ -208,7 +208,7 @@ export default class OverworldListHandler extends EventTarget {
                 access.value = AccessStateEnum.UNAVAILABLE;
             }
         }
-        this./*#*/__setAccess(access);
+        this.#setAccess(access);
     }
 
     get access() {

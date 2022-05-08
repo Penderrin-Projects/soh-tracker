@@ -1,5 +1,5 @@
 // frameworks
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
 import LocationStateManager from "../../statemanager/world/location/LocationStateManager.js";
@@ -26,11 +26,11 @@ export default class OverworldListHandler extends EventTarget {
         /* --- */
         ACCESS.set(this, getDefaultAccess());
         setTimeout(() => {
-            this./*#*/__generateList();
+            this.#generateList();
         }, 0);
     }
 
-    /*#*/__generateList() {
+    #generateList() {
         const entityList = new Map();
         const filteredEntityList = new Map();
         for (const [key, loc] of LocationStateManager) {
@@ -48,28 +48,28 @@ export default class OverworldListHandler extends EventTarget {
             const eventManager = new EventTargetManager(loc);
             eventManager.set("access", () => {
                 if (filteredEntityList.has(loc)) {
-                    this./*#*/__refreshAccess();
+                    this.#refreshAccess();
                 }
             });
             eventManager.set("visiblity", () => {
                 if (loc.isVisible()) {
                     if (!filteredEntityList.has(loc)) {
                         filteredEntityList.set(loc, entityList.get(loc));
-                        this./*#*/__refreshAccess();
+                        this.#refreshAccess();
                     }
                 } else if (filteredEntityList.has(loc)) {
                     filteredEntityList.delete(loc);
-                    this./*#*/__refreshAccess();
+                    this.#refreshAccess();
                 }
             });
         }
         /* --- */
         LIST_RESOLVED.set(this, entityList);
         LIST_FILTERED.set(this, filteredEntityList);
-        this./*#*/__refreshAccess();
+        this.#refreshAccess();
     }
 
-    /*#*/__setAccess(value) {
+    #setAccess(value) {
         if (value != null) {
             const old = ACCESS.get(this);
             if (!Helper.isEqual(old, value)) {
@@ -82,7 +82,7 @@ export default class OverworldListHandler extends EventTarget {
         }
     }
 
-    /*#*/__refreshAccess() {
+    #refreshAccess() {
         const entityList = LIST_FILTERED.get(this);
         const access = {
             done: 0,
@@ -111,7 +111,7 @@ export default class OverworldListHandler extends EventTarget {
                 access.value = AccessStateEnum.UNAVAILABLE;
             }
         }
-        this./*#*/__setAccess(access);
+        this.#setAccess(access);
     }
 
     get access() {

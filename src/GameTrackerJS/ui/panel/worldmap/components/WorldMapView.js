@@ -5,9 +5,9 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 import WorldStateManagerRegistry from "../../../../statemanager/WorldStateManagerRegistry.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
@@ -231,7 +231,7 @@ export default class WorldMapView extends BaseClass {
         x = Math.floor(x);
         y = Math.floor(y);
         const zoom = ZOOM.get(this);
-        const [offsetX, offsetY] = this./*#*/__containBoundaries(x, y, zoom);
+        const [offsetX, offsetY] = this.#containBoundaries(x, y, zoom);
         const oldX = OFFSET_X.get(this);
         const oldY = OFFSET_Y.get(this);
         if (oldX != offsetX || oldY != offsetY) {
@@ -266,7 +266,7 @@ export default class WorldMapView extends BaseClass {
             const focusDiffY = anchorY * (oldScale - scale) * 4;
 
             /* recalculate offsets to stay inside boundaries */
-            const [offsetX, offsetY] = this./*#*/__containBoundaries(x - focusDiffX, y - focusDiffY, zoom);
+            const [offsetX, offsetY] = this.#containBoundaries(x - focusDiffX, y - focusDiffY, zoom);
             OFFSET_X.set(this, offsetX);
             OFFSET_Y.set(this, offsetY);
 
@@ -284,7 +284,7 @@ export default class WorldMapView extends BaseClass {
         }
     }
 
-    /*#*/__containBoundaries(vrtX, vrtY, zoom) {
+    #containBoundaries(vrtX, vrtY, zoom) {
         const scale = zoom / 100;
         const mapEl = this.shadowRoot.getElementById("map");
         const parW = this.clientWidth;

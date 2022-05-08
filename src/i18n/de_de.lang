@@ -906,7 +906,8 @@ area[desert.fairy_fountain]=Große Fee
 area[desert.strength_grotto]=Grotte unter Felsen nahe Teleportplatz
 
 # ITEMS
-item[bad_item]=ERROR: unbekannt
+item[]=unbekannt
+item[bad_item]=FEHLER
 item[bow]=Bogen
 item[hookshot]=Fanghaken
 item[hammer]=Hammer

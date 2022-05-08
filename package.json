@@ -1,18 +1,17 @@
 {
-  "name": "logicparser",
-  "version": "0.0.0",
-  "description": "Logic Parser",
+  "name": "track-oot",
+  "description": "Tracker for OOT-Randomizer",
   "author": "Denis Peters (ZidArgs)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/zidargs/logicparser.git"
+    "url": "git+ssh://git@bitbucket.org/zidargs/track-oot.git"
   },
-  "homepage": "https://bitbucket.org/zidargs/logicparser/src",
+  "homepage": "https://bitbucket.org/zidargs/track-oot/src",
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.28",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.30",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },

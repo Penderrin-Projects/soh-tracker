@@ -1,4 +1,4 @@
-self.importScripts(`/emcjs/worker/scripts/PortHandler.js`);
+self.importScripts(`/emcJS/worker/scripts/PortHandler.js`);
 
 self.PortHandler.addEventListener("message", (event) => {
     const port = event.port;

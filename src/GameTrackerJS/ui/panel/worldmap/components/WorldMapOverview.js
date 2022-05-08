@@ -5,8 +5,8 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
-import "/emcJS/i18n/ui/I18nLabel.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
+import "/emcJS/ui/i18n/I18nLabel.js";
 
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
@@ -101,7 +101,7 @@ export default class WorldMapOverview extends BaseClass {
             if (!this.fixed && event.button === 0) {
                 const evX = event.layerX;
                 const evY = event.layerY;
-                this./*#*/__moveFocus(evX, evY);
+                this.#moveFocus(evX, evY);
                 mapEventManager.setActive(true);
             }
             event.preventDefault();
@@ -111,7 +111,7 @@ export default class WorldMapOverview extends BaseClass {
             if (event.button === 0) {
                 const evX = event.layerX;
                 const evY = event.layerY;
-                this./*#*/__moveFocus(evX, evY);
+                this.#moveFocus(evX, evY);
             }
             event.preventDefault();
             return false;
@@ -127,7 +127,7 @@ export default class WorldMapOverview extends BaseClass {
             const zoom = ZOOM.get(this);
             const x = OFFSET_X.get(this);
             const y = OFFSET_Y.get(this);
-            this./*#*/__calcutlateMask(width, height, x, y, zoom);
+            this.#calcutlateMask(width, height, x, y, zoom);
         });
     }
 
@@ -137,10 +137,10 @@ export default class WorldMapOverview extends BaseClass {
         ZOOM.set(this, zoom);
         const width = WIDTH.get(this);
         const height = HEIGHT.get(this);
-        this./*#*/__calcutlateMask(width, height, x, y, zoom);
+        this.#calcutlateMask(width, height, x, y, zoom);
     }
 
-    /*#*/__moveFocus(x, y) {
+    #moveFocus(x, y) {
         const oWidth = this.clientWidth;
         const oHeight = this.clientHeight;
         const zoom = ZOOM.get(this);
@@ -154,7 +154,7 @@ export default class WorldMapOverview extends BaseClass {
         this.dispatchEvent(ev);
     }
 
-    /*#*/__calcutlateMask(width, height, x, y, zoom) {
+    #calcutlateMask(width, height, x, y, zoom) {
         const focusEl = this.shadowRoot.getElementById("focus");
         if (focusEl != null) {
             if (width <= 0 || height <= 0) {
@@ -213,7 +213,7 @@ export default class WorldMapOverview extends BaseClass {
         if (focusEl != null) {
             focusEl.style.backgroundImage = "";
         }
-        this./*#*/__calcutlateMask(0, 0, 0, 0, 100);
+        this.#calcutlateMask(0, 0, 0, 0, 100);
     }
 
     applyStateValues(state) {
@@ -236,7 +236,7 @@ export default class WorldMapOverview extends BaseClass {
         if (focusEl != null) {
             focusEl.style.backgroundImage = `url("/images/maps/${mapData.background}")`;
         }
-        this./*#*/__calcutlateMask(width, height, 0, 0, zoom);
+        this.#calcutlateMask(width, height, 0, 0, zoom);
     }
 
     get ref() {

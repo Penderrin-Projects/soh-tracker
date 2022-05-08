@@ -6,7 +6,7 @@ import {
 } from "/emcJS/util/Mixin.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
-import "/emcJS/i18n/ui/I18nTooltip.js";
+import "/emcJS/ui/i18n/I18nTooltip.js";
 
 import ItemStates from "../../../../../state/item/ItemStateManager.js";
 import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";

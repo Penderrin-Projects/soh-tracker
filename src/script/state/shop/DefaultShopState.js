@@ -16,53 +16,57 @@ const STORAGES = {
     shopItemsName: Savestate.getStorage("shopItemsName")
 };
 
-const DEF_ITEM_DATA = new WeakMap();
-const ITEM_DATA = new WeakMap();
-const ITEM = new WeakMap();
-const PRICE = new WeakMap();
-const BOUGHT = new WeakMap();
-const NAME = new WeakMap();
+function isSanity() {
+    return OptionsStorage.get("option.shopsanity") != "off";
+}
 
 export default class DefaultShopState extends DataState {
 
-    constructor(ref, props, defItemData) {
-        super(ref, props);
+    #refill = true;
 
-        /* DEFAULT */
-        DEF_ITEM_DATA.set(this, defItemData);
+    #item = "";
+
+    #price = 0;
+
+    #bought = false;
+
+    #name = "";
+
+    constructor(ref, props) {
+        super(ref, props);
 
         /* VALUES */
         const shopItemsObserver = new DataStorageValueObserver(STORAGES.shopItems, ref, "");
-        ITEM.set(this, shopItemsObserver.value);
+        this.#item = shopItemsObserver.value;
         shopItemsObserver.addEventListener("change", (event) => {
             this.item = event.data;
         });
 
         const shopItemsPriceObserver = new DataStorageValueObserver(STORAGES.shopItemsPrice, ref, 0);
-        PRICE.set(this, shopItemsPriceObserver.value);
+        this.#price = shopItemsPriceObserver.value;
         shopItemsPriceObserver.addEventListener("change", (event) => {
             this.price = event.data;
         });
 
         const shopItemsBoughtObserver = new DataStorageValueObserver(STORAGES.shopItemsBought, ref, false);
-        BOUGHT.set(this, shopItemsBoughtObserver.value);
+        this.#bought = shopItemsBoughtObserver.value;
         shopItemsBoughtObserver.addEventListener("change", (event) => {
             this.bought = event.data;
         });
 
-        const shopItemsNameObserver = new DataStorageValueObserver(STORAGES.shopItemsName, ref, false);
-        NAME.set(this, shopItemsNameObserver.value);
+        const shopItemsNameObserver = new DataStorageValueObserver(STORAGES.shopItemsName, ref, "");
+        this.#name = shopItemsNameObserver.value;
         shopItemsNameObserver.addEventListener("change", (event) => {
             this.name = event.data;
         });
 
-        if (this.item) {
-            const itemData = ShopItemsResource.get(this.item);
-            if (itemData != null) {
-                ITEM_DATA.set(this, itemData);
-            }
+        /* --- */
+        if (this.#item) {
+            const itemData = ShopItemsResource.get(this.#item);
+            this.#refill = itemData?.refill ?? !isSanity();
+        } else {
+            this.#refill = !isSanity();
         }
-
         /* --- */
         if (props.ref != null) {
             ShopLocationRegistry.set(props.ref, this);
@@ -76,24 +80,21 @@ export default class DefaultShopState extends DataState {
         }
         const old = this.item;
         if (value != old) {
-            ITEM.set(this, value);
+            this.#item = value;
             STORAGES.shopItems.set(ref, value);
             // data
             if (value) {
                 const itemData = ShopItemsResource.get(value);
-                if (itemData != null) {
-                    ITEM_DATA.set(this, itemData);
-                } else {
-                    ITEM_DATA.delete(this);
-                }
+                this.#refill = itemData?.refill ?? !isSanity();
                 // bought
-                if (itemData != null && itemData.refill) {
+                if (this.#refill) {
                     STORAGES.shopItemsBought.set(ref, true);
                 } else {
                     STORAGES.shopItemsBought.set(ref, false);
                 }
             } else {
-                ITEM_DATA.delete(this);
+                this.#refill = !isSanity();
+                STORAGES.shopItemsBought.set(ref, false);
             }
             // external
             const event = new Event("item");
@@ -103,7 +104,12 @@ export default class DefaultShopState extends DataState {
     }
 
     get item() {
-        return ITEM.get(this);
+        if (this.#item !== "") {
+            return this.#item;
+        } else if (!isSanity()) {
+            return this.props.item;
+        }
+        return "";
     }
 
     set price(value) {
@@ -117,7 +123,7 @@ export default class DefaultShopState extends DataState {
         }
         const old = this.price;
         if (value != old) {
-            PRICE.set(this, value);
+            this.#price = value;
             STORAGES.shopItemsPrice.set(ref, value);
             // external
             const event = new Event("price");
@@ -127,18 +133,17 @@ export default class DefaultShopState extends DataState {
     }
 
     get price() {
-        return PRICE.get(this);
+        return this.#price;
     }
 
     set bought(value) {
         const ref = this.ref;
-        const itemData = ITEM_DATA.get(this);
-        if (typeof value != "boolean" || itemData == null || itemData.refill) {
+        if (typeof value != "boolean" || this.isDefault() || this.isRefill()) {
             value = false;
         }
         const old = this.bought;
         if (value != old) {
-            BOUGHT.set(this, value);
+            this.#bought = value;
             STORAGES.shopItemsBought.set(ref, value);
             // external
             const event = new Event("bought");
@@ -148,7 +153,7 @@ export default class DefaultShopState extends DataState {
     }
 
     get bought() {
-        return BOUGHT.get(this);
+        return this.#bought;
     }
 
     set name(value) {
@@ -158,7 +163,7 @@ export default class DefaultShopState extends DataState {
         }
         const old = this.name;
         if (value != old) {
-            NAME.set(this, value);
+            this.#name = value;
             STORAGES.shopItemsName.set(ref, value);
             // external
             const event = new Event("name");
@@ -168,27 +173,55 @@ export default class DefaultShopState extends DataState {
     }
 
     get name() {
-        return NAME.get(this);
+        return this.#name;
     }
 
     get itemData() {
-        if (ITEM_DATA.has(this)) {
-            return ITEM_DATA.get(this);
+        if (this.item !== "") {
+            const itemData = ShopItemsResource.get(this.item);
+            if (itemData != null) {
+                return {
+                    ...itemData,
+                    "price": this.#price
+                };
+            } else {
+                return {
+                    "image": "/images/items/error.png",
+                    "category": "hidden_items",
+                    "refill": true,
+                    "mark": false,
+                    "price": "?"
+                };
+            }
+        } else if (!isSanity()) {
+            const itemData = ShopItemsResource.get(this.props.item);
+            if (itemData != null) {
+                return itemData;
+            } else {
+                return {
+                    "image": "/images/items/error.png",
+                    "category": "hidden_items",
+                    "refill": true,
+                    "mark": false,
+                    "price": "?"
+                };
+            }
         }
-        if (OptionsStorage.get("option.shopsanity") != "off") {
-            return {
-                "image": "/images/unknown.svg",
-                "category": "hidden_items",
-                "refill": true,
-                "mark": false,
-                "price": "?"
-            };
-        }
-        return DEF_ITEM_DATA.get(this);
+        return {
+            "image": "/images/unknown.svg",
+            "category": "hidden_items",
+            "refill": false,
+            "mark": false,
+            "price": "?"
+        };
+    }
+
+    isRefill() {
+        return this.#refill;
     }
 
     isDefault() {
-        return !ITEM_DATA.has(this);
+        return this.#item === "";
     }
 
     reset() {
@@ -197,7 +230,6 @@ export default class DefaultShopState extends DataState {
         STORAGES.shopItemsPrice.delete(ref);
         STORAGES.shopItemsBought.delete(ref);
         STORAGES.shopItemsName.delete(ref);
-        ITEM_DATA.delete(this);
     }
 
 }

@@ -5,7 +5,7 @@ import {
     mix
 } from "/emcJS/util/Mixin.js";
 import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
-import EventTargetMixin from "/emcJS/event/ui/EventTargetMixin.js";
+import EventTargetMixin from "/emcJS/ui/mixin/EventTargetMixin.js";
 
 import Savestate from "../../savestate/Savestate.js";
 import Language from "../../util/Language.js";
