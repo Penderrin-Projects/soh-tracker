@@ -22599,6 +22599,12 @@
             },
             "list": [
                 {
+                    "id": "region.kf_links_house -> region.kf_links_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kokiri.c_links_house_cow",
                     "x": 0,
                     "y": 0,
@@ -22641,6 +22647,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kf_midos_house -> region.kf_midos_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kokiri.c_midos_house_1",
                     "x": 0,
@@ -22705,6 +22717,12 @@
             },
             "list": [
                 {
+                    "id": "region.hf_tektite_grotto -> region.hf_tektite_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "hyrule_field.c_diving_heart_piece_grotto",
                     "x": 0,
                     "y": 0,
@@ -22750,6 +22768,12 @@
             },
             "list": [
                 {
+                    "id": "region.hf_near_kak_grotto -> region.hf_near_kak_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "hyrule_field.s_hyrule_north_east_grotto",
                     "x": 0,
                     "y": 0,
@@ -22794,6 +22818,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.hf_near_market_grotto -> region.hf_near_market_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "hyrule_field.c_hyrule_north_grotto",
                     "x": 0,
@@ -22846,6 +22876,12 @@
             },
             "list": [
                 {
+                    "id": "region.hf_cow_grotto -> region.hf_cow_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "hyrule_field.c_hyrule_west_grotto_cow",
                     "x": 0,
                     "y": 0,
@@ -22897,6 +22933,12 @@
             },
             "list": [
                 {
+                    "id": "region.hf_inside_fence_grotto -> region.hf_inside_fence_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "hyrule_field.c_hyrule_deku_salesman_grotto",
                     "x": 0,
                     "y": 0,
@@ -22941,6 +22983,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.hf_open_grotto -> region.hf_open_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "hyrule_field.c_hyrule_south_grotto",
                     "x": 0,
@@ -22993,6 +23041,12 @@
             },
             "list": [
                 {
+                    "id": "region.hf_southeast_grotto -> region.hf_southeast_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "hyrule_field.c_hyrule_forest_grotto",
                     "x": 0,
                     "y": 0,
@@ -23043,6 +23097,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kf_storms_grotto -> region.kf_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kokiri.c_storm_grotto",
                     "x": 0,
@@ -23095,6 +23155,12 @@
             },
             "list": [
                 {
+                    "id": "region.lw_near_shortcuts_grotto -> region.lw_near_shortcuts_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "woods.c_bomb_grotto",
                     "x": 0,
                     "y": 0,
@@ -23145,6 +23211,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.lw_scrubs_grotto -> region.lw_scrubs_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "woods.c_deku_salesman_grotto",
                     "x": 0,
@@ -23197,6 +23269,12 @@
             },
             "list": [
                 {
+                    "id": "region.deku_theater -> region.deku_theater_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "woods.c_deku_theater_1",
                     "x": 0,
                     "y": 0,
@@ -23248,6 +23326,12 @@
             },
             "list": [
                 {
+                    "id": "region.sfm_wolfos_grotto -> region.sfm_wolfos_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "woods.c_wolfos_grotto",
                     "x": 0,
                     "y": 0,
@@ -23292,6 +23376,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.sfm_storms_grotto -> region.sfm_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "woods.c_deku_salesman_meadow_grotto_1",
                     "x": 0,
@@ -23342,6 +23432,12 @@
             },
             "list": [
                 {
+                    "id": "region.market_guard_house -> region.market_guard_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_town.c_poes",
                     "x": 0,
                     "y": 0,
@@ -23390,6 +23486,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.market_bombchu_bowling -> region.market_bombchu_bowling_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.c_bowling_1",
                     "x": 0,
@@ -23440,6 +23542,12 @@
             },
             "list": [
                 {
+                    "id": "region.market_treasure_chest_game -> region.market_treasure_chest_game_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_town.c_chest_game",
                     "x": 0,
                     "y": 0,
@@ -23482,6 +23590,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.market_shooting_gallery -> region.market_shooting_gallery_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.c_child_shooting",
                     "x": 0,
@@ -23528,6 +23642,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.temple_of_time -> region.tot_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.c_warp",
                     "x": 0,
@@ -23578,6 +23698,12 @@
             },
             "list": [
                 {
+                    "id": "region.llr_talons_house -> region.llr_talons_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "lonlon.c_talon_chicken",
                     "x": 0,
                     "y": 0,
@@ -23620,6 +23746,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.llr_stables -> region.llr_stables_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "lonlon.c_cow_stables_1",
                     "x": 0,
@@ -23669,6 +23801,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.llr_tower -> region.llr_tower_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "lonlon.c_hp",
                     "x": 0,
@@ -23727,6 +23865,12 @@
             },
             "list": [
                 {
+                    "id": "region.llr_grotto -> region.llr_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "lonlon.c_grotto_deku_salesman_1",
                     "x": 0,
                     "y": 0,
@@ -23782,6 +23926,12 @@
             },
             "list": [
                 {
+                    "id": "region.hc_great_fairy_fountain -> region.hc_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_town.c_hyrule_fairy",
                     "x": 0,
                     "y": 0,
@@ -23826,6 +23976,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.ogc_great_fairy_fountain -> region.ogc_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.s_storm_grotto_child",
                     "x": 0,
@@ -23876,6 +24032,12 @@
             },
             "list": [
                 {
+                    "id": "region.ogc_great_fairy_fountain -> region.ogc_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_town.c_ganon_fairy",
                     "x": 0,
                     "y": 0,
@@ -23918,6 +24080,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kak_house_of_skulltula -> region.kak_house_of_skulltula_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.c_skulltula_10",
                     "x": 0,
@@ -23986,6 +24154,12 @@
             },
             "list": [
                 {
+                    "id": "region.kak_impas_house -> region.kak_impas_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_impas_cow",
                     "x": 0,
                     "y": 0,
@@ -24029,6 +24203,12 @@
             },
             "list": [
                 {
+                    "id": "region.kak_impas_house_back -> region.kak_impas_house_back_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_cow_hp",
                     "x": 0,
                     "y": 0,
@@ -24071,6 +24251,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kak_shooting_gallery -> region.kak_shooting_gallery_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.c_adult_shooting",
                     "x": 0,
@@ -24117,6 +24303,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kak_windmill -> region.kak_windmill_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.c_windmill_hp",
                     "x": 0,
@@ -24218,6 +24410,12 @@
             },
             "list": [
                 {
+                    "id": "region.kak_open_grotto -> region.kak_open_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_grotto",
                     "x": 0,
                     "y": 0,
@@ -24269,6 +24467,12 @@
             },
             "list": [
                 {
+                    "id": "region.kak_redead_grotto -> region.kak_redead_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_redead_grotto",
                     "x": 0,
                     "y": 0,
@@ -24313,6 +24517,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.graveyard_shield_grave -> region.graveyard_shield_grave_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.c_shield_grave",
                     "x": 0,
@@ -24359,6 +24569,12 @@
             },
             "list": [
                 {
+                    "id": "region.graveyard_heart_piece_grave -> region.graveyard_heart_piece_grave_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_redead_grave",
                     "x": 0,
                     "y": 0,
@@ -24403,6 +24619,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.graveyard_dampes_grave -> region.graveyard_dampes_grave_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.c_race_1",
                     "x": 0,
@@ -24461,6 +24683,12 @@
             },
             "list": [
                 {
+                    "id": "region.graveyard_composers_grave_entrance -> region.graveyard_royal_familys_tomb",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.c_sun_song",
                     "x": 0,
                     "y": 0,
@@ -24510,6 +24738,12 @@
             },
             "list": [
                 {
+                    "id": "region.dmt_great_fairy_fountain -> region.dmt_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "mountain.c_summit_fairy",
                     "x": 0,
                     "y": 0,
@@ -24554,6 +24788,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "mountain.c_outside_goron_grotto",
                     "x": 0,
@@ -24606,6 +24846,12 @@
             },
             "list": [
                 {
+                    "id": "region.dmt_cow_grotto -> region.dmt_cow_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "mountain.c_grotto_cow",
                     "x": 0,
                     "y": 0,
@@ -24648,6 +24894,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.dmc_great_fairy_fountain -> region.dmc_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "mountain.c_crater_fairy",
                     "x": 0,
@@ -24693,6 +24945,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.dmc_hammer_grotto -> region.dmc_hammer_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "mountain.c_crater_grotto_salesman_1",
                     "x": 0,
@@ -24751,6 +25009,12 @@
             },
             "list": [
                 {
+                    "id": "region.dmc_upper_grotto -> region.dmc_upper_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "mountain.c_crater_grotto",
                     "x": 0,
                     "y": 0,
@@ -24801,6 +25065,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.gc_grotto -> region.gc_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "goron.c_grotto_salesman_1",
                     "x": 0,
@@ -24859,6 +25129,12 @@
             },
             "list": [
                 {
+                    "id": "region.zr_storms_grotto -> region.zr_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "river.c_zora_grotto_salesman_1",
                     "x": 0,
                     "y": 0,
@@ -24910,6 +25186,12 @@
             },
             "list": [
                 {
+                    "id": "region.zr_open_grotto -> region.zr_open_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "river.c_zora_grotto",
                     "x": 0,
                     "y": 0,
@@ -24959,6 +25241,12 @@
             },
             "list": [
                 {
+                    "id": "region.zf_great_fairy_fountain -> region.zf_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "zoras.c_fairy",
                     "x": 0,
                     "y": 0,
@@ -25001,6 +25289,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.lh_lab -> region.lh_lab_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "lake.c_lab_dive",
                     "x": 0,
@@ -25050,6 +25344,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.lh_fishing_hole -> region.lh_fishing_hole_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "lake.c_fishing_child",
                     "x": 0,
@@ -25101,6 +25401,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.lh_grotto -> region.lh_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "lake.c_grave_grotto_salesman_1",
                     "x": 0,
@@ -25159,6 +25465,12 @@
             },
             "list": [
                 {
+                    "id": "region.gv_storms_grotto -> region.gv_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "gerudo_valley.c_gerudo_behind_carpenter_tent_grotto_salesman_1",
                     "x": 0,
                     "y": 0,
@@ -25208,6 +25520,12 @@
             },
             "list": [
                 {
+                    "id": "region.colossus_great_fairy_fountain -> region.colossus_great_fairy_fountain_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "desert.c_colossus_fairy",
                     "x": 0,
                     "y": 0,
@@ -25253,6 +25571,12 @@
             },
             "list": [
                 {
+                    "id": "region.colossus_grotto -> region.colossus_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "desert.c_colossus_grotto_salesman_1",
                     "x": 0,
                     "y": 0,
@@ -25296,7 +25620,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.hf_fairy_grotto -> region.hf_fairy_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kokiri.sarias_house": {
             "type": "interior",
@@ -25328,7 +25659,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kf_sarias_house -> region.kf_sarias_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kokiri.twins_house": {
             "type": "interior",
@@ -25360,7 +25698,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kf_house_of_twins -> region.kf_house_of_twins_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kokiri.know_it_all_house": {
             "type": "interior",
@@ -25392,7 +25737,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kf_know_it_all_house -> region.kf_know_it_all_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kokiri.shop": {
             "type": "interior",
@@ -25429,6 +25781,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kf_kokiri_shop -> region.kf_kokiri_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kokiri.kokiri_shop_8",
                     "x": 0,
@@ -25485,7 +25843,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.sfm_fairy_grotto -> region.sfm_fairy_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "castle_town.shop_mask": {
             "type": "interior",
@@ -25517,7 +25882,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.market_mask_shop -> region.market_mask_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "castle_town.shop_magic": {
             "type": "interior",
@@ -25554,6 +25926,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.market_potion_shop -> region.market_potion_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.shop_magic_8",
                     "x": 0,
@@ -25616,6 +25994,12 @@
             },
             "list": [
                 {
+                    "id": "region.market_bombchu_shop -> region.market_bombchu_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_town.shop_bombchu_8",
                     "x": 0,
                     "y": 0,
@@ -25671,7 +26055,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.market_man_in_green_house -> region.market_man_in_green_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "castle_town.shop_bazaar": {
             "type": "interior",
@@ -25708,6 +26099,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.market_bazaar -> region.market_bazaar_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_town.shop_bazaar_8",
                     "x": 0,
@@ -25764,7 +26161,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kak_carpenter_boss_house -> region.kak_carpenter_boss_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kakariko.kakariko_witch": {
             "type": "interior",
@@ -25796,7 +26200,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kak_odd_medicine_building -> region.kak_odd_medicine_building_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "kakariko.shop_bazaar": {
             "type": "interior",
@@ -25833,6 +26244,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.kak_bazaar -> region.kak_bazaar_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "kakariko.shop_bazaar_8",
                     "x": 0,
@@ -25898,6 +26315,18 @@
             },
             "list": [
                 {
+                    "id": "region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "kakariko.shop_magic_8",
                     "x": 0,
                     "y": 0,
@@ -25953,7 +26382,20 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "graveyard.dampes_hut": {
             "type": "interior",
@@ -25985,7 +26427,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.graveyard_dampes_house -> region.graveyard_dampes_house_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "goron.shop": {
             "type": "interior",
@@ -26022,6 +26471,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.gc_shop -> region.gc_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "goron.goron_shop_8",
                     "x": 0,
@@ -26078,7 +26533,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.zr_fairy_grotto -> region.zr_fairy_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "zoras.shop": {
             "type": "interior",
@@ -26115,6 +26577,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "region.zd_shop -> region.zd_shop_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "zoras.zoras_shop_8",
                     "x": 0,
@@ -26171,7 +26639,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.zd_storms_grotto -> region.zd_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "gerudo_valley.tend": {
             "type": "interior",
@@ -26203,7 +26678,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.gv_carpenter_tent -> region.gv_carpenter_tent_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "gerudo_valley.octorock_grotto": {
             "type": "grotto",
@@ -26235,7 +26717,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.gv_octorok_grotto -> region.gv_octorok_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         },
         "gerudo.storms_grotto": {
             "type": "grotto",
@@ -26267,7 +26756,14 @@
                 "height": 0,
                 "zoom": 0
             },
-            "list": []
+            "list": [
+                {
+                    "id": "region.gf_storms_grotto -> region.gf_storms_grotto_entrance",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                }
+            ]
         }
     },
     "exit": {
