@@ -20,7 +20,7 @@ export default class StartSettingsState extends DefaultItemState {
                 STARTVALUE.set(this, parseInt(startValue));
             }
             optionObserver.addEventListener("change", (event) => {
-                this.#applyStartValue(parseInt(event.data));
+                this.#applyStartValue(parseInt(event.value));
             });
         }
     }
@@ -39,7 +39,7 @@ export default class StartSettingsState extends DefaultItemState {
             STARTVALUE.set(this, newValue);
             // external
             const event = new Event("startvalue");
-            event.data = newValue;
+            event.value = newValue;
             this.dispatchEvent(event);
             // update value
             const state = this.value;

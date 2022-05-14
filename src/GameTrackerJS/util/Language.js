@@ -15,7 +15,7 @@ class Language {
 
     constructor() {
         languageObserver.addEventListener("change", event => {
-            I18n.setLanguage(event.data);
+            I18n.setLanguage(event.value);
         });
     }
 

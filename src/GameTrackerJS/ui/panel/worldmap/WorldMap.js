@@ -86,7 +86,7 @@ export default class WorldMap extends BaseClass {
         STYLE.apply(this.shadowRoot);
         /* state handler */
         WorldListState.addEventListener("area", event => {
-            this.ref = event.data;
+            this.ref = event.value;
         });
         /* view */
         const viewEl = this.shadowRoot.getElementById("view");

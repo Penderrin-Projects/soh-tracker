@@ -1,4 +1,10 @@
 // frameworks
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
@@ -14,18 +20,14 @@ import EntranceStateManager from "../../../statemanager/world/entrance/EntranceS
 import {
     emptyState
 } from "../EmptyState.js";
-import VisibilityState from "../VisibilityState.js";
 import DefaultEntranceState from "../entrance/DefaultEntranceState.js";
+import DataState from "../../DataState.js";
+import StateVisibilityMixin from "../../mixins/StateVisibilityMixin.js";
+import StateFilterMixin from "../../mixins/StateFilterMixin.js";
 
 const mixedEntrancePoolObserver = new OptionsObserver("option.mixed_entrance_pool");
 
 const STORAGES = {exitBindings: Savestate.getStorage("exitBindings")};
-
-const ENTRANCE = new WeakMap();
-const MANAGER = new WeakMap();
-const ACCESS = new WeakMap();
-const VALUE = new WeakMap();
-const AREA = new WeakMap();
 
 function getEntranceArea(value) {
     if (value == "") {
@@ -66,56 +68,71 @@ function getLogicAccess(access) {
     return res;
 }
 
-export default class DefaultExitState extends VisibilityState {
+const BaseClass = mix(
+    DataState
+).with(
+    StateVisibilityMixin,
+    StateFilterMixin
+);
+
+export default class DefaultExitState extends BaseClass {
+
+    #entrance = null;
+
+    #manager = new StateDataEventManager();
+
+    #access = getDefaultAccess();
+
+    #value = "";
+
+    #area = null;
+
+    #visible = true;
 
     constructor(ref, props) {
         super(ref, props);
 
         /* ENTRANCE */
-        const entrance = EntranceStateManager.get(ref);
-        entrance.addEventListener("active", (event) => {
+        this.#entrance = EntranceStateManager.get(ref);
+        this.#entrance.addEventListener("active", (event) => {
             const ev = new Event("active");
-            ev.data = event.data;
+            ev.value = event.value;
             this.dispatchEvent(ev);
         })
-        ENTRANCE.set(this, entrance);
 
         /* AREA */
-        const manager = new StateDataEventManager();
-        MANAGER.set(this, manager);
-        manager.registerStateHandler("access", event => {
+        this.#manager.registerStateHandler("access", event => {
             const ev = new Event("access");
-            ev.data = event.data;
+            ev.value = event.value;
             this.dispatchEvent(ev);
         });
-        manager.registerStateHandler("hint", event => {
+        this.#manager.registerStateHandler("hint", event => {
             const ev = new Event("hint");
-            ev.data = event.data;
+            ev.value = event.value;
             this.dispatchEvent(ev);
         });
-        manager.registerStateHandler("list_update", event => {
-            const ev = new Event("list_update");
-            ev.data = event.data;
+        this.#manager.registerStateHandler("listChange", event => {
+            const ev = new Event("listChange");
+            ev.value = event.value;
             this.dispatchEvent(ev);
         });
 
         /* VALUES */
         const logicAccess = props.logicAccess;
-        ACCESS.set(this, getLogicAccess(logicAccess));
+        this.#access = getLogicAccess(logicAccess);
 
         const exitBindingsObserver = new DataStorageValueObserver(STORAGES.exitBindings, ref, "");
-        VALUE.set(this, exitBindingsObserver.value);
+        this.#value = exitBindingsObserver.value;
         exitBindingsObserver.addEventListener("change", (event) => {
-            this.value = event.data;
+            this.value = event.value;
         });
 
         setTimeout(() => {
-            const area = getEntranceArea(this.value);
-            AREA.set(this, area);
-            manager.switchState(area);
+            this.#area = getEntranceArea(this.value);
+            this.#manager.switchState(this.#area);
             // external
             const ev = new Event("access");
-            ev.data = area?.access ?? ACCESS.get(this);
+            ev.value = this.#area?.access ?? this.#access;
             this.dispatchEvent(ev);
         }, 0);
 
@@ -123,71 +140,85 @@ export default class DefaultExitState extends VisibilityState {
         Logic.addEventListener("change", () => {
             const access = getLogicAccess(logicAccess);
             if (access != null) {
-                const old = ACCESS.get(this);
-                if (access != old) {
-                    ACCESS.set(this, access);
-                    const area = AREA.get(this);
-                    if (area == null) {
+                if (access != this.#access) {
+                    this.#access = access;
+                    if (this.#area == null) {
                         // external
                         const ev = new Event("access");
-                        ev.data = access;
+                        ev.value = access;
                         this.dispatchEvent(ev);
                     }
                 }
             }
         });
+
+        /* EVENT */
+        this.addEventListener("visible", () => {
+            this.checkVisibility();
+        });
+        this.addEventListener("filtered", () => {
+            this.checkVisibility();
+        });
+        this.checkVisibility();
     }
 
+    checkVisibility = debounce(() => {
+        const value = this.visible && !this.filtered;
+        if (this.#visible != value) {
+            this.#visible = value;
+            // external
+            const ev = new Event("visibility");
+            ev.value = value;
+            this.dispatchEvent(ev);
+        }
+    });
+
     get active() {
-        const entrance = ENTRANCE.get(this);
-        return entrance.active;
+        return this.#entrance.active;
     }
 
     set value(value) {
-        const old = VALUE.get(this);
         if (value == this.ref) {
             value = "";
         }
+        const old = this.#value;
         if (value != old) {
-            const manager = MANAGER.get(this);
-            VALUE.set(this, value);
+            this.#value = value;
             STORAGES.exitBindings.set(this.ref, value);
             const area = getEntranceArea(value);
-            AREA.set(this, area);
-            manager.switchState(area);
+            this.#area = area;
+            this.#manager.switchState(area);
             // external
-            const ev = new Event("value");
-            ev.data = value;
-            ev.newValue = value;
-            ev.oldValue = old;
-            this.dispatchEvent(ev);
+            const valueEvent = new Event("value");
+            valueEvent.value = value;
+            valueEvent.newValue = value;
+            valueEvent.oldValue = old;
+            this.dispatchEvent(valueEvent);
 
-            const ev2 = new Event("access");
-            ev2.data = this.access;
-            this.dispatchEvent(ev2);
+            const accessEvent = new Event("access");
+            accessEvent.value = this.access;
+            this.dispatchEvent(accessEvent);
         }
     }
 
     get value() {
-        return VALUE.get(this);
+        return this.#value;
     }
 
     get area() {
-        return AREA.get(this);
+        return this.#area;
     }
 
     get hint() {
-        const area = AREA.get(this);
-        if (area != null) {
-            return area.hint;
+        if (this.#area != null) {
+            return this.#area.hint;
         }
         return "";
     }
 
     get listContents() {
-        const area = AREA.get(this);
-        if (area != null) {
-            return area.listContents;
+        if (this.#area != null) {
+            return this.#area.listContents;
         }
         return false;
     }
@@ -197,11 +228,17 @@ export default class DefaultExitState extends VisibilityState {
     }
 
     get access() {
-        const area = AREA.get(this);
-        if (area != null) {
-            return area.access;
+        if (this.#area != null) {
+            return this.#area.access;
         }
-        return ACCESS.get(this) ?? this.defaultAccess;
+        return this.#access ?? this.defaultAccess;
+    }
+
+    get accessPenetration() {
+        if (this.#area != null) {
+            return this.#area.accessPenetration;
+        }
+        return true;
     }
 
     checkBindable(entrance) {
@@ -213,19 +250,21 @@ export default class DefaultExitState extends VisibilityState {
         return false;
     }
 
+    isVisible() {
+        return this.#visible;
+    }
+
     /* list */
     getList() {
-        const area = AREA.get(this);
-        if (area != null) {
-            return area.getList();
+        if (this.#area != null) {
+            return this.#area.getList();
         }
         return [];
     }
 
     setAllEntries(value = true) {
-        const area = AREA.get(this);
-        if (area != null) {
-            return area.setAllEntries(value);
+        if (this.#area != null) {
+            this.#area.setAllEntries(value);
         }
     }
 

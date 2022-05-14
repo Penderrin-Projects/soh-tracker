@@ -9,7 +9,6 @@ import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import ElementManager from "/emcJS/util/html/ElementManager.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 
-import WorldStateManagerRegistry from "../../../../statemanager/WorldStateManagerRegistry.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
@@ -96,6 +95,11 @@ export default class WorldMapView extends BaseClass {
         OFFSET_X.set(this, 0);
         OFFSET_Y.set(this, 0);
         ZOOM.set(this, 1);
+
+        /* state handler */
+        this.registerStateHandler("listChange", event => {
+            this.refreshList();
+        });
 
         /* MAP EVENTS */
         const mapEl = this.shadowRoot.getElementById("map");
@@ -318,7 +322,7 @@ export default class WorldMapView extends BaseClass {
             const list = state.getList();
             if (list != null && list.length > 0) {
                 for (const record of list) {
-                    const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
+                    const loc = record.entry;
                     elManagerData.push({
                         key: loc.ref,
                         category: record.category,

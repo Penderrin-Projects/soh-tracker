@@ -69,7 +69,7 @@ export default class WorldListArea extends BaseClass {
         STYLE.apply(this.shadowRoot);
         /* state handler */
         this.registerStateHandler("hint", event => {
-            this.applyHint(event.data);
+            this.applyHint(event.value);
         });
         /* context menu */
         this.setDefaultContextMenu(AreaContextMenu);

@@ -41,7 +41,7 @@ export default class WorldList extends GTWorldList {
         this.registerStateHandler("type", event => {
             this.refreshList();
             /* buttons */
-            this.applyType(event.data);
+            this.applyType(event.value);
         });
     }
 

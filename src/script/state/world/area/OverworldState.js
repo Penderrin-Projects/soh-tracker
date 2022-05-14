@@ -1,9 +1,9 @@
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import GTOverworldState from "/GameTrackerJS/state/world/area/OverworldState.js";
 
-import OverworldListHandler, {
+import WorldSummaryHandler, {
     getDefaultAccess
-} from "../../../util/handler/OverworldListHandler.js";
+} from "../../../util/handler/WorldSummaryHandler.js";
 
 export default class OverworldState extends GTOverworldState {
 
@@ -13,7 +13,7 @@ export default class OverworldState extends GTOverworldState {
 
     /* list */
     generateOverworldList() {
-        return new OverworldListHandler();
+        return new WorldSummaryHandler();
     }
 
 }

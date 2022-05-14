@@ -94,7 +94,7 @@ export default class ItemPicker extends Panel {
                     const itemEl = createItem(element.value);
                     itemEl.addEventListener("click", () => {
                         const ev = new Event("pick");
-                        ev.data = element.value;
+                        ev.value = element.value;
                         this.dispatchEvent(ev);
                     });
                     cnt.append(itemEl);

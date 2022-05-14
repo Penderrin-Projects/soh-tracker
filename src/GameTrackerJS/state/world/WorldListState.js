@@ -2,58 +2,50 @@ import WorldResource from "../../resource/WorldResource.js";
 
 const CONFIG = WorldResource.get("config");
 const AREA_PROPS = WorldResource.get("area");
-const AREA = new WeakMap();
-const PROPS = new WeakMap();
 
 class WorldListState extends EventTarget {
 
-    constructor() {
-        super();
-        /* --- */
-        AREA.set(this, CONFIG.defaultArea);
-    }
+    #area = CONFIG.defaultArea;
+
+    #props = AREA_PROPS[CONFIG.defaultArea];
 
     get config() {
         return CONFIG;
     }
 
     get area() {
-        return AREA.get(this);
+        return this.#area;
     }
 
     set area(value) {
-        const old = AREA.get(this);
         if (typeof value != "string" || !value) {
             value = CONFIG.defaultArea;
         }
-        if (old != value) {
-            AREA.set(this, value);
-            PROPS.set(this, AREA_PROPS[value]);
+        if (this.#area != value) {
+            this.#area = value;
+            this.#props = AREA_PROPS[value];
             // external
             const ev = new Event("area");
-            ev.data = value;
+            ev.value = value;
             this.dispatchEvent(ev);
         }
     }
 
     get isDefault() {
-        const area = AREA.get(this);
-        return area == CONFIG.defaultArea;
+        return this.#area == CONFIG.defaultArea;
     }
 
     get hasMap() {
-        const props = PROPS.get(this);
-        return props.map.active;
+        return this.#props.map.active;
     }
 
     reset() {
-        const old = AREA.get(this);
-        if (old != CONFIG.defaultArea) {
-            AREA.set(this, CONFIG.defaultArea);
-            PROPS.set(this, AREA_PROPS[CONFIG.defaultArea]);
+        if (!this.isDefault) {
+            this.#area = CONFIG.defaultArea;
+            this.#props = AREA_PROPS[CONFIG.defaultArea];
             // external
             const ev = new Event("area");
-            ev.data = CONFIG.defaultArea;
+            ev.value = CONFIG.defaultArea;
             this.dispatchEvent(ev);
         }
     }

@@ -28,7 +28,7 @@ SavestateHandler.addEventListener("afterload", () => {
 /*
 function checkForBindingCorrections(event) {
     // savesatate
-    const change = event.data;
+    const change = event.value;
     if (change != null) {
         if (change.ref == this.ref) {
             // if this exit got bound

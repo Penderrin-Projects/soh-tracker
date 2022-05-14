@@ -1,15 +1,24 @@
 // frameworks
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
-import WorldStateManagerRegistry from "../../statemanager/WorldStateManagerRegistry.js";
 import AccessStateEnum from "../../enum/AccessStateEnum.js";
+import OptionsObserver from "../observer/OptionsObserver.js";
+import ListRecordState from "../../state/world/ListRecordState.js";
 
-const REF = new WeakMap();
-const VISIBLE = new WeakMap();
-const ACCESS = new WeakMap();
-const LIST_RESOLVED = new WeakMap();
-const LIST_FILTERED = new WeakMap();
+const detachedEntrancesObserver = new OptionsObserver("option.detached_entrances");
+
+const INSTANCES = new Map();
+
+function sortByRef(rec0, rec1) {
+    if (rec0.ref < rec1.ref) {
+        return -1;
+    }
+    return 1;
+}
 
 export function getDefaultAccess() {
     return {
@@ -24,97 +33,121 @@ export function getDefaultAccess() {
 
 export default class StateListHandler extends EventTarget {
 
-    constructor(list, ref) {
+    #ref;
+
+    #visible = false;
+
+    #access = getDefaultAccess();
+
+    #entityList = new Set();
+
+    #filteredEntityList = new Set();
+
+    constructor(ref, list) {
+        if (typeof ref != "string") {
+            throw new TypeError(`ref parameter must be of type "string" but was "${typeof ref}"`);
+        }
+        if (!ref) {
+            throw new Error("ref parameter must not be empty");
+        }
+        if (INSTANCES.has(ref)) {
+            return INSTANCES.get(ref);
+        }
         super();
+        INSTANCES.set(ref, this);
         /* --- */
-        VISIBLE.set(this, false);
-        ACCESS.set(this, getDefaultAccess());
-        REF.set(this, ref);
+        this.#ref = ref;
         setTimeout(() => {
             this.#generateList(list);
         }, 0);
+
+        /* --- */
+        detachedEntrancesObserver.addEventListener("change", () => {
+            this.#refreshAccess();
+        });
     }
 
     #generateList(list) {
-        const entityList = new Map();
-        const filteredEntityList = new Map();
         if (list != null) {
-            for (const record of list) {
-                const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
-                if (loc != null) {
-                    entityList.set(loc, record);
-                    if (loc.isVisible()) {
-                        filteredEntityList.set(loc, record);
-                    }
-                    /* event manager */
-                    const eventManager = new EventTargetManager(loc);
-                    eventManager.set("access", () => {
-                        if (filteredEntityList.has(loc)) {
-                            if (record.category == "area") {
-                                if (loc.props.accessPenetration) {
-                                    this.#refreshAccess();
-                                }
-                            } else if (record.category == "exit") {
-                                const area = loc.area;
-                                if (area != null) {
-                                    if (area.props.accessPenetration) {
-                                        this.#refreshAccess();
-                                    }
-                                }
-                            } else if (record.category == "location" || record.category == "collection") {
-                                this.#refreshAccess();
-                            }
-                        }
-                    });
-                    eventManager.set("visiblity", () => {
-                        if (loc.isVisible()) {
-                            if (!filteredEntityList.has(loc)) {
-                                filteredEntityList.set(loc, entityList.get(loc));
-                                this.#refreshAccess();
-                                this.#setVisibility(!!filteredEntityList.size);
-                            }
-                        } else if (filteredEntityList.has(loc)) {
-                            filteredEntityList.delete(loc);
-                            this.#refreshAccess();
-                            this.#setVisibility(!!filteredEntityList.size);
-                        }
-                    });
+            for (const idx in list) {
+                const record = list[idx];
+                const recordState = new ListRecordState(`${this.#ref}-${idx}`, record);
+                this.#entityList.add(recordState);
+                if (recordState.visible) {
+                    this.#filteredEntityList.add(recordState);
                 }
+                const eventManager = new EventTargetManager(recordState);
+                eventManager.set("accessPenetration", () => {
+                    if (this.#filteredEntityList.has(recordState)) {
+                        this.#refreshAccess();
+                    }
+                });
+                eventManager.set("access", () => {
+                    if (this.#filteredEntityList.has(recordState)) {
+                        if (recordState.accessPenetration) {
+                            this.#refreshAccess();
+                        }
+                    }
+                });
+                eventManager.set("visibility", (event) => {
+                    if (event.value) {
+                        if (!this.#filteredEntityList.has(recordState)) {
+                            this.#filteredEntityList.add(recordState);
+                            this.#notifyListChange();
+                            this.#refreshAccess();
+                            this.#setVisibility(!!this.#filteredEntityList.size);
+                        }
+                    } else if (this.#filteredEntityList.has(recordState)) {
+                        this.#filteredEntityList.delete(recordState);
+                        this.#notifyListChange();
+                        this.#refreshAccess();
+                        this.#setVisibility(!!this.#filteredEntityList.size);
+                    }
+                });
+                eventManager.set("listChange", () => {
+                    if (this.#filteredEntityList.has(recordState)) {
+                        if (recordState.listContents) {
+                            // TODO
+                        }
+                    }
+                });
             }
         }
         /* --- */
-        LIST_RESOLVED.set(this, entityList);
-        LIST_FILTERED.set(this, filteredEntityList);
-        this.#setVisibility(!!filteredEntityList.size);
+        this.#setVisibility(!!this.#filteredEntityList.size);
+        this.#notifyListChange();
         this.#refreshAccess();
     }
 
-    #setVisibility(value) {
-        const old = VISIBLE.get(this);
-        if (old != value) {
-            VISIBLE.set(this, value);
+    #notifyListChange = debounce(() => {
+        const event = new Event("change");
+        event.value = Array.from(this.#filteredEntityList);
+        this.dispatchEvent(event);
+    });
+
+    #setVisibility = debounce((value) => {
+        if (this.#visible != value) {
+            this.#visible = value;
             // external
             const ev = new Event("visibility");
-            ev.data = value;
+            ev.value = value;
             this.dispatchEvent(ev);
         }
-    }
+    });
 
     #setAccess(value) {
         if (value != null) {
-            const old = ACCESS.get(this);
-            if (!Helper.isEqual(old, value)) {
-                ACCESS.set(this, value);
+            if (!Helper.isEqual(this.#access, value)) {
+                this.#access = value;
                 // external
                 const event = new Event("access");
-                event.data = value;
+                event.value = value;
                 this.dispatchEvent(event);
             }
         }
     }
 
-    #refreshAccess() {
-        const list = LIST_FILTERED.get(this) ?? new Map();
+    #refreshAccess = debounce(() => {
         const access = {
             done: 0,
             unopened: 0,
@@ -123,33 +156,12 @@ export default class StateListHandler extends EventTarget {
             value: AccessStateEnum.OPENED,
             entrances: 0
         };
-        for (const [loc, record] of list) {
-            if (record.category == "area") {
-                if (loc.props.accessPenetration) {
-                    const {done, unopened, reachable, entrances, total} = loc.access;
-                    access.done += done;
-                    access.unopened += unopened;
-                    access.reachable += reachable;
-                    access.total += total;
-                    access.entrances += entrances;
-                }
-            } else if (record.category == "exit") {
-                const area = loc.area;
-                if (area != null) {
-                    if (area.props.accessPenetration) {
-                        const {done, unopened, reachable, entrances, total} = loc.access;
-                        access.done += done;
-                        access.unopened += unopened;
-                        access.reachable += reachable;
-                        access.total += total;
-                        access.entrances += entrances;
-                    }
-                } else {
-                    const {entrances} = loc.access;
-                    access.entrances += entrances;
-                }
-            } else if (record.category == "location" || record.category == "collection") {
-                const {done, unopened, reachable, entrances, total} = loc.access;
+        for (const recordState of this.#filteredEntityList) {
+            if (
+                recordState.category == "area" || recordState.category == "exit" ||
+                recordState.category == "location" || recordState.category == "collection"
+            ) {
+                const {done, unopened, reachable, entrances, total} = recordState.access;
                 access.done += done;
                 access.unopened += unopened;
                 access.reachable += reachable;
@@ -169,41 +181,36 @@ export default class StateListHandler extends EventTarget {
             }
         }
         this.#setAccess(access);
-    }
+    });
 
     setAllEntries(value = true) {
-        const list = LIST_RESOLVED.get(this) ?? new Map();
-        for (const [loc, record] of list) {
-            if (record.category == "area") {
-                if (loc.props.accessPenetration) {
-                    loc.setAllEntries(value);
+        for (const recordState of this.#filteredEntityList) {
+            if (recordState.category == "area" || recordState.category == "exit") {
+                if (recordState.accessPenetration) {
+                    recordState.entry.setAllEntries(value);
                 }
-            } else if (record.category == "exit") {
-                const area = loc.area;
-                if (area != null) {
-                    if (area.props.accessPenetration) {
-                        area.setAllEntries(value);
-                    }
-                }
-            } else if (record.category == "collection") {
-                const area = loc.area;
-                area.setAllEntries(value);
-            } else if (record.category == "location") {
-                loc.value = value;
+            } else if (recordState.category == "collection") {
+                recordState.entry.setAllEntries(value);
+            } else if (recordState.category == "location") {
+                recordState.entry.value = value;
             }
         }
     }
 
     get ref() {
-        return REF.get(this);
+        return this.#ref;
     }
 
     get visible() {
-        return !!VISIBLE.get(this);
+        return !!this.#visible;
     }
 
     get access() {
-        return ACCESS.get(this);
+        return this.#access;
+    }
+
+    getList() {
+        return Array.from(this.#filteredEntityList).sort(sortByRef);
     }
 
 }

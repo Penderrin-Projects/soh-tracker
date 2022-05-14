@@ -1,49 +1,48 @@
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import DataState from "../../DataState.js";
 import StateListHandler, {
     getDefaultAccess
 } from "../../../util/handler/StateListHandler.js";
 
-const LIST_HANDLER = new WeakMap();
-const VISIBLE = new WeakMap();
-
 export default class DefaultCollectionState extends DataState {
+
+    #listHandler = null;
+
+    #visible = false;
 
     constructor(ref, props = {}) {
         super(ref, props);
 
-        /* VALUES */
-        VISIBLE.set(this, false);
-
         /* LIST HANDLER */
-        const listHandler = this.generateList();
-        listHandler.addEventListener("visibility", (event) => {
-            this.onVisibilityChange(event);
+        this.#listHandler = this.generateList();
+        this.#listHandler.addEventListener("visibility", (event) => {
+            this.checkVisibility();
         });
-        listHandler.addEventListener("access", (event) => {
-            this.onAccessChange(event);
+        this.#listHandler.addEventListener("access", (event) => {
+            const ev = new Event("access");
+            ev.value = event.value;
+            this.dispatchEvent(ev);
         });
-        listHandler.addEventListener("change", (event) => {
-            this.onListEntriesChange(event)
+        this.#listHandler.addEventListener("change", (event) => {
+            const ev = new Event("listChange");
+            ev.value = event.value;
+            this.dispatchEvent(ev);
         });
-        LIST_HANDLER.set(this, listHandler);
-        VISIBLE.set(this, listHandler.visible);
+        this.checkVisibility();
     }
 
-    onVisibilityChange(event) {
-        this.updateVisible();
-    }
-
-    onAccessChange(event) {
-        const ev = new Event("access");
-        ev.data = event.data;
-        this.dispatchEvent(ev);
-    }
-
-    onListEntriesChange(event) {
-        const ev = new Event("list_update");
-        ev.data = event.data;
-        this.dispatchEvent(ev);
-    }
+    checkVisibility = debounce(() => {
+        const value = this.listVisible;
+        if (this.#visible != value) {
+            this.#visible = value;
+            // external
+            const ev = new Event("visibility");
+            ev.value = value;
+            this.dispatchEvent(ev);
+        }
+    });
 
     set hint(value) {
         // nothing
@@ -62,50 +61,35 @@ export default class DefaultCollectionState extends DataState {
     }
 
     get access() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler?.access ?? this.defaultAccess;
+        return this.#listHandler?.access ?? this.defaultAccess;
     }
 
     get visible() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.visible;
+        return true;
     }
 
-    get filtered() {
-        return false;
+    get listVisible() {
+        return this.#listHandler.visible;
     }
 
     isVisible() {
-        return VISIBLE.get(this);
-    }
-
-    updateVisible() {
-        const value = this.visible;
-        const old = VISIBLE.get(this);
-        if (old != value) {
-            VISIBLE.set(this, value);
-            // external
-            const ev = new Event("visiblity");
-            ev.data = value;
-            this.dispatchEvent(ev);
-        }
+        return this.#visible;
     }
 
     /* list */
     generateList() {
         const ref = this.ref;
         const list = this.props.list;
-        const listHandler = new StateListHandler(list, ref);
+        const listHandler = new StateListHandler(ref, list);
         return listHandler;
     }
 
     getList() {
-        return this.props.list;
+        return this.#listHandler.getList();
     }
 
     setAllEntries(value = true) {
-        const listHandler = LIST_HANDLER.get(this);
-        listHandler.setAllEntries(value);
+        this.#listHandler.setAllEntries(value);
     }
 
 }

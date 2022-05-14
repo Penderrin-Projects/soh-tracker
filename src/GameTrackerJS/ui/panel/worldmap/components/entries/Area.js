@@ -76,7 +76,7 @@ export default class MapArea extends WorldMapMarkedEntry {
         STYLE.apply(this.shadowRoot);
         /* state handler */
         this.registerStateHandler("hint", event => {
-            this.applyHint(event.data);
+            this.applyHint(event.value);
         });
         /* context menu */
         this.setDefaultContextMenu(AreaContextMenu);

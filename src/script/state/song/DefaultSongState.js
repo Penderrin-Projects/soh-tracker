@@ -19,7 +19,7 @@ export default class DefaultSongState extends DataState {
             const songNotesObserver = new DataStorageValueObserver(STORAGES.songNotes, ref, props.notes);
             NOTES.set(this, songNotesObserver.value);
             songNotesObserver.addEventListener("change", (event) => {
-                this.notes = event.data;
+                this.notes = event.value;
             });
         } else {
             NOTES.set(this, props.notes);
@@ -39,7 +39,7 @@ export default class DefaultSongState extends DataState {
                     STORAGES.songNotes.set(ref, value);
                     // external
                     const event = new Event("notes");
-                    event.data = value;
+                    event.value = value;
                     this.dispatchEvent(event);
                 }
             }

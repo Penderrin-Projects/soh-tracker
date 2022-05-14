@@ -23,13 +23,13 @@ export default class GossipstoneState extends DefaultLocationState {
         const gossipstoneItemsObserver = new DataStorageValueObserver(STORAGES.gossipstoneItems, ref, "");
         ITEM.set(this, gossipstoneItemsObserver.value);
         gossipstoneItemsObserver.addEventListener("change", (event) => {
-            this.item = event.data;
+            this.item = event.value;
         });
 
         const gossipstoneLocationsObserver = new DataStorageValueObserver(STORAGES.gossipstoneLocations, ref, "");
         LOCATION.set(this, gossipstoneLocationsObserver.value);
         gossipstoneLocationsObserver.addEventListener("change", (event) => {
-            this.location = event.data;
+            this.location = event.value;
         });
     }
 
@@ -44,7 +44,7 @@ export default class GossipstoneState extends DefaultLocationState {
             STORAGES.gossipstoneItems.set(ref, value);
             // external
             const event = new Event("item");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }
@@ -64,7 +64,7 @@ export default class GossipstoneState extends DefaultLocationState {
             STORAGES.gossipstoneLocations.set(ref, value);
             // external
             const event = new Event("location");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }

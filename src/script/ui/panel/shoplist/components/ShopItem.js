@@ -165,7 +165,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.registerStateHandler("item", event => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                Language.applyLabel(titleEl, `item[${event.data}]`);
+                Language.applyLabel(titleEl, `item[${event.value}]`);
             }
             this.#applyItem();
         });
@@ -175,13 +175,13 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.registerStateHandler("price", event => {
             const priceEl = this.shadowRoot.getElementById("price");
             if (priceEl != null) {
-                priceEl.innerHTML = event.data;
+                priceEl.innerHTML = event.value;
             }
         });
         this.registerStateHandler("name", event => {
             const nameEl = this.shadowRoot.getElementById("name");
             if (nameEl != null) {
-                nameEl.value = event.data;
+                nameEl.value = event.value;
             }
         });
 

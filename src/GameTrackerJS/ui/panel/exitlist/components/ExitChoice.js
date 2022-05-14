@@ -99,11 +99,11 @@ export default class ExitChoice extends ContextMenuManagerMixin(StateDataEventMa
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("visiblity", (event) => {
-            this.hidden = !event.data;
+        this.registerStateHandler("visibility", (event) => {
+            this.hidden = !event.value;
         });
         this.registerStateHandler("value", event => {
-            this.value = event.data;
+            this.value = event.value;
         });
 
         /* context menu */

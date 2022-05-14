@@ -32,19 +32,19 @@ export default class ShopSlotState extends DefaultLocationState {
             shopState.addEventListener("bought", event => {
                 this.refreshAccess();
                 const ev = new Event("value");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
             shopState.addEventListener("item", event => {
                 this.refreshAccess();
                 const ev = new Event("item");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
             shopState.addEventListener("price", event => {
                 this.refreshAccess();
                 const ev = new Event("price");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
             WALLET.addEventListener("value", event => {

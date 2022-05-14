@@ -94,7 +94,7 @@ export default class HTMLTrackerSongField extends StateDataEventManager(CustomEl
         this.registerStateHandler("notes", event => {
             const staveEl = this.shadowRoot.getElementById("stave");
             if (staveEl != null) {
-                staveEl.value = event.data;
+                staveEl.value = event.value;
             }
         });
 

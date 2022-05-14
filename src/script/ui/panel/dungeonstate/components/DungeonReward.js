@@ -123,7 +123,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("reward", event => {
-            this.value = event.data;
+            this.value = event.value;
         });
 
         /* context menu */

@@ -1,59 +1,96 @@
 // frameworks
+import {
+    mix
+} from "/emcJS/util/Mixin.js";
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
-import OptionsStorage from "../../../savestate/storage/OptionsStorage.js";
-import VisibilityState from "../VisibilityState.js";
+// import OptionsStorage from "../../../savestate/storage/OptionsStorage.js";
 import StateListHandler, {
     getDefaultAccess
 } from "../../../util/handler/StateListHandler.js";
+import DataState from "../../DataState.js";
+import StateVisibilityMixin from "../../mixins/StateVisibilityMixin.js";
+import StateFilterMixin from "../../mixins/StateFilterMixin.js";
+import StateAccessPenetrationMixin from "../../mixins/StateAccessPenetrationMixin.js";
+import StateListContentsMixin from "../../mixins/StateListContentsMixin.js";
 
 const STORAGES = {areaHints: Savestate.getStorage("areaHints")};
 
-const LIST_HANDLER = new WeakMap();
-const HINT = new WeakMap();
+const BaseClass = mix(
+    DataState
+).with(
+    StateVisibilityMixin,
+    StateFilterMixin,
+    StateAccessPenetrationMixin,
+    StateListContentsMixin
+);
 
-export default class DefaultAreaState extends VisibilityState {
+export default class DefaultAreaState extends BaseClass {
+
+    #hint = "";
+
+    #listHandler = null;
+
+    #visible = true;
 
     constructor(ref, props) {
         super(ref, props);
 
         /* VALUES */
         const areaHintsObserver = new DataStorageValueObserver(STORAGES.areaHints, ref, "");
-        HINT.set(this, areaHintsObserver.value);
+        this.#hint = areaHintsObserver.value;
         areaHintsObserver.addEventListener("change", (event) => {
-            this.hint = event.data;
+            this.hint = event.value;
         });
 
         /* LIST HANDLER */
-        const listHandler = this.generateList();
-        listHandler.addEventListener("visibility", (event) => {
-            this.onVisibilityChange(event);
+        this.#listHandler = this.generateList();
+        this.#listHandler.addEventListener("visibility", (event) => {
+            this.checkVisibility();
         });
-        listHandler.addEventListener("access", (event) => {
+        this.#listHandler.addEventListener("access", (event) => {
             this.onAccessChange(event);
         });
-        listHandler.addEventListener("change", (event) => {
-            this.onListEntriesChange(event)
+        this.#listHandler.addEventListener("change", (event) => {
+            this.onListEntriesChange(event);
         });
-        LIST_HANDLER.set(this, listHandler);
+
+        /* EVENT */
+        this.addEventListener("visible", () => {
+            this.checkVisibility();
+        });
+        this.addEventListener("filtered", () => {
+            this.checkVisibility();
+        });
+        this.checkVisibility();
     }
 
-    onVisibilityChange(event) {
-        this.updateVisible();
-    }
+    checkVisibility = debounce(() => {
+        const value = this.visible && this.listVisible && !this.filtered;
+        if (this.#visible != value) {
+            this.#visible = value;
+            // external
+            const ev = new Event("visibility");
+            ev.value = value;
+            this.dispatchEvent(ev);
+        }
+    });
 
     onAccessChange(event) {
         const ev = new Event("access");
-        ev.data = event.data;
+        ev.value = event.value;
         this.dispatchEvent(ev);
     }
 
     onListEntriesChange(event) {
-        this.checkAllFilter();
-        const ev = new Event("list_update");
-        ev.data = event.data;
+        const ev = new Event("listChange");
+        ev.value = event.value;
         this.dispatchEvent(ev);
+        this.checkVisibility();
     }
 
     set hint(value) {
@@ -61,62 +98,59 @@ export default class DefaultAreaState extends VisibilityState {
         if (typeof value != "string" || (value != "woth" && value != "barren")) {
             value = "";
         }
-        const old = this.hint;
-        if (value != old) {
-            HINT.set(this, value);
+        if (value != this.#hint) {
+            this.#hint = value;
             STORAGES.areaHints.set(ref, value);
             // external
             const event = new Event("hint");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }
 
     get hint() {
-        return HINT.get(this);
+        return this.#hint;
     }
 
-    get listContents() {
-        return !OptionsStorage.get("option.mixed_entrance_pool") && (this.props.listContents ?? false);
-    }
+    // TODO add this to world config
+    // get listContents() {
+    //     return !OptionsStorage.get("option.mixed_entrance_pool") && (this.props.listContents ?? false);
+    // }
 
     get defaultAccess() {
         return getDefaultAccess();
     }
 
     get access() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler?.access ?? this.defaultAccess;
+        return this.#listHandler?.access ?? this.defaultAccess;
     }
 
-    get visible() {
-        return super.visible && this.getListVisiblity();
-    }
-
-    getListVisiblity() {
-        const listHandler = LIST_HANDLER.get(this);
-        return listHandler.visible;
+    get listVisible() {
+        return this.#listHandler.visible;
     }
 
     get hasMap() {
         return this.props.map.active;
     }
 
+    isVisible() {
+        return this.#visible;
+    }
+
     /* list */
     generateList() {
         const ref = this.ref;
         const list = this.props.list;
-        const listHandler = new StateListHandler(list, ref);
+        const listHandler = new StateListHandler(ref, list);
         return listHandler;
     }
 
     getList() {
-        return this.props.list;
+        return this.#listHandler.getList();
     }
 
     setAllEntries(value = true) {
-        const listHandler = LIST_HANDLER.get(this);
-        listHandler.setAllEntries(value);
+        this.#listHandler.setAllEntries(value);
     }
 
 }

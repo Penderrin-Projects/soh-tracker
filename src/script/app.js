@@ -85,7 +85,7 @@ try {
     const notePad = document.getElementById("notes-editor");
     notePad.value = Savestate.notes;
     Savestate.addEventListener("notes", function(event) {
-        notePad.value = event.data;
+        notePad.value = event.value;
     });
     notePad.addEventListener("change", function() {
         Savestate.notes = notePad.value;

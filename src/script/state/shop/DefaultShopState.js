@@ -39,25 +39,25 @@ export default class DefaultShopState extends DataState {
         const shopItemsObserver = new DataStorageValueObserver(STORAGES.shopItems, ref, "");
         this.#item = shopItemsObserver.value;
         shopItemsObserver.addEventListener("change", (event) => {
-            this.item = event.data;
+            this.item = event.value;
         });
 
         const shopItemsPriceObserver = new DataStorageValueObserver(STORAGES.shopItemsPrice, ref, 0);
         this.#price = shopItemsPriceObserver.value;
         shopItemsPriceObserver.addEventListener("change", (event) => {
-            this.price = event.data;
+            this.price = event.value;
         });
 
         const shopItemsBoughtObserver = new DataStorageValueObserver(STORAGES.shopItemsBought, ref, false);
         this.#bought = shopItemsBoughtObserver.value;
         shopItemsBoughtObserver.addEventListener("change", (event) => {
-            this.bought = event.data;
+            this.bought = event.value;
         });
 
         const shopItemsNameObserver = new DataStorageValueObserver(STORAGES.shopItemsName, ref, "");
         this.#name = shopItemsNameObserver.value;
         shopItemsNameObserver.addEventListener("change", (event) => {
-            this.name = event.data;
+            this.name = event.value;
         });
 
         /* --- */
@@ -98,7 +98,7 @@ export default class DefaultShopState extends DataState {
             }
             // external
             const event = new Event("item");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }
@@ -127,7 +127,7 @@ export default class DefaultShopState extends DataState {
             STORAGES.shopItemsPrice.set(ref, value);
             // external
             const event = new Event("price");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }
@@ -147,7 +147,7 @@ export default class DefaultShopState extends DataState {
             STORAGES.shopItemsBought.set(ref, value);
             // external
             const event = new Event("bought");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }
@@ -167,7 +167,7 @@ export default class DefaultShopState extends DataState {
             STORAGES.shopItemsName.set(ref, value);
             // external
             const event = new Event("name");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }

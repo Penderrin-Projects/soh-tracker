@@ -3,7 +3,7 @@ import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
-import OverworldListHandler from "../util/handler/OverworldListHandler.js";
+import WorldSummaryHandler from "../util/handler/WorldSummaryHandler.js";
 
 const TPL = new Template(`
 <div class="state">
@@ -32,7 +32,7 @@ export default class LocationStatus extends CustomElement {
             const doneEl = this.shadowRoot.getElementById("locations-done");
             const availEl = this.shadowRoot.getElementById("locations-available");
             const missEl = this.shadowRoot.getElementById("locations-missing");
-            const {reachable, unopened, done} = event.data;
+            const {reachable, unopened, done} = event.value;
             missEl.innerHTML = unopened;
             availEl.innerHTML = reachable;
             doneEl.innerHTML = done;
@@ -40,7 +40,7 @@ export default class LocationStatus extends CustomElement {
     }
 
     generateList() {
-        return new OverworldListHandler();
+        return new WorldSummaryHandler();
     }
 
 }

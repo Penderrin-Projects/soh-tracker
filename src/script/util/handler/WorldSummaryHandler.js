@@ -5,16 +5,12 @@ import Helper from "/emcJS/util/helper/Helper.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
+import ListRecordState from "/GameTrackerJS/state/world/ListRecordState.js";
 
 const DUNGEON_TYPES = [
     "dungeon",
     "boss_dungeon"
 ];
-
-const ACCESS = new WeakMap();
-const LIST_RESOLVED = new WeakMap();
-const LIST_FILTERED = new WeakMap();
-const DUNGEON_LIST = new WeakMap();
 
 export function getDefaultAccess() {
     return {
@@ -30,12 +26,25 @@ export function getDefaultAccess() {
     };
 }
 
-export default class OverworldListHandler extends EventTarget {
+let instance = null;
+
+export default class WorldSummaryHandler extends EventTarget {
+
+    #access = getDefaultAccess();
+
+    #entityList = new Set();
+
+    #filteredEntityList = new Set();
+
+    #dungeonList = new Set();
 
     constructor() {
+        if (instance != null) {
+            return instance;
+        }
         super();
+        instance = this;
         /* --- */
-        ACCESS.set(this, getDefaultAccess());
         setTimeout(() => {
             this.#generateList();
         }, 0);
@@ -43,12 +52,9 @@ export default class OverworldListHandler extends EventTarget {
 
     #generateList() {
         const usedLocations = new Set();
-        const dungeonList = new Set();
-        const entityList = new Map();
-        const filteredEntityList = new Map();
         for (const [, area] of AreaStateManager) {
             if (DUNGEON_TYPES.includes(area.props.type)) {
-                dungeonList.add(area);
+                this.#dungeonList.add(area);
                 const eventManager = new EventTargetManager(area);
                 eventManager.set("access", () => {
                     this.#refreshAccess();
@@ -64,7 +70,9 @@ export default class OverworldListHandler extends EventTarget {
                 }
             }
         }
-        for (const [key, loc] of LocationStateManager) {
+
+        let idx = 0;
+        for (const [key] of LocationStateManager) {
             if (!usedLocations.has(key)) {
                 const record = {
                     "id": key,
@@ -72,53 +80,47 @@ export default class OverworldListHandler extends EventTarget {
                     "y": 0,
                     "category": "location"
                 };
-                entityList.set(loc, record);
-                if (loc.isVisible()) {
-                    filteredEntityList.set(loc, record);
+                const recordState = new ListRecordState(`summary-${idx++}`, record);
+                this.#entityList.add(recordState);
+                if (recordState.visible) {
+                    this.#filteredEntityList.add(recordState);
                 }
-                /* event manager */
-                const eventManager = new EventTargetManager(loc);
+                const eventManager = new EventTargetManager(recordState);
                 eventManager.set("access", () => {
-                    if (filteredEntityList.has(loc)) {
+                    if (this.#filteredEntityList.has(recordState)) {
                         this.#refreshAccess();
                     }
                 });
-                eventManager.set("visiblity", () => {
-                    if (loc.isVisible()) {
-                        if (!filteredEntityList.has(loc)) {
-                            filteredEntityList.set(loc, entityList.get(loc));
+                eventManager.set("visibility", () => {
+                    if (recordState.visble) {
+                        if (!this.#filteredEntityList.has(recordState)) {
+                            this.#filteredEntityList.add(recordState);
                             this.#refreshAccess();
                         }
-                    } else if (filteredEntityList.has(loc)) {
-                        filteredEntityList.delete(loc);
+                    } else if (this.#filteredEntityList.has(recordState)) {
+                        this.#filteredEntityList.delete(recordState);
                         this.#refreshAccess();
                     }
                 });
             }
         }
         /* --- */
-        DUNGEON_LIST.set(this, dungeonList);
-        LIST_RESOLVED.set(this, entityList);
-        LIST_FILTERED.set(this, filteredEntityList);
         this.#refreshAccess();
     }
 
     #setAccess(value) {
         if (value != null) {
-            const old = ACCESS.get(this);
-            if (!Helper.isEqual(old, value)) {
-                ACCESS.set(this, value);
+            if (!Helper.isEqual(this.#access, value)) {
+                this.#access = value;
                 // external
                 const event = new Event("access");
-                event.data = value;
+                event.value = value;
                 this.dispatchEvent(event);
             }
         }
     }
 
     #refreshAccess() {
-        const entityList = LIST_FILTERED.get(this);
-        const dungeonList = DUNGEON_LIST.get(this);
         const access = {
             done_min: 0,
             done_max: 0,
@@ -130,20 +132,18 @@ export default class OverworldListHandler extends EventTarget {
             total_max: 0,
             value: AccessStateEnum.OPENED
         };
-        for (const [loc] of entityList) {
-            if (loc.isVisible()) {
-                const {done, unopened, reachable, total} = loc.access;
-                access.done_min += done;
-                access.done_max += done;
-                access.unopened_min += unopened;
-                access.unopened_max += unopened;
-                access.reachable_min += reachable;
-                access.reachable_max += reachable;
-                access.total_min += total;
-                access.total_max += total;
-            }
+        for (const recordState of this.#filteredEntityList) {
+            const {done, unopened, reachable, total} = recordState.access;
+            access.done_min += done;
+            access.done_max += done;
+            access.unopened_min += unopened;
+            access.unopened_max += unopened;
+            access.reachable_min += reachable;
+            access.reachable_max += reachable;
+            access.total_min += total;
+            access.total_max += total;
         }
-        for (const area of dungeonList) {
+        for (const area of this.#dungeonList) {
             if (area.type == "v" || area.type == "mq") {
                 const {done, unopened, reachable, total} = area.access;
                 access.done_min += done;
@@ -212,7 +212,7 @@ export default class OverworldListHandler extends EventTarget {
     }
 
     get access() {
-        return ACCESS.get(this);
+        return this.#access;
     }
 
 }

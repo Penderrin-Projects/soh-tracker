@@ -9,7 +9,6 @@ import ElementManager from "/emcJS/util/html/ElementManager.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import SettingsObserver from "../../../../../util/observer/SettingsObserver.js";
-import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
 import UIRegistry from "../../../../../registry/UIRegistry.js";
 import WorldListStateEntry from "./StateEntry.js";
 
@@ -80,7 +79,7 @@ export default class WorldListSubList extends BaseClass {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("list_update", event => {
+        this.registerStateHandler("listChange", event => {
             this.refreshList();
         });
         /* mouse events */
@@ -94,7 +93,7 @@ export default class WorldListSubList extends BaseClass {
         /* settings */
         this.switchTarget("sublistCollapsible", sublistCollapsibleObserver);
         this.setTargetEventListener("sublistCollapsible", "change", event => {
-            const collapsible = event.data;
+            const collapsible = event.value;
             if (collapsible != "off") {
                 headerEl.classList.add("collapsible");
                 if (collapsible == "start_expanded") {
@@ -160,7 +159,7 @@ export default class WorldListSubList extends BaseClass {
             const list = state.getList();
             if (list != null && list.length > 0) {
                 for (const record of list) {
-                    const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
+                    const loc = record.entry;
                     elManagerData.push({
                         key: loc.ref,
                         category: record.category,

@@ -68,7 +68,7 @@ export default class WorldMapTitle extends BaseClass {
 
         /* state handler */
         this.registerStateHandler("access", event => {
-            const access = event.data;
+            const access = event.value;
             const accessValue = AccessStateEnum.getName(access.value);
             this.applyAccess(accessValue.toLowerCase(), access);
         });

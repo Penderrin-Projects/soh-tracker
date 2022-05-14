@@ -72,7 +72,7 @@ export default class RewardItem extends ItemElement {
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("dungeon", event => {
-            this.dungeon = event.data;
+            this.dungeon = event.value;
         });
     }
 

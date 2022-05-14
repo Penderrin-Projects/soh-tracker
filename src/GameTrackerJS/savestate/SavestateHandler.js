@@ -88,7 +88,7 @@ class SavestateHandler extends EventTarget {
             const state = Savestate.serialize();
             this.#cacheData(state, true);
             const ev = new Event("notes");
-            ev.data = event.data;
+            ev.value = event.value;
             this.dispatchEvent(ev);
         });
         Savestate.addEventListener("options", event => {
@@ -105,7 +105,7 @@ class SavestateHandler extends EventTarget {
         LocalStorage.set(PERSISTANCE_NAME, data);
         LocalStorage.set(STATE_DIRTY, !!dirty);
         const ev = new Event("dirty");
-        ev.data = !!dirty;
+        ev.value = !!dirty;
         this.dispatchEvent(ev);
         updateTitle();
     }

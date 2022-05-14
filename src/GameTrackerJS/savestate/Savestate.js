@@ -66,7 +66,7 @@ class Savestate extends EventTarget {
         if (INFO.notes != value) {
             INFO.notes = value;
             const ev = new Event("notes");
-            ev.data = value;
+            ev.value = value;
             this.dispatchEvent(ev);
         }
     }

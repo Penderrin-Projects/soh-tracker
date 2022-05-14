@@ -58,7 +58,7 @@ class FilterButton extends EventTargetMixin(CustomElement) {
         this.addEventListener("contextmenu", event => this.revert(event));
         /* event bus */
         this.setTargetEventListener("filterObserver", "change", event => {
-            this.value = event.data;
+            this.value = event.value;
         });
     }
 

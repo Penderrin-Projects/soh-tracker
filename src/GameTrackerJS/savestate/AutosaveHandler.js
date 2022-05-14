@@ -98,7 +98,7 @@ SavestateHandler.addEventListener("load", (event) => {
     autosaveTimeTrigger = false;
 });
 SavestateHandler.addEventListener("dirty", (event) => {
-    autosaveDirtyTrigger = event.data;
+    autosaveDirtyTrigger = event.value;
     if (autosaveTimeTrigger) {
         autosave();
     }

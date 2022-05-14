@@ -39,10 +39,10 @@ export default class ListGossipstone extends BaseClass {
         applyElements(this.shadowRoot);
         /* observer */
         this.registerStateHandler("item", event => {
-            this.applyItem(event.data);
+            this.applyItem(event.value);
         });
         this.registerStateHandler("location", event => {
-            this.applyLocation(event.data);
+            this.applyLocation(event.value);
         });
     }
 

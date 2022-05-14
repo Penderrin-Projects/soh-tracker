@@ -1,8 +1,10 @@
 const VALID_NAME = /[a-zA-Z0-9_./-]+/;
-const REF = new WeakMap();
-const PROPS = new WeakMap();
 
 export default class DataState extends EventTarget {
+
+    #ref;
+
+    #props = {};
 
     constructor(ref, props = {}) {
         if (typeof ref != "string") {
@@ -16,16 +18,16 @@ export default class DataState extends EventTarget {
         }
         super();
         /* --- */
-        REF.set(this, ref);
-        PROPS.set(this, props);
+        this.#ref = ref;
+        this.#props = props;
     }
 
     get ref() {
-        return REF.get(this);
+        return this.#ref;
     }
 
     get props() {
-        return PROPS.get(this);
+        return this.#props;
     }
 
 }

@@ -57,10 +57,10 @@ export default class ItemElement extends BaseClass {
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.registerStateHandler("value", (event) => {
-            this.value = event.data;
+            this.value = event.value;
         });
         this.registerStateHandler("visibility", (event) => {
-            if (event.data) {
+            if (event.value) {
                 this.style.visibility = "";
             } else {
                 this.style.visibility = "hidden";

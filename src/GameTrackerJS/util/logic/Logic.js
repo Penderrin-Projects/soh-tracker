@@ -9,7 +9,7 @@ const LOGIC_PROCESSOR = new LogicGraph(logicDebugObserver.value != "off" && logi
 const CALL_TIMERS = new Map();
 
 logicDebugObserver.addEventListener("change", event => {
-    LOGIC_PROCESSOR.debug = event.data != "off" && event.data;
+    LOGIC_PROCESSOR.debug = event.value != "off" && event.value;
 });
 
 class TrackerLogic extends EventTarget {

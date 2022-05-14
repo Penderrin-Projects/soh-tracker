@@ -4,7 +4,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/CustomElement.js";
 
 // Track-OOT
-import OverworldListHandler from "../util/handler/OverworldListHandler.js";
+import WorldSummaryHandler from "../util/handler/WorldSummaryHandler.js";
 import "../state/world/WorldStates.js";
 
 const TPL = new Template(`
@@ -34,7 +34,7 @@ export default class LocationState extends CustomElement {
             const doneEl = this.shadowRoot.getElementById("locations-done");
             const availEl = this.shadowRoot.getElementById("locations-available");
             const missEl = this.shadowRoot.getElementById("locations-missing");
-            const {reachable_min, reachable_max, unopened_min, unopened_max, done_min, done_max} = event.data;
+            const {reachable_min, reachable_max, unopened_min, unopened_max, done_min, done_max} = event.value;
             if (reachable_min == reachable_max) {
                 availEl.innerHTML = reachable_min;
             } else {
@@ -54,7 +54,7 @@ export default class LocationState extends CustomElement {
     }
 
     generateList() {
-        return new OverworldListHandler();
+        return new WorldSummaryHandler();
     }
 
 }

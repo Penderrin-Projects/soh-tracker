@@ -10,7 +10,6 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
-import WorldStateManagerRegistry from "../../../statemanager/WorldStateManagerRegistry.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../registry/UIRegistry.js";
 import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
@@ -131,14 +130,14 @@ export default class WorldList extends BaseClass {
         STYLE.apply(this.shadowRoot);
         /* state handler */
         WorldListState.addEventListener("area", event => {
-            this.ref = event.data;
+            this.ref = event.value;
         });
         this.registerStateHandler("access", event => {
-            const access = event.data;
+            const access = event.value;
             const accessValue = AccessStateEnum.getName(access.value);
             this.applyAccess(accessValue.toLowerCase(), access);
         });
-        this.registerStateHandler("list_update", event => {
+        this.registerStateHandler("listChange", event => {
             this.refreshList();
         });
         /* back button */
@@ -249,7 +248,7 @@ export default class WorldList extends BaseClass {
             const list = state.getList();
             if (list != null && list.length > 0) {
                 for (const record of list) {
-                    const loc = WorldStateManagerRegistry.get(record.category).get(record.id);
+                    const loc = record.entry;
                     elManagerData.push({
                         key: loc.ref,
                         category: record.category,

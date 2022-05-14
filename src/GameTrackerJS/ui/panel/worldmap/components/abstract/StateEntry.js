@@ -68,12 +68,12 @@ export default class WorldMapStateEntry extends BaseClass {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("visiblity", (event) => {
-            this.style.display = event.data ? "" : "none";
+        this.registerStateHandler("visibility", (event) => {
+            this.style.display = event.value ? "" : "none";
         });
         this.registerStateHandler("access", (event) => {
-            const accessValue = AccessStateEnum.getName(event.data.value);
-            this.applyAccess(accessValue.toLowerCase(), event.data);
+            const accessValue = AccessStateEnum.getName(event.value.value);
+            this.applyAccess(accessValue.toLowerCase(), event.value);
         });
     }
 

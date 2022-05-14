@@ -25,7 +25,7 @@ export default class DefaultDungeonState extends DataState {
             if (area.props.list_mq != null) {
                 area.addEventListener("type", (event) => {
                     const ev = new Event("type");
-                    ev.data = event.data;
+                    ev.value = event.value;
                     this.dispatchEvent(ev);
                 });
             }
@@ -34,7 +34,7 @@ export default class DefaultDungeonState extends DataState {
         const dungeonRewardsObserver = new DataStorageValueObserver(STORAGES.dungeonRewards, ref, "");
         REWARD.set(this, dungeonRewardsObserver.value);
         dungeonRewardsObserver.addEventListener("change", (event) => {
-            this.reward = event.data;
+            this.reward = event.value;
         });
     }
 
@@ -64,7 +64,7 @@ export default class DefaultDungeonState extends DataState {
             STORAGES.dungeonRewards.set(ref, value);
             // external
             const event = new Event("reward");
-            event.data = value;
+            event.value = value;
             this.dispatchEvent(event);
         }
     }

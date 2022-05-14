@@ -31,8 +31,8 @@ for (const dungeon of REWARD_DUNGEONS) {
     const value = dungeonRewardsObserver.value;
     DUNGEON.set(value, dungeon);
     dungeonRewardsObserver.addEventListener("change", (event) => {
-        DUNGEON.set(event.data, dungeon);
-        const inst = getInstance(event.data);
+        DUNGEON.set(event.value, dungeon);
+        const inst = getInstance(event.value);
         if (inst != null) {
             const ev = new Event("change");
             ev.data = dungeon;
