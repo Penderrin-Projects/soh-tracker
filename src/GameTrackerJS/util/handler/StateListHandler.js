@@ -77,16 +77,9 @@ export default class StateListHandler extends EventTarget {
                     this.#filteredEntityList.add(recordState);
                 }
                 const eventManager = new EventTargetManager(recordState);
-                eventManager.set("accessPenetration", () => {
-                    if (this.#filteredEntityList.has(recordState)) {
-                        this.#refreshAccess();
-                    }
-                });
                 eventManager.set("access", () => {
                     if (this.#filteredEntityList.has(recordState)) {
-                        if (recordState.accessPenetration) {
-                            this.#refreshAccess();
-                        }
+                        this.#refreshAccess();
                     }
                 });
                 eventManager.set("visibility", (event) => {
@@ -157,10 +150,16 @@ export default class StateListHandler extends EventTarget {
             entrances: 0
         };
         for (const recordState of this.#filteredEntityList) {
-            if (
-                recordState.category == "area" || recordState.category == "exit" ||
-                recordState.category == "location" || recordState.category == "collection"
-            ) {
+            if (recordState.category == "area" || recordState.category == "exit") {
+                if (recordState.accessPenetration) {
+                    const {done, unopened, reachable, entrances, total} = recordState.access;
+                    access.done += done;
+                    access.unopened += unopened;
+                    access.reachable += reachable;
+                    access.total += total;
+                    access.entrances += entrances;
+                }
+            } else if (recordState.category == "location" || recordState.category == "collection") {
                 const {done, unopened, reachable, entrances, total} = recordState.access;
                 access.done += done;
                 access.unopened += unopened;

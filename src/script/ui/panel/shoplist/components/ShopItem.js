@@ -6,7 +6,7 @@ import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManage
 
 // GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import ShopItemChoiceDialog from "/script/ui/dialog/ShipItemChoiceDialog/ShopItemChoiceDialog.js";
@@ -139,7 +139,7 @@ function getDialogTitle(ref) {
     return titleEl;
 }
 
-export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
+export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
 
     constructor() {
         super();

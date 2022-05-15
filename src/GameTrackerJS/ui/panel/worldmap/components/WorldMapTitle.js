@@ -9,7 +9,7 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 
 import AccessStateEnum from "../../../../enum/AccessStateEnum.js";
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
-import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../mixin/StateDataEventManagerMixin.js";
 
 const TPL = new Template(`
 <emc-i18n-label id="text"></emc-i18n-label>

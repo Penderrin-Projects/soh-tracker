@@ -5,7 +5,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 import AreaStateManager from "../../statemanager/world/area/AreaStateManager.js";
-import StateDataEventManager from "../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../mixin/StateDataEventManagerMixin.js";
 
 const TPL = new Template(`
 <emc-option value="" style="background-image: url('images/icons/area_nohint.svg')"></emc-option>
@@ -52,7 +52,7 @@ slot {
 }
 `);
 
-class HintButton extends StateDataEventManager(CustomElement) {
+class HintButton extends StateDataEventManagerMixin(CustomElement) {
 
     constructor() {
         super();

@@ -11,7 +11,7 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 
 import AreaStateManager from "../../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../../registry/UIRegistry.js";
-import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../mixin/StateDataEventManagerMixin.js";
 import "../../../button/FilterMenuButton.js";
 import "../../../button/HintButton.js";
 import "./entries/Location.js";

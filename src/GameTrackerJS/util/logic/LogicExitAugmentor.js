@@ -6,7 +6,6 @@ import Logic from "../logic/Logic.js";
 const detachedEntrancesObserver = new OptionsObserver("option.detached_entrances");
 
 const INSTANCES = new Map();
-const EXIT = new WeakMap();
 
 function checkForBindingCorrections(exit, newValue, oldValue) {
     if (!detachedEntrancesObserver.value) {
@@ -41,29 +40,29 @@ function checkForBindingCorrections(exit, newValue, oldValue) {
 
 export default class LogicExitAugmentor {
 
+    #exit = null;
+
     constructor(ref) {
         INSTANCES.set(ref, this);
 
         /* EXIT */
-        const exit = ExitStateManager.get(ref);
-        EXIT.set(this, exit);
-        exit.addEventListener("active", () => {
-            this.changeBinding();
+        this.#exit = ExitStateManager.get(ref);
+        this.#exit.addEventListener("visibility", () => {
+            this.#changeBinding();
         });
-        exit.addEventListener("value", (event) => {
-            checkForBindingCorrections(exit, event.newValue, event.oldValue);
-            this.changeBinding();
+        this.#exit.addEventListener("value", (event) => {
+            checkForBindingCorrections(this.#exit, event.newValue, event.oldValue);
+            this.#changeBinding();
         });
-        this.changeBinding();
+        this.#changeBinding();
     }
 
-    changeBinding() {
-        const exit = EXIT.get(this);
+    #changeBinding() {
         const changes = [];
-        if (exit.active) {
-            LogicExitAugmentor.applyBinding(changes, exit.ref, exit.value);
+        if (this.#exit.isVisible()) {
+            LogicExitAugmentor.applyBinding(changes, this.#exit.ref, this.#exit.value);
         } else {
-            LogicExitAugmentor.applyBinding(changes, exit.ref, null);
+            LogicExitAugmentor.applyBinding(changes, this.#exit.ref, null);
         }
         if (changes.length) {
             Logic.setRedirect(changes, "region.root");
@@ -71,7 +70,7 @@ export default class LogicExitAugmentor {
     }
 
     get exit() {
-        return EXIT.get(this);
+        return this.#exit;
     }
 
     static applyBinding(changes, from, to) {

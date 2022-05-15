@@ -5,7 +5,7 @@ import {
 
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
-import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManagerMixin.js";
 import WorldListEntry from "./Entry.js";
 
 const BaseClass = mix(

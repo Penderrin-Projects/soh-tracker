@@ -7,7 +7,7 @@ import {
 } from "/emcJS/util/Mixin.js";
 
 import ItemStates from "../../../state/item/ItemStateManager.js";
-import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../mixin/StateDataEventManagerMixin.js";
 
 const TPL = new Template(`
 <emc-i18n-tooltip id="tooltip">

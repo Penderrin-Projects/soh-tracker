@@ -8,7 +8,7 @@ import DataState from "../../state/DataState.js";
 const TARGET = new WeakMap();
 const SUBS = new WeakMap();
 
-export default createMixin((superclass) => class StateDataEventManager extends superclass {
+export default createMixin((superclass) => class StateDataEventManagerMixin extends superclass {
 
     constructor(...args) {
         super(...args);

@@ -1,4 +1,7 @@
 // frameworks
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/overlay/Tooltip.js";
@@ -206,7 +209,7 @@ export default class MapExit extends WorldMapMarkedEntry {
         }
     }
 
-    applyValue(value = "") {
+    applyValue = debounce((value = "") => {
         const valueEl = this.shadowRoot.getElementById("value");
         if (valueEl != null) {
             if (value) {
@@ -222,7 +225,7 @@ export default class MapExit extends WorldMapMarkedEntry {
                 this.applyHint();
             }
         }
-    }
+    });
 
     applyHint(hint = "") {
         const hintEl = this.shadowRoot.getElementById("hint");

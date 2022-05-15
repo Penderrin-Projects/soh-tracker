@@ -1,9 +1,12 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
+import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/Icon.js";
 
 import WorldListState from "../../../../../state/world/WorldListState.js";
@@ -190,7 +193,7 @@ export default class WorldListExit extends BaseClass {
         this.setCollapsed(data.value == AccessStateEnum.OPENED);
     }
 
-    applyValue(value = "") {
+    applyValue = debounce((value = "") => {
         const valueEl = this.shadowRoot.getElementById("value");
         if (valueEl != null) {
             if (value) {
@@ -207,7 +210,7 @@ export default class WorldListExit extends BaseClass {
             }
         }
         this.refreshList();
-    }
+    });
 
     applyHint(hint = "") {
         const hintEl = this.shadowRoot.getElementById("hint");

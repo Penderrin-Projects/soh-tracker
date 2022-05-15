@@ -5,7 +5,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
-import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
@@ -56,7 +56,7 @@ slot {
 }
 `);
 
-class HTMLTrackerDungeonType extends StateDataEventManager(CustomElement) {
+class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
 
     constructor() {
         super();

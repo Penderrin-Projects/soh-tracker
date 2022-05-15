@@ -7,7 +7,7 @@ import {
 
 import AccessStateEnum from "../../../../../enum/AccessStateEnum.js";
 import WorldStateManagerRegistry from "../../../../../statemanager/WorldStateManagerRegistry.js";
-import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManagerMixin.js";
 import WorldMapEntry from "./Entry.js";
 
 const TPL = new Template(`

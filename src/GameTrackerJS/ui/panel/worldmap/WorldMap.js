@@ -9,7 +9,7 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 
 import WorldListState from "../../../state/world/WorldListState.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
-import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../mixin/StateDataEventManagerMixin.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
 import "./components/WorldMapView.js";

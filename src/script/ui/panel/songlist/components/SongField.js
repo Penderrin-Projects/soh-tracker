@@ -5,7 +5,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 // GameTrackerJS
-import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import SongStateManager from "/script/state/song/SongStateManager.js"
@@ -84,7 +84,7 @@ function clearSong(event) {
     }
 }
 
-export default class HTMLTrackerSongField extends StateDataEventManager(CustomElement) {
+export default class HTMLTrackerSongField extends StateDataEventManagerMixin(CustomElement) {
 
     constructor() {
         super();

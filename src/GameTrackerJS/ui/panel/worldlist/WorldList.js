@@ -12,7 +12,7 @@ import WorldListState from "../../../state/world/WorldListState.js";
 import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 import AreaStateManager from "../../../statemanager/world/area/AreaStateManager.js";
 import UIRegistry from "../../../registry/UIRegistry.js";
-import StateDataEventManagerMixin from "../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../mixin/StateDataEventManagerMixin.js";
 import "../../button/FilterMenuButton.js";
 import "../../button/HintButton.js";
 import "./components/button/Button.js";

@@ -9,7 +9,7 @@ import "/emcJS/ui/input/Option.js";
 import "/emcJS/ui/i18n/I18nTooltip.js";
 
 import ItemStates from "../../../../../state/item/ItemStateManager.js";
-import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../../mixin/StateDataEventManagerMixin.js";
 import "../../../../../state/item/StartSettingsState.js";
 
 const TPL = new Template(`

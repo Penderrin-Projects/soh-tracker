@@ -7,7 +7,7 @@ import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
 import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
-import StateDataEventManager from "/GameTrackerJS/ui/mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
@@ -115,7 +115,7 @@ function resolveIcon(icon) {
     return icon;
 }
 
-class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManager(CustomElement)) {
+class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
 
     constructor() {
         super();

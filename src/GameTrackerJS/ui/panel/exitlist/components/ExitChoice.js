@@ -5,7 +5,7 @@ import CustomElement from "/emcJS/ui/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManagerMixin.js";
 
 import ExitStateManager from "../../../../statemanager/world/exit/ExitStateManager.js";
-import StateDataEventManagerMixin from "../../../mixin/StateDataEventManager.js";
+import StateDataEventManagerMixin from "../../../mixin/StateDataEventManagerMixin.js";
 import Badge from "../../../Badge.js";
 import ExitChoiceContextMenu from "../../../ctxmenu/ExitChoiceContextMenu.js";
 import ExitBindingContextMenu from "../../../ctxmenu/ExitBindingContextMenu.js";
