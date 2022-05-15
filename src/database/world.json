@@ -17331,6 +17331,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "region.valley_lake_gateway -> region.lake_valley_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
                 }
             ]
         },
@@ -28417,6 +28423,53 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
+        "region.lake_valley_gateway -> region.valley_lake_gateway": {
+            "type": "overworld",
+            "target": "region.valley_lake_gateway -> region.lake_valley_gateway",
+            "logicAccess": "region.lake_valley_gateway",
+            "area": "lake",
+            "categories": [
+                "overworld",
+                "gerudo",
+                "valley",
+                "to"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "icon": "images/icons/entrance.svg",
+            "bindsTo": [
+                "overworld"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_overworld"
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.detached_entrances"
+                    }
+                ]
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": false
+        },
         "region.ranch_field_gateway -> region.field_ranch_gateway": {
             "type": "overworld",
             "target": "region.field_ranch_gateway -> region.ranch_field_gateway",
@@ -29582,6 +29635,53 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
+        },
+        "region.valley_lake_gateway -> region.lake_valley_gateway": {
+            "type": "overworld",
+            "target": "region.lake_valley_gateway -> region.valley_lake_gateway",
+            "logicAccess": "region.valley_lake_gateway",
+            "area": "gerudo_valley",
+            "categories": [
+                "overworld",
+                "gerudo",
+                "valley",
+                "to"
+            ],
+            "visible": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_overworld"
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.detached_entrances"
+                    }
+                ]
+            },
+            "visibleRootOnly": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "icon": "images/icons/entrance.svg",
+            "bindsTo": [
+                "overworld"
+            ],
+            "ignoreBound": false,
+            "entranceActive": false,
+            "includeInactiveEntrances": false,
+            "isBiDir": false
         },
         "region.fortress_valley_gateway -> region.valley_fortress_gateway": {
             "type": "overworld",
