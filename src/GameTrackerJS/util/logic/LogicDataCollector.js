@@ -18,10 +18,6 @@ const CACHE = new Map();
 const LOCKED_CACHE = new MapLocker(CACHE);
 const DATA = new Map();
 
-function valueGetter(key) {
-    return DATA.get(key);
-}
-
 function execAugment(data) {
     for (const augment of AUGMENT) {
         const res = augment(LOCKED_CACHE, data);
@@ -89,7 +85,7 @@ function augmentStartItemValues(newData) {
     return res;
 }
 
-class LogicExecutor extends EventTarget {
+class LogicDataCollector extends EventTarget {
 
     constructor() {
         super();
@@ -143,7 +139,7 @@ class LogicExecutor extends EventTarget {
         for (const [key, value] of Object.entries(augmentedData)) {
             DATA.set(key, value);
         }
-        const ev = new Event("reset");
+        const ev = new Event("load");
         this.dispatchEvent(ev);
     }
 
@@ -166,11 +162,8 @@ class LogicExecutor extends EventTarget {
         }
     }
 
-    execute(fn) {
-        if (typeof fn != "function") {
-            throw new TypeError(`expected parameter to be of type "function" but was "${typeof fn}"`);
-        }
-        return !!fn(valueGetter);
+    get(key) {
+        return DATA.get(key);
     }
 
     registerAugment(augment) {
@@ -182,4 +175,4 @@ class LogicExecutor extends EventTarget {
 
 }
 
-export default new LogicExecutor();
+export default new LogicDataCollector();

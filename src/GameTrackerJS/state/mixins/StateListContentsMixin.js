@@ -18,8 +18,25 @@ export default createMixin((superclass) => class StateListContentsMixin extends 
         });
     }
 
-    updateListContents() {
-        this.#handler.update();
+    setLogicData(key, value) {
+        if (super.setLogicData) {
+            super.setLogicData(key, value);
+        }
+        this.#handler.setDataValue(key, value);
+    }
+
+    removeLogicData(key) {
+        if (super.removeLogicData) {
+            super.removeLogicData(key);
+        }
+        this.#handler.removeDataValue(key);
+    }
+
+    clearLogicData() {
+        if (super.clearLogicData) {
+            super.clearLogicData();
+        }
+        this.#handler.clearData();
     }
 
     get listContents() {

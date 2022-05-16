@@ -5,15 +5,10 @@ import {
 import LogicCompiler from "/emcJS/util/logic/Compiler.js";
 import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
-import LogicExecutor from "../logic/LogicExecutor.js";
+import LogicDataCollector from "../logic/LogicDataCollector.js";
 import FilterStorage from "../../savestate/storage/FilterStorage.js";
 
-const SPECIAL_FILTERS = [
-    "access",
-    "!access",
-    "done",
-    "!done"
-];
+const EVENTS = ["load", "change"];
 
 function mapToObj(map) {
     const res = {};
@@ -29,54 +24,38 @@ export default class FilterHandler extends EventTarget {
 
     #values = new Map();
 
+    #data = new Map();
+
     constructor(config = {}) {
         super();
-        /* FILTER */
         for (const filter in config) {
             const filterValue = FilterStorage.get(filter);
             for (const value in config[filter]) {
                 const logic = config[filter][value];
-                this.#compileLogic(filter, value, filterValue, logic)
+                this.#compileLogic(filter, value, filterValue, logic);
             }
         }
-        /* EVENTS */
         FilterStorage.addEventListener("change", () => {
-            this.update();
+            this.#update();
         });
-        const logicEventManager = new EventTargetManager(LogicExecutor);
-        logicEventManager.set(["reset", "change"], () => {
-            this.update();
+        const storageEventManager = new EventTargetManager(LogicDataCollector);
+        storageEventManager.set(EVENTS, () => {
+            this.#update();
         });
-        /* --- */
-        // setTimeout(() => {
-        //     this.update();
-        // }, 0);
     }
 
     #compileLogic(filter, value, filterValue, logic) {
         const logicKey = `${filter}[${value}]`;
         this.#values.set(filter, true);
         if (typeof logic == "object") {
-            /* LOGIC */
             const logicFn = LogicCompiler.compile(logic);
             this.#logics.set(logicKey, logicFn);
-            /* VALUE */
             if (value == filterValue) {
-                const logicValue = LogicExecutor.execute(logicFn);
-                this.#values.set(filter, logicValue);
-            }
-        } else if (SPECIAL_FILTERS.includes(logic)) {
-            /* LOGIC */
-            this.#logics.set(logicKey, logic);
-            /* VALUE */
-            if (value == filterValue) {
-                const logicValue = this.#executeSpecialFilter(logic);
+                const logicValue = this.#execute(logicFn);
                 this.#values.set(filter, logicValue);
             }
         } else if (logic != null) {
-            /* LOGIC */
             this.#logics.set(logicKey, logic);
-            /* VALUE */
             if (value == filterValue) {
                 const logicValue = !!logic;
                 this.#values.set(filter, logicValue);
@@ -84,14 +63,30 @@ export default class FilterHandler extends EventTarget {
         }
     }
 
-    update = debounce(() => {
+    #getValue(key) {
+        return this.#data.get(key) ?? LogicDataCollector.get(key);
+    }
+
+    #execute(logicFn) {
+        if (typeof logicFn == "function") {
+            return !!logicFn((key) => {
+                return this.#getValue(key);
+            });
+        } else if (logicFn != null) {
+            return !!logicFn;
+        } else {
+            return true;
+        }
+    }
+
+    #update = debounce(() => {
         if (this.#values != null) {
             const changes = {};
             for (const [filter, oldValue] of this.#values) {
                 const value = FilterStorage.get(filter);
                 const logicKey = `${filter}[${value}]`;
-
-                const logicValue = this.#executeFilter(logicKey);
+                const logicFn = this.#logics.get(logicKey);
+                const logicValue = this.#execute(logicFn);
                 if (oldValue != logicValue) {
                     this.#values.set(filter, logicValue);
                     changes[filter] = logicValue;
@@ -105,26 +100,24 @@ export default class FilterHandler extends EventTarget {
         }
     });
 
-    #executeFilter(name) {
-        const logicFn = this.#logics.get(name);
-        if (typeof logicFn == "function") {
-            return LogicExecutor.execute(logicFn);
-        } else if (typeof logicFn == "string") {
-            return this.#executeSpecialFilter(logicFn);
-        } else if (logicFn != null) {
-            return !!logicFn;
+    setDataValue(key, value) {
+        const old = this.#data.get(key);
+        if (old != value) {
+            this.#data.set(key, value);
+            this.#update();
         }
-        return true;
     }
 
-    #executeSpecialFilter(name) {
-        // const access = this.access;
-        // switch (name) {
-        //     case "access": return access.value != AccessStateEnum.UNAVAILABLE;
-        //     case "!access": return access.value == AccessStateEnum.UNAVAILABLE;
-        //     case "done": return access.value == AccessStateEnum.OPENED;
-        //     case "!done": return access.value != AccessStateEnum.OPENED;
-        // }
+    removeDataValue(key) {
+        if (this.#data.has(key)) {
+            this.#data.delete(key);
+            this.#update();
+        }
+    }
+
+    clearData() {
+        this.#data.clear();
+        this.#update();
     }
 
     get filter() {
