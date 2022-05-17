@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 import gulp from "gulp";
 import htmlmin from "gulp-htmlmin";
@@ -22,36 +21,11 @@ const MODULE_PATHS = {
     RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src")
 };
 
-function fileExists(filename) {
-    try {
-        fs.accessSync(filename);
-        return true;
-    } catch {
-        return false;
-    }
-}
-
-const NOLOCAL = process.argv.indexOf("-nolocal") >= 0;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
-console.log({NOLOCAL, NOCOMPRESS, REBUILDJS, REBUILD});
-
-if (!NOLOCAL) {
-    const emcJS = path.resolve(__dirname, "../emcJS/src");
-    if (fileExists(emcJS)) {
-        MODULE_PATHS.emcJS = emcJS;
-    }
-    const trackerEditor = path.resolve(__dirname, "../JSEditors/src");
-    if (fileExists(trackerEditor)) {
-        MODULE_PATHS.trackerEditor = trackerEditor;
-    }
-    const RTCClient = path.resolve(__dirname, "../RTCClient/src");
-    if (fileExists(RTCClient)) {
-        MODULE_PATHS.RTCClient = RTCClient;
-    }
-}
+console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 
 /* JS START */
 function copyJS(files, src, dest) {

@@ -26358,51 +26358,6 @@
                 }
             ]
         },
-        "kakariko.shop_magic_back": {
-            "type": "interior",
-            "categories": [],
-            "visible": false,
-            "filter": {
-                "filter.era": {
-                    "child": false,
-                    "adult": true
-                },
-                "filter.time": {
-                    "day": true,
-                    "night": false
-                },
-                "filter.show_done": {
-                    "false": "!done"
-                }
-            },
-            "listContents": true,
-            "accessPenetration": true,
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "active": false,
-                "color": "",
-                "border": "",
-                "background": "",
-                "width": 0,
-                "height": 0,
-                "zoom": 0
-            },
-            "list": [
-                {
-                    "id": "region.kak_potion_shop_front -> region.kak_potion_shop_front_entrance",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
-                    "id": "region.kak_potion_shop_back -> region.kak_potion_shop_back_entrance",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                }
-            ]
-        },
         "graveyard.dampes_hut": {
             "type": "interior",
             "categories": [],
@@ -28626,6 +28581,98 @@
             "entranceActive": {
                 "type": "value",
                 "el": "option.shuffle_overworld"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "region.marketback_market_gateway -> region.market_marketback_gateway": {
+            "type": "overworld",
+            "target": "region.market_marketback_gateway -> region.marketback_market_gateway",
+            "logicAccess": "region.marketback_market_gateway",
+            "area": "castle_town",
+            "categories": [
+                "overworld",
+                "market",
+                "to"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "icon": "images/icons/entrance.svg",
+            "bindsTo": [
+                "overworld"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_overworld"
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.detached_entrances"
+                    }
+                ]
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "region.market_marketback_gateway -> region.marketback_market_gateway": {
+            "type": "overworld",
+            "target": "region.marketback_market_gateway -> region.market_marketback_gateway",
+            "logicAccess": "region.market_marketback_gateway",
+            "area": "castle_town",
+            "categories": [
+                "overworld",
+                "market",
+                "to"
+            ],
+            "visible": false,
+            "visibleRootOnly": false,
+            "filter": {
+                "filter.era": {
+                    "child": true,
+                    "adult": true
+                },
+                "filter.time": {
+                    "day": true,
+                    "night": true
+                },
+                "filter.show_done": {
+                    "false": "!done"
+                }
+            },
+            "icon": "images/icons/entrance.svg",
+            "bindsTo": [
+                "overworld"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_overworld"
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.detached_entrances"
+                    }
+                ]
             },
             "includeInactiveEntrances": false,
             "isBiDir": true

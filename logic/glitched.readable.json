@@ -2799,6 +2799,56 @@
                 "type": "true"
             }
         },
+        "region.gerudo_valley_lake_gateway{child}": {
+            "region.lake_gerudo_valley_gateway{child}": {
+                "type": "true"
+            }
+        },
+        "region.gerudo_valley_lake_gateway{adult}": {
+            "region.lake_gerudo_valley_gateway{adult}": {
+                "type": "true"
+            }
+        },
+        "region.lake_gerudo_valley_gateway{child}": {
+            "region.lake_hylia{child}": {
+                "type": "true"
+            }
+        },
+        "region.lake_gerudo_valley_gateway{adult}": {
+            "region.lake_hylia{adult}": {
+                "type": "true"
+            }
+        },
+        "region.market_marketback_gateway{child}": {
+            "region.market{child}": {
+                "type": "true"
+            },
+            "region.marketback_market_gateway{child}": {
+                "type": "mixin",
+                "el": "mixin.is_child{child}"
+            }
+        },
+        "region.market_marketback_gateway{adult}": {
+            "region.market{adult}": {
+                "type": "true"
+            }
+        },
+        "region.marketback_market_gateway{child}": {
+            "region.market_back_alley{child}": {
+                "type": "true"
+            },
+            "region.market_marketback_gateway{child}": {
+                "type": "true"
+            }
+        },
+        "region.marketback_market_gateway{adult}": {
+            "region.market_back_alley{adult}": {
+                "type": "true"
+            },
+            "region.market_marketback_gateway{adult}": {
+                "type": "true"
+            }
+        },
         "region.bottom_of_the_well_mq{child}": {
             "region.bottom_of_the_well_gateway{child}": {
                 "type": "true"
