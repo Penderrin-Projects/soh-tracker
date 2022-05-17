@@ -133,18 +133,17 @@ export default class MapArea extends WorldMapMarkedEntry {
 
     applyAccess(value = "unavailable", data = {}) {
         super.applyAccess(value, data);
-        /* entrances */
-        const entrancesEl = this.shadowRoot.getElementById("entrances");
-        if (entrancesEl != null) {
-            entrancesEl.innerHTML = "";
-            if (data.entrances) {
-                const el_icon = document.createElement("img");
-                el_icon.src = `images/icons/entrance.svg`;
-                entrancesEl.append(el_icon);
-            }
-        }
-        /* value */
         const markerEl = this.shadowRoot.getElementById("marker");
+        const entrancesEl = this.shadowRoot.getElementById("entrances");
+        /* entrances */
+        entrancesEl.innerHTML = "";
+        if (data.entrances) {
+            const el_icon = document.createElement("img");
+            el_icon.src = `images/icons/entrance.svg`;
+            entrancesEl.append(el_icon);
+        }
+        markerEl.dataset["entrances"] = !!data.entrances;
+        /* value */
         if (data.reachable > 0) {
             markerEl.innerHTML = data.reachable;
         } else {

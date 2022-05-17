@@ -53,6 +53,11 @@ const BaseClass = mix(
     StateFilterMixin
 );
 
+/* TODO add $IN_ROOT
+add function to write this.setLogicData("$IN_ROOT", value)
+depicting wether the element is in the root of the list or deeper
+-> has to be called from the outside, since we dont have parent relations
+*/
 export default class DefaultLocationState extends BaseClass {
 
     #value = false;
@@ -131,6 +136,8 @@ export default class DefaultLocationState extends BaseClass {
             const ev = new Event("access");
             ev.value = access;
             this.dispatchEvent(ev);
+            // logic data
+            this.setLogicData("$IS_DONE", access.value == AccessStateEnum.OPENED);
         }
     }
 

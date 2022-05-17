@@ -5,6 +5,7 @@ import {
 import {
     debounce
 } from "/emcJS/util/Debouncer.js";
+import Helper from "/emcJS/util/helper/Helper.js";
 import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
 
 import Savestate from "../../../savestate/Savestate.js";
@@ -58,7 +59,7 @@ function getLogicAccess(access) {
         value: AccessStateEnum.OPENED,
         entrances: 0
     };
-    const reachable = !!Logic.getValue(`${access}[child]`) || !!Logic.getValue(`${access}[adult]`);
+    const reachable = !!Logic.getValue(`${access}{child}`) || !!Logic.getValue(`${access}{adult}`);
     if (reachable) {
         res.entrances = 1;
         res.value = AccessStateEnum.AVAILABLE;
@@ -102,9 +103,12 @@ export default class DefaultExitState extends BaseClass {
 
         /* AREA */
         this.#manager.registerStateHandler("access", event => {
+            const access = event.value;
             const ev = new Event("access");
-            ev.value = event.value;
+            ev.value = access;
             this.dispatchEvent(ev);
+            // logic data
+            this.setLogicData("$IS_DONE", access.value == AccessStateEnum.OPENED);
         });
         this.#manager.registerStateHandler("hint", event => {
             const ev = new Event("hint");
@@ -139,15 +143,15 @@ export default class DefaultExitState extends BaseClass {
         /* LOGIC */
         Logic.addEventListener("change", () => {
             const access = getLogicAccess(logicAccess);
-            if (access != null) {
-                if (access != this.#access) {
-                    this.#access = access;
-                    if (this.#area == null) {
-                        // external
-                        const ev = new Event("access");
-                        ev.value = access;
-                        this.dispatchEvent(ev);
-                    }
+            if (!Helper.isEqual(access, this.#access)) {
+                this.#access = access;
+                if (this.#area == null) {
+                    // external
+                    const ev = new Event("access");
+                    ev.value = access;
+                    this.dispatchEvent(ev);
+                    // logic data
+                    this.setLogicData("$IS_DONE", access.value == AccessStateEnum.OPENED);
                 }
             }
         });
@@ -172,6 +176,21 @@ export default class DefaultExitState extends BaseClass {
             this.dispatchEvent(ev);
         }
     });
+
+    refreshAccess() {
+        const access = getLogicAccess(this.value, this.reachable);
+        if (!Helper.isEqual(access, this.#access)) {
+            this.#access = access;
+            // external
+            if (this.#area == null) {
+                const ev = new Event("access");
+                ev.value = access;
+                this.dispatchEvent(ev);
+            }
+            // logic data
+            this.setLogicData("$IS_DONE", access.value == AccessStateEnum.OPENED);
+        }
+    }
 
     get active() {
         return this.#entrance.active;
@@ -198,6 +217,9 @@ export default class DefaultExitState extends BaseClass {
             const accessEvent = new Event("access");
             accessEvent.value = this.access;
             this.dispatchEvent(accessEvent);
+
+            // logic data
+            this.setLogicData("$IS_DONE", this.access.value == AccessStateEnum.OPENED);
         }
     }
 

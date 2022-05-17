@@ -399,7 +399,7 @@ function createLogicGraphCategory(data, locations) {
             "children": []
         };
         const sub = data[ref];
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             for (const sref in sub) {
                 if (sref.startsWith("logic.location.")) {
                     const name = sref.slice(15);
@@ -519,7 +519,7 @@ function createLogicMixinCategory(data) {
         "children": [resC, resA]
     };
     for (const ref in data) {
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             resC.children.push({
                 "ref": ref,
                 "category": "mixin",
@@ -553,7 +553,7 @@ function createLogicFunctionCategory(data) {
         "children": [resC, resA]
     };
     for (const ref in data) {
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             resC.children.push({
                 "ref": ref,
                 "category": "function",

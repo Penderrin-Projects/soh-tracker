@@ -17,6 +17,7 @@ import StateVisibilityMixin from "../../mixins/StateVisibilityMixin.js";
 import StateFilterMixin from "../../mixins/StateFilterMixin.js";
 import StateAccessPenetrationMixin from "../../mixins/StateAccessPenetrationMixin.js";
 import StateListContentsMixin from "../../mixins/StateListContentsMixin.js";
+import AccessStateEnum from "../../../enum/AccessStateEnum.js";
 
 const STORAGES = {areaHints: Savestate.getStorage("areaHints")};
 
@@ -81,9 +82,12 @@ export default class DefaultAreaState extends BaseClass {
     });
 
     onAccessChange(event) {
+        const access = event.value;
         const ev = new Event("access");
-        ev.value = event.value;
+        ev.value = access;
         this.dispatchEvent(ev);
+        // logic data
+        this.setLogicData("$IS_DONE", access == AccessStateEnum.OPENED);
     }
 
     onListEntriesChange(event) {
