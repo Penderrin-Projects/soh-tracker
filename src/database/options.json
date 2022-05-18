@@ -197,6 +197,15 @@
         "type": "check",
         "default": false
     },
+    "option.show_sublists_on_mixed_entrances": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false,
+        "visible": {
+            "type": "value",
+            "el": "option.mixed_entrance_pool"
+        }
+    },
     "option.detached_entrances": {
         "category": "entrance_randomizer",
         "type": "check",

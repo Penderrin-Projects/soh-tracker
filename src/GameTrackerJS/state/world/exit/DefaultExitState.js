@@ -120,6 +120,11 @@ export default class DefaultExitState extends BaseClass {
             ev.value = event.value;
             this.dispatchEvent(ev);
         });
+        this.#manager.registerStateHandler("listContents", event => {
+            const ev = new Event("listContents");
+            ev.value = event.value;
+            this.dispatchEvent(ev);
+        });
 
         /* VALUES */
         const logicAccess = props.logicAccess;

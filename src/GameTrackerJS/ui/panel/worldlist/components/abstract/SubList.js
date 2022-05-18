@@ -79,7 +79,10 @@ export default class WorldListSubList extends BaseClass {
         TPL.apply(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("listChange", event => {
+        this.registerStateHandler("listChange", (event) => {
+            this.refreshList();
+        });
+        this.registerStateHandler("listContents", (event) => {
             this.refreshList();
         });
         /* mouse events */
