@@ -80,6 +80,12 @@ export default class MapArea extends WorldMapMarkedEntry {
         });
         /* context menu */
         this.setDefaultContextMenu(AreaContextMenu);
+        this.addDefaultContextMenuHandler("goto", () => {
+            const state = this.getState();
+            if (state != null) {
+                WorldListState.area = this.ref;
+            }
+        });
         this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {

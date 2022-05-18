@@ -8,6 +8,8 @@ export default class ExitContextMenu extends ContextMenu {
             {menuAction: "associate", content: "Bind Entrance"},
             {menuAction: "deassociate", content: "Unbind Entrance"},
             "splitter",
+            {menuAction: "goto", content: "Goto Area"},
+            "splitter",
             {menuAction: "check", content: "Check All"},
             {menuAction: "uncheck", content: "Uncheck All"},
             "splitter",

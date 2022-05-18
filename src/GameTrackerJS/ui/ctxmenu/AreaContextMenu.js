@@ -5,6 +5,8 @@ export default class AreaContextMenu extends ContextMenu {
 
     initItems() {
         super.loadItems([
+            {menuAction: "goto", content: "Goto Area"},
+            "splitter",
             {menuAction: "check", content: "Check All"},
             {menuAction: "uncheck", content: "Uncheck All"},
             "splitter",

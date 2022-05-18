@@ -73,6 +73,12 @@ export default class WorldListArea extends BaseClass {
         });
         /* context menu */
         this.setDefaultContextMenu(AreaContextMenu);
+        this.addDefaultContextMenuHandler("goto", () => {
+            const state = this.getState();
+            if (state != null) {
+                WorldListState.area = this.ref;
+            }
+        });
         this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {

@@ -97,6 +97,15 @@ export default class MapExit extends WorldMapMarkedEntry {
                 state.value = "";
             }
         });
+        this.addDefaultContextMenuHandler("goto", () => {
+            const state = this.getState();
+            if (state != null) {
+                const area = state.area;
+                if (area instanceof DefaultAreaState) {
+                    WorldListState.area = area.ref;
+                }
+            }
+        });
         this.addDefaultContextMenuHandler("check", event => {
             const state = this.getState();
             if (state != null) {

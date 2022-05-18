@@ -93,6 +93,15 @@ export default class WorldListExit extends BaseClass {
                 state.value = "";
             }
         });
+        this.addDefaultContextMenuHandler("goto", () => {
+            const state = this.getState();
+            if (state != null) {
+                const area = state.area;
+                if (area instanceof DefaultAreaState) {
+                    WorldListState.area = area.ref;
+                }
+            }
+        });
         this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
