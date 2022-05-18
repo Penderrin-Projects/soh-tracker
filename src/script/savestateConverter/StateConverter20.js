@@ -3,7 +3,7 @@
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
-import "./StateConverter20.js";
+import "./StateConverter19.js";
 
 SavestateConverter.register(function(state) {
     state = state ?? {};
@@ -88,4 +88,4 @@ SavestateConverter.register(function(state) {
     }
 
     return res;
-}, true);
+});

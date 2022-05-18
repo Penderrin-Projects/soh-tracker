@@ -20528,133 +20528,485 @@
                     "id": "region.deku_tree_entrance -> region.deku_tree_gateway",
                     "x": 1690,
                     "y": 605,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "deku",
                     "x": 1690,
                     "y": 605,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "dodongo",
                     "x": 1133,
                     "y": 146,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "jabujabu",
                     "x": 1757,
                     "y": 227,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.forest_temple_entrance -> region.forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "temple_forest",
                     "x": 1507,
                     "y": 421,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.fire_temple_entrance -> region.fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "temple_fire",
                     "x": 1306,
                     "y": 70,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.water_temple_entrance -> region.water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "temple_water",
                     "x": 693,
                     "y": 983,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.shadow_temple_entrance -> region.shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "temple_shadow",
                     "x": 1459,
                     "y": 227,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.spirit_temple_entrance -> region.spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "temple_spirit",
                     "x": 48,
                     "y": 184,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway",
                     "x": 1306,
                     "y": 248,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "well",
                     "x": 1306,
                     "y": 248,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.ice_cavern_entrance -> region.ice_cavern_gateway",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "ice_cavern",
                     "x": 1738,
                     "y": 173,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_dungeons"
+                            },
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_overworld"
+                                }
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "training_grounds",
                     "x": 361,
                     "y": 302,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "not",
+                                "el": {
+                                    "type": "value",
+                                    "el": "option.shuffle_dungeons"
+                                }
+                            },
+                            {
+                                "type": "value",
+                                "el": "option.shuffle_overworld"
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "castle_ganon",
@@ -20825,7 +21177,11 @@
                     "id": "region.deku_tree_entrance -> region.deku_tree_gateway",
                     "x": 1690,
                     "y": 605,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -21005,7 +21361,11 @@
                     "id": "region.spirit_temple_entrance -> region.spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -21641,7 +22001,11 @@
                     "id": "region.water_temple_entrance -> region.water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -21887,7 +22251,11 @@
                     "id": "region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -22181,7 +22549,11 @@
                     "id": "region.forest_temple_entrance -> region.forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -22940,7 +23312,11 @@
                     "id": "region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway",
                     "x": 1306,
                     "y": 248,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -23075,7 +23451,11 @@
                     "id": "region.shadow_temple_entrance -> region.shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -23228,7 +23608,11 @@
                     "id": "region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -23363,7 +23747,11 @@
                     "id": "region.fire_temple_entrance -> region.fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
@@ -23726,26 +24114,28 @@
                     "id": "region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway",
                     "x": 0,
                     "y": 0,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "region.ice_cavern_entrance -> region.ice_cavern_gateway",
                     "x": 0,
                     "y": 0,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 }
             ]
         },
         "well": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": true,
@@ -23954,13 +24344,7 @@
         "ice_cavern": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -23998,7 +24382,11 @@
                     "id": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "ice_cavern.c_map",
@@ -24054,7 +24442,11 @@
                     "id": "region.ice_cavern_gateway -> region.ice_cavern_entrance",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "ice_cavern_mq.c_map",
@@ -24109,13 +24501,7 @@
         "training_grounds": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -24153,7 +24539,11 @@
                     "id": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
                     "x": 361,
                     "y": 302,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "training_grounds.c_lobby_left",
@@ -24293,7 +24683,11 @@
                     "id": "region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance",
                     "x": 361,
                     "y": 302,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "training_grounds_mq.c_lobby_left",
@@ -24402,13 +24796,7 @@
         "deku": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": true,
@@ -24446,7 +24834,11 @@
                     "id": "region.deku_tree_gateway -> region.deku_tree_entrance",
                     "x": 1690,
                     "y": 605,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "deku.c_lobby",
@@ -24520,7 +24912,11 @@
                     "id": "region.deku_tree_gateway -> region.deku_tree_entrance",
                     "x": 1690,
                     "y": 605,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "deku_mq.c_lobby",
@@ -24605,13 +25001,7 @@
         "dodongo": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": true,
@@ -24649,7 +25039,11 @@
                     "id": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "dodongo.c_lobby_salesman",
@@ -24759,7 +25153,11 @@
                     "id": "region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "dodongo_mq.c_map",
@@ -24868,13 +25266,7 @@
         "jabujabu": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": true,
@@ -24912,7 +25304,11 @@
                     "id": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "jabujabu.c_elevator_dive_salesman",
@@ -24974,7 +25370,11 @@
                     "id": "region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "jabujabu_mq.c_map",
@@ -25083,13 +25483,7 @@
         "temple_forest": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -25127,7 +25521,11 @@
                     "id": "region.forest_temple_gateway -> region.forest_temple_entrance",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_forest.c_entrance",
@@ -25249,7 +25647,11 @@
                     "id": "region.forest_temple_gateway -> region.forest_temple_entrance",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_forest_mq.c_entrance",
@@ -25364,13 +25766,7 @@
         "temple_fire": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -25408,7 +25804,11 @@
                     "id": "region.fire_temple_gateway -> region.fire_temple_entrance",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_fire.c_near_boss",
@@ -25536,7 +25936,11 @@
                     "id": "region.fire_temple_gateway -> region.fire_temple_entrance",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_fire_mq.c_chest_near_boss",
@@ -25651,13 +26055,7 @@
         "temple_water": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": false,
@@ -25695,7 +26093,11 @@
                     "id": "region.water_temple_gateway -> region.water_temple_entrance",
                     "x": 693,
                     "y": 983,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_water.c_map",
@@ -25799,7 +26201,11 @@
                     "id": "region.water_temple_gateway -> region.water_temple_entrance",
                     "x": 693,
                     "y": 983,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_water_mq.c_map",
@@ -25878,13 +26284,7 @@
         "temple_shadow": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
-            },
+            "visible": true,
             "filter": {
                 "filter.era": {
                     "child": true,
@@ -25922,7 +26322,11 @@
                     "id": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_shadow.c_map",
@@ -26068,7 +26472,11 @@
                     "id": "region.shadow_temple_gateway -> region.shadow_temple_entrance",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_shadow_mq.c_compass",
@@ -26232,11 +26640,20 @@
             "type": "dungeon",
             "categories": [],
             "visible": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option.shuffle_dungeons"
-                }
+                "type": "or",
+                "el": [
+                    {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "option.shuffle_dungeons"
+                        }
+                    },
+                    {
+                        "type": "value",
+                        "el": "option.shuffle_overworld"
+                    }
+                ]
             },
             "filter": {
                 "filter.era": {
@@ -26275,7 +26692,11 @@
                     "id": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
                     "x": 48,
                     "y": 184,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_spirit.c_child_left",
@@ -26433,7 +26854,11 @@
                     "id": "region.spirit_temple_gateway -> region.spirit_temple_entrance",
                     "x": 48,
                     "y": 184,
-                    "category": "exit"
+                    "category": "exit",
+                    "visible": {
+                        "type": "value",
+                        "el": "option.shuffle_dungeons"
+                    }
                 },
                 {
                     "id": "temple_spirit_mq.c_entrance_front_left",
@@ -33172,10 +33597,7 @@
                 "child",
                 "adult"
             ],
-            "visible": {
-                "type": "value",
-                "el": "option.shuffle_dungeons"
-            },
+            "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "filter.era": {

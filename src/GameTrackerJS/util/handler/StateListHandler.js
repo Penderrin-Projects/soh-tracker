@@ -71,7 +71,7 @@ export default class StateListHandler extends EventTarget {
         if (list != null) {
             for (const idx in list) {
                 const record = list[idx];
-                const recordState = new ListRecordState(`${this.#ref}-${idx}`, record);
+                const recordState = new ListRecordState(`${this.#ref}-${`0000${idx}`.slice(-5)}`, record);
                 this.#entityList.add(recordState);
                 if (recordState.visible) {
                     this.#filteredEntityList.add(recordState);
