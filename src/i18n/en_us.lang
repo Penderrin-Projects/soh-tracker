@@ -1,8 +1,8 @@
 # language file for track-oot
 # language: English
 # ---------------------------
-# fragment: entrance_types.en_us.lang
-# fragment: dungeon_entrances.en_us.js
+# fragment: en_us/entrance_types.lang
+# fragment: en_us/dungeon_entrances.js
 # ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
 

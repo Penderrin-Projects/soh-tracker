@@ -5,8 +5,8 @@ import through from "through";
 // import del from "del";
 
 const LNBR_SEQ = /(?:\r\n|\n|\r)/g;
-const LANG_SEQ = /# language:\s+(.*)/;
-const MPRT_SEQ = /# fragment:\s+(.*)\.(.*)/;
+const LANG_SEQ = /#\s+language:\s*(.+)\s*/;
+const FRAG_SEQ = /#\s+fragment:\s*(.+)\.([^.]+)\s*/;
 const FILES = new Map();
 
 function normalizePath(path) {
@@ -26,7 +26,7 @@ function analyzeFile(ref, file) {
             if (langRes != null) {
                 result["label"] = langRes[1];
             } else {
-                const mprtRes = MPRT_SEQ.exec(line);
+                const mprtRes = FRAG_SEQ.exec(line);
                 if (mprtRes != null) {
                     result["fragments"].push({
                         "type": mprtRes[2],

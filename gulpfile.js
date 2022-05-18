@@ -167,9 +167,9 @@ function copyI18N(dest = DEV_PATH) {
 
 function copyI18NFragments(dest = DEV_PATH) {
     const FILES = [
-        `${SRC_PATH}/i18n/fragments/*.js`,
-        `${SRC_PATH}/i18n/fragments/*.json`,
-        `${SRC_PATH}/i18n/fragments/*.lang`
+        `${SRC_PATH}/i18n/fragments/**/*.js`,
+        `${SRC_PATH}/i18n/fragments/**/*.json`,
+        `${SRC_PATH}/i18n/fragments/**/*.lang`
     ];
     let res = gulp.src(FILES);
     res = res.pipe(IndexManager.register(`${SRC_PATH}/i18n/fragments`, `${dest}/i18n/fragments`));
