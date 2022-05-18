@@ -165,6 +165,21 @@ function copyI18N(dest = DEV_PATH) {
     return res;
 }
 
+function copyI18NFragments(dest = DEV_PATH) {
+    const FILES = [
+        `${SRC_PATH}/i18n/fragments/*.js`,
+        `${SRC_PATH}/i18n/fragments/*.json`,
+        `${SRC_PATH}/i18n/fragments/*.lang`
+    ];
+    let res = gulp.src(FILES);
+    res = res.pipe(IndexManager.register(`${SRC_PATH}/i18n/fragments`, `${dest}/i18n/fragments`));
+    if (!REBUILD) {
+        res = res.pipe(newer(`${dest}/i18n/fragments`));
+    }
+    res = res.pipe(gulp.dest(`${dest}/i18n/fragments`));
+    return res;
+}
+
 function copyImg(dest = DEV_PATH) {
     const FILES = [
         `${SRC_PATH}/images/**/*.svg`,
@@ -237,6 +252,7 @@ export const build = gulp.series(
         copyJSON.bind(this, PRD_PATH),
         copyLogic.bind(this, PRD_PATH),
         copyI18N.bind(this, PRD_PATH),
+        copyI18NFragments.bind(this, PRD_PATH),
         copyImg.bind(this, PRD_PATH),
         copyCSS.bind(this, PRD_PATH),
         copyFonts.bind(this, PRD_PATH),
@@ -258,6 +274,7 @@ export const buildDev = gulp.series(
         copyJSON.bind(this, DEV_PATH),
         copyLogic.bind(this, DEV_PATH),
         copyI18N.bind(this, DEV_PATH),
+        copyI18NFragments.bind(this, DEV_PATH),
         copyImg.bind(this, DEV_PATH),
         copyCSS.bind(this, DEV_PATH),
         copyFonts.bind(this, DEV_PATH),

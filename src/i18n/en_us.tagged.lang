@@ -1,6 +1,9 @@
 # language file for track-oot
 # language: English (Grotto/Interior Tags)
 # ---------------------------
+# fragment: entrance_types.en_us.lang
+# fragment: dungeon_entrances.en_us.js
+# ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
 
 language=Language
@@ -1553,53 +1556,6 @@ dun_reward=Reward
 dun_type=Type (V/MQ)
 search=Search
 search_reset=Reset
-
-# exits
-entrance_type[dungeon_inner]=Inside Dungeon
-entrance_type[dungeon_outer]=Outside Dungeon
-entrance_type[grotto_inner]=Inside Grotto
-entrance_type[grotto_outer]=Outside Grotto
-entrance_type[interior_inner]=Inside Interior
-entrance_type[interior_outer]=Outside Interior
-entrance_type[overworld]=Overworld Exits
-entrance_type[special]=Special Exits
-entrance_type[flight]=Owl Flight
-entrance_type[spawn]=Child/Adult Spawn
-entrance_type[warp]=Song Warp
-
-## dungeons
-exit[region.deku_tree_entrance -> region.deku_tree_gateway]=Deku Tree Entrance
-entrance[region.deku_tree_gateway -> region.deku_tree_entrance]=Deku Tree
-
-exit[region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway]=Dodongos Cavern Entrance
-entrance[region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance]=Dodongos Cavern
-
-exit[region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway]=Jabu Jabu Entrance
-entrance[region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance]=Jabu Jabu
-
-exit[region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway]=Well Entrance
-entrance[region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance]=Well
-
-exit[region.forest_temple_entrance -> region.forest_temple_gateway]=Forest Temple Entrance
-entrance[region.forest_temple_gateway -> region.forest_temple_entrance]=Forest Temple
-
-exit[region.fire_temple_entrance -> region.fire_temple_gateway]=Fire Temple Entrance
-entrance[region.fire_temple_gateway -> region.fire_temple_entrance]=Fire Temple
-
-exit[region.water_temple_entrance -> region.water_temple_gateway]=Water Temple Entrance
-entrance[region.water_temple_gateway -> region.water_temple_entrance]=Water Temple
-
-exit[region.spirit_temple_entrance -> region.spirit_temple_gateway]=Spirit Temple Entrance
-entrance[region.spirit_temple_gateway -> region.spirit_temple_entrance]=Spirit Temple
-
-exit[region.shadow_temple_entrance -> region.shadow_temple_gateway]=Shadow Temple Entrance
-entrance[region.shadow_temple_gateway -> region.shadow_temple_entrance]=Shadow Temple
-
-exit[region.ice_cavern_entrance -> region.ice_cavern_gateway]=Ice Cavern Entrance
-entrance[region.ice_cavern_gateway -> region.ice_cavern_entrance]=Ice Cavern
-
-exit[region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway]=Training Grounds Entrance
-entrance[region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance]=Training Grounds
 
 ## simple indoors
 exit[region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto]=Trail Storms Grotto Entrance

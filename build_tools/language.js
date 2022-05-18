@@ -6,21 +6,37 @@ import through from "through";
 
 const LNBR_SEQ = /(?:\r\n|\n|\r)/g;
 const LANG_SEQ = /# language:\s+(.*)/;
+const MPRT_SEQ = /# fragment:\s+(.*)\.(.*)/;
 const FILES = new Map();
 
 function normalizePath(path) {
     return path.replace(/\\/g, "/");
 }
 
-function getLanguage(file) {
+function analyzeFile(ref, file) {
+    const result = {
+        "label": ref,
+        "fragments": []
+    };
     const fileContent = String(file.contents);
     const lines = fileContent.split(LNBR_SEQ);
-    if (lines[0] == "# language file for track-oot" && lines[1].startsWith("# language:")) {
-        const res = LANG_SEQ.exec(lines[1]);
-        if (res != null) {
-            return res[1];
+    if (lines[0] == "# language file for track-oot") {
+        for (const line of lines) {
+            const langRes = LANG_SEQ.exec(line);
+            if (langRes != null) {
+                result["label"] = langRes[1];
+            } else {
+                const mprtRes = MPRT_SEQ.exec(line);
+                if (mprtRes != null) {
+                    result["fragments"].push({
+                        "type": mprtRes[2],
+                        "name": mprtRes[1]
+                    });
+                }
+            }
         }
     }
+    return result;
 }
 
 class LanguageManager {
@@ -28,10 +44,9 @@ class LanguageManager {
     register(src = "/", dest = "/", sourcemaps = false) {
         const files = [];
         return through(function(file) {
-            const lang = getLanguage(file);
-            if (lang != null) {
-                FILES.set(path.basename(file.path, ".lang"), lang);
-            }
+            const ref = path.basename(file.path, ".lang");
+            const result = analyzeFile(ref, file);
+            FILES.set(ref, result);
             this.push(file);
             return files.push(file);
         }, function() {

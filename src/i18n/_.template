@@ -1,6 +1,8 @@
 # language file for track-oot
 # language: ${language translation name}
 # ---------------------------
+# fragment: ${translation fragment file}
+# ---------------------------
 # the above comments are needed for meta file autogeneration
 # you can add whatever comments you like here
 # rename the file to an appropriate name (e.g. iso language code) and change file extension to .lang

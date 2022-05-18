@@ -1,6 +1,9 @@
 # language file for track-oot
 # language: English
 # ---------------------------
+# fragment: entrance_types.en_us.lang
+# fragment: dungeon_entrances.en_us.js
+# ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
 
 language=Language
@@ -34,6 +37,11 @@ on=on
 off=off
 random=random
 extended=extended
+dungeon=Dungeon
+overworld=Overworld
+hyrule=Hyrule
+grotto=Griotto
+interior=Interior
 sublist_collapsible=Collapsible sublists
 start_expanded=start expanded
 start_collapsed=start collapsed
@@ -1687,56 +1695,11 @@ octorok=octorok
 silver=silver
 gantlets=gantlets
 
-# exits
-entrance_type[dungeon_inner]=Inside Dungeon
-entrance_type[dungeon_outer]=Outside Dungeon
-entrance_type[grotto_inner]=Inside Grotto
-entrance_type[grotto_outer]=Outside Grotto
-entrance_type[interior_inner]=Inside Interior
-entrance_type[interior_outer]=Outside Interior
-entrance_type[overworld]=Overworld Exits
-entrance_type[special]=Special Exits
-entrance_type[flight]=Owl Flight
-entrance_type[spawn]=Child/Adult Spawn
-entrance_type[warp]=Song Warp
-
-## dungeons
-exit[region.deku_tree_entrance -> region.deku_tree_gateway]=Deku Tree Entrance
-entrance[region.deku_tree_gateway -> region.deku_tree_entrance]=Deku Tree
-
-exit[region.dodongos_cavern_entrance -> region.dodongos_cavern_gateway]=Dodongos Cavern Entrance
-entrance[region.dodongos_cavern_gateway -> region.dodongos_cavern_entrance]=Dodongos Cavern
-
-exit[region.jabu_jabus_belly_entrance -> region.jabu_jabus_belly_gateway]=Jabu Jabu Entrance
-entrance[region.jabu_jabus_belly_gateway -> region.jabu_jabus_belly_entrance]=Jabu Jabu
-
-exit[region.bottom_of_the_well_entrance -> region.bottom_of_the_well_gateway]=Well Entrance
-entrance[region.bottom_of_the_well_gateway -> region.bottom_of_the_well_entrance]=Well
-
-exit[region.forest_temple_entrance -> region.forest_temple_gateway]=Forest Temple Entrance
-entrance[region.forest_temple_gateway -> region.forest_temple_entrance]=Forest Temple
-
-exit[region.fire_temple_entrance -> region.fire_temple_gateway]=Fire Temple Entrance
-entrance[region.fire_temple_gateway -> region.fire_temple_entrance]=Fire Temple
-
-exit[region.water_temple_entrance -> region.water_temple_gateway]=Water Temple Entrance
-entrance[region.water_temple_gateway -> region.water_temple_entrance]=Water Temple
-
-exit[region.spirit_temple_entrance -> region.spirit_temple_gateway]=Spirit Temple Entrance
-entrance[region.spirit_temple_gateway -> region.spirit_temple_entrance]=Spirit Temple
-
-exit[region.shadow_temple_entrance -> region.shadow_temple_gateway]=Shadow Temple Entrance
-entrance[region.shadow_temple_gateway -> region.shadow_temple_entrance]=Shadow Temple
-
-exit[region.ice_cavern_entrance -> region.ice_cavern_gateway]=Ice Cavern Entrance
-entrance[region.ice_cavern_gateway -> region.ice_cavern_entrance]=Ice Cavern
-
-exit[region.gerudo_training_grounds_entrance -> region.gerudo_training_grounds_gateway]=Training Grounds Entrance
-entrance[region.gerudo_training_grounds_gateway -> region.gerudo_training_grounds_entrance]=Training Grounds
-
 ## simple indoors
-exit[region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto]=Trail Storms Grotto Entrance
-entrance[region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance]=Trail Storms Grotto
+exit[region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto]=Death Mountain To Storms Grotto
+entrance[region.dmt_storms_grotto_entrance -> region.dmt_storms_grotto]=Death Mountain From Storms Grotto
+exit[region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance]=Storms Grotto To Death Mountain
+entrance[region.dmt_storms_grotto -> region.dmt_storms_grotto_entrance]=Storms Grotto From Death Mountain
 
 exit[region.dmc_hammer_grotto_entrance -> region.dmc_hammer_grotto]=Crater Hammer Grotto Entrance
 entrance[region.dmc_hammer_grotto -> region.dmc_hammer_grotto_entrance]=Crater Hammer Grotto
@@ -2079,8 +2042,10 @@ entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Desert Colossus From Haunted Wasteland
 
 ## specials
-entrance[\u0000]=Empty
-entrance[]=Empty
+exit[\u0000]=Empty Exit
+exit[]=Empty Exit
+entrance[\u0000]=Empty Entrance
+entrance[]=Empty Entrance
 
 entrance[region.market_back_alley -> region.market_man_in_green_house_entrance]=Market Back Alley
 
@@ -2113,6 +2078,9 @@ entrance[region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp]=Noc
 
 exit[region.requiem_of_spirit_warp -> region.desert_colossus]=Requiem Warp
 entrance[region.desert_colossus -> region.requiem_of_spirit_warp]=Requiem Warp Pad
+
+exit[region.valley_lake_gateway -> region.lake_valley_gateway]=Gerudo Valley To Lake Hylia
+entrance[region.lake_valley_gateway -> region.valley_lake_gateway]=Lake Hylia From Gerudo Valley
 
 ## inverted grottos/interiors
 
