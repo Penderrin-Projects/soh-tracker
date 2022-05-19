@@ -10,7 +10,7 @@ function normalizePath(path) {
     return path.replace(/\\/g, "/");
 }
 
-class FileManager {
+class FileIndex {
 
     register(src = "/", dest = "/", sourcemaps = false) {
         const files = [];
@@ -63,4 +63,4 @@ class FileManager {
 
 }
 
-export default new FileManager();
+export default new FileIndex();
