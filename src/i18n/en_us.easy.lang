@@ -1,30 +1,12 @@
 # language file for track-oot
 # language: English (Descriptive names)
 # ---------------------------
+# fragment: en_us/interface.lang
 # fragment: en_us/entrance_types.lang
-# fragment: en_us/dungeon_entrances.js
+# fragment: en_us/entrances.lang
+# fragment: en_us/entrances_dungeons.js
 # ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme
-
-language=Language
-
-# INTERFACE
-???=???
-on=on
-off=off
-random=random
-extended=extended
-sublist_collapsible=Collapsible sublists
-start_expanded=start expanded
-start_collapsed=start collapsed
-debug_logic=Logic debugger
-debug=Debug options
-credits=Credits
-about=About
-detached_window_background=Detached Window Background Color
-show_state_init_window=Show state init dialog on new state
-Initialize new state=Initialize new state
-Clear data=Clear data
 
 # LOCATIONS - OVERWORLD
 collection[spawns]=Spawn Exits

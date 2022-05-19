@@ -1,7 +1,10 @@
 # language file for track-oot
 # language: Deutsch
 # ---------------------------
+# fragment: de_de/interface.lang
 # fragment: de_de/entrance_types.lang
+# fragment: de_de/entrances.lang
+# fragment: de_de/entrances_dungeons.js
 # ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme, TotallyABot
 
@@ -1922,39 +1925,6 @@ entrance[region.fortress_wasteland_gateway -> region.wasteland_fortress_gateway]
 entrance[region.wasteland_fortress_gateway -> region.fortress_wasteland_gateway]=Gespensterwüste aus Richtung Gerudo-Festung
 entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]=Gespensterwüste aus Richtung Wüstenkoloss
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Wüstenkoloss aus Richtung Gespensterwüste
-
-## specials
-entrance[]=Leerer Bereich
-
-exit[region.lh_owl_flight -> region.hyrule_field]=Hyliasee Eule
-entrance[region.hyrule_field -> region.lh_owl_flight]= Hylianische Steppe Eulen-Drop
-
-exit[region.dmt_owl_flight -> region.kak_impas_rooftop]= Todesberg Eule
-entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]= Kakariko Eulen-Drop
-
-exit[region.child_spawn -> region.kf_links_house]=Kind-Spawn
-entrance[region.kf_links_house -> region.child_spawn]= Links Haus Spawn
-
-exit[region.adult_spawn -> region.temple_of_time]=Erwachsenen-Spawn
-entrance[region.temple_of_time -> region.adult_spawn]= Zitadelle der Zeit Spawn
-
-exit[region.prelude_of_light_warp -> region.temple_of_time]=Prelude des Lichts Warp
-entrance[region.temple_of_time -> region.prelude_of_light_warp]=Prelude Warpfläche
-
-exit[region.minuet_of_forest_warp -> region.sacred_forest_meadow]=Menuett des Waldes Warp
-entrance[region.sacred_forest_meadow -> region.minuet_of_forest_warp]=Minuet Warpfläche
-
-exit[region.bolero_of_fire_warp -> region.dmc_central_local]=Bolero des Feuers Warp
-entrance[region.dmc_central_local -> region.bolero_of_fire_warp]=Bolero Warpfläche
-
-exit[region.serenade_of_water_warp -> region.lake_hylia]=Serenade des Wassers Warp
-entrance[region.lake_hylia -> region.serenade_of_water_warp]=Serenade Warpfläche
-
-exit[region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region]=Nocturne des Schattens Warp
-entrance[region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp]=Nocturne Warpfläche
-
-exit[region.requiem_of_spirit_warp -> region.desert_colossus]=Requiem der Geister Warp
-entrance[region.desert_colossus -> region.requiem_of_spirit_warp]=Requiem Warpfläche
 
 ## inverted grottos/interiors
 

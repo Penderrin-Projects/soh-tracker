@@ -1,0 +1,37 @@
+exit[\u0000]=Empty Exit
+exit[]=Empty Exit
+entrance[\u0000]=Empty Entrance
+entrance[]=Empty Entrance
+
+exit[region.lh_owl_flight -> region.hyrule_field]=Lake Hylia Owl
+entrance[region.hyrule_field -> region.lh_owl_flight]=Hyrule Field Owl Drop
+
+exit[region.dmt_owl_flight -> region.kak_impas_rooftop]= Death Mountain Owl
+entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]=Kakariko Owl Drop
+
+exit[region.child_spawn -> region.kf_links_house]=Child Spawn
+entrance[region.kf_links_house -> region.child_spawn]=Links House Spawn
+
+exit[region.adult_spawn -> region.temple_of_time]=Adult Spawn
+entrance[region.temple_of_time -> region.adult_spawn]=Temple of Time Spawn
+
+exit[region.prelude_of_light_warp -> region.temple_of_time]=Prelude Warp
+entrance[region.temple_of_time -> region.prelude_of_light_warp]=Prelude Warp Pad
+
+exit[region.minuet_of_forest_warp -> region.sacred_forest_meadow]=Minuet Warp
+entrance[region.sacred_forest_meadow -> region.minuet_of_forest_warp]=Minuet Warp Pad
+
+exit[region.bolero_of_fire_warp -> region.dmc_central_local]=Bolero Warp
+entrance[region.dmc_central_local -> region.bolero_of_fire_warp]=Bolero Warp Pad
+
+exit[region.serenade_of_water_warp -> region.lake_hylia]=Serenade Warp
+entrance[region.lake_hylia -> region.serenade_of_water_warp]=Serenade Warp Pad
+
+exit[region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region]=Nocturne Warp
+entrance[region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp]=Nocturne Warp Pad
+
+exit[region.requiem_of_spirit_warp -> region.desert_colossus]=Requiem Warp
+entrance[region.desert_colossus -> region.requiem_of_spirit_warp]=Requiem Warp Pad
+
+exit[region.valley_lake_gateway -> region.lake_valley_gateway]=Gerudo Valley To Lake Hylia
+entrance[region.lake_valley_gateway -> region.valley_lake_gateway]=Lake Hylia From Gerudo Valley

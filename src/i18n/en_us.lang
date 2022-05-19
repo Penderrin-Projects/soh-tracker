@@ -1,59 +1,12 @@
 # language file for track-oot
 # language: English
 # ---------------------------
+# fragment: en_us/interface.lang
 # fragment: en_us/entrance_types.lang
-# fragment: en_us/dungeon_entrances.js
+# fragment: en_us/entrances.lang
+# fragment: en_us/entrances_dungeons.js
 # ---------------------------
 # author: ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
-
-language=Language
-
-# INTERFACE
-???=???
-FILE=FILE
-NEW=NEW
-LOAD=LOAD
-SAVE=SAVE
-SAVE AS=SAVE AS
-MANAGE=MANAGE
-DISCORD=DISCORD
-PATREON=PATREON
-EXTRAS=EXTRAS
-TOGGLE FULLSCREEN=TOGGLE FULLSCREEN
-UPLOAD SPOILER=UPLOAD SPOILER
-CLEAR SPECIFIC DATA=CLEAR SPECIFIC DATA
-DETACHED ITEM WINDOW=DETACHED ITEM WINDOW
-EDITORS=EDITORS
-RANDOMIZER OPTIONS=RANDOMIZER OPTIONS
-TRACKER SETTINGS=TRACKER SETTINGS
-Spoiler Loaded Partially=Spoiler Loaded Partially
-(to overworld)=(to overworld)
-Exit and bound entrance=All Entrances
-Exit only=Only Exits
-Bound entrance only=Only Bound Entrances
-Strict categories=Strict Categories
-Unbound only=Only Unbound Entrances
-on=on
-off=off
-random=random
-extended=extended
-dungeon=Dungeon
-overworld=Overworld
-hyrule=Hyrule
-grotto=Griotto
-interior=Interior
-sublist_collapsible=Collapsible sublists
-start_expanded=start expanded
-start_collapsed=start collapsed
-debug_logic=Logic debugger
-debug=Debug options
-debug_spoiler=Debug Spoiler Importer
-credits=Credits
-about=About
-detached_window_background=Detached Window Background Color
-show_state_init_window=Show state init dialog on new state
-Initialize new state=Initialize new state
-Clear data=Clear data
 
 # LOCATIONS - OVERWORLD
 collection[spawns]=Spawn Exits
@@ -2042,45 +1995,7 @@ entrance[region.wasteland_colossus_gateway -> region.colossus_wasteland_gateway]
 entrance[region.colossus_wasteland_gateway -> region.wasteland_colossus_gateway]=Desert Colossus From Haunted Wasteland
 
 ## specials
-exit[\u0000]=Empty Exit
-exit[]=Empty Exit
-entrance[\u0000]=Empty Entrance
-entrance[]=Empty Entrance
-
 entrance[region.market_back_alley -> region.market_man_in_green_house_entrance]=Market Back Alley
-
-exit[region.lh_owl_flight -> region.hyrule_field]=Lake Hylia Owl
-entrance[region.hyrule_field -> region.lh_owl_flight]=Hyrule Field Owl Drop
-
-exit[region.dmt_owl_flight -> region.kak_impas_rooftop]= Death Mountain Owl
-entrance[region.kak_impas_rooftop -> region.dmt_owl_flight]=Kakariko Owl Drop
-
-exit[region.child_spawn -> region.kf_links_house]=Child Spawn
-entrance[region.kf_links_house -> region.child_spawn]=Links House Spawn
-
-exit[region.adult_spawn -> region.temple_of_time]=Adult Spawn
-entrance[region.temple_of_time -> region.adult_spawn]=Temple of Time Spawn
-
-exit[region.prelude_of_light_warp -> region.temple_of_time]=Prelude Warp
-entrance[region.temple_of_time -> region.prelude_of_light_warp]=Prelude Warp Pad
-
-exit[region.minuet_of_forest_warp -> region.sacred_forest_meadow]=Minuet Warp
-entrance[region.sacred_forest_meadow -> region.minuet_of_forest_warp]=Minuet Warp Pad
-
-exit[region.bolero_of_fire_warp -> region.dmc_central_local]=Bolero Warp
-entrance[region.dmc_central_local -> region.bolero_of_fire_warp]=Bolero Warp Pad
-
-exit[region.serenade_of_water_warp -> region.lake_hylia]=Serenade Warp
-entrance[region.lake_hylia -> region.serenade_of_water_warp]=Serenade Warp Pad
-
-exit[region.nocturne_of_shadow_warp -> region.graveyard_warp_pad_region]=Nocturne Warp
-entrance[region.graveyard_warp_pad_region -> region.nocturne_of_shadow_warp]=Nocturne Warp Pad
-
-exit[region.requiem_of_spirit_warp -> region.desert_colossus]=Requiem Warp
-entrance[region.desert_colossus -> region.requiem_of_spirit_warp]=Requiem Warp Pad
-
-exit[region.valley_lake_gateway -> region.lake_valley_gateway]=Gerudo Valley To Lake Hylia
-entrance[region.lake_valley_gateway -> region.valley_lake_gateway]=Lake Hylia From Gerudo Valley
 
 ## inverted grottos/interiors
 
