@@ -1,9 +1,9 @@
 # language file for track-oot
-# language: ${language translation name}
-# the last defined language name will be used
+# language: ${language translation name} (mandatory)
 # ---------------------------
-# fragment: ${translation fragment file}
-# there can be multiple fragment lines defined
+# base: ${translation base} (optional)
+# ---------------------------
+# fragment: ${translation fragment file} (optional, multiple entries)
 # ---------------------------
 # the above comments are needed for meta file autogeneration
 # you can add whatever comments you like here

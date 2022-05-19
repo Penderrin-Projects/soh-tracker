@@ -12,7 +12,7 @@ const ENTRANCES = [
         "region.jabu_jabus_belly_gateway": "Jabu-Jabu"
     },
     {
-        "region.bottom_of_the_well_entrance": "Kakariko Dorf",
+        "region.bottom_of_the_well_entrance": "Kakariko",
         "region.bottom_of_the_well_gateway": "Brunnen"
     },
     {

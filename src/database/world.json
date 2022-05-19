@@ -38317,6 +38317,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38393,6 +38394,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38468,6 +38470,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
@@ -38547,6 +38550,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38624,6 +38628,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38730,6 +38735,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38805,6 +38811,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38880,6 +38887,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -38955,6 +38963,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
@@ -39030,6 +39039,7 @@
                 "grotto_outer",
                 "grotto_inner"
             ],
+            "unbindable": true,
             "ignoreBound": true,
             "entranceActive": false,
             "includeInactiveEntrances": true,
