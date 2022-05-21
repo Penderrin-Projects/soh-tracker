@@ -1,6 +1,6 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import "/editors/modules/properties/Editor.js";
 
 // GameTrackerJS

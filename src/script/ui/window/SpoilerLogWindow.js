@@ -1,7 +1,7 @@
 
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";

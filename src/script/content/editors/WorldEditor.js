@@ -1,6 +1,6 @@
 // frameworks
 import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 

@@ -3,7 +3,7 @@
  */
 
 // frameworks
-import Logger from "/emcJS/util/Logger.js";
+import Logger from "/emcJS/util/log/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Page.js";
