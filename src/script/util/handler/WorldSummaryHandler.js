@@ -1,4 +1,7 @@
 // frameworks
+import {
+    debounce
+} from "/emcJS/util/Debouncer.js";
 import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
@@ -45,12 +48,10 @@ export default class WorldSummaryHandler extends EventTarget {
         super();
         instance = this;
         /* --- */
-        setTimeout(() => {
-            this.#generateList();
-        }, 0);
+        this.#generateList();
     }
 
-    #generateList() {
+    #generateList = debounce(() => {
         const usedLocations = new Set();
         for (const [, area] of AreaStateManager) {
             if (DUNGEON_TYPES.includes(area.props.type)) {
@@ -106,7 +107,7 @@ export default class WorldSummaryHandler extends EventTarget {
         }
         /* --- */
         this.#refreshAccess();
-    }
+    });
 
     #setAccess(value) {
         if (value != null) {
