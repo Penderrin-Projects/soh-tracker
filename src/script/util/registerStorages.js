@@ -1,0 +1,27 @@
+import ObservableDefaultingStorage from "/emcJS/data/storage/observable/ObservableDefaultingStorage.js";
+import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+
+import SongsResource from "/script/resource/SongsResource.js";
+
+// dungeons
+Savestate.registerStorage("dungeonRewards", new ObservableDefaultValueStorage(""));
+Savestate.registerStorage("dungeonTypes", new ObservableDefaultValueStorage("n"));
+
+// shops
+Savestate.registerStorage("shopItems", new ObservableDefaultValueStorage(""));
+Savestate.registerStorage("shopItemsPrice", new ObservableDefaultValueStorage(0));
+Savestate.registerStorage("shopItemsBought", new ObservableDefaultValueStorage(false));
+Savestate.registerStorage("shopItemsName", new ObservableDefaultValueStorage(""));
+
+// gossipstones
+Savestate.registerStorage("gossipstoneItems", new ObservableDefaultValueStorage(""));
+Savestate.registerStorage("gossipstoneLocations", new ObservableDefaultValueStorage(""));
+
+// songs
+const songNotesStorage = new ObservableDefaultingStorage();
+const songData = SongsResource.get();
+for (const ref in songData) {
+    songNotesStorage.setDefault(ref, songData[ref].notes);
+}
+Savestate.registerStorage("songNotes", songNotesStorage);

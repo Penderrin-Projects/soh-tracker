@@ -1,5 +1,5 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";

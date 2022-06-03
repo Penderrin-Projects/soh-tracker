@@ -1,5 +1,5 @@
 // frameworks
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
@@ -8,6 +8,8 @@ import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultAreaState.js";
 import StateListHandler from "/GameTrackerJS/util/handler/StateListHandler.js";
+// Track-OOT
+import "../../../util/registerStorages.js";
 
 const STORAGES = {dungeonTypes: Savestate.getStorage("dungeonTypes")};
 
@@ -70,7 +72,7 @@ export default class DungeonState extends DefaultAreaState {
 
         /* VALUES */
         if (props.list_mq != null) {
-            const dungeonTypesObserver = new DataStorageValueObserver(STORAGES.dungeonTypes, ref, "n");
+            const dungeonTypesObserver = new ObservableStorageObserver(STORAGES.dungeonTypes, ref);
             this.#type = dungeonTypesObserver.value;
             dungeonTypesObserver.addEventListener("change", (event) => {
                 this.type = event.value;

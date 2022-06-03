@@ -1,9 +1,9 @@
 // frameworks
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 
 // GameTrackerJS
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import LoadWindow from "/GameTrackerJS/ui/window/savestate/LoadWindow.js";
 import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";

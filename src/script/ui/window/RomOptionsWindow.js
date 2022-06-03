@@ -2,7 +2,7 @@
 import Template from "/emcJS/util/html/Template.js";
 
 // GameTrackerJS
-import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
+import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT

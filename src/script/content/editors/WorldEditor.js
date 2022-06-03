@@ -1,12 +1,12 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
 // Track-OOT
 import WorldListsCreator from "../world/WorldListsCreator.js";
 

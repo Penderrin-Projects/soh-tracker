@@ -656,7 +656,7 @@
         "typeMax": {
             "mq": 5
         },
-        "relatedDungeon": "area/temple_fire",
+        "relatedDungeon": "temple_fire",
         "counting": true,
         "alwaysCounting": true,
         "showMax": true,
@@ -696,7 +696,7 @@
         "typeMax": {
             "v": 5
         },
-        "relatedDungeon": "area/temple_shadow",
+        "relatedDungeon": "temple_shadow",
         "counting": true,
         "alwaysCounting": true,
         "showMax": true,
@@ -991,7 +991,7 @@
         "icon": "/images/items/bottle_potion_blue.png",
         "alwaysActive": true
     },
-    "rupee_green":{
+    "rupee_green": {
         "type": "item",
         "max": 99999,
         "counting": true,
@@ -1000,7 +1000,7 @@
         "halign": "end",
         "valign": "end"
     },
-    "rupee_blue":{
+    "rupee_blue": {
         "type": "item",
         "max": 99999,
         "counting": true,
@@ -1009,7 +1009,7 @@
         "halign": "end",
         "valign": "end"
     },
-    "rupee_red":{
+    "rupee_red": {
         "type": "item",
         "max": 99999,
         "counting": true,
@@ -1018,7 +1018,7 @@
         "halign": "end",
         "valign": "end"
     },
-    "rupee_purple":{
+    "rupee_purple": {
         "type": "item",
         "max": 99999,
         "counting": true,
@@ -1027,7 +1027,7 @@
         "halign": "end",
         "valign": "end"
     },
-    "rupee_yellow":{
+    "rupee_yellow": {
         "type": "item",
         "max": 99999,
         "counting": true,

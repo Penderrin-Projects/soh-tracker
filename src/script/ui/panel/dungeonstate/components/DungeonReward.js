@@ -6,7 +6,7 @@ import ContextMenuManagerMixin from "/emcJS/ui/overlay/ctxmenu/ContextMenuManage
 import "/emcJS/ui/input/Option.js";
 
 // GameTrackerJS
-import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import ItemPickerContextMenu from "/GameTrackerJS/ui/ctxmenu/ItemPickerContextMenu.js";
 // Track-OOT

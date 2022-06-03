@@ -1,9 +1,11 @@
 // frameworks
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
+// Track-OOT
+import "../../util/registerStorages.js";
 
 const STORAGES = {songNotes: Savestate.getStorage("songNotes")};
 
@@ -16,7 +18,7 @@ export default class DefaultSongState extends DataState {
 
         /* VALUES */
         if (props.editable) {
-            const songNotesObserver = new DataStorageValueObserver(STORAGES.songNotes, ref, props.notes);
+            const songNotesObserver = new ObservableStorageObserver(STORAGES.songNotes, ref);
             NOTES.set(this, songNotesObserver.value);
             songNotesObserver.addEventListener("change", (event) => {
                 this.notes = event.value;

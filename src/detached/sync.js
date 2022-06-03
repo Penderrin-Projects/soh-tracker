@@ -1,11 +1,12 @@
+// frameworks
+import ThreadDataSync from "/emcJS/data/sync/ThreadDataSync.js";
 
 // GameTrackerJS
-import DataSync from "/GameTrackerJS/data/DataSync.js";
 import Counter from "/GameTrackerJS/util/Counter.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 
 const muted = new Counter();
-DataSync.addEventListener("message", (event) => {
+ThreadDataSync.addEventListener("message", (event) => {
     muted.add();
     if (event.data.type == "load") {
         const {state = {}} = event.data;
@@ -19,12 +20,12 @@ DataSync.addEventListener("message", (event) => {
 Savestate.addEventListener("change", (event) => {
     if (!muted.value) {
         const {category = "", data = {}} = event;
-        DataSync.postMessage({type: "change", category, data});
+        ThreadDataSync.postMessage({type: "change", category, data});
     }
 });
 Savestate.addEventListener("load", (event) => {
     if (!muted.value) {
         const {data = {}} = event;
-        DataSync.postMessage({type: "load", data});
+        ThreadDataSync.postMessage({type: "load", data});
     }
 });

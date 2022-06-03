@@ -1,12 +1,12 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
-import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
-import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
-import SettingsResource from "/GameTrackerJS/resource/SettingsResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
+import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
+import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
+import SettingsResource from "/GameTrackerJS/data/resource/SettingsResource.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";

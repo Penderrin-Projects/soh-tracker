@@ -1,5 +1,5 @@
 // frameworks
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
@@ -8,6 +8,7 @@ import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
+import "../../util/registerStorages.js";
 
 const STORAGES = {
     shopItems: Savestate.getStorage("shopItems"),
@@ -36,25 +37,25 @@ export default class DefaultShopState extends DataState {
         super(ref, props);
 
         /* VALUES */
-        const shopItemsObserver = new DataStorageValueObserver(STORAGES.shopItems, ref, "");
+        const shopItemsObserver = new ObservableStorageObserver(STORAGES.shopItems, ref);
         this.#item = shopItemsObserver.value;
         shopItemsObserver.addEventListener("change", (event) => {
             this.item = event.value;
         });
 
-        const shopItemsPriceObserver = new DataStorageValueObserver(STORAGES.shopItemsPrice, ref, 0);
+        const shopItemsPriceObserver = new ObservableStorageObserver(STORAGES.shopItemsPrice, ref);
         this.#price = shopItemsPriceObserver.value;
         shopItemsPriceObserver.addEventListener("change", (event) => {
             this.price = event.value;
         });
 
-        const shopItemsBoughtObserver = new DataStorageValueObserver(STORAGES.shopItemsBought, ref, false);
+        const shopItemsBoughtObserver = new ObservableStorageObserver(STORAGES.shopItemsBought, ref);
         this.#bought = shopItemsBoughtObserver.value;
         shopItemsBoughtObserver.addEventListener("change", (event) => {
             this.bought = event.value;
         });
 
-        const shopItemsNameObserver = new DataStorageValueObserver(STORAGES.shopItemsName, ref, "");
+        const shopItemsNameObserver = new ObservableStorageObserver(STORAGES.shopItemsName, ref);
         this.#name = shopItemsNameObserver.value;
         shopItemsNameObserver.addEventListener("change", (event) => {
             this.name = event.value;

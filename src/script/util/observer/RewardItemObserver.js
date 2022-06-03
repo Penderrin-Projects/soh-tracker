@@ -1,10 +1,13 @@
 // frameworks
 import Helper from "/emcJS/util/helper/Helper.js";
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 // Track-OOT
 import DungeonstateResource from "../../resource/DungeonstateResource.js";
+import "../registerStorages.js";
+
+const STORAGES = {dungeonRewards: Savestate.getStorage("dungeonRewards")};
 
 const INSTANCES = new Map();
 
@@ -23,11 +26,10 @@ function getRewardDungeons() {
 }
 
 const REWARD_DUNGEONS = getRewardDungeons();
-const STORAGE = Savestate.getStorage("dungeonRewards");
 const DUNGEON = new Map();
 
 for (const dungeon of REWARD_DUNGEONS) {
-    const dungeonRewardsObserver = new DataStorageValueObserver(STORAGE, dungeon, "");
+    const dungeonRewardsObserver = new ObservableStorageObserver(STORAGES.dungeonRewards, dungeon);
     const value = dungeonRewardsObserver.value;
     DUNGEON.set(value, dungeon);
     dungeonRewardsObserver.addEventListener("change", (event) => {

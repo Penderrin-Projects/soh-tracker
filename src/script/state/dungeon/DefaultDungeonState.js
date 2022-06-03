@@ -1,5 +1,5 @@
 // frameworks
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
@@ -7,6 +7,7 @@ import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateMa
 import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import "../world/WorldStates.js";
+import "../../util/registerStorages.js";
 
 const STORAGES = {dungeonRewards: Savestate.getStorage("dungeonRewards")};
 
@@ -31,7 +32,7 @@ export default class DefaultDungeonState extends DataState {
             }
         }
 
-        const dungeonRewardsObserver = new DataStorageValueObserver(STORAGES.dungeonRewards, ref, "");
+        const dungeonRewardsObserver = new ObservableStorageObserver(STORAGES.dungeonRewards, ref);
         REWARD.set(this, dungeonRewardsObserver.value);
         dungeonRewardsObserver.addEventListener("change", (event) => {
             this.reward = event.value;

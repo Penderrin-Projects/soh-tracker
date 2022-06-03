@@ -3,6 +3,7 @@
  */
 
 // frameworks
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Logger from "/emcJS/util/log/Logger.js";
 import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
@@ -14,7 +15,6 @@ import "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";

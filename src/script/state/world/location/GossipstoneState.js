@@ -1,10 +1,12 @@
 // frameworks
-import DataStorageValueObserver from "/emcJS/datastorage/DataStorageValueObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
 import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
+// Track-OOT
+import "../../../util/registerStorages.js";
 
 const STORAGES = {
     gossipstoneItems: Savestate.getStorage("gossipstoneItems"),
@@ -20,13 +22,13 @@ export default class GossipstoneState extends DefaultLocationState {
         super(ref, props);
 
         /* VALUES */
-        const gossipstoneItemsObserver = new DataStorageValueObserver(STORAGES.gossipstoneItems, ref, "");
+        const gossipstoneItemsObserver = new ObservableStorageObserver(STORAGES.gossipstoneItems, ref);
         ITEM.set(this, gossipstoneItemsObserver.value);
         gossipstoneItemsObserver.addEventListener("change", (event) => {
             this.item = event.value;
         });
 
-        const gossipstoneLocationsObserver = new DataStorageValueObserver(STORAGES.gossipstoneLocations, ref, "");
+        const gossipstoneLocationsObserver = new ObservableStorageObserver(STORAGES.gossipstoneLocations, ref);
         LOCATION.set(this, gossipstoneLocationsObserver.value);
         gossipstoneLocationsObserver.addEventListener("change", (event) => {
             this.location = event.value;

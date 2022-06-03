@@ -1,4 +1,5 @@
 // frameworks
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
@@ -6,7 +7,6 @@ import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
 
 // GameTrackerJS
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 const TPL = new Template(`

@@ -3,7 +3,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
-import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
+import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/panel/itemgrid/components/entries/Item.js";
 import "/GameTrackerJS/ui/panel/itemgrid/components/entries/ProgressiveItem.js";
