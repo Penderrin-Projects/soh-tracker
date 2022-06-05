@@ -42,7 +42,7 @@
     "build": "gulp build",
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
-    "serve": "serve dev",
+    "serve": "serve -p 5000 dev",
     "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
   }
 }

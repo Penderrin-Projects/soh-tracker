@@ -1,73 +1,78 @@
 <html lang="en">
-    <head>
-        <title>Tracker for OOT-Randomizer</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Item- & Map-Tracker for: The Legend of Zelda - Ocarina of Time">
-        <meta name="robots" content="nofollow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <script>
-            function deleteDB() {
-                return new Promise(function(resolve, reject) {
-                    var req = indexedDB.deleteDatabase("data");
-                    req.onerror = function(event) {
-                        reject("Error deleting database.");
-                    };
-                    req.onsuccess = function(event) {
-                        resolve();
-                    };
-                });
+
+<head>
+    <title>[uninstall] Track-OOT</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
+    <meta name="robots" content="nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script>
+        function deleteDB() {
+            return new Promise(function (resolve, reject) {
+                var req = indexedDB.deleteDatabase("data");
+                req.onerror = function (event) {
+                    reject("Error deleting database.");
+                };
+                req.onsuccess = function (event) {
+                    resolve();
+                };
+            });
+        }
+
+        localStorage.clear();
+        sessionStorage.clear();
+        deleteDB();
+
+        caches.keys().then(function (names) {
+            for (let name of names) {
+                caches.delete(name);
             }
+        });
 
-            localStorage.clear();
-            sessionStorage.clear();
-            deleteDB();
-
-            caches.keys().then(function(names) {
-                for (let name of names) {
-                    caches.delete(name);
+        if (window.navigator && navigator.serviceWorker) {
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
                 }
             });
+        }
+    </script>
+    <style>
+        #splash {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+        }
 
-            if(window.navigator && navigator.serviceWorker) {
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                    for(let registration of registrations) {
-                        registration.unregister();
-                    }
-                });
-            }
-        </script>
-        <style>
-            #splash {
-                position: absolute;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: black;
-                color: white;
-            }
+        #splash span {
+            margin-top: 20px;
+        }
 
-            #splash span {
-                margin-top: 20px;
-            }
+        #splash.inactive {
+            display: none;
+        }
 
-            #splash.inactive {
-                display: none;
-            }
-            #splash .splash-image {
-                width: 50vmin;
-                height: 50vmin;
-            }
-        </style>
-    </head>
-    <body>   
-        <div id="splash">
-            <img class="splash-image" src="/images/logo.svg">
-            <span class="loading">All local data erased, please close this tab/window to proceed!</span>
-        </div>
-    </body>
+        #splash .splash-image {
+            width: 50vmin;
+            height: 50vmin;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="splash">
+        <img class="splash-image" src="/images/logo.svg">
+        <span class="loading">All local data erased, please close this tab/window to proceed!</span>
+    </div>
+</body>
+
 </html>
