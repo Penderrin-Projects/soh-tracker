@@ -27,12 +27,12 @@ const LOCATION_TYPES = [
     "bean"
 ];
 const EXCLUDE_FILTER = [
-    "filter.era_apply"
+    "era_apply"
 ];
 const LOCATION_ONLY_FILTER = [
-    "filter.chests",
-    "filter.skulltulas",
-    "filter.gossipstones"
+    "chests",
+    "skulltulas",
+    "gossipstones"
 ];
 
 async function createMarkerDetailConfig(category, types, accessValues = [""]) {

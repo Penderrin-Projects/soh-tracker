@@ -1,5 +1,5 @@
 {
-    "shop.kokiri": [
+    "kokiri": [
         {
             "ref": "kokiri.kokiri_shop_8",
             "item": "heart_1",
@@ -41,7 +41,7 @@
             "price": 30
         }
     ],
-    "shop.goron": [
+    "goron": [
         {
             "ref": "goron.goron_shop_8",
             "item": "heart_1",
@@ -83,7 +83,7 @@
             "price": 80
         }
     ],
-    "shop.zora": [
+    "zora": [
         {
             "ref": "zoras.zoras_shop_8",
             "item": "potion_red_1",
@@ -125,7 +125,7 @@
             "price": 10
         }
     ],
-    "shop.bombchu": [
+    "bombchu": [
         {
             "ref": "castle_town.shop_bombchu_8",
             "item": "bombchu_20",
@@ -167,7 +167,7 @@
             "price": 99
         }
     ],
-    "shop.basar_child": [
+    "basar_child": [
         {
             "ref": "castle_town.shop_bazaar_8",
             "item": "arrows_30",
@@ -209,7 +209,7 @@
             "price": 15
         }
     ],
-    "shop.magic_child": [
+    "magic_child": [
         {
             "ref": "castle_town.shop_magic_8",
             "item": "bugs_1",
@@ -251,7 +251,7 @@
             "price": 300
         }
     ],
-    "shop.basar_adult": [
+    "basar_adult": [
         {
             "ref": "kakariko.shop_bazaar_8",
             "item": "arrows_30",
@@ -293,7 +293,7 @@
             "price": 15
         }
     ],
-    "shop.magic_adult": [
+    "magic_adult": [
         {
             "ref": "kakariko.shop_magic_8",
             "item": "bugs_1",

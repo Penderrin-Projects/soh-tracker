@@ -86,96 +86,100 @@ function getWorldData(data, world) {
 
 class SpoilerParser {
 
+    // FIXME
     async parse(spoiler, settings) {
-        const mainData = {};
-        const startitems = {};
-        const extraData = {};
-        const options = {};
-        const areahint = {};
-        const trans = OptionsTransResource.get();
+        await Dialog.alert("not available", "spoiler parser is currently not working due to data changes, I am on it");
+        return {};
 
-        const version = spoiler[":version"];
-        const versionType = getVersionType(version);
-        if (versionType == null) {
-            throw new Error("Not a valid OOTR Spoiler log found");
-        }
-        if (versionType == "unknown") {
-            await BusyIndicator.unbusy();
-            const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
-            await BusyIndicator.busy();
-            if (!cont) {
-                return;
-            }
-        }
+        // const mainData = {};
+        // const startitems = {};
+        // const extraData = {};
+        // const options = {};
+        // const areahint = {};
+        // const trans = OptionsTransResource.get();
 
-        const world = getWorldNumber(settings["parse.multiworld"], spoiler["settings"]?.["world_count"]);
-
-        const debugSpoiler = SettingsStorage.get("debug_spoiler")
-        if (debugSpoiler || settings["parse.settings"]) {
-            parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
-        }
-        if (debugSpoiler || settings["parse.starting_items"]) {
-            parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
-        }
-        if (debugSpoiler || settings["parse.random_settings"]) {
-            parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.item_association"]) {
-            parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["parse.ignore_world_locking"], trans);
-        }
-        if (debugSpoiler || settings["parse.woth_hints"]) {
-            parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.barren"]) {
-            parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.shops"]) {
-            parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
-        }
-        // if(debugSpoiler || settings["parse.gossip_stones"]) {
-        //     parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
+        // const version = spoiler[":version"];
+        // const versionType = getVersionType(version);
+        // if (versionType == null) {
+        //     throw new Error("Not a valid OOTR Spoiler log found");
         // }
-        if (debugSpoiler || settings["parse.trials"]) {
-            parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.dungeonReward"]) {
-            parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.dungeons"]) {
-            parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
-        }
-        if (debugSpoiler || settings["parse.disabled_locations"]) {
-            parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
-        }
+        // if (versionType == "unknown") {
+        //     await BusyIndicator.unbusy();
+        //     const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
+        //     await BusyIndicator.busy();
+        //     if (!cont) {
+        //         return;
+        //     }
+        // }
 
-        parseEntrances(errorDialogHandler, extraData, getWorldData(spoiler["entrances"], world), trans, {
-            dungeon: debugSpoiler || settings["parse.entro_dungeons"],
-            grottos: debugSpoiler || settings["parse.entro_grottos"],
-            indoors: debugSpoiler || settings["parse.entro_indoors"],
-            overworld: debugSpoiler || settings["parse.entro_overworld"],
-            owls: debugSpoiler || settings["parse.entro_owls"],
-            spawns: debugSpoiler || settings["parse.entro_spawns"],
-            warps: debugSpoiler || settings["parse.entro_warps"]
-        });
+        // const world = getWorldNumber(settings["multiworld"], spoiler["settings"]?.["world_count"]);
 
-        if (versionType == "prod") {
-            // nothing
-        }
+        // const debugSpoiler = SettingsStorage.get("debug_spoiler")
+        // if (debugSpoiler || settings["settings"]) {
+        //     parseSettings(errorDialogHandler, options, spoiler["settings"], trans);
+        // }
+        // if (debugSpoiler || settings["starting_items"]) {
+        //     parseStartingInventory(errorDialogHandler, startitems, spoiler["settings"], trans);
+        // }
+        // if (debugSpoiler || settings["random_settings"]) {
+        //     parseSettings(errorDialogHandler, options, getWorldData(spoiler["randomized_settings"], world), trans);
+        // }
+        // if (debugSpoiler || settings["item_association"]) {
+        //     parseItemLocations(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans);
+        // }
+        // if (debugSpoiler || settings["woth_hints"]) {
+        //     parseWoth(errorDialogHandler, areahint, getWorldData(spoiler[":woth_locations"], world), trans);
+        // }
+        // if (debugSpoiler || settings["barren"]) {
+        //     parseBarren(errorDialogHandler, areahint, getWorldData(spoiler[":barren_regions"], world), trans);
+        // }
+        // if (debugSpoiler || settings["shops"]) {
+        //     parseShops(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+        // }
+        // // if(debugSpoiler || settings["gossip_stones"]) {
+        // //     parseStones(spoilerErrorAlert, extraData, getWorldData(spoiler["gossip_stones"], world), trans);
+        // // }
+        // if (debugSpoiler || settings["trials"]) {
+        //     parseTrials(errorDialogHandler, options, getWorldData(spoiler["trials"], world), trans);
+        // }
+        // if (debugSpoiler || settings["dungeonReward"]) {
+        //     parseDungeonRewards(errorDialogHandler, extraData, getWorldData(spoiler["locations"], world), trans);
+        // }
+        // if (debugSpoiler || settings["dungeons"]) {
+        //     parseDungeonTypes(errorDialogHandler, extraData, getWorldData(spoiler["dungeons"], world), trans);
+        // }
+        // if (debugSpoiler || settings["disabled_locations"]) {
+        //     parseDisabledLocations(errorDialogHandler, mainData, spoiler["settings"]?.["disabled_locations"], trans);
+        // }
 
-        if (versionType == "dev") {
-            // nothing
-        }
+        // parseEntrances(errorDialogHandler, extraData, getWorldData(spoiler["entrances"], world), trans, {
+        //     dungeon: debugSpoiler || settings["entro_dungeons"],
+        //     grottos: debugSpoiler || settings["entro_grottos"],
+        //     indoors: debugSpoiler || settings["entro_indoors"],
+        //     overworld: debugSpoiler || settings["entro_overworld"],
+        //     owls: debugSpoiler || settings["entro_owls"],
+        //     spawns: debugSpoiler || settings["entro_spawns"],
+        //     warps: debugSpoiler || settings["entro_warps"]
+        // });
 
-        errorDialogHandler.send();
+        // if (versionType == "prod") {
+        //     // nothing
+        // }
 
-        return {
-            ...DEFAULT_DATA,
-            ...extraData,
-            "": mainData,
-            "areaHint": areahint,
-            options,
-            startitems
-        };
+        // if (versionType == "dev") {
+        //     // nothing
+        // }
+
+        // errorDialogHandler.send();
+
+        // return {
+        //     ...DEFAULT_DATA,
+        //     ...extraData,
+        //     "": mainData,
+        //     "areaHint": areahint,
+        //     options,
+        //     startitems
+        // };
     }
 
 }

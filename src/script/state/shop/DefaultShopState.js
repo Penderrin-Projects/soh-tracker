@@ -18,7 +18,7 @@ const STORAGES = {
 };
 
 function isSanity() {
-    return OptionsStorage.get("option.shopsanity") != "off";
+    return OptionsStorage.get("shopsanity") != "off";
 }
 
 export default class DefaultShopState extends DataState {

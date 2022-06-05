@@ -67,7 +67,7 @@ export default class HTMLTrackerShopField extends CustomElement {
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
             const title = this.shadowRoot.getElementById("title-text");
-            Language.applyLabel(title, newValue);
+            Language.applyLabel(title, `shop[${newValue}]`);
             for (let i = 0; i < 8; ++i) {
                 const el = this.shadowRoot.getElementById(`slot${i}`);
                 el.ref = `${newValue}/${i}`;

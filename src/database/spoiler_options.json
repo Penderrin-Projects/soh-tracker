@@ -1,91 +1,91 @@
 {
-    "parse.settings": {
+    "settings": {
         "category": "spoilerOptions",
         "type": "check",
         "default": true
     },
-    "parse.item_association": {
+    "item_association": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.ignore_world_locking": {
+    "ignore_world_locking": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false,
         "visible": {
             "type": "value",
-            "el": "parse.item_association"
+            "el": "item_association"
         }
     },
-    "parse.woth_hints": {
+    "woth_hints": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.starting_items": {
+    "starting_items": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.disabled_locations": {
+    "disabled_locations": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.shops": {
+    "shops": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.gossip_stones": {
+    "gossip_stones": {
         "category": "spoilerOptions",
         "type": "hidden",
         "default": false
     },
-    "parse.barren": {
+    "barren": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.trials": {
+    "trials": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.random_settings": {
+    "random_settings": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.dungeons": {
+    "dungeons": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.dungeonReward": {
+    "dungeonReward": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false
     },
-    "parse.multiworld": {
+    "multiworld": {
         "category": "spoilerOptions",
         "type": "number",
         "default": 1,
         "min": 1,
         "max": 100
     },
-    "parse.entrances": {
+    "entrances": {
         "category": "spoilerOptions",
         "type": "list",
         "values": [
-            "parse.entro_dungeons",
-            "parse.entro_grottos",
-            "parse.entro_indoors",
-            "parse.entro_overworld",
-            "parse.entro_owls",
-            "parse.entro_spawns",
-            "parse.entro_warps"
+            "entro_dungeons",
+            "entro_grottos",
+            "entro_indoors",
+            "entro_overworld",
+            "entro_owls",
+            "entro_spawns",
+            "entro_warps"
         ],
         "default": []
     }

@@ -21,7 +21,7 @@ export default async function(editorChoice) {
 
     for (const region in logic) {
         for (const ch in logic[region]) {
-            if (ch.startsWith("logic.location.")) {
+            if (ch.startsWith("reach_location[")) {
                 locations.add(ch);
             }
         }

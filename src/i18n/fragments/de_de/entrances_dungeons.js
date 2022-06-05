@@ -1,47 +1,47 @@
 const ENTRANCES = [
     {
-        "region.deku_tree_entrance": "Kokiri Wald",
-        "region.deku_tree_gateway": "Deku Baum"
+        "deku_tree_entrance": "Kokiri Wald",
+        "deku_tree_gateway": "Deku Baum"
     },
     {
-        "region.dodongos_cavern_entrance": "Todesberg",
-        "region.dodongos_cavern_gateway": "Dodongos Höhle"
+        "dodongos_cavern_entrance": "Todesberg",
+        "dodongos_cavern_gateway": "Dodongos Höhle"
     },
     {
-        "region.jabu_jabus_belly_entrance": "Zoras Quelle",
-        "region.jabu_jabus_belly_gateway": "Jabu-Jabu"
+        "jabu_jabus_belly_entrance": "Zoras Quelle",
+        "jabu_jabus_belly_gateway": "Jabu-Jabu"
     },
     {
-        "region.bottom_of_the_well_entrance": "Kakariko",
-        "region.bottom_of_the_well_gateway": "Brunnen"
+        "bottom_of_the_well_entrance": "Kakariko",
+        "bottom_of_the_well_gateway": "Brunnen"
     },
     {
-        "region.forest_temple_entrance": "Heilige Lichtung",
-        "region.forest_temple_gateway": "Waldtempel"
+        "forest_temple_entrance": "Heilige Lichtung",
+        "forest_temple_gateway": "Waldtempel"
     },
     {
-        "region.fire_temple_entrance": "Todesberg-Krater",
-        "region.fire_temple_gateway": "Feuertempel"
+        "fire_temple_entrance": "Todesberg-Krater",
+        "fire_temple_gateway": "Feuertempel"
     },
     {
-        "region.water_temple_entrance": "Hyliasee",
-        "region.water_temple_gateway": "Wassertempel"
+        "water_temple_entrance": "Hyliasee",
+        "water_temple_gateway": "Wassertempel"
     },
     {
-        "region.spirit_temple_entrance": "Wüstenkoloss",
-        "region.spirit_temple_gateway": "Geistertempel"
+        "spirit_temple_entrance": "Wüstenkoloss",
+        "spirit_temple_gateway": "Geistertempel"
     },
     {
-        "region.shadow_temple_entrance": "Friedhof",
-        "region.shadow_temple_gateway": "Schattentempel"
+        "shadow_temple_entrance": "Friedhof",
+        "shadow_temple_gateway": "Schattentempel"
     },
     {
-        "region.ice_cavern_entrance": "Zoras Quelle",
-        "region.ice_cavern_gateway": "Eishöhle"
+        "ice_cavern_entrance": "Zoras Quelle",
+        "ice_cavern_gateway": "Eishöhle"
     },
     {
-        "region.gerudo_training_grounds_entrance": "Gerudo-Festung",
-        "region.gerudo_training_grounds_gateway": "Trainingsarena"
+        "gerudo_training_grounds_entrance": "Gerudo-Festung",
+        "gerudo_training_grounds_gateway": "Trainingsarena"
     }
 ];
 

@@ -103,7 +103,7 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-const shopsanityObserver = new OptionsObserver("option.shopsanity");
+const shopsanityObserver = new OptionsObserver("shopsanity");
 const SHOP_SLOT_IDS = [
     "left/top-left",
     "left/top-right",

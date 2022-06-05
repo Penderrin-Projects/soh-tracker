@@ -77,83 +77,83 @@ export default function parseShops(errorDialogHandler, target = {}, data = {}, t
                     placement = 0;
                 }
                 if (i.startsWith("Market Bazaar") || i.startsWith("Castle Town Bazaar")) {
-                    buffer[`shop.basar_child/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.basar_child/${placement}.bought`] = false;
-                    buffer[`shop.basar_child/${placement}.price`] = price;
+                    buffer[`basar_child/${placement}.item`] = `item[${item}]`;
+                    buffer[`basar_child/${placement}.bought`] = false;
+                    buffer[`basar_child/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.basar_child/${placement}.name`] = "Player " + player;
+                        buffer[`basar_child/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.basar_child/${placement}.name`] = "";
+                        buffer[`basar_child/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("Market Potion") || i.startsWith("Castle Town Potion")) {
-                    buffer[`shop.magic_child/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.magic_child/${placement}.bought`] = false;
-                    buffer[`shop.magic_child/${placement}.price`] = price;
+                    buffer[`magic_child/${placement}.item`] = `item[${item}]`;
+                    buffer[`magic_child/${placement}.bought`] = false;
+                    buffer[`magic_child/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.magic_child/${placement}.name`] = "Player " + player;
+                        buffer[`magic_child/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.magic_child/${placement}.name`] = "";
+                        buffer[`magic_child/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("Market Bombchu") || i.startsWith("Bombchu")) {
-                    buffer[`shop.bombchu/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.bombchu/${placement}.bought`] = false;
-                    buffer[`shop.bombchu/${placement}.price`] = price;
+                    buffer[`bombchu/${placement}.item`] = `item[${item}]`;
+                    buffer[`bombchu/${placement}.bought`] = false;
+                    buffer[`bombchu/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.bombchu/${placement}.name`] = "Player " + player;
+                        buffer[`bombchu/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.bombchu/${placement}.name`] = "";
+                        buffer[`bombchu/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("Kak Bazaar") || i.startsWith("Kakariko Bazaar")) {
-                    buffer[`shop.basar_adult/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.basar_adult/${placement}.bought`] = false;
-                    buffer[`shop.basar_adult/${placement}.price`] = price;
+                    buffer[`basar_adult/${placement}.item`] = `item[${item}]`;
+                    buffer[`basar_adult/${placement}.bought`] = false;
+                    buffer[`basar_adult/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.basar_adult/${placement}.name`] = "Player " + player;
+                        buffer[`basar_adult/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.basar_adult/${placement}.name`] = "";
+                        buffer[`basar_adult/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("Kak Potion") || i.startsWith("Kakariko Potion")) {
-                    buffer[`shop.magic_adult/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.magic_adult/${placement}.bought`] = false;
-                    buffer[`shop.magic_adult/${placement}.price`] = price;
+                    buffer[`magic_adult/${placement}.item`] = `item[${item}]`;
+                    buffer[`magic_adult/${placement}.bought`] = false;
+                    buffer[`magic_adult/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.magic_adult/${placement}.name`] = "Player " + player;
+                        buffer[`magic_adult/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.magic_adult/${placement}.name`] = "";
+                        buffer[`magic_adult/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("GC") || i.startsWith("Goron")) {
-                    buffer[`shop.goron/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.goron/${placement}.bought`] = false;
-                    buffer[`shop.goron/${placement}.price`] = price;
+                    buffer[`goron/${placement}.item`] = `item[${item}]`;
+                    buffer[`goron/${placement}.bought`] = false;
+                    buffer[`goron/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.goron/${placement}.name`] = "Player " + player;
+                        buffer[`goron/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.goron/${placement}.name`] = "";
+                        buffer[`goron/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("ZD") || i.startsWith("Zora")) {
-                    buffer[`shop.zora/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.zora/${placement}.bought`] = false;
-                    buffer[`shop.zora/${placement}.price`] = price;
+                    buffer[`zora/${placement}.item`] = `item[${item}]`;
+                    buffer[`zora/${placement}.bought`] = false;
+                    buffer[`zora/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.zora/${placement}.name`] = "Player " + player;
+                        buffer[`zora/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.zora/${placement}.name`] = "";
+                        buffer[`zora/${placement}.name`] = "";
                     }
                 }
                 if (i.startsWith("KF") || i.startsWith("Kokiri")) {
-                    buffer[`shop.kokiri/${placement}.item`] = `item[${item}]`;
-                    buffer[`shop.kokiri/${placement}.bought`] = false;
-                    buffer[`shop.kokiri/${placement}.price`] = price;
+                    buffer[`kokiri/${placement}.item`] = `item[${item}]`;
+                    buffer[`kokiri/${placement}.bought`] = false;
+                    buffer[`kokiri/${placement}.price`] = price;
                     if (player !== 0) {
-                        buffer[`shop.kokiri/${placement}.name`] = "Player " + player;
+                        buffer[`kokiri/${placement}.name`] = "Player " + player;
                     } else {
-                        buffer[`shop.kokiri/${placement}.name`] = "";
+                        buffer[`kokiri/${placement}.name`] = "";
                     }
                 }
             }

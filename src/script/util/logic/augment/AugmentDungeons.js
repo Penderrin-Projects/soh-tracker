@@ -33,10 +33,10 @@ function getDungeonType(type, hasmq) {
 }
 
 function augmentKeys(cache, ref, type, keys, group) {
-    if (ACCEPTED_KEY_GROUPS.includes(group) && !cache.get("option.track_keys")) {
+    if (ACCEPTED_KEY_GROUPS.includes(group) && !cache.get("track_keys")) {
         return 9999;
     }
-    const ks = cache.get("option.keysanity_small");
+    const ks = cache.get("keysanity_small");
     const aug = !ks ? KEY_VNL_AUGMENTS : KEY_SAN_AUGMENTS;
     if (!type || type == "n") {
         const vAug = aug["v"]?.[ref] ?? 0;
@@ -47,17 +47,17 @@ function augmentKeys(cache, ref, type, keys, group) {
 }
 
 function augmentBossKeys(cache, keys, group) {
-    if (ACCEPTED_BOSSKEY_GROUPS.includes(group) && !cache.get("option.track_bosskeys")) {
+    if (ACCEPTED_BOSSKEY_GROUPS.includes(group) && !cache.get("track_bosskeys")) {
         return 9999;
     }
     return keys;
 }
 
 function augmentGanonBossKey(cache, keys) {
-    if (!cache.get("option.track_bosskeys")) {
+    if (!cache.get("track_bosskeys")) {
         return 9999;
     }
-    if (cache.get("option.ganon_boss_door_open")) {
+    if (cache.get("ganon_boss_door_open")) {
         return 9999;
     }
     return keys;
@@ -74,7 +74,7 @@ function augment(cache, data) {
         }
         // augment keys
         if (dData.keys) {
-            if (data["option.track_keys"] != null || data[dData.keys] != null || data[dTypeKey] != null) {
+            if (data["track_keys"] != null || data[dData.keys] != null || data[dTypeKey] != null) {
                 const augKeys = augmentKeys(cache, ref, res[dTypeKey] ?? getDungeonType(cache.get(dTypeKey), dData.hasmq), cache.get(dData.keys) ?? 0, dData.keys_group);
                 res[dData.keys] = augKeys;
             }
@@ -82,11 +82,11 @@ function augment(cache, data) {
         // augment bosskeys
         if (dData.bosskey) {
             if (ref == "castle_ganon") {
-                if (data["option.ganon_boss_door_open"] != null || data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+                if (data["ganon_boss_door_open"] != null || data["track_bosskeys"] != null || data[dData.bosskey] != null) {
                     const augKeys = augmentGanonBossKey(cache, cache.get(dData.bosskey) ?? 0);
                     res[dData.bosskey] = augKeys;
                 }
-            } else if (data["option.track_bosskeys"] != null || data[dData.bosskey] != null) {
+            } else if (data["track_bosskeys"] != null || data[dData.bosskey] != null) {
                 const augKeys = augmentBossKeys(cache, cache.get(dData.bosskey) ?? 0, dData.bosskey_group);
                 res[dData.bosskey] = augKeys;
             }

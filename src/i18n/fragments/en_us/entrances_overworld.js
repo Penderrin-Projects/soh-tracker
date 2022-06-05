@@ -1,115 +1,115 @@
 const ENTRANCES = [
     {
-        "region.field_woods_gateway": "Hyrule Field",
-        "region.woods_field_gateway": "Lost Woods Bridge"
+        "field_woods_gateway": "Hyrule Field",
+        "woods_field_gateway": "Lost Woods Bridge"
     },
     {
-        "region.field_lake_gateway": "Hyrule Field",
-        "region.lake_field_gateway": "Lake Hylia"
+        "field_lake_gateway": "Hyrule Field",
+        "lake_field_gateway": "Lake Hylia"
     },
     {
-        "region.field_marketentrance_gateway": "Hyrule Field",
-        "region.marketentrance_field_gateway": "Market Entrance"
+        "field_marketentrance_gateway": "Hyrule Field",
+        "marketentrance_field_gateway": "Market Entrance"
     },
     {
-        "region.field_ranch_gateway": "Hyrule Field",
-        "region.ranch_field_gateway": "Lon Lon Ranch"
+        "field_ranch_gateway": "Hyrule Field",
+        "ranch_field_gateway": "Lon Lon Ranch"
     },
     {
-        "region.field_kakariko_gateway": "Hyrule Field",
-        "region.kakariko_field_gateway": "Kakariko"
+        "field_kakariko_gateway": "Hyrule Field",
+        "kakariko_field_gateway": "Kakariko"
     },
     {
-        "region.field_river_gateway": "Hyrule Field",
-        "region.river_field_gateway": "Zora's River"
+        "field_river_gateway": "Hyrule Field",
+        "river_field_gateway": "Zora's River"
     },
     {
-        "region.field_valley_gateway": "Hyrule Field",
-        "region.valley_field_gateway": "Gerudo Valley"
+        "field_valley_gateway": "Hyrule Field",
+        "valley_field_gateway": "Gerudo Valley"
     },
     {
-        "region.kokiri_bridge_gateway": "Kokiri Forest",
-        "region.bridge_kokiri_gateway": "Lost Woods Bridge"
+        "kokiri_bridge_gateway": "Kokiri Forest",
+        "bridge_kokiri_gateway": "Lost Woods Bridge"
     },
     {
-        "region.kokiri_woods_gateway": "Kokiri Forest",
-        "region.woods_kokiri_gateway": "Lost Woods"
+        "kokiri_woods_gateway": "Kokiri Forest",
+        "woods_kokiri_gateway": "Lost Woods"
     },
     {
-        "region.woods_gc_gateway": "Lost Woods",
-        "region.gc_woods_gateway": "Goron City"
+        "woods_gc_gateway": "Lost Woods",
+        "gc_woods_gateway": "Goron City"
     },
     {
-        "region.woods_river_gateway": "Lost Woods",
-        "region.river_woods_gateway": "Zora's River"
+        "woods_river_gateway": "Lost Woods",
+        "river_woods_gateway": "Zora's River"
     },
     {
-        "region.woods_meadow_gateway": "Lost Woods",
-        "region.meadow_woods_gateway": "Sacred Forest Meadow"
+        "woods_meadow_gateway": "Lost Woods",
+        "meadow_woods_gateway": "Sacred Forest Meadow"
     },
     {
-        "region.market_marketentrance_gateway": "Market",
-        "region.marketentrance_market_gateway": "Market Entrance"
+        "market_marketentrance_gateway": "Market",
+        "marketentrance_market_gateway": "Market Entrance"
     },
     {
-        "region.market_marketback_gateway": "Market",
-        "region.marketback_market_gateway": "Market Backalley"
+        "market_marketback_gateway": "Market",
+        "marketback_market_gateway": "Market Backalley"
     },
     {
-        "region.market_grounds_gateway": "Market",
-        "region.grounds_market_gateway": "Castle Grounds"
+        "market_grounds_gateway": "Market",
+        "grounds_market_gateway": "Castle Grounds"
     },
     {
-        "region.market_tot_gateway": "Market",
-        "region.tot_market_gateway": "Temple of Time Plaza"
+        "market_tot_gateway": "Market",
+        "tot_market_gateway": "Temple of Time Plaza"
     },
     {
-        "region.kakariko_graveyard_gateway": "Kakariko",
-        "region.graveyard_kakariko_gateway": "Graveyard"
+        "kakariko_graveyard_gateway": "Kakariko",
+        "graveyard_kakariko_gateway": "Graveyard"
     },
     {
-        "region.kakariko_mountain_gateway": "Kakariko",
-        "region.mountain_kakariko_gateway": "Death Mountain"
+        "kakariko_mountain_gateway": "Kakariko",
+        "mountain_kakariko_gateway": "Death Mountain"
     },
     {
-        "region.mountain_goron_gateway": "Death Mountain",
-        "region.goron_mountain_gateway": "Goron City"
+        "mountain_goron_gateway": "Death Mountain",
+        "goron_mountain_gateway": "Goron City"
     },
     {
-        "region.mountain_crater_gateway": "Death Mountain",
-        "region.crater_mountain_gateway": "Death Mountain Crater"
+        "mountain_crater_gateway": "Death Mountain",
+        "crater_mountain_gateway": "Death Mountain Crater"
     },
     {
-        "region.goron_crater_gateway": "Goron City",
-        "region.crater_goron_gateway": "Death Mountain Crater"
+        "goron_crater_gateway": "Goron City",
+        "crater_goron_gateway": "Death Mountain Crater"
     },
     {
-        "region.domain_river_gateway": "Zora's Domain",
-        "region.river_domain_gateway": "Zora's River"
+        "domain_river_gateway": "Zora's Domain",
+        "river_domain_gateway": "Zora's River"
     },
     {
-        "region.domain_lake_gateway": "Zora's Domain",
-        "region.lake_domain_gateway": "Lake Hylia"
+        "domain_lake_gateway": "Zora's Domain",
+        "lake_domain_gateway": "Lake Hylia"
     },
     {
-        "region.domain_fountain_gateway": "Zora's Domain",
-        "region.fountain_domain_gateway": "Zora's Fountain"
+        "domain_fountain_gateway": "Zora's Domain",
+        "fountain_domain_gateway": "Zora's Fountain"
     },
     {
-        "region.fortress_valley_gateway": "Gerudo Fortress",
-        "region.valley_fortress_gateway": "Gerudo Valley"
+        "fortress_valley_gateway": "Gerudo Fortress",
+        "valley_fortress_gateway": "Gerudo Valley"
     },
     {
-        "region.fortress_wasteland_gateway": "Gerudo Fortress",
-        "region.wasteland_fortress_gateway": "Haunted Wasteland"
+        "fortress_wasteland_gateway": "Gerudo Fortress",
+        "wasteland_fortress_gateway": "Haunted Wasteland"
     },
     {
-        "region.colossus_wasteland_gateway": "Desert Colossus",
-        "region.wasteland_colossus_gateway": "Haunted Wasteland"
+        "colossus_wasteland_gateway": "Desert Colossus",
+        "wasteland_colossus_gateway": "Haunted Wasteland"
     },
     {
-        "region.valley_lake_gateway": "Gerudo Valley",
-        "region.lake_valley_gateway": "Lake Hylia"
+        "valley_lake_gateway": "Gerudo Valley",
+        "lake_valley_gateway": "Lake Hylia"
     }
 ];
 

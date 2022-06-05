@@ -285,7 +285,7 @@
                     "type": "not",
                     "el": {
                         "type": "state",
-                        "el": "option.doors_open_zora",
+                        "el": "option[doors_open_zora]",
                         "value": "doors_open_zora_both"
                     }
                 }
@@ -828,209 +828,257 @@
         ]
     ],
     "standard-essentials": [
-        [{
+        [
+            {
                 "type": "item",
                 "value": "slingshot",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "bow",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "magic_power",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "arrow_fire",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "arrow_light",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "magic_din",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "sword_kokiri",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "boomerang",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "hammer",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "shield_mirror",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "boots_iron",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "boots_hover",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "bottle",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "zora_letter",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "glove",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "hookshot",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "bombs",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "bombchu",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "skulltula",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "bean",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "scale",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "lens",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "tunic_fire",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "tunic_water",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "membership",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "egg",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "cojiro",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_zelda",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_epona",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_saria",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "stone_forest",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "stone_fire",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "stone_water",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_sun",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_time",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_storm",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "medallion_forest",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "medallion_fire",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "medallion_water",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "warp_forest",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "warp_fire",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "warp_water",
                 "visible": true
             }
         ],
-        [{
+        [
+            {
                 "type": "item",
                 "value": "medallion_spirit",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "medallion_shadow",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "medallion_light",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "warp_spirit",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "warp_shadow",
                 "visible": true
-            }, {
+            },
+            {
                 "type": "item",
                 "value": "song_scarecrow",
                 "visible": true

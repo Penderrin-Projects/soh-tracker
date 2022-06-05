@@ -164,7 +164,7 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
             const state = SongStateManager.get(this.ref);
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
-                Language.applyLabel(titleEl, newValue);
+                Language.applyLabel(titleEl, `song[${newValue}]`);
             }
             this.switchState(state);
         }

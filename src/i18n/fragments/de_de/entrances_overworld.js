@@ -1,111 +1,111 @@
 const ENTRANCES = [
     {
-        "region.field_woods_gateway": "Hylianische Steppe",
-        "region.woods_field_gateway": "Verlorene Wälder Brücke"
+        "field_woods_gateway": "Hylianische Steppe",
+        "woods_field_gateway": "Verlorene Wälder Brücke"
     },
     {
-        "region.field_lake_gateway": "Hylianische Steppe",
-        "region.lake_field_gateway": "Hyliasee"
+        "field_lake_gateway": "Hylianische Steppe",
+        "lake_field_gateway": "Hyliasee"
     },
     {
-        "region.field_marketentrance_gateway": "Hylianische Steppe",
-        "region.marketentrance_field_gateway": "Markt Eingang"
+        "field_marketentrance_gateway": "Hylianische Steppe",
+        "marketentrance_field_gateway": "Markt Eingang"
     },
     {
-        "region.field_ranch_gateway": "Hylianische Steppe",
-        "region.ranch_field_gateway": "Lon Lon-Farm"
+        "field_ranch_gateway": "Hylianische Steppe",
+        "ranch_field_gateway": "Lon Lon-Farm"
     },
     {
-        "region.field_kakariko_gateway": "Hylianische Steppe",
-        "region.kakariko_field_gateway": "Kakariko"
+        "field_kakariko_gateway": "Hylianische Steppe",
+        "kakariko_field_gateway": "Kakariko"
     },
     {
-        "region.field_river_gateway": "Hylianische Steppe",
-        "region.river_field_gateway": "Zoras Fluss"
+        "field_river_gateway": "Hylianische Steppe",
+        "river_field_gateway": "Zoras Fluss"
     },
     {
-        "region.field_valley_gateway": "Hylianische Steppe",
-        "region.valley_field_gateway": "Gerudo Tal"
+        "field_valley_gateway": "Hylianische Steppe",
+        "valley_field_gateway": "Gerudo Tal"
     },
     {
-        "region.kokiri_bridge_gateway": "Kokiri Forest",
-        "region.bridge_kokiri_gateway": "Verlorene Wälder Brücke"
+        "kokiri_bridge_gateway": "Kokiri Forest",
+        "bridge_kokiri_gateway": "Verlorene Wälder Brücke"
     },
     {
-        "region.kokiri_woods_gateway": "Kokiri Forest",
-        "region.woods_kokiri_gateway": "Verlorene Wälder"
+        "kokiri_woods_gateway": "Kokiri Forest",
+        "woods_kokiri_gateway": "Verlorene Wälder"
     },
     {
-        "region.woods_gc_gateway": "Verlorene Wälder",
-        "region.gc_woods_gateway": "Goronia"
+        "woods_gc_gateway": "Verlorene Wälder",
+        "gc_woods_gateway": "Goronia"
     },
     {
-        "region.woods_river_gateway": "Verlorene Wälder",
-        "region.river_woods_gateway": "Zoras Fluss"
+        "woods_river_gateway": "Verlorene Wälder",
+        "river_woods_gateway": "Zoras Fluss"
     },
     {
-        "region.woods_meadow_gateway": "Verlorene Wälder",
-        "region.meadow_woods_gateway": "Heilige Lichtung"
+        "woods_meadow_gateway": "Verlorene Wälder",
+        "meadow_woods_gateway": "Heilige Lichtung"
     },
     {
-        "region.market_marketentrance_gateway": "Markt",
-        "region.marketentrance_market_gateway": "Markt Eingang"
+        "market_marketentrance_gateway": "Markt",
+        "marketentrance_market_gateway": "Markt Eingang"
     },
     {
-        "region.market_marketback_gateway": "Markt",
-        "region.marketback_market_gateway": "Markt Hintergasse"
+        "market_marketback_gateway": "Markt",
+        "marketback_market_gateway": "Markt Hintergasse"
     },
     {
-        "region.market_grounds_gateway": "Markt",
-        "region.grounds_market_gateway": "Castle Grounds"
+        "market_grounds_gateway": "Markt",
+        "grounds_market_gateway": "Castle Grounds"
     },
     {
-        "region.market_tot_gateway": "Markt",
-        "region.tot_market_gateway": "Tempel der Zeit Platz"
+        "market_tot_gateway": "Markt",
+        "tot_market_gateway": "Tempel der Zeit Platz"
     },
     {
-        "region.kakariko_graveyard_gateway": "Kakariko",
-        "region.graveyard_kakariko_gateway": "Friedhof"
+        "kakariko_graveyard_gateway": "Kakariko",
+        "graveyard_kakariko_gateway": "Friedhof"
     },
     {
-        "region.kakariko_mountain_gateway": "Kakariko",
-        "region.mountain_kakariko_gateway": "Todesberg"
+        "kakariko_mountain_gateway": "Kakariko",
+        "mountain_kakariko_gateway": "Todesberg"
     },
     {
-        "region.mountain_goron_gateway": "Todesberg",
-        "region.goron_mountain_gateway": "Goronia"
+        "mountain_goron_gateway": "Todesberg",
+        "goron_mountain_gateway": "Goronia"
     },
     {
-        "region.mountain_crater_gateway": "Todesberg",
-        "region.crater_mountain_gateway": "Todesberg-Krater"
+        "mountain_crater_gateway": "Todesberg",
+        "crater_mountain_gateway": "Todesberg-Krater"
     },
     {
-        "region.goron_crater_gateway": "Goronia",
-        "region.crater_goron_gateway": "Todesberg-Krater"
+        "goron_crater_gateway": "Goronia",
+        "crater_goron_gateway": "Todesberg-Krater"
     },
     {
-        "region.domain_river_gateway": "Zoras Reich",
-        "region.river_domain_gateway": "Zoras Fluss"
+        "domain_river_gateway": "Zoras Reich",
+        "river_domain_gateway": "Zoras Fluss"
     },
     {
-        "region.domain_lake_gateway": "Zoras Reich",
-        "region.lake_domain_gateway": "Hyliasee"
+        "domain_lake_gateway": "Zoras Reich",
+        "lake_domain_gateway": "Hyliasee"
     },
     {
-        "region.domain_fountain_gateway": "Zoras Reich",
-        "region.fountain_domain_gateway": "Zoras Quelle"
+        "domain_fountain_gateway": "Zoras Reich",
+        "fountain_domain_gateway": "Zoras Quelle"
     },
     {
-        "region.fortress_valley_gateway": "Gerudo Festung",
-        "region.valley_fortress_gateway": "Gerudo Tal"
+        "fortress_valley_gateway": "Gerudo Festung",
+        "valley_fortress_gateway": "Gerudo Tal"
     },
     {
-        "region.fortress_wasteland_gateway": "Gerudo Festung",
-        "region.wasteland_fortress_gateway": "Gespensterwüste"
+        "fortress_wasteland_gateway": "Gerudo Festung",
+        "wasteland_fortress_gateway": "Gespensterwüste"
     },
     {
-        "region.colossus_wasteland_gateway": "Desert Colossus",
-        "region.wasteland_colossus_gateway": "Gespensterwüste"
+        "colossus_wasteland_gateway": "Desert Colossus",
+        "wasteland_colossus_gateway": "Gespensterwüste"
     }
 ];
 

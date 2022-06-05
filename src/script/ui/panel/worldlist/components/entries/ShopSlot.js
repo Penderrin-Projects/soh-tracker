@@ -35,7 +35,7 @@ function applyElements(target) {
     textEl.insertAdjacentElement("afterend", itemEl);
 }
 
-const shopsanityObserver = new OptionsObserver("option.shopsanity");
+const shopsanityObserver = new OptionsObserver("shopsanity");
 
 const BaseClass = mix(
     WorldListElement

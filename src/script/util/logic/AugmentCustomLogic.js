@@ -15,7 +15,7 @@ import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 const LogicsStorage = new IDBStorage("logics");
 const LogicsStorageGlitched = new IDBStorage("logics_glitched");
 
-let logic_rule_type = OptionsStorage.get("option.logic_rules");
+let logic_rule_type = OptionsStorage.get("logic_rules");
 let use_custom_logic = SettingsStorage.get("use_custom_logic");
 
 function getLogicData() {
@@ -62,17 +62,17 @@ async function update() {
     const logic = getLogicData();
     if (use_custom_logic) {
         const customLogic = augmentLogic(logic);
-        Logic.setLogic(customLogic, "region.root");
+        Logic.setLogic(customLogic, "region[root]");
     } else {
-        Logic.setLogic(logic, "region.root");
+        Logic.setLogic(logic, "region[root]");
     }
 }
 
 // FIXME use Observers instead, as EventBus is no longer supported
 // register event for (de-)activate entrances
 EventBus.register("options", event => {
-    if (event.data["option.logic_rules"] != null && logic_rule_type != event.data["option.logic_rules"]) {
-        logic_rule_type = event.data["option.logic_rules"];
+    if (event.data["logic_rules"] != null && logic_rule_type != event.data["logic_rules"]) {
+        logic_rule_type = event.data["logic_rules"];
         update();
     }
 });

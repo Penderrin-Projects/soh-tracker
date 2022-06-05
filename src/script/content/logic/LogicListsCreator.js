@@ -291,19 +291,19 @@ function createOperatorReachCategories(data) {
     for (const ref in data) {
         const sub = data[ref];
         for (const sref in sub) {
-            if (sref.startsWith("logic.location.")) {
+            if (sref.startsWith("reach_location[")) {
                 lbuf.children.push({
                     "type": "tracker-logic-custom",
                     "ref": sref,
                     "category": "location"
                 });
-            } else if (sref.startsWith("region.")) {
+            } else if (sref.startsWith("region[")) {
                 rbuf.children.push({
                     "type": "jse-logic-at",
                     "ref": sref,
                     "category": "region"
                 });
-            } else if (sref.startsWith("event.")) {
+            } else if (sref.startsWith("event[")) {
                 ebuf.children.push({
                     "type": "tracker-logic-custom",
                     "ref": sref,
@@ -401,7 +401,7 @@ function createLogicGraphCategory(data, locations) {
         const sub = data[ref];
         if (ref.endsWith("{child}")) {
             for (const sref in sub) {
-                if (sref.startsWith("logic.location.")) {
+                if (sref.startsWith("reach_location[")) {
                     const name = sref.slice(15);
                     const loc = locations[name];
                     if (loc) {
@@ -419,13 +419,13 @@ function createLogicGraphCategory(data, locations) {
                             "content": sref
                         });
                     }
-                } else if (sref.startsWith("region.")) {
+                } else if (sref.startsWith("region[")) {
                     rbuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "region",
                         "content": sref
                     });
-                } else if (sref.startsWith("event.")) {
+                } else if (sref.startsWith("event[")) {
                     ebuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "event",
@@ -450,7 +450,7 @@ function createLogicGraphCategory(data, locations) {
             });
         } else {
             for (const sref in sub) {
-                if (sref.startsWith("logic.location.")) {
+                if (sref.startsWith("reach_location[")) {
                     const name = sref.slice(15);
                     const loc = locations[name];
                     if (loc) {
@@ -468,13 +468,13 @@ function createLogicGraphCategory(data, locations) {
                             "content": sref
                         });
                     }
-                } else if (sref.startsWith("region.")) {
+                } else if (sref.startsWith("region[")) {
                     rbuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "region",
                         "content": sref
                     });
-                } else if (sref.startsWith("event.")) {
+                } else if (sref.startsWith("event[")) {
                     ebuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "event",
