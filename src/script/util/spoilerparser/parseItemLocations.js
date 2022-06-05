@@ -33,5 +33,5 @@ export default function parseItemLocations(errorDialogHandler, target = {}, data
             errorDialogHandler.add("[" + i + "] is a invalid Item Location value.");
         }
     }
-    target["item_location"] = buffer;
+    target.locationItems = buffer;
 }

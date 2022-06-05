@@ -77,5 +77,5 @@ export default function parseEntrances(errorDialogHandler, target = {}, data = {
             }
         }
     }
-    target["exits"] = buffer;
+    target.exitBindings = buffer;
 }

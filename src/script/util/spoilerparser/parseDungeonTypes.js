@@ -12,9 +12,9 @@ export default function parseDungeonTypes(errorDialogHandler, target = {}, data 
                 console.warn("[" + i + ": " + v + "] is a invalid Dungeon value.");
                 errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Dungeon value.");
             } else {
-                buffer["area/" + dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
+                buffer[dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
             }
         }
     }
-    target["dungeontype"] = buffer;
+    target.dungeonTypes = buffer;
 }

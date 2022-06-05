@@ -3,7 +3,7 @@ export default function parseWoth(errorDialogHandler, target = {}, data = {}, tr
 
     for (const i in data) {
         if (woth_trans[i] != null) {
-            target["area/" + woth_trans[i]] = "woth";
+            target.areaHints["area/" + woth_trans[i]] = "woth";
         } else {
             console.warn("[" + i + "] is a invalid Way of the Hero value.");
             errorDialogHandler.add("[" + i + "] is a invalid Way of the Hero value.");

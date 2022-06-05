@@ -9,10 +9,10 @@ export default function parseBarren(errorDialogHandler, target = {}, data = {}, 
             if (barren_trans[i] === "castle") {
                 castle++;
                 if (castle === 2) {
-                    target["area/" + barren_trans[i]] = "barren";
+                    target.areaHints["area/" + barren_trans[i]] = "barren";
                 }
             } else {
-                target["area/" + barren_trans[i]] = "barren";
+                target.areaHints["area/" + barren_trans[i]] = "barren";
             }
         } else {
             console.warn("[" + i + "] is a invalid Barren value.");

@@ -22,7 +22,7 @@ export default function parseStartingInventory(errorDialogHandler, target = {}, 
                     console.warn(`Unknown Starting item "${item}" for "${key}"`);
                     errorDialogHandler.add(`Unknown Starting item "${item}" for "${key}"`);
                 } else if (typeof transData == "string") {
-                    addValue(target, transData, 1);
+                    addValue(target.startItems, transData, 1);
                 } else {
                     const name = transData["name"];
                     if (typeof name != "string") {
@@ -31,9 +31,9 @@ export default function parseStartingInventory(errorDialogHandler, target = {}, 
                     } else {
                         const value = parseInt(transData["value"]);
                         if (!isNaN(value)) {
-                            addValue(target, name, value);
+                            addValue(target.startItems, name, value);
                         } else {
-                            addValue(target, name, 1);
+                            addValue(target.startItems, name, 1);
                         }
                     }
                 }
