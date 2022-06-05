@@ -57,6 +57,7 @@ window.onbeforeunload = function() {
 }
 
 try {
+    window.onerror = null;
     updateLoadingMessage("apply logger...");
     // add default log output
     Logger.addOutput(console);

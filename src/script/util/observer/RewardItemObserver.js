@@ -34,10 +34,18 @@ for (const dungeon of REWARD_DUNGEONS) {
     DUNGEON.set(value, dungeon);
     dungeonRewardsObserver.addEventListener("change", (event) => {
         DUNGEON.set(event.value, dungeon);
+        // ---
+        const oldInst = getInstance(event.oldValue);
+        if (oldInst != null) {
+            const ev = new Event("change");
+            ev.value = "";
+            oldInst.dispatchEvent(ev);
+        }
+        // ---
         const inst = getInstance(event.value);
         if (inst != null) {
             const ev = new Event("change");
-            ev.data = dungeon;
+            ev.value = dungeon;
             inst.dispatchEvent(ev);
         }
     });
