@@ -1,6 +1,7 @@
 import ObservableDefaultingStorage from "/emcJS/data/storage/observable/ObservableDefaultingStorage.js";
 import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
 
 import SongsResource from "/script/resource/SongsResource.js";
 
@@ -25,3 +26,6 @@ for (const ref in songData) {
     songNotesStorage.setDefault(ref, songData[ref].notes);
 }
 Savestate.registerStorage("songNotes", songNotesStorage);
+
+// --> register to logic caller
+LogicCaller.registerStorage(Savestate.getStorage("dungeonTypes"), "dungeontype[", "]");
