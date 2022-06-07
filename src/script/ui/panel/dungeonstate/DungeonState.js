@@ -103,7 +103,7 @@ class DungeonState extends Panel {
             const dData = dungeonData[ref];
             this.shadowRoot.append(createRow(ref, dData));
         }
-        switchActive.call(this, this.active);
+        this.#switchActive(this.active);
     }
 
     connectedCallback() {
@@ -134,35 +134,35 @@ class DungeonState extends Panel {
         switch (name) {
             case "active":
                 if (oldValue != newValue) {
-                    switchActive.call(this, newValue);
+                    this.#switchActive(newValue);
                 }
                 break;
         }
+    }
+
+    #switchActive(value) {
+        if (typeof value === "string") {
+            value = value.split(/,\s*/);
+        } else {
+            value = [];
+        }
+        this.shadowRoot.querySelectorAll("[type]").forEach((j) => {
+            j.classList.add("inactive");
+        });
+        value.forEach((i) => {
+            if (!i) {
+                return;
+            }
+            this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach((j) => {
+                j.classList.remove("inactive");
+            });
+        });
     }
 
 }
 
 Panel.registerReference("dungeon-status", DungeonState);
 customElements.define("ootrt-dungeonstate", DungeonState);
-
-function switchActive(value) {
-    if (typeof value === "string") {
-        value = value.split(/,\s*/);
-    } else {
-        value = [];
-    }
-    this.shadowRoot.querySelectorAll("[type]").forEach((j) => {
-        j.classList.add("inactive");
-    });
-    value.forEach((i) => {
-        if (!i) {
-            return;
-        }
-        this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach((j) => {
-            j.classList.remove("inactive");
-        });
-    });
-}
 
 function createRow(ref, data) {
     const el = document.createElement("DIV");
