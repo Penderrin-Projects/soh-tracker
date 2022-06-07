@@ -1,4 +1,5 @@
 language=Sprache
+setting[language]=Sprache
 ???=???
 FILE=DATEI
 NEW=NEU
@@ -35,12 +36,14 @@ interior=Inneres
 sublist_collapsible=Einklappbare unterlisten
 start_expanded=starte ausgeklappt
 start_collapsed=starte eingeklappt
-debug_logic=Logik Debugger
-debug=Debug Optionen
-debug_spoiler=Debug Spoiler Importierer
 credits=Credits
 about=Über
 detached_window_background=Entkoppeltes Fenster Hintergrundfarbe
 show_state_init_window=Zeige State initialisierungs Dialog
 Initialize new state=Initialisiere den neuen State
 Clear data=Lösche Daten
+
+### DEBUG
+debug=Debug Optionen
+setting[debug_logic]=Logik Debugger (verlangsamt Logik)
+setting[debug_spoiler]=Debug Spoiler Importierer

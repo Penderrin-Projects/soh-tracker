@@ -38,7 +38,7 @@ export default class WorldList extends GTWorldList {
         super();
         applyElements(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("type", event => {
+        this.registerStateHandler("type", (event) => {
             this.refreshList();
             /* buttons */
             this.applyType(event.value);

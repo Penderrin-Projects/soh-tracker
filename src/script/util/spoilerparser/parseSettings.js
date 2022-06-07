@@ -7,7 +7,7 @@ export default function parseSetting(errorDialogHandler, target = {}, data = {},
             if (typeof transData == "object") {
                 if (Array.isArray(transData)) {
                     const valueSet = new Set(value);
-                    transData.forEach(el => {
+                    transData.forEach((el) => {
                         if (typeof el == "object") {
                             try {
                                 setSettingToTarget(target.options, el, parsedValue);

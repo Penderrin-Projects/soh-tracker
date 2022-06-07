@@ -122,13 +122,13 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("reward", event => {
+        this.registerStateHandler("reward", (event) => {
             this.value = event.value;
         });
 
         /* context menu */
         this.setContextMenu("itempicker", ItemPickerContextMenu);
-        this.addContextMenuHandler("itempicker", "pick", event => {
+        this.addContextMenuHandler("itempicker", "pick", (event) => {
             const value = event.item;
             const state = this.getState();
             if (state != null) {
@@ -137,9 +137,9 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
         });
 
         /* mouse events */
-        this.addEventListener("click", event => {
+        this.addEventListener("click", (event) => {
             const mnu_itm = this.getContextMenu("itempicker");
-            const filteredRewards = REWARDS.filter(el => !TAKEN_REWARDS.has(el.value));
+            const filteredRewards = REWARDS.filter((el) => !TAKEN_REWARDS.has(el.value));
             if (filteredRewards.length) {
                 mnu_itm.loadItems([filteredRewards]);
                 mnu_itm.show(event.clientX, event.clientY);
@@ -148,7 +148,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
             event.preventDefault();
             return false;
         });
-        this.addEventListener("contextmenu", event => this.revert(event));
+        this.addEventListener("contextmenu", (event) => this.revert(event));
     }
 
     applyDefaultValues() {

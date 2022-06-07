@@ -86,7 +86,7 @@ export default class NewGameWindow extends Window {
         windowEl.append(footer);
         /* --- */
         const romSettingsButton = this.shadowRoot.getElementById("open-options-button");
-        romSettingsButton.addEventListener("click", event => {
+        romSettingsButton.addEventListener("click", () => {
             this.close();
             const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
             if (romOptionsWindow) {
@@ -94,7 +94,7 @@ export default class NewGameWindow extends Window {
             }
         });
         const uploadSpoilerButton = this.shadowRoot.getElementById("uplaod-spoiler-button");
-        uploadSpoilerButton.addEventListener("click", event => {
+        uploadSpoilerButton.addEventListener("click", () => {
             this.close();
             const spoilerLogWindow = GlobalContext.get("SpoilerLogWindow");
             if (spoilerLogWindow) {

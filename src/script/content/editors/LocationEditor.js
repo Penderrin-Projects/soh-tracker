@@ -78,7 +78,7 @@ export default async function(editorChoice) {
                     intData[name][`filter/${key}`] = filter[key].values;
                 } else {
                     const vals = data[name].filter[key];
-                    intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
+                    intData[name][`filter/${key}`] = filter[key].values.filter((i) => vals[i] == null || !!vals[i]);
                 }
             }
         }
@@ -89,10 +89,10 @@ export default async function(editorChoice) {
 
     await refreshLocationEditor();
     // register
-    locationEditor.addEventListener("save", async event => {
+    locationEditor.addEventListener("save", async (event) => {
         await DataStorage.set(event.key, event.data);
     });
-    locationEditor.addEventListener("clear", async event => {
+    locationEditor.addEventListener("clear", async (event) => {
         await DataStorage.delete(event.key);
     });
     const NAV = [{
@@ -145,7 +145,7 @@ export default async function(editorChoice) {
                                 intData[name][`filter/${key}`] = filter[key].values;
                             } else {
                                 const vals = data[name].filter[key];
-                                intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
+                                intData[name][`filter/${key}`] = filter[key].values.filter((i) => vals[i] == null || !!vals[i]);
                             }
                         }
                     }

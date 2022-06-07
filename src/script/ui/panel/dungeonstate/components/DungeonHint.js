@@ -62,11 +62,11 @@ class HTMLTrackerDungeonHint extends StateDataEventManagerMixin(CustomElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("hint", event => {
+        this.registerStateHandler("hint", (event) => {
             this.value = event.value;
         });
-        this.addEventListener("click", event => this.next(event));
-        this.addEventListener("contextmenu", event => this.revert(event));
+        this.addEventListener("click", (event) => this.next(event));
+        this.addEventListener("contextmenu", (event) => this.revert(event));
     }
 
     connectedCallback() {

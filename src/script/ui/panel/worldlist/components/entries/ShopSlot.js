@@ -70,28 +70,28 @@ export default class ListShopSlot extends BaseClass {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
-        this.registerStateHandler("price", event => {
+        this.registerStateHandler("price", () => {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
         /* context menu */
         this.setDefaultContextMenu(ShopSlotContextMenu);
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("associate", event => {
+        this.addDefaultContextMenuHandler("associate", () => {
             this.#editItem();
         });
-        this.addDefaultContextMenuHandler("junk", event => {
+        this.addDefaultContextMenuHandler("junk", () => {
             const state = this.getState();
             if (state != null) {
                 state.item = "refill_item";
@@ -99,7 +99,7 @@ export default class ListShopSlot extends BaseClass {
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", () => {
             const state = this.getState();
             if (state != null) {
                 state.reset();
@@ -155,7 +155,7 @@ export default class ListShopSlot extends BaseClass {
             const d = new ShopItemChoiceDialog(this.ref);
             d.item = state.item;
             d.price = state.price;
-            d.addEventListener("submit", function(result) {
+            d.addEventListener("submit", (result) => {
                 if (result) {
                     const state = this.getState();
                     if (state != null) {
@@ -163,7 +163,7 @@ export default class ListShopSlot extends BaseClass {
                         state.price = result.price;
                     }
                 }
-            }.bind(this));
+            });
             d.show();
         }
     }

@@ -61,8 +61,8 @@ export default class WorldSummaryHandler extends EventTarget {
                     this.#refreshAccess();
                 });
                 /* --- */
-                const listV = area.props.list.filter(r => r.category == "location").map(r => r.id);
-                const listMQ = area.props.list_mq.filter(r => r.category == "location").map(r => r.id);
+                const listV = area.props.list.filter((r) => r.category == "location").map((r) => r.id);
+                const listMQ = area.props.list_mq.filter((r) => r.category == "location").map((r) => r.id);
                 for (const entry of listV) {
                     usedLocations.add(entry);
                 }

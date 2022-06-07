@@ -80,7 +80,8 @@ const STYLE = new GlobalStyle(`
     height: 46px;
     word-break: break-word;
 }
-.textarea:empty {
+.textarea:empty,
+.textarea.hidden {
     display: none;
 }
 #text {

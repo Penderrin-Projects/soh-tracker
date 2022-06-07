@@ -116,7 +116,7 @@ try {
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
-        newGameWindow.addEventListener("close", event => {
+        newGameWindow.addEventListener("close", () => {
             Savestate.setMeta("init_window_shown", true);
         });
         GlobalContext.set("NewGameWindow", newGameWindow);

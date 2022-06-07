@@ -159,7 +159,7 @@ function createItemOperatorCategory(data) {
     return res;
 }
 
-function createFilterOperatorCategory(data, ref) {
+function createFilterOperatorCategory(data/* , ref */) {
     const res = {
         "type": "group",
         "caption": "filter",

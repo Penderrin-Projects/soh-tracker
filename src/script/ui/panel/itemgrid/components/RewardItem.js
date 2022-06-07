@@ -71,7 +71,7 @@ export default class RewardItem extends ItemElement {
         applyElements(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("dungeon", event => {
+        this.registerStateHandler("dungeon", (event) => {
             this.dungeon = event.value;
         });
     }

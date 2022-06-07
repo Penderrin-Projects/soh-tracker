@@ -35,10 +35,10 @@ export default class LogicElement extends AbstractElement {
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
-        /*this.shadowRoot.getElementById("view").addEventListener("click", function(event) {
+        /*this.shadowRoot.getElementById("view").addEventListener("click", (event) => {
             let title = this.ref;
             LogicViewer.show(this.ref, title);
-        }.bind(this));*/
+        });*/
     }
 
     get ref() {

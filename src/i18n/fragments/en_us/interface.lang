@@ -1,4 +1,5 @@
 language=Language
+setting[language]=Language
 ???=???
 FILE=FILE
 NEW=NEW
@@ -35,12 +36,14 @@ interior=Interior
 sublist_collapsible=Collapsible sublists
 start_expanded=start expanded
 start_collapsed=start collapsed
-debug_logic=Logic debugger
-debug=Debug options
-debug_spoiler=Debug Spoiler Importer
 credits=Credits
 about=About
 detached_window_background=Detached Window Background Color
 show_state_init_window=Show state init dialog on new state
 Initialize new state=Initialize new state
 Clear data=Clear data
+
+### DEBUG
+debug=Debug options
+setting[debug_logic]=Logic debugger (slows down logic)
+setting[debug_spoiler]=Debug Spoiler Importer

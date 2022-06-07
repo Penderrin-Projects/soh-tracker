@@ -29,25 +29,25 @@ export default class ShopSlotState extends DefaultLocationState {
         SHOP_STATE.set(this, shopState);
         /* EVENTS */
         if (shopState != null) {
-            shopState.addEventListener("bought", event => {
+            shopState.addEventListener("bought", (event) => {
                 this.refreshAccess();
                 const ev = new Event("value");
                 ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            shopState.addEventListener("item", event => {
+            shopState.addEventListener("item", (event) => {
                 this.refreshAccess();
                 const ev = new Event("item");
                 ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            shopState.addEventListener("price", event => {
+            shopState.addEventListener("price", (event) => {
                 this.refreshAccess();
                 const ev = new Event("price");
                 ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            WALLET.addEventListener("value", event => {
+            WALLET.addEventListener("value", () => {
                 this.refreshAccess();
             });
             this.refreshAccess();
@@ -62,11 +62,11 @@ export default class ShopSlotState extends DefaultLocationState {
         return super.reachable;
     }
 
-    onStateLoad(state) {
+    onStateLoad(/* state */) {
         // ignore
     }
 
-    stateLoaded(event) {
+    stateLoaded(/* event */) {
         // ignore
     }
 

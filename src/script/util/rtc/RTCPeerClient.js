@@ -23,7 +23,7 @@ export default class RTCPeerClient extends RTCPeer {
         /* RTC */
         const eventTargetManager = new EventTargetManager(rtcClient);
         EVENT_TARGET_MANAGER.set(this, eventTargetManager);
-        eventTargetManager.set(["closed", "failed"], async (key) => {
+        eventTargetManager.set(["closed", "failed"], async (/* key */) => {
             await Dialog.alert("Disconnected from host", "The connection to the host closed unexpectedly.");
         });
     }

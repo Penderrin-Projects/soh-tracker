@@ -162,23 +162,23 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             }
             this.#applyItem();
         });
-        this.registerStateHandler("item", event => {
+        this.registerStateHandler("item", (event) => {
             const titleEl = this.shadowRoot.getElementById("title");
             if (titleEl != null) {
                 Language.applyLabel(titleEl, `item[${event.value}]`);
             }
             this.#applyItem();
         });
-        this.registerStateHandler("bought", event => {
+        this.registerStateHandler("bought", () => {
             this.#applyItem();
         });
-        this.registerStateHandler("price", event => {
+        this.registerStateHandler("price", (event) => {
             const priceEl = this.shadowRoot.getElementById("price");
             if (priceEl != null) {
                 priceEl.innerHTML = event.value;
             }
         });
-        this.registerStateHandler("name", event => {
+        this.registerStateHandler("name", (event) => {
             const nameEl = this.shadowRoot.getElementById("name");
             if (nameEl != null) {
                 nameEl.value = event.value;
@@ -187,22 +187,22 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
 
         /* context menu */
         this.setDefaultContextMenu(ShopSlotContextMenu);
-        this.addDefaultContextMenuHandler("check", event => {
+        this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("uncheck", event => {
+        this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("associate", event => {
+        this.addDefaultContextMenuHandler("associate", () => {
             this.#editItem();
         });
-        this.addDefaultContextMenuHandler("junk", event => {
+        this.addDefaultContextMenuHandler("junk", () => {
             const state = this.getState();
             if (state != null) {
                 state.item = "refill_item";
@@ -210,7 +210,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                 state.value = true;
             }
         });
-        this.addDefaultContextMenuHandler("disassociate", event => {
+        this.addDefaultContextMenuHandler("disassociate", () => {
             const state = this.getState();
             if (state != null) {
                 state.reset();
@@ -218,7 +218,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         });
 
         /* mouse events */
-        this.addEventListener("click", event => {
+        this.addEventListener("click", (event) => {
             const state = this.getState();
             if (state != null) {
                 if (event.ctrlKey) {
@@ -242,20 +242,20 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         });
 
         /* mouse events */
-        this.addEventListener("contextmenu", event => {
+        this.addEventListener("contextmenu", (event) => {
             this.showDefaultContextMenu(event);
             event.stopPropagation();
             event.preventDefault();
             return false;
         });
         const nameEl = this.shadowRoot.getElementById("name");
-        nameEl.addEventListener("change", event => {
+        nameEl.addEventListener("change", (event) => {
             const state = this.getState();
             if (state != null) {
                 state.name = event.target.value;
             }
         });
-        nameEl.addEventListener("click", event => {
+        nameEl.addEventListener("click", (event) => {
             event.preventDefault();
             event.stopPropagation();
             return false;
@@ -336,13 +336,13 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         }
     }
 
-    #editItem(event) {
+    #editItem() {
         const state = this.getState();
         if (state != null) {
             const d = new ShopItemChoiceDialog(getDialogTitle(this.ref));
             d.item = state.item;
             d.price = state.price;
-            d.addEventListener("submit", function(result) {
+            d.addEventListener("submit", (result) => {
                 if (result) {
                     const state = this.getState();
                     if (state != null) {
@@ -350,7 +350,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                         state.price = result.price;
                     }
                 }
-            }.bind(this));
+            });
             d.show();
         }
     }

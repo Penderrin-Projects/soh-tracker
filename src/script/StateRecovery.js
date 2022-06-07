@@ -1,5 +1,5 @@
 function cursorToPromise(cursor, fn) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
         const res = {};
         cursor.onsuccess = function(e) {
             const el = e.target.result;
@@ -15,7 +15,7 @@ function cursorToPromise(cursor, fn) {
         cursor.onerror = function(e) {
             reject(e);
         }
-    }.bind(this));
+    });
 }
 
 class StateRecoveryModule {
@@ -33,7 +33,7 @@ class StateRecoveryModule {
     static #openDB(name) {
         return new Promise(function(resolve, reject) {
             const request = indexedDB.open(name);
-            request.onupgradeneeded = function(event) {
+            request.onupgradeneeded = () => {
                 const db = request.result;
                 if (!db.objectStoreNames.contains("data")) {
                     db.createObjectStore("data");

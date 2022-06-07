@@ -63,11 +63,11 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("type", event => {
+        this.registerStateHandler("type", (event) => {
             this.value = event.value;
         });
-        this.addEventListener("click", event => this.next(event));
-        this.addEventListener("contextmenu", event => this.revert(event));
+        this.addEventListener("click", (event) => this.next(event));
+        this.addEventListener("contextmenu", (event) => this.revert(event));
     }
 
     connectedCallback() {

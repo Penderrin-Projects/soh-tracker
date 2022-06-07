@@ -54,36 +54,6 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-function editSong(event) {
-    const builder = document.createElement("ootrt-songbuilder");
-    builder.value = this.shadowRoot.getElementById("stave").value;
-    const d = new Dialog({title: Language.generateLabel(this.ref), submit: true, cancel: true});
-    d.addEventListener("submit", function(result) {
-        if (result) {
-            const state = this.getState();
-            if (state != null) {
-                state.notes = builder.value;
-            }
-        }
-    }.bind(this));
-    d.append(builder);
-    d.show();
-}
-
-function resetSong(event) {
-    const state = this.getState();
-    if (state != null) {
-        state.notes = null;
-    }
-}
-
-function clearSong(event) {
-    const state = this.getState();
-    if (state != null) {
-        state.notes = "";
-    }
-}
-
 export default class HTMLTrackerSongField extends StateDataEventManagerMixin(CustomElement) {
 
     constructor() {
@@ -91,7 +61,7 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.registerStateHandler("notes", event => {
+        this.registerStateHandler("notes", (event) => {
             const staveEl = this.shadowRoot.getElementById("stave");
             if (staveEl != null) {
                 staveEl.value = event.value;
@@ -100,11 +70,17 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
 
         /* mouse events */
         const editEl = this.shadowRoot.getElementById("edit");
-        editEl.onclick = editSong.bind(this);
+        editEl.onclick = () => {
+            this.#editSong();
+        };
         const resetEl = this.shadowRoot.getElementById("reset");
-        resetEl.onclick = resetSong.bind(this);
+        resetEl.onclick = () => {
+            this.#resetSong();
+        };
         const clearEl = this.shadowRoot.getElementById("clear");
-        clearEl.onclick = clearSong.bind(this);
+        clearEl.onclick = () => {
+            this.#clearSong();
+        };
     }
 
     applyDefaultValues() {
@@ -167,6 +143,36 @@ export default class HTMLTrackerSongField extends StateDataEventManagerMixin(Cus
                 Language.applyLabel(titleEl, `song[${newValue}]`);
             }
             this.switchState(state);
+        }
+    }
+
+    #editSong() {
+        const builder = document.createElement("ootrt-songbuilder");
+        builder.value = this.shadowRoot.getElementById("stave").value;
+        const d = new Dialog({title: Language.generateLabel(this.ref), submit: true, cancel: true});
+        d.addEventListener("submit", (result) => {
+            if (result) {
+                const state = this.getState();
+                if (state != null) {
+                    state.notes = builder.value;
+                }
+            }
+        });
+        d.append(builder);
+        d.show();
+    }
+
+    #resetSong() {
+        const state = this.getState();
+        if (state != null) {
+            state.notes = null;
+        }
+    }
+
+    #clearSong() {
+        const state = this.getState();
+        if (state != null) {
+            state.notes = "";
         }
     }
 

@@ -4,7 +4,7 @@ import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateMa
 import {
     parseSafeRange
 } from "/GameTrackerJS/util/helper/ItemHelper.js";
-import DefaultItemState from "/GameTrackerJS/state/item/DefaultState.js";
+import DefaultItemState from "/GameTrackerJS/state/item/DefaultItemState.js";
 
 const AREA = new WeakMap();
 const MAX = new WeakMap();

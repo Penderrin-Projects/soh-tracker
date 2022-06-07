@@ -48,13 +48,13 @@ class HTMLMultiplayerRoomClient extends CustomElement {
 
         const leave_button = this.shadowRoot.getElementById("leave_button");
 
-        leave_button.addEventListener("click", async function() {
+        leave_button.addEventListener("click", async () => {
             const rtcPeer = RTCController.getPeer();
             if (rtcPeer instanceof RTCPeerClient) {
                 await rtcPeer.disconnect();
             }
             this.dispatchEvent(new Event("leave"));
-        }.bind(this));
+        });
     }
 
     updateRoom(data) {
@@ -66,7 +66,7 @@ class HTMLMultiplayerRoomClient extends CustomElement {
             this.append(el);
         }
         if (data.clients) {
-            data.clients.forEach(function(inst) {
+            data.clients.forEach((inst) => {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
                 el.role = "client";
@@ -75,10 +75,10 @@ class HTMLMultiplayerRoomClient extends CustomElement {
                 } else {
                     this.append(el);
                 }
-            }.bind(this));
+            });
         }
         if (data.spectators) {
-            data.spectators.forEach(function(inst) {
+            data.spectators.forEach((inst) => {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
                 el.role = "spectator";
@@ -87,7 +87,7 @@ class HTMLMultiplayerRoomClient extends CustomElement {
                 } else {
                     this.append(el);
                 }
-            }.bind(this));
+            });
         }
     }
 

@@ -50,11 +50,11 @@ export default async function(glitched = false) {
 
     await refreshLogicEditor();
     // events
-    logicEditor.addEventListener("save", async event => {
+    logicEditor.addEventListener("save", async (event) => {
         await LogicsStorage.set(event.key, event.logic);
         EventBus.trigger("custom_logic_update");
     });
-    logicEditor.addEventListener("clear", async event => {
+    logicEditor.addEventListener("clear", async (event) => {
         await LogicsStorage.delete(event.key);
     });
     // navigation

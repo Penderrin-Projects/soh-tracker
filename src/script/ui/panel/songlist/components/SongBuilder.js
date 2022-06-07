@@ -63,25 +63,6 @@ const STYLE = new GlobalStyle(`
 }
 `);
 
-function buttonClick(event) {
-    switch (event.target.id) {
-        case "X":
-            if (this.value.length) {
-                this.value = this.value.slice(0, -1);
-            }
-            break;
-        case "A":
-        case "D":
-        case "R":
-        case "L":
-        case "U":
-            if (this.value.length < 8) {
-                this.value += event.target.id;
-            }
-            break;
-    }
-}
-
 export default class HTMLTrackerSongBuilder extends CustomElement {
 
     constructor() {
@@ -89,7 +70,9 @@ export default class HTMLTrackerSongBuilder extends CustomElement {
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        this.shadowRoot.getElementById("buttons").onclick = buttonClick.bind(this);
+        this.shadowRoot.getElementById("buttons").onclick = (event) => {
+            this.#buttonClick(event);
+        };
     }
 
     get value() {
@@ -98,6 +81,25 @@ export default class HTMLTrackerSongBuilder extends CustomElement {
 
     set value(val) {
         this.shadowRoot.getElementById("stave").value = val;
+    }
+
+    #buttonClick(event) {
+        switch (event.target.id) {
+            case "X":
+                if (this.value.length) {
+                    this.value = this.value.slice(0, -1);
+                }
+                break;
+            case "A":
+            case "D":
+            case "R":
+            case "L":
+            case "U":
+                if (this.value.length < 8) {
+                    this.value += event.target.id;
+                }
+                break;
+        }
     }
 
 }

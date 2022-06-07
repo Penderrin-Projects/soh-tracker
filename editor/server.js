@@ -48,7 +48,7 @@ const server = http.createServer((request, response) => {
 });
 
 exports.startServer = function startServer() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         server.listen(4242, () => {
             resolve();
         });

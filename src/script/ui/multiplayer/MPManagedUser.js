@@ -57,15 +57,15 @@ class HTMLMultiplayerManagedUser extends CustomElement {
     constructor() {
         super();
         this.shadowRoot.append(TPL.generate());
-        this.shadowRoot.getElementById("editor").addEventListener("click", function() {
+        this.shadowRoot.getElementById("editor").addEventListener("click", () => {
             this.dispatchEvent(new Event("editor"));
-        }.bind(this));
-        this.shadowRoot.getElementById("spectator").addEventListener("click", function() {
+        });
+        this.shadowRoot.getElementById("spectator").addEventListener("click", () => {
             this.dispatchEvent(new Event("spectator"));
-        }.bind(this));
-        this.shadowRoot.getElementById("kick").addEventListener("click", function() {
+        });
+        this.shadowRoot.getElementById("kick").addEventListener("click", () => {
             this.dispatchEvent(new Event("kick"));
-        }.bind(this));
+        });
     }
 
     get name() {

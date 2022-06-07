@@ -90,10 +90,10 @@ export default async function() {
 
     await refreshWorldEditor();
     // events
-    worldEditor.addEventListener("save", async event => {
+    worldEditor.addEventListener("save", async (event) => {
         await WorldStorage.set(event.key, event.logic);
     });
-    worldEditor.addEventListener("clear", async event => {
+    worldEditor.addEventListener("clear", async (event) => {
         await WorldStorage.delete(event.key);
     });
     // navigation

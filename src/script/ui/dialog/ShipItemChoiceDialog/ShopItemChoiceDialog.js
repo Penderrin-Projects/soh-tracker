@@ -123,31 +123,6 @@ const Q_TAB = [
     "[tabindex]:not([tabindex=\"-1\"])"
 ].join(",");
 
-async function settingsSubmit() {
-    if (this.item == "unknown") {
-        this.remove();
-    } else {
-        const ev = new Event("submit");
-        const priceEl = this.shadowRoot.getElementById("price");
-        const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.item}"]`);
-        if (el) {
-            ev.item = el.ref;
-            if (!isNaN(parseInt(el.price))) {
-                ev.price = el.price;
-            } else {
-                ev.price = priceEl.value;
-            }
-            this.dispatchEvent(ev);
-            this.remove();
-        }
-    }
-}
-
-function clickItem(event) {
-    const el = event.target;
-    this.item = el.ref;
-}
-
 export default class HTMLTrackerShopItemChoice extends Window {
 
     constructor(title = "Item Choice", options = {}) {
@@ -176,7 +151,9 @@ export default class HTMLTrackerShopItemChoice extends Window {
             sbm.innerHTML = options.submit;
             sbm.setAttribute("title", options.submit);
         }
-        sbm.onclick = settingsSubmit.bind(this);
+        sbm.onclick = () => {
+            this.#settingsSubmit();
+        };
 
         const ccl = this.shadowRoot.getElementById("cancel");
         if (!!options.cancel && typeof options.cancel === "string") {
@@ -339,8 +316,35 @@ export default class HTMLTrackerShopItemChoice extends Window {
         const item = document.createElement("ootrt-shopedititem");
         item.ref = ref;
         item.price = price;
-        item.onclick = clickItem.bind(this);
+        item.onclick = (event) => {
+            this.#clickItem(event);
+        };
         this.shadowRoot.getElementById(`panel_${category}`).append(item);
+    }
+
+    #clickItem(event) {
+        const el = event.target;
+        this.item = el.ref;
+    }
+
+    async #settingsSubmit() {
+        if (this.item == "unknown") {
+            this.remove();
+        } else {
+            const ev = new Event("submit");
+            const priceEl = this.shadowRoot.getElementById("price");
+            const el = this.shadowRoot.querySelector(`ootrt-shopedititem[ref="${this.item}"]`);
+            if (el) {
+                ev.item = el.ref;
+                if (!isNaN(parseInt(el.price))) {
+                    ev.price = el.price;
+                } else {
+                    ev.price = priceEl.value;
+                }
+                this.dispatchEvent(ev);
+                this.remove();
+            }
+        }
     }
 
 }

@@ -4,7 +4,7 @@ export default function parseBarren(errorDialogHandler, target = {}, data = {}, 
 
     const bar = new Set(data);
 
-    bar.forEach(i => {
+    bar.forEach((i) => {
         if (barren_trans[i] != null) {
             if (barren_trans[i] === "castle") {
                 castle++;

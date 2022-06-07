@@ -37,7 +37,7 @@ export default class WorldMap extends GTWorldMap {
         super();
         applyElements(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("type", (event) => {
+        this.registerStateHandler("type", () => {
             const viewEl = this.shadowRoot.getElementById("view");
             viewEl.refreshList();
         });

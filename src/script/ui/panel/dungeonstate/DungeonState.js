@@ -151,14 +151,14 @@ function switchActive(value) {
     } else {
         value = [];
     }
-    this.shadowRoot.querySelectorAll("[type]").forEach(j => {
+    this.shadowRoot.querySelectorAll("[type]").forEach((j) => {
         j.classList.add("inactive");
     });
-    value.forEach(i => {
+    value.forEach((i) => {
         if (!i) {
             return;
         }
-        this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach(j => {
+        this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach((j) => {
             j.classList.remove("inactive");
         });
     });

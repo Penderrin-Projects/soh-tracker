@@ -99,7 +99,7 @@ export default class DefaultShopState extends DataState {
             }
             // external
             const event = new Event("item");
-            event.value = value;
+            event.value = this.item;
             this.dispatchEvent(event);
         }
     }

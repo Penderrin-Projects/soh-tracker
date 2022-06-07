@@ -24,6 +24,10 @@ emc-page {
     flex: 1;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* footer design (until there is a custom element) */
 .footer {
     display: flex;

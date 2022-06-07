@@ -114,33 +114,31 @@ export default class UpdateHandler extends CustomElement {
                     this.dispatchEvent(new Event("noconnection"));
                 }
 
-                this.shadowRoot.getElementById("check-update").onclick = function() {
+                this.shadowRoot.getElementById("check-update").onclick = () => {
                     this.checkUpdate();
-                }.bind(this);
+                };
 
-                this.shadowRoot.getElementById("download-update").onclick = function() {
+                this.shadowRoot.getElementById("download-update").onclick = async () => {
                     check.style.display = "none";
                     force.style.display = "none";
                     avail.style.display = "none";
                     unavail.style.display = "none";
                     running.style.display = "block";
                     finished.style.display = "none";
-                    navigator.serviceWorker.getRegistration().then(function(registration) {
-                        registration.active.postMessage("update");
-                    });
-                }
+                    const registration = await navigator.serviceWorker.getRegistration();
+                    registration.active.postMessage("update");
+                };
 
-                this.shadowRoot.getElementById("download-forced").onclick = function() {
+                this.shadowRoot.getElementById("download-forced").onclick = async () => {
                     check.style.display = "none";
                     force.style.display = "none";
                     avail.style.display = "none";
                     unavail.style.display = "none";
                     running.style.display = "block";
                     finished.style.display = "none";
-                    navigator.serviceWorker.getRegistration().then(function(registration) {
-                        registration.active.postMessage("forceupdate");
-                    });
-                }
+                    const registration = await navigator.serviceWorker.getRegistration();
+                    registration.active.postMessage("forceupdate");
+                };
             });
         }
     }

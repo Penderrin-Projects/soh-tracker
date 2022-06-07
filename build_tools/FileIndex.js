@@ -52,7 +52,7 @@ class FileIndex {
 
         // TODO remove empty folders
 
-        const files = Array.from(FILES).map(el=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
+        const files = Array.from(FILES).map((el)=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
         files.push("/");
         // TODO generate file structure object for sorting
         console.log("write new index");

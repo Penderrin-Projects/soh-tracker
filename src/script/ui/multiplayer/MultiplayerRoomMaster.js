@@ -86,22 +86,22 @@ class HTMLMultiplayerRoomMaster extends CustomElement {
             this.append(el);
         }
         if (data.clients) {
-            data.clients.forEach(function(inst) {
+            data.clients.forEach((inst) => {
                 const el = document.createElement("ootrt-mpmanageduser");
                 el.name = inst;
                 el.role = "client";
                 el.addEventListener("kick", kickUser);
                 this.append(el);
-            }.bind(this));
+            });
         }
         if (data.spectators) {
-            data.spectators.forEach(function(inst) {
+            data.spectators.forEach((inst) => {
                 const el = document.createElement("ootrt-mpmanageduser");
                 el.name = inst;
                 el.role = "spectator";
                 el.addEventListener("kick", kickUser);
                 this.append(el);
-            }.bind(this));
+            });
         }
     }
 
