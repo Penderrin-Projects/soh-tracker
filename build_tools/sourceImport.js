@@ -6,7 +6,7 @@ import {
 
 const __dirname = path.resolve();
 console.log("__dirname", __dirname);
-const __project = path.resolve(__dirname, "node_modules/emcJS");
+const __project = path.resolve(__dirname, "node_modules/emcjs");
 console.log("__project", __project);
 
 const HTMLTemplatePath = path.resolve(__project, "src/util/html/Template.js");
