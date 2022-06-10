@@ -7,7 +7,7 @@ import newer from "gulp-newer";
 import autoprefixer from "gulp-autoprefixer";
 import FileIndex from "./build_tools/FileIndex.js";
 import LanguageManager from "emcjs/build_tools/LanguageManager.js";
-import sourceImport from "emcjs/build_tools/sourceImport.js";
+import sourceImport from "./build_tools/sourceImport.js";
 
 const __dirname = path.resolve();
 
