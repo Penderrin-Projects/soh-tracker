@@ -2,7 +2,7 @@
 import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
 import DeveloperData from "/script/data/DeveloperData.js";

@@ -7,19 +7,22 @@ import newer from "gulp-newer";
 import autoprefixer from "gulp-autoprefixer";
 import FileIndex from "./build_tools/FileIndex.js";
 import LanguageManager from "emcjs/build_tools/LanguageManager.js";
+import sourceImport from "emcjs/build_tools/sourceImport.js";
 
 const __dirname = path.resolve();
 
-const SRC_PATH = path.resolve(__dirname, "./src");
-const LOGIC_PATH = path.resolve(__dirname, "./logic");
-const DEV_PATH = path.resolve(__dirname, "./dev");
-const PRD_PATH = path.resolve(__dirname, "./prod");
+const NODE_FOLDER = path.resolve(__dirname, "node_modules");
+
+const SRC_PATH = path.resolve(__dirname, "src");
+const LOGIC_PATH = path.resolve(__dirname, "logic");
+const DEV_PATH = path.resolve(__dirname, "dev");
+const PRD_PATH = path.resolve(__dirname, "prod");
 
 const MODULE_PATHS = {
-    emcJS: path.resolve(__dirname, "node_modules/emcjs/src"),
-    GameTrackerJS: path.resolve(__dirname, "node_modules/gametrackerjs/src"),
-    JSEditors: path.resolve(__dirname, "node_modules/jseditors/src"),
-    RTCClient: path.resolve(__dirname, "node_modules/rtcclient/src")
+    emcJS: path.resolve(NODE_FOLDER, "emcjs/src"),
+    GameTrackerJS: path.resolve(NODE_FOLDER, "gametrackerjs/src"),
+    JSEditors: path.resolve(NODE_FOLDER, "jseditors/src"),
+    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src")
 };
 
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
@@ -35,6 +38,7 @@ function copyJS(files, src, dest) {
     if (!REBUILDJS && !REBUILD) {
         res = res.pipe(newer(dest))
     }
+    res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
     return res;
 }

@@ -1,6 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";

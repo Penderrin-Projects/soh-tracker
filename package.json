@@ -11,8 +11,8 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.6.4",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.1.7",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.7.0",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.1.8",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
@@ -20,9 +20,10 @@
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-    "eslint": "^8.0.0",
+    "@babel/plugin-syntax-import-assertions": "^7.17.12",
     "del": "^5.1.0",
     "electron": "^13.1.1",
+    "eslint": "^8.0.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
