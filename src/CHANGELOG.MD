@@ -4,6 +4,63 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.2.0 (DEV)
+
+### SYSTEM CHANGES
+
+- outsource generalized components to its own framework
+- change datastructure for world files
+- remove resource file item prefixing
+    - logic has been changed to fit with datastructure
+- change savestate structure to be more clean
+- stability for visible, filter and access checks has been improved
+    - use generalized calculation components to streamline functionality
+- lots of generalization for calculations
+- use debouncing to not calculate before everything settles
+- use browser events instead of the custom EventBus as this is faster
+
+### TRANSLATION
+
+- translations now support language fragments
+    - not one large language file but many smaller
+    - translations are loaded parrallel not sequential and sorted later
+- add more translations
+
+### THEME
+
+- change logo
+- change splashscreen background color
+- change scrollbar design (if supported)
+
+### FILTERS
+
+- some child/adult filters have been adjusted
+    - still not as good as it should be
+
+### LAYOUT
+
+- make all views panels, so they can fit into their own view or on the main view
+
+### WORLD LIST/MAP
+
+- change design of subareas and collections
+- dungeons are now always listed as areas not as exits
+- add detail map settings for areas
+    - add deku tree detail map
+- add connection points to map
+- change overview element for map
+- add worldmap title
+    - add dungeontype to worldmap title
+    - move filter to worldmap title
+- subareas can now always be entered
+- add "Goto Area" entry for areas and exits
+    - especially usefull for subareas
+- add detached entrances option for entrance rando
+    - add missing gateways for detached entraces
+- logic viewer can now be opened from exits
+
+---
+
 ## VERSION 2.1.58
 
 ### BUGFIXES
