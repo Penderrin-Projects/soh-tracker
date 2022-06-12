@@ -4,7 +4,7 @@ import ContextMenu from "/emcJS/ui/overlay/ctxmenu/ContextMenu.js";
 export default class GossipstoneContextMenu extends ContextMenu {
 
     initItems() {
-        super.loadItems([
+        super.setItems([
             {menuAction: "check", content: "Check"},
             {menuAction: "uncheck", content: "Uncheck"},
             "splitter",
@@ -16,7 +16,7 @@ export default class GossipstoneContextMenu extends ContextMenu {
         ]);
     }
 
-    loadItems() {
+    setItems() {
         // nothing
     }
 

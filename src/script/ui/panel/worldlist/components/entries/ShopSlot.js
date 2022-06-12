@@ -43,7 +43,7 @@ const BaseClass = mix(
     AccessTextMarkerMixin
 );
 
-export default class ListShopSlot extends BaseClass {
+export default class WorldListShopSlot extends BaseClass {
 
     constructor() {
         super();
@@ -174,6 +174,6 @@ export default class ListShopSlot extends BaseClass {
 
 }
 
-customElements.define("ootrt-worldlist-shopslot", ListShopSlot);
+customElements.define("ootrt-worldlist-shopslot", WorldListShopSlot);
 UIRegistry.get("worldlist-location")
-    .register("shopslot", ListShopSlot);
+    .register("shopslot", WorldListShopSlot);

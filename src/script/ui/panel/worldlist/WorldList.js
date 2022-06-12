@@ -3,9 +3,11 @@ import Template from "/emcJS/util/html/Template.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
-import GTWorldList from "/GameTrackerJS/ui/panel/worldlist/WorldList.js";
+import WorldList from "/GameTrackerJS/ui/panel/worldlist/WorldList.js";
 // Track-OOT
 import "/script/state/world/WorldStates.js";
+import "./components/entries/Exit.js";
+import "./components/entries/Location.js";
 import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
 import "./components/button/TypeButton.js";
@@ -32,7 +34,7 @@ function applyElements(target) {
     listEl.insertAdjacentElement("beforebegin", masterquestEl);
 }
 
-export default class WorldList extends GTWorldList {
+export default class TrackerWorldList extends WorldList {
 
     constructor() {
         super();
@@ -89,5 +91,5 @@ export default class WorldList extends GTWorldList {
 
 }
 
-Panel.registerReference("worldlist", WorldList);
-customElements.define("ootrt-worldlist", WorldList);
+Panel.registerReference("worldlist", TrackerWorldList);
+customElements.define("ootrt-worldlist", TrackerWorldList);

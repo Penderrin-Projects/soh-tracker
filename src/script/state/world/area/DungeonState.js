@@ -81,6 +81,9 @@ export default class DungeonState extends DefaultAreaState {
 
         /* LIST HANDLER */
         this.#listHandler = this.generateMQList();
+        this.#listHandler.addEventListener("visibility", () => {
+            this.checkVisibility();
+        });
         this.#listHandler.addEventListener("access", (event) => {
             this.onMQAccessChange(event);
         });
@@ -134,7 +137,7 @@ export default class DungeonState extends DefaultAreaState {
 
     onMQListEntriesChange(event) {
         if (this.#type != "v") {
-            if (event.list != null) {
+            if (event.value != null) {
                 const ev = new Event("listChange");
                 ev.value = event.value;
                 this.dispatchEvent(ev);
@@ -220,7 +223,7 @@ export default class DungeonState extends DefaultAreaState {
             return super.getList();
         }
         if (type == "mq") {
-            return this.#listHandler.list;
+            return this.#listHandler.getList();
         }
         return [];
     }

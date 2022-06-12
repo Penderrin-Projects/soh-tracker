@@ -48,3 +48,4 @@ setting[location_status_opened_color]=Color for finished checks
 setting[location_status_available_color]=Color for available checks
 setting[location_status_unavailable_color]=Color for unavailable checks
 setting[location_status_possible_color]=Color for partially available checks
+setting[show_map_connections]=Show Map Connection Markers

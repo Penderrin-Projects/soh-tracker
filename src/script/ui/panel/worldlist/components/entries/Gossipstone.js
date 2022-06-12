@@ -1,14 +1,13 @@
-// frameworks
-import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import Template from "/emcJS/util/html/Template.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
-
-// GameTrackerJS
+import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
+import LogicViewer from "../../../../window/LogicViewer.js";
 
 const TPL = new Template(`
 <div id="hintlocation-container" class="textarea">
@@ -31,7 +30,7 @@ const BaseClass = mix(
     AccessTextMarkerMixin
 );
 
-export default class ListGossipstone extends BaseClass {
+export default class WorldListGossipstone extends BaseClass {
 
     constructor() {
         super();
@@ -58,7 +57,11 @@ export default class ListGossipstone extends BaseClass {
             }
         });
         this.addDefaultContextMenuHandler("sethint", () => {
-            // TODO
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.generateLabel(this.ref);
+                LogicViewer.show(state.props.logicAccess, title);
+            }
         });
         this.addDefaultContextMenuHandler("junk", () => {
             const state = this.getState();
@@ -72,6 +75,13 @@ export default class ListGossipstone extends BaseClass {
             if (state != null) {
                 state.location = "";
                 state.item = "";
+            }
+        });
+        this.addDefaultContextMenuHandler("show_logic", () => {
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.generateLabel(`location[${this.ref}]`);
+                LogicViewer.show(state.props.logicAccess, title);
             }
         });
     }
@@ -124,6 +134,6 @@ export default class ListGossipstone extends BaseClass {
 
 }
 
-customElements.define("ootrt-worldlist-gossipstone", ListGossipstone);
+customElements.define("ootrt-worldlist-gossipstone", WorldListGossipstone);
 UIRegistry.get("worldlist-location")
-    .register("gossipstone", ListGossipstone);
+    .register("gossipstone", WorldListGossipstone);

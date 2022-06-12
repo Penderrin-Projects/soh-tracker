@@ -1,4 +1,4 @@
 exit[\u0000]=Empty Exit
-exit[]=Empty Exit
+exit[]=No Association
 entrance[\u0000]=Empty Entrance
-entrance[]=Empty Entrance
+entrance[]=No Association

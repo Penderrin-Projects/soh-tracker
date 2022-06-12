@@ -3,8 +3,7 @@
         "defaultArea": "hyrule",
         "prefetchEntries": false,
         "map": {
-            "color": "black",
-            "border": "#cb9c3d"
+            "color": "black"
         },
         "areaTags": {
             "chest": {
@@ -20373,11 +20372,10 @@
             "map": {
                 "active": true,
                 "color": "",
-                "border": "",
                 "background": "hyrule.png",
                 "width": 1920,
                 "height": 1080,
-                "zoom": 60
+                "zoom": 50
             },
             "list": [
                 {
@@ -20628,7 +20626,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -20806,7 +20803,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -20875,7 +20871,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -20999,7 +20994,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21152,7 +21146,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21335,7 +21328,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21470,7 +21462,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21642,7 +21633,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21765,7 +21755,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -21905,7 +21894,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22082,7 +22070,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22212,7 +22199,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22275,7 +22261,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22422,7 +22407,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22503,7 +22487,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22560,7 +22543,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22659,7 +22641,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22722,7 +22703,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -22984,7 +22964,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23132,7 +23111,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23298,7 +23276,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23446,7 +23423,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23599,7 +23575,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23704,7 +23679,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -23814,10 +23788,7 @@
         "well": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -23844,7 +23815,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -24026,10 +23996,7 @@
         "ice_cavern": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": false,
@@ -24056,7 +24023,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -24186,10 +24152,7 @@
         "training_grounds": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": false,
@@ -24216,7 +24179,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -24484,10 +24446,7 @@
         "deku": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -24513,178 +24472,211 @@
             "areaTags": false,
             "map": {
                 "active": true,
-                "color": "",
-                "border": "",
+                "color": "black",
                 "background": "dungeon_deku.png",
-                "width": 2000,
-                "height": 3200,
-                "zoom": 50
+                "width": 3016,
+                "height": 1620,
+                "zoom": 33
+            },
+            "connections": {
+                "A": [
+                    {
+                        "x": 1411,
+                        "y": 1065
+                    },
+                    {
+                        "x": 790,
+                        "y": 737
+                    }
+                ],
+                "B": [
+                    {
+                        "x": 796,
+                        "y": 964
+                    },
+                    {
+                        "x": 833,
+                        "y": 506
+                    }
+                ],
+                "C": [
+                    {
+                        "x": 1284,
+                        "y": 1166
+                    },
+                    {
+                        "x": 2060,
+                        "y": 322
+                    }
+                ],
+                "D": [
+                    {
+                        "x": 1823,
+                        "y": 345
+                    },
+                    {
+                        "x": 2796,
+                        "y": 1431
+                    }
+                ]
             },
             "list": [
                 {
                     "id": "deku_tree_gateway -> deku_tree_entrance",
-                    "x": 1690,
-                    "y": 605,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "x": 1283,
+                    "y": 1483,
+                    "category": "exit"
                 },
                 {
                     "id": "deku.c_lobby",
-                    "x": 0,
-                    "y": 0,
+                    "x": 798,
+                    "y": 931,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_slingshot",
-                    "x": 0,
-                    "y": 0,
+                    "x": 109,
+                    "y": 1384,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_slingshot_side",
-                    "x": 0,
-                    "y": 0,
+                    "x": 222,
+                    "y": 1463,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_compass",
-                    "x": 100,
-                    "y": 213,
-                    "category": "location"
-                },
-                {
-                    "id": "deku.c_compass_side",
-                    "x": 264,
+                    "x": 97,
                     "y": 369,
                     "category": "location"
                 },
                 {
+                    "id": "deku.c_compass_side",
+                    "x": 275,
+                    "y": 528,
+                    "category": "location"
+                },
+                {
                     "id": "deku.c_basement",
-                    "x": 0,
-                    "y": 0,
+                    "x": 2101,
+                    "y": 231,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_gohma",
-                    "x": 0,
-                    "y": 0,
+                    "x": 2497,
+                    "y": 596,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_3f_compass_side_child",
-                    "x": 263,
-                    "y": 410,
+                    "x": 275,
+                    "y": 569,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_basement_vines_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 2108,
+                    "y": 326,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_basement_metal_gate_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1964,
+                    "y": 172,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_bombable_behind_web_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1049,
+                    "y": 184,
                     "category": "location"
                 }
             ],
             "list_mq": [
                 {
                     "id": "deku_tree_gateway -> deku_tree_entrance",
-                    "x": 1690,
-                    "y": 605,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "x": 1283,
+                    "y": 1483,
+                    "category": "exit"
                 },
                 {
                     "id": "deku_mq.c_lobby",
-                    "x": 0,
-                    "y": 0,
+                    "x": 798,
+                    "y": 931,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_slingshot",
-                    "x": 0,
-                    "y": 0,
+                    "x": 275,
+                    "y": 528,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_slingshot_back",
-                    "x": 0,
-                    "y": 0,
+                    "x": 97,
+                    "y": 369,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_compass",
-                    "x": 0,
-                    "y": 0,
+                    "x": 109,
+                    "y": 1384,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_basement",
-                    "x": 0,
-                    "y": 0,
+                    "x": 2101,
+                    "y": 231,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_before_log",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1917,
+                    "y": 697,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_after_log",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1534,
+                    "y": 775,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_basement_salesman",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1869,
+                    "y": 491,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_gohma",
-                    "x": 0,
-                    "y": 0,
+                    "x": 2497,
+                    "y": 596,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_crate_near_map_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 811,
+                    "y": 897,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_2f_compass_side_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 275,
+                    "y": 528,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_basement_grave_ceiling_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1276,
+                    "y": 378,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_basement_back_room_child",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1049,
+                    "y": 184,
                     "category": "location"
                 }
             ]
@@ -24692,10 +24684,7 @@
         "dodongo": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -24722,7 +24711,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -24960,10 +24948,7 @@
         "jabujabu": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -24990,7 +24975,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -25180,10 +25164,7 @@
         "temple_forest": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": false,
@@ -25210,7 +25191,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -25466,10 +25446,7 @@
         "temple_fire": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": false,
@@ -25496,7 +25473,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -25758,10 +25734,7 @@
         "temple_water": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": false,
@@ -25788,7 +25761,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -25990,10 +25962,7 @@
         "temple_shadow": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -26020,7 +25989,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -26348,10 +26316,7 @@
         "temple_spirit": {
             "type": "dungeon",
             "categories": [],
-            "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
-            },
+            "visible": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -26378,7 +26343,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -26757,7 +26721,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27084,7 +27047,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27172,7 +27134,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27280,7 +27241,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27370,7 +27330,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27460,7 +27419,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27556,7 +27514,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27658,7 +27615,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27748,7 +27704,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27844,7 +27799,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -27940,7 +27894,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28036,7 +27989,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28132,7 +28084,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28228,7 +28179,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28324,7 +28274,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28414,7 +28363,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28508,7 +28456,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28602,7 +28549,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28696,7 +28642,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28784,7 +28729,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28875,7 +28819,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -28969,7 +28912,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29057,7 +28999,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29151,7 +29092,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29253,7 +29193,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29353,7 +29292,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29443,7 +29381,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29537,7 +29474,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29625,7 +29561,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29737,7 +29672,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29825,7 +29759,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -29913,7 +29846,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30004,7 +29936,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30098,7 +30029,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30188,7 +30118,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30284,7 +30213,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30374,7 +30302,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30464,7 +30391,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30554,7 +30480,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30656,7 +30581,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30750,7 +30674,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30840,7 +30763,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -30936,7 +30858,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31024,7 +30945,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31114,7 +31034,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31216,7 +31135,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31312,7 +31230,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31414,7 +31331,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31510,7 +31426,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31604,7 +31519,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31692,7 +31606,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31786,7 +31699,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31882,7 +31794,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -31984,7 +31895,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32078,7 +31988,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32168,7 +32077,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32258,7 +32166,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32336,7 +32243,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32414,7 +32320,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32492,7 +32397,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32574,7 +32478,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32676,7 +32579,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32754,7 +32656,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32836,7 +32737,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -32942,7 +32842,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33044,7 +32943,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33126,7 +33024,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33228,7 +33125,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33306,7 +33202,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33388,7 +33283,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33497,7 +33391,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33605,7 +33498,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33687,7 +33579,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33789,7 +33680,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33871,7 +33761,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -33973,7 +33862,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -34051,7 +33939,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -34129,7 +34016,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,
@@ -34207,7 +34093,6 @@
             "map": {
                 "active": false,
                 "color": "",
-                "border": "",
                 "background": "",
                 "width": 0,
                 "height": 0,

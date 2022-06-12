@@ -1,13 +1,17 @@
-// frameworks
 import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import Language from "/GameTrackerJS/util/Language.js";
+import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import WorldMapElement from "/GameTrackerJS/ui/panel/worldmap/components/abstract/Element.js";
+import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
+import LogicViewer from "../../../../window/LogicViewer.js";
+
+// TODO fix this
+
+// frameworks
+// import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 
 // GameTrackerJS
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import "/GameTrackerJS/ui/Badge.js";
-// Track-OOT
-import AbstractGossipstone from "../abstract/Gossipstone.js";
-import "./Location.js.js";
 
 const TPL = new Template(`
 <div id="marker"></div>
@@ -22,6 +26,7 @@ const TPL = new Template(`
 </emc-tooltip>
 `);
 
+/*
 const STYLE = new GlobalStyle(`
 :host {
     position: absolute;
@@ -94,19 +99,111 @@ const STYLE = new GlobalStyle(`
 #item {
     margin-left: 5px;
 }
-`);
+`); */
+
+function applyElements(target) {
+    const headerEl = target.getElementById("header");
+    const tpl = TPL.generate();
+    headerEl.append(tpl);
+}
 
 // TODO save gossipstone data to extra storage
-export default class MapGossipstone extends AbstractGossipstone {
+export default class WorldMapGossipstone extends WorldMapElement {
 
     constructor() {
         super();
-        this.shadowRoot.append(TPL.generate());
-        STYLE.apply(this.shadowRoot);
-        /* --- */
+        applyElements(this.shadowRoot);
+        /* observer */
+        this.registerStateHandler("item", (event) => {
+            this.applyItem(event.value);
+        });
+        this.registerStateHandler("location", (event) => {
+            this.applyLocation(event.value);
+        });
+        /* context menu */
+        this.setDefaultContextMenu(GossipstoneContextMenu);
+        this.addDefaultContextMenuHandler("check", () => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = true;
+            }
+        });
+        this.addDefaultContextMenuHandler("uncheck", () => {
+            const state = this.getState();
+            if (state != null) {
+                state.value = false;
+            }
+        });
+        this.addDefaultContextMenuHandler("sethint", () => {
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.generateLabel(this.ref);
+                LogicViewer.show(state.props.logicAccess, title);
+            }
+        });
+        this.addDefaultContextMenuHandler("junk", () => {
+            const state = this.getState();
+            if (state != null) {
+                state.location = "junk_hint";
+                state.item = "";
+            }
+        });
+        this.addDefaultContextMenuHandler("clearhint", () => {
+            const state = this.getState();
+            if (state != null) {
+                state.location = "";
+                state.item = "";
+            }
+        });
+    }
+
+    applyDefaultValues() {
+        super.applyDefaultValues();
+        this.applyItem();
+        this.applyLocation();
+    }
+
+    applyStateValues(state) {
+        super.applyStateValues(state);
+        this.applyItem(state.item);
+        this.applyLocation(state.location);
+    }
+
+    applyItem(item) {
+        const itemContainerEl = this.shadowRoot.getElementById("hintitem-container");
+        const itemEl = this.shadowRoot.getElementById("hintitem");
+        if (itemEl != null) {
+            const state = this.getState();
+            if (state?.value && item) {
+                itemEl.i18nValue = item;
+                itemContainerEl.classList.remove("hidden");
+            } else {
+                itemEl.i18nValue = "";
+                itemContainerEl.classList.add("hidden");
+            }
+        }
+    }
+
+    applyLocation(location) {
+        const itemContainerEl = this.shadowRoot.getElementById("hintlocation-container");
+        const locationEl = this.shadowRoot.getElementById("hintlocation");
+        if (locationEl != null) {
+            const state = this.getState();
+            if (state?.value && location) {
+                locationEl.i18nValue = location;
+                itemContainerEl.classList.remove("hidden");
+            } else {
+                locationEl.i18nValue = "";
+                itemContainerEl.classList.add("hidden");
+            }
+        }
+    }
+
+    get category() {
+        return "location";
     }
 
 }
 
-UIRegistry.get("map-location").register("gossipstone", MapGossipstone);
-customElements.define("ootrt-map-gossipstone", MapGossipstone);
+customElements.define("ootrt-worldmap-gossipstone", WorldMapGossipstone);
+UIRegistry.get("worldmap-location").register("gossipstone", WorldMapGossipstone);

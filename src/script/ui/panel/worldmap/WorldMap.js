@@ -3,10 +3,14 @@ import Template from "/emcJS/util/html/Template.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
-import GTWorldMap from "/GameTrackerJS/ui/panel/worldmap/WorldMap.js";
+import WorldMap from "/GameTrackerJS/ui/panel/worldmap/WorldMap.js";
 
 // Track-OOT
 import "../../../state/world/WorldStates.js";
+import "./components/entries/Exit.js";
+import "./components/entries/Location.js";
+// import "./components/entries/Gossipstone.js";
+
 // import "./listitems/Button.js";
 // import "./listitems/TypeButton.js";
 // import "./listitems/Location.js";
@@ -31,7 +35,7 @@ function applyElements(target) {
     hintEl.insertAdjacentElement("beforebegin", dungeontypeEl);
 }
 
-export default class WorldMap extends GTWorldMap {
+export default class TrackerWorldMap extends WorldMap {
 
     constructor() {
         super();
@@ -63,5 +67,5 @@ export default class WorldMap extends GTWorldMap {
 
 }
 
-Panel.registerReference("worldmap", WorldMap);
-customElements.define("ootrt-worldmap", WorldMap);
+Panel.registerReference("worldmap", TrackerWorldMap);
+customElements.define("ootrt-worldmap", TrackerWorldMap);
