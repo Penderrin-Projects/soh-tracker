@@ -1,15 +1,14 @@
 :root {
     --page-background-color: #000000;
     --page-text-color: #ffffff;
-    --page-border-color: #806123 #d3ae5f #dfc58b #a8812e;
-    --page-border-color-inverted: #dfc58b #a8812e #806123 #d3ae5f;
 
-    --navigation-background-color: #a67f2e;
+    /* all; top_bottom right_left; top right bottom left*/
+    --page-border-color: #664e1f #d0a650 #e5ce9e #b78c37;
+    /* all; top_bottom right_left; top right bottom left*/
+    --page-border-color-inverted: #e5ce9e #b78c37 #664e1f #d0a650;
+
+    --navigation-background-color: #cb9c3d;
     --navigation-text-color: #000000;
-
-    --scrollbar-track-color: #000000;
-    --scrollbar-thumb-color: #a67f2e;
-    --scrollbar-thumb-color-hover: #cca147;
 
     --edit-background-color: #222222;
     --edit-text-color: #ffffff;
@@ -17,64 +16,48 @@
     --main-hover-color: #cb9c3d32;
 
     --contextmenu-background: #000000;
-    --contextmenu-text: #a67f2e;
+    --contextmenu-text: #cb9c3d;
     --contextmenu-info: #cccccc;
-    --contextmenu-border: #a67f2e;
+    /* all; top_bottom right_left; top right bottom left*/
+    --contextmenu-border: #cb9c3d;
     --contextmenu-background-hover: #cb9c3d32;
-    --contextmenu-text-hover: #cca147;
+    --contextmenu-text-hover: #e7be6b;
 
     --location-status-opened-color: #777777;
     --location-status-available-color: #00ff00;
     --location-status-unavailable-color: #ff0000;
     --location-status-possible-color: #ffff00;
 
+    /* all; top_bottom right_left; top right bottom left*/
     --list-border-top-color: #d4ad5e77;
+    /* all; top_bottom right_left; top right bottom left*/
     --list-border-bottom-color: #795b2077;
 
     --input-text-color: #000000;
     --input-back-color: #ffffff;
+    /* all; top_bottom right_left; top right bottom left*/
     --input-border-color: #000000;
     --input-button-color: #cccccc;
     --input-color-hover: #999999;
     --input-focus-color: #06b5ff;
-}
 
-::-webkit-scrollbar {
-    width: var(--scrollbar-size, 12px);
-    height: var(--scrollbar-size, 12px);
-}
-::-webkit-scrollbar-button {
-    width: var(--scrollbar-button-size, 0px);
-    height: var(--scrollbar-button-size, 0px);
-    background: var(--scrollbar-button-color, #ffffff);
-    border-width: var(--scrollbar-button-border-width, 0px);
-    border-style: var(--scrollbar-button-border-style, none);
-    border-color: var(--scrollbar-button-border-color,transparent);
-    border-radius: var(--scrollbar-button-border-radius, 0px);
-}
-::-webkit-scrollbar-button:hover {
-    background: var(--scrollbar-button-hover-color, #aaaaaa);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-color, #ffffff);
-    border-width: var(--scrollbar-thumb-border-width, 0px);
-    border-style: var(--scrollbar-thumb-border-style, none);
-    border-color: var(--scrollbar-thumb-border-color,transparent);
-    border-radius: var(--scrollbar-thumb-border-radius, 0px);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover-color, #aaaaaa);
-}
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-color, #000000);
-    border-width: var(--scrollbar-track-border-width, 0px);
-    border-style: var(--scrollbar-track-border-style, none);
-    border-color: var(--scrollbar-track-border-color,transparent);
-    border-radius: var(--scrollbar-track-border-radius, 0px);
-}
-::-webkit-scrollbar-track:hover {
-    background: var(--scrollbar-track-hover-color, #aaaaaa);
-}
-::-webkit-scrollbar-corner {
-    background: transparent;
+    /* scrollbar */
+    --scrollbar-size: 12px;
+    --scrollbar-corner-color: #000000;
+
+    --scrollbar-track-color: #000000;
+    --scrollbar-track-color-hover: #000000;
+    --scrollbar-track-color-active: #000000;
+    --scrollbar-track-border-width: 0px;
+    --scrollbar-track-border-style: none;
+    --scrollbar-track-border-color:transparent;
+    --scrollbar-track-border-radius: 0px;
+
+    --scrollbar-thumb-color: var(--navigation-background-color);
+    --scrollbar-thumb-color-hover: var(--scrollbar-thumb-color);
+    --scrollbar-thumb-color-active: var(--scrollbar-thumb-color);
+    --scrollbar-thumb-border-width: 4px;
+    --scrollbar-thumb-border-style: solid;
+    --scrollbar-thumb-border-color: var(--page-border-color-inverted);
+    --scrollbar-thumb-border-radius: 0px;
 }
