@@ -63,7 +63,26 @@ to:
 
 ---
 
-### TODO
+### BUGS
+
+- multiplayer
+    - shop sync not working
+    - dungeon type sync not working
+    - dungeon reward sync not working
+
+[x] "graveyard from royal tomb" should be "royal tomb from graveyard"
+[x] not all interior exits available as entrances from spawns
+
+### TRACKER TODO
+
+- boss shortcuts
+- frog songs individual checks
+- boss randomizer
+- key rings for location items / shops
+- ganon boss keysanity needs own option
+- map overlay panels invert border
+
+### OTHER TODO
 
 - add rom options
     - disabled locations

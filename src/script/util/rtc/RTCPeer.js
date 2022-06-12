@@ -13,8 +13,8 @@ const STORAGES = {
     startItems: Savestate.getStorage("startItems"),
     options: Savestate.getStorage("options"),
     // Track-OOT
-    dungeonReward: Savestate.getStorage("dungeonReward"),
-    dungeonType: Savestate.getStorage("dungeonType"),
+    dungeonRewards: Savestate.getStorage("dungeonRewards"),
+    dungeonTypes: Savestate.getStorage("dungeonTypes"),
     shopItems: Savestate.getStorage("shopItems"),
     shopItemsPrice: Savestate.getStorage("shopItemsPrice"),
     shopItemsBought: Savestate.getStorage("shopItemsBought"),

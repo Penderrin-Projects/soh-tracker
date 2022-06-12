@@ -44192,9 +44192,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "graveyard_royal_familys_tomb -> graveyard_composers_grave_entrance": {
+        "graveyard_composers_grave_entrance -> graveyard_royal_familys_tomb": {
             "type": "grotto_outer",
-            "target": "graveyard_composers_grave_entrance -> graveyard_royal_familys_tomb",
+            "target": "graveyard_royal_familys_tomb -> graveyard_composers_grave_entrance",
             "logicAccess": "region[graveyard_composers_grave_entrance]",
             "area": "graveyard",
             "categories": [
@@ -44209,7 +44209,7 @@
                 "type": "value",
                 "el": "option[shuffle_grottos]"
             },
-            "visibleRootOnly": false,
+            "visibleRootOnly": true,
             "filter": {
                 "era": {
                     "child": true,
@@ -44241,10 +44241,10 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "graveyard_composers_grave_entrance -> graveyard_royal_familys_tomb": {
+        "graveyard_royal_familys_tomb -> graveyard_composers_grave_entrance": {
             "type": "grotto_inner",
-            "target": "graveyard_royal_familys_tomb -> graveyard_composers_grave_entrance",
-            "logicAccess": "region[graveyard_composers_grave]",
+            "target": "graveyard_composers_grave_entrance -> graveyard_royal_familys_tomb",
+            "logicAccess": "region[graveyard_royal_familys_tomb]",
             "area": "graveyard.royal_grave",
             "categories": [
                 "grotto",
@@ -44258,7 +44258,7 @@
                 "type": "value",
                 "el": "option[shuffle_grottos]"
             },
-            "visibleRootOnly": true,
+            "visibleRootOnly": false,
             "filter": {
                 "era": {
                     "child": true,
