@@ -141,8 +141,7 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
             const mnu_itm = this.getContextMenu("itempicker");
             const filteredRewards = REWARDS.filter((el) => !TAKEN_REWARDS.has(el.value));
             if (filteredRewards.length) {
-                mnu_itm.loadItems([filteredRewards]);
-                mnu_itm.show(event.clientX, event.clientY);
+                mnu_itm.show(event.clientX, event.clientY, [filteredRewards]);
             }
             event.stopPropagation();
             event.preventDefault();

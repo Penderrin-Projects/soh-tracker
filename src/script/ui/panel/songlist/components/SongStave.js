@@ -10,8 +10,6 @@ const TPL = new Template(`
 
 const STYLE = new GlobalStyle(`
 :host {
-    position: relative;
-    box-sizing: border-box;
     display: flex;
     height: 100px;
     background-repeat: repeat-x;
