@@ -126,6 +126,11 @@
         "default": "#ffff00",
         "resettable": true
     },
+    "show_map_connections": {
+        "category": "a11y",
+        "type": "check",
+        "default": true
+    },
     "debug_logic": {
         "category": "debug",
         "type": "choice",

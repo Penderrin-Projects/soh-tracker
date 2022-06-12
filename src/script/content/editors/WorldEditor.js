@@ -1,12 +1,12 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 import "/editors/modules/world/Editor.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
 // Track-OOT
 import WorldListsCreator from "../world/WorldListsCreator.js";
 
@@ -27,12 +27,12 @@ const LOCATION_TYPES = [
     "bean"
 ];
 const EXCLUDE_FILTER = [
-    "filter.era_apply"
+    "era_apply"
 ];
 const LOCATION_ONLY_FILTER = [
-    "filter.chests",
-    "filter.skulltulas",
-    "filter.gossipstones"
+    "chests",
+    "skulltulas",
+    "gossipstones"
 ];
 
 async function createMarkerDetailConfig(category, types, accessValues = [""]) {
@@ -90,10 +90,10 @@ export default async function() {
 
     await refreshWorldEditor();
     // events
-    worldEditor.addEventListener("save", async event => {
+    worldEditor.addEventListener("save", async (event) => {
         await WorldStorage.set(event.key, event.logic);
     });
-    worldEditor.addEventListener("clear", async event => {
+    worldEditor.addEventListener("clear", async (event) => {
         await WorldStorage.delete(event.key);
     });
     // navigation

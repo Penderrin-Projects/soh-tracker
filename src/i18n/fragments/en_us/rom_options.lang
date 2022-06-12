@@ -1,0 +1,118 @@
+Randomizer options=Randomizer options
+load-preset-button=Load preset
+
+# GENERAL
+options=Randomizer options
+option[consider_buyable]=Consider buyable Items (Tunics / Blue Fire) in logic
+option[bombchu_logic]=Consider Bombchus in logic
+option[skip_child_zelda]=Skip Child Zelda
+option[skip_epona_race]=Skip Epona Race
+option[free_scarecrow]=Free Scarecrow's Song
+option[keysanity_small]=Activate Keysanity Logic
+option[track_keys]=Track Small Keys
+option[track_bosskeys]=Track Boss Keys
+option[scrubsanity]=Scrubsanity
+option[cowsanity]=Cowsanity
+option[shopsanity]=Shopsanity slots
+option[beansanity]=Beansanity
+option[shuffleMediCarpet]=Shuffle Medigoron and Carpet Bombchu Saleman
+option[doors_open_temple]=Open Temple of Time
+option[trade_sequence_start_item]=Start adult trading sequence at
+option[big_poe_count]=Big Poes Required
+option[sun_song_skulltuta]=Force Night Skulltulas to require Sun Song
+
+option[lacs_skulltulas]=Required Skulltulas for LACS
+option[stone_count_lacs]=Required Spiritual Stones for LACS
+option[medallion_count_lacs]=Required Medallions for LACS
+option[dungeon_count_lacs]=Required Dungeon Rewards for LACS
+
+option[ganon_castle_skulltulas]=Required Skulltulas for Rainbow Bridge
+option[stone_count_bridge]=Required Spiritual Stones for Rainbow Bridge
+option[medallion_count_bridge]=Required Medallions for Rainbow Bridge
+option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
+
+option[skullsanity]=Skullsanity (do not autocount) [WIP]
+
+# GENERAL - AGE
+option[starting_age]=Starting Age
+child=Child
+adult=Adult
+
+# GENERAL - LOGIC
+option[logic_rules]=Logic Rule
+logic_rules_glitchless=Glitchless
+logic_rules_glitched=Glitched
+
+# GENERAL - GERUDO FORTRESS
+option[gerudo_fortress_open]=Gerudo Fortress behavior
+gerudo_fortress_open_default=Default behavior
+gerudo_fortress_open_one=Rescue one carpenter
+gerudo_fortress_open_open=Carpenters are already rescued
+
+# GENERAL - OPEN FOREST
+option[doors_open_forest]=Open Forest
+doors_open_forest_closed=Closed Forest
+doors_open_forest_deku=Closed Deku, Open Forest
+doors_open_forest_open=Open Forest and Deku
+
+# GENERAL - OPEN FOUNTAIN
+option[doors_open_zora]=Open Zoras Fountain
+doors_open_zora_closed=Closed Fountain
+doors_open_zora_adult=Open Fountain Adult
+doors_open_zora_both=Open Fountain Both
+
+# GENERAL - OPEN KAKARIKO
+option[doors_open_kakariko]=Open Kakariko Gate
+doors_open_kakariko_closed=Kakariko Gate Closed
+doors_open_kakariko_zelda=Kakariko Gate Opened Immediately after Zelda's Letter
+doors_open_kakariko_open=Kakariko Gate Opened
+
+# ENTRANCE SHUFFLE
+entrance_randomizer=Entrance randomization
+option[mixed_entrance_pool]=Mixed entrance pool
+option[detached_entrances]=Detached Entrances
+option[shuffle_dungeons]=Shuffle Dungeons
+option[shuffle_grottos]=Shuffle Grottos
+option[shuffle_overworld]=Shuffle Overworld Entrances
+option[shuffle_owls]=Shuffle Owl Drops
+option[shuffle_warps]=Shuffle Song Warps
+option[shuffle_spawns]=Shuffle Spawn Locations
+
+# ENTRANCE SHUFFLE - INTERIORS
+option[entrance_shuffle_interior]=Shuffle Interior Entrances
+entrance_shuffle_off=Off
+entrance_shuffle_simple=Shuffle Simple Indoors
+entrance_shuffle_all=Shuffle All Indoors
+
+# LACS AND BRIDGE
+lacsAndGanon=LACS and Bridge options
+option[ganon_boss_door_open]=Open Ganon Boss Door
+option[trials_random]=Randomize Number of Trials
+option[number_trials]=Number of Trials Needed
+
+# LACS AND BRIDGE - LACS
+option[light_arrow_cutscene]=Light Arrow Check
+light_arrow_cutscene_vanilla=Vanilla Requirements
+light_arrow_cutscene_stones=Spirital Stones Requirements
+light_arrow_cutscene_medallions=Medallions Requirements
+light_arrow_cutscene_dungeons=Dungeons Rewards Requirements
+light_arrow_cutscene_skulltulas=Skulltulas Token Requirements
+
+# LACS AND BRIDGE - GANON
+option[ganon_castle_open]=Ganons Castle entry
+ganon_castle_open_default=Vanilla Requirements
+ganon_castle_open_dungeon=Dungeons Rewards Requirements
+ganon_castle_open_medallion=Medallions Requirements
+ganon_castle_open_stones=Spiritual Stones Requirements
+ganon_castle_open_skulltulas=Skulltulas Tokens Requirements
+ganon_castle_open_triforce=Triforce Hunt
+ganon_castle_open_open=Always open
+
+# LACS AND BRIDGE - TRIALS
+option[trials]=Trials needed
+forest_trial=Forest Trial
+water_trial=Water Trial
+shadow_trial=Shadow Trial
+fire_trial=Fire Trial
+light_trial=Light Trial
+spirit_trial=Spirit Trial

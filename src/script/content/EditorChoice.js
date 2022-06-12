@@ -14,32 +14,16 @@ const MAIN_NAV = [{
     "handler": () => {
         PageSwitcher.switch("main");
     }
-}, {
-    "content": " TOGGLE FULLSCREEN",
-    "handler": toggleFullscreen
-}];
+}, {"mixin": "fullscreen"}];
 
 const DEFAULT_NAV = [{
     "content": "EXIT",
     "handler": () => {
         editorChoice.closeCurrent();
     }
-}, {
-    "content": " TOGGLE FULLSCREEN",
-    "handler": toggleFullscreen
-}];
+}, {"mixin": "fullscreen"}];
 
 PageSwitcher.register("editor_choice", MAIN_NAV);
-
-function toggleFullscreen() {
-    if (document.fullscreenEnabled) {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-    }
-}
 
 const PANELS = new Map();
 
@@ -52,10 +36,7 @@ editorChoice.addEventListener("choice", function(event) {
             data.refreshFn();
         }
         if (data.navigation != null) {
-            nav.loadNavigation(data.navigation.concat({
-                "content": " TOGGLE FULLSCREEN",
-                "handler": toggleFullscreen
-            }));
+            nav.loadNavigation(data.navigation.concat({"mixin": "fullscreen"}));
         } else {
             nav.loadNavigation(DEFAULT_NAV);
         }

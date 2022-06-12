@@ -1,10 +1,10 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import Helper from "/emcJS/util/helper/Helper.js";
 
 // GameTrackerJS
-import OptionsStorage from "/GameTrackerJS/storage/OptionsStorage.js";
+import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 // Track-OOT
@@ -15,7 +15,7 @@ import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 const LogicsStorage = new IDBStorage("logics");
 const LogicsStorageGlitched = new IDBStorage("logics_glitched");
 
-let logic_rule_type = OptionsStorage.get("option.logic_rules");
+let logic_rule_type = OptionsStorage.get("logic_rules");
 let use_custom_logic = SettingsStorage.get("use_custom_logic");
 
 function getLogicData() {
@@ -62,21 +62,22 @@ async function update() {
     const logic = getLogicData();
     if (use_custom_logic) {
         const customLogic = augmentLogic(logic);
-        Logic.setLogic(customLogic, "region.root");
+        Logic.setLogic(customLogic, "region[root]");
     } else {
-        Logic.setLogic(logic, "region.root");
+        Logic.setLogic(logic, "region[root]");
     }
 }
 
+// FIXME use Observers instead, as EventBus is no longer supported
 // register event for (de-)activate entrances
-EventBus.register("options", event => {
-    if (event.data["option.logic_rules"] != null && logic_rule_type != event.data["option.logic_rules"]) {
-        logic_rule_type = event.data["option.logic_rules"];
+EventBus.register("options", (event) => {
+    if (event.data["logic_rules"] != null && logic_rule_type != event.data["logic_rules"]) {
+        logic_rule_type = event.data["logic_rules"];
         update();
     }
 });
 // register event for (de-)activate custom logic
-EventBus.register("settings", async event => {
+EventBus.register("settings", async (event) => {
     if (event.data["use_custom_logic"] != null) {
         if (use_custom_logic != event.data.use_custom_logic) {
             use_custom_logic = event.data.use_custom_logic;
@@ -85,7 +86,7 @@ EventBus.register("settings", async event => {
     }
 });
 // register event for changing custom logic
-EventBus.register("custom_logic_update", async event => {
+EventBus.register("custom_logic_update", async () => {
     // TODO make logic editor fire this event on logic changed if you exit editor
     if (use_custom_logic) {
         update();

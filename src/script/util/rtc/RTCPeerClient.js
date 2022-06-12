@@ -1,12 +1,17 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 // Track-OOT
 import RTCPeer from "/script/util/rtc/RTCPeer.js";
+
+const STORAGES = {
+    // GameTrackerJS
+    filter: Savestate.getStorage("filter")
+};
 
 const EVENT_TARGET_MANAGER = new WeakMap();
 
@@ -18,7 +23,7 @@ export default class RTCPeerClient extends RTCPeer {
         /* RTC */
         const eventTargetManager = new EventTargetManager(rtcClient);
         EVENT_TARGET_MANAGER.set(this, eventTargetManager);
-        eventTargetManager.set(["closed", "failed"], async (key) => {
+        eventTargetManager.set(["closed", "failed"], async (/* key */) => {
             await Dialog.alert("Disconnected from host", "The connection to the host closed unexpectedly.");
         });
     }
@@ -44,7 +49,8 @@ export default class RTCPeerClient extends RTCPeer {
             this.dispatchEvent(ev);
         } else if (msg.type == "state") {
             this.mute();
-            await SavestateHandler.reset({data: msg.data.data, options: msg.data.options});
+            const filter = STORAGES.filter.getAll();
+            await Savestate.deserialize({data: {...msg.data.data, filter}});
             this.unmute();
         } else {
             await super.rtcMessageHandler(key, msg);

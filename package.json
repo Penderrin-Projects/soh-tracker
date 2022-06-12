@@ -1,8 +1,18 @@
 {
-  "license": "MIT",
+  "name": "track-oot",
+  "description": "Tracker for OOT-Randomizer",
   "author": "Denis Peters (ZidArgs)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/zidargs/track-oot.git"
+  },
+  "homepage": "https://bitbucket.org/zidargs/track-oot/src",
+  "main": "parse.js",
+  "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.4.28",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.7.7",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.1.12",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.13",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
@@ -10,9 +20,10 @@
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
-    "eslint": "^8.0.0",
+    "@babel/plugin-syntax-import-assertions": "^7.17.12",
     "del": "^5.1.0",
     "electron": "^13.1.1",
+    "eslint": "^8.0.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -26,23 +37,13 @@
     "serve": "^11.3.2",
     "through": "^2.3.8"
   },
-  "browserslist": [
-    "Chrome >= 76",
-    "Firefox >= 68",
-    "Safari >= 12",
-    "Edge >= 17",
-    "Android >= 76",
-    "ChromeAndroid >= 76",
-    "FirefoxAndroid >= 68",
-    "iOS >= 10"
-  ],
   "scripts": {
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
     "build": "gulp build",
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
-    "serve": "serve dev",
+    "serve": "serve -p 5000 dev",
     "edit": "electron ./editor --no-sandbox > ./editor/info.log 2>&1"
   }
 }

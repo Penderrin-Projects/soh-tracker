@@ -1,26 +1,109 @@
-const fs = require("fs");
+import fs from "fs";
 
-const fileName = "./src/database/world.json";
+/* files */
 
-function modifyData(inData) {
-    for (const [, value] of Object.entries(inData.marker.exit)) {
-        if (!value.filter["filter.era"]["child"] && !value.filter["filter.era"]["adult"]) {
-            value.filter["filter.era"] = {
-                "child": true,
-                "adult": true
-            }
-        }
-        if (!value.filter["filter.time"]["day"] && !value.filter["filter.time"]["night"]) {
-            value.filter["filter.time"] = {
-                "day": true,
-                "night": true
-            }
-        }
+const inFileName = "./src/database/world.json";
+const outFileName = "./src/database/world.json";
+
+/* modificator */
+
+function modify(source = {}, target = {}) {
+    // location
+    console.log("location");
+    const location = {};
+    for (const ref in source.location) {
+        console.log(ref);
+        const oldProps = source.location[ref];
+        const newProps = {
+            type: oldProps.type,
+            logicAccess: oldProps.logicAccess,
+            visible: oldProps.visible,
+            visibleRootOnly: oldProps.visibleRootOnly,
+            filter: oldProps.filter,
+            icon: oldProps.icon,
+            shop: oldProps.shop
+        };
+        location[ref] = newProps;
     }
-    return inData;
+    console.log("-----------------------");
+
+    // collection
+    console.log("collection");
+    const collection = {};
+    for (const ref in source.collection) {
+        console.log(ref);
+        const oldProps = source.collection[ref];
+        const newProps = {
+            map: oldProps.map,
+            list: oldProps.list
+        };
+        collection[ref] = newProps;
+    }
+    console.log("-----------------------");
+
+    // area
+    console.log("area");
+    const area = {};
+    for (const ref in source.area) {
+        console.log(ref);
+        const oldProps = source.area[ref];
+        const newProps = {
+            type: oldProps.type,
+            categories: oldProps.categories,
+            visible: oldProps.visible,
+            visibleRootOnly: oldProps.visibleRootOnly,
+            filter: oldProps.filter,
+            listContents: oldProps.listContents,
+            accessPenetration: oldProps.accessPenetration,
+            icon: oldProps.icon,
+            areaTags: oldProps.areaTags,
+            map: oldProps.map,
+            connections: oldProps.connections,
+            list: oldProps.list,
+            list_mq: oldProps.list_mq
+        };
+        area[ref] = newProps;
+    }
+    console.log("-----------------------");
+
+    // exit
+    console.log("exit");
+    const exit = {};
+    for (const ref in source.exit) {
+        console.log(ref);
+        const oldProps = source.exit[ref];
+        const newProps = {
+            type: oldProps.type,
+            target: oldProps.target,
+            logicAccess: oldProps.logicAccess,
+            area: oldProps.area,
+            categories: oldProps.categories,
+            visible: oldProps.visible,
+            visibleRootOnly: oldProps.visibleRootOnly,
+            filter: oldProps.filter,
+            icon: oldProps.icon,
+            bindsTo: oldProps.bindsTo,
+            unbindable: oldProps.unbindable,
+            ignoreBound: oldProps.ignoreBound,
+            entranceActive: oldProps.entranceActive,
+            includeInactiveEntrances: oldProps.includeInactiveEntrances,
+            isBiDir: oldProps.isBiDir
+        };
+        exit[ref] = newProps;
+    }
+    console.log("-----------------------");
+
+    // write all
+    target.config = source.config;
+    target.location = location;
+    target.collection = collection;
+    target.area = area;
+    target.exit = exit;
 }
 
-const inData = JSON.parse(fs.readFileSync(fileName));
-const outData = modifyData(inData);
+/* module */
 
-fs.writeFileSync(fileName, JSON.stringify(outData, null, 4));
+const inData = JSON.parse(fs.readFileSync(inFileName));
+const outData = {};
+modify(inData, outData);
+fs.writeFileSync(outFileName, JSON.stringify(outData, null, 4));

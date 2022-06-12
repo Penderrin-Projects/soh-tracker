@@ -14,9 +14,9 @@ export default function parseDungeonRewards(errorDialogHandler, target = {}, dat
                 console.warn("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");
                 errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");
             } else {
-                buffer["area/" + location_trans[i]] = item_trans[v];
+                buffer[location_trans[i]] = item_trans[v];
             }
         }
     }
-    target["dungeonreward"] = buffer;
+    target.dungeonRewards = buffer;
 }

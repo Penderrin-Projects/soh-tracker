@@ -1,61 +1,61 @@
 {
-    "song.zelda": {
+    "zelda": {
         "notes": "LURLUR",
         "editable": true
     },
-    "song.epona": {
+    "epona": {
         "notes": "ULRULR",
         "editable": true
     },
-    "song.saria": {
+    "saria": {
         "notes": "DRLDRL",
         "editable": true
     },
-    "song.sun": {
+    "sun": {
         "notes": "RDURDU",
         "editable": true
     },
-    "song.time": {
+    "time": {
         "notes": "RADRAD",
         "editable": true
     },
-    "song.storm": {
+    "storm": {
         "notes": "ADUADU",
         "editable": true
     },
-    "song.warp_forest": {
+    "warp_forest": {
         "notes": "AULRLR",
         "editable": true
     },
-    "song.warp_fire": {
+    "warp_fire": {
         "notes": "DADARDRD",
         "editable": true
     },
-    "song.warp_water": {
+    "warp_water": {
         "notes": "ADRRL",
         "editable": true
     },
-    "song.warp_spirit": {
+    "warp_spirit": {
         "notes": "ADARDA",
         "editable": true
     },
-    "song.warp_shadow": {
+    "warp_shadow": {
         "notes": "LRRALRD",
         "editable": true
     },
-    "song.warp_light": {
+    "warp_light": {
         "notes": "URURLU",
         "editable": true
     },
-    "song.scarecrow": {
+    "scarecrow": {
         "notes": "",
         "editable": true
     },
-    "song.frogs": {
+    "frogs": {
         "notes": "ALRDLRDADADRLA",
         "editable": false
     },
-    "song.woods": {
+    "woods": {
         "notes": "",
         "editable": true
     }

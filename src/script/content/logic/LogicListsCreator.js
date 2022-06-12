@@ -1,12 +1,12 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
-import ItemsResource from "/GameTrackerJS/resource/ItemsResource.js";
-import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
-import SettingsResource from "/GameTrackerJS/resource/SettingsResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
+import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
+import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
+import SettingsResource from "/GameTrackerJS/data/resource/SettingsResource.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
@@ -61,7 +61,7 @@ class LogicListsCreator {
             operators: []
         };
 
-        const world = WorldResource.get("marker");
+        const locations = WorldResource.get("location");
         const items = ItemsResource.get();
         const randomizer_options = OptionsResource.get();
         const tracker_settings = SettingsResource.get();
@@ -108,10 +108,7 @@ class LogicListsCreator {
         result.operators.push(createOptionsOperatorCategory(randomizer_options));
         result.operators.push(createSettingsOperatorCategory(tracker_settings));
         result.operators.push(createFilterOperatorCategory(filter));
-        /*for (let cat of createOperatorWorldCategories(world)) {
-            result.operators.push(cat);
-        }*/
-        result.operators.push(createOperatorLocationDoneCategory(world));
+        result.operators.push(createOperatorLocationDoneCategory(locations));
 
         for (const cat of createOperatorReachCategories(logic.edges)) {
             result.operators.push(cat);
@@ -121,10 +118,7 @@ class LogicListsCreator {
         result.operators.push(createOperatorFunctions(functions));
 
         // LOGICS
-        //for (let cat of createLogicWorldCategories(world_lists, world)) {
-        //    result.logics.push(cat);
-        //}
-        result.logics.push(createLogicGraphCategory(logic.edges, world));
+        result.logics.push(createLogicGraphCategory(logic.edges, locations));
         result.logics.push(createLogicMixinCategory(mixins));
         result.logics.push(createLogicFunctionCategory(functions));
 
@@ -155,17 +149,17 @@ function createItemOperatorCategory(data) {
         "caption": "item",
         "children": []
     };
-    for (const i in data) {
+    for (const name in data) {
         res.children.push({
             "type": "tracker-logic-custom",
-            "ref": i,
+            "ref": `item[${name}]`,
             "category": "item"
         });
     }
     return res;
 }
 
-function createFilterOperatorCategory(data, ref) {
+function createFilterOperatorCategory(data/* , ref */) {
     const res = {
         "type": "group",
         "caption": "filter",
@@ -297,19 +291,19 @@ function createOperatorReachCategories(data) {
     for (const ref in data) {
         const sub = data[ref];
         for (const sref in sub) {
-            if (sref.startsWith("logic.location.")) {
+            if (sref.startsWith("reach_location[")) {
                 lbuf.children.push({
                     "type": "tracker-logic-custom",
                     "ref": sref,
                     "category": "location"
                 });
-            } else if (sref.startsWith("region.")) {
+            } else if (sref.startsWith("region[")) {
                 rbuf.children.push({
                     "type": "jse-logic-at",
                     "ref": sref,
                     "category": "region"
                 });
-            } else if (sref.startsWith("event.")) {
+            } else if (sref.startsWith("event[")) {
                 ebuf.children.push({
                     "type": "tracker-logic-custom",
                     "ref": sref,
@@ -321,18 +315,18 @@ function createOperatorReachCategories(data) {
     return [lbuf, rbuf, ebuf];
 }
 
-function createOperatorLocationDoneCategory(world) {
+function createOperatorLocationDoneCategory(locations) {
     const res = {
         "type": "group",
         "caption": "locations done",
         "children": []
     };
-    for (const name in world) {
-        const ref = world[name];
+    for (const name in locations) {
+        const ref = locations[name];
         if (ref.category == "location") {
             res.children.push({
                 "type": "tracker-logic-custom",
-                "ref": name,
+                "ref": `location.${name}`,
                 "category": "location"
             });
         }
@@ -372,7 +366,7 @@ function createOperatorFunctions(data) {
 
 // LOGICS
 // -------------------
-function createLogicGraphCategory(data, world) {
+function createLogicGraphCategory(data, locations) {
     const resC = {
         "type": "group",
         "caption": "child",
@@ -405,11 +399,11 @@ function createLogicGraphCategory(data, world) {
             "children": []
         };
         const sub = data[ref];
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             for (const sref in sub) {
-                if (sref.startsWith("logic.location.")) {
-                    const name = sref.slice(6);
-                    const loc = world[name];
+                if (sref.startsWith("reach_location[")) {
+                    const name = sref.slice(15);
+                    const loc = locations[name];
                     if (loc) {
                         lbuf.children.push({
                             "type": loc.type,
@@ -425,13 +419,13 @@ function createLogicGraphCategory(data, world) {
                             "content": sref
                         });
                     }
-                } else if (sref.startsWith("region.")) {
+                } else if (sref.startsWith("region[")) {
                     rbuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "region",
                         "content": sref
                     });
-                } else if (sref.startsWith("event.")) {
+                } else if (sref.startsWith("event[")) {
                     ebuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "event",
@@ -456,9 +450,9 @@ function createLogicGraphCategory(data, world) {
             });
         } else {
             for (const sref in sub) {
-                if (sref.startsWith("logic.location.")) {
-                    const name = sref.slice(6);
-                    const loc = world[name];
+                if (sref.startsWith("reach_location[")) {
+                    const name = sref.slice(15);
+                    const loc = locations[name];
                     if (loc) {
                         lbuf.children.push({
                             "type": loc.type,
@@ -474,13 +468,13 @@ function createLogicGraphCategory(data, world) {
                             "content": sref
                         });
                     }
-                } else if (sref.startsWith("region.")) {
+                } else if (sref.startsWith("region[")) {
                     rbuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "region",
                         "content": sref
                     });
-                } else if (sref.startsWith("event.")) {
+                } else if (sref.startsWith("event[")) {
                     ebuf.children.push({
                         "ref": `${ref} -> ${sref}`,
                         "category": "event",
@@ -525,7 +519,7 @@ function createLogicMixinCategory(data) {
         "children": [resC, resA]
     };
     for (const ref in data) {
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             resC.children.push({
                 "ref": ref,
                 "category": "mixin",
@@ -559,7 +553,7 @@ function createLogicFunctionCategory(data) {
         "children": [resC, resA]
     };
     for (const ref in data) {
-        if (ref.endsWith("[child]")) {
+        if (ref.endsWith("{child}")) {
             resC.children.push({
                 "ref": ref,
                 "category": "function",

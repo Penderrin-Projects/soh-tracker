@@ -1,16 +1,14 @@
 // GameTrackerJS
-import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
-import ItemStateManager from "/GameTrackerJS/state/item/StateManager.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
+import ItemStateManager from "/GameTrackerJS/state/item/ItemStateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
-import ShopStates from "/script/state/shop/StateManager.js";
+import ShopStates from "../../shop/ShopStateManager.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 
-// TODO only show item if it is not a refill item
-
 const SHOP_STATE = new WeakMap();
-const WALLET = ItemStateManager.get("item.wallet");
+const WALLET = ItemStateManager.get("wallet");
 const WALLET_CAPACITIES = [99, 200, 500, 999];
 
 {
@@ -22,50 +20,53 @@ const WALLET_CAPACITIES = [99, 200, 500, 999];
     }
 }
 
-export default class ShopSlotState extends DefaultState {
+export default class ShopSlotState extends DefaultLocationState {
 
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const shopState = ShopLocationRegistry.get(ref);
+        const shopState = ShopLocationRegistry.get(props.shop);
         SHOP_STATE.set(this, shopState);
         /* EVENTS */
         if (shopState != null) {
-            shopState.addEventListener("bought", event => {
+            shopState.addEventListener("bought", (event) => {
                 this.refreshAccess();
                 const ev = new Event("value");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            shopState.addEventListener("item", event => {
+            shopState.addEventListener("item", (event) => {
+                this.refreshAccess();
                 const ev = new Event("item");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            shopState.addEventListener("price", event => {
+            shopState.addEventListener("price", (event) => {
                 this.refreshAccess();
                 const ev = new Event("price");
-                ev.data = event.data;
+                ev.value = event.value;
                 this.dispatchEvent(ev);
             });
-            WALLET.addEventListener("value", event => {
+            WALLET.addEventListener("value", () => {
                 this.refreshAccess();
             });
+            this.refreshAccess();
         }
-        this.refreshAccess();
     }
 
-    getAccessValue(checked, reachable) {
-        if (!checked && reachable) {
-            const shopState = SHOP_STATE.get(this);
-            if (WALLET_CAPACITIES[WALLET.value] < shopState.price) {
-                reachable = false;
-            }
+    get reachable() {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState == null || WALLET_CAPACITIES[WALLET.value] < shopState.price) {
+            return false;
         }
-        return super.getAccessValue(checked, reachable);
+        return super.reachable;
     }
 
-    stateLoaded(event) {
+    onStateLoad(/* state */) {
+        // ignore
+    }
+
+    stateLoaded(/* event */) {
         // ignore
     }
 
@@ -79,7 +80,7 @@ export default class ShopSlotState extends DefaultState {
     get value() {
         const shopState = SHOP_STATE.get(this);
         if (shopState != null) {
-            return shopState.bought;
+            return shopState.isRefill() || shopState.bought;
         }
         return false;
     }
@@ -134,4 +135,4 @@ export default class ShopSlotState extends DefaultState {
 
 }
 
-StateManager.register("shopslot", ShopSlotState);
+LocationStateManager.register("shopslot", ShopSlotState);

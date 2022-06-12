@@ -1,6 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 // GameTrackerJS
@@ -95,16 +95,16 @@ class HTMLMultiplayerLobby extends CustomElement {
 
         const refresh_button = this.shadowRoot.getElementById("refresh_button");
 
-        host_button.addEventListener("click", async function() {
+        host_button.addEventListener("click", async () => {
             if (host_name.value) {
                 const res = await RTCController.host(host_name.value, host_pass.value, host_desc.value, VersionData.version);
                 if (res) {
                     this.dispatchEvent(new Event("host"));
                 }
             }
-        }.bind(this));
+        });
 
-        const connect = async function(event) {
+        const connect = async (event) => {
             const el = event.target;
             let res;
             if (!!el.pass && el.pass != "false") {
@@ -116,13 +116,13 @@ class HTMLMultiplayerLobby extends CustomElement {
             if (res) {
                 this.dispatchEvent(new Event("join"));
             }
-        }.bind(this);
+        };
 
-        const refresh = async function(supressError) {
+        const refresh = async (supressError) => {
             const res = await RTCController.getInstances(supressError);
             if (res != null) {
                 this.innerHTML = "";
-                res.forEach(function(inst) {
+                res.forEach((inst) => {
                     const el = document.createElement("ootrt-mproom");
                     el.name = inst.name;
                     el.pass = inst.pass;
@@ -130,9 +130,9 @@ class HTMLMultiplayerLobby extends CustomElement {
                     el.version = inst.version;
                     el.addEventListener("click", connect);
                     this.append(el);
-                }.bind(this));
+                });
             }
-        }.bind(this);
+        };
 
         refresh_button.addEventListener("click", function() {
             refresh(false);

@@ -1,9 +1,10 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
+import SettingsResource from "/GameTrackerJS/data/resource/SettingsResource.js";
 
 const DataStorage = new IDBStorage("locations");
 
@@ -54,10 +55,11 @@ class LocationListsCreator {
         const result = [];
 
         const randomizer_options = OptionsResource.get();
+        const tracker_settings = SettingsResource.get();
 
         result.push(createDefaultOperatorCategory());
         result.operators.push(createOptionsOperatorCategory(randomizer_options));
-        // result.operators.push(createSettingsOperatorCategory(tracker_settings));
+        result.operators.push(createSettingsOperatorCategory(tracker_settings));
 
         return result;
     }
@@ -130,45 +132,45 @@ function createOptionsOperatorCategory(data) {
     };
 }
 
-// function createSettingsOperatorCategory(data) {
-//     const res = {
-//         "type": "group",
-//         "caption": "settings",
-//         "children": []
-//     };
-//     for (const i in data) {
-//         const opt = data[i];
-//         if (!!opt.type && opt.type.startsWith("-")) {
-//             continue;
-//         }
-//         if (opt.type === "choice") {
-//             if (Array.isArray(opt.values)) {
-//                 for (const j of opt.values) {
-//                     res.children.push({
-//                         "type": "tracker-logic-custom",
-//                         "ref": i,
-//                         "value": j,
-//                         "category": "settings"
-//                     });
-//                 }
-//             }
-//         } else if (opt.type === "list") {
-//             if (Array.isArray(opt.values)) {
-//                 for (const j of opt.values) {
-//                     res.children.push({
-//                         "type": "tracker-logic-custom",
-//                         "ref": j,
-//                         "category": "settings"
-//                     });
-//                 }
-//             }
-//         } else {
-//             res.children.push({
-//                 "type": "tracker-logic-custom",
-//                 "ref": i,
-//                 "category": "settings"
-//             });
-//         }
-//     }
-//     return res;
-// }
+function createSettingsOperatorCategory(data) {
+    const res = {
+        "type": "group",
+        "caption": "settings",
+        "children": []
+    };
+    for (const i in data) {
+        const opt = data[i];
+        if (!!opt.type && opt.type.startsWith("-")) {
+            continue;
+        }
+        if (opt.type === "choice") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res.children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": i,
+                        "value": j,
+                        "category": "settings"
+                    });
+                }
+            }
+        } else if (opt.type === "list") {
+            if (Array.isArray(opt.values)) {
+                for (const j of opt.values) {
+                    res.children.push({
+                        "type": "tracker-logic-custom",
+                        "ref": j,
+                        "category": "settings"
+                    });
+                }
+            }
+        } else {
+            res.children.push({
+                "type": "tracker-logic-custom",
+                "ref": i,
+                "category": "settings"
+            });
+        }
+    }
+    return res;
+}

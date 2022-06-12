@@ -5,7 +5,6 @@ import Window from "/emcJS/ui/overlay/window/Window.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
 // GameTrackerJS
-import StartItemsStorage from "/GameTrackerJS/storage/StartItemsStorage.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 
 const TPL = new Template(`
@@ -19,37 +18,33 @@ const TPL = new Template(`
 <hr style="width: 100%;">
 <div>
     <emc-input-wrapper>
-        <button data-type="shops">delete shop items</button>
+        <button data-types="shopItems,shopItemsPrice,shopItemsBought,shopItemsName">delete shop items</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button id="startitems">delete start items</button>
+        <button data-types="startItems">delete start items</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="songs">delete songs</button>
+        <button data-types="songNotes">delete songs</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="area_hint">delete area hints (woth/fool)</button>
+        <button data-types="areaHints">delete area hints (woth/fool)</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="dungeonreward">delete dungeon rewards</button>
+        <button data-types="dungeonRewards">delete dungeon rewards</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="dungeontype">delete dungeon types</button>
+        <button data-types="dungeonTypes">delete dungeon types</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="item_location">delete item locations</button>
+        <button data-types="locationItems">delete item locations</button>
     </emc-input-wrapper>
     <emc-input-wrapper>
-        <button data-type="gossipstone">delete gossipstone hints</button>
+        <button data-types="gossipstoneLocations,gossipstoneItems">delete gossipstone hints</button>
     </emc-input-wrapper>
 </div>
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 #body {
     height: 50vh;
 }
@@ -60,7 +55,12 @@ async function clearData(event) {
     if (!await Dialog.confirm("Warning", `Do you really want to "${buttonEl.innerHTML}"? This can not be undone.`)) {
         return;
     }
-    SavestateHandler.overwrite({data: {[buttonEl.dataset.type]: null}});
+    const types = buttonEl.dataset.types.split(",");
+    const data = {};
+    for (const name of types) {
+        data[name] = null;
+    }
+    SavestateHandler.overwrite(data);
 }
 
 export default class ClearDataWindow extends Window {
@@ -74,18 +74,10 @@ export default class ClearDataWindow extends Window {
         bodyEl.innerHTML = "";
         bodyEl.append(els);
         /* --- */
-        const buttonEls = bodyEl.querySelectorAll("[data-type]");
+        const buttonEls = bodyEl.querySelectorAll("[data-types]");
         for (const buttonEl of Array.from(buttonEls)) {
             buttonEl.addEventListener("click", clearData);
         }
-        /* --- */
-        const clearStartitemsEl = bodyEl.querySelector("#startitems");
-        clearStartitemsEl.addEventListener("click", async () => {
-            if (!await Dialog.confirm("Warning", `Do you really want to "delete start items"? This can not be undone.`)) {
-                return;
-            }
-            StartItemsStorage.clear();
-        });
     }
 
 }

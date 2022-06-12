@@ -17,11 +17,11 @@ export interface MarkerLocation {
      * filters for the list and badges
      */
     filter: {
-        "filter.era": {
+        "era": {
             "child": true | false,
             "adult": true | false
         },
-        "filter.time": {
+        "time": {
             "day": true | false,
             "night": true | false
         }

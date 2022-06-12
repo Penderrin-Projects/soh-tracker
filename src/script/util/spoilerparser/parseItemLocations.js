@@ -1,6 +1,6 @@
 export default function parseItemLocations(errorDialogHandler, target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
-    const location_hearts_mq = location_trans["MQ"];
+    const location_trans_mq = trans["locations_mq"];
     const item_trans = trans["itemList"];
 
     const buffer = {};
@@ -23,8 +23,8 @@ export default function parseItemLocations(errorDialogHandler, target = {}, data
                     if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
                         buffer["location/" + location_trans[i]] = item_trans[v];
                     }
-                    if (location_hearts_mq[i] != null) {
-                        buffer["location/" + location_hearts_mq[i]] = item_trans[v];
+                    if (location_trans_mq[i] != null) {
+                        buffer["location/" + location_trans_mq[i]] = item_trans[v];
                     }
                 }
             }
@@ -33,5 +33,5 @@ export default function parseItemLocations(errorDialogHandler, target = {}, data
             errorDialogHandler.add("[" + i + "] is a invalid Item Location value.");
         }
     }
-    target["item_location"] = buffer;
+    target.locationItems = buffer;
 }

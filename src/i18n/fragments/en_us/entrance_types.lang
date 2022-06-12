@@ -1,0 +1,11 @@
+entrance_type[dungeon_inner]=Inside Dungeon
+entrance_type[dungeon_outer]=Outside Dungeon
+entrance_type[grotto_inner]=Inside Grotto
+entrance_type[grotto_outer]=Outside Grotto
+entrance_type[interior_inner]=Inside Interior
+entrance_type[interior_outer]=Outside Interior
+entrance_type[overworld]=Overworld Exits
+entrance_type[special]=Special Exits
+entrance_type[flight]=Owl Flight
+entrance_type[spawn]=Child/Adult Spawn
+entrance_type[warp]=Song Warp

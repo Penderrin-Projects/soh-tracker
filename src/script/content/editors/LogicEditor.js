@@ -1,8 +1,8 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import EventBus from "/emcJS/event/EventBus.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import "/editors/modules/logic/Editor.js";
 
 import LogicResource from "/script/resource/LogicResource.js";
@@ -50,11 +50,11 @@ export default async function(glitched = false) {
 
     await refreshLogicEditor();
     // events
-    logicEditor.addEventListener("save", async event => {
+    logicEditor.addEventListener("save", async (event) => {
         await LogicsStorage.set(event.key, event.logic);
         EventBus.trigger("custom_logic_update");
     });
-    logicEditor.addEventListener("clear", async event => {
+    logicEditor.addEventListener("clear", async (event) => {
         await LogicsStorage.delete(event.key);
     });
     // navigation

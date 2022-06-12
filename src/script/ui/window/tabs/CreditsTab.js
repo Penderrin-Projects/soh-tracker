@@ -1,8 +1,8 @@
 // frameworks
-import LocalStorage from "/emcJS/storage/LocalStorage.js";
+import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
 import DeveloperData from "/script/data/DeveloperData.js";
@@ -116,11 +116,11 @@ function createSupporterPanel(title, data) {
 async function fillCredits(teamList, contributorList, supporterList) {
     teamList.append(createDevEntry(DeveloperData.owner, "owner"));
     const team = DeveloperData.team.sort(sortNames);
-    team.forEach(name => {
+    team.forEach((name) => {
         teamList.append(createDevEntry(name, "team"));
     });
     const contributors = DeveloperData.contributors.sort(sortNames);
-    contributors.forEach(name => {
+    contributors.forEach((name) => {
         contributorList.append(createDevEntry(name, "contributor"));
     });
     let supporters = LocalStorage.get("supporters", {});

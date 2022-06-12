@@ -1,3 +1,3 @@
-import JSONCResourceFile from "/GameTrackerJS/data/JSONCResourceFile.js";
+import JSONCResource from "/emcJS/data/resource/file/JSONCResource.js";
 
-export default await JSONCResourceFile.create("/database/shop_items.json");
+export default await JSONCResource.get("/database/shop_items.json");

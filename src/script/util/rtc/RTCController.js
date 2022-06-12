@@ -1,6 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-import EventTargetManager from "/emcJS/event/EventTargetManager.js";
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 import RTCClient from "/rtc/RTCClient.js";
 
 // Track-OOT
@@ -51,7 +51,7 @@ class RTCController extends EventTarget {
 
     constructor() {
         super();
-        rtcPeerEventManager.set("roomupdate", event => {
+        rtcPeerEventManager.set("roomupdate", (event) => {
             const ev = new Event("roomupdate");
             ev.data = event.data;
             this.dispatchEvent(ev);
@@ -114,7 +114,7 @@ class RTCController extends EventTarget {
                 rtcClientEventManager.clear();
                 resolve(false);
             });
-            rtcClient.connect(name, pass, version).then(async res => {
+            rtcClient.connect(name, pass, version).then(async (res) => {
                 if (res.success === true) {
                     rtcClient.setMessageHandler("data", async function(key, msg) {
                         if (msg.type == "name") {
@@ -132,7 +132,7 @@ class RTCController extends EventTarget {
                             }
                         }
                     });
-                    rtcClientEventManager.set("connected", async (key) => {
+                    rtcClientEventManager.set("connected", async () => {
                         if (!await promptPeerName("")) {
                             rtcClientEventManager.clear();
                             resolve(false);

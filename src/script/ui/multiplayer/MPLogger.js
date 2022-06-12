@@ -1,13 +1,9 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import CustomElement from "/emcJS/ui/CustomElement.js";
+import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 const TPL = new Template(`
     <style>
-        * {
-            position: relative;
-            box-sizing: border-box;
-        }
         :host {
             display: flex;
             flex-direction: column;
