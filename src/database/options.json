@@ -216,6 +216,11 @@
         "type": "check",
         "default": false
     },
+    "shuffle_bosses": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
     "entrance_shuffle_interior": {
         "category": "entrance_randomizer",
         "type": "choice",

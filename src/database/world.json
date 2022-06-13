@@ -23999,7 +23999,10 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    },
                     "adult": true
                 },
                 "time": {
@@ -24155,7 +24158,10 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    },
                     "adult": true
                 },
                 "time": {
@@ -24450,7 +24456,10 @@
             "filter": {
                 "era": {
                     "child": true,
-                    "adult": false
+                    "adult": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    }
                 },
                 "time": {
                     "day": true,
@@ -24564,10 +24573,23 @@
                     "category": "location"
                 },
                 {
+                    "id": "deku_boss_entrance -> deku_boss_gateway",
+                    "x": 2696,
+                    "y": 1046,
+                    "category": "exit"
+                },
+                {
                     "id": "deku.c_gohma",
                     "x": 2497,
                     "y": 596,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "option[shuffle_bosses]"
+                        }
+                    }
                 },
                 {
                     "id": "deku.s_3f_compass_side_child",
@@ -24650,10 +24672,23 @@
                     "category": "location"
                 },
                 {
+                    "id": "deku_boss_entrance -> deku_boss_gateway",
+                    "x": 2696,
+                    "y": 1046,
+                    "category": "exit"
+                },
+                {
                     "id": "deku_mq.c_gohma",
                     "x": 2497,
                     "y": 596,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "option[shuffle_bosses]"
+                        }
+                    }
                 },
                 {
                     "id": "deku_mq.s_crate_near_map_child",
@@ -24677,6 +24712,36 @@
                     "id": "deku_mq.s_basement_back_room_child",
                     "x": 1049,
                     "y": 184,
+                    "category": "location"
+                }
+            ]
+        },
+        "deku.bossarea": {
+            "type": "bossarea",
+            "categories": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/boss_area.svg",
+            "areaTags": false,
+            "map": {
+                "active": false
+            },
+            "list": [
+                {
+                    "id": "deku.c_gohma",
+                    "x": 2497,
+                    "y": 596,
                     "category": "location"
                 }
             ]
@@ -24952,7 +25017,10 @@
             "filter": {
                 "era": {
                     "child": true,
-                    "adult": false
+                    "adult": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    }
                 },
                 "time": {
                     "day": true,
@@ -25167,7 +25235,10 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    },
                     "adult": true
                 },
                 "time": {
@@ -25449,7 +25520,10 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    },
                     "adult": true
                 },
                 "time": {
@@ -25737,7 +25811,10 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "value",
+                        "el": "option[shuffle_dungeons]"
+                    },
                     "adult": true
                 },
                 "time": {
@@ -46781,6 +46858,228 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
+        },
+        "deku_boss_entrance -> deku_boss_gateway": {
+            "type": "boss_outer",
+            "target": "deku_boss_gateway -> deku_boss_entrance",
+            "logicAccess": "region[deku_boss_entrance]",
+            "area": "deku",
+            "categories": [
+                "boss",
+                "deku"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/boss_area.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "deku_boss_gateway -> deku_boss_entrance": {
+            "type": "boss_inner",
+            "target": "deku_boss_entrance -> deku_boss_gateway",
+            "logicAccess": "region[deku_boss_gateway]",
+            "area": "deku.bossarea",
+            "categories": [
+                "boss",
+                "deku"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/grotto.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "dodongo_boss_entrance -> dodongo_boss_gateway": {
+            "type": "boss_outer",
+            "target": "dodongo_boss_gateway -> dodongo_boss_entrance",
+            "logicAccess": "region[dodongo_boss_entrance]",
+            "area": "dodongo",
+            "categories": [
+                "boss",
+                "dodongo"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/grotto.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "dodongo_boss_gateway -> dodongo_boss_entrance": {
+            "type": "boss_inner",
+            "target": "dodongo_boss_entrance -> dodongo_boss_gateway",
+            "logicAccess": "region[dodongo_boss_gateway]",
+            "area": "dodongo",
+            "categories": [
+                "boss",
+                "dodongo"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/grotto.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "jabu_boss_entrance -> jabu_boss_gateway": {
+            "type": "boss_outer",
+            "target": "jabu_boss_gateway -> jabu_boss_entrance",
+            "logicAccess": "region[jabu_boss_entrance]",
+            "area": "jabu",
+            "categories": [
+                "boss",
+                "jabu"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/grotto.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "jabu_boss_gateway -> jabu_boss_entrance": {
+            "type": "boss_inner",
+            "target": "jabu_boss_entrance -> jabu_boss_gateway",
+            "logicAccess": "region[jabu_boss_gateway]",
+            "area": "jabu",
+            "categories": [
+                "boss",
+                "jabu"
+            ],
+            "visible": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/grotto.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "value",
+                "el": "option[shuffle_bosses]"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
         }
     }
 }
