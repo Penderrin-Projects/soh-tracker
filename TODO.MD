@@ -63,7 +63,23 @@ to:
 
 ---
 
-### TODO
+### BUGS
+
+### TRACKER TODO
+
+- boss shortcuts
+- frog songs individual checks
+- key rings for location items / shops
+    - why? can just use normal key icon
+- ganon boss keysanity needs own option
+- remove done filter for areas / exits
+    - list option to ignore empty list?
+
+### WIP (nightly)
+
+- boss region (boss rando) 
+
+### OTHER TODO
 
 - add rom options
     - disabled locations

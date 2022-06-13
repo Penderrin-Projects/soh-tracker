@@ -50,7 +50,15 @@ export default class RTCPeerClient extends RTCPeer {
         } else if (msg.type == "state") {
             this.mute();
             const filter = STORAGES.filter.getAll();
-            await Savestate.deserialize({data: {...msg.data.data, filter}});
+            await Savestate.deserialize({
+                data: {
+                    ...msg.data.data,
+                    filter
+                },
+                meta: {
+                    "init_window_shown": true
+                }
+            });
             this.unmute();
         } else {
             await super.rtcMessageHandler(key, msg);
