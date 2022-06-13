@@ -65,13 +65,7 @@ to:
 
 ### BUGS
 
-- multiplayer
-    - shop sync not working
-    - dungeon type sync not working
-    - dungeon reward sync not working
-
-[x] "graveyard from royal tomb" should be "royal tomb from graveyard"
-[x] not all interior exits available as entrances from spawns
+- on multiplayer connect do not ever show init window
 
 ### TRACKER TODO
 
