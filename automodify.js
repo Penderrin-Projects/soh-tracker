@@ -87,7 +87,8 @@ function modify(source = {}, target = {}) {
             ignoreBound: oldProps.ignoreBound,
             entranceActive: oldProps.entranceActive,
             includeInactiveEntrances: oldProps.includeInactiveEntrances,
-            isBiDir: oldProps.isBiDir
+            isBiDir: oldProps.isBiDir,
+            ignoreMixedEntrances: oldProps.ignoreMixedEntrances
         };
         exit[ref] = newProps;
     }

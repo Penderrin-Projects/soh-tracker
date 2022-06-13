@@ -65,16 +65,19 @@ to:
 
 ### BUGS
 
-- on multiplayer connect do not ever show init window
-
 ### TRACKER TODO
 
 - boss shortcuts
 - frog songs individual checks
-- boss randomizer
 - key rings for location items / shops
+    - why? can just use normal key icon
 - ganon boss keysanity needs own option
-- map overlay panels invert border
+- remove done filter for areas / exits
+    - list option to ignore empty list?
+
+### WIP (nightly)
+
+- boss region (boss rando) 
 
 ### OTHER TODO
 
