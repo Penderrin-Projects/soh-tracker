@@ -2,6 +2,7 @@
 import Counter from "/GameTrackerJS/util/Counter.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
+import "../registerStorages.js";
 
 const STORAGES = {
     // GameTrackerJS
