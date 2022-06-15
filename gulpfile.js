@@ -5,9 +5,10 @@ import jsonminify from "gulp-jsonminify";
 import svgo from "gulp-svgo";
 import newer from "gulp-newer";
 import autoprefixer from "gulp-autoprefixer";
-import FileIndex from "./build_tools/FileIndex.js";
+import FileIndex from "emcjs/build_tools/FileIndex.js";
 import LanguageManager from "emcjs/build_tools/LanguageManager.js";
 import sourceImport from "emcjs/build_tools/sourceImport.js";
+import ImportAnalyzer from "emcjs/build_tools/ImportAnalyzer.js";
 
 const __dirname = path.resolve();
 
@@ -32,9 +33,10 @@ const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 
 /* JS START */
-function copyJS(files, src, dest) {
+function copyJS(files, src, dest, target) {
     let res = gulp.src(files);
     res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(ImportAnalyzer.register(src, dest, target));
     if (!REBUILDJS && !REBUILD) {
         res = res.pipe(newer(dest))
     }
@@ -49,7 +51,7 @@ function copyScript(dest = DEV_PATH) {
     ];
     const SRC = `${SRC_PATH}/script`;
     const DST = `${dest}/script`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyGameTrackerJS(dest = DEV_PATH) {
@@ -59,7 +61,7 @@ function copyGameTrackerJS(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.GameTrackerJS;
     const DST = `${dest}/GameTrackerJS`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyEmcJS(dest = DEV_PATH) {
@@ -69,7 +71,7 @@ function copyEmcJS(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.emcJS;
     const DST = `${dest}/emcJS`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyTrackerEditor(dest = DEV_PATH) {
@@ -81,7 +83,7 @@ function copyTrackerEditor(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.JSEditors;
     const DST = `${dest}/editors`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyRTCClient(dest = DEV_PATH) {
@@ -90,7 +92,7 @@ function copyRTCClient(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.RTCClient;
     const DST = `${dest}/rtc`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyInitializer(dest = DEV_PATH) {
@@ -100,7 +102,7 @@ function copyInitializer(dest = DEV_PATH) {
     ];
     const SRC = SRC_PATH;
     const DST = dest;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 
 function copyDetachedScript(dest = DEV_PATH) {
@@ -109,7 +111,7 @@ function copyDetachedScript(dest = DEV_PATH) {
     ];
     const SRC = `${SRC_PATH}/detached`;
     const DST = `${dest}/detached`;
-    return copyJS(FILES, SRC, DST);
+    return copyJS(FILES, SRC, DST, dest);
 }
 /* JS END */
 
@@ -248,7 +250,14 @@ function copyFonts(dest = DEV_PATH) {
 
 function finish(dest, done) {
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
-    FileIndex.finish(dest);
+    FileIndex.finish(dest, undefined, ImportAnalyzer.getUsedImports(
+        dest,
+        path.resolve(dest, "script/app.js"),
+        path.resolve(dest, "sw.js"),
+        path.resolve(dest, "index.js"),
+        path.resolve(dest, "script/StateRecovery.js"),
+        path.resolve(dest, "detached/index.js")
+    ), /.*\/(i18n\/fragments|)\/.*\.js/);
     done();
 }
 
