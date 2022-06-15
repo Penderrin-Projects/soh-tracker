@@ -310,7 +310,7 @@
             "region[gerudo_training_grounds_entrance]{child}": {
                 "type": "true"
             },
-            "region[gerudo_training_grounds_lobby]{child}": {
+            "region[gerudo_training_ground_lobby]{child}": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -318,7 +318,7 @@
                     "value": "mq"
                 }
             },
-            "region[gerudo_training_grounds_lobby_mq]{child}": {
+            "region[gerudo_training_ground_lobby_mq]{child}": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -331,7 +331,7 @@
             "region[gerudo_training_grounds_entrance]{adult}": {
                 "type": "true"
             },
-            "region[gerudo_training_grounds_lobby]{adult}": {
+            "region[gerudo_training_ground_lobby]{adult}": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -339,7 +339,7 @@
                     "value": "mq"
                 }
             },
-            "region[gerudo_training_grounds_lobby_mq]{adult}": {
+            "region[gerudo_training_ground_lobby_mq]{adult}": {
                 "type": "not",
                 "el": {
                     "type": "state",
@@ -15221,6 +15221,63 @@
             "region[gerudo_training_ground_heavy_block_room]{child}": {
                 "type": "true"
             },
+            "region[gerudo_training_ground_lava_room]{child}": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[filter_era]{child}"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region[gerudo_training_ground_lobby]{child}",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[has_explosives]{child}"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[can_jumpslash]{child}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[filter_era]{adult}"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region[gerudo_training_ground_lobby]{adult}",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[has_explosives]{adult}"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[can_jumpslash]{adult}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
             "region[gerudo_training_ground_central_maze]{child}": {
                 "type": "true"
             },
@@ -15289,6 +15346,63 @@
         "region[gerudo_training_ground_lobby]{adult}": {
             "region[gerudo_training_ground_heavy_block_room]{adult}": {
                 "type": "true"
+            },
+            "region[gerudo_training_ground_lava_room]{adult}": {
+                "type": "or",
+                "el": [
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[filter_era]{child}"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region[gerudo_training_ground_lobby]{child}",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[has_explosives]{child}"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[can_jumpslash]{child}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[filter_era]{adult}"
+                            },
+                            {
+                                "type": "at",
+                                "node": "region[gerudo_training_ground_lobby]{adult}",
+                                "el": {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[has_explosives]{adult}"
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[can_jumpslash]{adult}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
             "region[gerudo_training_ground_central_maze]{adult}": {
                 "type": "true"
