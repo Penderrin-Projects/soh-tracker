@@ -8,26 +8,25 @@ function addValue(target, key, value) {
     }
 }
 
-export default function parseStartingInventory(errorDialogHandler, target = {}, settingsSpoiler = {}, trans = {}) {
+export default function parseStartingInventory(addError, target = {}, settingsSpoiler = {}, trans = {}) {
+    target.startItems = target.startItems ?? {};
+
     for (const key of INVENTORY_KEYS) {
         const data = settingsSpoiler[key] ?? [];
         const starting_trans = trans[key] ?? {};
         for (const item of data) {
             if (typeof item != "string") {
-                console.warn(`Unexpected type "${typeof item}" within starting items`);
-                errorDialogHandler.add(`Unexpected type "${typeof item}" within starting items`);
+                addError(`Unexpected type "${typeof item}" within starting items`);
             } else {
                 const transData = starting_trans[item];
                 if (transData == null) {
-                    console.warn(`Unknown Starting item "${item}" for "${key}"`);
-                    errorDialogHandler.add(`Unknown Starting item "${item}" for "${key}"`);
+                    addError(`Unknown Starting item "${item}" for "${key}"`);
                 } else if (typeof transData == "string") {
                     addValue(target.startItems, transData, 1);
                 } else {
                     const name = transData["name"];
                     if (typeof name != "string") {
-                        console.warn(`Translation for Starting item "${item}" in "${key}" is errornous`);
-                        errorDialogHandler.add(`Translation for Starting item "${item}" in "${key}" is errornous`);
+                        addError(`Translation for Starting item "${item}" in "${key}" is errornous`);
                     } else {
                         const value = parseInt(transData["value"]);
                         if (!isNaN(value)) {

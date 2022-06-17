@@ -1,6 +1,11 @@
-export default function parseShops(errorDialogHandler, target = {}, data = {}, trans = {}, shopsanity = false) {
+export default function parseShops(addError, target = {}, data = {}, trans = {}, shopsanity = false) {
     const shop_trans = new Set(trans["shops"]);
     const item_trans = trans["shopItems"];
+
+    target.shopItems = target.shopItems ?? {};
+    target.shopItemsBought = target.shopItemsBought ?? {};
+    target.shopItemsPrice = target.shopItemsPrice ?? {};
+    target.shopItemsName = target.shopItemsName ?? {};
 
     if (shopsanity !== "off") {
         for (const i in data) {

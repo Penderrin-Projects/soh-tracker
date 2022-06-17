@@ -51,6 +51,11 @@ const DEFAULT_DATA = {
     parseSpoiler: {}
 };
 
+function addError(error) {
+    console.warn(error);
+    errorDialogHandler.add(error);
+}
+
 function getVersionType(version) {
     if (typeof version != "string") {
         throw Error("The file you loaded is not a valid OOTR Spoiler Log.");
@@ -110,55 +115,55 @@ class SpoilerParser {
         const debugSpoiler = SettingsStorage.get("debug_spoiler")
         if (debugSpoiler || settings["settings"]) {
             // options
-            parseSettings(errorDialogHandler, result, spoiler["settings"], trans);
+            parseSettings(addError, result, spoiler["settings"], trans);
         }
         if (debugSpoiler || settings["starting_items"]) {
             // startItems
-            parseStartingInventory(errorDialogHandler, result, spoiler["settings"], trans);
+            parseStartingInventory(addError, result, spoiler["settings"], trans);
         }
         if (debugSpoiler || settings["random_settings"]) {
             // options
-            parseSettings(errorDialogHandler, result, getWorldData(spoiler["randomized_settings"], world), trans);
+            parseSettings(addError, result, getWorldData(spoiler["randomized_settings"], world), trans);
         }
         if (debugSpoiler || settings["item_association"]) {
             // locationItems
-            parseItemLocations(errorDialogHandler, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans);
+            parseItemLocations(addError, result, getWorldData(spoiler["locations"], world), world, debugSpoiler || settings["ignore_world_locking"], trans);
         }
         if (debugSpoiler || settings["woth_hints"]) {
             // areaHints
-            parseWoth(errorDialogHandler, result, getWorldData(spoiler[":woth_locations"], world), trans);
+            parseWoth(addError, result, getWorldData(spoiler[":woth_locations"], world), trans);
         }
         if (debugSpoiler || settings["barren"]) {
             // areaHints
-            parseBarren(errorDialogHandler, result, getWorldData(spoiler[":barren_regions"], world), trans);
+            parseBarren(addError, result, getWorldData(spoiler[":barren_regions"], world), trans);
         }
         if (debugSpoiler || settings["shops"]) {
             // shopItems, shopItemsPrice, shopItemsBought, shopItemsName
-            parseShops(errorDialogHandler, result, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
+            parseShops(addError, result, getWorldData(spoiler["locations"], world), trans, spoiler.settings["shopsanity"]);
         }
         if (debugSpoiler || settings["gossip_stones"]) {
             // gossipstoneLocations, gossipstoneItems
-            // parseStones(errorDialogHandler, result, getWorldData(spoiler["gossip_stones"], world), trans);
+            // parseStones(addError, result, getWorldData(spoiler["gossip_stones"], world), trans);
         }
         if (debugSpoiler || settings["trials"]) {
             // options
-            parseTrials(errorDialogHandler, result, getWorldData(spoiler["trials"], world), trans);
+            parseTrials(addError, result, getWorldData(spoiler["trials"], world), trans);
         }
         if (debugSpoiler || settings["dungeonReward"]) {
             // dungeonRewards
-            parseDungeonRewards(errorDialogHandler, result, getWorldData(spoiler["locations"], world), trans);
+            parseDungeonRewards(addError, result, getWorldData(spoiler["locations"], world), trans);
         }
         if (debugSpoiler || settings["dungeons"]) {
             // dungeonTypes
-            parseDungeonTypes(errorDialogHandler, result, getWorldData(spoiler["dungeons"], world), trans);
+            parseDungeonTypes(addError, result, getWorldData(spoiler["dungeons"], world), trans);
         }
         if (debugSpoiler || settings["disabled_locations"]) {
             // locations
-            parseDisabledLocations(errorDialogHandler, result, spoiler["settings"]?.["disabled_locations"], trans);
+            parseDisabledLocations(addError, result, spoiler["settings"]?.["disabled_locations"], trans);
         }
 
         // exitBindings
-        parseEntrances(errorDialogHandler, result, getWorldData(spoiler["entrances"], world), trans, {
+        parseEntrances(addError, result, getWorldData(spoiler["entrances"], world), trans, {
             dungeon: debugSpoiler || settings["entro_dungeons"],
             grottos: debugSpoiler || settings["entro_grottos"],
             indoors: debugSpoiler || settings["entro_indoors"],
