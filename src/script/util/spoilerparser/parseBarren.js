@@ -1,6 +1,8 @@
-export default function parseBarren(errorDialogHandler, target = {}, data = {}, trans = {}) {
+export default function parseBarren(addError, target = {}, data = {}, trans = {}) {
     const barren_trans = trans["barren"];
     let castle = 0;
+
+    target.areaHints = target.areaHints ?? {};
 
     const bar = new Set(data);
 
@@ -15,8 +17,7 @@ export default function parseBarren(errorDialogHandler, target = {}, data = {}, 
                 target.areaHints["area/" + barren_trans[i]] = "barren";
             }
         } else {
-            console.warn("[" + i + "] is a invalid Barren value.");
-            errorDialogHandler.add("[" + i + "] is a invalid Barren value.");
+            addError("[" + i + "] is a invalid Barren value.");
         }
     });
 }

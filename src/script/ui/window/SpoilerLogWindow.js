@@ -94,6 +94,10 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
         super.show(res);
     }
 
+    static getLabel(label) {
+        return `parse[${label}]`;
+    }
+
 }
 
 customElements.define("tootr-window-spoilerlog", SpoilerLogWindow);

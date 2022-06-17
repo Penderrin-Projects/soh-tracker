@@ -1,11 +1,11 @@
-export default function parseEntrances(errorDialogHandler, target = {}, data = {}, trans = {}, opt = {}) {
+export default function parseEntrances(addError, target = {}, data = {}, trans = {}, opt = {}) {
     const {dungeon, grottos, indoors, overworld, owls, spawns, warps} = opt;
     const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps} = trans.entrances.entrances;
     const {exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld, exit_extras} = trans.entrances.exits;
     const entrance = {entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld, entro_owls: entro_owls, entro_spawns: entro_spawns, entro_warps: entro_warps}
     const exit = {exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld, exit_extra: exit_extras}
 
-    const buffer = {};
+    target.exitBindings = target.exitBindings ?? {};
 
     for (const i in data) {
         let v = data[i];
@@ -34,48 +34,45 @@ export default function parseEntrances(errorDialogHandler, target = {}, data = {
         }
 
         if (typeof i === "object" && i !== null) {
-            console.warn("Unexpected Array within entrances.");
-            errorDialogHandler.add("Unexpected Array within entrances.");
+            addError("Unexpected Array within entrances.");
         } else if (edgeThere === null || edgeBack === null) {
-            console.warn("[" + i + ": " + v + "] is a invalid Entrance value.");
-            errorDialogHandler.add("[" + i + ": " + v + "] is a invalid Entrance value.");
+            addError("[" + i + ": " + v + "] is a invalid Entrance value.");
         } else {
             if (dungeon) {
                 if (entro_dungeons[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (grottos) {
                 if (entro_grottos[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (indoors) {
                 if (entro_simple[i] === edgeThere || entro_indoors[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (overworld) {
                 if (entro_overworld[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (owls) {
                 if (entro_owls[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (spawns) {
                 if (entro_spawns[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
             if (warps) {
                 if (entro_warps[i] === edgeThere) {
-                    buffer[edgeThere] = edgeBack;
+                    target.exitBindings[edgeThere] = edgeBack;
                 }
             }
         }
     }
-    target.exitBindings = buffer;
 }
