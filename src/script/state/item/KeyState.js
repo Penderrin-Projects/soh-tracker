@@ -22,7 +22,7 @@ export default class KeyState extends DefaultItemState {
                 AREA.set(this, area);
                 if (area.props.list_mq != null) {
                     area.addEventListener("type", (event) => {
-                        this.#setMax(props.typeMax[event.data] ?? super.max);
+                        this.#setMax(props.typeMax[event.value] ?? super.max);
                         const ev = new Event("type");
                         ev.value = event.value;
                         this.dispatchEvent(ev);
