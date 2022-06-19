@@ -24528,6 +24528,19 @@
                     "category": "exit"
                 },
                 {
+                    "id": "kokiri",
+                    "x": 1283,
+                    "y": 1483,
+                    "category": "area",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "option[shuffle_dungeons]"
+                        }
+                    }
+                },
+                {
                     "id": "deku.c_lobby",
                     "x": 798,
                     "y": 931,
@@ -24600,6 +24613,19 @@
                     "x": 1283,
                     "y": 1483,
                     "category": "exit"
+                },
+                {
+                    "id": "kokiri",
+                    "x": 1283,
+                    "y": 1483,
+                    "category": "area",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "option[shuffle_dungeons]"
+                        }
+                    }
                 },
                 {
                     "id": "deku_mq.c_lobby",
