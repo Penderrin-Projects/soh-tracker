@@ -34,7 +34,6 @@ const STYLE = new GlobalStyle(`
     width: 32px;
     height: 32px;
     box-sizing: border-box;
-    -moz-user-select: none;
     user-select: none;
     transform: translate(-8px, -8px);
 }
@@ -73,7 +72,6 @@ const STYLE = new GlobalStyle(`
 }
 #tooltip {
     padding: 5px 12px;
-    -moz-user-select: none;
     user-select: none;
     white-space: nowrap;
     font-size: 30px;
@@ -92,7 +90,6 @@ const STYLE = new GlobalStyle(`
 #text {
     display: flex;
     align-items: center;
-    -moz-user-select: none;
     user-select: none;
     white-space: nowrap;
 }
