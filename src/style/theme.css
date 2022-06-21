@@ -23,11 +23,6 @@
     --contextmenu-background-hover: #cb9c3d32;
     --contextmenu-text-hover: #e7be6b;
 
-    --location-status-opened-color: #777777;
-    --location-status-available-color: #00ff00;
-    --location-status-unavailable-color: #ff0000;
-    --location-status-possible-color: #ffff00;
-
     /* all; top_bottom right_left; top right bottom left*/
     --list-border-top-color: #d4ad5e77;
     /* all; top_bottom right_left; top right bottom left*/
@@ -75,4 +70,12 @@
     --scrollbar-thumb-border-style: solid;
     --scrollbar-thumb-border-color: var(--page-border-color-inverted);
     --scrollbar-thumb-border-radius: 0px;
+
+    /* ally color variables for world entities */
+    --world-entry-status-opened-color: #777777;
+    --world-entry-status-available-color: #00ff00;
+    --world-entry-status-unavailable-color: #ff0000;
+    --world-entry-status-possible-color: #ffff00;
+    --world-connection-background-color: #ffffff;
+    --world-connection-text-color: #000000;
 }
