@@ -21,8 +21,8 @@ const STYLE = new GlobalStyle(`
 :host {
     display: flex;
     flex-direction: row;
-    min-width: min-content;
-    min-height: min-content;
+    width: min-content;
+    height: min-content;
 }
 :host([orientation="column"]) {
     flex-direction: column;
