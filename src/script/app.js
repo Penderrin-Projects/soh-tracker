@@ -23,7 +23,7 @@ import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
 import "/GameTrackerJS/ui/TextEditor.js";
-import "/GameTrackerJS/ui/ViewChoice.js";
+import "/GameTrackerJS/ui/layout/ViewChoice.js";
 // Track-OOT
 import "/script/content/index.js";
 import "/script/content/Tracker.js";
