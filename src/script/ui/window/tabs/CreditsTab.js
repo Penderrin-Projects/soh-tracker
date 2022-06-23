@@ -116,13 +116,13 @@ function createSupporterPanel(title, data) {
 async function fillCredits(teamList, contributorList, supporterList) {
     teamList.append(createDevEntry(DeveloperData.owner, "owner"));
     const team = DeveloperData.team.sort(sortNames);
-    team.forEach((name) => {
+    for (const name of team) {
         teamList.append(createDevEntry(name, "team"));
-    });
+    }
     const contributors = DeveloperData.contributors.sort(sortNames);
-    contributors.forEach((name) => {
+    for (const name of contributors) {
         contributorList.append(createDevEntry(name, "contributor"));
-    });
+    }
     let supporters = LocalStorage.get("supporters", {});
     try {
         const r = await fetch(SUPPORTER_URL);

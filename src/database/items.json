@@ -256,7 +256,7 @@
         "type": "progressive",
         "max": 8,
         "varMin": {
-            "option": "option[skip_child_zelda]",
+            "option": "skip_child_zelda",
             "values": {
                 "true": 3
             }
@@ -276,7 +276,7 @@
     "cojiro": {
         "type": "progressive_startsettings",
         "max": 11,
-        "start_settings": "option[trade_sequence_start_item]",
+        "start_settings": "trade_sequence_start_item",
         "icon": [
             "/images/items/egg_cojiro.png",
             "/images/items/egg_cojiro.png",
@@ -754,7 +754,7 @@
         "type": "item",
         "max": 4,
         "varMax": {
-            "option": "option[gerudo_fortress_open]",
+            "option": "gerudo_fortress_open",
             "values": {
                 "gerudo_fortress_open_one": 1,
                 "gerudo_fortress_open_open": 0
@@ -970,7 +970,7 @@
     "poe_big": {
         "type": "item",
         "max": 10,
-        "varMax": "option[big_poe_count]",
+        "varMax": "big_poe_count",
         "counting": true,
         "icon": "/images/items/bottle_poe_big.png",
         "halign": "end",

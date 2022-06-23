@@ -4,6 +4,7 @@ import "/editors/EditorChoice.js";
 // Track-OOT
 import PageSwitcher from "/script/util/PageSwitcher.js";
 import createLogicEditor from "./editors/LogicEditor.js";
+import createLogicGlitchedEditor from "./editors/LogicGlitchedEditor.js";
 //import createWorldEditor from "./editors/WorldEditor.js";
 
 const editorChoice = document.getElementById("editor-choice");
@@ -57,7 +58,7 @@ function registerWindow({name, panel, navigation, refreshFn}) {
 
 // add editors
 (async function() {
-    registerWindow(await createLogicEditor(false));
-    registerWindow(await createLogicEditor(true));
+    registerWindow(await createLogicEditor());
+    registerWindow(await createLogicGlitchedEditor());
     //registerWindow(await createWorldEditor());
 })();

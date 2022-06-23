@@ -122,7 +122,7 @@ class HTMLMultiplayerLobby extends CustomElement {
             const res = await RTCController.getInstances(supressError);
             if (res != null) {
                 this.innerHTML = "";
-                res.forEach((inst) => {
+                for (const inst of res) {
                     const el = document.createElement("ootrt-mproom");
                     el.name = inst.name;
                     el.pass = inst.pass;
@@ -130,7 +130,7 @@ class HTMLMultiplayerLobby extends CustomElement {
                     el.version = inst.version;
                     el.addEventListener("click", connect);
                     this.append(el);
-                });
+                }
             }
         };
 

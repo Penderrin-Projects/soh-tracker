@@ -142,17 +142,17 @@ class DungeonState extends Panel {
         } else {
             value = [];
         }
-        this.shadowRoot.querySelectorAll("[type]").forEach((j) => {
-            j.classList.add("inactive");
-        });
-        value.forEach((i) => {
+        for (const el of this.shadowRoot.querySelectorAll("[type]")) {
+            el.classList.add("inactive");
+        }
+        for (const i of value) {
             if (!i) {
                 return;
             }
-            this.shadowRoot.querySelectorAll(`[type~=${i}]`).forEach((j) => {
-                j.classList.remove("inactive");
-            });
-        });
+            for (const el of this.shadowRoot.querySelectorAll(`[type~=${i}]`)) {
+                el.classList.remove("inactive");
+            }
+        }
     }
 
 }

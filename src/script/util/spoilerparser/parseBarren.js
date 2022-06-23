@@ -6,7 +6,7 @@ export default function parseBarren(addError, target = {}, data = {}, trans = {}
 
     const bar = new Set(data);
 
-    bar.forEach((i) => {
+    for (const i of bar) {
         if (barren_trans[i] != null) {
             if (barren_trans[i] === "castle") {
                 castle++;
@@ -19,5 +19,5 @@ export default function parseBarren(addError, target = {}, data = {}, trans = {}
         } else {
             addError("[" + i + "] is a invalid Barren value.");
         }
-    });
+    }
 }
