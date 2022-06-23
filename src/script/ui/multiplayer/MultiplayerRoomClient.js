@@ -66,7 +66,7 @@ class HTMLMultiplayerRoomClient extends CustomElement {
             this.append(el);
         }
         if (data.clients) {
-            data.clients.forEach((inst) => {
+            for (const inst of data.clients) {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
                 el.role = "client";
@@ -75,10 +75,10 @@ class HTMLMultiplayerRoomClient extends CustomElement {
                 } else {
                     this.append(el);
                 }
-            });
+            }
         }
         if (data.spectators) {
-            data.spectators.forEach((inst) => {
+            for (const inst of data.spectators) {
                 const el = document.createElement("ootrt-mpuser");
                 el.name = inst;
                 el.role = "spectator";
@@ -87,7 +87,7 @@ class HTMLMultiplayerRoomClient extends CustomElement {
                 } else {
                     this.append(el);
                 }
-            });
+            }
         }
     }
 

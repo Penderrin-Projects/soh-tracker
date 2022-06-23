@@ -1,15 +1,25 @@
 
-### FIX MAJOR BUGS
+### BUGS
 
-- 
+- after load entrance bind is not recognized by binding menu
+    - possibly due to lazy load and initial choice
 
----
+### TRACKER TODO
 
-### FIX MINOR BUGS
-
-- spoiler parser (items) fvalues from settings
+- boss shortcuts
+- frog songs individual checks
+- key rings for location items / shops
+    - why? can just use normal key icon
+- ganon boss keysanity needs own option
+- remove done filter for areas / exits
+    - list option to ignore empty list?
+- spoiler parser (items) values from settings (?)
     - child trade
     - free scarecrow
+
+### WIP (nightly)
+
+- boss region (boss rando)
 
 ---
 
@@ -62,22 +72,6 @@ to:
 ```
 
 ---
-
-### BUGS
-
-### TRACKER TODO
-
-- boss shortcuts
-- frog songs individual checks
-- key rings for location items / shops
-    - why? can just use normal key icon
-- ganon boss keysanity needs own option
-- remove done filter for areas / exits
-    - list option to ignore empty list?
-
-### WIP (nightly)
-
-- boss region (boss rando) 
 
 ### OTHER TODO
 

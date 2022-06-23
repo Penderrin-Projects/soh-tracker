@@ -10,7 +10,7 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
             if (typeof transData == "object") {
                 if (Array.isArray(transData)) {
                     const valueSet = new Set(value);
-                    transData.forEach((el) => {
+                    for (const el of transData) {
                         if (typeof el == "object") {
                             try {
                                 setSettingToTarget(target.options, el, parsedValue);
@@ -20,7 +20,7 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
                         } else {
                             target.options[el.replace("logic_", "skip.")] = valueSet.has(el);
                         }
-                    });
+                    }
                 } else {
                     try {
                         setSettingToTarget(target.options, transData, parsedValue);

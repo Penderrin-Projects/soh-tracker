@@ -224,9 +224,9 @@ async function updateFilesForced(client) {
 
 async function checkUpdateNeeded(cache, filelist) {
     const r = [], p = [];
-    filelist.forEach((element) => {
+    for (const element of filelist) {
         p.push(addFileIfNeeded(cache, element, r));
-    });
+    }
     await Promise.all(p);
     return r;
 }
@@ -251,7 +251,7 @@ async function checkFile(cache, url) {
 async function updateFileList(client, cache, filelist) {
     const r = [];
     let loaded = 0;
-    filelist.forEach((url) => {
+    for (const url of filelist) {
         r.push(updateFile(cache, url).then((/* file */) => {
             loaded++;
             client.postMessage({
@@ -262,7 +262,7 @@ async function updateFileList(client, cache, filelist) {
                 total: filelist.length
             });
         }));
-    });
+    }
     await Promise.all(r);
 }
 
