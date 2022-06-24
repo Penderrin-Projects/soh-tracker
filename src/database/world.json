@@ -8,10 +8,14 @@
         "areaTags": {
             "chest": {
                 "icon": "images/icons/chest.svg",
-                "counting": false
+                "counting": true
             },
             "skulltula": {
                 "icon": "images/icons/skulltula.svg",
+                "counting": false
+            },
+            "gossipstone": {
+                "icon": "images/icons/chest.svg",
                 "counting": false
             },
             "scrub": {
@@ -22,8 +26,12 @@
                 "icon": "images/icons/cow.svg",
                 "counting": true
             },
-            "gossipstone": {
-                "icon": "images/icons/chest.svg",
+            "fountain": {
+                "icon": "images/icons/fairy_fountain.svg",
+                "counting": false
+            },
+            "rupees": {
+                "icon": "images/icons/rupees.svg",
                 "counting": false
             }
         }
@@ -27146,7 +27154,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "cow": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27233,7 +27243,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 4
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27340,7 +27352,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27429,7 +27443,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27518,7 +27534,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27613,7 +27632,11 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "skulltula": 1,
+                "gossipstone": 1,
+                "cow": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27714,7 +27737,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27803,7 +27828,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27898,7 +27926,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -27993,7 +28024,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28088,7 +28122,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28183,7 +28220,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28278,7 +28317,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28373,7 +28414,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28462,7 +28505,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28555,7 +28600,10 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "skulltula": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28648,7 +28696,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28741,7 +28791,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28828,7 +28880,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -28918,7 +28972,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29011,7 +29067,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29098,7 +29156,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "cow": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29191,7 +29251,10 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "cow": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29292,7 +29355,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 3
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29391,7 +29456,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29480,7 +29547,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "skulltula": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29573,7 +29643,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29660,7 +29732,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 5
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29771,7 +29845,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "cow": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29858,7 +29934,10 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "cow": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -29873,6 +29952,12 @@
                     "x": 0,
                     "y": 0,
                     "category": "exit"
+                },
+                {
+                    "id": "kakariko.c_impas_cow",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
                 },
                 {
                     "id": "kakariko.c_cow_hp",
@@ -29945,7 +30030,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30035,7 +30122,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30051,93 +30140,6 @@
                     "y": 0,
                     "category": "exit"
                 },
-                {
-                    "id": "kakariko.c_windmill_hp",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                },
-                {
-                    "id": "kakariko.c_song_storm",
-                    "x": 0,
-                    "y": 0,
-                    "category": "location"
-                }
-            ]
-        },
-        "kakariko.windmill_dampe": {
-            "type": "interior",
-            "categories": [],
-            "visible": {
-                "type": "state",
-                "el": "option[entrance_shuffle_interior]",
-                "value": "entrance_shuffle_all"
-            },
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "listContents": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "value",
-                                "el": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "el": {
-                                    "type": "value",
-                                    "el": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "accessPenetration": {
-                "type": "not",
-                "el": {
-                    "type": "value",
-                    "el": "option[detached_entrances]"
-                }
-            },
-            "icon": "images/icons/interior.svg",
-            "areaTags": false,
-            "map": {
-                "active": false,
-                "color": "",
-                "background": "",
-                "width": 0,
-                "height": 0,
-                "zoom": 0
-            },
-            "list": [
                 {
                     "id": "kakariko.c_windmill_hp",
                     "x": 0,
@@ -30217,7 +30219,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30312,7 +30317,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30401,7 +30408,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "fountain": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30490,7 +30500,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30579,7 +30591,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30608,7 +30622,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "kakariko.windmill_dampe",
+                    "id": "kakariko.windmill",
                     "x": 0,
                     "y": 0,
                     "category": "area"
@@ -30680,7 +30694,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30773,7 +30789,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30862,7 +30880,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -30957,7 +30978,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31044,7 +31067,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31133,7 +31158,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 3
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31234,7 +31261,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31329,7 +31359,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 3
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31430,7 +31462,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31525,7 +31559,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "gossipstone": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31618,7 +31655,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31705,7 +31744,10 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 1,
+                "skulltula": 1
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31798,7 +31840,9 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaTags": {
+                "chest": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31893,7 +31937,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 3
+            },
             "map": {
                 "active": false,
                 "color": "",
@@ -31994,7 +32040,9 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 2
+            },
             "map": {
                 "active": false,
                 "color": "",
