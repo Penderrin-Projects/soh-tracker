@@ -2,10 +2,6 @@ App settings=App settings
 
 # GENERAL
 settings=General settings
-setting[show_filter_badges]=Show filter badges for checks
-setting[show_access_values]=Show available/unopened checks for areas
-setting[sublist_collapsible]=Collapsible behavior
-setting[unknown_dungeon_need_both]=Need checks in both V and MQ for undefined dungeon types
 setting[detached_window_background]=Background color for detached window (e.g. for chromakey)
 setting[use_custom_logic]=Use custom logic (edit in logic editor)
 
@@ -48,4 +44,12 @@ setting[location_status_opened_color]=Color for finished checks
 setting[location_status_available_color]=Color for available checks
 setting[location_status_unavailable_color]=Color for unavailable checks
 setting[location_status_possible_color]=Color for partially available checks
-setting[show_map_connections]=Show Map Connection Markers
+
+# World
+world=World
+setting[show_detailed_maps]=Activate detailed maps
+setting[show_map_connections]=Show map connection markers
+setting[show_filter_badges]=Show filter badges for checks
+setting[show_access_values]=Show available/unopened checks for areas
+setting[sublist_collapsible]=Subarea collapsible behavior
+setting[unknown_dungeon_need_both]=Need checks in both V and MQ for undefined dungeon types
