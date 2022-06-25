@@ -24595,8 +24595,8 @@
                 },
                 {
                     "id": "deku_boss_entrance -> deku_boss_gateway",
-                    "x": 2696,
-                    "y": 1046,
+                    "x": 1714,
+                    "y": 664,
                     "category": "exit"
                 },
                 {
@@ -24707,8 +24707,8 @@
                 },
                 {
                     "id": "deku_boss_entrance -> deku_boss_gateway",
-                    "x": 2696,
-                    "y": 1046,
+                    "x": 1714,
+                    "y": 664,
                     "category": "exit"
                 },
                 {
@@ -24769,13 +24769,24 @@
             "icon": "images/icons/boss_area.svg",
             "areaTags": false,
             "map": {
-                "active": false
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
             },
             "list": [
                 {
+                    "id": "deku_boss_gateway -> deku_boss_entrance",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
                     "id": "deku.c_gohma",
-                    "x": 2497,
-                    "y": 596,
+                    "x": 313,
+                    "y": 304,
                     "category": "location"
                 }
             ]
