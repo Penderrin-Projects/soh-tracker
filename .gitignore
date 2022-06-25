@@ -12,3 +12,5 @@ yarn.lock
 package-lock.json
 backup.json
 editor/info.log
+import_tree.json
+import_removed.json
