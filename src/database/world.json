@@ -24490,64 +24490,64 @@
             "map": {
                 "active": true,
                 "color": "black",
-                "background": "dungeon_deku.png",
-                "width": 3016,
-                "height": 1620,
-                "zoom": 33
+                "background": "dungeon/deku.png",
+                "width": 1920,
+                "height": 1031,
+                "zoom": 50
             },
             "connections": {
                 "A": [
                     {
-                        "x": 1411,
-                        "y": 1065
+                        "x": 898,
+                        "y": 683
                     },
                     {
-                        "x": 790,
-                        "y": 737
+                        "x": 506,
+                        "y": 474
                     }
                 ],
                 "B": [
                     {
-                        "x": 796,
-                        "y": 964
+                        "x": 500,
+                        "y": 635
                     },
                     {
-                        "x": 833,
-                        "y": 506
+                        "x": 535,
+                        "y": 328
                     }
                 ],
                 "C": [
                     {
-                        "x": 1284,
-                        "y": 1166
+                        "x": 817,
+                        "y": 744
                     },
                     {
-                        "x": 2060,
-                        "y": 322
+                        "x": 1300,
+                        "y": 218
                     }
                 ],
                 "D": [
                     {
-                        "x": 1823,
-                        "y": 345
+                        "x": 1160,
+                        "y": 221
                     },
                     {
-                        "x": 2796,
-                        "y": 1431
+                        "x": 1779,
+                        "y": 918
                     }
                 ]
             },
             "list": [
                 {
                     "id": "deku_tree_gateway -> deku_tree_entrance",
-                    "x": 1283,
-                    "y": 1483,
+                    "x": 817,
+                    "y": 936,
                     "category": "exit"
                 },
                 {
                     "id": "kokiri",
-                    "x": 1283,
-                    "y": 1483,
+                    "x": 817,
+                    "y": 936,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -24559,38 +24559,38 @@
                 },
                 {
                     "id": "deku.c_lobby",
-                    "x": 798,
-                    "y": 931,
+                    "x": 509,
+                    "y": 591,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_slingshot",
-                    "x": 109,
-                    "y": 1384,
+                    "x": 70,
+                    "y": 882,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_slingshot_side",
-                    "x": 222,
-                    "y": 1463,
+                    "x": 145,
+                    "y": 935,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_compass",
-                    "x": 97,
-                    "y": 369,
+                    "x": 72,
+                    "y": 236,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_compass_side",
-                    "x": 275,
-                    "y": 528,
+                    "x": 176,
+                    "y": 334,
                     "category": "location"
                 },
                 {
                     "id": "deku.c_basement",
-                    "x": 2101,
-                    "y": 231,
+                    "x": 1335,
+                    "y": 150,
                     "category": "location"
                 },
                 {
@@ -24601,8 +24601,8 @@
                 },
                 {
                     "id": "deku.c_gohma",
-                    "x": 2497,
-                    "y": 596,
+                    "x": 1589,
+                    "y": 358,
                     "category": "location",
                     "visible": {
                         "type": "not",
@@ -24614,40 +24614,40 @@
                 },
                 {
                     "id": "deku.s_3f_compass_side_child",
-                    "x": 275,
-                    "y": 569,
+                    "x": 175,
+                    "y": 365,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_basement_vines_child",
-                    "x": 2108,
-                    "y": 326,
+                    "x": 1344,
+                    "y": 212,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_basement_metal_gate_child",
-                    "x": 1964,
-                    "y": 172,
+                    "x": 1250,
+                    "y": 111,
                     "category": "location"
                 },
                 {
                     "id": "deku.s_bombable_behind_web_child",
-                    "x": 1049,
-                    "y": 184,
+                    "x": 668,
+                    "y": 122,
                     "category": "location"
                 }
             ],
             "list_mq": [
                 {
                     "id": "deku_tree_gateway -> deku_tree_entrance",
-                    "x": 1283,
-                    "y": 1483,
+                    "x": 817,
+                    "y": 936,
                     "category": "exit"
                 },
                 {
                     "id": "kokiri",
-                    "x": 1283,
-                    "y": 1483,
+                    "x": 817,
+                    "y": 936,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -24659,50 +24659,50 @@
                 },
                 {
                     "id": "deku_mq.c_lobby",
-                    "x": 798,
-                    "y": 931,
+                    "x": 509,
+                    "y": 591,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_slingshot",
-                    "x": 275,
-                    "y": 528,
+                    "x": 176,
+                    "y": 334,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_slingshot_back",
-                    "x": 97,
-                    "y": 369,
+                    "x": 72,
+                    "y": 236,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_compass",
-                    "x": 109,
-                    "y": 1384,
+                    "x": 70,
+                    "y": 882,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_basement",
-                    "x": 2101,
-                    "y": 231,
+                    "x": 1335,
+                    "y": 150,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_before_log",
-                    "x": 1917,
-                    "y": 697,
+                    "x": 1224,
+                    "y": 446,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_after_log",
-                    "x": 1534,
-                    "y": 775,
+                    "x": 975,
+                    "y": 496,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.c_basement_salesman",
-                    "x": 1869,
-                    "y": 491,
+                    "x": 1197,
+                    "y": 323,
                     "category": "location"
                 },
                 {
@@ -24713,8 +24713,8 @@
                 },
                 {
                     "id": "deku_mq.c_gohma",
-                    "x": 2497,
-                    "y": 596,
+                    "x": 1589,
+                    "y": 358,
                     "category": "location",
                     "visible": {
                         "type": "not",
@@ -24726,26 +24726,26 @@
                 },
                 {
                     "id": "deku_mq.s_crate_near_map_child",
-                    "x": 811,
-                    "y": 897,
+                    "x": 524,
+                    "y": 562,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_2f_compass_side_child",
-                    "x": 275,
-                    "y": 528,
+                    "x": 154,
+                    "y": 948,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_basement_grave_ceiling_child",
-                    "x": 1276,
-                    "y": 378,
+                    "x": 827,
+                    "y": 245,
                     "category": "location"
                 },
                 {
                     "id": "deku_mq.s_basement_back_room_child",
-                    "x": 1049,
-                    "y": 184,
+                    "x": 668,
+                    "y": 122,
                     "category": "location"
                 }
             ]
