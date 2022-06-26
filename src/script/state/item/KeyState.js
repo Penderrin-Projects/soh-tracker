@@ -1,5 +1,5 @@
 // GameTrackerJS
-import ItemStateManager from "/GameTrackerJS/state/item/ItemStateManager.js";
+import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import {
     parseSafeRange
