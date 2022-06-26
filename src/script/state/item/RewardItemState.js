@@ -1,5 +1,5 @@
 // GameTrackerJS
-import ItemStateManager from "/GameTrackerJS/state/item/ItemStateManager.js";
+import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import DefaultItemState from "/GameTrackerJS/state/item/DefaultItemState.js";
 // Track-OOT
 import RewardItemObserver from "../../util/observer/RewardItemObserver.js";

@@ -1,17 +1,11 @@
 // GameTrackerJS
-import AbstractStateManager from "../../../GameTrackerJS/statemanager/AbstractStateManager.js";
+import SimpleStateManager from "../../../GameTrackerJS/statemanager/SimpleStateManager.js";
 // Track-OOT
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 import DefaultDungeonState from "./DefaultDungeonState.js";
 
 const resourceData = DungeonstateResource.get();
 
-class DungeonStateManager extends AbstractStateManager {
+const DungeonStateManager = new SimpleStateManager(DefaultDungeonState, resourceData);
 
-    constructor() {
-        super(DefaultDungeonState, resourceData);
-    }
-
-}
-
-export default new DungeonStateManager();
+export default DungeonStateManager;

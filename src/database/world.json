@@ -15,7 +15,7 @@
                 "counting": false
             },
             "gossipstone": {
-                "icon": "images/icons/chest.svg",
+                "icon": "images/icons/gossipstone.svg",
                 "counting": false
             },
             "scrub": {

@@ -1,7 +1,7 @@
 // GameTrackerJS
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
 import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
-import ItemStateManager from "/GameTrackerJS/state/item/ItemStateManager.js";
+import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopStates from "../../shop/ShopStateManager.js";

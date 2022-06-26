@@ -1,17 +1,11 @@
 // GameTrackerJS
-import AbstractStateManager from "/GameTrackerJS/statemanager/AbstractStateManager.js";
+import SimpleStateManager from "/GameTrackerJS/statemanager/SimpleStateManager.js";
 // Track-OOT
 import SongsResource from "/script/resource/SongsResource.js";
 import DefaultSongState from "./DefaultSongState.js";
 
 const resourceData = SongsResource.get();
 
-class SongStateManager extends AbstractStateManager {
+const SongStateManager = new SimpleStateManager(DefaultSongState, resourceData);
 
-    constructor() {
-        super(DefaultSongState, resourceData);
-    }
-
-}
-
-export default new SongStateManager();
+export default SongStateManager;

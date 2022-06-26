@@ -1,17 +1,11 @@
 // GameTrackerJS
-import AbstractStateManager from "/GameTrackerJS/statemanager/AbstractStateManager.js";
+import SimpleStateManager from "/GameTrackerJS/statemanager/SimpleStateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import DefaultShopState from "./DefaultShopState.js";
 
 const resourceData = ShopsResource.get();
 
-class ShopStateManager extends AbstractStateManager {
+const ShopStateManager = new SimpleStateManager(DefaultShopState, resourceData);
 
-    constructor() {
-        super(DefaultShopState, resourceData);
-    }
-
-}
-
-export default new ShopStateManager();
+export default ShopStateManager;
