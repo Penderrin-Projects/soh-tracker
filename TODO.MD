@@ -3,6 +3,8 @@
 
 - after load entrance bind is not recognized by binding menu
     - possibly due to lazy load and initial choice
+- world status bar not counting correctly (when filtered)
+- after spoiler log parse not all options set in logic
 
 ### TRACKER TODO
 
@@ -16,6 +18,18 @@
 - spoiler parser (items) values from settings (?)
     - child trade
     - free scarecrow
+
+    
+### SPOILER LOG ERRORS
+
+[Deku Tree Boss Door -> Gohma Boss Room: Barinade Boss Room] is a invalid Entrance value.
+[Dodongos Cavern Boss Door -> King Dodongo Boss Room: Morpha Boss Room] is a invalid Entrance value.
+[Fire Temple Boss Door -> Volvagia Boss Room: Twinrova Boss Room] is a invalid Entrance value.
+[Forest Temple Boss Door -> Phantom Ganon Boss Room: Bongo Bongo Boss Room] is a invalid Entrance value.
+[Jabu Jabus Belly Boss Door -> Barinade Boss Room: King Dodongo Boss Room] is a invalid Entrance value.
+[Shadow Temple Boss Door -> Bongo Bongo Boss Room: Phantom Ganon Boss Room] is a invalid Entrance value.
+[Spirit Temple Boss Door -> Twinrova Boss Room: Gohma Boss Room] is a invalid Entrance value.
+[Water Temple Boss Door -> Morpha Boss Room: Volvagia Boss Room] is a invalid Entrance value.
 
 ### WIP (nightly)
 
