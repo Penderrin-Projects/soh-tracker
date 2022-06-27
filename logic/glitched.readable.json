@@ -26771,6 +26771,116 @@
             "reach_location[river.g_gossip_waterfall]": {
                 "type": "mixin",
                 "el": "mixin[filter_era]{child}"
+            },
+            "reach_location[river.c_frog_lullaby]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_play](item[song_zelda]){child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "reach_location[river.c_frog_epona]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_play](item[song_epona]){child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "reach_location[river.c_frog_saria]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_play](item[song_saria]){child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "reach_location[river.c_frog_sun]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_play](item[song_sun]){child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "reach_location[river.c_frog_time]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_play](item[song_time]){child}"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[zora_river]{adult}": {

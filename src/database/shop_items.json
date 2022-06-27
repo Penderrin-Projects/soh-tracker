@@ -153,6 +153,20 @@
         "mark": false,
         "price": 30
     },
+    "potion_red_1_2": {
+        "image": "/images/items/bottle_potion_red.png",
+        "category": "shop_items",
+        "refill": true,
+        "mark": false,
+        "price": 40
+    },
+    "potion_red_1_3": {
+        "image": "/images/items/bottle_potion_red.png",
+        "category": "shop_items",
+        "refill": true,
+        "mark": false,
+        "price": 50
+    },
     "potion_green_1": {
         "image": "/images/items/bottle_potion_green.png",
         "category": "shop_items",

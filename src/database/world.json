@@ -868,6 +868,161 @@
             },
             "icon": "images/icons/chest.svg"
         },
+        "river.c_frog_lullaby": {
+            "type": "chest",
+            "logicAccess": "reach_location[river.c_frog_lullaby]",
+            "visible": {
+                "type": "value",
+                "el": "option[frogsanity]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": false
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/chest.svg"
+        },
+        "river.c_frog_saria": {
+            "type": "chest",
+            "logicAccess": "reach_location[river.c_frog_saria]",
+            "visible": {
+                "type": "value",
+                "el": "option[frogsanity]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": false
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/chest.svg"
+        },
+        "river.c_frog_epona": {
+            "type": "chest",
+            "logicAccess": "reach_location[river.c_frog_epona]",
+            "visible": {
+                "type": "value",
+                "el": "option[frogsanity]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": false
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/chest.svg"
+        },
+        "river.c_frog_sun": {
+            "type": "chest",
+            "logicAccess": "reach_location[river.c_frog_sun]",
+            "visible": {
+                "type": "value",
+                "el": "option[frogsanity]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": false
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/chest.svg"
+        },
+        "river.c_frog_time": {
+            "type": "chest",
+            "logicAccess": "reach_location[river.c_frog_time]",
+            "visible": {
+                "type": "value",
+                "el": "option[frogsanity]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": false
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/chest.svg"
+        },
         "river.c_zora_hp_1": {
             "type": "chest",
             "logicAccess": "reach_location[river.c_zora_hp_1]",
@@ -21009,13 +21164,43 @@
             },
             "list": [
                 {
-                    "id": "river.c_frog_game",
+                    "id": "river.c_frog_lullaby",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "river.c_frog_epona",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "river.c_frog_saria",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "river.c_frog_sun",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "river.c_frog_time",
                     "x": 0,
                     "y": 0,
                     "category": "location"
                 },
                 {
                     "id": "river.c_frog_rain",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "river.c_frog_game",
                     "x": 0,
                     "y": 0,
                     "category": "location"

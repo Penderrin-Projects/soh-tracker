@@ -171,6 +171,13 @@
                 "random": true
             }
         },
+        "shuffle_frog_song_rupees": {
+            "name": "frogsanity",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "shopsanity": {
             "name": "shopsanity",
             "values": {
@@ -840,6 +847,24 @@
                 "ZF Ice Ledge -> Ice Cavern Beginning": "ice_cavern_entrance -> ice_cavern_gateway",
                 "Zoras Fountain -> Jabu Jabus Belly Beginning": "jabu_jabus_belly_entrance -> jabu_jabus_belly_gateway"
             },
+            "entro_dungeon_bosses": {
+                "Deku Tree Boss Door -> Gohma Boss Room": "deku_boss_entrance -> deku_boss_gateway",
+                "Gohma Boss Room -> Deku Tree Boss Door": "deku_boss_gateway -> deku_boss_entrance",
+                "Dodongos Cavern Boss Door -> King Dodongo Boss Room": "dodongo_boss_entrance -> dodongo_boss_gateway",
+                "King Dodongo Boss Room -> Dodongos Cavern Boss Door": "dodongo_boss_gateway -> dodongo_boss_entrance",
+                "Jabu Jabus Belly Boss Door -> Barinade Boss Room": "jabu_boss_entrance -> jabu_boss_gateway",
+                "Barinade Boss Room -> Jabu Jabus Belly Boss Door": "jabu_boss_gateway -> jabu_boss_entrance",
+                "Forest Temple Boss Door -> Phantom Ganon Boss Room": "temple_forest_boss_entrance -> temple_forest_boss_gateway",
+                "Phantom Ganon Boss Room -> Forest Temple Boss Door": "temple_forest_boss_gateway -> temple_forest_boss_entrance",
+                "Fire Temple Boss Door -> Volvagia Boss Room": "temple_fire_boss_entrance -> temple_fire_boss_gateway",
+                "Volvagia Boss Room -> Fire Temple Boss Door": "temple_fire_boss_gateway -> temple_fire_boss_entrance",
+                "Water Temple Boss Door -> Morpha Boss Room": "temple_water_boss_entrance -> temple_water_boss_gateway",
+                "Morpha Boss Room -> Water Temple Boss Door": "temple_water_boss_gateway -> temple_water_boss_entrance",
+                "Shadow Temple Boss Door -> Bongo Bongo Boss Room": "temple_shadow_boss_entrance -> temple_shadow_boss_gateway",
+                "Bongo Bongo Boss Room -> Shadow Temple Boss Door": "temple_shadow_boss_gateway -> temple_shadow_boss_entrance",
+                "Spirit Temple Boss Door -> Twinrova Boss Room": "temple_spirit_boss_entrance -> temple_spirit_boss_gateway",
+                "Twinrova Boss Room -> Spirit Temple Boss Door": "temple_spirit_boss_gateway -> temple_spirit_boss_entrance"
+            },
             "entro_overworld": {
                 "Castle Grounds -> Market": "grounds_market_gateway -> market_grounds_gateway",
                 "DMC Lower Nearby -> GC Darunias Chamber": "crater_goron_gateway -> goron_crater_gateway",
@@ -1083,6 +1108,16 @@
                 "Shadow Temple Entryway": "shadow_temple_gateway -> shadow_temple_entrance",
                 "Ice Cavern Beginning": "ice_cavern_gateway -> ice_cavern_entrance",
                 "Jabu Jabus Belly Beginning": "jabu_jabus_belly_gateway -> jabu_jabus_belly_entrance"
+            },
+            "exit_dungeon_bosses": {
+                "Gohma Boss Room": "deku_boss_gateway -> deku_boss_entrance",
+                "King Dodongo Boss Room": "dodongo_boss_gateway -> dodongo_boss_entrance",
+                "Barinade Boss Room": "jabu_boss_gateway -> jabu_boss_entrance",
+                "Phantom Ganon Boss Room": "temple_forest_boss_gateway -> temple_forest_boss_entrance",
+                "Volvagia Boss Room": "temple_fire_boss_gateway -> temple_fire_boss_entrance",
+                "Morpha Boss Room": "temple_water_boss_gateway -> temple_water_boss_entrance",
+                "Bongo Bongo Boss Room": "temple_shadow_boss_gateway -> temple_shadow_boss_entrance",
+                "Twinrova Boss Room": "temple_spirit_boss_gateway -> temple_spirit_boss_entrance"
             },
             "exit_overworld": {
                 "Castle Grounds -> Market": "grounds_market_gateway -> market_grounds_gateway",
@@ -1421,6 +1456,11 @@
         "ZR Magic Bean Salesman": "river",
         "ZR Frogs Ocarina Game": "river",
         "ZR Frogs in the Rain": "river",
+        "ZR Frogs Zeldas Lullaby": "river",
+        "ZR Frogs Eponas Song": "river",
+        "ZR Frogs Sarias Song": "river",
+        "ZR Frogs Suns Song": "river",
+        "ZR Frogs Song of Time": "river",
         "ZR Near Open Grotto Freestanding PoH": "river",
         "ZR Near Domain Freestanding PoH": "river",
         "ZR GS Ladder": "river",
@@ -2425,14 +2465,23 @@
         "Zeldas Lullaby": "song_zelda",
         "Zora Tunic": "tunic_water",
         "Small Key (Forest Temple)": "key_small_forest",
+        "Small Key Ring (Forest Temple)": "key_small_forest",
         "Small Key (Bottom of the Well)": "key_small_well",
+        "Small Key Ring (Bottom of the Well)": "key_small_well",
         "Small Key (Fire Temple)": "key_small_fire",
+        "Small Key Ring (Fire Temple)": "key_small_fire",
         "Small Key (Water Temple)": "key_small_water",
+        "Small Key Ring (Water Temple)": "key_small_water",
         "Small Key (Shadow Temple)": "key_small_shadow",
+        "Small Key Ring (Shadow Temple)": "key_small_shadow",
         "Small Key (Gerudo Training Ground)": "key_small_training",
+        "Small Key Ring (Gerudo Training Ground)": "key_small_training",
         "Small Key (Thieves Hideout)": "key_small_gerudo",
+        "Small Key Ring (Thieves Hideout)": "key_small_gerudo",
         "Small Key (Spirit Temple)": "key_small_spirit",
+        "Small Key Ring (Spirit Temple)": "key_small_spirit",
         "Small Key (Ganons Castle)": "key_small_ganon",
+        "Small Key Ring (Ganons Castle)": "key_small_ganon",
         "Boss Key (Shadow Temple)": "key_boss_shadow",
         "Boss Key (Fire Temple)": "key_boss_fire",
         "Boss Key (Forest Temple)": "key_boss_forest",
@@ -2471,7 +2520,12 @@
         "Triforce Piece": "triforce_piece"
     },
     "shopItems": {
-        "Buy Red Potion [40]": "potion_red_1",
+        "Buy Red Potion [30]": "potion_red_1",
+        "Buy Red Potion for 30 Rupees": "potion_red_1",
+        "Buy Red Potion [40]": "potion_red_1_2",
+        "Buy Red Potion for 40 Rupees": "potion_red_1_2",
+        "Buy Red Potion [50]": "potion_red_1_3",
+        "Buy Red Potion for 50 Rupees": "potion_red_1_3",
         "Pocket Cucco": "pocket_cucco",
         "Pocket Egg": "pocket_egg",
         "Bottle with Milk": "milk",
@@ -2486,7 +2540,6 @@
         "Broken Sword": "broken_sword",
         "Buy Heart": "heart_1",
         "Buy Poe": "poe_1",
-        "Buy Red Potion [50]": "potion_red_1",
         "Bottle with Fairy": "fairy_spirit",
         "Eyeball Frog": "frog",
         "Bottle with Blue Fire": "blue_fire",
@@ -2504,7 +2557,9 @@
         "Buy Bombs (20)": "bombs_20",
         "Buy Bombs (30)": "bombs_30",
         "Buy Bombs (5) [25]": "bombs_5",
+        "Buy Bombs (5) for 25 Rupees": "bombs_5",
         "Buy Bombs (5) [35]": "bombs_5_2",
+        "Buy Bombs (5) for 35 Rupees": "bombs_5_2",
         "Buy Bottle Bug": "bugs_1",
         "Buy Deku Nut (10)": "nuts_10",
         "Buy Deku Nut (5)": "nuts_5",
@@ -2516,7 +2571,6 @@
         "Buy Goron Tunic": "tunic_fire_1",
         "Buy Green Potion": "potion_green_1",
         "Buy Hylian Shield": "shield_hylia_1",
-        "Buy Red Potion [30]": "potion_red_1",
         "Buy Zora Tunic": "tunic_water_1",
         "Gold Skulltula Token": "skulltula",
         "Megaton Hammer": "hammer",
@@ -2754,6 +2808,11 @@
         "ZR Magic Bean Salesman": "river.c_zora_bean_salesman",
         "ZR Frogs Ocarina Game": "river.c_frog_game",
         "ZR Frogs in the Rain": "river.c_frog_rain",
+        "ZR Frogs Zeldas Lullaby": "river.c_frog_lullaby",
+        "ZR Frogs Eponas Song": "river.c_frog_epona",
+        "ZR Frogs Sarias Song": "river.c_frog_saria",
+        "ZR Frogs Suns Song": "river.c_frog_sun",
+        "ZR Frogs Song of Time": "river.c_frog_time",
         "ZR GS Ladder": "river.s_zora_ladder_child_night",
         "ZR GS Near Raised Grottos": "river.s_zora_wall1_adult_night",
         "ZR GS Above Bridge": "river.s_zora_wall2_adult_night",

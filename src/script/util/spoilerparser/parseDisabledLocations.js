@@ -2,7 +2,7 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
     const location_trans = trans["locations"];
 
     if (location_trans == null) {
-        addError("parsing disabled locations impossible. location translation missing.");
+        addError("parsing disabled locations impossible - location translation missing");
         return;
     }
 
@@ -18,12 +18,12 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
                     }
                 }
             } else {
-                addError("[" + i + "] is a invalid Location value.");
+                addError("[" + i + "] is a invalid Location value");
             }
         } else if (locationTrans) {
             target.locations[locationTrans] = true;
         } else {
-            addError("[" + i + "] is a invalid Location value.");
+            addError("[" + i + "] is a invalid Location value");
         }
     }
 }

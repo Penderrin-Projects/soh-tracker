@@ -1,9 +1,58 @@
 export default function parseEntrances(addError, target = {}, data = {}, trans = {}, opt = {}) {
-    const {dungeon, grottos, indoors, overworld, owls, spawns, warps} = opt;
-    const {entro_dungeons, entro_grottos, entro_simple, entro_indoors, entro_overworld, entro_owls, entro_spawns, entro_warps} = trans.entrances.entrances;
-    const {exit_dungeons, exit_grottos, exit_simple, exit_indoors, exit_overworld, exit_extras} = trans.entrances.exits;
-    const entrance = {entro_dungeon: entro_dungeons, entro_grottos: entro_grottos, entro_simple: entro_simple, entro_indoors: entro_indoors, entro_overworld: entro_overworld, entro_owls: entro_owls, entro_spawns: entro_spawns, entro_warps: entro_warps}
-    const exit = {exit_dungeon: exit_dungeons, exit_grottos: exit_grottos, exit_simple: exit_simple, exit_indoors: exit_indoors, exit_overworld: exit_overworld, exit_extra: exit_extras}
+    const {
+        dungeon,
+        bossarea,
+        grottos,
+        indoors,
+        overworld,
+        owls,
+        spawns,
+        warps
+    } = opt;
+
+    const {
+        entro_dungeons,
+        entro_dungeon_bosses,
+        entro_grottos,
+        entro_simple,
+        entro_indoors,
+        entro_overworld,
+        entro_owls,
+        entro_spawns,
+        entro_warps
+    } = trans.entrances.entrances;
+
+    const {
+        exit_dungeons,
+        exit_dungeon_bosses,
+        exit_grottos,
+        exit_simple,
+        exit_indoors,
+        exit_overworld,
+        exit_extras
+    } = trans.entrances.exits;
+
+    const entrance = {
+        entro_dungeon: entro_dungeons,
+        entro_dungeon_boss: entro_dungeon_bosses,
+        entro_grottos: entro_grottos,
+        entro_simple: entro_simple,
+        entro_indoors: entro_indoors,
+        entro_overworld: entro_overworld,
+        entro_owls: entro_owls,
+        entro_spawns: entro_spawns,
+        entro_warps: entro_warps
+    };
+
+    const exit = {
+        exit_dungeon: exit_dungeons,
+        exit_dungeon_boss: exit_dungeon_bosses,
+        exit_grottos: exit_grottos,
+        exit_simple: exit_simple,
+        exit_indoors: exit_indoors,
+        exit_overworld: exit_overworld,
+        exit_extra: exit_extras
+    };
 
     target.exitBindings = target.exitBindings ?? {};
 
@@ -34,12 +83,17 @@ export default function parseEntrances(addError, target = {}, data = {}, trans =
         }
 
         if (typeof i === "object" && i !== null) {
-            addError("Unexpected Array within entrances.");
+            addError("Unexpected Array within entrances");
         } else if (edgeThere === null || edgeBack === null) {
             addError("[" + i + ": " + v + "] is a invalid Entrance value.");
         } else {
             if (dungeon) {
                 if (entro_dungeons[i] === edgeThere) {
+                    target.exitBindings[edgeThere] = edgeBack;
+                }
+            }
+            if (bossarea) {
+                if (entro_dungeon_bosses[i] === edgeThere) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
             }

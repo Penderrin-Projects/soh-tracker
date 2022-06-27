@@ -64,7 +64,7 @@
         },
         {
             "ref": "goron.goron_shop_7",
-            "item": "potion_red_1",
+            "item": "potion_red_1_2",
             "price": 40
         },
         {
@@ -86,7 +86,7 @@
     "zora": [
         {
             "ref": "zoras.zoras_shop_8",
-            "item": "potion_red_1",
+            "item": "potion_red_1_3",
             "price": 50
         },
         {
@@ -180,7 +180,7 @@
         },
         {
             "ref": "castle_town.shop_bazaar_2",
-            "item": "bombs_5",
+            "item": "bombs_5_2",
             "price": 35
         },
         {

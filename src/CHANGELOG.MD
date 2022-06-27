@@ -40,6 +40,8 @@ Application:    Track-OOT
 ### LAYOUT
 
 - make all views panels, so they can fit into their own view or on the main view
+- textfield in error dialog (e.g. spoilerparser) is now bigger
+- add new entrance choice element using tag icons and categories to make finding entrances easier
 
 ### WORLD LIST/MAP
 
@@ -58,6 +60,12 @@ Application:    Track-OOT
 - add detached entrances option for entrance rando
     - add missing gateways for detached entraces
 - logic viewer can now be opened from exits
+
+### ADDED WORLD ENTRIES
+- add frogsanity and the 5 missing frog song locations
+
+### SPOILER PARSER
+- add missing shop items (differently priced items)
 
 ---
 

@@ -12,7 +12,7 @@ export default function parseDungeonRewards(addError, target = {}, data = {}, tr
             }
 
             if (item_trans[v] === undefined) {
-                addError("[" + i + ": " + v + "] is a invalid Dungeon Reward value.");
+                addError("[" + i + ": " + v + "] is a invalid Dungeon Reward value");
             } else {
                 target.dungeonRewards[location_trans[i]] = item_trans[v];
             }
