@@ -5,6 +5,9 @@
     - possibly due to lazy load and initial choice
 - world status bar not counting correctly (when filtered)
 - after spoiler log parse not all options set in logic
+- shops not loading correctly
+- multiplayer entrances not synced correctly on join?
+- on filter no list update
 
 ### TRACKER TODO
 
