@@ -21,7 +21,8 @@ function modify(source = {}, target = {}) {
             visibleRootOnly: oldProps.visibleRootOnly,
             filter: oldProps.filter,
             icon: oldProps.icon,
-            shop: oldProps.shop
+            shop: oldProps.shop,
+            tags: oldProps.tags
         };
         location[ref] = newProps;
     }
@@ -49,18 +50,19 @@ function modify(source = {}, target = {}) {
         const oldProps = source.area[ref];
         const newProps = {
             type: oldProps.type,
-            categories: oldProps.categories,
+            category: oldProps.category,
             visible: oldProps.visible,
             visibleRootOnly: oldProps.visibleRootOnly,
             filter: oldProps.filter,
             listContents: oldProps.listContents,
             accessPenetration: oldProps.accessPenetration,
             icon: oldProps.icon,
-            areaTags: oldProps.areaTags,
             map: oldProps.map,
             connections: oldProps.connections,
             list: oldProps.list,
-            list_mq: oldProps.list_mq
+            list_mq: oldProps.list_mq,
+            areaTags: oldProps.areaTags,
+            tags: oldProps.tags
         };
         area[ref] = newProps;
     }
@@ -77,7 +79,6 @@ function modify(source = {}, target = {}) {
             target: oldProps.target,
             logicAccess: oldProps.logicAccess,
             area: oldProps.area,
-            categories: oldProps.categories,
             visible: oldProps.visible,
             visibleRootOnly: oldProps.visibleRootOnly,
             filter: oldProps.filter,
@@ -88,7 +89,8 @@ function modify(source = {}, target = {}) {
             entranceActive: oldProps.entranceActive,
             includeInactiveEntrances: oldProps.includeInactiveEntrances,
             isBiDir: oldProps.isBiDir,
-            ignoreMixedEntrances: oldProps.ignoreMixedEntrances
+            ignoreMixedEntrances: oldProps.ignoreMixedEntrances,
+            tags: oldProps.tags
         };
         exit[ref] = newProps;
     }
