@@ -165,6 +165,7 @@ class SpoilerParser {
         // exitBindings
         parseEntrances(addError, result, getWorldData(spoiler["entrances"], world), trans, {
             dungeon: debugSpoiler || settings["entro_dungeons"],
+            bossarea: debugSpoiler || settings["entro_bosses"],
             grottos: debugSpoiler || settings["entro_grottos"],
             indoors: debugSpoiler || settings["entro_indoors"],
             overworld: debugSpoiler || settings["entro_overworld"],

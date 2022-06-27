@@ -13,12 +13,12 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
     const item_trans = trans["itemList"];
 
     if (location_trans == null) {
-        addError("parsing item locations impossible. location translation missing.");
+        addError("parsing item locations impossible - location translation missing");
         return;
     }
 
     if (item_trans == null) {
-        addError("parsing item locations impossible. item translation missing.");
+        addError("parsing item locations impossible - item translation missing");
         return;
     }
 
@@ -39,16 +39,16 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
                             }
                         }
                     } else {
-                        addError("[" + i + "] is a invalid Location value.");
+                        addError("[" + i + "] is a invalid Location value");
                     }
                 } else if (locationTrans) {
                     target.locationItems[locationTrans] = itemTrans;
                 } else {
-                    addError("[" + i + "] is a invalid Location value.");
+                    addError("[" + i + "] is a invalid Location value");
                 }
             }
         } else {
-            addError("[" + item + "] is a invalid Item value.");
+            addError("[" + item + "] is a invalid Item value");
         }
     }
 }

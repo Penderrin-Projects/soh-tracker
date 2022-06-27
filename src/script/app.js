@@ -77,7 +77,7 @@ try {
 
     updateLoadingMessage("learn languages...");
     // load current language
-    await Language.load(SettingsStorage.get("language"));
+    await Language.load(SettingsStorage.get("language"), "en_us");
 
     updateLoadingMessage("initialize components...");
     // busy indicator

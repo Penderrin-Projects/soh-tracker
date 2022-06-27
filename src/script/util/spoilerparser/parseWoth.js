@@ -7,7 +7,7 @@ export default function parseWoth(addError, target = {}, data = {}, trans = {}) 
         if (woth_trans[i] != null) {
             target.areaHints["area/" + woth_trans[i]] = "woth";
         } else {
-            addError("[" + i + "] is a invalid Way of the Hero value.");
+            addError("[" + i + "] is a invalid Way of the Hero value");
         }
     }
 }

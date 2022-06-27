@@ -87,6 +87,9 @@
             "entro_spawns",
             "entro_warps"
         ],
+        "_values": [
+            "entro_bosses"
+        ],
         "default": []
     }
 }

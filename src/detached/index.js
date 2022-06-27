@@ -16,7 +16,7 @@ import "./styles.js";
 
 try {
     // load current language
-    await Language.load(SettingsStorage.get("language"));
+    await Language.load(SettingsStorage.get("language"), "en_us");
     // load layout
     const conf = decodeURI(window.location.hash.slice(1));
     const layout = LayoutsResource.get(conf);

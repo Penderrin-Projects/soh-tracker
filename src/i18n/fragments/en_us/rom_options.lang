@@ -15,6 +15,7 @@ option[scrubsanity]=Scrubsanity
 option[cowsanity]=Cowsanity
 option[shopsanity]=Shopsanity slots
 option[beansanity]=Beansanity
+option[frogsanity]=Frogsanity
 option[shuffleMediCarpet]=Shuffle Medigoron and Carpet Bombchu Saleman
 option[doors_open_temple]=Open Temple of Time
 option[trade_sequence_start_item]=Start adult trading sequence at
@@ -70,6 +71,7 @@ doors_open_kakariko_open=Kakariko Gate Opened
 # ENTRANCE SHUFFLE
 entrance_randomizer=Entrance randomization
 option[mixed_entrance_pool]=Mixed entrance pool
+option[show_sublists_on_mixed_entrances]=Enforce sublist rendering for mixed entrance pool (can clutter the list a lot)
 option[detached_entrances]=Detached Entrances
 option[shuffle_dungeons]=Shuffle Dungeons
 option[shuffle_grottos]=Shuffle Grottos
