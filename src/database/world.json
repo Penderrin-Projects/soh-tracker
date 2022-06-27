@@ -8,7 +8,7 @@
         "areaTags": {
             "chest": {
                 "icon": "images/icons/chest.svg",
-                "counting": true
+                "counting": false
             },
             "skulltula": {
                 "icon": "images/icons/skulltula.svg",
@@ -24,7 +24,7 @@
             },
             "cow": {
                 "icon": "images/icons/cow.svg",
-                "counting": true
+                "counting": false
             },
             "fountain": {
                 "icon": "images/icons/fairy_fountain.svg",
@@ -20606,7 +20606,7 @@
         },
         "kokiri": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -20783,7 +20783,7 @@
         },
         "desert": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -20851,7 +20851,7 @@
         },
         "colossus": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -20974,7 +20974,7 @@
         },
         "river": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21126,7 +21126,7 @@
         },
         "hyrule_field": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21308,7 +21308,7 @@
         },
         "gerudo_valley": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21442,7 +21442,7 @@
         },
         "lake": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21613,7 +21613,7 @@
         },
         "lonlon": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21735,7 +21735,7 @@
         },
         "gerudo": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -21874,7 +21874,7 @@
         },
         "woods": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22050,7 +22050,7 @@
         },
         "meadow": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22179,7 +22179,7 @@
         },
         "town_entrance": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22241,7 +22241,7 @@
         },
         "castle_town": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22387,7 +22387,7 @@
         },
         "temple_time": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22467,7 +22467,7 @@
         },
         "castle_gateway": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22523,7 +22523,7 @@
         },
         "castle": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22621,7 +22621,7 @@
         },
         "castle_ganon_outside": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22683,7 +22683,7 @@
         },
         "kakariko": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -22944,7 +22944,7 @@
         },
         "graveyard": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23091,7 +23091,7 @@
         },
         "mountain": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23256,7 +23256,7 @@
         },
         "crater": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23403,7 +23403,7 @@
         },
         "goron": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23555,7 +23555,7 @@
         },
         "zoras": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23659,7 +23659,7 @@
         },
         "fountain": {
             "type": "area",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -23795,7 +23795,7 @@
         },
         "well": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -24003,7 +24003,7 @@
         },
         "ice_cavern": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -24162,7 +24162,7 @@
         },
         "training_grounds": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -24459,7 +24459,7 @@
         },
         "deku": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -24793,7 +24793,7 @@
         },
         "dodongo": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -25057,7 +25057,7 @@
         },
         "jabujabu": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -25276,7 +25276,7 @@
         },
         "temple_forest": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -25561,7 +25561,7 @@
         },
         "temple_fire": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -25852,7 +25852,7 @@
         },
         "temple_water": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -26083,7 +26083,7 @@
         },
         "temple_shadow": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -26437,7 +26437,7 @@
         },
         "temple_spirit": {
             "type": "dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -26815,7 +26815,7 @@
         },
         "castle_ganon": {
             "type": "boss_dungeon",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -27101,7 +27101,7 @@
         },
         "kokiri.links_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27193,7 +27193,7 @@
         },
         "kokiri.midos_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -27300,7 +27300,7 @@
         },
         "hyrule_field.dive_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27391,7 +27391,7 @@
         },
         "hyrule_field.kakariko_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27482,7 +27482,7 @@
         },
         "hyrule_field.castle_entrance_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27549,6 +27549,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -27580,7 +27581,7 @@
         },
         "hyrule_field.valley_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27648,6 +27649,7 @@
                 "gossipstone": 1,
                 "cow": 1
             },
+            "category": "grotto_cow",
             "map": {
                 "active": false,
                 "color": "",
@@ -27685,7 +27687,7 @@
         },
         "hyrule_field.lake_fence_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27751,6 +27753,7 @@
             "areaTags": {
                 "scrub": 1
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -27776,7 +27779,7 @@
         },
         "hyrule_field.lake_open_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27843,6 +27846,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -27874,7 +27878,7 @@
         },
         "hyrule_field.little_forest_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -27941,6 +27945,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -27972,7 +27977,7 @@
         },
         "kokiri.storm_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28039,6 +28044,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -28070,7 +28076,7 @@
         },
         "woods.near_goron_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28137,6 +28143,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -28168,7 +28175,7 @@
         },
         "woods.near_meadow_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28234,6 +28241,7 @@
             "areaTags": {
                 "scrub": 2
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -28265,7 +28273,7 @@
         },
         "woods.theatre_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28328,9 +28336,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -28362,7 +28368,7 @@
         },
         "meadow.wolfos_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28453,7 +28459,7 @@
         },
         "meadow.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28519,6 +28525,7 @@
             "areaTags": {
                 "scrub": 2
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -28550,7 +28557,7 @@
         },
         "castle_town.guard_tower": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -28612,7 +28619,6 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": {
-                "chest": 1,
                 "skulltula": 1
             },
             "map": {
@@ -28646,7 +28652,7 @@
         },
         "castle_town.minigame_bombchu": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -28707,9 +28713,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -28741,7 +28746,7 @@
         },
         "castle_town.minigame_treasure": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -28802,9 +28807,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -28830,7 +28834,7 @@
         },
         "castle_town.minigame_shooting": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -28891,9 +28895,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -28919,7 +28922,7 @@
         },
         "castle_town.temple_of_time": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -28983,9 +28986,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -29017,7 +29018,7 @@
         },
         "lonlon.house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29078,9 +29079,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -29106,7 +29106,7 @@
         },
         "lonlon.stables": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29201,7 +29201,7 @@
         },
         "lonlon.silo": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29263,7 +29263,6 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": {
-                "chest": 1,
                 "cow": 2
             },
             "map": {
@@ -29303,7 +29302,7 @@
         },
         "lonlon.open_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -29369,6 +29368,7 @@
             "areaTags": {
                 "scrub": 3
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -29406,7 +29406,7 @@
         },
         "castle.fairy_young": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29467,9 +29467,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -29495,7 +29494,7 @@
         },
         "castle.storm_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -29593,7 +29592,7 @@
         },
         "castle.fairy_adult": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29654,9 +29653,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -29682,7 +29680,7 @@
         },
         "kakariko.skulltula_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29743,9 +29741,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 5
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -29795,7 +29791,7 @@
         },
         "kakariko.impas_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29884,7 +29880,7 @@
         },
         "kakariko.impa_back": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -29946,7 +29942,6 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": {
-                "chest": 1,
                 "cow": 1
             },
             "map": {
@@ -29980,7 +29975,7 @@
         },
         "kakariko.minigame_shooting": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -30041,9 +30036,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -30069,7 +30063,7 @@
         },
         "kakariko.windmill": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30133,9 +30127,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -30167,7 +30159,7 @@
         },
         "kakariko.open_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30234,6 +30226,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -30265,7 +30258,7 @@
         },
         "kakariko.redead_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30356,7 +30349,7 @@
         },
         "graveyard.shield_grave": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30448,7 +30441,7 @@
         },
         "graveyard.redead_grave": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30539,7 +30532,7 @@
         },
         "graveyard.dampes_grave": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30602,9 +30595,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -30642,7 +30633,7 @@
         },
         "graveyard.royal_grave": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30705,9 +30696,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -30739,7 +30728,7 @@
         },
         "mountain.fairy_fountain": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -30800,9 +30789,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -30828,7 +30816,7 @@
         },
         "mountain.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30895,6 +30883,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -30926,7 +30915,7 @@
         },
         "mountain.bomb_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -30990,8 +30979,10 @@
             },
             "icon": "images/icons/grotto.svg",
             "areaTags": {
-                "chest": 1
+                "cow": 1,
+                "rupees": 1
             },
+            "category": "grotto_cow",
             "map": {
                 "active": false,
                 "color": "",
@@ -31017,7 +31008,7 @@
         },
         "crater.fairy_fountain": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -31078,9 +31069,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -31106,7 +31096,7 @@
         },
         "crater.hammer_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31172,6 +31162,7 @@
             "areaTags": {
                 "scrub": 3
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -31209,7 +31200,7 @@
         },
         "crater.crater_bomb_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31276,6 +31267,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -31307,7 +31299,7 @@
         },
         "goron.grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31373,6 +31365,7 @@
             "areaTags": {
                 "scrub": 3
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -31410,7 +31403,7 @@
         },
         "river.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31476,6 +31469,7 @@
             "areaTags": {
                 "scrub": 2
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -31507,7 +31501,7 @@
         },
         "river.open_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31574,6 +31568,7 @@
                 "chest": 1,
                 "gossipstone": 1
             },
+            "category": "grotto_generic",
             "map": {
                 "active": false,
                 "color": "",
@@ -31605,7 +31600,7 @@
         },
         "fountain.fairy_fountain": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -31666,9 +31661,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1
-            },
+            "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -31694,7 +31688,7 @@
         },
         "lake.laboratory": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -31755,10 +31749,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 1,
-                "skulltula": 1
-            },
+            "areaTags": false,
             "map": {
                 "active": false,
                 "color": "",
@@ -31790,7 +31781,7 @@
         },
         "lake.fishing": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -31851,9 +31842,8 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
-                "chest": 2
-            },
+            "areaTags": false,
+            "category": "interior_minigame",
             "map": {
                 "active": false,
                 "color": "",
@@ -31885,7 +31875,7 @@
         },
         "lake.grave_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -31951,6 +31941,7 @@
             "areaTags": {
                 "scrub": 3
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -31988,7 +31979,7 @@
         },
         "gerudo_valley.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -32054,6 +32045,7 @@
             "areaTags": {
                 "scrub": 2
             },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -32085,7 +32077,7 @@
         },
         "desert.fairy_fountain": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -32147,6 +32139,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_fairy",
             "map": {
                 "active": false,
                 "color": "",
@@ -32172,7 +32165,7 @@
         },
         "desert.strength_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -32235,7 +32228,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "scrub": 2
+            },
+            "category": "grotto_scrub",
             "map": {
                 "active": false,
                 "color": "",
@@ -32267,7 +32263,7 @@
         },
         "hyrule_field.fairy_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32324,7 +32320,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "fountain": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -32344,7 +32343,7 @@
         },
         "kokiri.sarias_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32402,6 +32401,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -32421,7 +32421,7 @@
         },
         "kokiri.twins_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32479,6 +32479,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -32498,7 +32499,7 @@
         },
         "kokiri.know_it_all_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32556,6 +32557,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -32575,7 +32577,7 @@
         },
         "kokiri.shop": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -32637,6 +32639,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -32680,7 +32683,7 @@
         },
         "meadow.fairy_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32737,7 +32740,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "fountain": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -32757,7 +32763,7 @@
         },
         "castle_town.shop_mask": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -32834,7 +32840,7 @@
         },
         "castle_town.shop_magic": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -32896,6 +32902,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -32939,7 +32946,7 @@
         },
         "castle_town.shop_bombchu": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -33001,6 +33008,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33044,7 +33052,7 @@
         },
         "castle_town.back_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -33102,6 +33110,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -33121,7 +33130,7 @@
         },
         "castle_town.shop_bazaar": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -33183,6 +33192,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33226,7 +33236,7 @@
         },
         "kakariko.carpenter_house": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -33284,6 +33294,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -33303,7 +33314,7 @@
         },
         "kakariko.kakariko_witch": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -33361,6 +33372,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -33380,7 +33392,7 @@
         },
         "kakariko.shop_bazaar": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -33442,6 +33454,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33485,7 +33498,7 @@
         },
         "kakariko.shop_magic": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "not",
                 "el": {
@@ -33550,6 +33563,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33599,7 +33613,7 @@
         },
         "graveyard.dampes_hut": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -33657,6 +33671,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -33676,7 +33691,7 @@
         },
         "goron.shop": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -33738,6 +33753,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33781,7 +33797,7 @@
         },
         "river.bomb_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -33838,7 +33854,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "fountain": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -33858,7 +33877,7 @@
         },
         "zoras.shop": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": {
                 "type": "state",
                 "el": "option[entrance_shuffle_interior]",
@@ -33920,6 +33939,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_shop",
             "map": {
                 "active": false,
                 "color": "",
@@ -33963,7 +33983,7 @@
         },
         "zoras.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -34020,7 +34040,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "fountain": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -34040,7 +34063,7 @@
         },
         "gerudo_valley.tend": {
             "type": "interior",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -34098,6 +34121,7 @@
             },
             "icon": "images/icons/interior.svg",
             "areaTags": false,
+            "category": "interior_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -34117,7 +34141,7 @@
         },
         "gerudo_valley.octorock_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -34174,7 +34198,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "rupees": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -34194,7 +34221,7 @@
         },
         "gerudo.storms_grotto": {
             "type": "grotto",
-            "categories": [],
+            "tags": [],
             "visible": false,
             "filter": {
                 "era": {
@@ -34251,7 +34278,10 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaTags": {
+                "fountain": 1
+            },
+            "category": "grotto_empty",
             "map": {
                 "active": false,
                 "color": "",
@@ -34276,7 +34306,7 @@
             "target": "deku_tree_gateway -> deku_tree_entrance",
             "logicAccess": "region[deku_tree_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "forest",
                 "deku",
                 "dungeon",
@@ -34324,7 +34354,7 @@
             "target": "deku_tree_entrance -> deku_tree_gateway",
             "logicAccess": "region[deku_tree_gateway]",
             "area": "deku",
-            "categories": [
+            "tags": [
                 "forest",
                 "deku",
                 "dungeon",
@@ -34372,7 +34402,7 @@
             "target": "dodongos_cavern_gateway -> dodongos_cavern_entrance",
             "logicAccess": "region[dodongos_cavern_entrance]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "mountain",
                 "dodongo",
                 "dungeon",
@@ -34420,7 +34450,7 @@
             "target": "dodongos_cavern_entrance -> dodongos_cavern_gateway",
             "logicAccess": "region[dodongos_cavern_gateway]",
             "area": "dodongo",
-            "categories": [
+            "tags": [
                 "mountain",
                 "dodongo",
                 "dungeon",
@@ -34468,7 +34498,7 @@
             "target": "jabu_jabus_belly_gateway -> jabu_jabus_belly_entrance",
             "logicAccess": "region[jabu_jabus_belly_entrance]",
             "area": "fountain",
-            "categories": [
+            "tags": [
                 "zoras",
                 "fountain",
                 "jabujabu",
@@ -34516,7 +34546,7 @@
             "target": "jabu_jabus_belly_entrance -> jabu_jabus_belly_gateway",
             "logicAccess": "region[jabu_jabus_belly_gateway]",
             "area": "jabujabu",
-            "categories": [
+            "tags": [
                 "zoras",
                 "fountain",
                 "jabujabu",
@@ -34564,7 +34594,7 @@
             "target": "bottom_of_the_well_gateway -> bottom_of_the_well_entrance",
             "logicAccess": "region[bottom_of_the_well_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "kakariko",
                 "well",
                 "dungeon",
@@ -34611,7 +34641,7 @@
             "target": "bottom_of_the_well_entrance -> bottom_of_the_well_gateway",
             "logicAccess": "region[bottom_of_the_well_gateway]",
             "area": "well",
-            "categories": [
+            "tags": [
                 "kakariko",
                 "well",
                 "dungeon",
@@ -34658,7 +34688,7 @@
             "target": "forest_temple_gateway -> forest_temple_entrance",
             "logicAccess": "region[forest_temple_entrance]",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "meadow",
                 "forest",
                 "temple",
@@ -34706,7 +34736,7 @@
             "target": "forest_temple_entrance -> forest_temple_gateway",
             "logicAccess": "region[forest_temple_gateway]",
             "area": "temple_forest",
-            "categories": [
+            "tags": [
                 "meadow",
                 "forest",
                 "temple",
@@ -34754,7 +34784,7 @@
             "target": "fire_temple_gateway -> fire_temple_entrance",
             "logicAccess": "region[fire_temple_entrance]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "crater",
                 "fire",
                 "temple",
@@ -34802,7 +34832,7 @@
             "target": "fire_temple_entrance -> fire_temple_gateway",
             "logicAccess": "region[fire_temple_gateway]",
             "area": "temple_fire",
-            "categories": [
+            "tags": [
                 "crater",
                 "fire",
                 "temple",
@@ -34850,7 +34880,7 @@
             "target": "water_temple_gateway -> water_temple_entrance",
             "logicAccess": "region[water_temple_entrance]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "lake",
                 "water",
                 "temple",
@@ -34898,7 +34928,7 @@
             "target": "water_temple_entrance -> water_temple_gateway",
             "logicAccess": "region[water_temple_gateway]",
             "area": "temple_water",
-            "categories": [
+            "tags": [
                 "lake",
                 "water",
                 "temple",
@@ -34946,7 +34976,7 @@
             "target": "spirit_temple_gateway -> spirit_temple_entrance",
             "logicAccess": "region[spirit_temple_entrance]",
             "area": "colossus",
-            "categories": [
+            "tags": [
                 "colossus",
                 "spirit",
                 "temple",
@@ -34994,7 +35024,7 @@
             "target": "spirit_temple_entrance -> spirit_temple_gateway",
             "logicAccess": "region[spirit_temple_gateway]",
             "area": "temple_spirit",
-            "categories": [
+            "tags": [
                 "colossus",
                 "spirit",
                 "temple",
@@ -35042,7 +35072,7 @@
             "target": "shadow_temple_gateway -> shadow_temple_entrance",
             "logicAccess": "region[shadow_temple_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "graveyard",
                 "shadow",
                 "temple",
@@ -35090,7 +35120,7 @@
             "target": "shadow_temple_entrance -> shadow_temple_gateway",
             "logicAccess": "region[shadow_temple_gateway]",
             "area": "temple_shadow",
-            "categories": [
+            "tags": [
                 "graveyard",
                 "shadow",
                 "temple",
@@ -35138,7 +35168,7 @@
             "target": "ice_cavern_gateway -> ice_cavern_entrance",
             "logicAccess": "region[ice_cavern_entrance]",
             "area": "fountain",
-            "categories": [
+            "tags": [
                 "zoras",
                 "fountain",
                 "ice",
@@ -35187,7 +35217,7 @@
             "target": "ice_cavern_entrance -> ice_cavern_gateway",
             "logicAccess": "region[ice_cavern_gateway]",
             "area": "ice_cavern",
-            "categories": [
+            "tags": [
                 "zoras",
                 "fountain",
                 "ice",
@@ -35236,7 +35266,7 @@
             "target": "gerudo_training_grounds_gateway -> gerudo_training_grounds_entrance",
             "logicAccess": "region[gerudo_training_grounds_entrance]",
             "area": "gerudo",
-            "categories": [
+            "tags": [
                 "fortress",
                 "gerudo",
                 "training_grounds",
@@ -35284,7 +35314,7 @@
             "target": "gerudo_training_grounds_entrance -> gerudo_training_grounds_gateway",
             "logicAccess": "region[gerudo_training_grounds_gateway]",
             "area": "training_grounds",
-            "categories": [
+            "tags": [
                 "fortress",
                 "gerudo",
                 "training_grounds",
@@ -35332,7 +35362,7 @@
             "target": "woods_field_gateway -> field_woods_gateway",
             "logicAccess": "region[field_woods_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule_field",
                 "to"
@@ -35378,7 +35408,7 @@
             "target": "lake_field_gateway -> field_lake_gateway",
             "logicAccess": "region[field_lake_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35425,7 +35455,7 @@
             "target": "marketentrance_field_gateway -> field_marketentrance_gateway",
             "logicAccess": "region[field_marketentrance_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35472,7 +35502,7 @@
             "target": "ranch_field_gateway -> field_ranch_gateway",
             "logicAccess": "region[field_ranch_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35519,7 +35549,7 @@
             "target": "kakariko_field_gateway -> field_kakariko_gateway",
             "logicAccess": "region[field_kakariko_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35566,7 +35596,7 @@
             "target": "river_field_gateway -> field_river_gateway",
             "logicAccess": "region[field_river_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35613,7 +35643,7 @@
             "target": "valley_field_gateway -> field_valley_gateway",
             "logicAccess": "region[field_valley_gateway]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -35660,7 +35690,7 @@
             "target": "bridge_kokiri_gateway -> kokiri_bridge_gateway",
             "logicAccess": "region[kokiri_bridge_gateway]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kokiri",
                 "to"
@@ -35706,7 +35736,7 @@
             "target": "woods_kokiri_gateway -> kokiri_woods_gateway",
             "logicAccess": "region[kokiri_woods_gateway]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kokiri",
                 "to"
@@ -35752,7 +35782,7 @@
             "target": "field_woods_gateway -> woods_field_gateway",
             "logicAccess": "region[woods_field_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -35798,7 +35828,7 @@
             "target": "kokiri_bridge_gateway -> bridge_kokiri_gateway",
             "logicAccess": "region[bridge_kokiri_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -35844,7 +35874,7 @@
             "target": "kokiri_woods_gateway -> woods_kokiri_gateway",
             "logicAccess": "region[woods_kokiri_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -35890,7 +35920,7 @@
             "target": "gc_woods_gateway -> woods_gc_gateway",
             "logicAccess": "region[woods_gc_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -35936,7 +35966,7 @@
             "target": "river_woods_gateway -> woods_river_gateway",
             "logicAccess": "region[woods_river_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -35982,7 +36012,7 @@
             "target": "meadow_woods_gateway -> woods_meadow_gateway",
             "logicAccess": "region[woods_meadow_gateway]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "overworld",
                 "woods",
                 "to"
@@ -36028,7 +36058,7 @@
             "target": "woods_meadow_gateway -> meadow_woods_gateway",
             "logicAccess": "region[meadow_woods_gateway]",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "overworld",
                 "meadow",
                 "to"
@@ -36074,7 +36104,7 @@
             "target": "field_lake_gateway -> lake_field_gateway",
             "logicAccess": "region[lake_field_gateway]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "overworld",
                 "lake",
                 "to"
@@ -36120,7 +36150,7 @@
             "target": "domain_lake_gateway -> lake_domain_gateway",
             "logicAccess": "region[lake_domain_gateway]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "overworld",
                 "lake",
                 "to"
@@ -36166,7 +36196,7 @@
             "target": "valley_lake_gateway -> lake_valley_gateway",
             "logicAccess": "region[lake_gerudo_valley_gateway]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "valley",
@@ -36219,7 +36249,7 @@
             "target": "field_ranch_gateway -> ranch_field_gateway",
             "logicAccess": "region[ranch_field_gateway]",
             "area": "lonlon",
-            "categories": [
+            "tags": [
                 "overworld",
                 "lonlon",
                 "to"
@@ -36265,7 +36295,7 @@
             "target": "field_marketentrance_gateway -> marketentrance_field_gateway",
             "logicAccess": "region[marketentrance_field_gateway]",
             "area": "town_entrance",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36311,7 +36341,7 @@
             "target": "market_marketentrance_gateway -> marketentrance_market_gateway",
             "logicAccess": "region[marketentrance_market_gateway]",
             "area": "town_entrance",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36357,7 +36387,7 @@
             "target": "marketentrance_market_gateway -> market_marketentrance_gateway",
             "logicAccess": "region[market_marketentrance_gateway]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36403,7 +36433,7 @@
             "target": "market_marketback_gateway -> marketback_market_gateway",
             "logicAccess": "region[marketback_market_gateway]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36455,7 +36485,7 @@
             "target": "marketback_market_gateway -> market_marketback_gateway",
             "logicAccess": "region[market_marketback_gateway]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36507,7 +36537,7 @@
             "target": "grounds_market_gateway -> market_grounds_gateway",
             "logicAccess": "region[market_grounds_gateway]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36553,7 +36583,7 @@
             "target": "tot_market_gateway -> market_tot_gateway",
             "logicAccess": "region[market_tot_gateway]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "overworld",
                 "market",
                 "to"
@@ -36599,7 +36629,7 @@
             "target": "market_grounds_gateway -> grounds_market_gateway",
             "logicAccess": "region[grounds_market_gateway]",
             "area": "castle_gateway",
-            "categories": [
+            "tags": [
                 "overworld",
                 "castle",
                 "grounds",
@@ -36646,7 +36676,7 @@
             "target": "market_tot_gateway -> tot_market_gateway",
             "logicAccess": "region[tot_market_gateway]",
             "area": "temple_time",
-            "categories": [
+            "tags": [
                 "overworld",
                 "temple",
                 "time",
@@ -36693,7 +36723,7 @@
             "target": "field_kakariko_gateway -> kakariko_field_gateway",
             "logicAccess": "region[kakariko_field_gateway]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kakariko",
                 "to"
@@ -36739,7 +36769,7 @@
             "target": "graveyard_kakariko_gateway -> kakariko_graveyard_gateway",
             "logicAccess": "region[kakariko_graveyard_gateway]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kakariko",
                 "to"
@@ -36785,7 +36815,7 @@
             "target": "kakariko_graveyard_gateway -> graveyard_kakariko_gateway",
             "logicAccess": "region[graveyard_kakariko_gateway]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "overworld",
                 "graveyard",
                 "to"
@@ -36831,7 +36861,7 @@
             "target": "mountain_kakariko_gateway -> kakariko_mountain_gateway",
             "logicAccess": "region[kakariko_mountain_gateway]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kakariko",
                 "to"
@@ -36877,7 +36907,7 @@
             "target": "kakariko_mountain_gateway -> mountain_kakariko_gateway",
             "logicAccess": "region[mountain_kakariko_gateway]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "overworld",
                 "mountian",
                 "to"
@@ -36923,7 +36953,7 @@
             "target": "goron_mountain_gateway -> mountain_goron_gateway",
             "logicAccess": "region[mountain_goron_gateway]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "overworld",
                 "mountain",
                 "to"
@@ -36969,7 +36999,7 @@
             "target": "crater_mountain_gateway -> mountain_crater_gateway",
             "logicAccess": "region[mountain_crater_gateway]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "overworld",
                 "mountain",
                 "to"
@@ -37015,7 +37045,7 @@
             "target": "mountain_crater_gateway -> crater_mountain_gateway",
             "logicAccess": "region[crater_mountain_gateway]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "overworld",
                 "crater",
                 "to"
@@ -37061,7 +37091,7 @@
             "target": "goron_crater_gateway -> crater_goron_gateway",
             "logicAccess": "region[crater_goron_gateway]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "overworld",
                 "crater",
                 "to"
@@ -37107,7 +37137,7 @@
             "target": "crater_goron_gateway -> goron_crater_gateway",
             "logicAccess": "region[goron_crater_gateway]",
             "area": "goron",
-            "categories": [
+            "tags": [
                 "overworld",
                 "goron",
                 "to"
@@ -37153,7 +37183,7 @@
             "target": "mountain_goron_gateway -> goron_mountain_gateway",
             "logicAccess": "region[goron_mountain_gateway]",
             "area": "goron",
-            "categories": [
+            "tags": [
                 "overworld",
                 "goron",
                 "to"
@@ -37199,7 +37229,7 @@
             "target": "woods_gc_gateway -> gc_woods_gateway",
             "logicAccess": "region[gc_woods_gateway]",
             "area": "goron",
-            "categories": [
+            "tags": [
                 "overworld",
                 "goron",
                 "to"
@@ -37245,7 +37275,7 @@
             "target": "field_river_gateway -> river_field_gateway",
             "logicAccess": "region[river_field_gateway]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "overworld",
                 "zoras",
                 "river",
@@ -37292,7 +37322,7 @@
             "target": "woods_river_gateway -> river_woods_gateway",
             "logicAccess": "region[river_woods_gateway]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "overworld",
                 "river",
                 "to"
@@ -37338,7 +37368,7 @@
             "target": "domain_river_gateway -> river_domain_gateway",
             "logicAccess": "region[river_domain_gateway]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "overworld",
                 "river",
                 "to"
@@ -37384,7 +37414,7 @@
             "target": "river_domain_gateway -> domain_river_gateway",
             "logicAccess": "region[domain_river_gateway]",
             "area": "zoras",
-            "categories": [
+            "tags": [
                 "overworld",
                 "zoras",
                 "to"
@@ -37430,7 +37460,7 @@
             "target": "lake_domain_gateway -> domain_lake_gateway",
             "logicAccess": "region[domain_lake_gateway]",
             "area": "zoras",
-            "categories": [
+            "tags": [
                 "overworld",
                 "zoras",
                 "domain",
@@ -37477,7 +37507,7 @@
             "target": "fountain_domain_gateway -> domain_fountain_gateway",
             "logicAccess": "region[domain_fountain_gateway]",
             "area": "zoras",
-            "categories": [
+            "tags": [
                 "overworld",
                 "zoras",
                 "to"
@@ -37523,7 +37553,7 @@
             "target": "domain_fountain_gateway -> fountain_domain_gateway",
             "logicAccess": "region[fountain_domain_gateway]",
             "area": "fountain",
-            "categories": [
+            "tags": [
                 "overworld",
                 "fountain",
                 "to"
@@ -37569,7 +37599,7 @@
             "target": "field_valley_gateway -> valley_field_gateway",
             "logicAccess": "region[valley_field_gateway]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "valley",
@@ -37616,7 +37646,7 @@
             "target": "fortress_valley_gateway -> valley_fortress_gateway",
             "logicAccess": "region[valley_fortress_gateway]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "valley",
@@ -37663,7 +37693,7 @@
             "target": "lake_valley_gateway -> valley_lake_gateway",
             "logicAccess": "region[gerudo_valley_lake_gateway]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "valley",
@@ -37716,7 +37746,7 @@
             "target": "valley_fortress_gateway -> fortress_valley_gateway",
             "logicAccess": "region[fortress_valley_gateway]",
             "area": "gerudo",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "fortress",
@@ -37763,7 +37793,7 @@
             "target": "wasteland_fortress_gateway -> fortress_wasteland_gateway",
             "logicAccess": "region[fortress_wasteland_gateway]",
             "area": "gerudo",
-            "categories": [
+            "tags": [
                 "overworld",
                 "gerudo",
                 "fortress",
@@ -37810,7 +37840,7 @@
             "target": "fortress_wasteland_gateway -> wasteland_fortress_gateway",
             "logicAccess": "region[wasteland_fortress_gateway]",
             "area": "desert",
-            "categories": [
+            "tags": [
                 "overworld",
                 "wasteland",
                 "to"
@@ -37856,7 +37886,7 @@
             "target": "colossus_wasteland_gateway -> wasteland_colossus_gateway",
             "logicAccess": "region[wasteland_colossus_gateway]",
             "area": "desert",
-            "categories": [
+            "tags": [
                 "overworld",
                 "wasteland",
                 "to"
@@ -37902,7 +37932,7 @@
             "target": "wasteland_colossus_gateway -> colossus_wasteland_gateway",
             "logicAccess": "region[colossus_wasteland_gateway]",
             "area": "colossus",
-            "categories": [
+            "tags": [
                 "overworld",
                 "colossus",
                 "to"
@@ -37948,7 +37978,7 @@
             "target": "hyrule_field -> lh_owl_flight",
             "logicAccess": "region[lh_owl_flight]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -38001,7 +38031,7 @@
             "target": "lh_owl_flight -> hyrule_field",
             "logicAccess": "",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "overworld",
                 "hyrule",
                 "field",
@@ -38026,7 +38056,7 @@
             "target": "kak_impas_rooftop -> dmt_owl_flight",
             "logicAccess": "region[dmt_owl_flight]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kakariko",
                 "owl",
@@ -38078,7 +38108,7 @@
             "target": "dmt_owl_flight -> kak_impas_rooftop",
             "logicAccess": "",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "overworld",
                 "kakariko",
                 "owl",
@@ -38102,7 +38132,7 @@
             "target": "kf_links_house -> child_spawn",
             "logicAccess": "region[child_spawn]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "links",
                 "child",
@@ -38157,7 +38187,7 @@
             "target": "child_spawn -> kf_links_house",
             "logicAccess": "",
             "area": "kokiri.links_house",
-            "categories": [
+            "tags": [
                 "overworld",
                 "links",
                 "child",
@@ -38181,7 +38211,7 @@
             "target": "temple_of_time -> adult_spawn",
             "logicAccess": "region[adult_spawn]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "temple",
                 "time",
@@ -38234,7 +38264,7 @@
             "target": "adult_spawn -> temple_of_time",
             "logicAccess": "",
             "area": "castle_town.temple_of_time",
-            "categories": [
+            "tags": [
                 "overworld",
                 "temple",
                 "time",
@@ -38259,7 +38289,7 @@
             "target": "temple_of_time -> prelude_of_light_warp",
             "logicAccess": "region[prelude_of_light_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "temple",
                 "time",
@@ -38312,7 +38342,7 @@
             "target": "prelude_of_light_warp -> temple_of_time",
             "logicAccess": "",
             "area": "castle_town.temple_of_time",
-            "categories": [
+            "tags": [
                 "overworld",
                 "temple",
                 "time",
@@ -38367,7 +38397,7 @@
             "target": "sacred_forest_meadow -> minuet_of_forest_warp",
             "logicAccess": "region[minuet_of_forest_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "meadow",
                 "song",
@@ -38419,7 +38449,7 @@
             "target": "minuet_of_forest_warp -> sacred_forest_meadow",
             "logicAccess": "",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "overworld",
                 "meadow",
                 "song",
@@ -38443,7 +38473,7 @@
             "target": "dmc_central_local -> bolero_of_fire_warp",
             "logicAccess": "region[bolero_of_fire_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "crater",
                 "song",
@@ -38495,7 +38525,7 @@
             "target": "bolero_of_fire_warp -> dmc_central_local",
             "logicAccess": "",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "overworld",
                 "crater",
                 "song",
@@ -38519,7 +38549,7 @@
             "target": "lake_hylia -> serenade_of_water_warp",
             "logicAccess": "region[serenade_of_water_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "lake",
                 "song",
@@ -38571,7 +38601,7 @@
             "target": "serenade_of_water_warp -> lake_hylia",
             "logicAccess": "",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "overworld",
                 "lake",
                 "song",
@@ -38595,7 +38625,7 @@
             "target": "graveyard_warp_pad_region -> nocturne_of_shadow_warp",
             "logicAccess": "region[nocturne_of_shadow_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "graveyard",
                 "song",
@@ -38647,7 +38677,7 @@
             "target": "nocturne_of_shadow_warp -> graveyard_warp_pad_region",
             "logicAccess": "",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "overworld",
                 "graveyard",
                 "song",
@@ -38671,7 +38701,7 @@
             "target": "desert_colossus -> requiem_of_spirit_warp",
             "logicAccess": "region[requiem_of_spirit_warp]",
             "area": "hyrule",
-            "categories": [
+            "tags": [
                 "overworld",
                 "colossus",
                 "song",
@@ -38723,7 +38753,7 @@
             "target": "requiem_of_spirit_warp -> desert_colossus",
             "logicAccess": "",
             "area": "colossus",
-            "categories": [
+            "tags": [
                 "overworld",
                 "colossus",
                 "song",
@@ -38747,7 +38777,7 @@
             "target": "hf_tektite_grotto -> hf_tektite_grotto_entrance",
             "logicAccess": "region[hf_tektite_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -38796,7 +38826,7 @@
             "target": "hf_tektite_grotto_entrance -> hf_tektite_grotto",
             "logicAccess": "region[hf_tektite_grotto]",
             "area": "hyrule_field.dive_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -38845,7 +38875,7 @@
             "target": "hf_near_kak_grotto -> hf_near_kak_grotto_entrance",
             "logicAccess": "region[hf_near_kak_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -38895,7 +38925,7 @@
             "target": "hf_near_kak_grotto_entrance -> hf_near_kak_grotto",
             "logicAccess": "region[hf_near_kak_grotto]",
             "area": "hyrule_field.kakariko_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -38945,7 +38975,7 @@
             "target": "hf_fairy_grotto -> hf_fairy_grotto_entrance",
             "logicAccess": "region[hf_fairy_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -38994,7 +39024,7 @@
             "target": "hf_fairy_grotto_entrance -> hf_fairy_grotto",
             "logicAccess": "region[hf_fairy_grotto]",
             "area": "hyrule_field.fairy_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39043,7 +39073,7 @@
             "target": "hf_near_market_grotto -> hf_near_market_grotto_entrance",
             "logicAccess": "region[hf_near_market_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39093,7 +39123,7 @@
             "target": "hf_near_market_grotto_entrance -> hf_near_market_grotto",
             "logicAccess": "region[hf_near_market_grotto]",
             "area": "hyrule_field.castle_entrance_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39143,7 +39173,7 @@
             "target": "hf_cow_grotto -> hf_cow_grotto_entrance",
             "logicAccess": "region[hf_cow_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39192,7 +39222,7 @@
             "target": "hf_cow_grotto_entrance -> hf_cow_grotto",
             "logicAccess": "region[hf_cow_grotto]",
             "area": "hyrule_field.valley_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39241,7 +39271,7 @@
             "target": "hf_inside_fence_grotto -> hf_inside_fence_grotto_entrance",
             "logicAccess": "region[hf_inside_fence_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39292,7 +39322,7 @@
             "target": "hf_inside_fence_grotto_entrance -> hf_inside_fence_grotto",
             "logicAccess": "region[hf_inside_fence_grotto]",
             "area": "hyrule_field.lake_fence_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39343,7 +39373,7 @@
             "target": "hf_open_grotto -> hf_open_grotto_entrance",
             "logicAccess": "region[hf_open_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39392,7 +39422,7 @@
             "target": "hf_open_grotto_entrance -> hf_open_grotto",
             "logicAccess": "region[hf_open_grotto]",
             "area": "hyrule_field.lake_open_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39441,7 +39471,7 @@
             "target": "hf_southeast_grotto -> hf_southeast_grotto_entrance",
             "logicAccess": "region[hf_southeast_grotto_entrance]",
             "area": "hyrule_field",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39490,7 +39520,7 @@
             "target": "hf_southeast_grotto_entrance -> hf_southeast_grotto",
             "logicAccess": "region[hf_southeast_grotto]",
             "area": "hyrule_field.little_forest_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "hyrule",
                 "field",
@@ -39539,7 +39569,7 @@
             "target": "kf_midos_house -> kf_midos_house_entrance",
             "logicAccess": "region[kf_midos_house_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39596,7 +39626,7 @@
             "target": "kf_midos_house_entrance -> kf_midos_house",
             "logicAccess": "region[kf_midos_house]",
             "area": "kokiri.midos_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39653,7 +39683,7 @@
             "target": "kf_sarias_house -> kf_sarias_house_entrance",
             "logicAccess": "region[kf_sarias_house_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39710,7 +39740,7 @@
             "target": "kf_sarias_house_entrance -> kf_sarias_house",
             "logicAccess": "region[kf_sarias_house]",
             "area": "kokiri.sarias_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39767,7 +39797,7 @@
             "target": "kf_house_of_twins -> kf_house_of_twins_entrance",
             "logicAccess": "region[kf_house_of_twins_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39824,7 +39854,7 @@
             "target": "kf_house_of_twins_entrance -> kf_house_of_twins",
             "logicAccess": "region[kf_house_of_twins]",
             "area": "kokiri.twins_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39881,7 +39911,7 @@
             "target": "kf_know_it_all_house -> kf_know_it_all_house_entrance",
             "logicAccess": "region[kf_know_it_all_house_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39938,7 +39968,7 @@
             "target": "kf_know_it_all_house_entrance -> kf_know_it_all_house",
             "logicAccess": "region[kf_know_it_all_house]",
             "area": "kokiri.know_it_all_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -39995,7 +40025,7 @@
             "target": "kf_kokiri_shop -> kf_kokiri_shop_entrance",
             "logicAccess": "region[kf_kokiri_shop_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -40052,7 +40082,7 @@
             "target": "kf_kokiri_shop_entrance -> kf_kokiri_shop",
             "logicAccess": "region[kf_kokiri_shop]",
             "area": "kokiri.shop",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -40109,7 +40139,7 @@
             "target": "kf_links_house -> kf_links_house_entrance",
             "logicAccess": "region[kf_links_house_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -40160,7 +40190,7 @@
             "target": "kf_links_house_entrance -> kf_links_house",
             "logicAccess": "region[kf_links_house]",
             "area": "kokiri.links_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kokiri",
                 "forest",
@@ -40211,7 +40241,7 @@
             "target": "kf_storms_grotto -> kf_storms_grotto_entrance",
             "logicAccess": "region[kf_storms_grotto_entrance]",
             "area": "kokiri",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kokiri",
                 "forest",
@@ -40260,7 +40290,7 @@
             "target": "kf_storms_grotto_entrance -> kf_storms_grotto",
             "logicAccess": "region[kf_storms_grotto]",
             "area": "kokiri.storm_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kokiri",
                 "forest",
@@ -40309,7 +40339,7 @@
             "target": "lw_near_shortcuts_grotto -> lw_near_shortcuts_grotto_entrance",
             "logicAccess": "region[lw_near_shortcuts_grotto_entrance]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40359,7 +40389,7 @@
             "target": "lw_near_shortcuts_grotto_entrance -> lw_near_shortcuts_grotto",
             "logicAccess": "region[lw_near_shortcuts_grotto]",
             "area": "woods.near_goron_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40409,7 +40439,7 @@
             "target": "lw_scrubs_grotto -> lw_scrubs_grotto_entrance",
             "logicAccess": "region[lw_scrubs_grotto_entrance]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40460,7 +40490,7 @@
             "target": "lw_scrubs_grotto_entrance -> lw_scrubs_grotto",
             "logicAccess": "region[lw_scrubs_grotto]",
             "area": "woods.near_meadow_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40511,7 +40541,7 @@
             "target": "deku_theater -> deku_theater_entrance",
             "logicAccess": "region[deku_theater_entrance]",
             "area": "woods",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40560,7 +40590,7 @@
             "target": "deku_theater_entrance -> deku_theater",
             "logicAccess": "region[deku_theater]",
             "area": "woods.theatre_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lost",
                 "woods",
@@ -40609,7 +40639,7 @@
             "target": "sfm_wolfos_grotto -> sfm_wolfos_grotto_entrance",
             "logicAccess": "region[sfm_wolfos_grotto_entrance]",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40659,7 +40689,7 @@
             "target": "sfm_wolfos_grotto_entrance -> sfm_wolfos_grotto",
             "logicAccess": "region[sfm_wolfos_grotto]",
             "area": "meadow.wolfos_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40709,7 +40739,7 @@
             "target": "sfm_storms_grotto -> sfm_storms_grotto_entrance",
             "logicAccess": "region[sfm_storms_grotto_entrance]",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40759,7 +40789,7 @@
             "target": "sfm_storms_grotto_entrance -> sfm_storms_grotto",
             "logicAccess": "region[sfm_storms_grotto]",
             "area": "meadow.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40809,7 +40839,7 @@
             "target": "sfm_fairy_grotto -> sfm_fairy_grotto_entrance",
             "logicAccess": "region[sfm_fairy_grotto_entrance]",
             "area": "meadow",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40859,7 +40889,7 @@
             "target": "sfm_fairy_grotto_entrance -> sfm_fairy_grotto",
             "logicAccess": "region[sfm_fairy_grotto]",
             "area": "meadow.fairy_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "sacred",
                 "forest",
@@ -40909,7 +40939,7 @@
             "target": "market_guard_house -> market_guard_house_entrance",
             "logicAccess": "region[market_guard_house_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "guard",
@@ -40966,7 +40996,7 @@
             "target": "market_guard_house_entrance -> market_guard_house",
             "logicAccess": "region[market_guard_house]",
             "area": "castle_town.guard_tower",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "guard",
@@ -41023,7 +41053,7 @@
             "target": "market_mask_shop -> market_mask_shop_entrance",
             "logicAccess": "region[market_mask_shop_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "mask",
@@ -41079,7 +41109,7 @@
             "target": "market_mask_shop_entrance -> market_mask_shop",
             "logicAccess": "region[market_mask_shop]",
             "area": "castle_town.shop_mask",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "mask",
@@ -41135,7 +41165,7 @@
             "target": "market_bombchu_bowling -> market_bombchu_bowling_entrance",
             "logicAccess": "region[market_bombchu_bowling_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bombchu",
@@ -41191,7 +41221,7 @@
             "target": "market_bombchu_bowling_entrance -> market_bombchu_bowling",
             "logicAccess": "region[market_bombchu_bowling]",
             "area": "castle_town.minigame_bombchu",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bombchu",
@@ -41247,7 +41277,7 @@
             "target": "market_potion_shop -> market_potion_shop_entrance",
             "logicAccess": "region[market_potion_shop_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "potion",
@@ -41303,7 +41333,7 @@
             "target": "market_potion_shop_entrance -> market_potion_shop",
             "logicAccess": "region[market_potion_shop]",
             "area": "castle_town.shop_magic",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "potion",
@@ -41359,7 +41389,7 @@
             "target": "market_treasure_chest_game -> market_treasure_chest_game_entrance",
             "logicAccess": "region[market_treasure_chest_game_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "treasure",
@@ -41415,7 +41445,7 @@
             "target": "market_treasure_chest_game_entrance -> market_treasure_chest_game",
             "logicAccess": "region[market_treasure_chest_game]",
             "area": "castle_town.minigame_treasure",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "treasure",
@@ -41471,7 +41501,7 @@
             "target": "market_bombchu_shop -> market_bombchu_shop_entrance",
             "logicAccess": "region[market_bombchu_shop_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bombchu",
@@ -41527,7 +41557,7 @@
             "target": "market_bombchu_shop_entrance -> market_bombchu_shop",
             "logicAccess": "region[market_bombchu_shop]",
             "area": "castle_town.shop_bombchu",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bombchu",
@@ -41583,7 +41613,7 @@
             "target": "market_man_in_green_house -> market_man_in_green_house_entrance",
             "logicAccess": "region[market_man_in_green_house_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "man_in_green",
@@ -41638,7 +41668,7 @@
             "target": "market_man_in_green_house_entrance -> market_man_in_green_house",
             "logicAccess": "region[market_man_in_green_house]",
             "area": "castle_town.back_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "man_in_green",
@@ -41693,7 +41723,7 @@
             "target": "market_bazaar -> market_bazaar_entrance",
             "logicAccess": "region[market_bazaar_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bazaar",
@@ -41748,7 +41778,7 @@
             "target": "market_bazaar_entrance -> market_bazaar",
             "logicAccess": "region[market_bazaar]",
             "area": "castle_town.shop_bazaar",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "bazaar",
@@ -41803,7 +41833,7 @@
             "target": "market_shooting_gallery -> market_shooting_gallery_entrance",
             "logicAccess": "region[market_shooting_gallery_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "shooting",
@@ -41858,7 +41888,7 @@
             "target": "market_shooting_gallery_entrance -> market_shooting_gallery",
             "logicAccess": "region[market_shooting_gallery]",
             "area": "castle_town.minigame_shooting",
-            "categories": [
+            "tags": [
                 "interior",
                 "market",
                 "shooting",
@@ -41913,7 +41943,7 @@
             "target": "temple_of_time -> tot_entrance",
             "logicAccess": "region[tot_entrance]",
             "area": "castle_town",
-            "categories": [
+            "tags": [
                 "interior",
                 "temple",
                 "time",
@@ -41963,7 +41993,7 @@
             "target": "tot_entrance -> temple_of_time",
             "logicAccess": "region[temple_of_time]",
             "area": "castle_town.temple_of_time",
-            "categories": [
+            "tags": [
                 "interior",
                 "temple",
                 "time",
@@ -42013,7 +42043,7 @@
             "target": "llr_talons_house -> llr_talons_house_entrance",
             "logicAccess": "region[llr_talons_house_entrance]",
             "area": "lonlon",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "talon",
@@ -42070,7 +42100,7 @@
             "target": "llr_talons_house_entrance -> llr_talons_house",
             "logicAccess": "region[llr_talons_house]",
             "area": "lonlon.house",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "talon",
@@ -42127,7 +42157,7 @@
             "target": "llr_stables -> llr_stables_entrance",
             "logicAccess": "region[llr_stables_entrance]",
             "area": "lonlon",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "stables",
@@ -42183,7 +42213,7 @@
             "target": "llr_stables_entrance -> llr_stables",
             "logicAccess": "region[llr_stables]",
             "area": "lonlon.stables",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "stables",
@@ -42239,7 +42269,7 @@
             "target": "llr_tower -> llr_tower_entrance",
             "logicAccess": "region[llr_tower_entrance]",
             "area": "lonlon",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "tower",
@@ -42295,7 +42325,7 @@
             "target": "llr_tower_entrance -> llr_tower",
             "logicAccess": "region[llr_tower]",
             "area": "lonlon.silo",
-            "categories": [
+            "tags": [
                 "interior",
                 "lonlon",
                 "tower",
@@ -42351,7 +42381,7 @@
             "target": "llr_grotto -> llr_grotto_entrance",
             "logicAccess": "region[llr_grotto_entrance]",
             "area": "lonlon",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lonlon",
                 "open",
@@ -42399,7 +42429,7 @@
             "target": "llr_grotto_entrance -> llr_grotto",
             "logicAccess": "region[llr_grotto]",
             "area": "lonlon.open_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lonlon",
                 "open",
@@ -42447,7 +42477,7 @@
             "target": "hc_great_fairy_fountain -> hc_great_fairy_fountain_entrance",
             "logicAccess": "region[hc_great_fairy_fountain_entrance]",
             "area": "castle",
-            "categories": [
+            "tags": [
                 "interior",
                 "castle",
                 "grounds",
@@ -42504,7 +42534,7 @@
             "target": "hc_great_fairy_fountain_entrance -> hc_great_fairy_fountain",
             "logicAccess": "region[hc_great_fairy_fountain]",
             "area": "castle.fairy_young",
-            "categories": [
+            "tags": [
                 "interior",
                 "castle",
                 "grounds",
@@ -42561,7 +42591,7 @@
             "target": "hc_storms_grotto -> hc_storms_grotto_entrance",
             "logicAccess": "region[hc_storms_grotto_entrance]",
             "area": "castle",
-            "categories": [
+            "tags": [
                 "grotto",
                 "castle",
                 "grounds",
@@ -42609,7 +42639,7 @@
             "target": "hc_storms_grotto_entrance -> hc_storms_grotto",
             "logicAccess": "region[hc_storms_grotto]",
             "area": "castle.storm_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "castle",
                 "grounds",
@@ -42657,7 +42687,7 @@
             "target": "ogc_great_fairy_fountain -> ogc_great_fairy_fountain_entrance",
             "logicAccess": "region[ogc_great_fairy_fountain_entrance]",
             "area": "castle.fairy_adult",
-            "categories": [
+            "tags": [
                 "interior",
                 "castle",
                 "grounds",
@@ -42714,7 +42744,7 @@
             "target": "ogc_great_fairy_fountain_entrance -> ogc_great_fairy_fountain",
             "logicAccess": "region[ogc_great_fairy_fountain]",
             "area": "castle.fairy_adult",
-            "categories": [
+            "tags": [
                 "interior",
                 "castle",
                 "grounds",
@@ -42771,7 +42801,7 @@
             "target": "kak_carpenter_boss_house -> kak_carpenter_boss_house_entrance",
             "logicAccess": "region[kak_carpenter_boss_house_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "carpenter",
@@ -42827,7 +42857,7 @@
             "target": "kak_carpenter_boss_house_entrance -> kak_carpenter_boss_house",
             "logicAccess": "region[kak_carpenter_boss_house]",
             "area": "kakariko.carpenter_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "carpenter",
@@ -42883,7 +42913,7 @@
             "target": "kak_house_of_skulltula -> kak_house_of_skulltula_entrance",
             "logicAccess": "region[kak_house_of_skulltula_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "skulltula",
@@ -42939,7 +42969,7 @@
             "target": "kak_house_of_skulltula_entrance -> kak_house_of_skulltula",
             "logicAccess": "region[kak_house_of_skulltula]",
             "area": "kakariko.skulltula_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "skulltula",
@@ -42995,7 +43025,7 @@
             "target": "kak_impas_house -> kak_impas_house_entrance",
             "logicAccess": "region[kak_impas_house_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "impa",
@@ -43051,7 +43081,7 @@
             "target": "kak_impas_house_entrance -> kak_impas_house",
             "logicAccess": "region[kak_impas_house]",
             "area": "kakariko.impas_house",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "impa",
@@ -43107,7 +43137,7 @@
             "target": "kak_impas_house_back -> kak_impas_house_back_entrance",
             "logicAccess": "region[kak_impas_house_back_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "impa",
@@ -43163,7 +43193,7 @@
             "target": "kak_impas_house_back_entrance -> kak_impas_house_back",
             "logicAccess": "region[kak_impas_house_back]",
             "area": "kakariko.impa_back",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "impa",
@@ -43219,7 +43249,7 @@
             "target": "kak_odd_medicine_building -> kak_odd_medicine_building_entrance",
             "logicAccess": "region[kak_odd_medicine_building_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "odd_medicine",
@@ -43274,7 +43304,7 @@
             "target": "kak_odd_medicine_building_entrance -> kak_odd_medicine_building",
             "logicAccess": "region[kak_odd_medicine_building]",
             "area": "kakariko.kakariko_witch",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "odd_medicine",
@@ -43329,7 +43359,7 @@
             "target": "kak_bazaar -> kak_bazaar_entrance",
             "logicAccess": "region[kak_bazaar_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "bazaar",
@@ -43384,7 +43414,7 @@
             "target": "kak_bazaar_entrance -> kak_bazaar",
             "logicAccess": "region[kak_bazaar]",
             "area": "kakariko.shop_bazaar",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "bazaar",
@@ -43439,7 +43469,7 @@
             "target": "kak_shooting_gallery -> kak_shooting_gallery_entrance",
             "logicAccess": "region[kak_shooting_gallery_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "shooting",
@@ -43495,7 +43525,7 @@
             "target": "kak_shooting_gallery_entrance -> kak_shooting_gallery",
             "logicAccess": "region[kak_shooting_gallery]",
             "area": "kakariko.minigame_shooting",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "shooting",
@@ -43551,7 +43581,7 @@
             "target": "kak_windmill -> kak_windmill_entrance",
             "logicAccess": "region[kak_windmill_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "windmill",
@@ -43601,7 +43631,7 @@
             "target": "kak_windmill_entrance -> kak_windmill",
             "logicAccess": "region[kak_windmill]",
             "area": "kakariko.windmill",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "windmill",
@@ -43651,7 +43681,7 @@
             "target": "kak_potion_shop_front -> kak_potion_shop_front_entrance",
             "logicAccess": "region[kak_potion_shop_front_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "potion",
@@ -43702,7 +43732,7 @@
             "target": "kak_potion_shop_front_entrance -> kak_potion_shop_front",
             "logicAccess": "region[kak_potion_shop_front]",
             "area": "kakariko.shop_magic",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "potion",
@@ -43753,7 +43783,7 @@
             "target": "kak_potion_shop_back -> kak_potion_shop_back_entrance",
             "logicAccess": "region[kak_potion_shop_back_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "potion",
@@ -43804,7 +43834,7 @@
             "target": "kak_potion_shop_back_entrance -> kak_potion_shop_back",
             "logicAccess": "region[kak_potion_shop_back]",
             "area": "kakariko.shop_magic",
-            "categories": [
+            "tags": [
                 "interior",
                 "kakariko",
                 "potion",
@@ -43855,7 +43885,7 @@
             "target": "kak_open_grotto -> kak_open_grotto_entrance",
             "logicAccess": "region[kak_open_grotto_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kakariko",
                 "open",
@@ -43903,7 +43933,7 @@
             "target": "kak_open_grotto_entrance -> kak_open_grotto",
             "logicAccess": "region[kak_open_grotto]",
             "area": "kakariko.open_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kakariko",
                 "open",
@@ -43951,7 +43981,7 @@
             "target": "kak_redead_grotto -> kak_redead_grotto_entrance",
             "logicAccess": "region[kak_redead_grotto_entrance]",
             "area": "kakariko",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kakariko",
                 "redead",
@@ -43999,7 +44029,7 @@
             "target": "kak_redead_grotto_entrance -> kak_redead_grotto",
             "logicAccess": "region[kak_redead_grotto]",
             "area": "kakariko.redead_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "kakariko",
                 "redead",
@@ -44047,7 +44077,7 @@
             "target": "graveyard_dampes_house -> graveyard_dampes_house_entrance",
             "logicAccess": "region[graveyard_dampes_house_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "interior",
                 "graveyard",
                 "dampe",
@@ -44103,7 +44133,7 @@
             "target": "graveyard_dampes_house_entrance -> graveyard_dampes_house",
             "logicAccess": "region[graveyard_dampes_house]",
             "area": "graveyard.dampes_hut",
-            "categories": [
+            "tags": [
                 "interior",
                 "graveyard",
                 "dampe",
@@ -44159,7 +44189,7 @@
             "target": "graveyard_shield_grave -> graveyard_shield_grave_entrance",
             "logicAccess": "region[graveyard_shield_grave_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "shield",
@@ -44208,7 +44238,7 @@
             "target": "graveyard_shield_grave_entrance -> graveyard_shield_grave",
             "logicAccess": "region[graveyard_shield_grave]",
             "area": "graveyard.shield_grave",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "shield",
@@ -44257,7 +44287,7 @@
             "target": "graveyard_heart_piece_grave -> graveyard_heart_piece_grave_entrance",
             "logicAccess": "region[graveyard_heart_piece_grave_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "redead",
@@ -44308,7 +44338,7 @@
             "target": "graveyard_heart_piece_grave_entrance -> graveyard_heart_piece_grave",
             "logicAccess": "region[graveyard_heart_piece_grave]",
             "area": "graveyard.redead_grave",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "redead",
@@ -44359,7 +44389,7 @@
             "target": "graveyard_royal_familys_tomb -> graveyard_composers_grave_entrance",
             "logicAccess": "region[graveyard_composers_grave_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "composers",
@@ -44408,7 +44438,7 @@
             "target": "graveyard_composers_grave_entrance -> graveyard_royal_familys_tomb",
             "logicAccess": "region[graveyard_royal_familys_tomb]",
             "area": "graveyard.royal_grave",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "composers",
@@ -44457,7 +44487,7 @@
             "target": "graveyard_dampes_grave -> graveyard_dampes_grave_entrance",
             "logicAccess": "region[graveyard_dampes_grave_entrance]",
             "area": "graveyard",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "dampe",
@@ -44505,7 +44535,7 @@
             "target": "graveyard_dampes_grave_entrance -> graveyard_dampes_grave",
             "logicAccess": "region[graveyard_dampes_grave]",
             "area": "graveyard.dampes_grave",
-            "categories": [
+            "tags": [
                 "grotto",
                 "graveyard",
                 "dampe",
@@ -44553,7 +44583,7 @@
             "target": "dmt_great_fairy_fountain -> dmt_great_fairy_fountain_entrance",
             "logicAccess": "region[dmt_great_fairy_fountain_entrance]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "death",
                 "mountain",
@@ -44611,7 +44641,7 @@
             "target": "dmt_great_fairy_fountain_entrance -> dmt_great_fairy_fountain",
             "logicAccess": "region[dmt_great_fairy_fountain]",
             "area": "mountain.fairy_fountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "death",
                 "mountain",
@@ -44669,7 +44699,7 @@
             "target": "dmt_storms_grotto -> dmt_storms_grotto_entrance",
             "logicAccess": "region[dmt_storms_grotto_entrance]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -44718,7 +44748,7 @@
             "target": "dmt_storms_grotto_entrance -> dmt_storms_grotto",
             "logicAccess": "region[dmt_storms_grotto]",
             "area": "mountain.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -44767,7 +44797,7 @@
             "target": "dmt_cow_grotto -> dmt_cow_grotto_entrance",
             "logicAccess": "region[dmt_cow_grotto_entrance]",
             "area": "mountain",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -44816,7 +44846,7 @@
             "target": "dmt_cow_grotto_entrance -> dmt_cow_grotto",
             "logicAccess": "region[dmt_cow_grotto]",
             "area": "mountain.bomb_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -44865,7 +44895,7 @@
             "target": "dmc_great_fairy_fountain -> dmc_great_fairy_fountain_entrance",
             "logicAccess": "region[dmc_great_fairy_fountain_entrance]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "interior",
                 "death",
                 "mountain",
@@ -44924,7 +44954,7 @@
             "target": "dmc_great_fairy_fountain_entrance -> dmc_great_fairy_fountain",
             "logicAccess": "region[dmc_great_fairy_fountain]",
             "area": "crater.fairy_fountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "death",
                 "mountain",
@@ -44983,7 +45013,7 @@
             "target": "dmc_hammer_grotto -> dmc_hammer_grotto_entrance",
             "logicAccess": "region[dmc_hammer_grotto_entrance]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -45032,7 +45062,7 @@
             "target": "dmc_hammer_grotto_entrance -> dmc_hammer_grotto",
             "logicAccess": "region[dmc_hammer_grotto]",
             "area": "crater.hammer_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -45081,7 +45111,7 @@
             "target": "dmc_upper_grotto -> dmc_upper_grotto_entrance",
             "logicAccess": "region[dmc_upper_grotto_entrance]",
             "area": "crater",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -45132,7 +45162,7 @@
             "target": "dmc_upper_grotto_entrance -> dmc_upper_grotto",
             "logicAccess": "region[dmc_upper_grotto]",
             "area": "crater.crater_bomb_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "death",
                 "mountain",
@@ -45183,7 +45213,7 @@
             "target": "gc_shop -> gc_shop_entrance",
             "logicAccess": "region[gc_shop_entrance]",
             "area": "goron",
-            "categories": [
+            "tags": [
                 "interior",
                 "goron",
                 "shop",
@@ -45239,7 +45269,7 @@
             "target": "gc_shop_entrance -> gc_shop",
             "logicAccess": "region[gc_shop]",
             "area": "goron.shop",
-            "categories": [
+            "tags": [
                 "interior",
                 "goron",
                 "shop",
@@ -45295,7 +45325,7 @@
             "target": "gc_grotto -> gc_grotto_entrance",
             "logicAccess": "region[gc_grotto_entrance]",
             "area": "goron",
-            "categories": [
+            "tags": [
                 "grotto",
                 "goron",
                 "adult"
@@ -45341,7 +45371,7 @@
             "target": "gc_grotto_entrance -> gc_grotto",
             "logicAccess": "region[gc_grotto]",
             "area": "goron.grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "goron",
                 "adult"
@@ -45387,7 +45417,7 @@
             "target": "zr_storms_grotto -> zr_storms_grotto_entrance",
             "logicAccess": "region[zr_storms_grotto_entrance]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45436,7 +45466,7 @@
             "target": "zr_storms_grotto_entrance -> zr_storms_grotto",
             "logicAccess": "region[zr_storms_grotto]",
             "area": "river.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45485,7 +45515,7 @@
             "target": "zr_fairy_grotto -> zr_fairy_grotto_entrance",
             "logicAccess": "region[zr_fairy_grotto_entrance]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45534,7 +45564,7 @@
             "target": "zr_fairy_grotto_entrance -> zr_fairy_grotto",
             "logicAccess": "region[zr_fairy_grotto]",
             "area": "river.bomb_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45583,7 +45613,7 @@
             "target": "zr_open_grotto -> zr_open_grotto_entrance",
             "logicAccess": "region[zr_open_grotto_entrance]",
             "area": "river",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45632,7 +45662,7 @@
             "target": "zr_open_grotto_entrance -> zr_open_grotto",
             "logicAccess": "region[zr_open_grotto]",
             "area": "river.open_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "river",
@@ -45681,7 +45711,7 @@
             "target": "zd_shop -> zd_shop_entrance",
             "logicAccess": "region[zd_shop_entrance]",
             "area": "zoras",
-            "categories": [
+            "tags": [
                 "interior",
                 "zoras",
                 "domain",
@@ -45737,7 +45767,7 @@
             "target": "zd_shop_entrance -> zd_shop",
             "logicAccess": "region[zd_shop]",
             "area": "zoras.shop",
-            "categories": [
+            "tags": [
                 "interior",
                 "zoras",
                 "domain",
@@ -45793,7 +45823,7 @@
             "target": "zd_storms_grotto -> zd_storms_grotto_entrance",
             "logicAccess": "region[zd_storms_grotto_entrance]",
             "area": "zoras",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "domain",
@@ -45842,7 +45872,7 @@
             "target": "zd_storms_grotto_entrance -> zd_storms_grotto",
             "logicAccess": "region[zd_storms_grotto]",
             "area": "zoras.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "zoras",
                 "domain",
@@ -45891,7 +45921,7 @@
             "target": "zf_great_fairy_fountain -> zf_great_fairy_fountain_entrance",
             "logicAccess": "region[zf_great_fairy_fountain_entrance]",
             "area": "fountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "zoras",
                 "fountain",
@@ -45949,7 +45979,7 @@
             "target": "zf_great_fairy_fountain_entrance -> zf_great_fairy_fountain",
             "logicAccess": "region[zf_great_fairy_fountain]",
             "area": "fountain.fairy_fountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "zoras",
                 "fountain",
@@ -46007,7 +46037,7 @@
             "target": "lh_lab -> lh_lab_entrance",
             "logicAccess": "region[lh_lab_entrance]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "interior",
                 "lake",
                 "hilya",
@@ -46064,7 +46094,7 @@
             "target": "lh_lab_entrance -> lh_lab",
             "logicAccess": "region[lh_lab]",
             "area": "lake.laboratory",
-            "categories": [
+            "tags": [
                 "interior",
                 "lake",
                 "hilya",
@@ -46121,7 +46151,7 @@
             "target": "lh_fishing_hole -> lh_fishing_hole_entrance",
             "logicAccess": "region[lh_fishing_hole_entrance]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "interior",
                 "lake",
                 "hilya",
@@ -46178,7 +46208,7 @@
             "target": "lh_fishing_hole_entrance -> lh_fishing_hole",
             "logicAccess": "region[lh_fishing_hole]",
             "area": "lake.fishing",
-            "categories": [
+            "tags": [
                 "interior",
                 "lake",
                 "hilya",
@@ -46235,7 +46265,7 @@
             "target": "lh_grotto -> lh_grotto_entrance",
             "logicAccess": "region[lh_grotto_entrance]",
             "area": "lake",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lake",
                 "hilya",
@@ -46284,7 +46314,7 @@
             "target": "lh_grotto_entrance -> lh_grotto",
             "logicAccess": "region[lh_grotto]",
             "area": "lake.grave_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "lake",
                 "hilya",
@@ -46333,7 +46363,7 @@
             "target": "gv_carpenter_tent -> gv_carpenter_tent_entrance",
             "logicAccess": "region[gv_carpenter_tent_entrance]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "interior",
                 "gerudo",
                 "valley",
@@ -46391,7 +46421,7 @@
             "target": "gv_carpenter_tent_entrance -> gv_carpenter_tent",
             "logicAccess": "region[gv_carpenter_tent]",
             "area": "gerudo_valley.tend",
-            "categories": [
+            "tags": [
                 "interior",
                 "gerudo",
                 "valley",
@@ -46449,7 +46479,7 @@
             "target": "gv_storms_grotto -> gv_storms_grotto_entrance",
             "logicAccess": "region[gv_storms_grotto_entrance]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "valley",
@@ -46497,7 +46527,7 @@
             "target": "gv_storms_grotto_entrance -> gv_storms_grotto",
             "logicAccess": "region[gv_storms_grotto]",
             "area": "gerudo_valley.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "valley",
@@ -46545,7 +46575,7 @@
             "target": "gv_octorok_grotto -> gv_octorok_grotto_entrance",
             "logicAccess": "region[gv_octorok_grotto_entrance]",
             "area": "gerudo_valley",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "valley",
@@ -46593,7 +46623,7 @@
             "target": "gv_octorok_grotto_entrance -> gv_octorok_grotto",
             "logicAccess": "region[gv_octorok_grotto]",
             "area": "gerudo_valley.octorock_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "valley",
@@ -46641,7 +46671,7 @@
             "target": "gf_storms_grotto -> gf_storms_grotto_entrance",
             "logicAccess": "region[gf_storms_grotto_entrance]",
             "area": "gerudo",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "fortress",
@@ -46689,7 +46719,7 @@
             "target": "gf_storms_grotto_entrance -> gf_storms_grotto",
             "logicAccess": "region[gf_storms_grotto]",
             "area": "gerudo.storms_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "gerudo",
                 "fortress",
@@ -46737,7 +46767,7 @@
             "target": "colossus_great_fairy_fountain -> colossus_great_fairy_fountain_entrance",
             "logicAccess": "region[colossus_great_fairy_fountain_entrance]",
             "area": "desert",
-            "categories": [
+            "tags": [
                 "interior",
                 "colossus",
                 "fairy",
@@ -46794,7 +46824,7 @@
             "target": "colossus_great_fairy_fountain_entrance -> colossus_great_fairy_fountain",
             "logicAccess": "region[colossus_great_fairy_fountain]",
             "area": "desert.fairy_fountain",
-            "categories": [
+            "tags": [
                 "interior",
                 "colossus",
                 "fairy",
@@ -46851,7 +46881,7 @@
             "target": "colossus_grotto -> colossus_grotto_entrance",
             "logicAccess": "region[colossus_grotto_entrance]",
             "area": "desert",
-            "categories": [
+            "tags": [
                 "grotto",
                 "colossus",
                 "colossus",
@@ -46900,7 +46930,7 @@
             "target": "colossus_grotto_entrance -> colossus_grotto",
             "logicAccess": "region[colossus_grotto]",
             "area": "desert.strength_grotto",
-            "categories": [
+            "tags": [
                 "grotto",
                 "colossus",
                 "colossus",
