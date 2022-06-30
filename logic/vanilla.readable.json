@@ -23833,7 +23833,7 @@
             }
         },
         "region[lw_bridge_from_forest]{child}": {
-            "region[bridge_kokiri_gateway]{child}": {
+            "region[lw_bridge]{child}": {
                 "type": "true"
             },
             "reach_location[kokiri.c_saria_ocarina]": {
@@ -23842,7 +23842,7 @@
             }
         },
         "region[lw_bridge_from_forest]{adult}": {
-            "region[bridge_kokiri_gateway]{adult}": {
+            "region[lw_bridge]{adult}": {
                 "type": "true"
             },
             "reach_location[kokiri.c_saria_ocarina]": {

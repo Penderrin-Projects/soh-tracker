@@ -28,27 +28,27 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
         const value = data[i];
         const {player, item} = getData(value);
         const itemTrans = item_trans[item];
-        if (itemTrans) {
+        if (itemTrans == null) {
+            addError("[" + item + "] is a invalid Item value");
+        } else if (itemTrans) {
             if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
                 const locationTrans = location_trans?.[i];
-                if (Array.isArray(locationTrans)) {
-                    if (locationTrans.length > 0) {
+                if (locationTrans == null) {
+                    addError("[" + i + "] is a invalid Location value");
+                } else if (Array.isArray(locationTrans)) {
+                    if (locationTrans.length == 0) {
+                        addError("[" + i + "] is a invalid Location value");
+                    } else {
                         for (const locationTransValue of locationTrans) {
                             if (locationTransValue) {
                                 target.locationItems[locationTransValue] = itemTrans;
                             }
                         }
-                    } else {
-                        addError("[" + i + "] is a invalid Location value");
                     }
                 } else if (locationTrans) {
                     target.locationItems[locationTrans] = itemTrans;
-                } else {
-                    addError("[" + i + "] is a invalid Location value");
                 }
             }
-        } else {
-            addError("[" + item + "] is a invalid Item value");
         }
     }
 }
