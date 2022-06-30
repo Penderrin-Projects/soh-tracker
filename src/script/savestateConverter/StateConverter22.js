@@ -3,7 +3,7 @@
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
-import "./StateConverter{^-1}.js";
+import "./StateConverter22.js";
 
 SavestateConverter.register(function(state) {
     state = state ?? {};
@@ -23,7 +23,7 @@ SavestateConverter.register(function(state) {
             options: state.data?.options ?? {},
             filter: state.data?.filter ?? {},
             // Track-OOT
-            dungeonRewards: state.data?.dungeonRewards ?? {},
+            dungeonRewards: {},
             dungeonTypes: state.data?.dungeonTypes ?? {},
             shopItems: state.data?.shopItems ?? {},
             shopItemsPrice: state.data?.shopItemsPrice ?? {},
@@ -39,6 +39,12 @@ SavestateConverter.register(function(state) {
         timestamp: state.timestamp ?? new Date(),
         name: state.name ?? ""
     };
+
+    // example - BEGIN
+
+    for (const [key, value] of Object.entries(state.data?.dungeonRewards ?? {})) {
+        res.data.dungeonRewards[key] = value.replace(/^item\./, "");
+    }
 
     return res;
 });
