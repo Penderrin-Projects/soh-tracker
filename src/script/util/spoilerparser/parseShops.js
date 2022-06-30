@@ -67,12 +67,12 @@ function splitShop(value) {
 
 function stuffShopSlot(target, shopRef, placement, item, price, player) {
     target.shopItems[`${shopRef}/${placement}`] = item;
-    target.shopItemsBought[`basar_child/${placement}`] = false;
-    target.shopItemsPrice[`basar_child/${placement}`] = price;
+    target.shopItemsBought[`${shopRef}/${placement}`] = false;
+    target.shopItemsPrice[`${shopRef}/${placement}`] = price;
     if (player !== 0) {
-        target.shopItemsName[`basar_child/${placement}`] = "Player " + player;
+        target.shopItemsName[`${shopRef}/${placement}`] = "Player " + player;
     } else {
-        target.shopItemsName[`basar_child/${placement}`] = "";
+        target.shopItemsName[`${shopRef}/${placement}`] = "";
     }
 }
 

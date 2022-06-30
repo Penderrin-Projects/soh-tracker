@@ -2278,17 +2278,7 @@
                 "type": "true"
             },
             "region[dmc_lower_local]{child}": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_child]{child}"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option[skip.fewer_tunic_requirements]"
-                    }
-                ]
+                "type": "true"
             }
         },
         "region[crater_goron_gateway]{adult}": {
@@ -2296,17 +2286,7 @@
                 "type": "true"
             },
             "region[dmc_lower_local]{adult}": {
-                "type": "or",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "option[skip.fewer_tunic_requirements]"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "function[can_use](item[tunic_fire]){adult}"
-                    }
-                ]
+                "type": "true"
             }
         },
         "region[crater_mountain_gateway]{child}": {
@@ -2361,24 +2341,16 @@
             "region[kokiri_bridge_gateway]{child}": {
                 "type": "true"
             },
-            "region[lw_bridge]{child}": {
-                "type": "true"
-            },
             "region[lw_bridge_from_forest]{child}": {
-                "type": "mixin",
-                "el": "mixin[can_leave_forest]{child}"
+                "type": "true"
             }
         },
         "region[bridge_kokiri_gateway]{adult}": {
             "region[kokiri_bridge_gateway]{adult}": {
                 "type": "true"
             },
-            "region[lw_bridge]{adult}": {
-                "type": "true"
-            },
             "region[lw_bridge_from_forest]{adult}": {
-                "type": "mixin",
-                "el": "mixin[can_leave_forest]{adult}"
+                "type": "true"
             }
         },
         "region[woods_kokiri_gateway]{child}": {
@@ -23861,7 +23833,7 @@
             }
         },
         "region[lw_bridge_from_forest]{child}": {
-            "region[bridge_kokiri_gateway]{child}": {
+            "region[lw_bridge]{child}": {
                 "type": "true"
             },
             "reach_location[kokiri.c_saria_ocarina]": {
@@ -23870,7 +23842,7 @@
             }
         },
         "region[lw_bridge_from_forest]{adult}": {
-            "region[bridge_kokiri_gateway]{adult}": {
+            "region[lw_bridge]{adult}": {
                 "type": "true"
             },
             "reach_location[kokiri.c_saria_ocarina]": {

@@ -10,11 +10,7 @@
 - ganon boss keysanity needs own option
 - remove done filter for areas / exits
     - list option to ignore empty list?
-- spoiler parser (items) values from settings (?)
-    - child trade
-    - free scarecrow
 
-    
 ### SPOILER LOG ERRORS
 
 ### WIP (nightly)
