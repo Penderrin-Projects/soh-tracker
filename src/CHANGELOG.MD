@@ -67,6 +67,11 @@ Application:    Track-OOT
 ### SPOILER PARSER
 - add missing shop items (differently priced items)
 
+### LOGIC
+- refine augments to actually work more like the randomizer
+- split small key logic and gerudo key logic
+- split boss key logic and ganon boss key logic
+
 ---
 
 ## VERSION 2.1.58

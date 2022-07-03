@@ -3,7 +3,7 @@
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
-import "./StateConverter21.js";
+import "./StateConverter22.js";
 
 SavestateConverter.register(function(state) {
     state = state ?? {};
@@ -20,10 +20,10 @@ SavestateConverter.register(function(state) {
             areaHints: state.data?.areaHints ?? {},
             locationItems: state.data?.locationItems ?? {},
             startItems: state.data?.startItems ?? {},
-            options: state.data?.options ?? {},
+            options: {},
             filter: state.data?.filter ?? {},
             // Track-OOT
-            dungeonRewards: {},
+            dungeonRewards: state.data?.dungeonTypes ?? {},
             dungeonTypes: state.data?.dungeonTypes ?? {},
             shopItems: state.data?.shopItems ?? {},
             shopItemsPrice: state.data?.shopItemsPrice ?? {},
@@ -42,8 +42,35 @@ SavestateConverter.register(function(state) {
 
     // example - BEGIN
 
-    for (const [key, value] of Object.entries(state.data?.dungeonRewards ?? {})) {
-        res.data.dungeonRewards[key] = value.replace(/^item\./, "");
+    for (const [key, value] of Object.entries(state.data?.options ?? {})) {
+        if (key != "keysanity_small" && key != "track_keys" && key != "track_bosskeys" && key != "ganon_boss_door_open") {
+            res.data.options[key] = value;
+        }
+    }
+
+    if (state.data?.options["track_keys"]) {
+        if (state.data?.options["keysanity_small"]) {
+            res.data.options["small_key_logic"] = "keylogic_keysanity";
+            res.data.options["gerudo_key_logic"] = "keylogic_keysanity";
+        } else {
+            res.data.options["small_key_logic"] = "keylogic_vanilla";
+            res.data.options["gerudo_key_logic"] = "keylogic_vanilla";
+        }
+    } else {
+        res.data.options["small_key_logic"] = "keylogic_keysy";
+        res.data.options["gerudo_key_logic"] = "keylogic_vanilla";
+    }
+
+    if (state.data?.options["track_bosskeys"]) {
+        res.data.options["boss_key_logic"] = "keylogic_vanilla";
+    } else {
+        res.data.options["boss_key_logic"] = "keylogic_keysy";
+    }
+
+    if (state.data?.options["ganon_boss_door_open"]) {
+        res.data.options["ganon_key_logic"] = "keylogic_keysy";
+    } else {
+        res.data.options["ganon_key_logic"] = "keylogic_vanilla";
     }
 
     return res;

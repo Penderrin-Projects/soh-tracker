@@ -42,21 +42,6 @@
         "type": "check",
         "default": false
     },
-    "keysanity_small": {
-        "category": "options",
-        "type": "check",
-        "default": false
-    },
-    "track_keys": {
-        "category": "options",
-        "type": "check",
-        "default": true
-    },
-    "track_bosskeys": {
-        "category": "options",
-        "type": "check",
-        "default": true
-    },
     "scrubsanity": {
         "category": "options",
         "type": "check",
@@ -166,26 +151,6 @@
         "min": 1,
         "max": 10
     },
-    "keysanity_small_old": {
-        "category": "options",
-        "type": "hidden",
-        "default": "keysanity_small_ignore",
-        "values": [
-            "keysanity_small_ignore",
-            "keysanity_small_track",
-            "keysanity_small_keysanity"
-        ]
-    },
-    "keysanity_boss_old": {
-        "category": "options",
-        "type": "hidden",
-        "default": "keysanity_boss_ignore",
-        "values": [
-            "keysanity_boss_ignore",
-            "keysanity_boss_track",
-            "keysanity_boss_keysanity"
-        ]
-    },
     "skullsanity": {
         "category": "options",
         "type": "hidden",
@@ -196,6 +161,62 @@
         "category": "options",
         "type": "check",
         "default": false
+    },
+    "small_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "gerudo_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_vanilla",
+        "values": [
+            "keylogic_vanilla",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "boss_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "ganon_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity",
+            "keylogic_lacs",
+            "keylogic_stones",
+            "keylogic_medallions",
+            "keylogic_dungeons",
+            "keylogic_tokens",
+            "keylogic_triforce"
+        ]
     },
     "mixed_entrance_pool": {
         "category": "entrance_randomizer",
@@ -330,7 +351,6 @@
             "ganon_castle_open_medallion",
             "ganon_castle_open_stones",
             "ganon_castle_open_skulltulas",
-            "ganon_castle_open_triforce",
             "ganon_castle_open_default",
             "ganon_castle_open_open"
         ]
@@ -382,11 +402,6 @@
         },
         "min": 1,
         "max": 9
-    },
-    "ganon_boss_door_open": {
-        "category": "lacsAndGanon",
-        "type": "check",
-        "default": false
     },
     "trials_random": {
         "category": "lacsAndGanon",

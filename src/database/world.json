@@ -24021,12 +24021,6 @@
                     "category": "exit"
                 },
                 {
-                    "id": "fountain_domain_gateway -> domain_fountain_gateway",
-                    "x": 0,
-                    "y": 0,
-                    "category": "exit"
-                },
-                {
                     "id": "well.c_front_left_hidden_wall",
                     "x": 0,
                     "y": 0,

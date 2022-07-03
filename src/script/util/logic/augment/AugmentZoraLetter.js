@@ -1,17 +1,13 @@
-// GameTrackerJS
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
+import "./AugmentOptions.js";
 
-export function augment(cache, data) {
-    const res = {};
+export function augment(cache) {
     // augment zoras letter
-    if (data["item[zora_letter]"] != null || data["option[doors_open_zora]"] != null) {
-        if ((data["option[doors_open_zora]"] ?? cache.get("option[doors_open_zora]")) == "option[doors_open_zora]_both") {
-            res["item[zora_letter]"] = 1;
-        } else {
-            res["item[zora_letter]"] = data["item[zora_letter]"] ?? cache.get("item[zora_letter]")
+    if (cache.hasChange("item[zora_letter]") || cache.hasChange("option[doors_open_zora]")) {
+        if (cache.get("option[doors_open_zora]") == "doors_open_zora_both") {
+            cache.set("item[zora_letter]", 1);
         }
     }
-    return res;
 }
 
 LogicCaller.registerAugment(augment);
