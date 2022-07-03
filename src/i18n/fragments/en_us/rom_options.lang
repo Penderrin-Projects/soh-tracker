@@ -8,9 +8,6 @@ option[bombchu_logic]=Consider Bombchus in logic
 option[skip_child_zelda]=Skip Child Zelda
 option[skip_epona_race]=Skip Epona Race
 option[free_scarecrow]=Free Scarecrow's Song
-option[keysanity_small]=Activate Keysanity Logic
-option[track_keys]=Track Small Keys
-option[track_bosskeys]=Track Boss Keys
 option[scrubsanity]=Scrubsanity
 option[cowsanity]=Cowsanity
 option[shopsanity]=Shopsanity slots
@@ -88,7 +85,6 @@ entrance_shuffle_all=Shuffle All Indoors
 
 # LACS AND BRIDGE
 lacsAndGanon=LACS and Bridge options
-option[ganon_boss_door_open]=Open Ganon Boss Door
 option[trials_random]=Randomize Number of Trials
 option[number_trials]=Number of Trials Needed
 
@@ -118,3 +114,22 @@ shadow_trial=Shadow Trial
 fire_trial=Fire Trial
 light_trial=Light Trial
 spirit_trial=Spirit Trial
+
+# KEY LOGIC
+keylogic=Key Logic
+option[small_key_logic]=Small Keys
+option[gerudo_key_logic]=Thieves' Hideout Keys
+option[boss_key_logic]=Boss Keys
+option[ganon_key_logic]=Ganon's Boss Key
+keylogic_keysy=Remove (Keysy)
+keylogic_vanilla=Vanilla Locations
+keylogic_own_dungeon=Own Dungeon
+keylogic_overworld=Overworeld Only
+keylogic_any_dungeon=Any Dungeon
+keylogic_keysanity=Anywhere (Keysanity)
+keylogic_lacs=Light Arrow Cutscene
+keylogic_stones=Stones
+keylogic_medallions=Medallions
+keylogic_dungeons=Dungeons
+keylogic_tokens=Tokens
+keylogic_triforce=Triforce Hunt

@@ -1,10 +1,10 @@
-// GameTrackerJS
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
+import "./AugmentOptions.js";
 
-export function augment(cache, data) {
+export function augment(cache) {
     // augment epona
-    if (data["option[skip_epona_race]"] != null) {
-        if (data["option[skip_epona_race]"]) {
+    if (cache.hasChange("option[skip_epona_race]")) {
+        if (cache.get("option[skip_epona_race]")) {
             LogicCaller.addReachable("event.epona");
         } else {
             LogicCaller.deleteReachable("event.epona");

@@ -11813,8 +11813,9 @@
                                     {
                                         "type": "not",
                                         "el": {
-                                            "type": "value",
-                                            "el": "option[keysanity_small]"
+                                            "type": "state",
+                                            "el": "option[small_key_logic]",
+                                            "value": "keylogic_keysanity"
                                         }
                                     }
                                 ]
@@ -11851,8 +11852,9 @@
                                     {
                                         "type": "not",
                                         "el": {
-                                            "type": "value",
-                                            "el": "option[keysanity_small]"
+                                            "type": "state",
+                                            "el": "option[small_key_logic]",
+                                            "value": "keylogic_keysanity"
                                         }
                                     }
                                 ]
@@ -11985,8 +11987,9 @@
                                     {
                                         "type": "not",
                                         "el": {
-                                            "type": "value",
-                                            "el": "option[keysanity_small]"
+                                            "type": "state",
+                                            "el": "option[small_key_logic]",
+                                            "value": "keylogic_keysanity"
                                         }
                                     }
                                 ]
