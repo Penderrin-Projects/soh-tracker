@@ -191,67 +191,63 @@
             }
         },
         "shuffle_smallkeys": {
-            "name": "keysanity_small",
+            "name": "small_key_logic",
             "values": {
-                "keysanity": true,
-                "any_dungeon": false,
-                "overworld": false,
-                "dungeon": false,
-                "vanilla": false,
-                "remove": false
+                "keysanity": "keylogic_keysanity",
+                "any_dungeon": "keylogic_any_dungeon",
+                "overworld": "keylogic_overworld",
+                "dungeon": "keylogic_own_dungeon",
+                "vanilla": "keylogic_vanilla",
+                "remove": "keylogic_keysy"
             }
         },
         "shuffle_hideoutkeys": {
             "name": "fortress_key_small",
             "values": {
-                "keysanity": true,
-                "any_dungeon": false,
-                "overworld": false,
-                "vanilla": false
+                "keysanity": "keylogic_keysanity",
+                "any_dungeon": "keylogic_any_dungeon",
+                "overworld": "keylogic_overworld",
+                "vanilla": "keylogic_vanilla"
             }
         },
         "shuffle_bosskeys": {
             "name": "track_bosskeys",
             "values": {
-                "keysanity": true,
-                "any_dungeon": true,
-                "overworld": true,
-                "dungeon": true,
-                "vanilla": true,
-                "remove": false
+                "keysanity": "keylogic_keysanity",
+                "any_dungeon": "keylogic_any_dungeon",
+                "overworld": "keylogic_overworld",
+                "dungeon": "keylogic_own_dungeon",
+                "vanilla": "keylogic_vanilla",
+                "remove": "keylogic_keysy"
             }
         },
-        "shuffle_ganon_bosskey": [
-            {
-                "name": "light_arrow_cutscene",
-                "values": {
-                    "remove": "light_arrow_cutscene_vanilla",
-                    "vanilla": "light_arrow_cutscene_vanilla",
-                    "dungeon": "light_arrow_cutscene_vanilla",
-                    "overworld": "light_arrow_cutscene_vanilla",
-                    "any_dungeon": "light_arrow_cutscene_vanilla",
-                    "keysanity": "light_arrow_cutscene_vanilla",
-                    "on_lacs": "light_arrow_cutscene_vanilla",
-                    "stones": "light_arrow_cutscene_vanilla",
-                    "medallions": "light_arrow_cutscene_vanilla",
-                    "dungeons": "light_arrow_cutscene_vanilla",
-                    "tokens": "light_arrow_cutscene_vanilla",
-                    "triforce": "light_arrow_cutscene_vanilla",
-                    "lacs_vanilla": "light_arrow_cutscene_vanilla",
-                    "lacs_medallions": "light_arrow_cutscene_medallions",
-                    "lacs_stones": "light_arrow_cutscene_stones",
-                    "lacs_dungeons": "light_arrow_cutscene_dungeons",
-                    "lacs_tokens": "light_arrow_cutscene_skulltulas"
-                }
-            },
-            {
-                "name": "ganon_boss_door_open",
-                "values": {
-                    "remove": true,
-                    "default": false
-                }
+        "shuffle_ganon_bosskey": {
+            "name": "ganon_key_logic",
+            "values": {
+                "remove": "keylogic_keysy",
+                "vanilla": "keylogic_vanilla",
+                "dungeon": "keylogic_own_dungeon",
+                "overworld": "keylogic_overworld",
+                "any_dungeon": "keylogic_any_dungeon",
+                "keysanity": "keylogic_keysanity",
+                "on_lacs": "keylogic_lacs",
+                "stones": "keylogic_stones",
+                "medallions": "keylogic_medallions",
+                "dungeons": "keylogic_dungeons",
+                "tokens": "keylogic_tokens",
+                "triforce": "keylogic_triforce"
             }
-        ],
+        },
+        "lacs_condition": {
+            "name": "light_arrow_cutscene",
+            "values": {
+                "vanilla": "light_arrow_cutscene_vanilla",
+                "medallions": "light_arrow_cutscene_medallions",
+                "stones": "light_arrow_cutscene_stones",
+                "dungeons": "light_arrow_cutscene_dungeons",
+                "tokens": "light_arrow_cutscene_skulltulas"
+            }
+        },
         "lacs_tokens": "lacs_skulltulas",
         "lacs_stones": "stone_count_lacs",
         "lacs_medallions": "medallion_count_lacs",

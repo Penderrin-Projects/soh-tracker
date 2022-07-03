@@ -7,9 +7,9 @@
 ### TRACKER TODO
 
 - boss shortcuts
-- ganon boss keysanity needs own option
 - remove done filter for areas / exits
     - list option to ignore empty list?
+- shuffle bosses
 
 ### SPOILER LOG ERRORS
 
