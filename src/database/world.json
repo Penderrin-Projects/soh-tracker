@@ -36373,7 +36373,7 @@
         "lake_valley_gateway -> valley_lake_gateway": {
             "type": "overworld",
             "target": "valley_lake_gateway -> lake_valley_gateway",
-            "logicAccess": "region[lake_gerudo_valley_gateway]",
+            "logicAccess": "region[lake_valley_gateway]",
             "area": "lake",
             "tags": [
                 "overworld",
@@ -37870,7 +37870,7 @@
         "valley_lake_gateway -> lake_valley_gateway": {
             "type": "overworld",
             "target": "lake_valley_gateway -> valley_lake_gateway",
-            "logicAccess": "region[gerudo_valley_lake_gateway]",
+            "logicAccess": "region[valley_lake_gateway]",
             "area": "gerudo_valley",
             "tags": [
                 "overworld",
@@ -41117,7 +41117,7 @@
             "type": "interior_outer",
             "target": "market_guard_house -> market_guard_house_entrance",
             "logicAccess": "region[market_guard_house_entrance]",
-            "area": "castle_town",
+            "area": "town_entrance",
             "tags": [
                 "interior",
                 "market",
@@ -42121,7 +42121,7 @@
             "type": "interior_outer",
             "target": "temple_of_time -> tot_entrance",
             "logicAccess": "region[tot_entrance]",
-            "area": "castle_town",
+            "area": "temple_time",
             "tags": [
                 "interior",
                 "temple",
@@ -42865,7 +42865,7 @@
             "type": "interior_outer",
             "target": "ogc_great_fairy_fountain -> ogc_great_fairy_fountain_entrance",
             "logicAccess": "region[ogc_great_fairy_fountain_entrance]",
-            "area": "castle.fairy_adult",
+            "area": "castle",
             "tags": [
                 "interior",
                 "castle",
@@ -46945,7 +46945,7 @@
             "type": "interior_outer",
             "target": "colossus_great_fairy_fountain -> colossus_great_fairy_fountain_entrance",
             "logicAccess": "region[colossus_great_fairy_fountain_entrance]",
-            "area": "desert",
+            "area": "colossus",
             "tags": [
                 "interior",
                 "colossus",
@@ -47059,7 +47059,7 @@
             "type": "grotto_outer",
             "target": "colossus_grotto -> colossus_grotto_entrance",
             "logicAccess": "region[colossus_grotto_entrance]",
-            "area": "desert",
+            "area": "colossus",
             "tags": [
                 "grotto",
                 "colossus",
