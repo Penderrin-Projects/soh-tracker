@@ -2762,22 +2762,22 @@
                 "type": "true"
             }
         },
-        "region[gerudo_valley_lake_gateway]{child}": {
-            "region[lake_gerudo_valley_gateway]{child}": {
+        "region[valley_lake_gateway]{child}": {
+            "region[lake_valley_gateway]{child}": {
                 "type": "true"
             }
         },
-        "region[gerudo_valley_lake_gateway]{adult}": {
-            "region[lake_gerudo_valley_gateway]{adult}": {
+        "region[valley_lake_gateway]{adult}": {
+            "region[lake_valley_gateway]{adult}": {
                 "type": "true"
             }
         },
-        "region[lake_gerudo_valley_gateway]{child}": {
+        "region[lake_valley_gateway]{child}": {
             "region[lake_hylia]{child}": {
                 "type": "true"
             }
         },
-        "region[lake_gerudo_valley_gateway]{adult}": {
+        "region[lake_valley_gateway]{adult}": {
             "region[lake_hylia]{adult}": {
                 "type": "true"
             }
