@@ -18,6 +18,7 @@ Application:    Track-OOT
 - lots of generalization for calculations
 - use debouncing to not calculate before everything settles
 - use browser events instead of the custom EventBus as this is faster
+- add polyfill for contextmenu event on iOS devices (longpress)
 
 ### TRANSLATION
 

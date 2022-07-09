@@ -34,6 +34,12 @@
                 "icon": "images/icons/rupees.svg",
                 "counting": false
             }
+        },
+        "gateways": {
+            "variants": [
+                "child",
+                "adult"
+            ]
         }
     },
     "location": {
