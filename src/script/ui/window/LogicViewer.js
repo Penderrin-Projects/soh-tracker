@@ -1,3 +1,4 @@
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
@@ -6,8 +7,25 @@ import LogicUIAbstractElement from "/editors/ui/logic/AbstractElement.js";
 import LogicResource from "../../resource/LogicResource.js";
 import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
 
+const CONFIG = WorldResource.get("config");
+const GATEWAYS_VARIANTS = CONFIG.gateways?.variants;
+
 const logicRulesObserver = new OptionsObserver("logic_rules");
 const customLogicObserver = new SettingsObserver("use_custom_logic");
+
+function matchesRegion(name, ref) {
+    if (name === ref) {
+        return true;
+    }
+    if (Array.isArray(GATEWAYS_VARIANTS) && GATEWAYS_VARIANTS.length > 0) {
+        for (const variant of GATEWAYS_VARIANTS) {
+            if (name === `${ref}{${variant}}`) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 class LogicViewer {
 
@@ -80,7 +98,7 @@ class LogicViewer {
     extractLogic(ref, data = {}, customData = {}) {
         const res = [];
         for (const name in data.logic) {
-            if (name == ref || name == `${ref}{child}` || name == `${ref}{adult}`) {
+            if (matchesRegion(name, ref)) {
                 if (customData[name] != null) {
                     res.push({logic: customData[name], parent: ""});
                 } else {
@@ -90,7 +108,7 @@ class LogicViewer {
         }
         for (const region in data.edges) {
             for (const name in data.edges[region]) {
-                if (name == ref || name == `${ref}{child}` || name == `${ref}{adult}`) {
+                if (matchesRegion(name, ref)) {
                     const key = `${region} -> ${name}`;
                     if (customData[key] != null) {
                         res.push({logic: customData[key], parent: region});

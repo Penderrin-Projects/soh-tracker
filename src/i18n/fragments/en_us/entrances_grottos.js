@@ -1,153 +1,153 @@
 const ENTRANCES = [
     {
-        "dmt_storms_grotto_entrance": "Death Mountain",
-        "dmt_storms_grotto": "Storms Grotto"
+        "mountain_storms_grotto_gateway": "Death Mountain",
+        "storms_grotto_mountain_gateway": "Storms Grotto"
     },
     {
-        "dmt_cow_grotto_entrance": "Death Mountain",
-        "dmt_cow_grotto": "Cow Grotto"
+        "mountain_cow_grotto_gateway": "Death Mountain",
+        "cow_grotto_mountain_gateway": "Cow Grotto"
     },
     {
-        "dmc_hammer_grotto_entrance": "Death Mountain Crater",
-        "dmc_hammer_grotto": "Hammer Grotto"
+        "crater_hammer_grotto_gateway": "Death Mountain Crater",
+        "hammer_grotto_crater_gateway": "Hammer Grotto"
     },
     {
-        "dmc_upper_grotto_entrance": "Death Mountain Crater",
-        "dmc_upper_grotto": "Bomb Grotto"
+        "crater_hammer_grotto_gateway": "Death Mountain Crater",
+        "hammer_grotto_crater_gateway": "Bomb Grotto"
     },
     {
-        "colossus_grotto_entrance": "Desert Colossus",
-        "colossus_grotto": "Grotto"
+        "colossus_grotto_gateway": "Desert Colossus",
+        "grotto_colossus_gateway": "Grotto"
     },
     {
-        "gf_storms_grotto_entrance": "Gerudo Fortress",
-        "gf_storms_grotto": "Storms Grotto"
+        "fortress_storms_grotto_gateway": "Gerudo Fortress",
+        "storms_grotto_fortress_gateway": "Storms Grotto"
     },
     {
-        "gv_octorok_grotto_entrance": "Gerudo Valley",
-        "gv_octorok_grotto": "Octorok Grotto"
+        "valley_octorok_grotto_gateway": "Gerudo Valley",
+        "octorok_grotto_valley_gateway": "Octorok Grotto"
     },
     {
-        "gv_storms_grotto_entrance": "Gerudo Valley",
-        "gv_storms_grotto": "Storms Grotto"
+        "valley_storms_grotto_gateway": "Gerudo Valley",
+        "storms_grotto_valley_gateway": "Storms Grotto"
     },
     {
-        "gc_grotto_entrance": "Goron City",
-        "gc_grotto": "Grotto"
+        "goron_grotto_gateway": "Goron City",
+        "grotto_goron_gateway": "Grotto"
     },
     {
-        "hc_storms_grotto_entrance": "Castle Grounds",
-        "hc_storms_grotto": "Storms Grotto"
+        "grounds_storms_grotto_gateway": "Castle Grounds",
+        "storms_grotto_grounds_gateway": "Storms Grotto"
     },
     {
-        "kak_redead_grotto_entrance": "Kakariko",
-        "kak_redead_grotto": "Redead Grotto"
+        "kakariko_redead_grotto_gateway": "Kakariko",
+        "redead_grotto_kakariko_gateway": "Redead Grotto"
     },
     {
-        "kak_open_grotto_entrance": "Kakariko",
-        "kak_open_grotto": "Open Grotto"
+        "kakariko_open_grotto_gateway": "Kakariko",
+        "open_grotto_kakariko_gateway": "Open Grotto"
     },
     {
-        "kf_storms_grotto_entrance": "Kokiri Forest",
-        "kf_storms_grotto": "Storms Grotto"
+        "kokiri_storms_grotto_gateway": "Kokiri Forest",
+        "storms_grotto_kokiri_gateway": "Storms Grotto"
     },
     {
-        "lh_grotto_entrance": "Lake Hylia",
-        "lh_grotto": "Gravestone Grotto"
+        "lake_grotto_gateway": "Lake Hylia",
+        "grotto_lake_gateway": "Gravestone Grotto"
     },
     {
-        "llr_grotto_entrance": "Lon Lon Ranch",
-        "llr_grotto": "Grotto"
+        "ranch_grotto_gateway": "Lon Lon Ranch",
+        "grotto_ranch_gateway": "Grotto"
     },
     {
-        "lw_near_shortcuts_grotto_entrance": "Lost Woods",
-        "lw_near_shortcuts_grotto": "Near Goron Grotto"
+        "woods_near_shortcuts_grotto_gateway": "Lost Woods",
+        "near_shortcuts_grotto_woods_gateway": "Near Goron Grotto"
     },
     {
-        "lw_scrubs_grotto_entrance": "Lost Woods",
-        "lw_scrubs_grotto": "Near Meadow Grotto"
+        "woods_scrubs_grotto_gateway": "Lost Woods",
+        "near_scrubs_woods_gateway": "Near Meadow Grotto"
     },
     {
-        "deku_theater_entrance": "Lost Woods",
-        "deku_theater": "Theatre Grotto"
+        "woods_deku_theater_gateway": "Lost Woods",
+        "deku_theater_woods_gateway": "Theatre Grotto"
     },
     {
-        "sfm_fairy_grotto_entrance": "Sacred Forest Meadow",
-        "sfm_fairy_grotto": "Fairy Grotto"
+        "meadow_fairy_grotto_gateway": "Sacred Forest Meadow",
+        "fairy_grotto_meadow_gateway": "Fairy Grotto"
     },
     {
-        "sfm_storms_grotto_entrance": "Sacred Forest Meadow",
-        "sfm_storms_grotto": "Storms Grotto"
+        "meadow_storms_grotto_gateway": "Sacred Forest Meadow",
+        "storms_grotto_meadow_gateway": "Storms Grotto"
     },
     {
-        "sfm_wolfos_grotto_entrance": "Sacred Forest Meadow",
-        "sfm_wolfos_grotto": "Wolfos Grotto"
+        "meadow_wolfos_grotto_gateway": "Sacred Forest Meadow",
+        "wolfos_grotto_meadow_gateway": "Wolfos Grotto"
     },
     {
-        "zr_fairy_grotto_entrance": "Zora's River",
-        "zr_fairy_grotto": "Fairy Grotto"
+        "river_fairy_grotto_gateway": "Zora's River",
+        "fairy_grotto_river_gateway": "Fairy Grotto"
     },
     {
-        "zr_open_grotto_entrance": "Zora's River",
-        "zr_open_grotto": "Open Grotto"
+        "river_open_grotto_gateway": "Zora's River",
+        "open_grotto_river_gateway": "Open Grotto"
     },
     {
-        "zr_storms_grotto_entrance": "Zora's River",
-        "zr_storms_grotto": "Storms Grotto"
+        "river_storms_grotto_gateway": "Zora's River",
+        "storms_grotto_river_gateway": "Storms Grotto"
     },
     {
-        "zd_storms_grotto_entrance": "Zora's Domain",
-        "zd_storms_grotto": "Storms Grotto"
+        "domain_storms_grotto_gateway": "Zora's Domain",
+        "storms_grotto_domain_gateway": "Storms Grotto"
     },
     {
-        "hf_fairy_grotto_entrance": "Hyrule Field",
-        "hf_fairy_grotto": "Fairy Grotto"
+        "field_fairy_grotto_gateway": "Hyrule Field",
+        "fairy_grotto_field_gateway": "Fairy Grotto"
     },
     {
-        "hf_near_kak_grotto_entrance": "Hyrule Field",
-        "hf_near_kak_grotto": "Near Kakariko Grotto"
+        "field_near_kak_grotto_gateway": "Hyrule Field",
+        "near_kak_grotto_field_gateway": "Near Kakariko Grotto"
     },
     {
-        "hf_inside_fence_grotto_entrance": "Hyrule Field",
-        "hf_inside_fence_grotto": "Inside Fence Grotto"
+        "field_inside_fence_grotto_gateway": "Hyrule Field",
+        "inside_fence_grotto_field_gateway": "Inside Fence Grotto"
     },
     {
-        "hf_open_grotto_entrance": "Hyrule Field",
-        "hf_open_grotto": "Open Grotto"
+        "field_open_grotto_gateway": "Hyrule Field",
+        "open_grotto_field_gateway": "Open Grotto"
     },
     {
-        "hf_tektite_grotto_entrance": "Hyrule Field",
-        "hf_tektite_grotto": "Diving Grotto"
+        "field_tektite_grotto_gateway": "Hyrule Field",
+        "tektite_grotto_field_gateway": "Diving Grotto"
     },
     {
-        "hf_cow_grotto_entrance": "Hyrule Field",
-        "hf_cow_grotto": "Cow Grotto"
+        "field_cow_grotto_gateway": "Hyrule Field",
+        "cow_grotto_field_gateway": "Cow Grotto"
     },
     {
-        "hf_near_market_grotto_entrance": "Hyrule Field",
-        "hf_near_market_grotto": "Near Market Grotto"
+        "field_near_market_grotto_gateway": "Hyrule Field",
+        "near_market_grotto_field_gateway": "Near Market Grotto"
     },
     {
-        "hf_southeast_grotto_entrance": "Hyrule Field",
-        "hf_southeast_grotto": "Forest Grotto"
+        "field_southeast_grotto_gateway": "Hyrule Field",
+        "southeast_grotto_field_gateway": "Forest Grotto"
     },
     // graves
     {
-        "graveyard_composers_grave_entrance": "Graveyard",
-        "graveyard_royal_familys_tomb": "Royal Tomb"
+        "graveyard_composers_grave_gateway": "Graveyard",
+        "composers_grave_graveyard_gateway": "Royal Tomb"
     },
     {
-        "graveyard_heart_piece_grave_entrance": "Graveyard",
-        "graveyard_heart_piece_grave": "Redead Grave"
+        "graveyard_redead_grave_gateway": "Graveyard",
+        "redead_grave_graveyard_gateway": "Redead Grave"
     },
     {
-        "graveyard_shield_grave_entrance": "Graveyard",
-        "graveyard_shield_grave": "Shield Grave"
+        "graveyard_shield_grave_gateway": "Graveyard",
+        "shield_grave_graveyard_gateway": "Shield Grave"
     },
     // special
     {
-        "graveyard_dampes_grave_entrance": "Graveyard",
-        "graveyard_dampes_grave": "Dampes Grave"
+        "graveyard_dampes_grave_gateway": "Graveyard",
+        "dampes_grave_graveyard_gateway": "Dampes Grave"
     }
 ];
 

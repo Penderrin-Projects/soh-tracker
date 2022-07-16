@@ -2,6 +2,9 @@
 import Helper from "/emcJS/util/helper/Helper.js";
 
 // GameTrackerJS
+import {
+    getRegion
+} from "/GameTrackerJS/data/resource/WorldResource.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
@@ -58,9 +61,9 @@ function update() {
     const logic = getLogicData();
     if (useCustomLogicObserver.value) {
         const customLogic = augmentLogic(logic);
-        Logic.setLogic(customLogic, "region[root]");
+        Logic.setLogic(customLogic, getRegion());
     } else {
-        Logic.setLogic(logic, "region[root]");
+        Logic.setLogic(logic, getRegion());
     }
 }
 

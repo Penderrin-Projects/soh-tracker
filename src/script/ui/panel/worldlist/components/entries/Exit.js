@@ -1,3 +1,6 @@
+import {
+    getGatewayIn
+} from "/GameTrackerJS/data/resource/WorldResource.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListExit from "/GameTrackerJS/ui/panel/worldlist/components/entries/Exit.js";
@@ -16,7 +19,7 @@ export default class TrackerWorldListExit extends WorldListExit {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`exit[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess, title);
+                LogicViewer.show(getGatewayIn(state.props.logicAccess), title);
             }
         });
     }

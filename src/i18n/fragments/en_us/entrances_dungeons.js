@@ -1,47 +1,47 @@
 const ENTRANCES = [
     {
-        "deku_tree_entrance": "Kokiri Forest",
-        "deku_tree_gateway": "Deku Tree"
+        "kokiri_deku_gateway": "Kokiri Forest",
+        "deku_kokiri_gateway": "Deku Tree"
     },
     {
-        "dodongos_cavern_entrance": "Death Mountain",
-        "dodongos_cavern_gateway": "Dodongos Cavern"
+        "mountain_dodongo_gateway": "Death Mountain",
+        "dodongo_mountain_gateway": "Dodongos Cavern"
     },
     {
-        "jabu_jabus_belly_entrance": "Zora's Fountain",
-        "jabu_jabus_belly_gateway": "Jabu Jabu"
+        "fountain_jabu_gateway": "Zora's Fountain",
+        "jabu_fountain_gateway": "Jabu Jabu"
     },
     {
-        "bottom_of_the_well_entrance": "Kakariko",
-        "bottom_of_the_well_gateway": "Well"
+        "kakariko_well_gateway": "Kakariko",
+        "well_kakriko_gateway": "Well"
     },
     {
-        "forest_temple_entrance": "Sacred Forest Meadow",
-        "forest_temple_gateway": "Forest Temple"
+        "meadow_forest_temple_gateway": "Sacred Forest Meadow",
+        "forest_temple_meadow_gateway": "Forest Temple"
     },
     {
-        "fire_temple_entrance": "Death Mountain Crater",
-        "fire_temple_gateway": "Fire Temple"
+        "crater_fire_temple_gateway": "Death Mountain Crater",
+        "fire_temple_crater_gateway": "Fire Temple"
     },
     {
-        "water_temple_entrance": "Lake Hylia",
-        "water_temple_gateway": "Water Temple"
+        "lake_water_temple_gateway": "Lake Hylia",
+        "water_temple_lake_gateway": "Water Temple"
     },
     {
-        "spirit_temple_entrance": "Desert Colossus",
-        "spirit_temple_gateway": "Spirit Temple"
+        "colossus_spirit_temple_gateway": "Desert Colossus",
+        "spirit_temple_colossus_gateway": "Spirit Temple"
     },
     {
-        "shadow_temple_entrance": "Graveyard",
-        "shadow_temple_gateway": "Shadow Temple"
+        "graveyard_shadow_temple_gateway": "Graveyard",
+        "shadow_temple_graveyard_gateway": "Shadow Temple"
     },
     {
-        "ice_cavern_entrance": "Zora's Fountain",
-        "ice_cavern_gateway": "Ice Cavern"
+        "fountain_ice_cavern_gateway": "Zora's Fountain",
+        "ice_cavern_fountain_gateway": "Ice Cavern"
     },
     {
-        "gerudo_training_grounds_entrance": "Gerudo Fortress",
-        "gerudo_training_grounds_gateway": "Training Grounds"
+        "fortress_training_grounds_gateway": "Gerudo Fortress",
+        "training_grounds_fortress_gateway": "Training Grounds"
     }
 ];
 
