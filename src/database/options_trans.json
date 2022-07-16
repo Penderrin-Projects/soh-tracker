@@ -84,6 +84,13 @@
                 "false": false
             }
         },
+        "no_epona_race": {
+            "name": "skip_epona_race",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "free_scarecrow": {
             "name": "free_scarecrow",
             "values": {
@@ -188,6 +195,13 @@
                 "3": "3",
                 "4": "4",
                 "random": "random"
+            }
+        },
+        "logic_no_night_tokens_without_suns_song": {
+            "name": "sun_song_skulltuta",
+            "values": {
+                "true": true,
+                "false": false
             }
         },
         "shuffle_smallkeys": {
