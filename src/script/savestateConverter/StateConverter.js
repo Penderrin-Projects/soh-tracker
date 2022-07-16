@@ -22,6 +22,8 @@ import "./StateConverter19.js";
 import "./StateConverter20.js";
 import "./StateConverter21.js";
 import "./StateConverter22.js";
+import "./StateConverter23.js";
+import "./StateConverter24.js";
 // ---
 
 SavestateConverter.offset = 0;
