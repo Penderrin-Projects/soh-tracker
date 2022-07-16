@@ -44,7 +44,7 @@ SavestateConverter.register(function(state) {
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
         const transKey = key.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
-        const transValue = TRANSLATION[value] ?? value;
+        const transValue = value?.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
         res.data.exitBindings[transKey] = transValue;
     }
 
