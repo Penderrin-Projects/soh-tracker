@@ -1040,26 +1040,6 @@
                 "type": "true"
             }
         },
-        "region[valley_lake_gateway:in]{child}": {
-            "region[lake_valley_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[valley_lake_gateway:in]{adult}": {
-            "region[lake_valley_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[lake_valley_gateway:out]{child}": {
-            "region[lake_hylia]{child}": {
-                "type": "true"
-            }
-        },
-        "region[lake_valley_gateway:out]{adult}": {
-            "region[lake_hylia]{adult}": {
-                "type": "true"
-            }
-        },
         "region[market_marketback_gateway:in]{child}": {
             "region[marketback_market_gateway:out]{child}": {
                 "type": "true"
@@ -1097,6 +1077,66 @@
         },
         "region[marketback_market_gateway:out]{adult}": {
             "region[market_back_alley]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[valley_lake_gateway:in]{child}": {
+            "region[lake_valley_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[valley_lake_gateway:in]{adult}": {
+            "region[lake_valley_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[lake_valley_gateway:out]{child}": {
+            "region[lake_hylia]{child}": {
+                "type": "true"
+            }
+        },
+        "region[lake_valley_gateway:out]{adult}": {
+            "region[lake_hylia]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[lake_owl_gateway:in]{child}": {
+            "region[owl_lake_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[lake_owl_gateway:in]{adult}": {
+            "region[owl_lake_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[owl_lake_gateway:out]{child}": {
+            "region[hyrule_field]{child}": {
+                "type": "true"
+            }
+        },
+        "region[owl_lake_gateway:out]{adult}": {
+            "region[hyrule_field]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[mountain_owl_gateway:in]{child}": {
+            "region[owl_mountain_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[mountain_owl_gateway:in]{adult}": {
+            "region[owl_mountain_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[owl_mountain_gateway:out]{child}": {
+            "region[kak_impas_rooftop]{child}": {
+                "type": "true"
+            }
+        },
+        "region[owl_mountain_gateway:out]{adult}": {
+            "region[kak_impas_rooftop]{adult}": {
                 "type": "true"
             }
         },
@@ -26434,7 +26474,7 @@
                     }
                 ]
             },
-            "region[lh_owl_flight]{child}": {
+            "region[lake_owl_gateway:in]{child}": {
                 "type": "mixin",
                 "el": "mixin[is_child]{child}"
             },
@@ -27746,6 +27786,32 @@
                     {
                         "type": "value",
                         "el": "item[sword_kokiri]"
+                    }
+                ]
+            },
+            "reach_location[gerudo.c_fortress_clear]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin[can_finish_gerudofortress]{child}"
+                    }
+                ]
+            },
+            "event[carpenter_rescue]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin[can_finish_gerudofortress]{child}"
                     }
                 ]
             }
@@ -32741,7 +32807,7 @@
             "region[mountain_crater_gateway:in]{child}": {
                 "type": "true"
             },
-            "region[dmt_owl_flight]{child}": {
+            "region[mountain_owl_gateway:in]{child}": {
                 "type": "mixin",
                 "el": "mixin[is_child]{child}"
             },
@@ -52502,6 +52568,72 @@
         "mixin[has_fire_source_with_torch]{adult}": {
             "type": "mixin",
             "el": "mixin[has_fire_source]{adult}"
+        },
+        "mixin[can_finish_gerudofortress]{child}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option[gerudo_fortress_open]",
+                            "value": "gerudo_fortress_open_default"
+                        },
+                        {
+                            "type": "min",
+                            "el": {
+                                "type": "value",
+                                "el": "item[key_small_gerudo]"
+                            },
+                            "value": 4
+                        },
+                        {
+                            "type": "value",
+                            "el": "item[sword_kokiri]"
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option[gerudo_fortress_open]",
+                            "value": "gerudo_fortress_open_one"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item[key_small_gerudo]"
+                        },
+                        {
+                            "type": "value",
+                            "el": "item[sword_kokiri]"
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_one"
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         "mixin[can_finish_gerudofortress]{adult}": {
             "type": "or",

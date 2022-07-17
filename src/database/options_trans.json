@@ -942,8 +942,8 @@
                 "Zoras Fountain -> ZD Behind King Zora": "fountain_domain_gateway -> domain_fountain_gateway"
             },
             "entro_owls": {
-                "DMT Owl Flight -> Kak Impas Rooftop": "dmt_owl_flight -> kak_impas_rooftop",
-                "LH Owl Flight -> Hyrule Field": "lh_owl_flight -> hyrule_field"
+                "DMT Owl Flight -> Kak Impas Rooftop": "mountain_owl_gateway -> owl_mountain_gateway",
+                "LH Owl Flight -> Hyrule Field": "lake_owl_gateway -> owl_lake_gateway"
             },
             "entro_spawns": {
                 "Adult Spawn -> Temple of Time": "adult_spawn -> temple_of_time",
