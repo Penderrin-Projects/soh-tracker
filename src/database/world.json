@@ -21789,7 +21789,7 @@
                     "category": "exit"
                 },
                 {
-                    "id": "lh_owl_flight -> hyrule_field",
+                    "id": "lake_owl_gateway -> owl_lake_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -23432,7 +23432,7 @@
                     "category": "exit"
                 },
                 {
-                    "id": "dmt_owl_flight -> kak_impas_rooftop",
+                    "id": "mountain_owl_gateway -> owl_mountain_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -38083,10 +38083,10 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "lh_owl_flight -> hyrule_field": {
+        "lake_owl_gateway -> owl_lake_gateway": {
             "type": "special",
-            "target": "hyrule_field -> lh_owl_flight",
-            "logicAccess": "lh_owl_flight",
+            "target": "owl_lake_gateway -> lake_owl_gateway",
+            "logicAccess": "lake_owl_gateway",
             "area": "lake",
             "tags": [
                 "overworld",
@@ -38136,11 +38136,11 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "hyrule_field -> lh_owl_flight": {
+        "owl_lake_gateway -> lake_owl_gateway": {
             "type": "flight",
-            "target": "lh_owl_flight -> hyrule_field",
+            "target": "lake_owl_gateway -> owl_lake_gateway",
             "logicAccess": "",
-            "area": "hyrule_field",
+            "area": "owl_lake_gateway",
             "tags": [
                 "overworld",
                 "hyrule",
@@ -38161,10 +38161,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "dmt_owl_flight -> kak_impas_rooftop": {
+        "mountain_owl_gateway -> owl_mountain_gateway": {
             "type": "special",
-            "target": "kak_impas_rooftop -> dmt_owl_flight",
-            "logicAccess": "dmt_owl_flight",
+            "target": "owl_mountain_gateway -> mountain_owl_gateway",
+            "logicAccess": "mountain_owl_gateway",
             "area": "mountain",
             "tags": [
                 "overworld",
@@ -38213,9 +38213,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "kak_impas_rooftop -> dmt_owl_flight": {
+        "owl_mountain_gateway -> mountain_owl_gateway": {
             "type": "flight",
-            "target": "dmt_owl_flight -> kak_impas_rooftop",
+            "target": "mountain_owl_gateway -> owl_mountain_gateway",
             "logicAccess": "",
             "area": "kakariko",
             "tags": [

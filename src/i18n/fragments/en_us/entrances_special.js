@@ -1,11 +1,11 @@
 const ENTRANCES = [
     {
-        "lh_owl_flight": "Lake Hylia Owl",
-        "hyrule_field": "Hyrule Field Owl Drop"
+        "lake_owl_gateway": "Lake Hylia Owl",
+        "owl_lake_gateway": "Hyrule Field Owl Drop"
     },
     {
-        "dmt_owl_flight": "Death Mountain Owl",
-        "kak_impas_rooftop": "Kakariko Owl Drop"
+        "mountain_owl_gateway": "Death Mountain Owl",
+        "owl_mountain_gateway": "Kakariko Owl Drop"
     },
     {
         "child_spawn": "Child Spawn",
