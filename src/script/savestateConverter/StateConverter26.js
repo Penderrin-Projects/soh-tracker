@@ -50,17 +50,34 @@ SavestateConverter.register(function(state) {
     // example - BEGIN
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
-        const transKey = key.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
-        const transValue = value?.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
+        const transKey = FULL_TRANSLATION[key] ?? key.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
+        const transValue = FULL_TRANSLATION[value] ?? value?.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");
         res.data.exitBindings[transKey] = transValue;
     }
 
     return res;
 });
 
+const FULL_TRANSLATION = {
+    "adult_spawn -> temple_of_time": "adult_spawn_temple_of_time_gateway -> temple_of_time_adult_spawn_gateway",
+    "temple_of_time -> adult_spawn": "temple_of_time_adult_spawn_gateway -> adult_spawn_temple_of_time_gateway",
+    "prelude_of_light_warp -> temple_of_time": "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway",
+    "temple_of_time -> prelude_of_light_warp": "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway",
+    "tot_entrance -> temple_of_time": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
+    "temple_of_time -> tot_entrance": "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway"
+}
+
 const TRANSLATION = {
-    "lh_owl_flight": "lake_owl_gateway",
-    "hyrule_field": "owl_lake_gateway",
-    "dmt_owl_flight": "mountain_owl_gateway",
-    "kak_impas_rooftop": "owl_mountain_gateway"
+    "child_spawn": "child_spawn_links_house_gateway",
+    "kf_links_house": "links_house_child_spawn_gateway",
+    "minuet_of_forest_warp": "minuet_meadow_gateway",
+    "sacred_forest_meadow": "meadow_minuet_gateway",
+    "bolero_of_fire_warp": "bolero_crater_gateway",
+    "dmc_central_local": "crater_bolero_gateway",
+    "serenade_of_water_warp": "serenade_lake_gateway",
+    "lake_hylia": "lake_serenade_gateway",
+    "nocturne_of_shadow_warp": "nocturne_graveyard_gateway",
+    "graveyard_warp_pad_region": "graveyard_nocturne_gateway",
+    "requiem_of_spirit_warp": "requiem_colossus_gateway",
+    "desert_colossus": "colossus_requiem_gateway"
 }

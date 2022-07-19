@@ -8,36 +8,36 @@ const ENTRANCES = [
         "owl_mountain_gateway": "Kakariko Owl Drop"
     },
     {
-        "child_spawn": "Child Spawn",
-        "kf_links_house": "Links House Spawn"
+        "child_spawn_links_house_gateway": "Child Spawn",
+        "links_house_child_spawn_gateway": "Links House Spawn"
     },
     {
-        "adult_spawn": "Adult Spawn",
-        "temple_of_time": "Temple of Time Spawn"
+        "adult_spawn_temple_of_time_gateway": "Adult Spawn",
+        "temple_of_time_adult_spawn_gateway": "Temple of Time Spawn"
     },
     {
-        "prelude_of_light_warp": "Prelude Warp",
-        "temple_of_time": "Prelude Warp Pad"
+        "prelude_temple_of_time_gateway": "Prelude Warp",
+        "temple_of_time_prelude_gateway": "Prelude Warp Pad"
     },
     {
-        "minuet_of_forest_warp": "Minuet Warp",
-        "sacred_forest_meadow": "Minuet Warp Pad"
+        "minuet_meadow_gateway": "Minuet Warp",
+        "meadow_minuet_gateway": "Minuet Warp Pad"
     },
     {
-        "bolero_of_fire_warp": "Bolero Warp",
-        "dmc_central_local": "Bolero Warp Pad"
+        "bolero_crater_gateway": "Bolero Warp",
+        "crater_bolero_gateway": "Bolero Warp Pad"
     },
     {
-        "serenade_of_water_warp": "Serenade Warp",
-        "lake_hylia": "Serenade Warp Pad"
+        "serenade_lake_gateway": "Serenade Warp",
+        "lake_serenade_gateway": "Serenade Warp Pad"
     },
     {
-        "nocturne_of_shadow_warp": "Nocturne Warp",
-        "graveyard_warp_pad_region": "Nocturne Warp Pad"
+        "nocturne_graveyard_gateway": "Nocturne Warp",
+        "graveyard_nocturne_gateway": "Nocturne Warp Pad"
     },
     {
-        "requiem_of_spirit_warp": "Requiem Warp",
-        "desert_colossus": "Requiem Warp Pad"
+        "requiem_colossus_gateway": "Requiem Warp",
+        "colossus_requiem_gateway": "Requiem Warp Pad"
     },
     {
         "valley_lake_gateway": "Gerudo Valley",

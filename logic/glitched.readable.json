@@ -1,5 +1,205 @@
 {
     "edges": {
+        "region[child_spawn_links_house_gateway:in]{child}": {
+            "region[links_house_child_spawn_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[child_spawn_links_house_gateway:in]{adult}": {
+            "region[links_house_child_spawn_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[links_house_child_spawn_gateway:out]{child}": {
+            "region[kf_links_house]{child}": {
+                "type": "true"
+            }
+        },
+        "region[links_house_child_spawn_gateway:out]{adult}": {
+            "region[kf_links_house]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[adult_spawn_temple_of_time_gateway:in]{child}": {
+            "region[temple_of_time_adult_spawn_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[adult_spawn_temple_of_time_gateway:in]{adult}": {
+            "region[temple_of_time_adult_spawn_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_adult_spawn_gateway:out]{child}": {
+            "region[temple_of_time]{child}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_adult_spawn_gateway:out]{adult}": {
+            "region[temple_of_time]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[prelude_temple_of_time_gateway:in]{child}": {
+            "region[temple_of_time_prelude_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[prelude_temple_of_time_gateway:in]{adult}": {
+            "region[temple_of_time_prelude_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_prelude_gateway:out]{child}": {
+            "region[temple_of_time]{child}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_prelude_gateway:out]{adult}": {
+            "region[temple_of_time]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[minuet_meadow_gateway:in]{child}": {
+            "region[meadow_minuet_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[minuet_meadow_gateway:in]{adult}": {
+            "region[meadow_minuet_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[meadow_minuet_gateway:out]{child}": {
+            "region[sacred_forest_meadow]{child}": {
+                "type": "true"
+            }
+        },
+        "region[meadow_minuet_gateway:out]{adult}": {
+            "region[sacred_forest_meadow]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[bolero_crater_gateway:in]{child}": {
+            "region[crater_bolero_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[bolero_crater_gateway:in]{adult}": {
+            "region[crater_bolero_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[crater_bolero_gateway:out]{child}": {
+            "region[dmc_central_local]{child}": {
+                "type": "true"
+            }
+        },
+        "region[crater_bolero_gateway:out]{adult}": {
+            "region[dmc_central_local]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[serenade_lake_gateway:in]{child}": {
+            "region[lake_serenade_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[serenade_lake_gateway:in]{adult}": {
+            "region[lake_serenade_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[lake_serenade_gateway:out]{child}": {
+            "region[lake_hylia]{child}": {
+                "type": "true"
+            }
+        },
+        "region[lake_serenade_gateway:out]{adult}": {
+            "region[lake_hylia]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[nocturne_graveyard_gateway:in]{child}": {
+            "region[graveyard_nocturne_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[nocturne_graveyard_gateway:in]{adult}": {
+            "region[graveyard_nocturne_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[graveyard_nocturne_gateway:out]{child}": {
+            "region[graveyard_warp_pad_region]{child}": {
+                "type": "true"
+            }
+        },
+        "region[graveyard_nocturne_gateway:out]{adult}": {
+            "region[graveyard_warp_pad_region]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[requiem_colossus_gateway:in]{child}": {
+            "region[colossus_requiem_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[requiem_colossus_gateway:in]{adult}": {
+            "region[colossus_requiem_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[colossus_requiem_gateway:out]{child}": {
+            "region[desert_colossus]{child}": {
+                "type": "true"
+            }
+        },
+        "region[colossus_requiem_gateway:out]{adult}": {
+            "region[desert_colossus]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[lake_owl_gateway:in]{child}": {
+            "region[owl_lake_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[lake_owl_gateway:in]{adult}": {
+            "region[owl_lake_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[owl_lake_gateway:out]{child}": {
+            "region[hyrule_field]{child}": {
+                "type": "true"
+            }
+        },
+        "region[owl_lake_gateway:out]{adult}": {
+            "region[hyrule_field]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[mountain_owl_gateway:in]{child}": {
+            "region[owl_mountain_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[mountain_owl_gateway:in]{adult}": {
+            "region[owl_mountain_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[owl_mountain_gateway:out]{child}": {
+            "region[kak_impas_rooftop]{child}": {
+                "type": "true"
+            }
+        },
+        "region[owl_mountain_gateway:out]{adult}": {
+            "region[kak_impas_rooftop]{adult}": {
+                "type": "true"
+            }
+        },
         "region[kokiri_bridge_gateway:in]{child}": {
             "region[bridge_kokiri_gateway:out]{child}": {
                 "type": "true"
@@ -1097,46 +1297,6 @@
         },
         "region[lake_valley_gateway:out]{adult}": {
             "region[lake_hylia]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[lake_owl_gateway:in]{child}": {
-            "region[owl_lake_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[lake_owl_gateway:in]{adult}": {
-            "region[owl_lake_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[owl_lake_gateway:out]{child}": {
-            "region[hyrule_field]{child}": {
-                "type": "true"
-            }
-        },
-        "region[owl_lake_gateway:out]{adult}": {
-            "region[hyrule_field]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[mountain_owl_gateway:in]{child}": {
-            "region[owl_mountain_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[mountain_owl_gateway:in]{adult}": {
-            "region[owl_mountain_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[owl_mountain_gateway:out]{child}": {
-            "region[kak_impas_rooftop]{child}": {
-                "type": "true"
-            }
-        },
-        "region[owl_mountain_gateway:out]{adult}": {
-            "region[kak_impas_rooftop]{adult}": {
                 "type": "true"
             }
         },
@@ -3387,6 +3547,46 @@
         },
         "region[grotto_colossus_gateway:out]{adult}": {
             "region[colossus_grotto]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[tot_entrance_temple_of_time_gateway:in]{child}": {
+            "region[temple_of_time_tot_entrance_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[tot_entrance_temple_of_time_gateway:in]{adult}": {
+            "region[temple_of_time_tot_entrance_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[tot_entrance_temple_of_time_gateway:out]{child}": {
+            "region[tot_entrance]{child}": {
+                "type": "true"
+            }
+        },
+        "region[tot_entrance_temple_of_time_gateway:out]{adult}": {
+            "region[tot_entrance]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_tot_entrance_gateway:in]{child}": {
+            "region[tot_entrance_temple_of_time_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_tot_entrance_gateway:in]{adult}": {
+            "region[tot_entrance_temple_of_time_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_tot_entrance_gateway:out]{child}": {
+            "region[temple_of_time]{child}": {
+                "type": "true"
+            }
+        },
+        "region[temple_of_time_tot_entrance_gateway:out]{adult}": {
+            "region[temple_of_time]{adult}": {
                 "type": "true"
             }
         },

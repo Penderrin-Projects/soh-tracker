@@ -4,6 +4,11 @@
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
 
+// LOAD PREVIOUS CONVERTER
+// const FORMER_CONVERTER_URL = URL.replace(VER_REGEX, (_, ver) => `${parseInt(ver) - 1}.js`);
+// await import(FORMER_CONVERTER_URL);
+
+// REGISTER CONVERTER
 SavestateConverter.register(function(state) {
     if (!state["data"] != null) {
         state = {data: state ?? {}};
