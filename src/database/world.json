@@ -20498,49 +20498,49 @@
             },
             "list": [
                 {
-                    "id": "child_spawn -> kf_links_house",
+                    "id": "child_spawn_links_house_gateway -> links_house_child_spawn_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "adult_spawn -> temple_of_time",
+                    "id": "adult_spawn_temple_of_time_gateway -> temple_of_time_adult_spawn_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "prelude_of_light_warp -> temple_of_time",
+                    "id": "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "minuet_of_forest_warp -> sacred_forest_meadow",
+                    "id": "minuet_meadow_gateway -> meadow_minuet_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "bolero_of_fire_warp -> dmc_central_local",
+                    "id": "bolero_crater_gateway -> crater_bolero_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "serenade_of_water_warp -> lake_hylia",
+                    "id": "serenade_lake_gateway -> lake_serenade_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "nocturne_of_shadow_warp -> graveyard_warp_pad_region",
+                    "id": "nocturne_graveyard_gateway -> graveyard_nocturne_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
                 },
                 {
-                    "id": "requiem_of_spirit_warp -> desert_colossus",
+                    "id": "requiem_colossus_gateway -> colossus_requiem_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -22626,7 +22626,7 @@
             },
             "list": [
                 {
-                    "id": "tot_entrance -> temple_of_time",
+                    "id": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -29195,7 +29195,7 @@
             },
             "list": [
                 {
-                    "id": "temple_of_time -> tot_entrance",
+                    "id": "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -38325,10 +38325,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "child_spawn -> kf_links_house": {
+        "child_spawn_links_house_gateway -> links_house_child_spawn_gateway": {
             "type": "special",
-            "target": "kf_links_house -> child_spawn",
-            "logicAccess": "child_spawn",
+            "target": "links_house_child_spawn_gateway -> child_spawn_links_house_gateway",
+            "logicAccess": "child_spawn_links_house_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38380,9 +38380,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "kf_links_house -> child_spawn": {
+        "links_house_child_spawn_gateway -> child_spawn_links_house_gateway": {
             "type": "spawn",
-            "target": "child_spawn -> kf_links_house",
+            "target": "child_spawn_links_house_gateway -> links_house_child_spawn_gateway",
             "logicAccess": "",
             "area": "kokiri.links_house",
             "tags": [
@@ -38404,10 +38404,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "adult_spawn -> temple_of_time": {
+        "adult_spawn_temple_of_time_gateway -> temple_of_time_adult_spawn_gateway": {
             "type": "special",
-            "target": "temple_of_time -> adult_spawn",
-            "logicAccess": "adult_spawn",
+            "target": "temple_of_time_adult_spawn_gateway -> adult_spawn_temple_of_time_gateway",
+            "logicAccess": "adult_spawn_temple_of_time_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38457,9 +38457,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "temple_of_time -> adult_spawn": {
+        "temple_of_time_adult_spawn_gateway -> adult_spawn_temple_of_time_gateway": {
             "type": "spawn",
-            "target": "adult_spawn -> temple_of_time",
+            "target": "adult_spawn_temple_of_time_gateway -> temple_of_time_adult_spawn_gateway",
             "logicAccess": "",
             "area": "castle_town.temple_of_time",
             "tags": [
@@ -38482,10 +38482,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "prelude_of_light_warp -> temple_of_time": {
+        "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway": {
             "type": "special",
-            "target": "temple_of_time -> prelude_of_light_warp",
-            "logicAccess": "prelude_of_light_warp",
+            "target": "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway",
+            "logicAccess": "prelude_temple_of_time_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38535,9 +38535,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "temple_of_time -> prelude_of_light_warp": {
+        "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway": {
             "type": "warp",
-            "target": "prelude_of_light_warp -> temple_of_time",
+            "target": "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway",
             "logicAccess": "",
             "area": "castle_town.temple_of_time",
             "tags": [
@@ -38590,10 +38590,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "minuet_of_forest_warp -> sacred_forest_meadow": {
+        "minuet_meadow_gateway -> meadow_minuet_gateway": {
             "type": "special",
-            "target": "sacred_forest_meadow -> minuet_of_forest_warp",
-            "logicAccess": "minuet_of_forest_warp",
+            "target": "meadow_minuet_gateway -> minuet_meadow_gateway",
+            "logicAccess": "minuet_meadow_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38642,9 +38642,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "sacred_forest_meadow -> minuet_of_forest_warp": {
+        "meadow_minuet_gateway -> minuet_meadow_gateway": {
             "type": "warp",
-            "target": "minuet_of_forest_warp -> sacred_forest_meadow",
+            "target": "minuet_meadow_gateway -> meadow_minuet_gateway",
             "logicAccess": "",
             "area": "meadow",
             "tags": [
@@ -38666,10 +38666,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "bolero_of_fire_warp -> dmc_central_local": {
+        "bolero_crater_gateway -> crater_bolero_gateway": {
             "type": "special",
-            "target": "dmc_central_local -> bolero_of_fire_warp",
-            "logicAccess": "bolero_of_fire_warp",
+            "target": "crater_bolero_gateway -> bolero_crater_gateway",
+            "logicAccess": "bolero_crater_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38718,9 +38718,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "dmc_central_local -> bolero_of_fire_warp": {
+        "crater_bolero_gateway -> bolero_crater_gateway": {
             "type": "warp",
-            "target": "bolero_of_fire_warp -> dmc_central_local",
+            "target": "bolero_crater_gateway -> crater_bolero_gateway",
             "logicAccess": "",
             "area": "crater",
             "tags": [
@@ -38742,10 +38742,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "serenade_of_water_warp -> lake_hylia": {
+        "serenade_lake_gateway -> lake_serenade_gateway": {
             "type": "special",
-            "target": "lake_hylia -> serenade_of_water_warp",
-            "logicAccess": "serenade_of_water_warp",
+            "target": "lake_serenade_gateway -> serenade_lake_gateway",
+            "logicAccess": "serenade_lake_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38794,9 +38794,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "lake_hylia -> serenade_of_water_warp": {
+        "lake_serenade_gateway -> serenade_lake_gateway": {
             "type": "warp",
-            "target": "serenade_of_water_warp -> lake_hylia",
+            "target": "serenade_lake_gateway -> lake_serenade_gateway",
             "logicAccess": "",
             "area": "lake",
             "tags": [
@@ -38818,10 +38818,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "nocturne_of_shadow_warp -> graveyard_warp_pad_region": {
+        "nocturne_graveyard_gateway -> graveyard_nocturne_gateway": {
             "type": "special",
-            "target": "graveyard_warp_pad_region -> nocturne_of_shadow_warp",
-            "logicAccess": "nocturne_of_shadow_warp",
+            "target": "graveyard_nocturne_gateway -> nocturne_graveyard_gateway",
+            "logicAccess": "nocturne_graveyard_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38870,9 +38870,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "graveyard_warp_pad_region -> nocturne_of_shadow_warp": {
+        "graveyard_nocturne_gateway -> nocturne_graveyard_gateway": {
             "type": "warp",
-            "target": "nocturne_of_shadow_warp -> graveyard_warp_pad_region",
+            "target": "nocturne_graveyard_gateway -> graveyard_nocturne_gateway",
             "logicAccess": "",
             "area": "graveyard",
             "tags": [
@@ -38894,10 +38894,10 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "requiem_of_spirit_warp -> desert_colossus": {
+        "requiem_colossus_gateway -> colossus_requiem_gateway": {
             "type": "special",
-            "target": "desert_colossus -> requiem_of_spirit_warp",
-            "logicAccess": "requiem_of_spirit_warp",
+            "target": "colossus_requiem_gateway -> requiem_colossus_gateway",
+            "logicAccess": "requiem_colossus_gateway",
             "area": "hyrule",
             "tags": [
                 "overworld",
@@ -38946,9 +38946,9 @@
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
-        "desert_colossus -> requiem_of_spirit_warp": {
+        "colossus_requiem_gateway -> requiem_colossus_gateway": {
             "type": "warp",
-            "target": "requiem_of_spirit_warp -> desert_colossus",
+            "target": "requiem_colossus_gateway -> colossus_requiem_gateway",
             "logicAccess": "",
             "area": "colossus",
             "tags": [
@@ -42136,10 +42136,10 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "tot_entrance -> temple_of_time": {
+        "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway": {
             "type": "interior_outer",
-            "target": "temple_of_time -> tot_entrance",
-            "logicAccess": "tot_entrance",
+            "target": "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway",
+            "logicAccess": "tot_entrance_temple_of_time_gateway",
             "area": "temple_time",
             "tags": [
                 "interior",
@@ -42186,9 +42186,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "temple_of_time -> tot_entrance": {
+        "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway": {
             "type": "interior_inner",
-            "target": "tot_entrance -> temple_of_time",
+            "target": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
             "logicAccess": "temple_of_time",
             "area": "castle_town.temple_of_time",
             "tags": [

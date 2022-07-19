@@ -60,14 +60,12 @@ window.onbeforeunload = function() {
 try {
     window.onerror = null;
     updateLoadingMessage("apply logger...");
-    // add default log output
-    Logger.addOutput(console);
     // add log panel
-    if (VersionData.isDev) {
-        const logPanel = document.createElement("div");
-        logPanel.setAttribute("slot", "log");
-        logPanel.dataset.title = "Logger";
-        logPanel.dataset.icon = "images/icons/log.svg";
+    if (VersionData.isDev || location.hostname === "localhost") {
+        const logPanel = document.createElement("gt-viewchoice-panel");
+        logPanel.slot = "log";
+        logPanel.label = "Logger";
+        logPanel.icon = "images/icons/log.svg";
         logPanel.style.overflow = "hidden";
         const logScreen = document.createElement("emc-logscreen");
         logScreen.title = "Logger";

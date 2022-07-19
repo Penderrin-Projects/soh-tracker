@@ -162,8 +162,8 @@ const ENTRANCES = [
         "links_house_kokiri_gateway": "Links House"
     },
     {
-        "tot_entrance": "Temple of Time Plaza",
-        "temple_of_time": "Temple of Time"
+        "tot_entrance_temple_of_time_gateway": "Temple of Time Plaza",
+        "temple_of_time_tot_entrance_gateway": "Temple of Time"
     }
 ];
 
