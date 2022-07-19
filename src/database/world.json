@@ -24950,7 +24950,7 @@
         },
         "deku.bossarea": {
             "type": "bossarea",
-            "categories": [],
+            "tags": [],
             "visible": true,
             "filter": {
                 "era": {
@@ -47177,7 +47177,7 @@
             "target": "deku_boss_gateway -> deku_boss_entrance",
             "logicAccess": "region[deku_boss_entrance]",
             "area": "deku",
-            "categories": [
+            "tags": [
                 "boss",
                 "deku"
             ],
@@ -47214,7 +47214,7 @@
             "target": "deku_boss_entrance -> deku_boss_gateway",
             "logicAccess": "region[deku_boss_gateway]",
             "area": "deku.bossarea",
-            "categories": [
+            "tags": [
                 "boss",
                 "deku"
             ],
@@ -47251,7 +47251,7 @@
             "target": "dodongo_boss_gateway -> dodongo_boss_entrance",
             "logicAccess": "region[dodongo_boss_entrance]",
             "area": "dodongo",
-            "categories": [
+            "tags": [
                 "boss",
                 "dodongo"
             ],
@@ -47288,7 +47288,7 @@
             "target": "dodongo_boss_entrance -> dodongo_boss_gateway",
             "logicAccess": "region[dodongo_boss_gateway]",
             "area": "dodongo",
-            "categories": [
+            "tags": [
                 "boss",
                 "dodongo"
             ],
@@ -47325,7 +47325,7 @@
             "target": "jabu_boss_gateway -> jabu_boss_entrance",
             "logicAccess": "region[jabu_boss_entrance]",
             "area": "jabu",
-            "categories": [
+            "tags": [
                 "boss",
                 "jabu"
             ],
@@ -47362,7 +47362,7 @@
             "target": "jabu_boss_entrance -> jabu_boss_gateway",
             "logicAccess": "region[jabu_boss_gateway]",
             "area": "jabu",
-            "categories": [
+            "tags": [
                 "boss",
                 "jabu"
             ],
