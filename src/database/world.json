@@ -23561,7 +23561,7 @@
                     "category": "exit"
                 },
                 {
-                    "id": "crater_hammer_grotto_gateway -> hammer_grotto_crater_gateway",
+                    "id": "crater_bomb_grotto_gateway -> bomb_grotto_crater_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"

@@ -12,8 +12,8 @@ const ENTRANCES = [
         "hammer_grotto_crater_gateway": "Hammer Grotto"
     },
     {
-        "crater_hammer_grotto_gateway": "Death Mountain Crater",
-        "hammer_grotto_crater_gateway": "Bomb Grotto"
+        "crater_bomb_grotto_gateway": "Death Mountain Crater",
+        "bomb_grotto_crater_gateway": "Bomb Grotto"
     },
     {
         "colossus_grotto_gateway": "Desert Colossus",

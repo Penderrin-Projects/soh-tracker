@@ -3124,42 +3124,42 @@
                 "type": "true"
             }
         },
-        "region[crater_upper_grotto_gateway:in]{child}": {
-            "region[upper_grotto_crater_gateway:out]{child}": {
+        "region[crater_bomb_grotto_gateway:in]{child}": {
+            "region[bomb_grotto_crater_gateway:out]{child}": {
                 "type": "true"
             }
         },
-        "region[crater_upper_grotto_gateway:in]{adult}": {
-            "region[upper_grotto_crater_gateway:out]{adult}": {
+        "region[crater_bomb_grotto_gateway:in]{adult}": {
+            "region[bomb_grotto_crater_gateway:out]{adult}": {
                 "type": "true"
             }
         },
-        "region[crater_upper_grotto_gateway:out]{child}": {
+        "region[crater_bomb_grotto_gateway:out]{child}": {
             "region[dmc_upper_nearby]{child}": {
                 "type": "true"
             }
         },
-        "region[crater_upper_grotto_gateway:out]{adult}": {
+        "region[crater_bomb_grotto_gateway:out]{adult}": {
             "region[dmc_upper_nearby]{adult}": {
                 "type": "true"
             }
         },
-        "region[upper_grotto_crater_gateway:in]{child}": {
-            "region[crater_upper_grotto_gateway:out]{child}": {
+        "region[bomb_grotto_crater_gateway:in]{child}": {
+            "region[crater_bomb_grotto_gateway:out]{child}": {
                 "type": "true"
             }
         },
-        "region[upper_grotto_crater_gateway:in]{adult}": {
-            "region[crater_upper_grotto_gateway:out]{adult}": {
+        "region[bomb_grotto_crater_gateway:in]{adult}": {
+            "region[crater_bomb_grotto_gateway:out]{adult}": {
                 "type": "true"
             }
         },
-        "region[upper_grotto_crater_gateway:out]{child}": {
+        "region[bomb_grotto_crater_gateway:out]{child}": {
             "region[dmc_upper_grotto]{child}": {
                 "type": "true"
             }
         },
-        "region[upper_grotto_crater_gateway:out]{adult}": {
+        "region[bomb_grotto_crater_gateway:out]{adult}": {
             "region[dmc_upper_grotto]{adult}": {
                 "type": "true"
             }
@@ -3591,12 +3591,12 @@
             }
         },
         "region[kokiri_midos_house_gateway:in]{child}": {
-            "region[midos_kokiri_house_gateway:out]{child}": {
+            "region[midos_house_kokiri_gateway:out]{child}": {
                 "type": "true"
             }
         },
         "region[kokiri_midos_house_gateway:in]{adult}": {
-            "region[midos_kokiri_house_gateway:out]{adult}": {
+            "region[midos_house_kokiri_gateway:out]{adult}": {
                 "type": "true"
             }
         },
