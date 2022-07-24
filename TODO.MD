@@ -1,8 +1,17 @@
+### gateway errors (not accessible)
+
+- n/a
 
 ### BUGS
 
 - world status bar not counting correctly (when filtered) (?)
 - after spoiler log parse not all options set in logic
+
+### SPOILER PARSER
+
+- [bridge: hearts] is a invalid value
+- [shuffle_dungeon_entrances: off] is a invalid value
+- key logic parser for fortress keys wrong value
 
 ### TRACKER TODO
 
@@ -70,6 +79,9 @@ to:
 ---
 
 ### OTHER TODO
+
+- auto get seed by id?
+    - https://ootrandomizer.com/spoilers/get?id=${id}
 
 - add rom options
     - disabled locations
