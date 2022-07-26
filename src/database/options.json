@@ -162,6 +162,36 @@
         "type": "check",
         "default": false
     },
+    "damage_multiplier": {
+        "category": "options",
+        "type": "choice",
+        "default": "dmg_normal",
+        "values": [
+            "dmg_half",
+            "dmg_normal",
+            "dmg_double",
+            "dmg_quadruple",
+            "dmg_ohko"
+        ]
+    },
+    "deadly_bonks": {
+        "category": "options",
+        "type": "choice",
+        "default": "bonk_off",
+        "values": [
+            "bonk_off",
+            "bonk_quarter",
+            "bonk_half",
+            "bonk_one",
+            "bonk_two",
+            "bonk_ohko"
+        ]
+    },
+    "blue_fire_arrows": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "small_key_logic": {
         "category": "keylogic",
         "type": "choice",
@@ -291,7 +321,8 @@
             "light_arrow_cutscene_stones",
             "light_arrow_cutscene_medallions",
             "light_arrow_cutscene_dungeons",
-            "light_arrow_cutscene_skulltulas"
+            "light_arrow_cutscene_skulltulas",
+            "light_arrow_cutscene_hearts"
         ]
     },
     "lacs_skulltulas": {
@@ -342,6 +373,18 @@
         "min": 1,
         "max": 9
     },
+    "heart_count_lacs": {
+        "category": "lacsAndGanon",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "el": "light_arrow_cutscene",
+            "value": "light_arrow_cutscene_hearts"
+        },
+        "min": 4,
+        "max": 20
+    },
     "ganon_castle_open": {
         "category": "lacsAndGanon",
         "type": "choice",
@@ -352,7 +395,8 @@
             "ganon_castle_open_stones",
             "ganon_castle_open_skulltulas",
             "ganon_castle_open_default",
-            "ganon_castle_open_open"
+            "ganon_castle_open_open",
+            "ganon_castle_open_hearts"
         ]
     },
     "ganon_castle_skulltulas": {
@@ -402,6 +446,18 @@
         },
         "min": 1,
         "max": 9
+    },
+    "heart_count_bridge": {
+        "category": "lacsAndGanon",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "el": "ganon_castle_open",
+            "value": "ganon_castle_open_hearts"
+        },
+        "min": 4,
+        "max": 20
     },
     "trials_random": {
         "category": "lacsAndGanon",
