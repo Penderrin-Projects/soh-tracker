@@ -136,6 +136,66 @@
         "type": "check",
         "default": false
     },
+    "hk_state_new": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "",
+        "resettable": true
+    },
+    "hk_state_load": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+o",
+        "resettable": true
+    },
+    "hk_state_save": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+s",
+        "resettable": true
+    },
+    "hk_state_saveas": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+shift+s",
+        "resettable": true
+    },
+    "hk_state_manage": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+m",
+        "resettable": true
+    },
+    "hk_fullscreen": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "alt+enter",
+        "resettable": true
+    },
+    "hk_detached_window": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+shift+d",
+        "resettable": true
+    },
+    "hk_import_spoiler": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "ctrl+i",
+        "resettable": true
+    },
+    "hk_options": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "",
+        "resettable": true
+    },
+    "hk_settings": {
+        "category": "hotkeys",
+        "type": "hotkey",
+        "default": "",
+        "resettable": true
+    },
     "debug_logic": {
         "category": "debug",
         "type": "choice",

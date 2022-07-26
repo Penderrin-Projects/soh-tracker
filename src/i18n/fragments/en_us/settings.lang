@@ -53,3 +53,16 @@ setting[show_filter_badges]=Show filter badges for checks
 setting[show_access_values]=Show available/unopened checks for areas
 setting[sublist_collapsible]=Subarea collapsible behavior
 setting[unknown_dungeon_need_both]=Need checks in both V and MQ for undefined dungeon types
+
+# Hotkeys
+hotkeys=Hotkeys
+setting[hk_state_new]=New savestate
+setting[hk_state_load]=Load savestate
+setting[hk_state_save]=Save savestate
+setting[hk_state_saveas]=Save savestate as
+setting[hk_state_manage]=Manage savestates
+setting[hk_fullscreen]=Toggle fullscreen
+setting[hk_detached_window]=Open detached item window
+setting[hk_import_spoiler]=Open spoilerlog import
+setting[hk_options]=Open rom settings
+setting[hk_settings]=Open tracker settings
