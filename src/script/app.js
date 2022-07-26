@@ -5,7 +5,6 @@
 // frameworks
 import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Logger from "/emcJS/util/log/Logger.js";
-import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
@@ -89,22 +88,6 @@ try {
     });
     notePad.addEventListener("change", function() {
         Savestate.notes = notePad.value;
-    });
-    // register hotkey - detached window
-    HotkeyHandler.setAction("detached_window", () => {
-        window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
-    }, {
-        ctrlKey: true,
-        altKey: true,
-        key: "i"
-    });
-    // register hotkey handler
-    window.addEventListener("keydown", function(event) {
-        if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
     });
 
     updateLoadingMessage("initialize settings...");

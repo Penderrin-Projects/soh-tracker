@@ -1,14 +1,18 @@
-import NavBar from "/emcJS/ui/navigation/NavBar.js";
+import PageSwitcher from "../util/PageSwitcher.js";
 
-NavBar.addMixin("fullscreen", [{
+PageSwitcher.addNavigationMixin("fullscreen", [{
     "content": "TOGGLE FULLSCREEN",
-    "handler": () => {
-        if (document.fullscreenEnabled) {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
+    "handler": toggleFullscreen
+}]);
+
+PageSwitcher.addHotkeyHandler("hk_fullscreen", toggleFullscreen);
+
+function toggleFullscreen() {
+    if (document.fullscreenEnabled) {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
         }
     }
-}]);
+}

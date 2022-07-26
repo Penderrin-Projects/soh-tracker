@@ -14,19 +14,19 @@ import PageSwitcher from "/script/util/PageSwitcher.js";
 PageSwitcher.register("main", [{
     "content": "FILE",
     "submenu": [{
-        "content": "NEW",
+        "content": "NEW (ALT + N)",
         "handler": state_New
     }, {
-        "content": "LOAD",
+        "content": "LOAD (CTRL + O)",
         "handler": state_Load
     }, {
-        "content": "SAVE",
+        "content": "SAVE (CTRL + S)",
         "handler": state_Save
     }, {
-        "content": "SAVE AS",
+        "content": "SAVE AS (CTRL + SHIFT + S)",
         "handler": state_SaveAs
     }, {
-        "content": "MANAGE",
+        "content": "MANAGE (CTRL + M)",
         "handler": states_Manage
     }]
 }, {
@@ -56,7 +56,17 @@ PageSwitcher.register("main", [{
 }, {
     "content": "TRACKER SETTINGS",
     "handler": openSettingsWindow
-}]);
+}], { // TODO all configurable in settings, no static defined hotkeys
+    "hk_state_new": state_New,
+    "hk_state_load": state_Load,
+    "hk_state_save": state_Save,
+    "hk_state_saveas": state_SaveAs,
+    "hk_state_manage": states_Manage,
+    "hk_detached_window": openDetachedItems,
+    "hk_import_spoiler": openSpoilerSettingsWindow,
+    "hk_options": openRomSettingsWindow,
+    "hk_settings": openSettingsWindow
+});
 PageSwitcher.switch("main");
 
 async function state_Save() {
