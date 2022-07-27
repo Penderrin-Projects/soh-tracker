@@ -14,19 +14,19 @@ import PageSwitcher from "/script/util/PageSwitcher.js";
 PageSwitcher.register("main", [{
     "content": "FILE",
     "submenu": [{
-        "content": "NEW (ALT + N)",
+        "content": "NEW",
         "handler": state_New
     }, {
-        "content": "LOAD (CTRL + O)",
+        "content": "LOAD",
         "handler": state_Load
     }, {
-        "content": "SAVE (CTRL + S)",
+        "content": "SAVE",
         "handler": state_Save
     }, {
-        "content": "SAVE AS (CTRL + SHIFT + S)",
+        "content": "SAVE AS",
         "handler": state_SaveAs
     }, {
-        "content": "MANAGE (CTRL + M)",
+        "content": "MANAGE",
         "handler": states_Manage
     }]
 }, {
@@ -56,7 +56,7 @@ PageSwitcher.register("main", [{
 }, {
     "content": "TRACKER SETTINGS",
     "handler": openSettingsWindow
-}], { // TODO all configurable in settings, no static defined hotkeys
+}], {
     "hk_state_new": state_New,
     "hk_state_load": state_Load,
     "hk_state_save": state_Save,
