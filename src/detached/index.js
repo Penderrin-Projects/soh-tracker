@@ -5,13 +5,13 @@ import "/emcJS/ui/layout/Layout.js";
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import "/GameTrackerJS/savestate/sync/SavestateSync.js";
 // -------------
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
-import "./sync.js";
 import "./styles.js";
 
 try {
