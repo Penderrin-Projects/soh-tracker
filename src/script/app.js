@@ -18,7 +18,7 @@ import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js"
 import Language from "/GameTrackerJS/util/Language.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
-import SavestateSync from "/GameTrackerJS/savestate/sync/SavestateSync.js";
+import "/GameTrackerJS/savestate/sync/SavestateSync.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
