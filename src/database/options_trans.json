@@ -216,7 +216,7 @@
             }
         },
         "shuffle_hideoutkeys": {
-            "name": "fortress_key_small",
+            "name": "gerudo_key_logic",
             "values": {
                 "keysanity": "keylogic_keysanity",
                 "any_dungeon": "keylogic_any_dungeon",
@@ -225,7 +225,7 @@
             }
         },
         "shuffle_bosskeys": {
-            "name": "track_bosskeys",
+            "name": "boss_key_logic",
             "values": {
                 "keysanity": "keylogic_keysanity",
                 "any_dungeon": "keylogic_any_dungeon",
