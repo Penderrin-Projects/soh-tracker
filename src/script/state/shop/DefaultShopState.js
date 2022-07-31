@@ -3,12 +3,14 @@ import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObs
 
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
-import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
 import "../../util/registerStorages.js";
+
+const shopsanityObserver = new OptionsObserver("shopsanity");
 
 const STORAGES = {
     shopItems: Savestate.getStorage("shopItems"),
@@ -18,7 +20,7 @@ const STORAGES = {
 };
 
 function isSanity() {
-    return OptionsStorage.get("shopsanity") != "off";
+    return shopsanityObserver.value != "off";
 }
 
 export default class DefaultShopState extends DataState {
@@ -59,6 +61,27 @@ export default class DefaultShopState extends DataState {
         this.#name = shopItemsNameObserver.value;
         shopItemsNameObserver.addEventListener("change", (event) => {
             this.name = event.value;
+        });
+
+        /* shoposanity */
+        shopsanityObserver.addEventListener("change", () => {
+            if (this.item) {
+                const itemData = ShopItemsResource.get(this.item);
+                this.#refill = itemData?.refill ?? !isSanity();
+                // bought
+                if (this.#refill) {
+                    STORAGES.shopItemsBought.set(ref, true);
+                } else {
+                    STORAGES.shopItemsBought.set(ref, false);
+                }
+            } else {
+                this.#refill = !isSanity();
+                STORAGES.shopItemsBought.set(ref, false);
+            }
+            // external
+            const event = new Event("item");
+            event.value = this.item;
+            this.dispatchEvent(event);
         });
 
         /* --- */

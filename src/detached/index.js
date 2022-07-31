@@ -5,7 +5,7 @@ import "/emcJS/ui/layout/Layout.js";
 // GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import "/GameTrackerJS/savestate/sync/SavestateSync.js";
+import "/GameTrackerJS/util/sync/StorageSyncSlave.js";
 // -------------
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";

@@ -4361,12 +4361,12 @@
             }
         },
         "region[ganon_grounds_great_fairy_gateway:out]{child}": {
-            "region[ogc_great_fairy_fountain]{child}": {
+            "region[ganons_castle_grounds]{child}": {
                 "type": "true"
             }
         },
         "region[ganon_grounds_great_fairy_gateway:out]{adult}": {
-            "region[ogc_great_fairy_fountain]{adult}": {
+            "region[ganons_castle_grounds]{adult}": {
                 "type": "true"
             }
         },
@@ -4381,12 +4381,12 @@
             }
         },
         "region[great_fairy_ganon_grounds_gateway:out]{child}": {
-            "region[ganons_castle_grounds]{child}": {
+            "region[ogc_great_fairy_fountain]{child}": {
                 "type": "true"
             }
         },
         "region[great_fairy_ganon_grounds_gateway:out]{adult}": {
-            "region[ganons_castle_grounds]{adult}": {
+            "region[ogc_great_fairy_fountain]{adult}": {
                 "type": "true"
             }
         },
