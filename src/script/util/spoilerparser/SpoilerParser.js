@@ -1,5 +1,4 @@
 // frameworks
-import Helper from "/emcJS/util/helper/Helper.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
@@ -28,28 +27,6 @@ Please report this issue on discord and provide the affected spoiler log and the
 
 The following errors were recorded:`
 );
-
-const DEFAULT_DATA = {
-    items: {},
-    locations: {},
-    exitBindings: {},
-    areaHints: {},
-    locationItems: {},
-    startItems: {},
-    options: {},
-    filter: {},
-    // Track-OOT
-    dungeonRewards: {},
-    dungeonTypes: {},
-    shopItems: {},
-    shopItemsPrice: {},
-    shopItemsBought: {},
-    shopItemsName: {},
-    songNotes: {},
-    gossipstoneLocations: {},
-    gossipstoneItems: {},
-    parseSpoiler: {}
-};
 
 function addError(error) {
     console.warn(error);
@@ -93,7 +70,7 @@ function getWorldData(data, world) {
 class SpoilerParser {
 
     async parse(spoiler, settings) {
-        const result = Helper.deepClone(DEFAULT_DATA);
+        const result = {};
         const trans = OptionsTransResource.get();
 
         const version = spoiler[":version"];
@@ -184,10 +161,7 @@ class SpoilerParser {
 
         errorDialogHandler.send();
 
-        return {
-            ...DEFAULT_DATA,
-            ...result
-        };
+        return result;
     }
 
 }

@@ -6,8 +6,6 @@
 
 - world status bar not counting correctly (when filtered) (?)
 - after spoiler log parse not all options set in logic
-- spoiler parser resetting options if options parse deactivated
-- [FF] StorageSync not working (worker legacy mode)
 
 ### SPOILER PARSER
 
