@@ -499,7 +499,6 @@
         "slingshot3": "slingshot",
         "ocarina": "ocarina",
         "ocarina2": "ocarina",
-        "Ocarina": "ocarina",
         "bombchus": "bombchu",
         "hookshot": "hookshot",
         "hookshot2": "hookshot",
@@ -515,21 +514,7 @@
         "bottle": "bottle",
         "bottle2": "bottle",
         "bottle3": "bottle",
-        "letter": "zora_letter",
-        "Deku Sticks": "stick",
-        "Deku Stick Capacity": "stick",
-        "Deku Nuts": "nut",
-        "Deku Nut Capacity": "nut",
-        "Deku Shield": "shield_kokiri",
-        "Hylian Shield": "shield_hylia",
-        "Mirror Shield": "shield_mirror",
-        "Goron Tunic": "tunic_fire",
-        "Zora Tunic": "tunic_water",
-        "Progressive Wallet": "wallet",
-        "Stone of Agony": "stone_of_agony",
-        "Prelude of Light": "warp_light",
-        "Piece of Heart": "heart_piece",
-        "Heart Container": "heart_container"
+        "letter": "zora_letter"
     },
     "starting_songs": {
         "lullaby": "song_zelda",
@@ -544,6 +529,24 @@
         "requiem": "warp_spirit",
         "nocturne": "warp_shadow",
         "prelude": "warp_light"
+    },
+    "starting_items_new": {
+        "Deku Shield": "shield_kokiri",
+        "Hylian Shield": "shield_hylia",
+        "Mirror Shield": "shield_mirror",
+        "Goron Tunic": "tunic_fire",
+        "Zora Tunic": "tunic_water",
+        "Progressive Wallet": "wallet",
+        "Piece of Heart": "heart_piece",
+        "Heart Container": "heart_container",
+        "Double Defense": "heart_double",
+        "Stone of Agony": "stone_of_agony",
+        "Deku Sticks": false,
+        "Deku Stick Capacity": "stick",
+        "Deku Nuts": false,
+        "Deku Nut Capacity": "nut",
+        "Ocarina": "ocarina",
+        "Prelude of Light": "warp_light"
     },
     "dungeons": {
         "Deku Tree": {
