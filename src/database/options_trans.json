@@ -507,7 +507,6 @@
         "boomerang": "boomerang",
         "lens": "lens",
         "beans": "bean",
-        "Magic Bean": "bean",
         "megaton_hammer": "hammer",
         "light_arrow": "arrow_light",
         "nayrus_love": "magic_nayru",
@@ -546,6 +545,7 @@
         "Deku Nuts": false,
         "Deku Nut Capacity": "nut",
         "Ocarina": "ocarina",
+        "Magic Bean": "bean",
         "Prelude of Light": "warp_light"
     },
     "dungeons": {
