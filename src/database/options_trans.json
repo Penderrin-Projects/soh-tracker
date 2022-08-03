@@ -516,8 +516,10 @@
         "bottle2": "bottle",
         "bottle3": "bottle",
         "letter": "zora_letter",
-        "Deku Nut Capacity": "nut",
+        "Deku Sticks": "stick",
         "Deku Stick Capacity": "stick",
+        "Deku Nuts": "nut",
+        "Deku Nut Capacity": "nut",
         "Deku Shield": "shield_kokiri",
         "Hylian Shield": "shield_hylia",
         "Mirror Shield": "shield_mirror",
@@ -525,7 +527,9 @@
         "Zora Tunic": "tunic_water",
         "Progressive Wallet": "wallet",
         "Stone of Agony": "stone_of_agony",
-        "Prelude of Light": "warp_light"
+        "Prelude of Light": "warp_light",
+        "Piece of Heart": "heart_piece",
+        "Heart Container": "heart_container"
     },
     "starting_songs": {
         "lullaby": "song_zelda",
