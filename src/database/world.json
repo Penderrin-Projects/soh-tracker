@@ -31388,7 +31388,7 @@
             },
             "list": [
                 {
-                    "id": "hammer_grotto_crater_gateway -> crater_hammer_grotto_gateway",
+                    "id": "bomb_grotto_crater_gateway -> crater_bomb_grotto_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
