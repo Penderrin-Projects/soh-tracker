@@ -1,5 +1,33 @@
 {
     "setting": {
+        "damage_multiplier": {
+            "name": "damage_multiplier",
+            "values": {
+                "half": "dmg_half",
+                "normal": "dmg_normal",
+                "double": "dmg_double",
+                "quadruple": "dmg_quadruple",
+                "ohko": "dmg_ohko"
+            }
+        },
+        "deadly_bonks": {
+            "name": "deadly_bonks",
+            "values": {
+                "none": "bonk_off",
+                "half": "bonk_quarter",
+                "normal": "bonk_half",
+                "double": "bonk_one",
+                "quadruple": "bonk_two",
+                "ohko": "bonk_ohko"
+            }
+        },
+        "blue_fire_arrows": {
+            "name": "blue_fire_arrows",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "open_forest": {
             "name": "doors_open_forest",
             "values": {
@@ -198,6 +226,14 @@
                 "random": "random"
             }
         },
+        "chicken_count": "chicken_count",
+        "plant_beans": {
+            "name": "plant_beans",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "logic_no_night_tokens_without_suns_song": {
             "name": "sun_song_skulltuta",
             "values": {
@@ -361,6 +397,7 @@
             "logic_dc_mq_child_bombs",
             "logic_dc_mq_eyes",
             "logic_dc_mq_child_back",
+            "logic_dc_hammer_floor",
             "logic_jabu_scrub_jump_dive",
             "logic_jabu_boss_gs_adult",
             "logic_jabu_mq_sot_gs",

@@ -192,6 +192,18 @@
         "type": "check",
         "default": false
     },
+    "chicken_count": {
+        "category": "options",
+        "type": "number",
+        "default": 10,
+        "min": 0,
+        "max": 10
+    },
+    "plant_beans": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "small_key_logic": {
         "category": "keylogic",
         "type": "choice",
@@ -586,6 +598,7 @@
             "skip.dc_mq_child_bombs",
             "skip.dc_mq_eyes",
             "skip.dc_mq_child_back",
+            "skip.dc_hammer_floor",
             "skip.jabu_scrub_jump_dive",
             "skip.jabu_boss_gs_adult",
             "skip.jabu_mq_sot_gs",

@@ -31,6 +31,12 @@ option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
 
 option[skullsanity]=Skullsanity (do not autocount) [WIP]
 
+option[damage_multiplier]=Damage Multiplier
+option[deadly_bonks]=Bonks Do Damage
+option[blue_fire_arrows]=Blue Fire Arrows
+option[chicken_count]=Cucco Count
+option[plant_beans]=Plant Magic Beans
+
 # GENERAL - AGE
 option[starting_age]=Starting Age
 child=Child
