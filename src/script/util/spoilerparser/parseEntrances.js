@@ -84,8 +84,10 @@ export default function parseEntrances(addError, target = {}, data = {}, trans =
 
         if (typeof i === "object" && i !== null) {
             addError("Unexpected Array within entrances");
-        } else if (edgeThere === null || edgeBack === null) {
-            addError("[" + i + ": " + v + "] is a invalid Entrance value.");
+        } else if (edgeThere === null) {
+            addError("[" + i + ": " + v + "] is a invalid Entrance value (forward).");
+        } else if (edgeBack === null) {
+            addError("[" + i + ": " + v + "] is a invalid Entrance value (backwards).");
         } else {
             if (dungeon) {
                 if (entro_dungeons[i] === edgeThere) {
