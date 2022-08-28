@@ -286,8 +286,13 @@
     },
     "shuffle_bosses": {
         "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
+        "type": "-choice",
+        "default": "entrance_shuffle_off",
+        "values": [
+            "shuffle_bosses_off",
+            "shuffle_bosses_age",
+            "shuffle_bosses_all"
+        ]
     },
     "entrance_shuffle_interior": {
         "category": "entrance_randomizer",
@@ -323,6 +328,21 @@
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
+    },
+    "dungeon_shortcuts": {
+        "category": "entrance_randomizer",
+        "type": "-list",
+        "default": [],
+        "values": [
+            "dungeon_shortcuts.deku",
+            "dungeon_shortcuts.dodongo",
+            "dungeon_shortcuts.jabu",
+            "dungeon_shortcuts.temple_forest",
+            "dungeon_shortcuts.temple_fire",
+            "dungeon_shortcuts.temple_water",
+            "dungeon_shortcuts.temple_shadow",
+            "dungeon_shortcuts.temple_spirit"
+        ]
     },
     "light_arrow_cutscene": {
         "category": "lacsAndGanon",

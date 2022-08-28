@@ -24803,11 +24803,9 @@
                     "y": 358,
                     "category": "location",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_bosses]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
                     }
                 },
                 {
@@ -24915,11 +24913,9 @@
                     "y": 358,
                     "category": "location",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_bosses]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
                     }
                 },
                 {
@@ -47182,8 +47178,12 @@
                 "deku"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47202,8 +47202,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
@@ -47219,8 +47223,12 @@
                 "deku"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47239,8 +47247,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
@@ -47256,8 +47268,12 @@
                 "dodongo"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47276,8 +47292,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
@@ -47293,8 +47313,12 @@
                 "dodongo"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47313,8 +47337,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
@@ -47330,8 +47358,12 @@
                 "jabu"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47350,8 +47382,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
@@ -47367,8 +47403,12 @@
                 "jabu"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -47387,8 +47427,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_bosses]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,

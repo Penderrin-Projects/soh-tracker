@@ -83,11 +83,28 @@ option[shuffle_owls]=Shuffle Owl Drops
 option[shuffle_warps]=Shuffle Song Warps
 option[shuffle_spawns]=Shuffle Spawn Locations
 
+# ENTRANCE SHUFFLE - BOSSES
+option[shuffle_bosses]=Shuffle Boss Entrances
+shuffle_bosses_off=Off
+shuffle_bosses_age=Age-Restricted
+shuffle_bosses_all=Full
+
 # ENTRANCE SHUFFLE - INTERIORS
 option[entrance_shuffle_interior]=Shuffle Interior Entrances
 entrance_shuffle_off=Off
 entrance_shuffle_simple=Shuffle Simple Indoors
 entrance_shuffle_all=Shuffle All Indoors
+
+# DUNGEON SHORTCUTS
+option[dungeon_shortcuts]=Dungeon Shortcuts
+dungeon_shortcuts.deku=Deku Tree Shortcut
+dungeon_shortcuts.dodongo=Dodongos Cavern Shortcut
+dungeon_shortcuts.jabu=Jabu Jabus Belly Shortcut
+dungeon_shortcuts.temple_forest=Forest Temple Shortcut
+dungeon_shortcuts.temple_fire=Fire Temple Shortcut
+dungeon_shortcuts.temple_water=Water Temple Shortcut
+dungeon_shortcuts.temple_shadow=Shadow Temple Shortcut
+dungeon_shortcuts.temple_spirit=Spirit Temple Shortcut
 
 # LACS AND BRIDGE
 lacsAndGanon=LACS and Bridge options
