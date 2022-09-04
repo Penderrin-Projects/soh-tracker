@@ -3,6 +3,7 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 
 // GameTrackerJS
+import VersionData from "/GameTrackerJS/data/VersionData.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 // Track-OOT
@@ -23,7 +24,11 @@ import ErrorDialogHandler from "../ErrorDialogHandler.js";
 const errorDialogHandler = new ErrorDialogHandler(
     "Spoiler Loaded Partially",
     `Not all settings in your spoiler log were loaded correctly.
-Please report this issue on discord and provide the affected spoiler log and the errors listed below.
+Please report this issue on discord and provide...
+
+- the affected spoiler log
+- the tracker version (${VersionData.version})
+- the errors listed below
 
 The following errors were recorded:`
 );
