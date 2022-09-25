@@ -286,8 +286,8 @@
     },
     "shuffle_bosses": {
         "category": "entrance_randomizer",
-        "type": "-choice",
-        "default": "entrance_shuffle_off",
+        "type": "choice",
+        "default": "shuffle_bosses_off",
         "values": [
             "shuffle_bosses_off",
             "shuffle_bosses_age",

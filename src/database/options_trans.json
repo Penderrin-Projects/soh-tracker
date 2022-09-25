@@ -170,6 +170,14 @@
                 "off": false
             }
         },
+        "shuffle_bosses": {
+            "name": "shuffle_dungeons",
+            "values": {
+                "off": "shuffle_bosses_off",
+                "limited": "shuffle_bosses_age",
+                "full": "shuffle_bosses_all"
+            }
+        },
         "shuffle_overworld_entrances": {
             "name": "shuffle_overworld",
             "values": {

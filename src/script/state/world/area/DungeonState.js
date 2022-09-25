@@ -112,7 +112,7 @@ export default class DungeonState extends DefaultAreaState {
 
     onListEntriesChange(event) {
         if (this.#type != "mq") {
-            if (event.list != null) {
+            if (event.value != null) {
                 const ev = new Event("listChange");
                 ev.value = event.value;
                 this.dispatchEvent(ev);

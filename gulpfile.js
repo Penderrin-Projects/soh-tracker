@@ -257,7 +257,7 @@ function finish(dest, done) {
         path.resolve(dest, "index.js"),
         path.resolve(dest, "script/StateRecovery.js"),
         path.resolve(dest, "detached/index.js")
-    ), /.*\/(i18n\/fragments|)\/.*\.js/);
+    ), /.*\/(i18n\/fragments\/.*|StateConverter[0-9]+)\.js/);
     done();
 }
 
