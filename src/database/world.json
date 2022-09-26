@@ -20618,8 +20618,8 @@
                 },
                 {
                     "id": "gerudo",
-                    "x": 361,
-                    "y": 205,
+                    "x": 364,
+                    "y": 252,
                     "category": "area"
                 },
                 {
@@ -20702,8 +20702,8 @@
                 },
                 {
                     "id": "fountain",
-                    "x": 1840,
-                    "y": 240,
+                    "x": 1758,
+                    "y": 236,
                     "category": "area"
                 },
                 {
@@ -20727,8 +20727,8 @@
                 },
                 {
                     "id": "dodongo",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1133,
+                    "y": 146,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20746,8 +20746,8 @@
                 },
                 {
                     "id": "jabujabu",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1758,
+                    "y": 178,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20759,14 +20759,14 @@
                 },
                 {
                     "id": "fountain_jabu_gateway -> jabu_fountain_gateway",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1758,
+                    "y": 178,
                     "category": "exit"
                 },
                 {
                     "id": "temple_forest",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1507,
+                    "y": 421,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20784,8 +20784,8 @@
                 },
                 {
                     "id": "temple_fire",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1306,
+                    "y": 70,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20803,8 +20803,8 @@
                 },
                 {
                     "id": "temple_water",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 693,
+                    "y": 983,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20822,8 +20822,8 @@
                 },
                 {
                     "id": "temple_shadow",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1459,
+                    "y": 227,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20841,8 +20841,8 @@
                 },
                 {
                     "id": "temple_spirit",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 48,
+                    "y": 184,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20860,8 +20860,8 @@
                 },
                 {
                     "id": "well",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1306,
+                    "y": 248,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20879,8 +20879,8 @@
                 },
                 {
                     "id": "ice_cavern",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 1704,
+                    "y": 204,
                     "category": "area",
                     "visible": {
                         "type": "not",
@@ -20892,14 +20892,14 @@
                 },
                 {
                     "id": "fountain_ice_cavern_gateway -> ice_cavern_fountain_gateway",
-                    "x": 0,
-                    "y": 0,
+                    "x": 1704,
+                    "y": 204,
                     "category": "exit"
                 },
                 {
                     "id": "training_grounds",
-                    "x": 1690,
-                    "y": 605,
+                    "x": 361,
+                    "y": 302,
                     "category": "area",
                     "visible": {
                         "type": "not",
