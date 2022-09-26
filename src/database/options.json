@@ -27,10 +27,15 @@
         "type": "check",
         "default": false
     },
-    "skip_child_zelda": {
+    "shuffle_child_trade": {
         "category": "options",
-        "type": "check",
-        "default": false
+        "type": "choice",
+        "default": "vanilla",
+        "values": [
+            "vanilla_child_trade",
+            "shuffle_egg",
+            "skip_child_zelda"
+        ]
     },
     "skip_epona_race": {
         "category": "options",

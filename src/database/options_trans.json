@@ -106,10 +106,18 @@
             }
         },
         "skip_child_zelda": {
-            "name": "skip_child_zelda",
+            "name": "shuffle_child_trade",
             "values": {
-                "true": true,
-                "false": false
+                "true": "skip_child_zelda",
+                "false": "vanilla_child_trade"
+            }
+        },
+        "shuffle_child_trade": {
+            "name": "shuffle_child_trade",
+            "values": {
+                "vanilla": "vanilla_child_trade",
+                "shuffle": "shuffle_egg",
+                "skip_child_zelda": "skip_child_zelda"
             }
         },
         "no_epona_race": {

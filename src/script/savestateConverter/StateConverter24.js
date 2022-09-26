@@ -47,7 +47,7 @@ SavestateConverter.register(function(state) {
         name: state.name ?? ""
     };
 
-    // example - BEGIN
+    // exitBindings
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
         const transKey = key.split(" -> ").map((e) => TRANSLATION[e] ?? e).join(" -> ");

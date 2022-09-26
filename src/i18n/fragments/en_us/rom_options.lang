@@ -5,7 +5,12 @@ load-preset-button=Load preset
 options=Randomizer options
 option[consider_buyable]=Consider buyable Items (Tunics / Blue Fire) in logic
 option[bombchu_logic]=Consider Bombchus in logic
-option[skip_child_zelda]=Skip Child Zelda
+
+option[shuffle_child_trade]=Shuffle Child Trade Item
+vanilla_child_trade=Vanilla Locations
+shuffle_egg=Shuffle Weird Egg
+skip_child_zelda=Skip Child Zelda
+
 option[skip_epona_race]=Skip Epona Race
 option[free_scarecrow]=Free Scarecrow's Song
 option[scrubsanity]=Scrubsanity
