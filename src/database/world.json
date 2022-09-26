@@ -47777,7 +47777,7 @@
         "deku_boss_gateway -> boss_deku_gateway": {
             "type": "boss_outer",
             "target": "boss_deku_gateway -> deku_boss_gateway",
-            "logicAccess": "region[deku_boss_gateway]",
+            "logicAccess": "deku_boss_gateway",
             "area": "deku",
             "tags": [
                 "boss",
@@ -47822,7 +47822,7 @@
         "boss_deku_gateway -> deku_boss_gateway": {
             "type": "boss_inner",
             "target": "deku_boss_gateway -> boss_deku_gateway",
-            "logicAccess": "region[boss_deku_gateway]",
+            "logicAccess": "boss_deku_gateway",
             "area": "deku.bossarea",
             "tags": [
                 "boss",
@@ -47867,7 +47867,7 @@
         "dodongo_boss_gateway -> boss_dodongo_gateway": {
             "type": "boss_outer",
             "target": "boss_dodongo_gateway -> dodongo_boss_gateway",
-            "logicAccess": "region[dodongo_boss_gateway]",
+            "logicAccess": "dodongo_boss_gateway",
             "area": "dodongo",
             "tags": [
                 "boss",
@@ -47912,7 +47912,7 @@
         "boss_dodongo_gateway -> dodongo_boss_gateway": {
             "type": "boss_inner",
             "target": "dodongo_boss_gateway -> boss_dodongo_gateway",
-            "logicAccess": "region[boss_dodongo_gateway]",
+            "logicAccess": "boss_dodongo_gateway",
             "area": "dodongo.bossarea",
             "tags": [
                 "boss",
@@ -47957,7 +47957,7 @@
         "jabu_boss_gateway -> boss_jabu_gateway": {
             "type": "boss_outer",
             "target": "boss_jabu_gateway -> jabu_boss_gateway",
-            "logicAccess": "region[jabu_boss_gateway]",
+            "logicAccess": "jabu_boss_gateway",
             "area": "jabujabu",
             "tags": [
                 "boss",
@@ -48002,7 +48002,7 @@
         "boss_jabu_gateway -> jabu_boss_gateway": {
             "type": "boss_inner",
             "target": "jabu_boss_gateway -> boss_jabu_gateway",
-            "logicAccess": "region[boss_jabu_gateway]",
+            "logicAccess": "boss_jabu_gateway",
             "area": "jabujabu.bossarea",
             "tags": [
                 "boss",
@@ -48047,7 +48047,7 @@
         "temple_forest_boss_gateway -> boss_temple_forest_gateway": {
             "type": "boss_outer",
             "target": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
-            "logicAccess": "region[temple_forest_boss_gateway]",
+            "logicAccess": "temple_forest_boss_gateway",
             "area": "temple_forest",
             "tags": [
                 "boss",
@@ -48092,7 +48092,7 @@
         "boss_temple_forest_gateway -> temple_forest_boss_gateway": {
             "type": "boss_inner",
             "target": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
-            "logicAccess": "region[boss_temple_forest_gateway]",
+            "logicAccess": "boss_temple_forest_gateway",
             "area": "temple_forest.bossarea",
             "tags": [
                 "boss",
@@ -48137,7 +48137,7 @@
         "temple_fire_boss_gateway -> boss_temple_fire_gateway": {
             "type": "boss_outer",
             "target": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
-            "logicAccess": "region[temple_fire_boss_gateway]",
+            "logicAccess": "temple_fire_boss_gateway",
             "area": "temple_fire",
             "tags": [
                 "boss",
@@ -48182,7 +48182,7 @@
         "boss_temple_fire_gateway -> temple_fire_boss_gateway": {
             "type": "boss_inner",
             "target": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
-            "logicAccess": "region[boss_temple_fire_gateway]",
+            "logicAccess": "boss_temple_fire_gateway",
             "area": "temple_fire.bossarea",
             "tags": [
                 "boss",
@@ -48227,7 +48227,7 @@
         "temple_water_boss_gateway -> boss_temple_water_gateway": {
             "type": "boss_outer",
             "target": "boss_temple_water_gateway -> temple_water_boss_gateway",
-            "logicAccess": "region[temple_water_boss_gateway]",
+            "logicAccess": "temple_water_boss_gateway",
             "area": "temple_water",
             "tags": [
                 "boss",
@@ -48272,7 +48272,7 @@
         "boss_temple_water_gateway -> temple_water_boss_gateway": {
             "type": "boss_inner",
             "target": "temple_water_boss_gateway -> boss_temple_water_gateway",
-            "logicAccess": "region[boss_temple_water_gateway]",
+            "logicAccess": "boss_temple_water_gateway",
             "area": "temple_water.bossarea",
             "tags": [
                 "boss",
@@ -48317,7 +48317,7 @@
         "temple_shadow_boss_gateway -> boss_temple_shadow_gateway": {
             "type": "boss_outer",
             "target": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
-            "logicAccess": "region[temple_shadow_boss_gateway]",
+            "logicAccess": "temple_shadow_boss_gateway",
             "area": "temple_shadow",
             "tags": [
                 "boss",
@@ -48362,7 +48362,7 @@
         "boss_temple_shadow_gateway -> temple_shadow_boss_gateway": {
             "type": "boss_inner",
             "target": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
-            "logicAccess": "region[boss_temple_shadow_gateway]",
+            "logicAccess": "boss_temple_shadow_gateway",
             "area": "temple_shadow.bossarea",
             "tags": [
                 "boss",
@@ -48407,7 +48407,7 @@
         "temple_spirit_boss_gateway -> boss_temple_spirit_gateway": {
             "type": "boss_outer",
             "target": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway",
-            "logicAccess": "region[temple_spirit_boss_gateway]",
+            "logicAccess": "temple_spirit_boss_gateway",
             "area": "temple_spirit",
             "tags": [
                 "boss",
@@ -48452,7 +48452,7 @@
         "boss_temple_spirit_gateway -> temple_spirit_boss_gateway": {
             "type": "boss_inner",
             "target": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
-            "logicAccess": "region[boss_temple_spirit_gateway]",
+            "logicAccess": "boss_temple_spirit_gateway",
             "area": "temple_spirit.bossarea",
             "tags": [
                 "boss",
