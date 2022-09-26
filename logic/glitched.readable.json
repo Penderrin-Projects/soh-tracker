@@ -2092,6 +2092,534 @@
                 }
             }
         },
+        "region[deku_boss_gateway:in]{child}": {
+            "region[boss_deku_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[deku_boss_gateway:in]{adult}": {
+            "region[boss_deku_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[deku_boss_gateway:out]{child}": {
+            "region[deku_tree_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[deku]",
+                    "value": "mq"
+                }
+            },
+            "region[deku_tree_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[deku]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[deku_boss_gateway:out]{adult}": {
+            "region[deku_tree_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[deku]",
+                    "value": "mq"
+                }
+            },
+            "region[deku_tree_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[deku]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_deku_gateway:in]{child}": {
+            "region[deku_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_deku_gateway:in]{adult}": {
+            "region[deku_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_deku_gateway:out]{child}": {
+            "region[queen_gohma_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_deku_gateway:out]{adult}": {
+            "region[queen_gohma_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_boss_gateway:in]{child}": {
+            "region[boss_dodongo_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_boss_gateway:in]{adult}": {
+            "region[boss_dodongo_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[dodongo_boss_gateway:out]{child}": {
+            "region[dodongos_cavern_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[dodongo]",
+                    "value": "mq"
+                }
+            },
+            "region[dodongos_cavern_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[dodongo]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[dodongo_boss_gateway:out]{adult}": {
+            "region[dodongos_cavern_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[dodongo]",
+                    "value": "mq"
+                }
+            },
+            "region[dodongos_cavern_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[dodongo]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_dodongo_gateway:in]{child}": {
+            "region[dodongo_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_dodongo_gateway:in]{adult}": {
+            "region[dodongo_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_dodongo_gateway:out]{child}": {
+            "region[king_dodongo_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_dodongo_gateway:out]{adult}": {
+            "region[king_dodongo_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[jabu_boss_gateway:in]{child}": {
+            "region[boss_jabu_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[jabu_boss_gateway:in]{adult}": {
+            "region[boss_jabu_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[jabu_boss_gateway:out]{child}": {
+            "region[jabu_jabus_belly_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[jabujabu]",
+                    "value": "mq"
+                }
+            },
+            "region[jabu_jabus_belly_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[jabujabu]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[jabu_boss_gateway:out]{adult}": {
+            "region[jabu_jabus_belly_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[jabujabu]",
+                    "value": "mq"
+                }
+            },
+            "region[jabu_jabus_belly_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[jabujabu]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_jabu_gateway:in]{child}": {
+            "region[jabu_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_jabu_gateway:in]{adult}": {
+            "region[jabu_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_jabu_gateway:out]{child}": {
+            "region[barinade_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_jabu_gateway:out]{adult}": {
+            "region[barinade_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[forest_temple_boss_gateway:in]{child}": {
+            "region[boss_forest_temple_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[forest_temple_boss_gateway:in]{adult}": {
+            "region[boss_forest_temple_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[forest_temple_boss_gateway:out]{child}": {
+            "region[forest_temple_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_forest]",
+                    "value": "mq"
+                }
+            },
+            "region[forest_temple_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_forest]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[forest_temple_boss_gateway:out]{adult}": {
+            "region[forest_temple_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_forest]",
+                    "value": "mq"
+                }
+            },
+            "region[forest_temple_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_forest]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_forest_temple_gateway:in]{child}": {
+            "region[forest_temple_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_forest_temple_gateway:in]{adult}": {
+            "region[forest_temple_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_forest_temple_gateway:out]{child}": {
+            "region[phantom_ganon_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_forest_temple_gateway:out]{adult}": {
+            "region[phantom_ganon_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[fire_temple_boss_gateway:in]{child}": {
+            "region[boss_fire_temple_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[fire_temple_boss_gateway:in]{adult}": {
+            "region[boss_fire_temple_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[fire_temple_boss_gateway:out]{child}": {
+            "region[fire_temple_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_fire]",
+                    "value": "mq"
+                }
+            },
+            "region[fire_temple_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_fire]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[fire_temple_boss_gateway:out]{adult}": {
+            "region[fire_temple_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_fire]",
+                    "value": "mq"
+                }
+            },
+            "region[fire_temple_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_fire]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_fire_temple_gateway:in]{child}": {
+            "region[fire_temple_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_fire_temple_gateway:in]{adult}": {
+            "region[fire_temple_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_fire_temple_gateway:out]{child}": {
+            "region[volvagia_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_fire_temple_gateway:out]{adult}": {
+            "region[volvagia_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[water_temple_boss_gateway:in]{child}": {
+            "region[boss_water_temple_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[water_temple_boss_gateway:in]{adult}": {
+            "region[boss_water_temple_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[water_temple_boss_gateway:out]{child}": {
+            "region[water_temple_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_water]",
+                    "value": "mq"
+                }
+            },
+            "region[water_temple_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_water]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[water_temple_boss_gateway:out]{adult}": {
+            "region[water_temple_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_water]",
+                    "value": "mq"
+                }
+            },
+            "region[water_temple_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_water]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_water_temple_gateway:in]{child}": {
+            "region[water_temple_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_water_temple_gateway:in]{adult}": {
+            "region[water_temple_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_water_temple_gateway:out]{child}": {
+            "region[morpha_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_water_temple_gateway:out]{adult}": {
+            "region[morpha_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[shadow_temple_boss_gateway:in]{child}": {
+            "region[boss_shadow_temple_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[shadow_temple_boss_gateway:in]{adult}": {
+            "region[boss_shadow_temple_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[shadow_temple_boss_gateway:out]{child}": {
+            "region[shadow_temple_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_shadow]",
+                    "value": "mq"
+                }
+            },
+            "region[shadow_temple_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_shadow]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[shadow_temple_boss_gateway:out]{adult}": {
+            "region[shadow_temple_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_shadow]",
+                    "value": "mq"
+                }
+            },
+            "region[shadow_temple_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_shadow]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_shadow_temple_gateway:in]{child}": {
+            "region[shadow_temple_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_shadow_temple_gateway:in]{adult}": {
+            "region[shadow_temple_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_shadow_temple_gateway:out]{child}": {
+            "region[bongo_bongo_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_shadow_temple_gateway:out]{adult}": {
+            "region[bongo_bongo_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[spirit_temple_boss_gateway:in]{child}": {
+            "region[boss_spirit_temple_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[spirit_temple_boss_gateway:in]{adult}": {
+            "region[boss_spirit_temple_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[spirit_temple_boss_gateway:out]{child}": {
+            "region[spirit_temple_boss_door]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_spirit]",
+                    "value": "mq"
+                }
+            },
+            "region[spirit_temple_boss_door_mq]{child}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_spirit]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[spirit_temple_boss_gateway:out]{adult}": {
+            "region[spirit_temple_boss_door]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_spirit]",
+                    "value": "mq"
+                }
+            },
+            "region[spirit_temple_boss_door_mq]{adult}": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "dungeontype[temple_spirit]",
+                    "value": "v"
+                }
+            }
+        },
+        "region[boss_spirit_temple_gateway:in]{child}": {
+            "region[spirit_temple_boss_gateway:out]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_spirit_temple_gateway:in]{adult}": {
+            "region[spirit_temple_boss_gateway:out]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[boss_spirit_temple_gateway:out]{child}": {
+            "region[twinrova_boss_room]{child}": {
+                "type": "true"
+            }
+        },
+        "region[boss_spirit_temple_gateway:out]{adult}": {
+            "region[twinrova_boss_room]{adult}": {
+                "type": "true"
+            }
+        },
         "region[field_tektite_grotto_gateway:in]{child}": {
             "region[tektite_grotto_field_gateway:out]{child}": {
                 "type": "true"
@@ -7672,6 +8200,181 @@
         "region[queen_gohma_boss_room]{child}": {
             "region[deku_tree_lobby]{child}": {
                 "type": "true"
+            },
+            "reach_location[deku.c_gohma]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "item[nut]"
+                                    },
+                                    {
+                                        "type": "mixin",
+                                        "el": "function[can_use](item[slingshot]){child}"
+                                    },
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[has_bombchus]{child}"
+                                    },
+                                    {
+                                        "type": "mixin",
+                                        "el": "function[can_use](item[boomerang]){child}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "or",
+                                        "el": [
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[queen_gohma_boss_room]{child}",
+                                                        "el": {
+                                                            "type": "mixin",
+                                                            "el": "mixin[has_shield]{child}"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[queen_gohma_boss_room]{adult}",
+                                                        "el": {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "mixin[has_shield]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "function[can_use](item[hammer]){adult}"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "el": [
+                                            {
+                                                "type": "value",
+                                                "el": "item[sword_kokiri]"
+                                            },
+                                            {
+                                                "type": "value",
+                                                "el": "item[stick]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[deku_tree_clear]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "or",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "item[nut]"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_use](item[slingshot]){child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin[has_bombchus]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "function[can_use](item[boomerang]){child}"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "at",
+                                        "node": "region[queen_gohma_boss_room]{child}",
+                                        "el": {
+                                            "type": "mixin",
+                                            "el": "mixin[has_shield]{child}"
+                                        }
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region[queen_gohma_boss_room]{adult}",
+                                        "el": {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[has_shield]{adult}"
+                                                },
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "function[can_use](item[hammer]){adult}"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "item[sword_kokiri]"
+                                    },
+                                    {
+                                        "type": "value",
+                                        "el": "item[stick]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[queen_gohma_boss_room]{adult}": {
