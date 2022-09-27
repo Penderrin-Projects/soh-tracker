@@ -28796,8 +28796,19 @@
                         "type": "and",
                         "el": [
                             {
-                                "type": "value",
-                                "el": "option[shuffle_dungeons]"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "state",
+                                        "el": "option[shuffle_dungeons]",
+                                        "value": "shuffle_dungeons_simple"
+                                    },
+                                    {
+                                        "type": "state",
+                                        "el": "option[shuffle_dungeons]",
+                                        "value": "shuffle_dungeons_all"
+                                    }
+                                ]
                             },
                             {
                                 "type": "or",
@@ -28880,29 +28891,6 @@
             }
         },
         "region[kf_outside_deku_tree]{adult}": {
-            "region[kokiri_deku_gateway:in]{adult}": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    },
-                    {
-                        "type": "or",
-                        "el": [
-                            {
-                                "type": "state",
-                                "el": "option[doors_open_forest]",
-                                "value": "doors_open_forest_open"
-                            },
-                            {
-                                "type": "value",
-                                "el": "event[showed_mido_sword_&_shield]"
-                            }
-                        ]
-                    }
-                ]
-            },
             "region[kokiri_forest]{adult}": {
                 "type": "or",
                 "el": [
@@ -34286,8 +34274,19 @@
                                 "el": "mixin[is_child]{child}"
                             },
                             {
-                                "type": "value",
-                                "el": "option[shuffle_dungeons]"
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "state",
+                                        "el": "option[shuffle_dungeons]",
+                                        "value": "shuffle_dungeons_simple"
+                                    },
+                                    {
+                                        "type": "state",
+                                        "el": "option[shuffle_dungeons]",
+                                        "value": "shuffle_dungeons_all"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -34646,19 +34645,6 @@
                     {
                         "type": "mixin",
                         "el": "mixin[is_day]{adult}"
-                    }
-                ]
-            },
-            "region[kakariko_well_gateway:in]{adult}": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "event[drain_well]"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
                     }
                 ]
             },
@@ -38797,8 +38783,14 @@
                                                     "el": "option[shuffle_grottos]"
                                                 },
                                                 {
-                                                    "type": "value",
-                                                    "el": "option[shuffle_dungeons]"
+                                                    "type": "state",
+                                                    "el": "option[shuffle_dungeons]",
+                                                    "value": "shuffle_dungeons_simple"
+                                                },
+                                                {
+                                                    "type": "state",
+                                                    "el": "option[shuffle_dungeons]",
+                                                    "value": "shuffle_dungeons_all"
                                                 },
                                                 {
                                                     "type": "value",
@@ -39154,19 +39146,6 @@
         "region[dmc_central_local]{child}": {
             "region[dmc_central_nearby]{child}": {
                 "type": "true"
-            },
-            "region[dmc_fire_temple_entrance]{child}": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_child]{child}"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
-                ]
             },
             "reach_location[mountain.s_crater_beanspot_child]": {
                 "type": "and",
@@ -50507,8 +50486,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -50598,8 +50583,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -50698,8 +50689,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -50885,8 +50882,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51025,8 +51028,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51172,8 +51181,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51297,8 +51312,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51494,8 +51515,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51652,8 +51679,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51799,8 +51832,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",
@@ -51933,8 +51972,14 @@
                                                                     "el": "option[shuffle_grottos]"
                                                                 },
                                                                 {
-                                                                    "type": "value",
-                                                                    "el": "option[shuffle_dungeons]"
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_simple"
+                                                                },
+                                                                {
+                                                                    "type": "state",
+                                                                    "el": "option[shuffle_dungeons]",
+                                                                    "value": "shuffle_dungeons_all"
                                                                 },
                                                                 {
                                                                     "type": "value",

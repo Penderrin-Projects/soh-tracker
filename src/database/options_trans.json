@@ -173,9 +173,11 @@
         "shuffle_dungeon_entrances": {
             "name": "shuffle_dungeons",
             "values": {
-                "true": true,
-                "false": false,
-                "off": false
+                "false": "shuffle_dungeons_off",
+                "true": "shuffle_dungeons_simple",
+                "off": "shuffle_dungeons_off",
+                "simple": "shuffle_dungeons_simple",
+                "all": "shuffle_dungeons_all"
             }
         },
         "shuffle_bosses": {
@@ -928,25 +930,19 @@
                 "Graveyard Warp Pad Region -> Shadow Temple Entryway": "graveyard_shadow_temple_gateway -> shadow_temple_graveyard_gateway",
                 "Zoras Fountain -> Ice Cavern Beginning": "fountain_ice_cavern_gateway -> ice_cavern_fountain_gateway",
                 "ZF Ice Ledge -> Ice Cavern Beginning": "fountain_ice_cavern_gateway -> ice_cavern_fountain_gateway",
-                "Zoras Fountain -> Jabu Jabus Belly Beginning": "fountain_jabu_gateway -> jabu_fountain_gateway"
+                "Zoras Fountain -> Jabu Jabus Belly Beginning": "fountain_jabu_gateway -> jabu_fountain_gateway",
+                "Ganons Castle Grounds -> Ganons Castle Lobby": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway"
             },
             "entro_dungeon_bosses": {
-                "Deku Tree Boss Door -> Gohma Boss Room": "deku_boss_entrance -> deku_boss_gateway",
-                "Gohma Boss Room -> Deku Tree Boss Door": "deku_boss_gateway -> deku_boss_entrance",
-                "Dodongos Cavern Boss Door -> King Dodongo Boss Room": "dodongo_boss_entrance -> dodongo_boss_gateway",
-                "King Dodongo Boss Room -> Dodongos Cavern Boss Door": "dodongo_boss_gateway -> dodongo_boss_entrance",
-                "Jabu Jabus Belly Boss Door -> Barinade Boss Room": "jabu_boss_entrance -> jabu_boss_gateway",
-                "Barinade Boss Room -> Jabu Jabus Belly Boss Door": "jabu_boss_gateway -> jabu_boss_entrance",
-                "Forest Temple Boss Door -> Phantom Ganon Boss Room": "temple_forest_boss_entrance -> temple_forest_boss_gateway",
-                "Phantom Ganon Boss Room -> Forest Temple Boss Door": "temple_forest_boss_gateway -> temple_forest_boss_entrance",
-                "Fire Temple Boss Door -> Volvagia Boss Room": "temple_fire_boss_entrance -> temple_fire_boss_gateway",
-                "Volvagia Boss Room -> Fire Temple Boss Door": "temple_fire_boss_gateway -> temple_fire_boss_entrance",
-                "Water Temple Boss Door -> Morpha Boss Room": "temple_water_boss_entrance -> temple_water_boss_gateway",
-                "Morpha Boss Room -> Water Temple Boss Door": "temple_water_boss_gateway -> temple_water_boss_entrance",
-                "Shadow Temple Boss Door -> Bongo Bongo Boss Room": "temple_shadow_boss_entrance -> temple_shadow_boss_gateway",
-                "Bongo Bongo Boss Room -> Shadow Temple Boss Door": "temple_shadow_boss_gateway -> temple_shadow_boss_entrance",
-                "Spirit Temple Boss Door -> Twinrova Boss Room": "temple_spirit_boss_entrance -> temple_spirit_boss_gateway",
-                "Twinrova Boss Room -> Spirit Temple Boss Door": "temple_spirit_boss_gateway -> temple_spirit_boss_entrance"
+                "Deku Tree Boss Door -> Gohma Boss Room": "deku_boss_gateway -> boss_deku_gateway",
+                "Deku Tree Boss Door -> Queen Gohma Boss Room": "deku_boss_gateway -> boss_deku_gateway",
+                "Dodongos Cavern Boss Door -> King Dodongo Boss Room": "dodongo_boss_gateway -> boss_dodongo_gateway",
+                "Jabu Jabus Belly Boss Door -> Barinade Boss Room": "jabu_boss_gateway -> boss_jabu_gateway",
+                "Forest Temple Boss Door -> Phantom Ganon Boss Room": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+                "Fire Temple Boss Door -> Volvagia Boss Room": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+                "Water Temple Boss Door -> Morpha Boss Room": "temple_water_boss_gateway -> boss_temple_water_gateway",
+                "Shadow Temple Boss Door -> Bongo Bongo Boss Room": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+                "Spirit Temple Boss Door -> Twinrova Boss Room": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway"
             },
             "entro_overworld": {
                 "Castle Grounds -> Market": "grounds_market_gateway -> market_grounds_gateway",
@@ -1191,17 +1187,19 @@
                 "Forest Temple Lobby": "forest_temple_meadow_gateway -> meadow_forest_temple_gateway",
                 "Shadow Temple Entryway": "shadow_temple_graveyard_gateway -> graveyard_shadow_temple_gateway",
                 "Ice Cavern Beginning": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway",
-                "Jabu Jabus Belly Beginning": "jabu_fountain_gateway -> fountain_jabu_gateway"
+                "Jabu Jabus Belly Beginning": "jabu_fountain_gateway -> fountain_jabu_gateway",
+                "Ganons Castle Lobby": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway"
             },
             "exit_dungeon_bosses": {
-                "Gohma Boss Room": "deku_boss_gateway -> deku_boss_entrance",
-                "King Dodongo Boss Room": "dodongo_boss_gateway -> dodongo_boss_entrance",
-                "Barinade Boss Room": "jabu_boss_gateway -> jabu_boss_entrance",
-                "Phantom Ganon Boss Room": "temple_forest_boss_gateway -> temple_forest_boss_entrance",
-                "Volvagia Boss Room": "temple_fire_boss_gateway -> temple_fire_boss_entrance",
-                "Morpha Boss Room": "temple_water_boss_gateway -> temple_water_boss_entrance",
-                "Bongo Bongo Boss Room": "temple_shadow_boss_gateway -> temple_shadow_boss_entrance",
-                "Twinrova Boss Room": "temple_spirit_boss_gateway -> temple_spirit_boss_entrance"
+                "Gohma Boss Room": "boss_deku_gateway -> deku_boss_gateway",
+                "Queen Gohma Boss Room": "boss_deku_gateway -> deku_boss_gateway",
+                "King Dodongo Boss Room": "boss_dodongo_gateway -> dodongo_boss_gateway",
+                "Barinade Boss Room": "boss_jabu_gateway -> jabu_boss_gateway",
+                "Phantom Ganon Boss Room": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
+                "Volvagia Boss Room": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
+                "Morpha Boss Room": "boss_temple_water_gateway -> temple_water_boss_gateway",
+                "Bongo Bongo Boss Room": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
+                "Twinrova Boss Room": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway"
             },
             "exit_overworld": {
                 "Castle Grounds -> Market": "grounds_market_gateway -> market_grounds_gateway",

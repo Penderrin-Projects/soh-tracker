@@ -50,8 +50,8 @@ SavestateConverter.register(function(state) {
     // options
 
     for (const [key, value] of Object.entries(state.data?.options ?? {})) {
-        if (key === "skip_child_zelda") {
-            res.data.options["shuffle_child_trade"] = value ? "skip_child_zelda" : "vanilla_child_trade";
+        if (key === "shuffle_dungeons") {
+            res.data.options["shuffle_dungeons"] = value ? "shuffle_dungeons_simple" : "shuffle_dungeons_off";
         } else {
             res.data.options[key] = value;
         }

@@ -42,6 +42,10 @@ const ENTRANCES = [
     {
         "fortress_training_grounds_gateway": "Gerudo Fortress",
         "training_grounds_fortress_gateway": "Training Grounds"
+    },
+    {
+        "castle_grounds_ganons_castle_gateway": "Castle Grounds",
+        "ganons_castle_castle_grounds_gateway": "Ganons Castle"
     }
 ];
 

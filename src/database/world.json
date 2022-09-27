@@ -20712,11 +20712,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20731,11 +20729,9 @@
                     "y": 146,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20750,11 +20746,9 @@
                     "y": 178,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20769,11 +20763,9 @@
                     "y": 421,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20788,11 +20780,9 @@
                     "y": 70,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20807,11 +20797,9 @@
                     "y": 983,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20826,11 +20814,9 @@
                     "y": 227,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20845,11 +20831,9 @@
                     "y": 184,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20864,11 +20848,9 @@
                     "y": 248,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20883,11 +20865,9 @@
                     "y": 204,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20902,28 +20882,36 @@
                     "y": 302,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
                     "id": "fortress_training_grounds_gateway -> training_grounds_fortress_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "castle_ganon",
                     "x": 998,
                     "y": 95,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_all"
+                        }
+                    }
+                },
+                {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "x": 998,
+                    "y": 95,
+                    "category": "exit"
                 }
             ]
         },
@@ -21089,11 +21077,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -21280,11 +21266,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -21949,11 +21933,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -22206,22 +22188,16 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
                     "id": "fortress_training_grounds_gateway -> training_grounds_fortress_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 }
             ]
         },
@@ -22515,11 +22491,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23280,11 +23254,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23427,11 +23399,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23592,11 +23562,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23739,11 +23707,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24112,11 +24078,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24131,11 +24095,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24355,8 +24317,12 @@
             "filter": {
                 "era": {
                     "child": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     },
                     "adult": true
                 },
@@ -24391,11 +24357,7 @@
                     "id": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "ice_cavern.c_map",
@@ -24451,11 +24413,7 @@
                     "id": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "ice_cavern_mq.c_map",
@@ -24514,8 +24472,12 @@
             "filter": {
                 "era": {
                     "child": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     },
                     "adult": true
                 },
@@ -24550,11 +24512,7 @@
                     "id": "training_grounds_fortress_gateway -> fortress_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "training_grounds.c_lobby_left",
@@ -24694,11 +24652,7 @@
                     "id": "training_grounds_fortress_gateway -> fortress_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "training_grounds_mq.c_lobby_left",
@@ -24812,8 +24766,12 @@
                 "era": {
                     "child": true,
                     "adult": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     }
                 },
                 "time": {
@@ -24897,11 +24855,9 @@
                     "y": 936,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24995,11 +24951,9 @@
                     "y": 936,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -25174,11 +25128,7 @@
                     "id": "dodongo_mountain_gateway -> mountain_dodongo_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "dodongo.c_lobby_salesman",
@@ -25304,11 +25254,7 @@
                     "id": "dodongo_mountain_gateway -> mountain_dodongo_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "dodongo_mq.c_map",
@@ -25485,8 +25431,12 @@
                 "era": {
                     "child": true,
                     "adult": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     }
                 },
                 "time": {
@@ -25520,11 +25470,7 @@
                     "id": "jabu_fountain_gateway -> fountain_jabu_gateway",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "jabujabu.c_elevator_dive_salesman",
@@ -25597,11 +25543,7 @@
                     "id": "jabu_fountain_gateway -> fountain_jabu_gateway",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "jabujabu_mq.c_map",
@@ -25766,8 +25708,12 @@
             "filter": {
                 "era": {
                     "child": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     },
                     "adult": true
                 },
@@ -25802,11 +25748,7 @@
                     "id": "forest_temple_meadow_gateway -> meadow_forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_forest.c_entrance",
@@ -25939,11 +25881,7 @@
                     "id": "forest_temple_meadow_gateway -> meadow_forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_forest_mq.c_entrance",
@@ -26114,8 +26052,12 @@
             "filter": {
                 "era": {
                     "child": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     },
                     "adult": true
                 },
@@ -26150,11 +26092,7 @@
                     "id": "fire_temple_crater_gateway -> crater_fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_fire.c_near_boss",
@@ -26293,11 +26231,7 @@
                     "id": "fire_temple_crater_gateway -> crater_fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_fire_mq.c_chest_near_boss",
@@ -26468,8 +26402,12 @@
             "filter": {
                 "era": {
                     "child": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
                     },
                     "adult": true
                 },
@@ -26504,11 +26442,7 @@
                     "id": "water_temple_lake_gateway -> lake_water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_water.c_map",
@@ -26623,11 +26557,7 @@
                     "id": "water_temple_lake_gateway -> lake_water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_water_mq.c_map",
@@ -26795,11 +26725,7 @@
                     "id": "shadow_temple_graveyard_gateway -> graveyard_shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_shadow.c_map",
@@ -26956,11 +26882,7 @@
                     "id": "shadow_temple_graveyard_gateway -> graveyard_shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_shadow_mq.c_compass",
@@ -27212,11 +27134,7 @@
                     "id": "spirit_temple_colossus_gateway -> colossus_spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_spirit.c_child_left",
@@ -27385,11 +27303,7 @@
                     "id": "spirit_temple_colossus_gateway -> colossus_spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_spirit_mq.c_entrance_front_left",
@@ -27650,6 +27564,12 @@
             },
             "list": [
                 {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "castle_ganon.c_under_bridge_salesman_1",
                     "x": 0,
                     "y": 0,
@@ -27777,6 +27697,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_ganon_mq.c_under_bridge_salesman_1",
                     "x": 0,
@@ -35114,8 +35040,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35143,8 +35073,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35162,8 +35096,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35191,8 +35129,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35210,8 +35152,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35239,8 +35185,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35258,8 +35208,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35287,8 +35241,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35306,8 +35264,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35335,8 +35297,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35354,8 +35320,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35383,8 +35353,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35401,8 +35375,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35430,8 +35408,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35448,8 +35430,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35477,8 +35463,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35496,8 +35486,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35525,8 +35519,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35544,8 +35542,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35573,8 +35575,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35592,8 +35598,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35621,8 +35631,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35640,8 +35654,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35669,8 +35687,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35688,8 +35710,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35717,8 +35743,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35736,8 +35766,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35765,8 +35799,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35784,8 +35822,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35813,8 +35855,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35832,8 +35878,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35861,8 +35911,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35880,8 +35934,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35909,8 +35967,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35928,8 +35990,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35957,8 +36023,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35977,8 +36047,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -36006,8 +36080,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -36026,8 +36104,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -36055,8 +36137,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -36074,8 +36160,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -36103,8 +36193,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -36122,8 +36216,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -36151,8 +36249,110 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway": {
+            "type": "dungeon_outer",
+            "target": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
+            "logicAccess": "castle_grounds_ganons_castle_gateway",
+            "area": "castle_ganon_outside",
+            "tags": [
+                "castle_ganon_outside",
+                "castle_ganon",
+                "dungeon",
+                "adult"
+            ],
+            "visible": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "visibleRootOnly": false,
+            "filter": {
+                "era": {
+                    "child": false,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/boss_dungeon.svg",
+            "bindsTo": [
+                "dungeon_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway": {
+            "type": "dungeon_inner",
+            "target": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+            "logicAccess": "ganons_castle_castle_grounds_gateway",
+            "area": "castle_ganon",
+            "tags": [
+                "castle_ganon_outside",
+                "castle_ganon",
+                "dungeon",
+                "adult"
+            ],
+            "visible": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": false,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/boss_dungeon.svg",
+            "bindsTo": [
+                "dungeon_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
             },
             "includeInactiveEntrances": false,
             "isBiDir": true

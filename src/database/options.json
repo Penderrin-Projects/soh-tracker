@@ -286,8 +286,13 @@
     },
     "shuffle_dungeons": {
         "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
+        "type": "choice",
+        "default": "shuffle_dungeons_off",
+        "values": [
+            "shuffle_dungeons_off",
+            "shuffle_dungeons_simple",
+            "shuffle_dungeons_all"
+        ]
     },
     "shuffle_bosses": {
         "category": "entrance_randomizer",
