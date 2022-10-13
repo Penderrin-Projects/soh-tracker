@@ -22334,7 +22334,7 @@
                     "category": "exit"
                 },
                 {
-                    "id": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
+                    "id": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -22996,6 +22996,12 @@
                 },
                 {
                     "id": "ganon_grounds_great_fairy_gateway -> great_fairy_ganon_grounds_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27564,7 +27570,7 @@
             },
             "list": [
                 {
-                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "id": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27698,7 +27704,7 @@
             ],
             "list_mq": [
                 {
-                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "id": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -28978,7 +28984,7 @@
             },
             "list": [
                 {
-                    "id": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+                    "id": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -41434,9 +41440,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway": {
+        "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway": {
             "type": "grotto_outer",
-            "target": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+            "target": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
             "logicAccess": "woods_scrubs_grotto_gateway",
             "area": "woods",
             "tags": [
@@ -41485,10 +41491,10 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway": {
+        "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway": {
             "type": "grotto_inner",
-            "target": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
-            "logicAccess": "near_scrubs_woods_gateway",
+            "target": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
+            "logicAccess": "scrubs_grotto_woods_gateway",
             "area": "woods.near_meadow_grotto",
             "tags": [
                 "grotto",
@@ -42991,7 +42997,7 @@
         "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway": {
             "type": "interior_inner",
             "target": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
-            "logicAccess": "temple_of_time",
+            "logicAccess": "temple_of_time_tot_entrance_gateway",
             "area": "castle_town.temple_of_time",
             "tags": [
                 "interior",
