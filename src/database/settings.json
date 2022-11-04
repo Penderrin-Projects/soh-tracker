@@ -104,7 +104,7 @@
     "show_detailed_maps": {
         "category": "world",
         "type": "check",
-        "default": true
+        "default": false
     },
     "show_map_connections": {
         "category": "world",

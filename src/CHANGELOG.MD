@@ -4,7 +4,7 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.2.0 (DEV)
+## VERSION 2.2.0
 
 ### SYSTEM CHANGES
 
@@ -18,7 +18,6 @@ Application:    Track-OOT
 - lots of generalization for calculations
 - use debouncing to not calculate before everything settles
 - use browser events instead of the custom EventBus as this is faster
-- add polyfill for contextmenu event on iOS devices (longpress)
 
 ### TRANSLATION
 
@@ -32,6 +31,7 @@ Application:    Track-OOT
 - change logo
 - change splashscreen background color
 - change scrollbar design (if supported)
+- add patreon link to splashscreen
 
 ### FILTERS
 
