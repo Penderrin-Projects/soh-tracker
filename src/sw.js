@@ -14,11 +14,11 @@ const cmd = {
     purge: purgeCache
 };
 
-self.addEventListener("install", function(event) {
+self.addEventListener("install", () => {
     return self.skipWaiting();
 });
 
-self.addEventListener("activate", function(event) {
+self.addEventListener("activate", () => {
     return self.clients.claim();
 });
 
@@ -57,7 +57,7 @@ async function getVersion(request) {
     return version;
 }
 
-self.addEventListener("message", async event => {
+self.addEventListener("message", async (event) => {
     const src = event.source;
     const dta = event.data;
     if (!src) {
@@ -167,8 +167,8 @@ async function removeUnusedFiles(client, cache, downloadlist) {
         type: "state",
         msg: "cleaning"
     });
-    const downloaded = downloadlist.map(e =>  (new Request(e)).url);
-    const filelist = (await cache.keys()).map(e => e.url);
+    const downloaded = downloadlist.map((e) =>  (new Request(e)).url);
+    const filelist = (await cache.keys()).map((e) => e.url);
     const removelist = diff(filelist, downloaded);
     const w = [];
     for (const i in removelist) {
@@ -224,9 +224,9 @@ async function updateFilesForced(client) {
 
 async function checkUpdateNeeded(cache, filelist) {
     const r = [], p = [];
-    filelist.forEach(element => {
+    for (const element of filelist) {
         p.push(addFileIfNeeded(cache, element, r));
-    });
+    }
     await Promise.all(p);
     return r;
 }
@@ -251,8 +251,8 @@ async function checkFile(cache, url) {
 async function updateFileList(client, cache, filelist) {
     const r = [];
     let loaded = 0;
-    filelist.forEach(url => {
-        r.push(updateFile(cache, url).then(file => {
+    for (const url of filelist) {
+        r.push(updateFile(cache, url).then((/* file */) => {
             loaded++;
             client.postMessage({
                 type: "state",
@@ -262,7 +262,7 @@ async function updateFileList(client, cache, filelist) {
                 total: filelist.length
             });
         }));
-    });
+    }
     await Promise.all(r);
 }
 
@@ -285,5 +285,5 @@ async function downloadFile(url, tries = 3) {
 
 function diff(a, b) {
     const c = new Set(b);
-    return a.filter(d => !c.has(d));
+    return a.filter((d) => !c.has(d));
 }

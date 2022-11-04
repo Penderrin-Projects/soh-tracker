@@ -1,15 +1,15 @@
 
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Paging.js";
 
 // GameTrackerJS
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import AbstractSettingsWindow from "/GameTrackerJS/ui/window/settings/AbstractSettingsWindow.js";
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import SpoilerOptionsResource from "/script/resource/SpoilerOptionsResource.js";
@@ -65,6 +65,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
                     spoiler = {};
                     await BusyIndicator.unbusy();
                 } catch (err) {
+                    console.error(err);
                     await BusyIndicator.unbusy();
                     await Dialog.alert("Error loading spoiler", err.message);
                 }
@@ -91,6 +92,10 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
             }
         }
         super.show(res);
+    }
+
+    static getLabel(label) {
+        return `parse[${label}]`;
     }
 
 }

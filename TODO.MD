@@ -1,15 +1,29 @@
+### gateway errors (not accessible)
 
-### FIX MAJOR BUGS
+- n/a
 
-- 
+### BUGS
 
----
+- world status bar not counting correctly (when filtered) (?)
+- after spoiler log parse not all options set in logic
 
-### FIX MINOR BUGS
+### SPOILER PARSER
 
-- spoiler parser (items) fvalues from settings
-    - child trade
-    - free scarecrow
+- [bridge: hearts] is a invalid value
+- [shuffle_dungeon_entrances: off] is a invalid value
+
+### TRACKER TODO
+
+- boss shortcuts
+- remove done filter for areas / exits
+    - list option to ignore empty list?
+- shuffle bosses
+
+### SPOILER LOG ERRORS
+
+### WIP (nightly)
+
+- boss region (boss rando)
 
 ---
 
@@ -63,7 +77,10 @@ to:
 
 ---
 
-### TODO
+### OTHER TODO
+
+- auto get seed by id?
+    - https://ootrandomizer.com/spoilers/get?id=${id}
 
 - add rom options
     - disabled locations

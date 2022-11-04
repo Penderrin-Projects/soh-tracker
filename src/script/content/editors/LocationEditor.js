@@ -1,11 +1,11 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import "/editors/modules/properties/Editor.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import FilterResource from "/GameTrackerJS/resource/FilterResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import FilterResource from "/GameTrackerJS/data/resource/FilterResource.js";
 // Track-OOT
 import LogicResource from "/script/resource/LogicResource.js";
 import LocationListsCreator from "../locations/LocationListsCreator.js";
@@ -21,7 +21,7 @@ export default async function(editorChoice) {
 
     for (const region in logic) {
         for (const ch in logic[region]) {
-            if (ch.startsWith("logic.location.")) {
+            if (ch.startsWith("reach_location[")) {
                 locations.add(ch);
             }
         }
@@ -78,7 +78,7 @@ export default async function(editorChoice) {
                     intData[name][`filter/${key}`] = filter[key].values;
                 } else {
                     const vals = data[name].filter[key];
-                    intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
+                    intData[name][`filter/${key}`] = filter[key].values.filter((i) => vals[i] == null || !!vals[i]);
                 }
             }
         }
@@ -89,10 +89,10 @@ export default async function(editorChoice) {
 
     await refreshLocationEditor();
     // register
-    locationEditor.addEventListener("save", async event => {
+    locationEditor.addEventListener("save", async (event) => {
         await DataStorage.set(event.key, event.data);
     });
-    locationEditor.addEventListener("clear", async event => {
+    locationEditor.addEventListener("clear", async (event) => {
         await DataStorage.delete(event.key);
     });
     const NAV = [{
@@ -145,7 +145,7 @@ export default async function(editorChoice) {
                                 intData[name][`filter/${key}`] = filter[key].values;
                             } else {
                                 const vals = data[name].filter[key];
-                                intData[name][`filter/${key}`] = filter[key].values.filter(i => vals[i] == null || !!vals[i]);
+                                intData[name][`filter/${key}`] = filter[key].values.filter((i) => vals[i] == null || !!vals[i]);
                             }
                         }
                     }

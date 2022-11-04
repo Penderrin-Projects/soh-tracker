@@ -1,0 +1,66 @@
+import fs from "fs";
+import path from "path";
+import glob from "glob-all";
+import through from "through";
+import del from "del";
+
+const FILES = new Set();
+
+function normalizePath(path) {
+    return path.replace(/\\/g, "/");
+}
+
+class FileIndex {
+
+    register(src = "/", dest = "/", sourcemaps = false) {
+        const files = [];
+        return through(function(file) {
+            FILES.add(normalizePath(path.resolve(dest, path.relative(src, file.path))));
+            if (sourcemaps) {
+                FILES.add(normalizePath(path.resolve(dest, path.relative(src, `${file.path}.map`))));
+            }
+            this.push(file);
+            return files.push(file);
+        }, function() {
+            return this.emit("end");
+        });
+    }
+
+    add(filePath) {
+        FILES.add(normalizePath(filePath));
+    }
+
+    finish(dest = "/", index = "index.json") {
+        const indexPath = path.resolve(dest, index);
+        const indexPathNormal = normalizePath(indexPath);
+        console.log(`index file: ${indexPathNormal}`);
+        const destFiles = glob.sync("./**/*", {
+            nodir: true,
+            cwd: dest,
+            absolute: true
+        });
+
+        console.log("deleting unused files");
+        const srcFiles = Array.from(FILES);
+        for (const i in destFiles) {
+            const fName = destFiles[i];
+            if (fName != indexPathNormal && !(srcFiles.indexOf(fName) + 1)) {
+                console.log(`delete file: ${fName}`);
+                del.sync(fName);
+            }
+        }
+
+        // TODO remove empty folders
+
+        const files = Array.from(FILES).map((el)=>`/${path.relative(dest, el)}`.replace(/\\/g, "/"));
+        files.push("/");
+        // TODO generate file structure object for sorting
+        console.log("write new index");
+        fs.writeFileSync(indexPath, JSON.stringify(files, null, 4));
+        FILES.clear();
+        return indexPath;
+    }
+
+}
+
+export default new FileIndex();

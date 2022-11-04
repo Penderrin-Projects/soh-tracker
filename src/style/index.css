@@ -1,5 +1,6 @@
 @import "./theme.css";
 @import "./font.css";
+@import "./scrollbar.css";
 @import "./iOS-fix.css";
 
 body {
@@ -15,6 +16,10 @@ body {
 
 emc-page {
     flex: 1;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /* footer design (until there is a custom element) */

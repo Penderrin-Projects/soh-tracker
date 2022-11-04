@@ -3,7 +3,7 @@
     "short_name": "Track-OOT",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#000",
+    "background_color": "#cb9c3d",
     "description": "Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)",
     "lang": "en-US",
     "theme_color": "#cb9c3d",

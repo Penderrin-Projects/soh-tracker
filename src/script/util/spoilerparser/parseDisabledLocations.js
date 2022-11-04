@@ -1,18 +1,29 @@
-export default function parseDisabledLocations(errorDialogHandler, target = {}, data = {}, trans = {}) {
+export default function parseDisabledLocations(addError, target = {}, data = {}, trans = {}) {
     const location_trans = trans["locations"];
-    const location_hearts_mq = location_trans["MQ"];
+
+    if (location_trans == null) {
+        addError("parsing disabled locations impossible - location translation missing");
+        return;
+    }
+
+    target.locations = target.locations ?? {};
 
     for (const i of data) {
-        if (location_trans[i] != null) {
-            if (location_trans[i] !== "") {
-                target["location/" + location_trans[i]] = true;
-                if (location_hearts_mq[i] != null) {
-                    target["location/" + location_hearts_mq[i]] = true;
+        const locationTrans = location_trans[i];
+        if (Array.isArray(locationTrans)) {
+            if (locationTrans.length > 0) {
+                for (const locationTransValue of locationTrans) {
+                    if (locationTransValue) {
+                        target.locations[locationTransValue] = true;
+                    }
                 }
+            } else {
+                addError("[" + i + "] is a invalid Location value");
             }
+        } else if (locationTrans) {
+            target.locations[locationTrans] = true;
         } else {
-            console.warn("[" + i + "] is a invalid Location value.");
-            errorDialogHandler.add("[" + i + "] is a invalid Location value.");
+            addError("[" + i + "] is a invalid Location value");
         }
     }
 }

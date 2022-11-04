@@ -1,9 +1,9 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
+import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 
 // GameTrackerJS
-import WorldResource from "/GameTrackerJS/resource/WorldResource.js";
-import OptionsResource from "/GameTrackerJS/resource/OptionsResource.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
+import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
 
 const DataStorage = new IDBStorage("world");
 

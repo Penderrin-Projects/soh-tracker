@@ -9,7 +9,8 @@
                 "./script/*"
             ],
             "/GameTrackerJS/*": [
-                "./GameTrackerJS/*"
+                "../../GameTrackerJS/src/*",
+                "../node_modules/gametrackerjs/src/*"
             ],
             "/emcJS/*": [
                 "../../emcJS/src/*",

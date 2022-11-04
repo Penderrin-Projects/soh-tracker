@@ -1,81 +1,80 @@
 // frameworks
-import EventBus from "/emcJS/event/EventBus.js";
-import Helper from "/emcJS/util/helper/Helper.js";
+import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 
 // GameTrackerJS
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import StateManager from "/GameTrackerJS/state/world/location/StateManager.js";
-import DefaultState from "/GameTrackerJS/state/world/location/DefaultState.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
+import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
+// Track-OOT
+import "../../../util/registerStorages.js";
 
-const HINT = new WeakMap();
+const STORAGES = {
+    gossipstoneItems: Savestate.getStorage("gossipstoneItems"),
+    gossipstoneLocations: Savestate.getStorage("gossipstoneLocations")
+};
 
-function internalHintChange(event) {
-    const ref = this.ref;
-    // savesatate
-    const change = event.data;
-    if (change != null && change.ref == ref) {
-        this./*#*/__setHint(change.value);
-    }
-}
+const LOCATION = new WeakMap();
+const ITEM = new WeakMap();
 
-export default class GossipstoneState extends DefaultState {
+export default class GossipstoneState extends DefaultLocationState {
 
     constructor(ref, props) {
         super(ref, props);
-        /* --- */
-        this.hint = SavestateHandler.get("gossipstone", ref, {location: "", item: ""});
-        /* EVENTS */
-        EventBus.register("state::gossipstone", internalHintChange.bind(this));
+
+        /* VALUES */
+        const gossipstoneItemsObserver = new ObservableStorageObserver(STORAGES.gossipstoneItems, ref);
+        ITEM.set(this, gossipstoneItemsObserver.value);
+        gossipstoneItemsObserver.addEventListener("change", (event) => {
+            this.item = event.value;
+        });
+
+        const gossipstoneLocationsObserver = new ObservableStorageObserver(STORAGES.gossipstoneLocations, ref);
+        LOCATION.set(this, gossipstoneLocationsObserver.value);
+        gossipstoneLocationsObserver.addEventListener("change", (event) => {
+            this.location = event.value;
+        });
     }
 
-    stateLoaded(event) {
-        super.stateLoaded(event);
+    set item(value) {
         const ref = this.ref;
-        // hint
-        if (event.data.extra["gossipstone"] != null && event.data.extra["gossipstone"][ref] != null) {
-            this.hint = event.data.extra["gossipstone"][ref];
-        } else {
-            this.hint = "";
+        if (typeof value != "string") {
+            value = "";
         }
-    }
-
-    /*#*/__setHint(value) {
-        const ref = this.ref;
-        if (typeof value != "object" || Array.isArray(value)) {
-            value = {location: "", item: ""}
-        }
-        if (typeof value.location != "string") {
-            value.location = "";
-        }
-        if (typeof value.item != "string") {
-            value.item = "";
-        }
-        const old = this.hint;
-        if (!Helper.isEqual(old, value)) {
-            HINT.set(this, value);
-            SavestateHandler.set("gossipstone", ref, value);
+        const oldValue = this.item;
+        if (value != oldValue) {
+            ITEM.set(this, value);
+            STORAGES.gossipstoneItems.set(ref, value);
             // external
-            const event = new Event("hint");
-            event.data = value;
+            const event = new Event("item");
+            event.value = value;
             this.dispatchEvent(event);
         }
-        return value;
     }
 
-    set hint(value) {
+    get item() {
+        return ITEM.get(this);
+    }
+
+    set location(value) {
         const ref = this.ref;
-        const old = this.reward;
-        value = this./*#*/__setHint(value);
-        if (value != null && !Helper.isEqual(old, value)) {
-            // internal
-            EventBus.trigger("state::gossipstone", {ref, value});
+        if (typeof value != "string") {
+            value = "";
+        }
+        const oldValue = this.location;
+        if (value != oldValue) {
+            LOCATION.set(this, value);
+            STORAGES.gossipstoneLocations.set(ref, value);
+            // external
+            const event = new Event("location");
+            event.value = value;
+            this.dispatchEvent(event);
         }
     }
 
-    get hint() {
-        return HINT.get(this);
+    get location() {
+        return LOCATION.get(this);
     }
 
 }
 
-StateManager.register("gossipstone", GossipstoneState);
+LocationStateManager.register("gossipstone", GossipstoneState);

@@ -1,5 +1,5 @@
 {
-    "option.logic_rules": {
+    "logic_rules": {
         "category": "options",
         "type": "choice",
         "default": "logic_rules_glitchless",
@@ -8,7 +8,7 @@
             "logic_rules_glitched"
         ]
     },
-    "option.starting_age": {
+    "starting_age": {
         "category": "options",
         "type": "choice",
         "default": "child",
@@ -17,57 +17,42 @@
             "adult"
         ]
     },
-    "option.consider_buyable": {
+    "consider_buyable": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.bombchu_logic": {
+    "bombchu_logic": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.skip_child_zelda": {
+    "skip_child_zelda": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.skip_epona_race": {
+    "skip_epona_race": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.free_scarecrow": {
+    "free_scarecrow": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.keysanity_small": {
+    "scrubsanity": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.track_keys": {
-        "category": "options",
-        "type": "check",
-        "default": true
-    },
-    "option.track_bosskeys": {
-        "category": "options",
-        "type": "check",
-        "default": true
-    },
-    "option.scrubsanity": {
+    "cowsanity": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.cowsanity": {
-        "category": "options",
-        "type": "check",
-        "default": false
-    },
-    "option.shopsanity": {
+    "shopsanity": {
         "category": "options",
         "type": "choice",
         "default": "off",
@@ -81,17 +66,22 @@
             "random"
         ]
     },
-    "option.beansanity": {
+    "beansanity": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.shuffleMediCarpet": {
+    "frogsanity": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.doors_open_forest": {
+    "shuffleMediCarpet": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
+    "doors_open_forest": {
         "category": "options",
         "type": "choice",
         "default": "doors_open_forest_open",
@@ -101,7 +91,7 @@
             "doors_open_forest_open"
         ]
     },
-    "option.doors_open_kakariko": {
+    "doors_open_kakariko": {
         "category": "options",
         "type": "choice",
         "default": "doors_open_kakariko_closed",
@@ -111,12 +101,12 @@
             "doors_open_kakariko_open"
         ]
     },
-    "option.doors_open_temple": {
+    "doors_open_temple": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.doors_open_zora": {
+    "doors_open_zora": {
         "category": "options",
         "type": "choice",
         "default": "doors_open_zora_closed",
@@ -126,7 +116,7 @@
             "doors_open_zora_both"
         ]
     },
-    "option.gerudo_fortress_open": {
+    "gerudo_fortress_open": {
         "category": "options",
         "type": "choice",
         "default": "gerudo_fortress_open_default",
@@ -136,68 +126,123 @@
             "gerudo_fortress_open_open"
         ]
     },
-    "option.trade_sequence_start_item": {
+    "trade_sequence_start_item": {
         "category": "options",
         "type": "choice",
         "default": 1,
         "values": {
-            "1": "item.pocket_egg",
-            "2": "item.pocket_cucco",
-            "3": "item.pocket_cojiro",
-            "4": "item.mushroom",
-            "5": "item.medicine",
-            "6": "item.saw",
-            "7": "item.broken_sword",
-            "8": "item.prescription",
-            "9": "item.frog",
-            "10": "item.eyedrops",
-            "11": "item.claim"
+            "1": "item[pocket_egg]",
+            "2": "item[pocket_cucco]",
+            "3": "item[pocket_cojiro]",
+            "4": "item[mushroom]",
+            "5": "item[medicine]",
+            "6": "item[saw]",
+            "7": "item[broken_sword]",
+            "8": "item[prescription]",
+            "9": "item[frog]",
+            "10": "item[eyedrops]",
+            "11": "item[claim]"
         }
     },
-    "option.big_poe_count": {
+    "big_poe_count": {
         "category": "options",
         "type": "number",
         "default": 10,
         "min": 1,
         "max": 10
     },
-    "option.keysanity_small_old": {
-        "category": "options",
-        "type": "hidden",
-        "default": "keysanity_small_ignore",
-        "values": [
-            "keysanity_small_ignore",
-            "keysanity_small_track",
-            "keysanity_small_keysanity"
-        ]
-    },
-    "option.keysanity_boss_old": {
-        "category": "options",
-        "type": "hidden",
-        "default": "keysanity_boss_ignore",
-        "values": [
-            "keysanity_boss_ignore",
-            "keysanity_boss_track",
-            "keysanity_boss_keysanity"
-        ]
-    },
-    "option.skullsanity": {
+    "skullsanity": {
         "category": "options",
         "type": "hidden",
         "old_type": "check",
         "default": false
     },
-    "option.sun_song_skulltuta": {
+    "sun_song_skulltuta": {
         "category": "options",
         "type": "check",
         "default": false
     },
-    "option.shuffle_dungeons": {
+    "small_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "gerudo_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_vanilla",
+        "values": [
+            "keylogic_vanilla",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "boss_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity"
+        ]
+    },
+    "ganon_key_logic": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_keysanity",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_keysanity",
+            "keylogic_lacs",
+            "keylogic_stones",
+            "keylogic_medallions",
+            "keylogic_dungeons",
+            "keylogic_tokens",
+            "keylogic_triforce"
+        ]
+    },
+    "mixed_entrance_pool": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.entrance_shuffle_interior": {
+    "show_sublists_on_mixed_entrances": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false,
+        "visible": {
+            "type": "value",
+            "el": "mixed_entrance_pool"
+        }
+    },
+    "detached_entrances": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
+    "shuffle_dungeons": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
+    "entrance_shuffle_interior": {
         "category": "entrance_randomizer",
         "type": "choice",
         "default": "entrance_shuffle_off",
@@ -207,37 +252,32 @@
             "entrance_shuffle_all"
         ]
     },
-    "option.shuffle_grottos": {
+    "shuffle_grottos": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.shuffle_overworld": {
+    "shuffle_overworld": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.shuffle_owls": {
+    "shuffle_owls": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.shuffle_warps": {
+    "shuffle_warps": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.shuffle_spawns": {
+    "shuffle_spawns": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
     },
-    "option.mixed_entrance_pool": {
-        "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
-    },
-    "option.light_arrow_cutscene": {
+    "light_arrow_cutscene": {
         "category": "lacsAndGanon",
         "type": "choice",
         "default": "light_arrow_cutscene_vanilla",
@@ -249,55 +289,55 @@
             "light_arrow_cutscene_skulltulas"
         ]
     },
-    "option.lacs_skulltulas": {
+    "lacs_skulltulas": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
         "visible": {
             "type": "state",
-            "el": "option.light_arrow_cutscene",
+            "el": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_skulltulas"
         },
         "min": 0,
         "max": 100
     },
-    "option.stone_count_lacs": {
+    "stone_count_lacs": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
         "visible": {
             "type": "state",
-            "el": "option.light_arrow_cutscene",
+            "el": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_stones"
         },
         "min": 1,
         "max": 3
     },
-    "option.medallion_count_lacs": {
+    "medallion_count_lacs": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
         "visible": {
             "type": "state",
-            "el": "option.light_arrow_cutscene",
+            "el": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_medallions"
         },
         "min": 1,
         "max": 6
     },
-    "option.dungeon_count_lacs": {
+    "dungeon_count_lacs": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
         "visible": {
             "type": "state",
-            "el": "option.light_arrow_cutscene",
+            "el": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_dungeons"
         },
         "min": 1,
         "max": 9
     },
-    "option.ganon_castle_open": {
+    "ganon_castle_open": {
         "category": "lacsAndGanon",
         "type": "choice",
         "default": "ganon_castle_open_default",
@@ -306,70 +346,64 @@
             "ganon_castle_open_medallion",
             "ganon_castle_open_stones",
             "ganon_castle_open_skulltulas",
-            "ganon_castle_open_triforce",
             "ganon_castle_open_default",
             "ganon_castle_open_open"
         ]
     },
-    "option.ganon_castle_skulltulas": {
+    "ganon_castle_skulltulas": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 100,
         "visible": {
             "type": "state",
-            "el": "option.ganon_castle_open",
+            "el": "ganon_castle_open",
             "value": "ganon_castle_open_skulltulas"
         },
         "min": 0,
         "max": 100
     },
-    "option.stone_count_bridge": {
+    "stone_count_bridge": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 3,
         "visible": {
             "type": "state",
-            "el": "option.ganon_castle_open",
+            "el": "ganon_castle_open",
             "value": "ganon_castle_open_stones"
         },
         "min": 1,
         "max": 3
     },
-    "option.medallion_count_bridge": {
+    "medallion_count_bridge": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
         "visible": {
             "type": "state",
-            "el": "option.ganon_castle_open",
+            "el": "ganon_castle_open",
             "value": "ganon_castle_open_medallion"
         },
         "min": 1,
         "max": 6
     },
-    "option.dungeon_count_bridge": {
+    "dungeon_count_bridge": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 9,
         "visible": {
             "type": "state",
-            "el": "option.ganon_castle_open",
+            "el": "ganon_castle_open",
             "value": "ganon_castle_open_dungeon"
         },
         "min": 1,
         "max": 9
     },
-    "option.ganon_boss_door_open": {
+    "trials_random": {
         "category": "lacsAndGanon",
         "type": "check",
         "default": false
     },
-    "option.trials_random": {
-        "category": "lacsAndGanon",
-        "type": "check",
-        "default": false
-    },
-    "option.number_trials": {
+    "number_trials": {
         "category": "lacsAndGanon",
         "type": "number",
         "default": 6,
@@ -377,7 +411,7 @@
             "type": "not",
             "el": {
                 "type": "value",
-                "el": "option.trials_random"
+                "el": "trials_random"
             }
         },
         "min": 0,
@@ -387,20 +421,20 @@
         "category": "lacsAndGanon",
         "type": "list",
         "values": [
-            "option.forest_trial",
-            "option.water_trial",
-            "option.shadow_trial",
-            "option.fire_trial",
-            "option.light_trial",
-            "option.spirit_trial"
+            "forest_trial",
+            "water_trial",
+            "shadow_trial",
+            "fire_trial",
+            "light_trial",
+            "spirit_trial"
         ],
         "default": [
-            "option.forest_trial",
-            "option.water_trial",
-            "option.shadow_trial",
-            "option.fire_trial",
-            "option.light_trial",
-            "option.spirit_trial"
+            "forest_trial",
+            "water_trial",
+            "shadow_trial",
+            "fire_trial",
+            "light_trial",
+            "spirit_trial"
         ]
     },
     "skip.lens_required": {

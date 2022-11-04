@@ -1,37 +1,54 @@
-export default function parseItemLocations(errorDialogHandler, target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
+function getData(value) {
+    if (typeof value === "object" && value !== null) {
+        return value;
+    }
+    return {
+        player: 1,
+        item: value
+    };
+}
+
+export default function parseItemLocations(addError, target = {}, data = {}, targetWorld = null, ignoreWorldLocking = false, trans = {}) {
     const location_trans = trans["locations"];
-    const location_hearts_mq = location_trans["MQ"];
     const item_trans = trans["itemList"];
 
-    const buffer = {};
+    if (location_trans == null) {
+        addError("parsing item locations impossible - location translation missing");
+        return;
+    }
+
+    if (item_trans == null) {
+        addError("parsing item locations impossible - item translation missing");
+        return;
+    }
+
+    target.locationItems = target.locationItems ?? {};
 
     for (const i in data) {
-        if (location_trans[i] != null) {
-            let v = data[i];
-            let player = 1;
-            if (typeof v === "object" && v !== null) {
-                if (v["player"] !== undefined) {
-                    player = v["player"];
-                }
-                v = v["item"];
-            }
-            if (location_trans[i] !== "") {
-                if (item_trans[v] === undefined) {
-                    console.warn("[" + v + "] is a invalid Item value.");
-                    errorDialogHandler.add("[" + v + "] is a invalid Item value.");
-                } else {
-                    if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
-                        buffer["location/" + location_trans[i]] = item_trans[v];
+        const value = data[i];
+        const {player, item} = getData(value);
+        const itemTrans = item_trans[item];
+        if (itemTrans == null) {
+            addError("[" + item + "] is a invalid Item value");
+        } else if (itemTrans) {
+            if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
+                const locationTrans = location_trans?.[i];
+                if (locationTrans == null) {
+                    addError("[" + i + "] is a invalid Location value");
+                } else if (Array.isArray(locationTrans)) {
+                    if (locationTrans.length == 0) {
+                        addError("[" + i + "] is a invalid Location value");
+                    } else {
+                        for (const locationTransValue of locationTrans) {
+                            if (locationTransValue) {
+                                target.locationItems[locationTransValue] = itemTrans;
+                            }
+                        }
                     }
-                    if (location_hearts_mq[i] != null) {
-                        buffer["location/" + location_hearts_mq[i]] = item_trans[v];
-                    }
+                } else if (locationTrans) {
+                    target.locationItems[locationTrans] = itemTrans;
                 }
             }
-        } else {
-            console.warn("[" + i + "] is a invalid Item Location value.");
-            errorDialogHandler.add("[" + i + "] is a invalid Item Location value.");
         }
     }
-    target["item_location"] = buffer;
 }

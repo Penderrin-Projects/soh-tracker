@@ -1,39 +1,28 @@
 // frameworks
-import IDBStorage from "/emcJS/storage/IDBStorage.js";
-import EventBus from "/emcJS/event/EventBus.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-import FileSystem from "/emcJS/util/FileSystem.js";
+import FileSystem from "/emcJS/util/file/FileSystem.js";
 import "/editors/modules/logic/Editor.js";
 
 import LogicResource from "/script/resource/LogicResource.js";
-import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
 import "../logic/LiteralCustom.js";
 import "../logic/LiteralMixin.js";
 import "../logic/LiteralFunction.js";
+import LogicStorage from "../logic/storages/LogicStorage.js";
 
-function getLogicData(glitched = false) {
-    if (glitched) {
-        return LogicGlitchedResource.get() ?? {edges:{}, logic:{}};
-    } else {
-        return LogicResource.get() ?? {edges:{}, logic:{}};
-    }
+function getLogicData() {
+    return LogicResource.get() ?? {edges:{}, logic:{}};
 }
 
-export default async function(glitched = false) {
-    let postfix = "";
-    if (glitched) {
-        postfix = "_glitched";
-    }
-    const LogicsStorage = new IDBStorage(`logics${postfix}`);
+export default async function() {
     const logicEditor = document.createElement("jse-logic-editor");
 
     // refresh
     async function refreshLogicEditor() {
-        const lists = await LogicListsCreator.createLists(glitched);
+        const lists = await LogicListsCreator.createLists(false);
         logicEditor.loadOperators(lists.operators);
         logicEditor.loadList(lists.logics);
-        const logic = getLogicData(glitched);
+        const logic = getLogicData();
         const intLogic = {};
         for (const i in logic.edges) {
             for (const j in logic.edges[i]) {
@@ -44,18 +33,17 @@ export default async function(glitched = false) {
             intLogic[i] = logic.logic[i];
         }
         logicEditor.setLogic(intLogic);
-        const patch = await LogicsStorage.getAll();
+        const patch = LogicStorage.getAll();
         logicEditor.setPatch(patch);
     }
 
     await refreshLogicEditor();
     // events
-    logicEditor.addEventListener("save", async event => {
-        await LogicsStorage.set(event.key, event.logic);
-        EventBus.trigger("custom_logic_update");
+    logicEditor.addEventListener("save", async (event) => {
+        LogicStorage.set(event.key, event.logic);
     });
-    logicEditor.addEventListener("clear", async event => {
-        await LogicsStorage.delete(event.key);
+    logicEditor.addEventListener("clear", async (event) => {
+        LogicStorage.delete(event.key);
     });
     // navigation
     const NAV = [{
@@ -63,8 +51,8 @@ export default async function(glitched = false) {
         "submenu": [{
             "content": "SAVE LOGIC",
             "handler": async () => {
-                const logic = getLogicData(glitched);
-                const patch = await LogicsStorage.getAll();
+                const logic = getLogicData();
+                const patch = LogicStorage.getAll();
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {
                         const [key, target] = i.split(" -> ");
@@ -74,7 +62,7 @@ export default async function(glitched = false) {
                         logic.logic[i] = patch[i];
                     }
                 }
-                FileSystem.save(JSON.stringify(logic, " ", 4), `logic${postfix}.json`);
+                FileSystem.save(JSON.stringify(logic, " ", 4), "logic.json");
             }
         }, {
             "content": "LOAD PATCH",
@@ -92,7 +80,7 @@ export default async function(glitched = false) {
                         intLogic[i] = logic.logic[i];
                     }
                     // load logic
-                    await LogicsStorage.setAll(intLogic);
+                    LogicStorage.setAll(intLogic);
                     // refresh
                     await refreshLogicEditor();
                     //logicEditor.reset();
@@ -102,7 +90,7 @@ export default async function(glitched = false) {
             "content": "SAVE PATCH",
             "handler": async () => {
                 const logic = {edges:{}, logic:{}};
-                const patch = await LogicsStorage.getAll();
+                const patch = LogicStorage.getAll();
                 for (const i in patch) {
                     if (i.indexOf(" -> ") >= 0) {
                         const [key, target] = i.split(" -> ");
@@ -112,12 +100,12 @@ export default async function(glitched = false) {
                         logic.logic[i] = patch[i];
                     }
                 }
-                FileSystem.save(JSON.stringify(logic, " ", 4), `logic${postfix}.${(new Date).valueOf()}.json`);
+                FileSystem.save(JSON.stringify(logic, " ", 4), `logic.${(new Date).valueOf()}.json`);
             }
         }, {
             "content": "REMOVE PATCH",
             "handler": async () => {
-                await LogicsStorage.clear();
+                LogicStorage.clear();
                 await refreshLogicEditor();
                 //logicEditor.reset();
             }
@@ -134,9 +122,9 @@ export default async function(glitched = false) {
         "handler": async () => {
             const name = await Dialog.prompt("Create Mixin", "please enter a name");
             if (typeof name == "string") {
-                const logic = await LogicsStorage.getAll();
+                const logic = LogicStorage.getAll();
                 logic.logic[name] = {};
-                await LogicsStorage.setAll(logic);
+                LogicStorage.setAll(logic);
                 await refreshLogicEditor();
                 //logicEditor.reset();
             }
@@ -144,7 +132,7 @@ export default async function(glitched = false) {
     }];
 
     return {
-        name: `Logic${glitched ? " Glitched" : ""}`,
+        name: "Logic",
         panel: logicEditor,
         navigation: NAV,
         refreshFn: refreshLogicEditor

@@ -1,3 +1,3 @@
-import JSONCResourceFile from "/GameTrackerJS/data/JSONCResourceFile.js";
+import JSONCResource from "/emcJS/data/resource/file/JSONCResource.js";
 
-export default await JSONCResourceFile.create("/logic/vanilla.min.json");
+export default await JSONCResource.get("/logic/vanilla.min.json");

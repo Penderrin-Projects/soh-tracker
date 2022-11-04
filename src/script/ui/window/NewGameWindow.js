@@ -1,4 +1,5 @@
 // frameworks
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
@@ -6,7 +7,6 @@ import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
 
 // GameTrackerJS
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
 const TPL = new Template(`
@@ -48,10 +48,6 @@ const FOOTER = new Template(`
 `);
 
 const STYLE = new GlobalStyle(`
-* {
-    position: relative;
-    box-sizing: border-box;
-}
 #body {
     height: 50vh;
 }
@@ -84,7 +80,7 @@ export default class NewGameWindow extends Window {
         windowEl.append(footer);
         /* --- */
         const romSettingsButton = this.shadowRoot.getElementById("open-options-button");
-        romSettingsButton.addEventListener("click", event => {
+        romSettingsButton.addEventListener("click", () => {
             this.close();
             const romOptionsWindow = GlobalContext.get("RomOptionsWindow");
             if (romOptionsWindow) {
@@ -92,7 +88,7 @@ export default class NewGameWindow extends Window {
             }
         });
         const uploadSpoilerButton = this.shadowRoot.getElementById("uplaod-spoiler-button");
-        uploadSpoilerButton.addEventListener("click", event => {
+        uploadSpoilerButton.addEventListener("click", () => {
             this.close();
             const spoilerLogWindow = GlobalContext.get("SpoilerLogWindow");
             if (spoilerLogWindow) {

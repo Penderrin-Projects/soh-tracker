@@ -54,7 +54,7 @@ function createWindow() {
         url = url.replace(/^\/?images\//i, "../src/images/");
         url = url.replace(/^\/?script\//i, "../src/script/");
         url = url.replace(/^\/?GameTrackerJS\//i, "../src/GameTrackerJS/");
-        url = url.replace(/^\/?emcjs\//i, MODULE_PATHS.emcJS);
+        url = url.replace(/^\/?emcJS\//i, MODULE_PATHS.emcJS);
         url = url.replace(/^\/?editors\//i, MODULE_PATHS.trackerEditor);
         url = path.join(__dirnameUnix, ".", url);
         url = path.normalize(url);

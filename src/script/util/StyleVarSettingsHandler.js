@@ -8,8 +8,8 @@ export default class StyleVarSettingsHandler {
 
     constructor(ref, name) {
         const observer = new SettingsObserver(ref);
-        observer.addEventListener("change", event => {
-            StyleVariables.set(name, event.data);
+        observer.addEventListener("change", (event) => {
+            StyleVariables.set(name, event.value);
         });
         StyleVariables.set(name, observer.value);
     }

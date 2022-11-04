@@ -16,6 +16,7 @@
     },
     "rules": {
         "no-unused-expressions": "error",
+        "no-unused-private-class-members": "error",
         "no-var": "error",
         "indent": [
             "error",
@@ -54,7 +55,7 @@
             "error",
             {
                 "vars": "local",
-                "args": "none",
+                "args": "after-used",
                 "caughtErrors": "all"
             }
         ],
@@ -84,6 +85,10 @@
         "space-in-parens": [
             "error",
             "never"
+        ],
+        "arrow-parens": [
+            "error",
+            "always"
         ],
         "object-curly-spacing": [
             "error",
@@ -126,10 +131,10 @@
             "error",
             {
                 "ObjectExpression": {
-                    "multiline": true
+                    "consistent": true
                 },
                 "ObjectPattern": {
-                    "multiline": true
+                    "consistent": true
                 },
                 "ImportDeclaration": "always",
                 "ExportDeclaration": "always"

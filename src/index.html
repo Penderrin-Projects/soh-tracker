@@ -1,228 +1,191 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Track-OOT</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
-        <meta name="robots" content="nofollow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="theme-color" content="#cb9c3d">
-        <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicons/default_192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/default_32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/default_96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/default_16.png">
-        <link rel="icon" type="image/svg+xml" href="/images/logo.svg" sizes="any">
-        <link rel="apple-touch-icon" href="/images/favicons/default_192.png">
-        <link rel="manifest" href="/manifest.json">
-        <script>
-            window.addEventListener('contextmenu', function() {
-                event.preventDefault();
-                return false;
-            });
-        </script>
-        <script nomodule defer>
-            const spl = document.getElementById("splash").querySelector('.loading');
-            spl.innerHTML = `
+
+<head>
+    <title>Track-OOT</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Track items and locations in 'The Legend of Zelda - Ocarina of Time Randomizer' (OOTR)">
+    <meta name="robots" content="nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#cb9c3d">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/default_192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/default_32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/default_96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/default_16.png">
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" sizes="any">
+    <link rel="apple-touch-icon" href="/images/favicons/default_192.png">
+    <link rel="manifest" href="/manifest.json">
+    <script src="/emcJS/polyfills/contextmenuEvent.polyfill.js"></script>
+    <script type="module" src="/script/StateRecovery.js"></script>
+    <script>
+        window.addEventListener('contextmenu', function () {
+            event.preventDefault();
+            return false;
+        });
+        function emergencyDLStates() {
+            if (StateRecovery != null) {
+                StateRecovery.downloadStates("savestates");
+            } else {
+                alert("StateRecovery is currently not registered.\nPlease try again in a few seconds.\n\nIf this does still not work after some time, please report it as a bug.");
+            }
+        }
+    </script>
+    <script nomodule defer>
+        const spl = document.getElementById("splash").querySelector('.loading');
+        spl.innerHTML = `
                 This website uses ECMAScript modules.<br>
                 Your Browser does not support them.<br>
                 Please use a compatible Browser like Chrome, Edge (Blink), Firefox or Safari.
             `;
-        </script>
-        <script type="module" src="/index.js"></script>
-        <script>
-            function emergencyDLStates() {
-                function openDB(name) {
-                    return new Promise(function(resolve, reject) {
-                        const request = indexedDB.open(name);
-                        request.onupgradeneeded = function(event) {
-                            const db = request.result;
-                            if (!db.objectStoreNames.contains("data")) {
-                                db.createObjectStore("data");
-                            }
-                        };
-                        request.onsuccess = function() {
-                            resolve(request.result);
-                        };
-                        request.onerror = function(e) {
-                            reject(e);
-                        }
-                    });
-                }
-                async function getStoreReadonly(name) {
-                    const storage = await openDB(name);
-                    return storage.transaction("data", "readonly").objectStore("data");
-                }
-                function getAll(filter) {
-                    return new Promise(async function(resolve, reject) {
-                        const transaction = await getStoreReadonly("savestates");
-                        const request = transaction.openCursor();
-                        const res = {};
-                        request.onsuccess = function(e) {
-                            const el = e.target.result;
-                            if (el) {
-                                res[el.key] = el.value;
-                                el.continue();
-                            } else {
-                                if (typeof filter == "string") {
-                                    resolve(res.filter(key => key.startsWith(filter)));
-                                } else {
-                                    resolve(res);
-                                }
-                            }
-                        };
-                        request.onerror = function(e) {
-                            reject(e);
-                        }
-                    }.bind(this));
-                }
-                const dl = document.createElement("a");
-                dl.style.position = "absolute !important";
-                dl.style.display = "none !important";
-                dl.style.opacity = "0 !important";
-                dl.style.visibility = "hidden !important";
-                function save(data, fileName) {
-                    const url = window.URL.createObjectURL(new Blob([data], {type: "octet/stream"}));
-                    dl.href = url;
-                    dl.download = fileName;
-                    document.body.append(dl);
-                    dl.click();
-                    window.URL.revokeObjectURL(url);
-                    dl.remove();
-                }
-                !async function() {
-                    const files = await getAll();
-                    for (const key in files) {
-                        const file = files[key];
-                        save(JSON.stringify(file), `${key}.json`);
-                    }
-                }();
+    </script>
+    <script type="module" src="/index.js"></script>
+    <style>
+        *:not(emc-dialog) {
+            box-sizing: border-box;
+            outline: none;
+            line-height: 1em;
+            vertical-align: baseline;
+        }
+
+        body {
+            margin: 0;
+            background-color: #cb9c3d;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        * {
+            font-family: inherit;
+        }
+
+        #viewpane,
+        #settings {
+            display: none;
+        }
+
+        #splash {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #cb9c3d;
+            color: #000000;
+            z-index: 1000000;
+        }
+
+        #splash.inactive {
+            display: none;
+        }
+
+        #splash .splash-image {
+            width: 50vmin;
+            height: 50vmin;
+        }
+
+        #splash .info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 5px;
+            margin: 5px;
+            color: #000000;
+            background-color: #cb9c3d;
+            border: solid 1px #000000;
+            appearance: none;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .button:hover {
+            background-color: #e7be6b;
+        }
+
+        .out-links {
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: #cb9c3d;
+        }
+
+        .out-links .out-link {
+            margin: 5px;
+        }
+
+        .out-links .out-link .out-link-image {
+            width: 17.5vmin;
+            height: 5.6vmin;
+        }
+
+        @media (max-width: 500px) {
+            .out-links .out-link .out-link-image {
+                width: 35vmin;
+                height: 11.2vmin;
             }
-        </script>
-        <style>
-            *:not(emc-dialog) {
-                box-sizing: border-box;
-                outline: none;
-                line-height: 1em;
-                vertical-align: baseline;
-            }
-            body {
-                margin: 0;
-                background-color: black;
-                font-family: Arial, sans-serif;
-                overflow: hidden;
-            }
-            #viewpane, #settings {
+
+            #git-link {
                 display: none;
             }
-            #splash {
-                position: absolute;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                background-color: black;
-                color: white;
-                z-index: 1000000;
-            }
-            #splash.inactive {
-                display: none;
-            }
-            #splash .splash-image {
-                width: 50vmin;
-                height: 50vmin;
-            }
-            #splash .info {
-                margin-top: 20px;
-                text-align: center;
-            }
-            .button {
-                display: inline-block;
-                padding: 5px;
-                margin: 5px;
-                color: white;
-                background-color: black;
-                border: solid 1px white;
-                appearance: none;
-                text-decoration: none;
-                font-size: 1rem;
-                text-transform: uppercase;
-            }
-            .button:hover {
-                background-color: #333333;
-            }
-            .out-links {
-                position: absolute;
-                display: flex;
-                justify-content: flex-end;
-                left: 0;
-                right: 0;
-                top: 0;
-                background: black;
-            }
-            .out-links .out-link {
-                margin: 5px;
-            }
-            .out-links  .out-link .out-link-image {
-                width: 17.5vmin;
-                height: 5.6vmin;
-            }
-            @media (max-width: 500px) {
-                .out-links  .out-link .out-link-image {
-                    width: 35vmin;
-                    height: 11.2vmin;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="splash">
+        <div class="out-links">
+            <a id="discord-link" class="out-link" href="https://discord.gg/wgFVtuv" target="_BLANK">
+                <img class="out-link-image" src="/images/discord.svg">
+            </a>
+            <a id="git-link" class="out-link" href="https://bitbucket.org/zidargs/track-oot" target="_BLANK">
+                <img class="out-link-image" src="/images/git.svg">
+            </a>
+        </div>
+        <img class="splash-image" src="/images/logo.svg">
+        <span id="loading-info" class="info">[state]</span>
+        <noscript>
+            <style>
+                .info {
+                    display: none
                 }
-                #git-link {
-                    display: none;
+
+                .noinfo {
+                    margin-top: 20px;
+                    text-align: center;
                 }
-            }
-        </style>
-    </head>
-    <body>
-        <div id="splash">
-            <div class="out-links">
-                <a id="discord-link" class="out-link" href="https://discord.gg/wgFVtuv" target="_BLANK">
-                    <img class="out-link-image" src="/images/discord.png">
-                </a>
-                <a id="git-link" class="out-link" href="https://bitbucket.org/zidargs/track-oot" target="_BLANK">
-                    <img class="out-link-image" src="/images/git.png">
-                </a>
+            </style>
+            <div class="noinfo">
+                This website uses JavaScript.<br>
+                Your Browser is either blocking scripts or does not support them.<br>
+                Please enable JavaScript execution or use a compatible Browser.
             </div>
-            <img class="splash-image" src="/images/logo.svg">
-            <span id="loading-info" class="info">[state]</span>
-            <noscript>
-                <style>
-                    .info {
-                        display: none
-                    }
-                    .noinfo {
-                        margin-top: 20px;
-                        text-align: center;
-                    }
-                </style>
-                <div class="noinfo">
-                    This website uses JavaScript.<br>
-                    Your Browser is either blocking scripts or does not support them.<br>
-                    Please enable JavaScript execution or use a compatible Browser.
-                </div>
-            </noscript>
-            <div class="info">
-                After updating, the tracker can freeze on startup.<br>
-                If this happens to you, you can try this<br>
-                <div class="controls">
-                    <button id="splash-refresh" class="button" onclick="window.location.reload(true)">REFRESH PAGE</button>
-                </div>
-            </div>
-            <div class="info">
-                Safestates emergency backup<br>
-                Download all savestates in storage<br>
-                <div class="controls">
-                    <button id="emergency-download" class="button" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
-                </div>
+        </noscript>
+        <div class="info">
+            After updating, the tracker can freeze on startup.<br>
+            If this happens to you, you can try this<br>
+            <div class="controls">
+                <button id="splash-refresh" class="button" onclick="window.location.reload(true)">REFRESH PAGE</button>
             </div>
         </div>
-    </body>
+        <div class="info">
+            Safestates emergency backup<br>
+            Download all savestates in storage<br>
+            <div class="controls">
+                <button id="emergency-download" class="button" onclick="emergencyDLStates()">DOWNLOAD STATES</button>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

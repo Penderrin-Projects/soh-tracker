@@ -1,5 +1,8 @@
-export default function parseSetting(errorDialogHandler, target = {}, data = {}, trans = {}) {
+export default function parseSetting(addError, target = {}, data = {}, trans = {}) {
     const setting_trans = trans["setting"];
+
+    target.options = target.options ?? {};
+
     for (const [key, value] of Object.entries(data)) {
         const transData = setting_trans[key];
         if (transData != null) {
@@ -7,28 +10,26 @@ export default function parseSetting(errorDialogHandler, target = {}, data = {},
             if (typeof transData == "object") {
                 if (Array.isArray(transData)) {
                     const valueSet = new Set(value);
-                    transData.forEach(el => {
+                    for (const el of transData) {
                         if (typeof el == "object") {
                             try {
-                                setSettingToTarget(target, el, parsedValue);
+                                setSettingToTarget(target.options, el, parsedValue);
                             } catch {
-                                console.warn("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
-                                errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "] Please report this bug");
+                                addError("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "]");
                             }
                         } else {
-                            target[el.replace("logic_", "skip.")] = valueSet.has(el);
+                            target.options[el.replace("logic_", "skip.")] = valueSet.has(el);
                         }
-                    });
+                    }
                 } else {
                     try {
-                        setSettingToTarget(target, transData, parsedValue);
+                        setSettingToTarget(target.options, transData, parsedValue);
                     } catch {
-                        console.warn("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
-                        errorDialogHandler.add("[" + key + ": " + parsedValue + "] is a invalid value. Please report this bug");
+                        addError("[" + key + ": " + parsedValue + "] is a invalid value");
                     }
                 }
             } else {
-                target[transData] = parsedValue;
+                target.options[transData] = parsedValue;
             }
         }
     }

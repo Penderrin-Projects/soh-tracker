@@ -1,5 +1,5 @@
 {
-    "filter.era": {
+    "era": {
         "choice": true,
         "persist": false,
         "default": "both",
@@ -13,27 +13,32 @@
             "/images/icons/era_child.svg",
             "/images/icons/era_adult.svg"
         ],
-        "badge": [{
-            "values": {
-                "child": true,
-                "adult": true
+        "badge": [
+            {
+                "values": {
+                    "child": true,
+                    "adult": true
+                },
+                "image": "/images/icons/era_both.svg"
             },
-            "image": "/images/icons/era_both.svg"
-        },{
-            "values": {
-                "child": true
+            {
+                "values": {
+                    "child": true
+                },
+                "image": "/images/icons/era_child.svg"
             },
-            "image": "/images/icons/era_child.svg"
-        },{
-            "values": {
-                "adult": true
+            {
+                "values": {
+                    "adult": true
+                },
+                "image": "/images/icons/era_adult.svg"
             },
-            "image": "/images/icons/era_adult.svg"
-        },{
-            "image": "/images/icons/era_none.svg"
-        }]
+            {
+                "image": "/images/icons/era_none.svg"
+            }
+        ]
     },
-    "filter.era_apply": {
+    "era_apply": {
         "choice": true,
         "persist": true,
         "default": "loose",
@@ -47,7 +52,7 @@
         ],
         "badge": false
     },
-    "filter.time": {
+    "time": {
         "choice": true,
         "persist": false,
         "default": "both",
@@ -61,27 +66,32 @@
             "/images/icons/time_day.svg",
             "/images/icons/time_night.svg"
         ],
-        "badge": [{
-            "values": {
-                "day": true,
-                "night": true
+        "badge": [
+            {
+                "values": {
+                    "day": true,
+                    "night": true
+                },
+                "image": "/images/icons/time_always.svg"
             },
-            "image": "/images/icons/time_always.svg"
-        },{
-            "values": {
-                "day": true
+            {
+                "values": {
+                    "day": true
+                },
+                "image": "/images/icons/time_day.svg"
             },
-            "image": "/images/icons/time_day.svg"
-        },{
-            "values": {
-                "night": true
+            {
+                "values": {
+                    "night": true
+                },
+                "image": "/images/icons/time_night.svg"
             },
-            "image": "/images/icons/time_night.svg"
-        },{
-            "image": "/images/icons/time_never.svg"
-        }]
+            {
+                "image": "/images/icons/time_never.svg"
+            }
+        ]
     },
-    "filter.chests": {
+    "chests": {
         "choice": true,
         "persist": true,
         "default": "true",
@@ -95,7 +105,7 @@
         ],
         "badge": false
     },
-    "filter.skulltulas": {
+    "skulltulas": {
         "choice": true,
         "persist": true,
         "default": "true",
@@ -113,7 +123,7 @@
         ],
         "badge": false
     },
-    "filter.gossipstones": {
+    "gossipstones": {
         "choice": true,
         "persist": true,
         "default": "false",
@@ -127,7 +137,7 @@
         ],
         "badge": false
     },
-    "filter.show_done": {
+    "show_done": {
         "choice": true,
         "persist": true,
         "default": "true",

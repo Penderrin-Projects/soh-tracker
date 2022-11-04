@@ -1,10 +1,9 @@
 // frameworks
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
-import "/emcJS/ui/navigation/NavBar.js";
 
 // GameTrackerJS
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import LoadWindow from "/GameTrackerJS/ui/window/savestate/LoadWindow.js";
 import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";
@@ -38,10 +37,7 @@ PageSwitcher.register("main", [{
     "handler": openPatreon
 }, {
     "content": "EXTRAS",
-    "submenu": [{
-        "content": "TOGGLE FULLSCREEN",
-        "handler": toggleFullscreen
-    }, {
+    "submenu": [{"mixin": "fullscreen"}, {
         "content": "UPLOAD SPOILER",
         "handler": openSpoilerSettingsWindow
     }, {
@@ -60,7 +56,17 @@ PageSwitcher.register("main", [{
 }, {
     "content": "TRACKER SETTINGS",
     "handler": openSettingsWindow
-}]);
+}], {
+    "hk_state_new": state_New,
+    "hk_state_load": state_Load,
+    "hk_state_save": state_Save,
+    "hk_state_saveas": state_SaveAs,
+    "hk_state_manage": states_Manage,
+    "hk_detached_window": openDetachedItems,
+    "hk_import_spoiler": openSpoilerSettingsWindow,
+    "hk_options": openRomSettingsWindow,
+    "hk_settings": openSettingsWindow
+});
 PageSwitcher.switch("main");
 
 async function state_Save() {
@@ -154,14 +160,4 @@ function openClearDataWindow() {
 
 function showEditors() {
     PageSwitcher.switch("editor_choice");
-}
-
-function toggleFullscreen() {
-    if (document.fullscreenEnabled) {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-    }
 }

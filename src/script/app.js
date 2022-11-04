@@ -3,10 +3,9 @@
  */
 
 // frameworks
-import Import from "/emcJS/util/import/Import.js";
-import Logger from "/emcJS/util/Logger.js";
-import HotkeyHandler from "/emcJS/util/HotkeyHandler.js";
-import EventBus from "/emcJS/event/EventBus.js";
+import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
+import Logger from "/emcJS/util/log/Logger.js";
+import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
@@ -15,39 +14,36 @@ import "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
-import GlobalContext from "/GameTrackerJS/data/GlobalContext.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
-import BusyIndicator from "/GameTrackerJS/ui/BusyIndicator.js";
+import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
+import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
+import "/GameTrackerJS/util/logic/LogicCaller.js";
 import "/GameTrackerJS/ui/TextEditor.js";
-import "/GameTrackerJS/ui/ViewChoice.js";
+import "/GameTrackerJS/ui/layout/ViewChoice.js";
 // Track-OOT
-import "/script/storage/converter/StateConverter.js";
-import "/script/storage/StateStorage.js";
-import "/script/util/logic/AugmentExits.js";
-import "/script/util/logic/AugmentCustomLogic.js";
-import "/script/util/logic/LogicCaller.js";
-import "/script/util/A11y.js";
+import "/script/content/index.js";
 import "/script/content/Tracker.js";
-import "/script/content/EditorChoice.js"
+import "/script/content/EditorChoice.js";
+import "/script/savestateConverter/StateConverter.js";
+import "/script/util/logic/AugmentCustomLogic.js";
+import "/script/util/logic/augment/AugmentOptions.js";
+import "/script/util/logic/augment/AugmentDungeons.js";
+import "/script/util/logic/augment/AugmentZoraLetter.js";
+import "/script/util/logic/augment/AugmentReachEpona.js";
+import "/script/util/A11y.js";
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
 import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
-import "/script/ui/items/ItemGrid.js";
-import "/script/ui/dungeonstate/DungeonState.js";
-import "/script/ui/world/LocationList.js";
-import "/script/ui/world/Map.js";
-import "/script/ui/LocationStatus.js";
-import "/script/ui/shops/ShopList.js";
-import "/script/ui/songs/SongList.js";
-import "/script/ui/exits/ExitList.js";
-import "/script/ui/multiplayer/Multiplayer.js";
 import "/script/ui/LayoutContainer.js";
+import "/script/ui/LocationStatus.js";
+
+import "/script/ui/multiplayer/Multiplayer.js";
 
 const spl = document.getElementById("loading-info");
 
@@ -62,62 +58,37 @@ window.onbeforeunload = function() {
 }
 
 try {
+    window.onerror = null;
     updateLoadingMessage("apply logger...");
-    // add default log output
-    Logger.addOutput(console);
     // add log panel
-    if (VersionData.isDev) {
-        const logPanel = document.createElement("div");
-        logPanel.setAttribute("slot", "log");
-        logPanel.dataset.title = "Logger";
-        logPanel.dataset.icon = "images/icons/log.svg";
+    if (VersionData.isDev || location.hostname === "localhost") {
+        const logPanel = document.createElement("gt-viewchoice-panel");
+        logPanel.slot = "log";
+        logPanel.label = "Logger";
+        logPanel.icon = "images/icons/log.svg";
         logPanel.style.overflow = "hidden";
         const logScreen = document.createElement("emc-logscreen");
         logScreen.title = "Logger";
         logPanel.append(logScreen);
         document.getElementById("main-content").append(logPanel);
         Logger.addOutput(logScreen);
-        EventBus.register(function(event) {
-            Logger.info(JSON.stringify(event), "Event");
-        });
     }
 
     updateLoadingMessage("learn languages...");
     // load current language
-    await Language.load(SettingsStorage.get("language"));
+    await Language.load(SettingsStorage.get("language"), "en_us");
 
     updateLoadingMessage("initialize components...");
     // busy indicator
     BusyIndicator.setIndicator(document.getElementById("busy-animation"));
     // notepad
     const notePad = document.getElementById("notes-editor");
-    notePad.value = SavestateHandler.getNotes();
-    SavestateHandler.addEventListener("notes", function(event) {
-        notePad.value = event.data;
+    notePad.value = Savestate.notes;
+    Savestate.addEventListener("notes", function(event) {
+        notePad.value = event.value;
     });
     notePad.addEventListener("change", function() {
-        SavestateHandler.setNotes(notePad.value);
-    });
-    // shared worker
-    if ("SharedWorker" in window) {
-        const [EventBusModuleShare] = await Import.module("/emcJS/event/module/EventBusModuleShare.js");
-        EventBus.addModule(EventBusModuleShare, {blacklist:["logic"]});
-    }
-    // register hotkey - detached window
-    HotkeyHandler.setAction("detached_window", () => {
-        window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0", false);
-    }, {
-        ctrlKey: true,
-        altKey: true,
-        key: "i"
-    });
-    // register hotkey handler
-    window.addEventListener("keydown", function(event) {
-        if (HotkeyHandler.callHotkey(event.key, event.ctrlKey, event.altKey, event.shiftKey)) {
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
+        Savestate.notes = notePad.value;
     });
 
     updateLoadingMessage("initialize settings...");
@@ -128,8 +99,8 @@ try {
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
-        newGameWindow.addEventListener("close", event => {
-            SavestateHandler.set("meta", "init_window_shown", true);
+        newGameWindow.addEventListener("close", () => {
+            Savestate.setMeta("init_window_shown", true);
         });
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
@@ -141,15 +112,17 @@ try {
         spl.className = "inactive";
     }
 
-    if (!SavestateHandler.get("meta", "init_window_shown", false)) {
-        const showInitWindow = SettingsStorage.get("show_state_init_window");
-        if (showInitWindow) {
-            const newGameWindow = GlobalContext.get("NewGameWindow");
-            if (newGameWindow) {
-                newGameWindow.show();
+    Savestate.addEventListener("load", () => {
+        if (!Savestate.getMeta("init_window_shown", false)) {
+            const showInitWindow = SettingsStorage.get("show_state_init_window");
+            if (showInitWindow) {
+                const newGameWindow = GlobalContext.get("NewGameWindow");
+                if (newGameWindow) {
+                    newGameWindow.show();
+                }
             }
         }
-    }
+    });
 } catch (err) {
     console.error(err);
     updateLoadingMessage(err.message.replace(/\n/g, "<br>"));
