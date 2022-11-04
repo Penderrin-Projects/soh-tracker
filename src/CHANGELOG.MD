@@ -73,6 +73,9 @@ Application:    Track-OOT
 - split small key logic and gerudo key logic
 - split boss key logic and ganon boss key logic
 
+### USER EXPERIENCE
+- added hotkeys and respective settings
+
 ---
 
 ## VERSION 2.1.58
