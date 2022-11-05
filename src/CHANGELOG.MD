@@ -4,6 +4,13 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.3.0 (DEV)
+
+### UI
+- add hidden icons for chests and skulltulas
+
+---
+
 ## VERSION 2.2.0
 
 ### SYSTEM CHANGES
