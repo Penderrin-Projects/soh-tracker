@@ -4,7 +4,14 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.2.0 (DEV)
+## VERSION 2.3.0 (DEV)
+
+### UI
+- add hidden icons for chests and skulltulas
+
+---
+
+## VERSION 2.2.0
 
 ### SYSTEM CHANGES
 
@@ -18,7 +25,6 @@ Application:    Track-OOT
 - lots of generalization for calculations
 - use debouncing to not calculate before everything settles
 - use browser events instead of the custom EventBus as this is faster
-- add polyfill for contextmenu event on iOS devices (longpress)
 
 ### TRANSLATION
 
@@ -32,6 +38,7 @@ Application:    Track-OOT
 - change logo
 - change splashscreen background color
 - change scrollbar design (if supported)
+- add patreon link to splashscreen
 
 ### FILTERS
 
@@ -72,6 +79,9 @@ Application:    Track-OOT
 - refine augments to actually work more like the randomizer
 - split small key logic and gerudo key logic
 - split boss key logic and ganon boss key logic
+
+### USER EXPERIENCE
+- added hotkeys and respective settings
 
 ---
 

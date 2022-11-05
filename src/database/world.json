@@ -25069,7 +25069,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -25398,7 +25398,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -25682,7 +25682,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -26026,7 +26026,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -26376,7 +26376,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -26666,7 +26666,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -27075,7 +27075,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -27508,7 +27508,7 @@
             },
             "listContents": true,
             "accessPenetration": true,
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "areaTags": false,
             "map": {
                 "active": true,
@@ -27558,7 +27558,7 @@
             },
             "listContents": false,
             "accessPenetration": false,
-            "icon": "images/icons/boss_dungeon.svg",
+            "icon": "images/icons/dungeon_boss.svg",
             "areaTags": false,
             "map": {
                 "active": false,
@@ -36301,7 +36301,7 @@
                     }
                 }
             },
-            "icon": "images/icons/boss_dungeon.svg",
+            "icon": "images/icons/dungeon_boss.svg",
             "bindsTo": [
                 "dungeon_inner"
             ],
@@ -36350,7 +36350,7 @@
                     }
                 }
             },
-            "icon": "images/icons/boss_dungeon.svg",
+            "icon": "images/icons/dungeon_boss.svg",
             "bindsTo": [
                 "dungeon_outer"
             ],
@@ -48008,7 +48008,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48053,7 +48053,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48098,7 +48098,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48143,7 +48143,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48188,7 +48188,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48233,7 +48233,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48278,7 +48278,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48323,7 +48323,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48368,7 +48368,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48413,7 +48413,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48458,7 +48458,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48503,7 +48503,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48548,7 +48548,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48593,7 +48593,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
@@ -48638,7 +48638,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_inner"
             ],
@@ -48683,7 +48683,7 @@
                     "night": true
                 }
             },
-            "icon": "images/icons/boss_area.svg",
+            "icon": "images/icons/area_boss.svg",
             "bindsTo": [
                 "boss_outer"
             ],
