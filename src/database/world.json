@@ -26948,7 +26948,7 @@
             },
             "listContents": false,
             "accessPenetration": false,
-            "icon": "images/icons/boss_dungeon.svg",
+            "icon": "images/icons/dungeon_boss.svg",
             "areaTags": false,
             "map": {
                 "active": false,
