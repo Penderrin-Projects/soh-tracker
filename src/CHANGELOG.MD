@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.2.1
+
+### BUGFIX
+
+- add dungeon entrance entries that got missing
+- fix font on patreaon logo svg
+
+---
+
 ## VERSION 2.2.0
 
 ### SYSTEM CHANGES
