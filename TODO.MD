@@ -11,11 +11,20 @@
 
 - world status bar not counting correctly (when filtered) (?)
 - after spoiler log parse not all options set in logic
+- anju chicken is missingg count setting
+- green dots missing on areas with reachable unbound entrances
+
+- missing logic
+    - deku tree to ghoma
+
+- missing translations
+    - n/a
 
 ### SPOILER PARSER
 
 - [bridge: hearts] is a invalid value
 - [shuffle_dungeon_entrances: off] is a invalid value
+- [spawn_positions: child,adult] is a invalid value (split adult and child spawn location setting)
 
 ### TRACKER TODO
 

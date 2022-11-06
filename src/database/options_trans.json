@@ -181,7 +181,7 @@
             }
         },
         "shuffle_bosses": {
-            "name": "shuffle_dungeons",
+            "name": "shuffle_bosses",
             "values": {
                 "off": "shuffle_bosses_off",
                 "limited": "shuffle_bosses_age",

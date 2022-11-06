@@ -24995,7 +24995,7 @@
                 {
                     "id": "deku_mq.c_before_log",
                     "x": 1224,
-                    "y": 446,
+                    "y": 487,
                     "category": "location"
                 },
                 {
@@ -25047,8 +25047,8 @@
                 },
                 {
                     "id": "deku_mq.s_basement_back_room_child",
-                    "x": 668,
-                    "y": 122,
+                    "x": 636,
+                    "y": 31,
                     "category": "location"
                 }
             ]
