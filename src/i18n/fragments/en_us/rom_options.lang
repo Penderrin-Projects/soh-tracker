@@ -85,7 +85,10 @@ option[shuffle_grottos]=Shuffle Grottos
 option[shuffle_overworld]=Shuffle Overworld Entrances
 option[shuffle_owls]=Shuffle Owl Drops
 option[shuffle_warps]=Shuffle Song Warps
+
 option[shuffle_spawns]=Shuffle Spawn Locations
+shuffle_spawn_child=Shuffle Child Spawn
+shuffle_spawn_adult=Shuffle Adult Spawn
 
 # ENTRANCE SHUFFLE - DUNGEONS
 option[shuffle_dungeons]=Shuffle Dungeons

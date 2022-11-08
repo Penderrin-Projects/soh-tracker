@@ -7,7 +7,23 @@ Application:    Track-OOT
 ## VERSION 2.3.0 (DEV)
 
 ### UI
+
 - add hidden icons for chests and skulltulas
+
+### ROM OPTIONS
+
+- change dungeon entrance shuffle to include ganons castle
+- change spawn shuffle to be split into child and adult
+- add damage multiplier
+- add bonk damage
+- add blue fire arrows
+- add cucco count
+- add magic beans planted
+
+### SAVESTATE
+
+- fix dirty flag handling
+- fix new state popup shown after load of every state
 
 ---
 

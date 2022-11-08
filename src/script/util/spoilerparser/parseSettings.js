@@ -15,10 +15,18 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
                             try {
                                 setSettingToTarget(target.options, el, parsedValue);
                             } catch {
-                                addError("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] + "]");
+                                addError("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] ?? el + "]");
                             }
                         } else {
                             target.options[el.replace("logic_", "skip.")] = valueSet.has(el);
+                        }
+                    }
+                } else if (Array.isArray(parsedValue)) {
+                    for (const el of parsedValue) {
+                        try {
+                            setSettingToTarget(target.options, transData, el);
+                        } catch {
+                            addError("[" + key + ": " + el + "] is a invalid value for sub option [" + transData["name"] ?? transData + "]");
                         }
                     }
                 } else {
@@ -40,14 +48,19 @@ function setSettingToTarget(target, transData, parsedValue) {
     const values = transData["values"];
     if (values != null) {
         if (typeof values == "object") {
-            if (values[parsedValue] == null) {
+            const resultValue = values[parsedValue];
+            if (resultValue == null) {
                 if (values["default"] == null) {
                     throw "Invalid value"
                 } else {
                     target[name] = values["default"]
                 }
+            } else if (typeof resultValue == "object") {
+                const resName = resultValue["name"];
+                const resValue = resultValue["value"];
+                target[resName] = resValue;
             } else {
-                target[name] = values[parsedValue];
+                target[name] = resultValue;
             }
         } else {
             target[name] = values;

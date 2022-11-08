@@ -39146,7 +39146,7 @@
             ],
             "visible": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_child]"
             },
             "visibleRootOnly": false,
             "filter": {
@@ -39181,10 +39181,7 @@
             ],
             "unbindable": true,
             "ignoreBound": true,
-            "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_spawns]"
-            },
+            "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
@@ -39207,7 +39204,7 @@
             "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_child]"
             },
             "includeInactiveEntrances": true,
             "isBiDir": false
@@ -39226,7 +39223,7 @@
             ],
             "visible": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_adult]"
             },
             "visibleRootOnly": false,
             "filter": {
@@ -39285,7 +39282,7 @@
             "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_adult]"
             },
             "includeInactiveEntrances": true,
             "isBiDir": false

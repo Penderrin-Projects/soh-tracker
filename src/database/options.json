@@ -284,6 +284,15 @@
         "type": "check",
         "default": false
     },
+    "shuffle_spawns": {
+        "category": "entrance_randomizer",
+        "type": "list",
+        "default": [],
+        "values": [
+            "shuffle_spawn_child",
+            "shuffle_spawn_adult"
+        ]
+    },
     "shuffle_dungeons": {
         "category": "entrance_randomizer",
         "type": "choice",
@@ -330,11 +339,6 @@
         "default": false
     },
     "shuffle_warps": {
-        "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
-    },
-    "shuffle_spawns": {
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
