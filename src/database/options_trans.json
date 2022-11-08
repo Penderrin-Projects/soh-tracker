@@ -609,7 +609,8 @@
         "Deku Nut Capacity": "nut",
         "Ocarina": "ocarina",
         "Magic Bean": "bean",
-        "Prelude of Light": "warp_light"
+        "Prelude of Light": "warp_light",
+        "Lens of Truth": "lens"
     },
     "dungeons": {
         "Deku Tree": {
