@@ -30,7 +30,7 @@ SavestateConverter.register(function(state) {
             options: {},
             filter: state.data?.filter ?? {},
             // Track-OOT
-            dungeonRewards: state.data?.dungeonTypes ?? {},
+            dungeonRewards: state.data?.dungeonRewards ?? {},
             dungeonTypes: state.data?.dungeonTypes ?? {},
             shopItems: state.data?.shopItems ?? {},
             shopItemsPrice: state.data?.shopItemsPrice ?? {},
