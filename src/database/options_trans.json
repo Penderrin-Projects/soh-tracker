@@ -84,12 +84,13 @@
         "bridge_medallions": "medallion_count_bridge",
         "bridge_rewards": "dungeon_count_bridge",
         "triforce_hunt": {
-            "name": "",
+            "name": "triforce_hunt",
             "values": {
                 "true": true,
                 "false": false
             }
         },
+        "triforce_goal_per_world": "triforce_hunt_goal",
         "logic_rules": {
             "name": "logic_rules",
             "values": {

@@ -265,6 +265,22 @@
             "keylogic_triforce"
         ]
     },
+    "triforce_hunt": {
+        "category": "keylogic",
+        "type": "-check",
+        "default": false
+    },
+    "triforce_hunt_goal": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 20,
+        "visible": {
+            "type": "value",
+            "el": "triforce_hunt"
+        },
+        "min": 0,
+        "max": 10000
+    },
     "mixed_entrance_pool": {
         "category": "entrance_randomizer",
         "type": "check",
