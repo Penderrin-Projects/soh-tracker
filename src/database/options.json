@@ -760,7 +760,9 @@
             "skip.shadow_mq_huge_pit",
             "skip.lens_shadow_mq_back",
             "skip.shadow_mq_invisible_blades",
-            "skip.shadow_umbrella_gs"
+            "skip.shadow_umbrella_gs",
+            "skip.logic_shadow_bongo",
+            "skip.logic_lens_bongo"
         ],
         "default": []
     },

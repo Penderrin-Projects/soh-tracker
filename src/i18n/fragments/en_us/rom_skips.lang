@@ -144,6 +144,8 @@ skip.lens_shadow=Shadow Temple before Invisible Moving Platform without Lens of 
 skip.lens_shadow_back=Shadow Temple beyond Invisible Moving Platform without Lens of Truth
 skip.lens_spirit=Spirit Temple without Lens of Truth
 skip.lens_spirit_mq=Spirit Temple MQ without Lens of Truth
+skip.logic_shadow_bongo=Bongo Bongo without Projectiles
+skip.logic_lens_bongo=Bongo Bongo without Lens of Truth
 
 skip.water_bk_chest=Water Temple Boss Key Chest with Iron Boots
 skip.water_falling_platform_gs=Water Temple Falling Platform Room GS with Hookshot
