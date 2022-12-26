@@ -620,7 +620,13 @@
             "skip.zora_with_cucco",
             "skip.domain_gs",
             "skip.king_zora_skip",
-            "skip.castle_storms_gs"
+            "skip.castle_storms_gs",
+            "skip.logic_gf_jump",
+            "skip.logic_crater_boulder_jumpslash",
+            "skip.logic_crater_boulder_skip",
+            "skip.logic_crater_bolero_jump",
+            "skip.logic_lens_shadow_mq_platform",
+            "skip.logic_beehives_bombchus"
         ],
         "default": []
     },
@@ -649,10 +655,16 @@
             "skip.dc_mq_eyes",
             "skip.dc_mq_child_back",
             "skip.dc_hammer_floor",
+            "skip.logic_dc_mq_eyes_child",
+            "skip.logic_dc_mq_eyes_adult",
             "skip.jabu_scrub_jump_dive",
             "skip.jabu_boss_gs_adult",
             "skip.jabu_mq_sot_gs",
-            "skip.lens_jabu_mq"
+            "skip.lens_jabu_mq",
+            "skip.logic_jabu_mq_rang_jump",
+            "skip.logic_jabu_near_boss_ranged",
+            "skip.logic_jabu_boss_hover",
+            "skip.logic_jabu_near_boss_explosives"
         ],
         "default": []
     },
@@ -693,7 +705,9 @@
             "skip.forest_mq_hallway_switch_jumpslash",
             "skip.forest_mq_hallway_switch_hookshot",
             "skip.forest_door_frame",
-            "skip.forest_first_gs"
+            "skip.forest_first_gs",
+            "skip.logic_forest_mq_hallway_switch_boomerang",
+            "skip.logic_jabu_alcove_jump_dive"
         ],
         "default": []
     },
@@ -762,7 +776,11 @@
             "skip.shadow_mq_invisible_blades",
             "skip.shadow_umbrella_gs",
             "skip.logic_shadow_bongo",
-            "skip.logic_lens_bongo"
+            "skip.logic_lens_bongo",
+            "skip.logic_lens_shadow_mq_invisible_blades",
+            "skip.logic_shadow_mq_windy_walkway",
+            "skip.logic_lens_shadow_mq_dead_hand",
+            "skip.logic_lens_shadow_platform"
         ],
         "default": []
     },
@@ -782,7 +800,8 @@
             "skip.spirit_mq_lower_adult",
             "skip.spirit_mq_sun_block_gs",
             "skip.spirit_mq_sun_block_sot",
-            "skip.spirit_lobby_jump"
+            "skip.spirit_lobby_jump",
+            "skip.logic_spirit_platform_hookshot"
         ],
         "default": []
     },

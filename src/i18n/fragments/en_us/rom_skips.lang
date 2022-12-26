@@ -174,6 +174,26 @@ skip.water_mq_central_pillar=Water Temple MQ Central Pillar with Fire Arrows
 skip.water_mq_locked_gs=Water Temple MQ North Basement GS without Small Key
 skip.water_central_gs_fw=Water Temple Central Pillar GS with Farore's Wind
 
+skip.logic_dc_mq_eyes_child=Dodongo's Cavern MQ Light the Eyes with Strength as Child
+skip.logic_dc_mq_eyes_adult=Dodongo's Cavern MQ Light the Eyes with Strength as Adult
+skip.logic_forest_mq_hallway_switch_boomerang=Forest Temple MQ Twisted Hallway Switch with Boomerang
+skip.logic_jabu_alcove_jump_dive=Jabu Underwater Alcove as Adult with Jump Dive
+skip.logic_jabu_mq_rang_jump=Jabu MQ Compass Chest with Boomerang
+skip.logic_jabu_near_boss_ranged=Jabu Near Boss Ceiling Switch/GS without Boomerang or Explosives
+skip.logic_jabu_boss_hover=Jabu Near Boss Room with Hover Boots
+skip.logic_jabu_near_boss_explosives=Jabu Near Boss Ceiling Switch with Explosives
+skip.logic_gf_jump=Gerudo's Fortress Ledge Jumps
+skip.logic_crater_boulder_jumpslash=Death Mountain Crater Upper to Lower with Hammer
+skip.logic_crater_boulder_skip=Death Mountain Crater Upper to Lower Boulder Skip
+skip.logic_crater_bolero_jump=Death Mountain Crater Jump to Bolero
+skip.logic_lens_shadow_mq_platform=Shadow Temple MQ Invisible Moving Platform without Lens of Truth
+skip.logic_lens_shadow_mq_invisible_blades=Shadow Temple MQ Invisible Blades Silver Rupees without Lens of Truth
+skip.logic_shadow_mq_windy_walkway=Shadow Temple MQ Windy Walkway Reverse without Hover Boots
+skip.logic_lens_shadow_mq_dead_hand=Shadow Temple MQ 2nd Dead Hand without Lens of Truth
+skip.logic_lens_shadow_platform=Shadow Temple Invisible Moving Platform without Lens of Truth
+skip.logic_spirit_platform_hookshot=Spirit Temple Main Room Hookshot to Boss Platform
+skip.logic_beehives_bombchus=Beehives with Bombchus
+
 # SEQUENCE BREAKS
 option[known_sequence_breaks]=Sequence Breaks
 skip.ground_jump=Enable Bomb Bag Ground Jumping
