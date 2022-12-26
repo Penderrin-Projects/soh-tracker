@@ -86,6 +86,12 @@
         "type": "check",
         "default": false
     },
+    "shuffle_pots": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "check",
+        "default": false
+    },
     "doors_open_forest": {
         "category": "options",
         "type": "choice",

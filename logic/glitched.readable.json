@@ -2102,52 +2102,6 @@
                 "type": "true"
             }
         },
-        "region[deku_boss_gateway:out]{child}": {
-            "region[deku_tree_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[deku]",
-                    "value": "mq"
-                }
-            },
-            "region[deku_tree_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[deku]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[deku_boss_gateway:out]{adult}": {
-            "region[deku_tree_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[deku]",
-                    "value": "mq"
-                }
-            },
-            "region[deku_tree_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[deku]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_deku_gateway:in]{child}": {
-            "region[deku_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_deku_gateway:in]{adult}": {
-            "region[deku_boss_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
         "region[boss_deku_gateway:out]{child}": {
             "region[queen_gohma_boss_room]{child}": {
                 "type": "true"
@@ -2165,52 +2119,6 @@
         },
         "region[dodongo_boss_gateway:in]{adult}": {
             "region[boss_dodongo_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[dodongo_boss_gateway:out]{child}": {
-            "region[dodongos_cavern_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[dodongo]",
-                    "value": "mq"
-                }
-            },
-            "region[dodongos_cavern_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[dodongo]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[dodongo_boss_gateway:out]{adult}": {
-            "region[dodongos_cavern_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[dodongo]",
-                    "value": "mq"
-                }
-            },
-            "region[dodongos_cavern_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[dodongo]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_dodongo_gateway:in]{child}": {
-            "region[dodongo_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_dodongo_gateway:in]{adult}": {
-            "region[dodongo_boss_gateway:out]{adult}": {
                 "type": "true"
             }
         },
@@ -2234,52 +2142,6 @@
                 "type": "true"
             }
         },
-        "region[jabu_boss_gateway:out]{child}": {
-            "region[jabu_jabus_belly_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[jabujabu]",
-                    "value": "mq"
-                }
-            },
-            "region[jabu_jabus_belly_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[jabujabu]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[jabu_boss_gateway:out]{adult}": {
-            "region[jabu_jabus_belly_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[jabujabu]",
-                    "value": "mq"
-                }
-            },
-            "region[jabu_jabus_belly_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[jabujabu]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_jabu_gateway:in]{child}": {
-            "region[jabu_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_jabu_gateway:in]{adult}": {
-            "region[jabu_boss_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
         "region[boss_jabu_gateway:out]{child}": {
             "region[barinade_boss_room]{child}": {
                 "type": "true"
@@ -2297,52 +2159,6 @@
         },
         "region[forest_temple_boss_gateway:in]{adult}": {
             "region[boss_forest_temple_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[forest_temple_boss_gateway:out]{child}": {
-            "region[forest_temple_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_forest]",
-                    "value": "mq"
-                }
-            },
-            "region[forest_temple_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_forest]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[forest_temple_boss_gateway:out]{adult}": {
-            "region[forest_temple_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_forest]",
-                    "value": "mq"
-                }
-            },
-            "region[forest_temple_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_forest]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_forest_temple_gateway:in]{child}": {
-            "region[forest_temple_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_forest_temple_gateway:in]{adult}": {
-            "region[forest_temple_boss_gateway:out]{adult}": {
                 "type": "true"
             }
         },
@@ -2366,52 +2182,6 @@
                 "type": "true"
             }
         },
-        "region[fire_temple_boss_gateway:out]{child}": {
-            "region[fire_temple_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_fire]",
-                    "value": "mq"
-                }
-            },
-            "region[fire_temple_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_fire]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[fire_temple_boss_gateway:out]{adult}": {
-            "region[fire_temple_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_fire]",
-                    "value": "mq"
-                }
-            },
-            "region[fire_temple_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_fire]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_fire_temple_gateway:in]{child}": {
-            "region[fire_temple_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_fire_temple_gateway:in]{adult}": {
-            "region[fire_temple_boss_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
         "region[boss_fire_temple_gateway:out]{child}": {
             "region[volvagia_boss_room]{child}": {
                 "type": "true"
@@ -2429,52 +2199,6 @@
         },
         "region[water_temple_boss_gateway:in]{adult}": {
             "region[boss_water_temple_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[water_temple_boss_gateway:out]{child}": {
-            "region[water_temple_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_water]",
-                    "value": "mq"
-                }
-            },
-            "region[water_temple_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_water]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[water_temple_boss_gateway:out]{adult}": {
-            "region[water_temple_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_water]",
-                    "value": "mq"
-                }
-            },
-            "region[water_temple_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_water]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_water_temple_gateway:in]{child}": {
-            "region[water_temple_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_water_temple_gateway:in]{adult}": {
-            "region[water_temple_boss_gateway:out]{adult}": {
                 "type": "true"
             }
         },
@@ -2498,52 +2222,6 @@
                 "type": "true"
             }
         },
-        "region[shadow_temple_boss_gateway:out]{child}": {
-            "region[shadow_temple_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_shadow]",
-                    "value": "mq"
-                }
-            },
-            "region[shadow_temple_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_shadow]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[shadow_temple_boss_gateway:out]{adult}": {
-            "region[shadow_temple_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_shadow]",
-                    "value": "mq"
-                }
-            },
-            "region[shadow_temple_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_shadow]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_shadow_temple_gateway:in]{child}": {
-            "region[shadow_temple_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_shadow_temple_gateway:in]{adult}": {
-            "region[shadow_temple_boss_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
         "region[boss_shadow_temple_gateway:out]{child}": {
             "region[bongo_bongo_boss_room]{child}": {
                 "type": "true"
@@ -2561,52 +2239,6 @@
         },
         "region[spirit_temple_boss_gateway:in]{adult}": {
             "region[boss_spirit_temple_gateway:out]{adult}": {
-                "type": "true"
-            }
-        },
-        "region[spirit_temple_boss_gateway:out]{child}": {
-            "region[spirit_temple_boss_door]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_spirit]",
-                    "value": "mq"
-                }
-            },
-            "region[spirit_temple_boss_door_mq]{child}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_spirit]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[spirit_temple_boss_gateway:out]{adult}": {
-            "region[spirit_temple_boss_door]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_spirit]",
-                    "value": "mq"
-                }
-            },
-            "region[spirit_temple_boss_door_mq]{adult}": {
-                "type": "not",
-                "el": {
-                    "type": "state",
-                    "el": "dungeontype[temple_spirit]",
-                    "value": "v"
-                }
-            }
-        },
-        "region[boss_spirit_temple_gateway:in]{child}": {
-            "region[spirit_temple_boss_gateway:out]{child}": {
-                "type": "true"
-            }
-        },
-        "region[boss_spirit_temple_gateway:in]{adult}": {
-            "region[spirit_temple_boss_gateway:out]{adult}": {
                 "type": "true"
             }
         },
@@ -26710,17 +26342,8 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "mixin[can_child_damage]{child}"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "event[hideout_1_torch_jail_gerudo]"
                     }
                 ]
             },
@@ -26732,17 +26355,8 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "mixin[can_child_damage]{child}"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "event[hideout_2_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -26754,17 +26368,8 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "mixin[can_child_damage]{child}"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "event[hideout_3_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -26776,17 +26381,8 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "mixin",
-                                "el": "mixin[is_child]{child}"
-                            },
-                            {
-                                "type": "mixin",
-                                "el": "mixin[can_child_damage]{child}"
-                            }
-                        ]
+                        "type": "value",
+                        "el": "event[hideout_4_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -26847,7 +26443,7 @@
                     }
                 ]
             },
-            "event[carpenter_rescue]": {
+            "event[hideout_1_torch_jail_gerudo]": {
                 "type": "and",
                 "el": [
                     {
@@ -26855,8 +26451,231 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin[can_child_damage]{child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_2_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
                         "type": "mixin",
-                        "el": "mixin[can_finish_gerudofortress]{child}"
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin[can_child_damage]{child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_3_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin[can_child_damage]{child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_4_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "mixin",
+                                "el": "mixin[can_child_damage]{child}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_1_torch_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_1_torch_jail_gerudo]"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "state",
+                                                "el": "option[gerudo_fortress_open]",
+                                                "value": "gerudo_fortress_open_default"
+                                            },
+                                            {
+                                                "type": "min",
+                                                "el": {
+                                                    "type": "value",
+                                                    "el": "item[key_small_gerudo]"
+                                                },
+                                                "value": 4
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "state",
+                                                "el": "option[gerudo_fortress_open]",
+                                                "value": "gerudo_fortress_open_one"
+                                            },
+                                            {
+                                                "type": "value",
+                                                "el": "item[key_small_gerudo]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_2_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_2_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_3_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_3_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_4_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_4_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
                     }
                 ]
             },
@@ -27043,8 +26862,8 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
+                        "type": "value",
+                        "el": "event[hideout_1_torch_jail_gerudo]"
                     }
                 ]
             },
@@ -27056,8 +26875,8 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
+                        "type": "value",
+                        "el": "event[hideout_2_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -27069,8 +26888,8 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
+                        "type": "value",
+                        "el": "event[hideout_3_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -27082,8 +26901,8 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
+                        "type": "value",
+                        "el": "event[hideout_4_torches_jail_gerudo]"
                     }
                 ]
             },
@@ -27144,7 +26963,7 @@
                     }
                 ]
             },
-            "event[carpenter_rescue]": {
+            "event[hideout_1_torch_jail_gerudo]": {
                 "type": "and",
                 "el": [
                     {
@@ -27153,7 +26972,194 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[can_finish_gerudofortress]{adult}"
+                        "el": "mixin[is_adult]{adult}"
+                    }
+                ]
+            },
+            "event[hideout_2_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin[is_adult]{adult}"
+                    }
+                ]
+            },
+            "event[hideout_3_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin[is_adult]{adult}"
+                    }
+                ]
+            },
+            "event[hideout_4_torches_jail_gerudo]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "mixin",
+                        "el": "mixin[is_adult]{adult}"
+                    }
+                ]
+            },
+            "event[hideout_1_torch_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_1_torch_jail_gerudo]"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "state",
+                                                "el": "option[gerudo_fortress_open]",
+                                                "value": "gerudo_fortress_open_default"
+                                            },
+                                            {
+                                                "type": "min",
+                                                "el": {
+                                                    "type": "value",
+                                                    "el": "item[key_small_gerudo]"
+                                                },
+                                                "value": 4
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "state",
+                                                "el": "option[gerudo_fortress_open]",
+                                                "value": "gerudo_fortress_open_one"
+                                            },
+                                            {
+                                                "type": "value",
+                                                "el": "item[key_small_gerudo]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_2_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_2_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_3_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_3_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "event[hideout_4_torches_jail_carpenter]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "event[hideout_4_torches_jail_gerudo]"
+                            },
+                            {
+                                "type": "state",
+                                "el": "option[gerudo_fortress_open]",
+                                "value": "gerudo_fortress_open_default"
+                            },
+                            {
+                                "type": "min",
+                                "el": {
+                                    "type": "value",
+                                    "el": "item[key_small_gerudo]"
+                                },
+                                "value": 4
+                            }
+                        ]
                     }
                 ]
             },
@@ -27954,32 +27960,6 @@
                         ]
                     }
                 ]
-            },
-            "reach_location[location.zoras.c_ice]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{child}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_child]{child}"
-                    }
-                ]
-            },
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{child}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{child}"
-                    }
-                ]
             }
         },
         "region[temple_of_time]{adult}": {
@@ -28022,32 +28002,6 @@
                                 "el": "mixin[can_trigger_lacs]{adult}"
                             }
                         ]
-                    }
-                ]
-            },
-            "reach_location[location.zoras.c_ice]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{adult}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_child]{adult}"
-                    }
-                ]
-            },
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{adult}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
                     }
                 ]
             }
@@ -30852,36 +30806,8 @@
                 "el": "mixin[filter_era]{adult}"
             }
         },
-        "region[graveyard_dampes_house]{child}": {
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{child}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{child}"
-                    }
-                ]
-            }
-        },
-        "region[graveyard_dampes_house]{adult}": {
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{adult}"
-                    },
-                    {
-                        "type": "mixin",
-                        "el": "mixin[is_adult]{adult}"
-                    }
-                ]
-            }
-        },
+        "region[graveyard_dampes_house]{child}": {},
+        "region[graveyard_dampes_house]{adult}": {},
         "region[graveyard_warp_pad_region]{child}": {
             "region[graveyard]{child}": {
                 "type": "true"
@@ -41918,103 +41844,6 @@
                     }
                 ]
             },
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{child}"
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "value",
-                                "el": "fix_broken_drops"
-                            },
-                            {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "mixin",
-                                        "el": "mixin[is_adult]{child}"
-                                    },
-                                    {
-                                        "type": "and",
-                                        "el": [
-                                            {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "function[can_use](item[boomerang]){child}"
-                                                    },
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item[slingshot]"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[has_bombchus]{child}"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[can_mega]{child}"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item[stick]"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[has_explosives]{child}"
-                                                    },
-                                                    {
-                                                        "type": "and",
-                                                        "el": [
-                                                            {
-                                                                "type": "or",
-                                                                "el": [
-                                                                    {
-                                                                        "type": "value",
-                                                                        "el": "item[nut]"
-                                                                    },
-                                                                    {
-                                                                        "type": "mixin",
-                                                                        "el": "function[can_use](item[boomerang]){child}"
-                                                                    }
-                                                                ]
-                                                            },
-                                                            {
-                                                                "type": "or",
-                                                                "el": [
-                                                                    {
-                                                                        "type": "mixin",
-                                                                        "el": "function[can_use](item[sword_kokiri]){child}"
-                                                                    },
-                                                                    {
-                                                                        "type": "value",
-                                                                        "el": "item[slingshot]"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
             "reach_location[temple_spirit.c_child_right]": {
                 "type": "and",
                 "el": [
@@ -42300,103 +42129,6 @@
                                                     {
                                                         "type": "value",
                                                         "el": "item[slingshot]"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            "reach_location[location.lake.c_sun]": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "mixin",
-                        "el": "mixin[filter_era]{adult}"
-                    },
-                    {
-                        "type": "and",
-                        "el": [
-                            {
-                                "type": "value",
-                                "el": "fix_broken_drops"
-                            },
-                            {
-                                "type": "or",
-                                "el": [
-                                    {
-                                        "type": "mixin",
-                                        "el": "mixin[is_adult]{adult}"
-                                    },
-                                    {
-                                        "type": "and",
-                                        "el": [
-                                            {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "function[can_use](item[boomerang]){adult}"
-                                                    },
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item[slingshot]"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[has_bombchus]{adult}"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[can_mega]{adult}"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "or",
-                                                "el": [
-                                                    {
-                                                        "type": "value",
-                                                        "el": "item[stick]"
-                                                    },
-                                                    {
-                                                        "type": "mixin",
-                                                        "el": "mixin[has_explosives]{adult}"
-                                                    },
-                                                    {
-                                                        "type": "and",
-                                                        "el": [
-                                                            {
-                                                                "type": "or",
-                                                                "el": [
-                                                                    {
-                                                                        "type": "value",
-                                                                        "el": "item[nut]"
-                                                                    },
-                                                                    {
-                                                                        "type": "mixin",
-                                                                        "el": "function[can_use](item[boomerang]){adult}"
-                                                                    }
-                                                                ]
-                                                            },
-                                                            {
-                                                                "type": "or",
-                                                                "el": [
-                                                                    {
-                                                                        "type": "mixin",
-                                                                        "el": "function[can_use](item[sword_kokiri]){adult}"
-                                                                    },
-                                                                    {
-                                                                        "type": "value",
-                                                                        "el": "item[slingshot]"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
                                                     }
                                                 ]
                                             }
@@ -47111,7 +46843,7 @@
                 },
                 {
                     "type": "value",
-                    "el": "Deku_Shield_Drop"
+                    "el": "item[shield_kokiri]"
                 }
             ]
         },
@@ -47124,7 +46856,7 @@
                 },
                 {
                     "type": "value",
-                    "el": "Deku_Shield_Drop"
+                    "el": "item[shield_kokiri]"
                 }
             ]
         },
@@ -48816,7 +48548,7 @@
                 }
             ]
         },
-        "mixin[can_bonk_tree]{child}": {
+        "mixin[can_bonk]{child}": {
             "type": "or",
             "el": [
                 {
@@ -48837,7 +48569,7 @@
                 }
             ]
         },
-        "mixin[can_bonk_tree]{adult}": {
+        "mixin[can_bonk]{adult}": {
             "type": "or",
             "el": [
                 {
@@ -48858,24 +48590,12 @@
                 }
             ]
         },
-        "mixin[can_bonk_crate]{child}": {
+        "mixin[can_break_crate]{child}": {
             "type": "or",
             "el": [
                 {
-                    "type": "not",
-                    "el": {
-                        "type": "state",
-                        "el": "option[deadly_bonks]",
-                        "value": "bonk_ohko"
-                    }
-                },
-                {
-                    "type": "value",
-                    "el": "item[fairy]"
-                },
-                {
                     "type": "mixin",
-                    "el": "function[can_use](item[magic_nayru]){child}"
+                    "el": "mixin[can_bonk]{child}"
                 },
                 {
                     "type": "mixin",
@@ -48883,24 +48603,12 @@
                 }
             ]
         },
-        "mixin[can_bonk_crate]{adult}": {
+        "mixin[can_break_crate]{adult}": {
             "type": "or",
             "el": [
                 {
-                    "type": "not",
-                    "el": {
-                        "type": "state",
-                        "el": "option[deadly_bonks]",
-                        "value": "bonk_ohko"
-                    }
-                },
-                {
-                    "type": "value",
-                    "el": "item[fairy]"
-                },
-                {
                     "type": "mixin",
-                    "el": "function[can_use](item[magic_nayru]){adult}"
+                    "el": "mixin[can_bonk]{adult}"
                 },
                 {
                     "type": "mixin",
@@ -48908,49 +48616,7 @@
                 }
             ]
         },
-        "mixin[can_bonk_underwater_crate]{child}": {
-            "type": "or",
-            "el": [
-                {
-                    "type": "not",
-                    "el": {
-                        "type": "state",
-                        "el": "option[deadly_bonks]",
-                        "value": "bonk_ohko"
-                    }
-                },
-                {
-                    "type": "value",
-                    "el": "item[fairy]"
-                },
-                {
-                    "type": "mixin",
-                    "el": "function[can_use](item[magic_nayru]){child}"
-                }
-            ]
-        },
-        "mixin[can_bonk_underwater_crate]{adult}": {
-            "type": "or",
-            "el": [
-                {
-                    "type": "not",
-                    "el": {
-                        "type": "state",
-                        "el": "option[deadly_bonks]",
-                        "value": "bonk_ohko"
-                    }
-                },
-                {
-                    "type": "value",
-                    "el": "item[fairy]"
-                },
-                {
-                    "type": "mixin",
-                    "el": "function[can_use](item[magic_nayru]){adult}"
-                }
-            ]
-        },
-        "mixin[can_bonk_heated_crate]{child}": {
+        "mixin[can_break_heated_crate]{child}": {
             "type": "or",
             "el": [
                 {
@@ -48988,7 +48654,7 @@
                 }
             ]
         },
-        "mixin[can_bonk_heated_crate]{adult}": {
+        "mixin[can_break_heated_crate]{adult}": {
             "type": "or",
             "el": [
                 {
@@ -49032,6 +48698,102 @@
                 {
                     "type": "mixin",
                     "el": "mixin[can_blast_or_smash]{adult}"
+                }
+            ]
+        },
+        "mixin[can_break_lower_beehive]{child}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "mixin",
+                    "el": "function[can_use](item[boomerang]){child}"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombs]"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[skip.logic_beehives_bombchus]"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[has_bombchus]{child}"
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin[can_break_lower_beehive]{adult}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "mixin",
+                    "el": "function[can_use](item[hookshot]){adult}"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombs]"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[skip.logic_beehives_bombchus]"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[has_bombchus]{adult}"
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin[can_break_upper_beehive]{child}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "mixin",
+                    "el": "function[can_use](item[boomerang]){child}"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[skip.logic_beehives_bombchus]"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[has_bombchus]{child}"
+                        }
+                    ]
+                }
+            ]
+        },
+        "mixin[can_break_upper_beehive]{adult}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "mixin",
+                    "el": "function[can_use](item[hookshot]){adult}"
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[skip.logic_beehives_bombchus]"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[has_bombchus]{adult}"
+                        }
+                    ]
                 }
             ]
         },
@@ -49423,25 +49185,20 @@
                             "value": "gerudo_fortress_open_default"
                         },
                         {
-                            "type": "min",
-                            "el": {
-                                "type": "value",
-                                "el": "item[key_small_gerudo]"
-                            },
-                            "value": 4
+                            "type": "value",
+                            "el": "event[hideout_1_torch_jail_carpenter]"
                         },
                         {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "value",
-                                    "el": "item[sword_kokiri]"
-                                },
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_glitched]{child}"
-                                }
-                            ]
+                            "type": "value",
+                            "el": "event[hideout_2_torches_jail_carpenter]"
+                        },
+                        {
+                            "type": "value",
+                            "el": "event[hideout_3_torches_jail_carpenter]"
+                        },
+                        {
+                            "type": "value",
+                            "el": "event[hideout_4_torches_jail_carpenter]"
                         }
                     ]
                 },
@@ -49455,20 +49212,7 @@
                         },
                         {
                             "type": "value",
-                            "el": "item[key_small_gerudo]"
-                        },
-                        {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "value",
-                                    "el": "item[sword_kokiri]"
-                                },
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_glitched]{child}"
-                                }
-                            ]
+                            "el": "event[hideout_1_torch_jail_carpenter]"
                         }
                     ]
                 },
@@ -49507,72 +49251,20 @@
                             "value": "gerudo_fortress_open_default"
                         },
                         {
-                            "type": "min",
-                            "el": {
-                                "type": "value",
-                                "el": "item[key_small_gerudo]"
-                            },
-                            "value": 4
+                            "type": "value",
+                            "el": "event[hideout_1_torch_jail_carpenter]"
                         },
                         {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_adult]{adult}"
-                                },
-                                {
-                                    "type": "value",
-                                    "el": "item[sword_kokiri]"
-                                },
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_glitched]{adult}"
-                                }
-                            ]
+                            "type": "value",
+                            "el": "event[hideout_2_torches_jail_carpenter]"
                         },
                         {
-                            "type": "and",
-                            "el": [
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_adult]{adult}"
-                                },
-                                {
-                                    "type": "or",
-                                    "el": [
-                                        {
-                                            "type": "or",
-                                            "el": [
-                                                {
-                                                    "type": "value",
-                                                    "el": "item[bow]"
-                                                },
-                                                {
-                                                    "type": "value",
-                                                    "el": "item[hookshot]"
-                                                },
-                                                {
-                                                    "type": "value",
-                                                    "el": "item[boots_hover]"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "value",
-                                            "el": "item[membership]"
-                                        },
-                                        {
-                                            "type": "value",
-                                            "el": "option[skip.gerudo_kitchen]"
-                                        },
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[is_glitched]{adult}"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "type": "value",
+                            "el": "event[hideout_3_torches_jail_carpenter]"
+                        },
+                        {
+                            "type": "value",
+                            "el": "event[hideout_4_torches_jail_carpenter]"
                         }
                     ]
                 },
@@ -49586,24 +49278,7 @@
                         },
                         {
                             "type": "value",
-                            "el": "item[key_small_gerudo]"
-                        },
-                        {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_adult]{adult}"
-                                },
-                                {
-                                    "type": "value",
-                                    "el": "item[sword_kokiri]"
-                                },
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_glitched]{adult}"
-                                }
-                            ]
+                            "el": "event[hideout_1_torch_jail_carpenter]"
                         }
                     ]
                 },
@@ -50428,6 +50103,28 @@
                     "type": "and",
                     "el": [
                         {
+                            "type": "value",
+                            "el": "item[triforce_hunt]"
+                        },
+                        {
+                            "type": "gte",
+                            "el": [
+                                {
+                                    "type": "value",
+                                    "el": "item[triforce_piece]"
+                                },
+                                {
+                                    "type": "value",
+                                    "el": "option[triforce_hunt_goal]"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
                             "type": "not",
                             "el": {
                                 "type": "state",
@@ -50465,6 +50162,13 @@
                                 "type": "state",
                                 "el": "option[shuffle_ganon_bosskey]",
                                 "value": "gbk_hearts"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "item[triforce_hunt]"
                             }
                         }
                     ]
@@ -50562,6 +50266,28 @@
                     "type": "and",
                     "el": [
                         {
+                            "type": "value",
+                            "el": "item[triforce_hunt]"
+                        },
+                        {
+                            "type": "gte",
+                            "el": [
+                                {
+                                    "type": "value",
+                                    "el": "item[triforce_piece]"
+                                },
+                                {
+                                    "type": "value",
+                                    "el": "option[triforce_hunt_goal]"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
                             "type": "not",
                             "el": {
                                 "type": "state",
@@ -50599,6 +50325,13 @@
                                 "type": "state",
                                 "el": "option[shuffle_ganon_bosskey]",
                                 "value": "gbk_hearts"
+                            }
+                        },
+                        {
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "item[triforce_hunt]"
                             }
                         }
                     ]
@@ -51849,18 +51582,9 @@
                     "value": "item[arrow_light]"
                 },
                 {
-                    "type": "and",
-                    "el": [
-                        {
-                            "type": "value",
-                            "el": "option[blue_fire_arrows]"
-                        },
-                        {
-                            "type": "state",
-                            "el": "dummy_items",
-                            "value": "item[arrow_ice]"
-                        }
-                    ]
+                    "type": "state",
+                    "el": "dummy_items",
+                    "value": "item[arrow_ice]"
                 }
             ]
         },
@@ -51878,18 +51602,9 @@
                     "value": "item[arrow_light]"
                 },
                 {
-                    "type": "and",
-                    "el": [
-                        {
-                            "type": "value",
-                            "el": "option[blue_fire_arrows]"
-                        },
-                        {
-                            "type": "state",
-                            "el": "dummy_items",
-                            "value": "item[arrow_ice]"
-                        }
-                    ]
+                    "type": "state",
+                    "el": "dummy_items",
+                    "value": "item[arrow_ice]"
                 }
             ]
         },
