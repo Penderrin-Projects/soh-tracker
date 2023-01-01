@@ -46955,71 +46955,171 @@
             ]
         },
         "mixin[blue_fire]{child}": {
-            "type": "and",
+            "type": "or",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item[bottle]"
-                },
-                {
-                    "type": "or",
+                    "type": "and",
                     "el": [
                         {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            "type": "value",
+                            "el": "item[bottle]"
                         },
                         {
                             "type": "or",
                             "el": [
                                 {
-                                    "type": "and",
+                                    "type": "or",
                                     "el": [
                                         {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ganons_castle_water_trial_mq]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
                                         },
                                         {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ganons_castle_water_trial_mq]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "or",
+                                    "el": [
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ganons_castle_water_trial]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ganons_castle_water_trial]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "or",
+                                    "el": [
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[gerudo_training_grounds_stalfos_room_mq]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[gerudo_training_grounds_stalfos_room_mq]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "or",
+                                    "el": [
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ice_cavern_map_room_mq]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ice_cavern_map_room_mq]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
@@ -47027,292 +47127,54 @@
                                     "type": "and",
                                     "el": [
                                         {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
+                                            "type": "value",
+                                            "el": "option[consider_buyable]"
                                         },
                                         {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial]{adult}",
+                                            "type": "value",
+                                            "el": "item[bottle]"
+                                        },
+                                        {
+                                            "type": "min",
                                             "el": {
                                                 "type": "value",
-                                                "el": "item[bottle]"
-                                            }
+                                                "el": "item[wallet]"
+                                            },
+                                            "value": 2
                                         }
                                     ]
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[blue_fire_arrows]"
                         },
                         {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[gerudo_training_grounds_stalfos_room_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[gerudo_training_grounds_stalfos_room_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ice_cavern_map_room_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ice_cavern_map_room_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "and",
-                            "el": [
-                                {
-                                    "type": "value",
-                                    "el": "option[consider_buyable]"
-                                },
-                                {
-                                    "type": "value",
-                                    "el": "item[bottle]"
-                                },
-                                {
-                                    "type": "min",
-                                    "el": {
-                                        "type": "value",
-                                        "el": "item[wallet]"
-                                    },
-                                    "value": 2
-                                }
-                            ]
+                            "type": "mixin",
+                            "el": "function[can_use](item[blue_fire_arrows]){child}{child}"
                         }
                     ]
                 }
             ]
         },
         "mixin[blue_fire]{adult}": {
-            "type": "and",
+            "type": "or",
             "el": [
                 {
-                    "type": "value",
-                    "el": "item[bottle]"
-                },
-                {
-                    "type": "or",
+                    "type": "and",
                     "el": [
                         {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
+                            "type": "value",
+                            "el": "item[bottle]"
                         },
                         {
                             "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ganons_castle_water_trial]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[gerudo_training_grounds_stalfos_room_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[gerudo_training_grounds_stalfos_room_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "or",
-                            "el": [
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{child}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ice_cavern_map_room_mq]{child}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "and",
-                                    "el": [
-                                        {
-                                            "type": "mixin",
-                                            "el": "mixin[filter_era]{adult}"
-                                        },
-                                        {
-                                            "type": "at",
-                                            "node": "region[ice_cavern_map_room_mq]{adult}",
-                                            "el": {
-                                                "type": "value",
-                                                "el": "item[bottle]"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "and",
                             "el": [
                                 {
                                     "type": "or",
@@ -47326,7 +47188,7 @@
                                                 },
                                                 {
                                                     "type": "at",
-                                                    "node": "region[ice_cavern]{child}",
+                                                    "node": "region[ganons_castle_water_trial_mq]{child}",
                                                     "el": {
                                                         "type": "value",
                                                         "el": "item[bottle]"
@@ -47343,7 +47205,7 @@
                                                 },
                                                 {
                                                     "type": "at",
-                                                    "node": "region[ice_cavern]{adult}",
+                                                    "node": "region[ganons_castle_water_trial_mq]{adult}",
                                                     "el": {
                                                         "type": "value",
                                                         "el": "item[bottle]"
@@ -47353,15 +47215,6 @@
                                         }
                                     ]
                                 },
-                                {
-                                    "type": "mixin",
-                                    "el": "mixin[is_adult]{adult}"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "and",
-                            "el": [
                                 {
                                     "type": "or",
                                     "el": [
@@ -47374,7 +47227,7 @@
                                                 },
                                                 {
                                                     "type": "at",
-                                                    "node": "region[ice_cavern_mq]{child}",
+                                                    "node": "region[ganons_castle_water_trial]{child}",
                                                     "el": {
                                                         "type": "value",
                                                         "el": "item[bottle]"
@@ -47391,7 +47244,7 @@
                                                 },
                                                 {
                                                     "type": "at",
-                                                    "node": "region[ice_cavern_mq]{adult}",
+                                                    "node": "region[ganons_castle_water_trial]{adult}",
                                                     "el": {
                                                         "type": "value",
                                                         "el": "item[bottle]"
@@ -47402,31 +47255,214 @@
                                     ]
                                 },
                                 {
-                                    "type": "mixin",
-                                    "el": "mixin[is_adult]{adult}"
+                                    "type": "or",
+                                    "el": [
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[gerudo_training_grounds_stalfos_room_mq]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[gerudo_training_grounds_stalfos_room_mq]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "or",
+                                    "el": [
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{child}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ice_cavern_map_room_mq]{child}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "and",
+                                            "el": [
+                                                {
+                                                    "type": "mixin",
+                                                    "el": "mixin[filter_era]{adult}"
+                                                },
+                                                {
+                                                    "type": "at",
+                                                    "node": "region[ice_cavern_map_room_mq]{adult}",
+                                                    "el": {
+                                                        "type": "value",
+                                                        "el": "item[bottle]"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[filter_era]{child}"
+                                                        },
+                                                        {
+                                                            "type": "at",
+                                                            "node": "region[ice_cavern]{child}",
+                                                            "el": {
+                                                                "type": "value",
+                                                                "el": "item[bottle]"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[filter_era]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "at",
+                                                            "node": "region[ice_cavern]{adult}",
+                                                            "el": {
+                                                                "type": "value",
+                                                                "el": "item[bottle]"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[is_adult]{adult}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "or",
+                                            "el": [
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[filter_era]{child}"
+                                                        },
+                                                        {
+                                                            "type": "at",
+                                                            "node": "region[ice_cavern_mq]{child}",
+                                                            "el": {
+                                                                "type": "value",
+                                                                "el": "item[bottle]"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[filter_era]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "at",
+                                                            "node": "region[ice_cavern_mq]{adult}",
+                                                            "el": {
+                                                                "type": "value",
+                                                                "el": "item[bottle]"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "mixin",
+                                            "el": "mixin[is_adult]{adult}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "and",
+                                    "el": [
+                                        {
+                                            "type": "value",
+                                            "el": "option[consider_buyable]"
+                                        },
+                                        {
+                                            "type": "value",
+                                            "el": "item[bottle]"
+                                        },
+                                        {
+                                            "type": "min",
+                                            "el": {
+                                                "type": "value",
+                                                "el": "item[wallet]"
+                                            },
+                                            "value": 2
+                                        }
+                                    ]
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "value",
+                            "el": "option[blue_fire_arrows]"
                         },
                         {
-                            "type": "and",
-                            "el": [
-                                {
-                                    "type": "value",
-                                    "el": "option[consider_buyable]"
-                                },
-                                {
-                                    "type": "value",
-                                    "el": "item[bottle]"
-                                },
-                                {
-                                    "type": "min",
-                                    "el": {
-                                        "type": "value",
-                                        "el": "item[wallet]"
-                                    },
-                                    "value": 2
-                                }
-                            ]
+                            "type": "mixin",
+                            "el": "function[can_use](item[blue_fire_arrows]){child}{adult}"
                         }
                     ]
                 }
@@ -52268,6 +52304,48 @@
             ]
         },
         "function[can_use](item[arrow_ice]){adult}": {
+            "type": "and",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item[arrow_ice]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bow]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[magic_power]"
+                },
+                {
+                    "type": "mixin",
+                    "el": "mixin[is_adult]{adult}"
+                }
+            ]
+        },
+        "function[can_use](item[blue_fire_arrows]){child}": {
+            "type": "and",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item[arrow_ice]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bow]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[magic_power]"
+                },
+                {
+                    "type": "mixin",
+                    "el": "mixin[is_adult]{child}"
+                }
+            ]
+        },
+        "function[can_use](item[blue_fire_arrows]){adult}": {
             "type": "and",
             "el": [
                 {
