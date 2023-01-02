@@ -6100,8 +6100,12 @@
                                 "el": "item[key_boss_ganon]"
                             },
                             {
-                                "type": "value",
-                                "el": "option[shuffle_pots]"
+                                "type": "not",
+                                "el": {
+                                    "type": "state",
+                                    "el": "option[shuffle_pots]",
+                                    "value": "off"
+                                }
                             }
                         ]
                     }
@@ -6146,8 +6150,12 @@
                                 "el": "item[key_boss_ganon]"
                             },
                             {
-                                "type": "value",
-                                "el": "option[shuffle_pots]"
+                                "type": "not",
+                                "el": {
+                                    "type": "state",
+                                    "el": "option[shuffle_pots]",
+                                    "value": "off"
+                                }
                             }
                         ]
                     }

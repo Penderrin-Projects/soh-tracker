@@ -86,7 +86,43 @@
         "type": "check",
         "default": false
     },
+    "shuffle_rupees_hearts": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
     "shuffle_pots": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
+    "shuffle_crates": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
+    "shuffle_beehives": {
         "category": "options",
         "type": "hidden",
         "old_type": "check",
