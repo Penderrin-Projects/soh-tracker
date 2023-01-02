@@ -27,10 +27,15 @@
         "type": "check",
         "default": false
     },
-    "skip_child_zelda": {
+    "shuffle_child_trade": {
         "category": "options",
-        "type": "check",
-        "default": false
+        "type": "choice",
+        "default": "vanilla",
+        "values": [
+            "vanilla_child_trade",
+            "shuffle_egg",
+            "skip_child_zelda"
+        ]
     },
     "skip_epona_race": {
         "category": "options",
@@ -79,6 +84,48 @@
     "shuffleMediCarpet": {
         "category": "options",
         "type": "check",
+        "default": false
+    },
+    "shuffle_rupees_hearts": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
+    "shuffle_pots": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
+    "shuffle_crates": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "all",
+            "overworld",
+            "dungeons"
+        ]
+    },
+    "shuffle_beehives": {
+        "category": "options",
+        "type": "hidden",
+        "old_type": "check",
         "default": false
     },
     "doors_open_forest": {
@@ -162,6 +209,48 @@
         "type": "check",
         "default": false
     },
+    "damage_multiplier": {
+        "category": "options",
+        "type": "choice",
+        "default": "dmg_normal",
+        "values": [
+            "dmg_half",
+            "dmg_normal",
+            "dmg_double",
+            "dmg_quadruple",
+            "dmg_ohko"
+        ]
+    },
+    "deadly_bonks": {
+        "category": "options",
+        "type": "choice",
+        "default": "bonk_off",
+        "values": [
+            "bonk_off",
+            "bonk_quarter",
+            "bonk_half",
+            "bonk_one",
+            "bonk_two",
+            "bonk_ohko"
+        ]
+    },
+    "blue_fire_arrows": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
+    "chicken_count": {
+        "category": "options",
+        "type": "number",
+        "default": 10,
+        "min": 0,
+        "max": 10
+    },
+    "plant_beans": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "small_key_logic": {
         "category": "keylogic",
         "type": "choice",
@@ -218,6 +307,22 @@
             "keylogic_triforce"
         ]
     },
+    "triforce_hunt": {
+        "category": "keylogic",
+        "type": "-check",
+        "default": false
+    },
+    "triforce_hunt_goal": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 20,
+        "visible": {
+            "type": "value",
+            "el": "triforce_hunt"
+        },
+        "min": 0,
+        "max": 10000
+    },
     "mixed_entrance_pool": {
         "category": "entrance_randomizer",
         "type": "check",
@@ -237,10 +342,34 @@
         "type": "check",
         "default": false
     },
+    "shuffle_spawns": {
+        "category": "entrance_randomizer",
+        "type": "list",
+        "default": [],
+        "values": [
+            "shuffle_spawn_child",
+            "shuffle_spawn_adult"
+        ]
+    },
     "shuffle_dungeons": {
         "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
+        "type": "choice",
+        "default": "shuffle_dungeons_off",
+        "values": [
+            "shuffle_dungeons_off",
+            "shuffle_dungeons_simple",
+            "shuffle_dungeons_all"
+        ]
+    },
+    "shuffle_bosses": {
+        "category": "entrance_randomizer",
+        "type": "choice",
+        "default": "shuffle_bosses_off",
+        "values": [
+            "shuffle_bosses_off",
+            "shuffle_bosses_age",
+            "shuffle_bosses_all"
+        ]
     },
     "entrance_shuffle_interior": {
         "category": "entrance_randomizer",
@@ -272,10 +401,20 @@
         "type": "check",
         "default": false
     },
-    "shuffle_spawns": {
+    "dungeon_shortcuts": {
         "category": "entrance_randomizer",
-        "type": "check",
-        "default": false
+        "type": "-list",
+        "default": [],
+        "values": [
+            "dungeon_shortcuts.deku",
+            "dungeon_shortcuts.dodongo",
+            "dungeon_shortcuts.jabu",
+            "dungeon_shortcuts.temple_forest",
+            "dungeon_shortcuts.temple_fire",
+            "dungeon_shortcuts.temple_water",
+            "dungeon_shortcuts.temple_shadow",
+            "dungeon_shortcuts.temple_spirit"
+        ]
     },
     "light_arrow_cutscene": {
         "category": "lacsAndGanon",
@@ -286,7 +425,8 @@
             "light_arrow_cutscene_stones",
             "light_arrow_cutscene_medallions",
             "light_arrow_cutscene_dungeons",
-            "light_arrow_cutscene_skulltulas"
+            "light_arrow_cutscene_skulltulas",
+            "light_arrow_cutscene_hearts"
         ]
     },
     "lacs_skulltulas": {
@@ -337,6 +477,18 @@
         "min": 1,
         "max": 9
     },
+    "heart_count_lacs": {
+        "category": "lacsAndGanon",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "el": "light_arrow_cutscene",
+            "value": "light_arrow_cutscene_hearts"
+        },
+        "min": 4,
+        "max": 20
+    },
     "ganon_castle_open": {
         "category": "lacsAndGanon",
         "type": "choice",
@@ -347,7 +499,8 @@
             "ganon_castle_open_stones",
             "ganon_castle_open_skulltulas",
             "ganon_castle_open_default",
-            "ganon_castle_open_open"
+            "ganon_castle_open_open",
+            "ganon_castle_open_hearts"
         ]
     },
     "ganon_castle_skulltulas": {
@@ -397,6 +550,18 @@
         },
         "min": 1,
         "max": 9
+    },
+    "heart_count_bridge": {
+        "category": "lacsAndGanon",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "el": "ganon_castle_open",
+            "value": "ganon_castle_open_hearts"
+        },
+        "min": 4,
+        "max": 20
     },
     "trials_random": {
         "category": "lacsAndGanon",
@@ -497,7 +662,13 @@
             "skip.zora_with_cucco",
             "skip.domain_gs",
             "skip.king_zora_skip",
-            "skip.castle_storms_gs"
+            "skip.castle_storms_gs",
+            "skip.logic_gf_jump",
+            "skip.logic_crater_boulder_jumpslash",
+            "skip.logic_crater_boulder_skip",
+            "skip.logic_crater_bolero_jump",
+            "skip.logic_lens_shadow_mq_platform",
+            "skip.logic_beehives_bombchus"
         ],
         "default": []
     },
@@ -525,10 +696,17 @@
             "skip.dc_mq_child_bombs",
             "skip.dc_mq_eyes",
             "skip.dc_mq_child_back",
+            "skip.dc_hammer_floor",
+            "skip.logic_dc_mq_eyes_child",
+            "skip.logic_dc_mq_eyes_adult",
             "skip.jabu_scrub_jump_dive",
             "skip.jabu_boss_gs_adult",
             "skip.jabu_mq_sot_gs",
-            "skip.lens_jabu_mq"
+            "skip.lens_jabu_mq",
+            "skip.logic_jabu_mq_rang_jump",
+            "skip.logic_jabu_near_boss_ranged",
+            "skip.logic_jabu_boss_hover",
+            "skip.logic_jabu_near_boss_explosives"
         ],
         "default": []
     },
@@ -569,7 +747,9 @@
             "skip.forest_mq_hallway_switch_jumpslash",
             "skip.forest_mq_hallway_switch_hookshot",
             "skip.forest_door_frame",
-            "skip.forest_first_gs"
+            "skip.forest_first_gs",
+            "skip.logic_forest_mq_hallway_switch_boomerang",
+            "skip.logic_jabu_alcove_jump_dive"
         ],
         "default": []
     },
@@ -636,7 +816,13 @@
             "skip.shadow_mq_huge_pit",
             "skip.lens_shadow_mq_back",
             "skip.shadow_mq_invisible_blades",
-            "skip.shadow_umbrella_gs"
+            "skip.shadow_umbrella_gs",
+            "skip.logic_shadow_bongo",
+            "skip.logic_lens_bongo",
+            "skip.logic_lens_shadow_mq_invisible_blades",
+            "skip.logic_shadow_mq_windy_walkway",
+            "skip.logic_lens_shadow_mq_dead_hand",
+            "skip.logic_lens_shadow_platform"
         ],
         "default": []
     },
@@ -656,7 +842,8 @@
             "skip.spirit_mq_lower_adult",
             "skip.spirit_mq_sun_block_gs",
             "skip.spirit_mq_sun_block_sot",
-            "skip.spirit_lobby_jump"
+            "skip.spirit_lobby_jump",
+            "skip.logic_spirit_platform_hookshot"
         ],
         "default": []
     },

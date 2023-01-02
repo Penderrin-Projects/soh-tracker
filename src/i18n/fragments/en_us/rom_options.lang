@@ -5,7 +5,12 @@ load-preset-button=Load preset
 options=Randomizer options
 option[consider_buyable]=Consider buyable Items (Tunics / Blue Fire) in logic
 option[bombchu_logic]=Consider Bombchus in logic
-option[skip_child_zelda]=Skip Child Zelda
+
+option[shuffle_child_trade]=Shuffle Child Trade Item
+vanilla_child_trade=Vanilla Locations
+shuffle_egg=Shuffle Weird Egg
+skip_child_zelda=Skip Child Zelda
+
 option[skip_epona_race]=Skip Epona Race
 option[free_scarecrow]=Free Scarecrow's Song
 option[scrubsanity]=Scrubsanity
@@ -30,6 +35,12 @@ option[medallion_count_bridge]=Required Medallions for Rainbow Bridge
 option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
 
 option[skullsanity]=Skullsanity (do not autocount) [WIP]
+
+option[damage_multiplier]=Damage Multiplier
+option[deadly_bonks]=Bonks Do Damage
+option[blue_fire_arrows]=Blue Fire Arrows
+option[chicken_count]=Cucco Count
+option[plant_beans]=Plant Magic Beans
 
 # GENERAL - AGE
 option[starting_age]=Starting Age
@@ -70,18 +81,43 @@ entrance_randomizer=Entrance randomization
 option[mixed_entrance_pool]=Mixed entrance pool
 option[show_sublists_on_mixed_entrances]=Enforce sublist rendering for mixed entrance pool (can clutter the list a lot)
 option[detached_entrances]=Detached Entrances
-option[shuffle_dungeons]=Shuffle Dungeons
 option[shuffle_grottos]=Shuffle Grottos
 option[shuffle_overworld]=Shuffle Overworld Entrances
 option[shuffle_owls]=Shuffle Owl Drops
 option[shuffle_warps]=Shuffle Song Warps
+
 option[shuffle_spawns]=Shuffle Spawn Locations
+shuffle_spawn_child=Shuffle Child Spawn
+shuffle_spawn_adult=Shuffle Adult Spawn
+
+# ENTRANCE SHUFFLE - DUNGEONS
+option[shuffle_dungeons]=Shuffle Dungeons
+shuffle_dungeons_off=Off
+shuffle_dungeons_simple=Dungeons
+shuffle_dungeons_all=Dungeons and Ganons Castle
+
+# ENTRANCE SHUFFLE - BOSSES
+option[shuffle_bosses]=Shuffle Boss Entrances
+shuffle_bosses_off=Off
+shuffle_bosses_age=Age-Restricted
+shuffle_bosses_all=Full
 
 # ENTRANCE SHUFFLE - INTERIORS
 option[entrance_shuffle_interior]=Shuffle Interior Entrances
 entrance_shuffle_off=Off
 entrance_shuffle_simple=Shuffle Simple Indoors
 entrance_shuffle_all=Shuffle All Indoors
+
+# DUNGEON SHORTCUTS
+option[dungeon_shortcuts]=Dungeon Shortcuts
+dungeon_shortcuts.deku=Deku Tree Shortcut
+dungeon_shortcuts.dodongo=Dodongos Cavern Shortcut
+dungeon_shortcuts.jabu=Jabu Jabus Belly Shortcut
+dungeon_shortcuts.temple_forest=Forest Temple Shortcut
+dungeon_shortcuts.temple_fire=Fire Temple Shortcut
+dungeon_shortcuts.temple_water=Water Temple Shortcut
+dungeon_shortcuts.temple_shadow=Shadow Temple Shortcut
+dungeon_shortcuts.temple_spirit=Spirit Temple Shortcut
 
 # LACS AND BRIDGE
 lacsAndGanon=LACS and Bridge options

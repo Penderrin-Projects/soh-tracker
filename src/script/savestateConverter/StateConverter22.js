@@ -47,7 +47,7 @@ SavestateConverter.register(function(state) {
         name: state.name ?? ""
     };
 
-    // example - BEGIN
+    // dungeonRewards
 
     for (const [key, value] of Object.entries(state.data?.dungeonRewards ?? {})) {
         res.data.dungeonRewards[key] = value.replace(/^item\./, "");

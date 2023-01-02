@@ -23,11 +23,11 @@ SavestateConverter.register(function(state) {
             "": state.data?.[""] ?? {},
             items: state.data?.items ?? {},
             locations: state.data?.locations ?? {},
-            exitBindings: state.data?.exitBindings ?? {},
+            exitBindings: {},
             areaHints: state.data?.areaHints ?? {},
             locationItems: state.data?.locationItems ?? {},
             startItems: state.data?.startItems ?? {},
-            options: {},
+            options: state.data?.options ?? {},
             filter: state.data?.filter ?? {},
             // Track-OOT
             dungeonRewards: state.data?.dungeonRewards ?? {},
@@ -47,38 +47,23 @@ SavestateConverter.register(function(state) {
         name: state.name ?? ""
     };
 
-    // options
+    // exitBindings
 
-    for (const [key, value] of Object.entries(state.data?.options ?? {})) {
-        if (key != "keysanity_small" && key != "track_keys" && key != "track_bosskeys" && key != "ganon_boss_door_open") {
-            res.data.options[key] = value;
-        }
-    }
-
-    if (state.data?.options["track_keys"]) {
-        if (state.data?.options["keysanity_small"]) {
-            res.data.options["small_key_logic"] = "keylogic_keysanity";
-            res.data.options["gerudo_key_logic"] = "keylogic_keysanity";
-        } else {
-            res.data.options["small_key_logic"] = "keylogic_vanilla";
-            res.data.options["gerudo_key_logic"] = "keylogic_vanilla";
-        }
-    } else {
-        res.data.options["small_key_logic"] = "keylogic_keysy";
-        res.data.options["gerudo_key_logic"] = "keylogic_vanilla";
-    }
-
-    if (state.data?.options["track_bosskeys"]) {
-        res.data.options["boss_key_logic"] = "keylogic_vanilla";
-    } else {
-        res.data.options["boss_key_logic"] = "keylogic_keysy";
-    }
-
-    if (state.data?.options["ganon_boss_door_open"]) {
-        res.data.options["ganon_key_logic"] = "keylogic_keysy";
-    } else {
-        res.data.options["ganon_key_logic"] = "keylogic_vanilla";
+    for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
+        const transKey = FULL_TRANSLATION[key] ?? key.split(" -> ").map((e) => {
+            return TRANSLATION[e] ?? e;
+        }).join(" -> ") ?? key;
+        const transValue = FULL_TRANSLATION[value] ?? value?.split(" -> ").map((e) => {
+            return TRANSLATION[e] ?? e;
+        }).join(" -> ") ?? value;
+        res.data.exitBindings[transKey] = transValue;
     }
 
     return res;
 });
+
+const FULL_TRANSLATION = {}
+
+const TRANSLATION = {
+    "near_scrubs_woods_gateway": "scrubs_grotto_woods_gateway"
+}

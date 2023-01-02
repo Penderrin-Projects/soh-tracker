@@ -19,6 +19,7 @@ skip.man_on_roof=Man on Roof without Hookshot
 skip.dc_staircase=Dodongo's Cavern Staircase with Bow
 skip.dc_jump=Dodongo's Cavern Spike Trap Room Jump without Hover Boots
 skip.dc_vines_gs=Dodongo's Cavern Vines GS from Below with Longshot
+skip.dc_hammer_floor=Dodongo's Cavern Boss Lobby Floor with Hammer
 skip.gerudo_kitchen=Gerudo Fortress Kitchen with No Additional Items
 skip.deku_basement_gs=Deku Tree Basement Vines GS with Jump Slash
 skip.deku_b1_webs_with_bow=Deku Tree Basement Web to Gohma with Bow
@@ -143,6 +144,8 @@ skip.lens_shadow=Shadow Temple before Invisible Moving Platform without Lens of 
 skip.lens_shadow_back=Shadow Temple beyond Invisible Moving Platform without Lens of Truth
 skip.lens_spirit=Spirit Temple without Lens of Truth
 skip.lens_spirit_mq=Spirit Temple MQ without Lens of Truth
+skip.logic_shadow_bongo=Bongo Bongo without Projectiles
+skip.logic_lens_bongo=Bongo Bongo without Lens of Truth
 
 skip.water_bk_chest=Water Temple Boss Key Chest with Iron Boots
 skip.water_falling_platform_gs=Water Temple Falling Platform Room GS with Hookshot
@@ -170,6 +173,26 @@ skip.spirit_mq_sun_block_sot=Spirit Temple MQ Sun Block Room as Child without So
 skip.water_mq_central_pillar=Water Temple MQ Central Pillar with Fire Arrows
 skip.water_mq_locked_gs=Water Temple MQ North Basement GS without Small Key
 skip.water_central_gs_fw=Water Temple Central Pillar GS with Farore's Wind
+
+skip.logic_dc_mq_eyes_child=Dodongo's Cavern MQ Light the Eyes with Strength as Child
+skip.logic_dc_mq_eyes_adult=Dodongo's Cavern MQ Light the Eyes with Strength as Adult
+skip.logic_forest_mq_hallway_switch_boomerang=Forest Temple MQ Twisted Hallway Switch with Boomerang
+skip.logic_jabu_alcove_jump_dive=Jabu Underwater Alcove as Adult with Jump Dive
+skip.logic_jabu_mq_rang_jump=Jabu MQ Compass Chest with Boomerang
+skip.logic_jabu_near_boss_ranged=Jabu Near Boss Ceiling Switch/GS without Boomerang or Explosives
+skip.logic_jabu_boss_hover=Jabu Near Boss Room with Hover Boots
+skip.logic_jabu_near_boss_explosives=Jabu Near Boss Ceiling Switch with Explosives
+skip.logic_gf_jump=Gerudo's Fortress Ledge Jumps
+skip.logic_crater_boulder_jumpslash=Death Mountain Crater Upper to Lower with Hammer
+skip.logic_crater_boulder_skip=Death Mountain Crater Upper to Lower Boulder Skip
+skip.logic_crater_bolero_jump=Death Mountain Crater Jump to Bolero
+skip.logic_lens_shadow_mq_platform=Shadow Temple MQ Invisible Moving Platform without Lens of Truth
+skip.logic_lens_shadow_mq_invisible_blades=Shadow Temple MQ Invisible Blades Silver Rupees without Lens of Truth
+skip.logic_shadow_mq_windy_walkway=Shadow Temple MQ Windy Walkway Reverse without Hover Boots
+skip.logic_lens_shadow_mq_dead_hand=Shadow Temple MQ 2nd Dead Hand without Lens of Truth
+skip.logic_lens_shadow_platform=Shadow Temple Invisible Moving Platform without Lens of Truth
+skip.logic_spirit_platform_hookshot=Spirit Temple Main Room Hookshot to Boss Platform
+skip.logic_beehives_bombchus=Beehives with Bombchus
 
 # SEQUENCE BREAKS
 option[known_sequence_breaks]=Sequence Breaks

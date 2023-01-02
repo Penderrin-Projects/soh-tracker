@@ -65,7 +65,7 @@ const ENTRANCES = [
     },
     {
         "woods_scrubs_grotto_gateway": "Lost Woods",
-        "near_scrubs_woods_gateway": "Near Meadow Grotto"
+        "scrubs_grotto_woods_gateway": "Near Meadow Grotto"
     },
     {
         "woods_deku_theater_gateway": "Lost Woods",

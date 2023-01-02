@@ -30,7 +30,7 @@ SavestateConverter.register(function(state) {
             options: state.data?.options ?? {},
             filter: state.data?.filter ?? {},
             // Track-OOT
-            dungeonRewards: state.data?.dungeonTypes ?? {},
+            dungeonRewards: state.data?.dungeonRewards ?? {},
             dungeonTypes: state.data?.dungeonTypes ?? {},
             shopItems: state.data?.shopItems ?? {},
             shopItemsPrice: state.data?.shopItemsPrice ?? {},
@@ -47,7 +47,7 @@ SavestateConverter.register(function(state) {
         name: state.name ?? ""
     };
 
-    // example - BEGIN
+    // exitBindings
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
         const transKey = FULL_TRANSLATION[key] ?? key.split(" -> ").map((e) => {

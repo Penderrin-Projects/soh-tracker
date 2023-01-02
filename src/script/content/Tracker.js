@@ -10,6 +10,7 @@ import ManageWindow from "/GameTrackerJS/ui/window/savestate/ManageWindow.js";
 import SaveWindow from "/GameTrackerJS/ui/window/savestate/SaveWindow.js";
 // Track-OOT
 import PageSwitcher from "/script/util/PageSwitcher.js";
+import "/script/savestateConverter/StateConverter.js";
 
 PageSwitcher.register("main", [{
     "content": "FILE",

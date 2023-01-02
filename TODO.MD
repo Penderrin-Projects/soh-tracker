@@ -1,16 +1,30 @@
 ### gateway errors (not accessible)
 
-- n/a
+- HF Fairy Grotto -> Hyrule Field becomes red once it’s bound to an entrance
+- Shuffle Boss Entrances puts some beatable bosses as red (idk what the issue really is)
+- Child and Adult Castle Grounds have some “misleading” checks (e.g. : If Adult has access to Castle Grounds from Child Great Fairy Fountain, Malon Weird Egg is considered available "as adult")
+
+- Kakariko Redead Grotto Chest is red if Kakariko -> Redead Grotto is not accessible
+- Both left and right Near Meadow Grotto Deku Salesman are red if Lost Woods -> Near Meadow Grotto is not accessible
 
 ### BUGS
 
 - world status bar not counting correctly (when filtered) (?)
 - after spoiler log parse not all options set in logic
+- anju chicken is missingg count setting
+- green dots missing on areas with reachable unbound entrances
+
+- missing logic
+    - deku tree to ghoma
+
+- missing translations
+    - n/a
 
 ### SPOILER PARSER
 
 - [bridge: hearts] is a invalid value
 - [shuffle_dungeon_entrances: off] is a invalid value
+- [spawn_positions: child,adult] is a invalid value (split adult and child spawn location setting)
 
 ### TRACKER TODO
 

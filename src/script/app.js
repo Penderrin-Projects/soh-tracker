@@ -17,6 +17,7 @@ import VersionData from "/GameTrackerJS/data/VersionData.js";
 import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
@@ -99,9 +100,6 @@ try {
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
-        newGameWindow.addEventListener("close", () => {
-            Savestate.setMeta("init_window_shown", true);
-        });
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
 
@@ -112,8 +110,9 @@ try {
         spl.className = "inactive";
     }
 
-    Savestate.addEventListener("load", () => {
+    SavestateHandler.addEventListener("load", () => {
         if (!Savestate.getMeta("init_window_shown", false)) {
+            Savestate.setMeta("init_window_shown", true);
             const showInitWindow = SettingsStorage.get("show_state_init_window");
             if (showInitWindow) {
                 const newGameWindow = GlobalContext.get("NewGameWindow");

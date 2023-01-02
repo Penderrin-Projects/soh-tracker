@@ -4100,8 +4100,9 @@
             "visible": {
                 "type": "not",
                 "el": {
-                    "type": "value",
-                    "el": "option[skip_child_zelda]"
+                    "type": "state",
+                    "el": "option[shuffle_child_trade]",
+                    "value": "skip_child_zelda"
                 }
             },
             "filter": {
@@ -4134,8 +4135,9 @@
             "visible": {
                 "type": "not",
                 "el": {
-                    "type": "value",
-                    "el": "option[skip_child_zelda]"
+                    "type": "state",
+                    "el": "option[shuffle_child_trade]",
+                    "value": "skip_child_zelda"
                 }
             },
             "filter": {
@@ -20616,8 +20618,8 @@
                 },
                 {
                     "id": "gerudo",
-                    "x": 361,
-                    "y": 205,
+                    "x": 364,
+                    "y": 252,
                     "category": "area"
                 },
                 {
@@ -20700,8 +20702,8 @@
                 },
                 {
                     "id": "fountain",
-                    "x": 1840,
-                    "y": 240,
+                    "x": 1758,
+                    "y": 236,
                     "category": "area"
                 },
                 {
@@ -20710,11 +20712,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20729,11 +20729,9 @@
                     "y": 146,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20744,21 +20742,19 @@
                 },
                 {
                     "id": "jabujabu",
-                    "x": 1757,
-                    "y": 227,
+                    "x": 1758,
+                    "y": 178,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
                     "id": "fountain_jabu_gateway -> jabu_fountain_gateway",
-                    "x": 1757,
-                    "y": 227,
+                    "x": 1758,
+                    "y": 178,
                     "category": "exit"
                 },
                 {
@@ -20767,11 +20763,9 @@
                     "y": 421,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20786,11 +20780,9 @@
                     "y": 70,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20805,11 +20797,9 @@
                     "y": 983,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20824,11 +20814,9 @@
                     "y": 227,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20843,11 +20831,9 @@
                     "y": 184,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20862,11 +20848,9 @@
                     "y": 248,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20877,21 +20861,19 @@
                 },
                 {
                     "id": "ice_cavern",
-                    "x": 1738,
-                    "y": 173,
+                    "x": 1704,
+                    "y": 204,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
                     "id": "fountain_ice_cavern_gateway -> ice_cavern_fountain_gateway",
-                    "x": 1738,
-                    "y": 173,
+                    "x": 1704,
+                    "y": 204,
                     "category": "exit"
                 },
                 {
@@ -20900,11 +20882,9 @@
                     "y": 302,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -20917,7 +20897,21 @@
                     "id": "castle_ganon",
                     "x": 998,
                     "y": 95,
-                    "category": "area"
+                    "category": "area",
+                    "visible": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_all"
+                        }
+                    }
+                },
+                {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "x": 998,
+                    "y": 95,
+                    "category": "exit"
                 }
             ]
         },
@@ -21083,11 +21077,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -21274,11 +21266,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -21943,11 +21933,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -22200,22 +22188,16 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
                     "id": "fortress_training_grounds_gateway -> training_grounds_fortress_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 }
             ]
         },
@@ -22352,7 +22334,7 @@
                     "category": "exit"
                 },
                 {
-                    "id": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
+                    "id": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -22509,11 +22491,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23021,6 +23001,12 @@
                     "category": "exit"
                 },
                 {
+                    "id": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "grounds_market_gateway -> market_grounds_gateway",
                     "x": 0,
                     "y": 0,
@@ -23274,11 +23260,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23421,11 +23405,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23586,11 +23568,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -23733,11 +23713,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24106,11 +24084,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24125,11 +24101,9 @@
                     "y": 605,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24348,7 +24322,14 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    },
                     "adult": true
                 },
                 "time": {
@@ -24382,11 +24363,7 @@
                     "id": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "ice_cavern.c_map",
@@ -24442,11 +24419,7 @@
                     "id": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway",
                     "x": 1738,
                     "y": 173,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "ice_cavern_mq.c_map",
@@ -24504,7 +24477,14 @@
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    },
                     "adult": true
                 },
                 "time": {
@@ -24538,11 +24518,7 @@
                     "id": "training_grounds_fortress_gateway -> fortress_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "training_grounds.c_lobby_left",
@@ -24682,11 +24658,7 @@
                     "id": "training_grounds_fortress_gateway -> fortress_training_grounds_gateway",
                     "x": 361,
                     "y": 302,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "training_grounds_mq.c_lobby_left",
@@ -24799,7 +24771,14 @@
             "filter": {
                 "era": {
                     "child": true,
-                    "adult": false
+                    "adult": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    }
                 },
                 "time": {
                     "day": true,
@@ -24882,11 +24861,9 @@
                     "y": 936,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -24926,10 +24903,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "deku_boss_gateway -> boss_deku_gateway",
+                    "x": 1714,
+                    "y": 664,
+                    "category": "exit"
+                },
+                {
                     "id": "deku.c_gohma",
                     "x": 1589,
                     "y": 358,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "deku.s_3f_compass_side_child",
@@ -24969,11 +24957,9 @@
                     "y": 936,
                     "category": "area",
                     "visible": {
-                        "type": "not",
-                        "el": {
-                            "type": "value",
-                            "el": "option[shuffle_dungeons]"
-                        }
+                        "type": "state",
+                        "el": "option[shuffle_dungeons]",
+                        "value": "shuffle_dungeons_off"
                     }
                 },
                 {
@@ -25009,7 +24995,7 @@
                 {
                     "id": "deku_mq.c_before_log",
                     "x": 1224,
-                    "y": 446,
+                    "y": 487,
                     "category": "location"
                 },
                 {
@@ -25025,10 +25011,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "deku_boss_gateway -> boss_deku_gateway",
+                    "x": 1714,
+                    "y": 664,
+                    "category": "exit"
+                },
+                {
                     "id": "deku_mq.c_gohma",
                     "x": 1589,
                     "y": 358,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "deku_mq.s_crate_near_map_child",
@@ -25050,8 +25047,49 @@
                 },
                 {
                     "id": "deku_mq.s_basement_back_room_child",
-                    "x": 668,
-                    "y": 122,
+                    "x": 636,
+                    "y": 31,
+                    "category": "location"
+                }
+            ]
+        },
+        "deku.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_deku_gateway -> deku_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "deku.c_gohma",
+                    "x": 313,
+                    "y": 304,
                     "category": "location"
                 }
             ]
@@ -25096,11 +25134,7 @@
                     "id": "dodongo_mountain_gateway -> mountain_dodongo_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "dodongo.c_lobby_salesman",
@@ -25157,16 +25191,32 @@
                     "category": "location"
                 },
                 {
+                    "id": "dodongo_boss_gateway -> boss_dodongo_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "dodongo.c_chest_above_dodongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "dodongo.c_dodongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "dodongo.s_east_corridor_bombable",
@@ -25210,11 +25260,7 @@
                     "id": "dodongo_mountain_gateway -> mountain_dodongo_gateway",
                     "x": 1133,
                     "y": 146,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "dodongo_mq.c_map",
@@ -25277,16 +25323,32 @@
                     "category": "location"
                 },
                 {
+                    "id": "dodongo_boss_gateway -> boss_dodongo_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "dodongo_mq.c_chest_above_dodongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "dodongo_mq.c_dodongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "dodongo_mq.s_time_block_room",
@@ -25320,6 +25382,53 @@
                 }
             ]
         },
+        "dodongo.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_dodongo_gateway -> dodongo_boss_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
+                    "id": "dodongo.c_chest_above_dodongo",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                },
+                {
+                    "id": "dodongo.c_dodongo",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
         "jabujabu": {
             "type": "dungeon",
             "tags": [],
@@ -25327,7 +25436,14 @@
             "filter": {
                 "era": {
                     "child": true,
-                    "adult": false
+                    "adult": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    }
                 },
                 "time": {
                     "day": true,
@@ -25360,11 +25476,7 @@
                     "id": "jabu_fountain_gateway -> fountain_jabu_gateway",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "jabujabu.c_elevator_dive_salesman",
@@ -25391,10 +25503,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "jabu_boss_gateway -> boss_jabu_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "jabujabu.c_barinade",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "jabujabu.s_b1_ruto1_child",
@@ -25426,11 +25549,7 @@
                     "id": "jabu_fountain_gateway -> fountain_jabu_gateway",
                     "x": 1757,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "jabujabu_mq.c_map",
@@ -25505,10 +25624,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "jabu_boss_gateway -> boss_jabu_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "jabujabu_mq.c_barinade",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "jabujabu_mq.s_boomerang_room",
@@ -25536,13 +25666,61 @@
                 }
             ]
         },
+        "jabujabu.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_jabu_gateway -> jabu_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "jabujabu.c_barinade",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
         "temple_forest": {
             "type": "dungeon",
             "tags": [],
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    },
                     "adult": true
                 },
                 "time": {
@@ -25576,11 +25754,7 @@
                     "id": "forest_temple_meadow_gateway -> meadow_forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_forest.c_entrance",
@@ -25661,10 +25835,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_forest.c_phantomganon",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_forest.s_entrance_adult",
@@ -25702,11 +25887,7 @@
                     "id": "forest_temple_meadow_gateway -> meadow_forest_temple_gateway",
                     "x": 1507,
                     "y": 421,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_forest_mq.c_entrance",
@@ -25781,10 +25962,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_forest_mq.c_phantomganon",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_forest_mq.s_first_hallway_adult",
@@ -25818,13 +26010,61 @@
                 }
             ]
         },
+        "temple_forest.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_forest.c_phantomganon",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
         "temple_fire": {
             "type": "dungeon",
             "tags": [],
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    },
                     "adult": true
                 },
                 "time": {
@@ -25858,11 +26098,7 @@
                     "id": "fire_temple_crater_gateway -> crater_fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_fire.c_near_boss",
@@ -25949,10 +26185,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_fire.c_volvagia",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_fire.s_big_lava_time_block_adult",
@@ -25990,11 +26237,7 @@
                     "id": "fire_temple_crater_gateway -> crater_fire_temple_gateway",
                     "x": 1306,
                     "y": 70,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_fire_mq.c_chest_near_boss",
@@ -26069,10 +26312,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_fire_mq.c_volvagia",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_fire_mq.s_big_lava_adult",
@@ -26106,13 +26360,61 @@
                 }
             ]
         },
+        "temple_fire.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_fire.c_volvagia",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
         "temple_water": {
             "type": "dungeon",
             "tags": [],
             "visible": true,
             "filter": {
                 "era": {
-                    "child": false,
+                    "child": {
+                        "type": "not",
+                        "el": {
+                            "type": "state",
+                            "el": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        }
+                    },
                     "adult": true
                 },
                 "time": {
@@ -26146,11 +26448,7 @@
                     "id": "water_temple_lake_gateway -> lake_water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_water.c_map",
@@ -26213,10 +26511,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_water_boss_gateway -> boss_temple_water_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_water.c_morpha",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_water.s_lowest_level_south_adult",
@@ -26254,11 +26563,7 @@
                     "id": "water_temple_lake_gateway -> lake_water_temple_gateway",
                     "x": 693,
                     "y": 983,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_water_mq.c_map",
@@ -26297,10 +26602,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_water_boss_gateway -> boss_temple_water_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_water_mq.c_morpha",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_water_mq.s_south_basement_adult",
@@ -26328,6 +26644,47 @@
                 },
                 {
                     "id": "temple_water_mq.s_before_upper_water_switch",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "temple_water.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_temple_water_gateway -> temple_water_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_water.c_morpha",
                     "x": 0,
                     "y": 0,
                     "category": "location"
@@ -26374,11 +26731,7 @@
                     "id": "shadow_temple_graveyard_gateway -> graveyard_shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_shadow.c_map",
@@ -26483,10 +26836,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_shadow.c_bongobongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_shadow.s_invisible_blade_adult",
@@ -26524,11 +26888,7 @@
                     "id": "shadow_temple_graveyard_gateway -> graveyard_shadow_temple_gateway",
                     "x": 1459,
                     "y": 227,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_shadow_mq.c_compass",
@@ -26651,10 +27011,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_shadow_mq.c_bongobongo",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_shadow_mq.s_crusher_room_adult",
@@ -26682,6 +27053,47 @@
                 },
                 {
                     "id": "temple_shadow_mq.s_near_boss_adult",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "temple_shadow.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_shadow.c_bongobongo",
                     "x": 0,
                     "y": 0,
                     "category": "location"
@@ -26728,11 +27140,7 @@
                     "id": "spirit_temple_colossus_gateway -> colossus_spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_spirit.c_child_left",
@@ -26849,10 +27257,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_spirit.c_twinrova",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_spirit.s_childsegment_left",
@@ -26890,11 +27309,7 @@
                     "id": "spirit_temple_colossus_gateway -> colossus_spirit_temple_gateway",
                     "x": 48,
                     "y": 184,
-                    "category": "exit",
-                    "visible": {
-                        "type": "value",
-                        "el": "option[shuffle_dungeons]"
-                    }
+                    "category": "exit"
                 },
                 {
                     "id": "temple_spirit_mq.c_entrance_front_left",
@@ -27029,10 +27444,21 @@
                     "category": "location"
                 },
                 {
+                    "id": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
+                {
                     "id": "temple_spirit_mq.c_twinrova",
                     "x": 0,
                     "y": 0,
-                    "category": "location"
+                    "category": "location",
+                    "visible": {
+                        "type": "state",
+                        "el": "option[shuffle_bosses]",
+                        "value": "shuffle_bosses_off"
+                    }
                 },
                 {
                     "id": "temple_spirit_mq.s_sun_block_room",
@@ -27060,6 +27486,47 @@
                 },
                 {
                     "id": "temple_spirit_mq.s_iron_knuckles_west",
+                    "x": 0,
+                    "y": 0,
+                    "category": "location"
+                }
+            ]
+        },
+        "temple_spirit.bossarea": {
+            "type": "bossarea",
+            "tags": [],
+            "visible": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "listContents": true,
+            "accessPenetration": true,
+            "icon": "images/icons/area_boss.svg",
+            "areaTags": false,
+            "map": {
+                "active": true,
+                "color": "black",
+                "background": "bossarea/deku.png",
+                "width": 616,
+                "height": 797,
+                "zoom": 60
+            },
+            "list": [
+                {
+                    "id": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway",
+                    "x": 496,
+                    "y": 767,
+                    "category": "exit"
+                },
+                {
+                    "id": "temple_spirit.c_twinrova",
                     "x": 0,
                     "y": 0,
                     "category": "location"
@@ -27102,6 +27569,12 @@
                 "zoom": 0
             },
             "list": [
+                {
+                    "id": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_ganon.c_under_bridge_salesman_1",
                     "x": 0,
@@ -27230,6 +27703,12 @@
                 }
             ],
             "list_mq": [
+                {
+                    "id": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
+                    "x": 0,
+                    "y": 0,
+                    "category": "exit"
+                },
                 {
                     "id": "castle_ganon_mq.c_under_bridge_salesman_1",
                     "x": 0,
@@ -28505,7 +28984,7 @@
             },
             "list": [
                 {
-                    "id": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+                    "id": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -34567,8 +35046,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -34596,8 +35079,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34615,8 +35102,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -34644,8 +35135,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34663,8 +35158,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -34692,8 +35191,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34711,8 +35214,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -34740,8 +35247,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34759,8 +35270,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -34788,8 +35303,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34807,8 +35326,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -34836,8 +35359,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34854,8 +35381,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -34883,8 +35414,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34901,8 +35436,12 @@
                 "child"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -34930,8 +35469,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34949,8 +35492,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -34978,8 +35525,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -34997,8 +35548,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35026,8 +35581,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35045,8 +35604,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35074,8 +35637,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35093,8 +35660,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35122,8 +35693,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35141,8 +35716,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35170,8 +35749,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35189,8 +35772,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35218,8 +35805,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35237,8 +35828,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35266,8 +35861,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35285,8 +35884,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35314,8 +35917,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35333,8 +35940,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35362,8 +35973,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35381,8 +35996,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35410,8 +36029,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35430,8 +36053,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35459,8 +36086,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35479,8 +36110,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35508,8 +36143,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35527,8 +36166,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": false,
             "filter": {
@@ -35556,8 +36199,12 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -35575,8 +36222,12 @@
                 "adult"
             ],
             "visible": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
             },
             "visibleRootOnly": true,
             "filter": {
@@ -35604,8 +36255,110 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_dungeons]"
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_dungeons]",
+                    "value": "shuffle_dungeons_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway": {
+            "type": "dungeon_outer",
+            "target": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway",
+            "logicAccess": "castle_grounds_ganons_castle_gateway",
+            "area": "castle_ganon_outside",
+            "tags": [
+                "castle_ganon_outside",
+                "castle_ganon",
+                "dungeon",
+                "adult"
+            ],
+            "visible": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "visibleRootOnly": false,
+            "filter": {
+                "era": {
+                    "child": false,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/dungeon_boss.svg",
+            "bindsTo": [
+                "dungeon_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true
+        },
+        "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway": {
+            "type": "dungeon_inner",
+            "target": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway",
+            "logicAccess": "ganons_castle_castle_grounds_gateway",
+            "area": "castle_ganon",
+            "tags": [
+                "castle_ganon_outside",
+                "castle_ganon",
+                "dungeon",
+                "adult"
+            ],
+            "visible": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": false,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "el": {
+                            "type": "value",
+                            "el": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "images/icons/dungeon_boss.svg",
+            "bindsTo": [
+                "dungeon_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "state",
+                "el": "option[shuffle_dungeons]",
+                "value": "shuffle_dungeons_all"
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
@@ -38393,7 +39146,7 @@
             ],
             "visible": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_child]"
             },
             "visibleRootOnly": false,
             "filter": {
@@ -38428,10 +39181,7 @@
             ],
             "unbindable": true,
             "ignoreBound": true,
-            "entranceActive": {
-                "type": "value",
-                "el": "option[shuffle_spawns]"
-            },
+            "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false
         },
@@ -38454,7 +39204,7 @@
             "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_child]"
             },
             "includeInactiveEntrances": true,
             "isBiDir": false
@@ -38473,7 +39223,7 @@
             ],
             "visible": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_adult]"
             },
             "visibleRootOnly": false,
             "filter": {
@@ -38532,7 +39282,7 @@
             "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
-                "el": "option[shuffle_spawns]"
+                "el": "option[shuffle_spawn_adult]"
             },
             "includeInactiveEntrances": true,
             "isBiDir": false
@@ -40687,9 +41437,9 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway": {
+        "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway": {
             "type": "grotto_outer",
-            "target": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+            "target": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
             "logicAccess": "woods_scrubs_grotto_gateway",
             "area": "woods",
             "tags": [
@@ -40738,10 +41488,10 @@
             "includeInactiveEntrances": false,
             "isBiDir": true
         },
-        "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway": {
+        "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway": {
             "type": "grotto_inner",
-            "target": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
-            "logicAccess": "near_scrubs_woods_gateway",
+            "target": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
+            "logicAccess": "scrubs_grotto_woods_gateway",
             "area": "woods.near_meadow_grotto",
             "tags": [
                 "grotto",
@@ -42244,7 +42994,7 @@
         "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway": {
             "type": "interior_inner",
             "target": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
-            "logicAccess": "temple_of_time",
+            "logicAccess": "temple_of_time_tot_entrance_gateway",
             "area": "castle_town.temple_of_time",
             "tags": [
                 "interior",
@@ -47226,6 +47976,726 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true
+        },
+        "deku_boss_gateway -> boss_deku_gateway": {
+            "type": "boss_outer",
+            "target": "boss_deku_gateway -> deku_boss_gateway",
+            "logicAccess": "deku_boss_gateway",
+            "area": "deku",
+            "tags": [
+                "boss",
+                "deku"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_deku_gateway -> deku_boss_gateway": {
+            "type": "boss_inner",
+            "target": "deku_boss_gateway -> boss_deku_gateway",
+            "logicAccess": "boss_deku_gateway",
+            "area": "deku.bossarea",
+            "tags": [
+                "boss",
+                "deku"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "dodongo_boss_gateway -> boss_dodongo_gateway": {
+            "type": "boss_outer",
+            "target": "boss_dodongo_gateway -> dodongo_boss_gateway",
+            "logicAccess": "dodongo_boss_gateway",
+            "area": "dodongo",
+            "tags": [
+                "boss",
+                "dodongo"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_dodongo_gateway -> dodongo_boss_gateway": {
+            "type": "boss_inner",
+            "target": "dodongo_boss_gateway -> boss_dodongo_gateway",
+            "logicAccess": "boss_dodongo_gateway",
+            "area": "dodongo.bossarea",
+            "tags": [
+                "boss",
+                "dodongo"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "jabu_boss_gateway -> boss_jabu_gateway": {
+            "type": "boss_outer",
+            "target": "boss_jabu_gateway -> jabu_boss_gateway",
+            "logicAccess": "jabu_boss_gateway",
+            "area": "jabujabu",
+            "tags": [
+                "boss",
+                "jabu"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_jabu_gateway -> jabu_boss_gateway": {
+            "type": "boss_inner",
+            "target": "jabu_boss_gateway -> boss_jabu_gateway",
+            "logicAccess": "boss_jabu_gateway",
+            "area": "jabujabu.bossarea",
+            "tags": [
+                "boss",
+                "jabu"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "temple_forest_boss_gateway -> boss_temple_forest_gateway": {
+            "type": "boss_outer",
+            "target": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
+            "logicAccess": "temple_forest_boss_gateway",
+            "area": "temple_forest",
+            "tags": [
+                "boss",
+                "temple_forest"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_temple_forest_gateway -> temple_forest_boss_gateway": {
+            "type": "boss_inner",
+            "target": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+            "logicAccess": "boss_temple_forest_gateway",
+            "area": "temple_forest.bossarea",
+            "tags": [
+                "boss",
+                "temple_forest"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "temple_fire_boss_gateway -> boss_temple_fire_gateway": {
+            "type": "boss_outer",
+            "target": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
+            "logicAccess": "temple_fire_boss_gateway",
+            "area": "temple_fire",
+            "tags": [
+                "boss",
+                "temple_fire"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_temple_fire_gateway -> temple_fire_boss_gateway": {
+            "type": "boss_inner",
+            "target": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+            "logicAccess": "boss_temple_fire_gateway",
+            "area": "temple_fire.bossarea",
+            "tags": [
+                "boss",
+                "temple_fire"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "temple_water_boss_gateway -> boss_temple_water_gateway": {
+            "type": "boss_outer",
+            "target": "boss_temple_water_gateway -> temple_water_boss_gateway",
+            "logicAccess": "temple_water_boss_gateway",
+            "area": "temple_water",
+            "tags": [
+                "boss",
+                "temple_water"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_temple_water_gateway -> temple_water_boss_gateway": {
+            "type": "boss_inner",
+            "target": "temple_water_boss_gateway -> boss_temple_water_gateway",
+            "logicAccess": "boss_temple_water_gateway",
+            "area": "temple_water.bossarea",
+            "tags": [
+                "boss",
+                "temple_water"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "temple_shadow_boss_gateway -> boss_temple_shadow_gateway": {
+            "type": "boss_outer",
+            "target": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
+            "logicAccess": "temple_shadow_boss_gateway",
+            "area": "temple_shadow",
+            "tags": [
+                "boss",
+                "temple_shadow"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_temple_shadow_gateway -> temple_shadow_boss_gateway": {
+            "type": "boss_inner",
+            "target": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+            "logicAccess": "boss_temple_shadow_gateway",
+            "area": "temple_shadow.bossarea",
+            "tags": [
+                "boss",
+                "temple_shadow"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "temple_spirit_boss_gateway -> boss_temple_spirit_gateway": {
+            "type": "boss_outer",
+            "target": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway",
+            "logicAccess": "temple_spirit_boss_gateway",
+            "area": "temple_spirit",
+            "tags": [
+                "boss",
+                "temple_spirit"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_inner"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
+        },
+        "boss_temple_spirit_gateway -> temple_spirit_boss_gateway": {
+            "type": "boss_inner",
+            "target": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
+            "logicAccess": "boss_temple_spirit_gateway",
+            "area": "temple_spirit.bossarea",
+            "tags": [
+                "boss",
+                "temple_spirit"
+            ],
+            "visible": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "visibleRootOnly": true,
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                }
+            },
+            "icon": "images/icons/area_boss.svg",
+            "bindsTo": [
+                "boss_outer"
+            ],
+            "ignoreBound": false,
+            "entranceActive": {
+                "type": "not",
+                "el": {
+                    "type": "state",
+                    "el": "option[shuffle_bosses]",
+                    "value": "shuffle_bosses_off"
+                }
+            },
+            "includeInactiveEntrances": false,
+            "isBiDir": true,
+            "ignoreMixedEntrances": true
         }
     }
 }
