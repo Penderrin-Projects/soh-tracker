@@ -18,6 +18,7 @@ const SRC_PATH = path.resolve(__dirname, "src");
 const LOGIC_PATH = path.resolve(__dirname, "logic");
 const DEV_PATH = path.resolve(__dirname, "dev");
 const PRD_PATH = path.resolve(__dirname, "prod");
+const EDT_PATH = path.resolve(__dirname, "editor/build");
 
 const MODULE_PATHS = {
     emcJS: path.resolve(NODE_FOLDER, "emcjs/src"),
@@ -77,9 +78,7 @@ function copyEmcJS(dest = DEV_PATH) {
 function copyTrackerEditor(dest = DEV_PATH) {
     const FILES = [
         `${MODULE_PATHS.JSEditors}/**/*.js`,
-        `!${MODULE_PATHS.JSEditors}/node_modules/**/*.js`,
-        `!${MODULE_PATHS.JSEditors}/*.js`,
-        `${MODULE_PATHS.JSEditors}/EditorChoice.js`
+        `!${MODULE_PATHS.JSEditors}/node_modules/**/*.js`
     ];
     const SRC = MODULE_PATHS.JSEditors;
     const DST = `${dest}/editors`;
@@ -248,16 +247,21 @@ function copyFonts(dest = DEV_PATH) {
     return res;
 }
 
-function finish(dest, done) {
+function finish(dest, deleteUnused, done) {
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
-    FileIndex.finish(dest, undefined, ImportAnalyzer.getUsedImports(
-        dest,
-        path.resolve(dest, "script/app.js"),
-        path.resolve(dest, "sw.js"),
-        path.resolve(dest, "index.js"),
-        path.resolve(dest, "script/StateRecovery.js"),
-        path.resolve(dest, "detached/index.js")
-    ), /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/);
+    const config = {
+        usedImports: ImportAnalyzer.getUsedImports(
+            dest,
+            path.resolve(dest, "script/app.js"),
+            path.resolve(dest, "sw.js"),
+            path.resolve(dest, "index.js"),
+            path.resolve(dest, "script/StateRecovery.js"),
+            path.resolve(dest, "detached/index.js")
+        ),
+        ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/,
+        deleteUnused: deleteUnused
+    };
+    FileIndex.finish(dest, undefined, config);
     done();
 }
 
@@ -280,7 +284,7 @@ export const build = gulp.series(
         copyDetachedScript.bind(this, PRD_PATH),
         copyChangelog.bind(this, PRD_PATH)
     ),
-    finish.bind(this, PRD_PATH)
+    finish.bind(this, PRD_PATH, true)
 );
 
 export const buildDev = gulp.series(
@@ -302,7 +306,29 @@ export const buildDev = gulp.series(
         copyDetachedScript.bind(this, DEV_PATH),
         copyChangelog.bind(this, DEV_PATH)
     ),
-    finish.bind(this, DEV_PATH)
+    finish.bind(this, DEV_PATH, true)
+);
+
+export const buildEditor = gulp.series(
+    gulp.parallel(
+        copyHTML.bind(this, EDT_PATH),
+        copyJSON.bind(this, EDT_PATH),
+        copyLogic.bind(this, EDT_PATH),
+        copyI18N.bind(this, EDT_PATH),
+        copyI18NFragments.bind(this, EDT_PATH),
+        copyImg.bind(this, EDT_PATH),
+        copyCSS.bind(this, EDT_PATH),
+        copyFonts.bind(this, EDT_PATH),
+        copyScript.bind(this, EDT_PATH),
+        copyGameTrackerJS.bind(this, EDT_PATH),
+        copyEmcJS.bind(this, EDT_PATH),
+        copyTrackerEditor.bind(this, EDT_PATH),
+        copyRTCClient.bind(this, EDT_PATH),
+        copyInitializer.bind(this, EDT_PATH),
+        copyDetachedScript.bind(this, EDT_PATH),
+        copyChangelog.bind(this, EDT_PATH)
+    ),
+    finish.bind(this, EDT_PATH, false)
 );
 
 export const watch = function() {
