@@ -67146,6 +67146,20 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option[ganon_castle_open]",
+                            "value": "ganon_castle_open_hearts"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "function[has_hearts](ganon_bosskey_hearts){child}"
+                        }
+                    ]
                 }
             ]
         },
@@ -67241,6 +67255,20 @@
                                     "el": "option[ganon_castle_skulltulas]"
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    "type": "and",
+                    "el": [
+                        {
+                            "type": "state",
+                            "el": "option[ganon_castle_open]",
+                            "value": "ganon_castle_open_hearts"
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "function[has_hearts](ganon_bosskey_hearts){adult}"
                         }
                     ]
                 }
@@ -70304,6 +70332,32 @@
                 }
             ]
         },
+        "function[can_use](item[shield_mirror]){child}": {
+            "type": "and",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item[shield_mirror]"
+                },
+                {
+                    "type": "mixin",
+                    "el": "mixin[is_adult]{child}"
+                }
+            ]
+        },
+        "function[can_use](item[shield_mirror]){adult}": {
+            "type": "and",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item[shield_mirror]"
+                },
+                {
+                    "type": "mixin",
+                    "el": "mixin[is_adult]{adult}"
+                }
+            ]
+        },
         "function[can_use](item[stick]){child}": {
             "type": "and",
             "el": [
@@ -71011,6 +71065,58 @@
                 {
                     "type": "value",
                     "el": "option[dungeon_count_bridge]"
+                }
+            ]
+        },
+        "function[has_hearts](lacs_hearts){child}": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "calculated[hearts_total]"
+                },
+                {
+                    "type": "value",
+                    "el": "option[heart_count_lacs]"
+                }
+            ]
+        },
+        "function[has_hearts](lacs_hearts){adult}": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "calculated[hearts_total]"
+                },
+                {
+                    "type": "value",
+                    "el": "option[heart_count_lacs]"
+                }
+            ]
+        },
+        "function[has_hearts](ganon_bosskey_hearts){child}": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "calculated[hearts_total]"
+                },
+                {
+                    "type": "value",
+                    "el": "option[heart_count_bridge]"
+                }
+            ]
+        },
+        "function[has_hearts](ganon_bosskey_hearts){adult}": {
+            "type": "gte",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "calculated[hearts_total]"
+                },
+                {
+                    "type": "value",
+                    "el": "option[heart_count_bridge]"
                 }
             ]
         }

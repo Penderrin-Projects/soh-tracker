@@ -17,6 +17,13 @@
             "adult"
         ]
     },
+    "starting_hearts": {
+        "category": "options",
+        "type": "number",
+        "default": 3,
+        "min": 3,
+        "max": 20
+    },
     "consider_buyable": {
         "category": "options",
         "type": "check",

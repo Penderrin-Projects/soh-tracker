@@ -35,6 +35,7 @@ import "/script/util/logic/augment/AugmentOptions.js";
 import "/script/util/logic/augment/AugmentDungeons.js";
 import "/script/util/logic/augment/AugmentZoraLetter.js";
 import "/script/util/logic/augment/AugmentReachEpona.js";
+import "/script/util/logic/augment/AugmentStartingHearts.js";
 import "/script/util/A11y.js";
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
