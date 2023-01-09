@@ -30,10 +30,14 @@
 
     --input-text-color: #000000;
     --input-back-color: #ffffff;
+    --input-invalid-text-color: #db0000;
+    --input-invalid-back-color: #ffcccc;
+    --input-disabled-text-color: #424242;
+    --input-disabled-back-color: #999999;
     /* all; top_bottom right_left; top right bottom left*/
     --input-border-color: #000000;
     --input-button-color: #cccccc;
-    --input-color-hover: #999999;
+    --input-color-hover: #eeeeee;
     --input-focus-color: #06b5ff;
 
     /* slider */
