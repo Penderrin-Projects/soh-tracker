@@ -16,7 +16,7 @@ const STYLE = new GlobalStyle(`
     background-size: contain;
     background-image: url("/images/songs/lines.svg");
 }
-:host:before {
+:host::before {
     width: 50px;
     height: 100px;
     background-repeat: no-repeat;

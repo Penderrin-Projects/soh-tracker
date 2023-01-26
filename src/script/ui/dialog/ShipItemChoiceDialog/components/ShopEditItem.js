@@ -35,7 +35,7 @@ const TPL = new Template(`
             height: 10px;
             text-align: right;
         }
-        #price:after {
+        #price::after {
             display: inline-block;
             width: 10px;
             height: 10px;

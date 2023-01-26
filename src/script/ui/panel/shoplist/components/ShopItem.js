@@ -90,7 +90,7 @@ const STYLE = new GlobalStyle(`
     flex: 1;
     text-align: right;
 }
-#price:after {
+#price::after {
     display: inline-block;
     width: 10px;
     height: 10px;

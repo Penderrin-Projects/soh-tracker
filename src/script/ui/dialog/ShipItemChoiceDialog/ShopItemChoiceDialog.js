@@ -63,7 +63,7 @@ const STYLE = new GlobalStyle(`
 #price[readonly] {
     box-shadow: none;
 }
-#rupee:after {
+#rupee::after {
     display: inline-block;
     width: 28px;
     height: 28px;
