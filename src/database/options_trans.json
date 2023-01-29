@@ -75,6 +75,7 @@
                 "medallions": "ganon_castle_open_medallion",
                 "stones": "ganon_castle_open_stones",
                 "tokens": "ganon_castle_open_skulltulas",
+                "hearts": "ganon_castle_open_hearts",
                 "open": "ganon_castle_open_open",
                 "random": "ganon_castle_open_default"
             }
@@ -83,6 +84,7 @@
         "bridge_stones": "stone_count_bridge",
         "bridge_medallions": "medallion_count_bridge",
         "bridge_rewards": "dungeon_count_bridge",
+        "bridge_hearts": "heart_count_bridge",
         "triforce_hunt": {
             "name": "triforce_hunt",
             "values": {
@@ -313,6 +315,7 @@
                 "medallions": "keylogic_medallions",
                 "dungeons": "keylogic_dungeons",
                 "tokens": "keylogic_tokens",
+                "hearts": "keylogic_hearts",
                 "triforce": "keylogic_triforce"
             }
         },
@@ -323,13 +326,15 @@
                 "medallions": "light_arrow_cutscene_medallions",
                 "stones": "light_arrow_cutscene_stones",
                 "dungeons": "light_arrow_cutscene_dungeons",
-                "tokens": "light_arrow_cutscene_skulltulas"
+                "tokens": "light_arrow_cutscene_skulltulas",
+                "hearts": "light_arrow_cutscene_hearts"
             }
         },
         "lacs_tokens": "lacs_skulltulas",
         "lacs_stones": "stone_count_lacs",
         "lacs_medallions": "medallion_count_lacs",
         "lacs_rewards": "dungeon_count_lacs",
+        "lacs_hearts": "heart_count_lacs",
         "logic_earliest_adult_trade": {
             "name": "trade_sequence_start_item",
             "values": {
@@ -353,6 +358,7 @@
                 "random": "child"
             }
         },
+        "starting_hearts": "starting_hearts",
         "trials": "number_trials",
         "trials_random": "trials_random",
         "allowed_tricks": [
@@ -762,7 +768,6 @@
                 "Death Mountain Crater Upper Nearby -> Top of Crater Grotto": "crater_bomb_grotto_gateway -> bomb_grotto_crater_gateway",
                 "Death Mountain Summit -> Mountain Bombable Grotto": "mountain_cow_grotto_gateway -> cow_grotto_mountain_gateway",
                 "Desert Colossus -> Desert Colossus Grotto": "colossus_grotto_gateway -> grotto_colossus_gateway",
-                "Gerudo Fortress -> Gerudo Fortress Storms Grotto": "fortress_storms_grotto_gateway -> storms_grotto_fortress_gateway",
                 "Gerudo Valley -> Gerudo Valley Octorok Grotto": "valley_octorok_grotto_gateway -> octorok_grotto_valley_gateway",
                 "Gerudo Valley Far Side -> Gerudo Valley Storms Grotto": "valley_storms_grotto_gateway -> storms_grotto_valley_gateway",
                 "Goron City -> Goron City Grotto": "goron_grotto_gateway -> grotto_goron_gateway",
@@ -801,7 +806,7 @@
                 "Death Mountain Summit -> DMT Cow Grotto": "mountain_cow_grotto_gateway -> cow_grotto_mountain_gateway",
                 "Desert Colossus -> Colossus Grotto": "colossus_grotto_gateway -> grotto_colossus_gateway",
                 "GV Fortress Side -> GV Storms Grotto": "valley_storms_grotto_gateway -> storms_grotto_valley_gateway",
-                "Gerudo Fortress -> GF Storms Grotto": "fortress_storms_grotto_gateway -> storms_grotto_fortress_gateway",
+                "GF Entrances Behind Crates -> GF Storms Grotto": "fortress_storms_grotto_gateway -> storms_grotto_fortress_gateway",
                 "Gerudo Valley -> GV Octorok Grotto": "valley_octorok_grotto_gateway -> octorok_grotto_valley_gateway",
                 "Goron City -> GC Grotto": "goron_grotto_gateway -> grotto_goron_gateway",
                 "Graveyard -> Graveyard Royal Familys Tomb": "graveyard_composers_grave_gateway -> composers_grave_graveyard_gateway",

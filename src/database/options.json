@@ -311,6 +311,7 @@
             "keylogic_medallions",
             "keylogic_dungeons",
             "keylogic_tokens",
+            "keylogic_hearts",
             "keylogic_triforce"
         ]
     },
@@ -505,9 +506,9 @@
             "ganon_castle_open_medallion",
             "ganon_castle_open_stones",
             "ganon_castle_open_skulltulas",
+            "ganon_castle_open_hearts",
             "ganon_castle_open_default",
-            "ganon_castle_open_open",
-            "ganon_castle_open_hearts"
+            "ganon_castle_open_open"
         ]
     },
     "ganon_castle_skulltulas": {

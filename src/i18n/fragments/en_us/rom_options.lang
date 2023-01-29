@@ -28,11 +28,13 @@ option[lacs_skulltulas]=Required Skulltulas for LACS
 option[stone_count_lacs]=Required Spiritual Stones for LACS
 option[medallion_count_lacs]=Required Medallions for LACS
 option[dungeon_count_lacs]=Required Dungeon Rewards for LACS
+option[heart_count_lacs]=Required Hearts for LACS
 
 option[ganon_castle_skulltulas]=Required Skulltulas for Rainbow Bridge
 option[stone_count_bridge]=Required Spiritual Stones for Rainbow Bridge
 option[medallion_count_bridge]=Required Medallions for Rainbow Bridge
 option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
+option[heart_count_bridge]=Required Hearts for Rainbow Bridge
 
 option[skullsanity]=Skullsanity (do not autocount) [WIP]
 
@@ -41,6 +43,7 @@ option[deadly_bonks]=Bonks Do Damage
 option[blue_fire_arrows]=Blue Fire Arrows
 option[chicken_count]=Cucco Count
 option[plant_beans]=Plant Magic Beans
+option[starting_hearts]=Starting Hearts
 
 # GENERAL - AGE
 option[starting_age]=Starting Age
@@ -126,19 +129,21 @@ option[number_trials]=Number of Trials Needed
 
 # LACS AND BRIDGE - LACS
 option[light_arrow_cutscene]=Light Arrow Check
-light_arrow_cutscene_vanilla=Vanilla Requirements
-light_arrow_cutscene_stones=Spirital Stones Requirements
-light_arrow_cutscene_medallions=Medallions Requirements
-light_arrow_cutscene_dungeons=Dungeons Rewards Requirements
-light_arrow_cutscene_skulltulas=Skulltulas Token Requirements
+light_arrow_cutscene_vanilla=Vanilla Requirement
+light_arrow_cutscene_stones=Spirital Stones Required
+light_arrow_cutscene_medallions=Medallions Required
+light_arrow_cutscene_dungeons=Dungeons Rewards Required
+light_arrow_cutscene_skulltulas=Skulltulas Token Required
+light_arrow_cutscene_hearts=Hearts Required
 
 # LACS AND BRIDGE - GANON
 option[ganon_castle_open]=Ganons Castle entry
 ganon_castle_open_default=Vanilla Requirements
-ganon_castle_open_dungeon=Dungeons Rewards Requirements
-ganon_castle_open_medallion=Medallions Requirements
-ganon_castle_open_stones=Spiritual Stones Requirements
-ganon_castle_open_skulltulas=Skulltulas Tokens Requirements
+ganon_castle_open_dungeon=Dungeons Rewards Required
+ganon_castle_open_medallion=Medallions Required
+ganon_castle_open_stones=Spiritual Stones Required
+ganon_castle_open_skulltulas=Skulltulas Tokens Required
+ganon_castle_open_hearts=Hearts Required
 ganon_castle_open_triforce=Triforce Hunt
 ganon_castle_open_open=Always open
 
@@ -168,4 +173,5 @@ keylogic_stones=Stones
 keylogic_medallions=Medallions
 keylogic_dungeons=Dungeons
 keylogic_tokens=Tokens
+keylogic_hearts=Hearts
 keylogic_triforce=Triforce Hunt

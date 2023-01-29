@@ -3,6 +3,8 @@ entrance_type[empty]=Generic empty area
 
 entrance_type[dungeon_inner]=Inside Dungeon
 entrance_type[dungeon_outer]=Outside Dungeon
+entrance_type[boss_inner]=Inside Boss
+entrance_type[boss_outer]=Outside Boss
 entrance_type[grotto_inner]=Inside Grotto
 entrance_type[grotto_outer]=Outside Grotto
 entrance_type[interior_inner]=Inside Interior
