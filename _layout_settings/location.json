@@ -1,0 +1,68 @@
+{
+    "type": {
+        "type": "search-select",
+        "default": "chest",
+        "values": [
+            "chest",
+            "skulltula",
+            "gossipstone",
+            "scrub",
+            "bean"
+        ],
+        "resettable": true
+    },
+    "logicAccess": {
+        "type": "search-select",
+        "default": "",
+        "values": [
+            "",
+            "all logic access values"
+        ],
+        "resettable": true
+    },
+    "visible": {
+        "type": "logic",
+        "default": false,
+        "resettable": true
+    },
+    "filter": {
+        "type": "filter-list",
+        "default": {},
+        "resettable": true
+    },
+    "filter-list": {
+        "era": {
+            "child": true,
+            "adult": false
+        },
+        "time": {
+            "day": true,
+            "night": true
+        },
+        "chests": {
+            "false": false
+        },
+        "show_done": {
+            "false": {
+                "type": "not",
+                "el": {
+                    "type": "value",
+                    "el": "$IS_DONE"
+                }
+            }
+        }
+    },
+    "icon": {
+        "type": "icon",
+        "base": "images/icons/",
+        "values": [
+            "chest.svg",
+            "skulltula.svg",
+            "gossipstone.svg",
+            "scrub.svg",
+            "bean.svg"
+        ],
+        "default": "chest.svg",
+        "resettable": true
+    }
+}

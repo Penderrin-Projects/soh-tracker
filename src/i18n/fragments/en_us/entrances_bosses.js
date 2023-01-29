@@ -12,24 +12,24 @@ const ENTRANCES = [
         "boss_jabu_gateway": "Barinade"
     },
     {
-        "temple_forest_boss_gateway": "Forest Temple",
-        "boss_temple_forest_gateway": "Phantom Ganon"
+        "forest_temple_boss_gateway": "Forest Temple",
+        "boss_forest_temple_gateway": "Phantom Ganon"
     },
     {
-        "temple_fire_boss_gateway": "Fire Temple",
-        "boss_temple_fire_gateway": "Volvagia"
+        "fire_temple_boss_gateway": "Fire Temple",
+        "boss_fire_temple_gateway": "Volvagia"
     },
     {
-        "temple_water_boss_gateway": "Water Temple",
-        "boss_temple_water_gateway": "Morpha"
+        "water_temple_boss_gateway": "Water Temple",
+        "boss_water_temple_gateway": "Morpha"
     },
     {
-        "temple_shadow_boss_gateway": "Shadow Temple",
-        "boss_temple_shadow_gateway": "Bongo Bongo"
+        "shadow_temple_boss_gateway": "Shadow Temple",
+        "boss_shadow_temple_gateway": "Bongo Bongo"
     },
     {
-        "temple_spirit_boss_gateway": "Spirit Temple",
-        "boss_temple_spirit_gateway": "Twinrova"
+        "spirit_temple_boss_gateway": "Spirit Temple",
+        "boss_spirit_temple_gateway": "Twinrova"
     }
 ];
 

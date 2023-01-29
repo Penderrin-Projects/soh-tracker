@@ -25835,7 +25835,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+                    "id": "forest_temple_boss_gateway -> boss_forest_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -25962,7 +25962,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
+                    "id": "forest_temple_boss_gateway -> boss_forest_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -26038,7 +26038,7 @@
             },
             "list": [
                 {
-                    "id": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
+                    "id": "boss_forest_temple_gateway -> forest_temple_boss_gateway",
                     "x": 496,
                     "y": 767,
                     "category": "exit"
@@ -26185,7 +26185,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+                    "id": "fire_temple_boss_gateway -> boss_fire_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -26312,7 +26312,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
+                    "id": "fire_temple_boss_gateway -> boss_fire_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -26388,7 +26388,7 @@
             },
             "list": [
                 {
-                    "id": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
+                    "id": "boss_fire_temple_gateway -> fire_temple_boss_gateway",
                     "x": 496,
                     "y": 767,
                     "category": "exit"
@@ -26511,7 +26511,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_water_boss_gateway -> boss_temple_water_gateway",
+                    "id": "water_temple_boss_gateway -> boss_water_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -26602,7 +26602,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_water_boss_gateway -> boss_temple_water_gateway",
+                    "id": "water_temple_boss_gateway -> boss_water_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -26678,7 +26678,7 @@
             },
             "list": [
                 {
-                    "id": "boss_temple_water_gateway -> temple_water_boss_gateway",
+                    "id": "boss_water_temple_gateway -> water_temple_boss_gateway",
                     "x": 496,
                     "y": 767,
                     "category": "exit"
@@ -26836,7 +26836,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+                    "id": "shadow_temple_boss_gateway -> boss_shadow_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27011,7 +27011,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
+                    "id": "shadow_temple_boss_gateway -> boss_shadow_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27087,7 +27087,7 @@
             },
             "list": [
                 {
-                    "id": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
+                    "id": "boss_shadow_temple_gateway -> shadow_temple_boss_gateway",
                     "x": 496,
                     "y": 767,
                     "category": "exit"
@@ -27257,7 +27257,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
+                    "id": "spirit_temple_boss_gateway -> boss_spirit_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27444,7 +27444,7 @@
                     "category": "location"
                 },
                 {
-                    "id": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
+                    "id": "spirit_temple_boss_gateway -> boss_spirit_temple_gateway",
                     "x": 0,
                     "y": 0,
                     "category": "exit"
@@ -27520,7 +27520,7 @@
             },
             "list": [
                 {
-                    "id": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway",
+                    "id": "boss_spirit_temple_gateway -> spirit_temple_boss_gateway",
                     "x": 496,
                     "y": 767,
                     "category": "exit"
@@ -48247,10 +48247,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "temple_forest_boss_gateway -> boss_temple_forest_gateway": {
+        "forest_temple_boss_gateway -> boss_forest_temple_gateway": {
             "type": "boss_outer",
-            "target": "boss_temple_forest_gateway -> temple_forest_boss_gateway",
-            "logicAccess": "temple_forest_boss_gateway",
+            "target": "boss_forest_temple_gateway -> forest_temple_boss_gateway",
+            "logicAccess": "forest_temple_boss_gateway",
             "area": "temple_forest",
             "tags": [
                 "boss",
@@ -48292,10 +48292,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "boss_temple_forest_gateway -> temple_forest_boss_gateway": {
+        "boss_forest_temple_gateway -> forest_temple_boss_gateway": {
             "type": "boss_inner",
-            "target": "temple_forest_boss_gateway -> boss_temple_forest_gateway",
-            "logicAccess": "boss_temple_forest_gateway",
+            "target": "forest_temple_boss_gateway -> boss_forest_temple_gateway",
+            "logicAccess": "boss_forest_temple_gateway",
             "area": "temple_forest.bossarea",
             "tags": [
                 "boss",
@@ -48337,10 +48337,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "temple_fire_boss_gateway -> boss_temple_fire_gateway": {
+        "fire_temple_boss_gateway -> boss_fire_temple_gateway": {
             "type": "boss_outer",
-            "target": "boss_temple_fire_gateway -> temple_fire_boss_gateway",
-            "logicAccess": "temple_fire_boss_gateway",
+            "target": "boss_fire_temple_gateway -> fire_temple_boss_gateway",
+            "logicAccess": "fire_temple_boss_gateway",
             "area": "temple_fire",
             "tags": [
                 "boss",
@@ -48382,10 +48382,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "boss_temple_fire_gateway -> temple_fire_boss_gateway": {
+        "boss_fire_temple_gateway -> fire_temple_boss_gateway": {
             "type": "boss_inner",
-            "target": "temple_fire_boss_gateway -> boss_temple_fire_gateway",
-            "logicAccess": "boss_temple_fire_gateway",
+            "target": "fire_temple_boss_gateway -> boss_fire_temple_gateway",
+            "logicAccess": "boss_fire_temple_gateway",
             "area": "temple_fire.bossarea",
             "tags": [
                 "boss",
@@ -48427,10 +48427,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "temple_water_boss_gateway -> boss_temple_water_gateway": {
+        "water_temple_boss_gateway -> boss_water_temple_gateway": {
             "type": "boss_outer",
-            "target": "boss_temple_water_gateway -> temple_water_boss_gateway",
-            "logicAccess": "temple_water_boss_gateway",
+            "target": "boss_water_temple_gateway -> water_temple_boss_gateway",
+            "logicAccess": "water_temple_boss_gateway",
             "area": "temple_water",
             "tags": [
                 "boss",
@@ -48472,10 +48472,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "boss_temple_water_gateway -> temple_water_boss_gateway": {
+        "boss_water_temple_gateway -> water_temple_boss_gateway": {
             "type": "boss_inner",
-            "target": "temple_water_boss_gateway -> boss_temple_water_gateway",
-            "logicAccess": "boss_temple_water_gateway",
+            "target": "water_temple_boss_gateway -> boss_water_temple_gateway",
+            "logicAccess": "boss_water_temple_gateway",
             "area": "temple_water.bossarea",
             "tags": [
                 "boss",
@@ -48517,10 +48517,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "temple_shadow_boss_gateway -> boss_temple_shadow_gateway": {
+        "shadow_temple_boss_gateway -> boss_shadow_temple_gateway": {
             "type": "boss_outer",
-            "target": "boss_temple_shadow_gateway -> temple_shadow_boss_gateway",
-            "logicAccess": "temple_shadow_boss_gateway",
+            "target": "boss_shadow_temple_gateway -> shadow_temple_boss_gateway",
+            "logicAccess": "shadow_temple_boss_gateway",
             "area": "temple_shadow",
             "tags": [
                 "boss",
@@ -48562,10 +48562,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "boss_temple_shadow_gateway -> temple_shadow_boss_gateway": {
+        "boss_shadow_temple_gateway -> shadow_temple_boss_gateway": {
             "type": "boss_inner",
-            "target": "temple_shadow_boss_gateway -> boss_temple_shadow_gateway",
-            "logicAccess": "boss_temple_shadow_gateway",
+            "target": "shadow_temple_boss_gateway -> boss_shadow_temple_gateway",
+            "logicAccess": "boss_shadow_temple_gateway",
             "area": "temple_shadow.bossarea",
             "tags": [
                 "boss",
@@ -48607,10 +48607,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "temple_spirit_boss_gateway -> boss_temple_spirit_gateway": {
+        "spirit_temple_boss_gateway -> boss_spirit_temple_gateway": {
             "type": "boss_outer",
-            "target": "boss_temple_spirit_gateway -> temple_spirit_boss_gateway",
-            "logicAccess": "temple_spirit_boss_gateway",
+            "target": "boss_spirit_temple_gateway -> spirit_temple_boss_gateway",
+            "logicAccess": "spirit_temple_boss_gateway",
             "area": "temple_spirit",
             "tags": [
                 "boss",
@@ -48652,10 +48652,10 @@
             "isBiDir": true,
             "ignoreMixedEntrances": true
         },
-        "boss_temple_spirit_gateway -> temple_spirit_boss_gateway": {
+        "boss_spirit_temple_gateway -> spirit_temple_boss_gateway": {
             "type": "boss_inner",
-            "target": "temple_spirit_boss_gateway -> boss_temple_spirit_gateway",
-            "logicAccess": "boss_temple_spirit_gateway",
+            "target": "spirit_temple_boss_gateway -> boss_spirit_temple_gateway",
+            "logicAccess": "boss_spirit_temple_gateway",
             "area": "temple_spirit.bossarea",
             "tags": [
                 "boss",
