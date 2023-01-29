@@ -319,6 +319,7 @@
                 "triforce": "keylogic_triforce"
             }
         },
+        "ganon_bosskey_hearts": "heart_count_ganon_bosskey",
         "lacs_condition": {
             "name": "light_arrow_cutscene",
             "values": {

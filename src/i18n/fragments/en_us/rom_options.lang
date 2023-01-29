@@ -36,10 +36,10 @@ option[medallion_count_bridge]=Required Medallions for Rainbow Bridge
 option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
 option[heart_count_bridge]=Required Hearts for Rainbow Bridge
 
+option[heart_count_ganon_bosskey]=Required Hearts for Ganons Boss Key
+
 option[skullsanity]=Skullsanity (do not autocount) [WIP]
 
-option[damage_multiplier]=Damage Multiplier
-option[deadly_bonks]=Bonks Do Damage
 option[blue_fire_arrows]=Blue Fire Arrows
 option[chicken_count]=Cucco Count
 option[plant_beans]=Plant Magic Beans
@@ -54,6 +54,23 @@ adult=Adult
 option[logic_rules]=Logic Rule
 logic_rules_glitchless=Glitchless
 logic_rules_glitched=Glitched
+
+# GENERAL - DAMAGE MULTIPLIER
+option[damage_multiplier]=Damage Multiplier
+dmg_half=Half
+dmg_normal=Normal
+dmg_double=Double
+dmg_quadruple=Quadruple
+dmg_ohko=OHKO
+
+# GENERAL - BONK DAMAGE
+option[deadly_bonks]=Bonks Do Damage
+bonk_off=No Damage
+bonk_quarter=Quarter Heart
+bonk_half=Half Heart
+bonk_one=Whole Heart
+bonk_two=Two Hearts
+bonk_ohko=One Bonk KO
 
 # GENERAL - GERUDO FORTRESS
 option[gerudo_fortress_open]=Gerudo Fortress behavior
