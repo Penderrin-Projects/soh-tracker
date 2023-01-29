@@ -618,7 +618,8 @@
         "Ocarina": "ocarina",
         "Magic Bean": "bean",
         "Prelude of Light": "warp_light",
-        "Lens of Truth": "lens"
+        "Lens of Truth": "lens",
+        "Blue Fire Arrows": "arrow_ice"
     },
     "dungeons": {
         "Deku Tree": {
@@ -1323,7 +1324,7 @@
         }
     },
     "barren": {
-        "Temple of Time": "temple_time",
+        "the Temple of Time": "temple_time",
         "Hyrule Castle": "castle",
         "outside Ganon's Castle": "castle",
         "the Market": "castle_town",
@@ -1337,7 +1338,7 @@
         "the Death Mountain Trail": "mountain",
         "Death Mountain Crater": "crater",
         "the Lost Woods": "woods",
-        "Sacred Forest Meadow": "meadow",
+        "the Sacred Forest Meadow": "meadow",
         "Lon Lon Ranch": "lonlon",
         "Dodongo's Cavern": "dodongo",
         "Ice Cavern": "ice_cavern",
@@ -1349,7 +1350,7 @@
         "Goron City": "goron",
         "Zora's River": "river",
         "Bottom of the Well": "well",
-        "Water Temple": "temple_water",
+        "the Water Temple": "temple_water",
         "Ganon's Castle": "castle_ganon",
         "Deku Tree": "deku",
         "the Deku Tree": "deku",
