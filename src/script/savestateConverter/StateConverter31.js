@@ -53,8 +53,8 @@ SavestateConverter.register(function(state) {
     // options
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
-        const newKey = key.raplace(GATEWAY_IN_REGEX, "$1_temple_boss_gateway").replace(GATEWAY_OUT_REGEX, "boss_$1_temple_gateway");
-        const newValue = value.raplace(GATEWAY_IN_REGEX, "$1_temple_boss_gateway").replace(GATEWAY_OUT_REGEX, "boss_$1_temple_gateway");
+        const newKey = key.replace(GATEWAY_IN_REGEX, "$1_temple_boss_gateway").replace(GATEWAY_OUT_REGEX, "boss_$1_temple_gateway");
+        const newValue = value.replace(GATEWAY_IN_REGEX, "$1_temple_boss_gateway").replace(GATEWAY_OUT_REGEX, "boss_$1_temple_gateway");
         res.data.exitBindings[newKey] = newValue;
     }
 
