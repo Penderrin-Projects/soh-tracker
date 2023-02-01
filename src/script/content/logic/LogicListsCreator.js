@@ -79,11 +79,11 @@ class LogicListsCreator {
 
         if (logic) {
             for (const i in logic.logic) {
-                if (i.startsWith("mixin.")) {
+                if (i.startsWith("mixin[")) {
                     mixins[i] = logic[i];
                     continue;
                 }
-                if (i.startsWith("function.")) {
+                if (i.startsWith("function[")) {
                     functions[i] = logic[i];
                     continue;
                 }
@@ -91,11 +91,11 @@ class LogicListsCreator {
         }
         if (custom_logic) {
             for (const i in custom_logic.logic) {
-                if (i.startsWith("mixin.")) {
+                if (i.startsWith("mixin[")) {
                     mixins[i] = logic[i];
                     continue;
                 }
-                if (i.startsWith("function.")) {
+                if (i.startsWith("function[")) {
                     functions[i] = logic[i];
                     continue;
                 }
