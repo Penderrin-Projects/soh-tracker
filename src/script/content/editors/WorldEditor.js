@@ -1,7 +1,9 @@
 // frameworks
 import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
-import Helper from "/emcJS/util/helper/Helper.js";
+import {
+    elevateObject, flattenObject
+} from "/emcJS/util/helper/collection/ObjectContent.js";
 import "/editors/modules/world/Editor.js";
 
 // GameTrackerJS
@@ -103,7 +105,7 @@ export default async function() {
             "content": "SAVE WORLD",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
-                const world = Helper.Object.elevate(patch, "/", WorldResource.get());
+                const world = elevateObject(patch, "/", WorldResource.get());
                 FileSystem.save(JSON.stringify(world, " ", 4), "world.json");
             }
         }, {
@@ -112,7 +114,7 @@ export default async function() {
                 const res = await FileSystem.load(".json");
                 if (!!res && !!res.data) {
                     const data = res.data;
-                    const world = Helper.Object.flatten(data, "/");
+                    const world = flattenObject(data, "/");
                     // load logic
                     await WorldStorage.setAll(world);
                     // refresh
@@ -124,7 +126,7 @@ export default async function() {
             "content": "SAVE PATCH",
             "handler": async () => {
                 const patch = await WorldStorage.getAll();
-                const world = Helper.Object.elevate(patch, "/");
+                const world = elevateObject(patch, "/");
                 FileSystem.save(JSON.stringify(world, " ", 4), `world.${(new Date).valueOf()}.json`);
             }
         }, {

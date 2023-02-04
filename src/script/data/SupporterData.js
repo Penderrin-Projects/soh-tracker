@@ -1,6 +1,8 @@
 // frameworks
 import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
-import Helper from "/emcJS/util/helper/Helper.js";
+import {
+    deepClone
+} from "/emcJS/util/helper/DeepClone.js";
 
 const SUPPORTER_URL = new URL("/patreon", location);
 if (location.hostname == "localhost") {
@@ -27,7 +29,7 @@ const DATA = await getData();
 class SupporterData extends EventTarget {
 
     get() {
-        return Helper.deepClone(DATA);
+        return deepClone(DATA);
     }
 
 }

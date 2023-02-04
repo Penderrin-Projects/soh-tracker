@@ -1,6 +1,8 @@
 // frameworks
 import FileLoader from "/emcJS/util/file/FileLoader.js";
-import Helper from "/emcJS/util/helper/Helper.js";
+import {
+    deepClone
+} from "/emcJS/util/helper/DeepClone.js";
 
 async function getData() {
     const res = {};
@@ -16,15 +18,15 @@ const DATA = await getData();
 class DeveloperData extends EventTarget {
 
     get owner() {
-        return Helper.deepClone(DATA.owner);
+        return deepClone(DATA.owner);
     }
 
     get team() {
-        return Helper.deepClone(DATA.team);
+        return deepClone(DATA.team);
     }
 
     get contributors() {
-        return Helper.deepClone(DATA.contributors);
+        return deepClone(DATA.contributors);
     }
 
 }

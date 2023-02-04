@@ -314,19 +314,13 @@ export const buildEditor = gulp.series(
         copyHTML.bind(this, EDT_PATH),
         copyJSON.bind(this, EDT_PATH),
         copyLogic.bind(this, EDT_PATH),
+        copyScript.bind(this, EDT_PATH),
         copyI18N.bind(this, EDT_PATH),
         copyI18NFragments.bind(this, EDT_PATH),
-        copyImg.bind(this, EDT_PATH),
-        copyCSS.bind(this, EDT_PATH),
-        copyFonts.bind(this, EDT_PATH),
-        copyScript.bind(this, EDT_PATH),
         copyGameTrackerJS.bind(this, EDT_PATH),
         copyEmcJS.bind(this, EDT_PATH),
         copyTrackerEditor.bind(this, EDT_PATH),
-        copyRTCClient.bind(this, EDT_PATH),
-        copyInitializer.bind(this, EDT_PATH),
-        copyDetachedScript.bind(this, EDT_PATH),
-        copyChangelog.bind(this, EDT_PATH)
+        copyInitializer.bind(this, EDT_PATH)
     ),
     finish.bind(this, EDT_PATH, false)
 );

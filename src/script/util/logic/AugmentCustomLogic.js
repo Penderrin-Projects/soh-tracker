@@ -1,5 +1,7 @@
 // frameworks
-import Helper from "/emcJS/util/helper/Helper.js";
+import {
+    deepClone
+} from "/emcJS/util/helper/DeepClone.js";
 
 // GameTrackerJS
 import {
@@ -42,7 +44,7 @@ function getCustomLogicData() {
 }
 
 function augmentLogic(logic) {
-    const res = Helper.deepClone(logic);
+    const res = deepClone(logic);
     const customLogic = getCustomLogicData();
     for (const l in customLogic) {
         const value = customLogic[l];

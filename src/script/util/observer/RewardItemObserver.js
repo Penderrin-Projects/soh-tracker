@@ -1,5 +1,7 @@
 // frameworks
-import Helper from "/emcJS/util/helper/Helper.js";
+import {
+    filterObject
+} from "/emcJS/util/helper/collection/ObjectContent.js";
 import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
@@ -21,7 +23,7 @@ function setInstance(key, inst) {
 
 function getRewardDungeons() {
     const resource = DungeonstateResource.get();
-    const filtered = Helper.Object.filter(resource, (key, entry) => entry.boss_reward);
+    const filtered = filterObject(resource, (key, entry) => entry.boss_reward);
     return Object.keys(filtered);
 }
 
