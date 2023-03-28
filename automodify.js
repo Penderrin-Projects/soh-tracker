@@ -61,7 +61,7 @@ function modify(source = {}, target = {}) {
             connections: oldProps.connections,
             list: oldProps.list,
             list_mq: oldProps.list_mq,
-            areaTags: oldProps.areaTags,
+            areaContentHints: oldProps.areaContentHints,
             tags: oldProps.tags
         };
         area[ref] = newProps;

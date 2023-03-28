@@ -5,7 +5,7 @@
         "map": {
             "color": "black"
         },
-        "areaTags": {
+        "areaContentHints": {
             "chest": {
                 "icon": "images/icons/chest.svg",
                 "counting": false
@@ -20553,6 +20553,7 @@
     "area": {
         "hyrule": {
             "type": "overworld",
+            "visible": true,
             "map": {
                 "active": true,
                 "color": "",
@@ -20941,7 +20942,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21116,7 +21117,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21184,7 +21185,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21305,7 +21306,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21487,7 +21488,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21669,7 +21670,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21803,7 +21804,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -21972,7 +21973,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22094,7 +22095,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22227,7 +22228,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22403,7 +22404,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22530,7 +22531,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22592,7 +22593,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22738,7 +22739,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22818,7 +22819,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22874,7 +22875,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -22972,7 +22973,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23040,7 +23041,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23299,7 +23300,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23444,7 +23445,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23607,7 +23608,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23752,7 +23753,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -23904,7 +23905,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -24008,7 +24009,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/area.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -24140,7 +24141,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -24349,7 +24350,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -24504,7 +24505,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -24797,7 +24798,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -25070,7 +25071,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -25120,7 +25121,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -25399,7 +25400,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -25462,7 +25463,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -25683,7 +25684,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -25740,7 +25741,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -26027,7 +26028,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -26084,7 +26085,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -26377,7 +26378,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -26434,7 +26435,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -26667,7 +26668,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -26717,7 +26718,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -27076,7 +27077,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -27126,7 +27127,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -27509,7 +27510,7 @@
             "listContents": true,
             "accessPenetration": true,
             "icon": "images/icons/area_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": true,
                 "color": "black",
@@ -27559,7 +27560,7 @@
             "listContents": false,
             "accessPenetration": false,
             "icon": "images/icons/dungeon_boss.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -27897,7 +27898,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 1
             },
             "map": {
@@ -27986,7 +27987,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 4
             },
             "map": {
@@ -28095,7 +28096,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1
             },
             "map": {
@@ -28186,7 +28187,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "skulltula": 1
             },
             "map": {
@@ -28277,7 +28278,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -28376,7 +28377,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "skulltula": 1,
                 "gossipstone": 1,
                 "cow": 1
@@ -28482,7 +28483,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 1
             },
             "category": "grotto_scrub",
@@ -28574,7 +28575,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -28673,7 +28674,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -28772,7 +28773,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -28871,7 +28872,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -28970,7 +28971,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 2
             },
             "category": "grotto_scrub",
@@ -29068,7 +29069,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -29163,7 +29164,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1
             },
             "map": {
@@ -29254,7 +29255,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 2
             },
             "category": "grotto_scrub",
@@ -29350,7 +29351,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "skulltula": 1
             },
             "map": {
@@ -29445,7 +29446,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -29539,7 +29540,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -29627,7 +29628,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -29718,7 +29719,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -29811,7 +29812,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -29899,7 +29900,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 2
             },
             "map": {
@@ -29994,7 +29995,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 2
             },
             "map": {
@@ -30097,7 +30098,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 3
             },
             "category": "grotto_scrub",
@@ -30199,7 +30200,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -30289,7 +30290,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "skulltula": 1,
                 "gossipstone": 1
             },
@@ -30385,7 +30386,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -30473,7 +30474,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -30584,7 +30585,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 1
             },
             "map": {
@@ -30673,7 +30674,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 1
             },
             "map": {
@@ -30768,7 +30769,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -30859,7 +30860,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -30954,7 +30955,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -31053,7 +31054,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1
             },
             "map": {
@@ -31144,7 +31145,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "fountain": 1
             },
@@ -31236,7 +31237,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1
             },
             "map": {
@@ -31327,7 +31328,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -31428,7 +31429,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -31521,7 +31522,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -31611,7 +31612,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -31710,7 +31711,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "cow": 1,
                 "rupees": 1
             },
@@ -31801,7 +31802,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -31891,7 +31892,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 3
             },
             "category": "grotto_scrub",
@@ -31995,7 +31996,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -32094,7 +32095,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 3
             },
             "category": "grotto_scrub",
@@ -32198,7 +32199,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 2
             },
             "category": "grotto_scrub",
@@ -32296,7 +32297,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "chest": 1,
                 "gossipstone": 1
             },
@@ -32393,7 +32394,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -32481,7 +32482,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -32574,7 +32575,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_minigame",
             "map": {
                 "active": false,
@@ -32670,7 +32671,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 3
             },
             "category": "grotto_scrub",
@@ -32774,7 +32775,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 2
             },
             "category": "grotto_scrub",
@@ -32870,7 +32871,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_fairy",
             "map": {
                 "active": false,
@@ -32960,7 +32961,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "scrub": 2
             },
             "category": "grotto_scrub",
@@ -33052,7 +33053,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "fountain": 1
             },
             "category": "grotto_empty",
@@ -33132,7 +33133,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -33210,7 +33211,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -33288,7 +33289,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -33370,7 +33371,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -33472,7 +33473,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "fountain": 1
             },
             "category": "grotto_empty",
@@ -33552,7 +33553,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "map": {
                 "active": false,
                 "color": "",
@@ -33633,7 +33634,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -33739,7 +33740,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -33841,7 +33842,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -33923,7 +33924,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -34025,7 +34026,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -34103,7 +34104,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -34185,7 +34186,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -34294,7 +34295,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -34402,7 +34403,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -34484,7 +34485,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -34586,7 +34587,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "fountain": 1
             },
             "category": "grotto_empty",
@@ -34670,7 +34671,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_shop",
             "map": {
                 "active": false,
@@ -34772,7 +34773,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "fountain": 1
             },
             "category": "grotto_empty",
@@ -34852,7 +34853,7 @@
                 }
             },
             "icon": "images/icons/interior.svg",
-            "areaTags": false,
+            "areaContentHints": [],
             "category": "interior_empty",
             "map": {
                 "active": false,
@@ -34930,7 +34931,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "rupees": 1
             },
             "category": "grotto_empty",
@@ -35010,7 +35011,7 @@
                 }
             },
             "icon": "images/icons/grotto.svg",
-            "areaTags": {
+            "areaContentHints": {
                 "fountain": 1
             },
             "category": "grotto_empty",
