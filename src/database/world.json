@@ -24071,48 +24071,52 @@
                 "height": 1031,
                 "zoom": 50
             },
-            "connections": {
-                "A": [
-                    {
+            "connections": [
+                {
+                    "label": "A",
+                    "posA": {
                         "x": 898,
                         "y": 683
                     },
-                    {
+                    "posB": {
                         "x": 506,
                         "y": 474
                     }
-                ],
-                "B": [
-                    {
+                },
+                {
+                    "label": "B",
+                    "posA": {
                         "x": 500,
                         "y": 635
                     },
-                    {
+                    "posB": {
                         "x": 535,
                         "y": 328
                     }
-                ],
-                "C": [
-                    {
+                },
+                {
+                    "label": "C",
+                    "posA": {
                         "x": 817,
                         "y": 744
                     },
-                    {
+                    "posB": {
                         "x": 1300,
                         "y": 218
                     }
-                ],
-                "D": [
-                    {
+                },
+                {
+                    "label": "D",
+                    "posA": {
                         "x": 1160,
                         "y": 221
                     },
-                    {
+                    "posB": {
                         "x": 1779,
                         "y": 918
                     }
-                ]
-            },
+                }
+            ],
             "list": [
                 {
                     "id": "deku_kokiri_gateway -> kokiri_deku_gateway",
