@@ -4,6 +4,7 @@ import Layout from "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
 import "/GameTrackerJS/ui/panel/exitlist/ExitList.js";
+import "/GameTrackerJS/ui/panel/locationlist/LocationList.js";
 // Track-OOT
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";

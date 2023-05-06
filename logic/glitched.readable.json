@@ -22438,9 +22438,8 @@
                 "el": "mixin[is_starting_age]{child}"
             },
             "region[hc_garden_locations]{child}": {
-                "type": "state",
-                "el": "option[shuffle_child_trade]",
-                "value": "skip_child_zelda"
+                "type": "value",
+                "el": "option[skip_child_zelda]"
             },
             "reach_location[links_pocket]": {
                 "type": "mixin",
@@ -22466,9 +22465,8 @@
                 "el": "mixin[is_starting_age]{adult}"
             },
             "region[hc_garden_locations]{adult}": {
-                "type": "state",
-                "el": "option[shuffle_child_trade]",
-                "value": "skip_child_zelda"
+                "type": "value",
+                "el": "option[skip_child_zelda]"
             },
             "reach_location[links_pocket]": {
                 "type": "mixin",
@@ -24187,12 +24185,21 @@
                                 "el": "mixin[is_child]{child}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[filter_era]{child}"
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region[hc_garden_locations]{child}",
+                                        "el": {
+                                            "type": "mixin",
+                                            "el": "mixin[is_child]{child}"
+                                        }
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -24307,12 +24314,43 @@
                                 "el": "mixin[is_child]{adult}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "mixin",
+                                                "el": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[hc_garden_locations]{child}",
+                                                "el": {
+                                                    "type": "mixin",
+                                                    "el": "mixin[is_child]{child}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "mixin",
+                                                "el": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[hc_garden_locations]{adult}",
+                                                "el": {
+                                                    "type": "mixin",
+                                                    "el": "mixin[is_child]{adult}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -27960,6 +27998,10 @@
                         ]
                     }
                 ]
+            },
+            "event[temple_of_time_access]": {
+                "type": "mixin",
+                "el": "mixin[filter_era]{child}"
             }
         },
         "region[temple_of_time]{adult}": {
@@ -28004,6 +28046,10 @@
                         ]
                     }
                 ]
+            },
+            "event[temple_of_time_access]": {
+                "type": "mixin",
+                "el": "mixin[filter_era]{adult}"
             }
         },
         "region[beyond_door_of_time]{child}": {
@@ -28587,7 +28633,10 @@
             }
         },
         "region[market_mask_shop]{child}": {
-            "event[skull_mask]": {
+            "region[mask_shop_market_gateway:in]{child}": {
+                "type": "true"
+            },
+            "event[mask_shop_open]": {
                 "type": "and",
                 "el": [
                     {
@@ -28595,16 +28644,34 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "min",
-                        "el": {
-                            "type": "value",
-                            "el": "item[egg]"
-                        },
-                        "value": 3
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[filter_era]{child}"
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region[hc_garden_locations]{child}",
+                                        "el": {
+                                            "type": "mixin",
+                                            "el": "mixin[is_child]{child}"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "el": "event[kakariko_village_gate_open]"
+                            }
+                        ]
                     }
                 ]
             },
-            "event[mask_of_truth]": {
+            "event[mask_of_truth_access]": {
                 "type": "and",
                 "el": [
                     {
@@ -28612,18 +28679,17 @@
                         "el": "mixin[filter_era]{child}"
                     },
                     {
-                        "type": "min",
-                        "el": {
-                            "type": "value",
-                            "el": "item[egg]"
-                        },
-                        "value": 5
+                        "type": "value",
+                        "el": "'Mask Shop Open'"
                     }
                 ]
             }
         },
         "region[market_mask_shop]{adult}": {
-            "event[skull_mask]": {
+            "region[mask_shop_market_gateway:in]{adult}": {
+                "type": "true"
+            },
+            "event[mask_shop_open]": {
                 "type": "and",
                 "el": [
                     {
@@ -28631,16 +28697,34 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "min",
-                        "el": {
-                            "type": "value",
-                            "el": "item[egg]"
-                        },
-                        "value": 3
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "and",
+                                "el": [
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[filter_era]{child}"
+                                    },
+                                    {
+                                        "type": "at",
+                                        "node": "region[hc_garden_locations]{child}",
+                                        "el": {
+                                            "type": "mixin",
+                                            "el": "mixin[is_child]{child}"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "value",
+                                "el": "event[kakariko_village_gate_open]"
+                            }
+                        ]
                     }
                 ]
             },
-            "event[mask_of_truth]": {
+            "event[mask_of_truth_access]": {
                 "type": "and",
                 "el": [
                     {
@@ -28648,12 +28732,8 @@
                         "el": "mixin[filter_era]{adult}"
                     },
                     {
-                        "type": "min",
-                        "el": {
-                            "type": "value",
-                            "el": "item[egg]"
-                        },
-                        "value": 5
+                        "type": "value",
+                        "el": "'Mask Shop Open'"
                     }
                 ]
             }
@@ -28680,7 +28760,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{child}"
+                        "el": "mixin[has_explosives]{child}"
                     }
                 ]
             },
@@ -28693,7 +28773,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{child}"
+                        "el": "mixin[has_explosives]{child}"
                     }
                 ]
             },
@@ -28706,7 +28786,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{child}"
+                        "el": "mixin[has_explosives]{child}"
                     }
                 ]
             }
@@ -28721,7 +28801,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{adult}"
+                        "el": "mixin[has_explosives]{adult}"
                     }
                 ]
             },
@@ -28734,7 +28814,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{adult}"
+                        "el": "mixin[has_explosives]{adult}"
                     }
                 ]
             },
@@ -28747,7 +28827,7 @@
                     },
                     {
                         "type": "mixin",
-                        "el": "mixin[found_bombchus]{adult}"
+                        "el": "mixin[has_explosives]{adult}"
                     }
                 ]
             }
@@ -29314,6 +29394,42 @@
                         "el": "item[bottle]"
                     }
                 ]
+            },
+            "event[kakariko_village_gate_open]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{child}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[egg]"
+                                        },
+                                        "value": 3
+                                    },
+                                    {
+                                        "type": "state",
+                                        "el": "option[doors_open_kakariko]",
+                                        "value": "doors_open_kakariko_open"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[kakariko_village]{adult}": {
@@ -29685,6 +29801,124 @@
                     {
                         "type": "value",
                         "el": "item[bottle]"
+                    }
+                ]
+            },
+            "event[kakariko_village_gate_open]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_child]{adult}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[egg]"
+                                        },
+                                        "value": 3
+                                    },
+                                    {
+                                        "type": "state",
+                                        "el": "option[doors_open_kakariko]",
+                                        "value": "doors_open_kakariko_open"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "region[kak_carpenter_boss_house]{child}": {
+            "event[wake_up_adult_talon]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_adult]{child}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[cojiro]"
+                                        },
+                                        "value": 1
+                                    },
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[cojiro]"
+                                        },
+                                        "value": 2
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "region[kak_carpenter_boss_house]{adult}": {
+            "event[wake_up_adult_talon]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "mixin",
+                                "el": "mixin[is_adult]{adult}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[cojiro]"
+                                        },
+                                        "value": 1
+                                    },
+                                    {
+                                        "type": "min",
+                                        "el": {
+                                            "type": "value",
+                                            "el": "item[cojiro]"
+                                        },
+                                        "value": 2
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
@@ -30167,6 +30401,8 @@
                 "el": "mixin[filter_era]{adult}"
             }
         },
+        "region[kak_odd_medicine_building]{child}": {},
+        "region[kak_odd_medicine_building]{adult}": {},
         "region[graveyard]{child}": {
             "region[graveyard_shield_grave_gateway:in]{child}": {
                 "type": "true"
@@ -35913,16 +36149,56 @@
                                 "el": "mixin[is_child]{child}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "mixin",
+                                "el": "mixin[can_play_ocarina]{child}"
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin[can_play_ocarina]{child}"
+                                "el": "mixin[is_day]{child}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "option[skip_child_zelda]"
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "mixin",
+                                                "el": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[hyrule_castle_grounds]{child}",
+                                                "el": {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item[egg]"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "Chicken"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -36111,16 +36387,96 @@
                                 "el": "mixin[is_child]{adult}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "mixin",
+                                "el": "mixin[can_play_ocarina]{adult}"
                             },
                             {
                                 "type": "mixin",
-                                "el": "mixin[can_play_ocarina]{adult}"
+                                "el": "mixin[is_day]{adult}"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "option[skip_child_zelda]"
+                                    },
+                                    {
+                                        "type": "or",
+                                        "el": [
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_castle_grounds]{child}",
+                                                        "el": {
+                                                            "type": "and",
+                                                            "el": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "or",
+                                                                    "el": [
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "item[egg]"
+                                                                        },
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "Chicken"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_castle_grounds]{adult}",
+                                                        "el": {
+                                                            "type": "and",
+                                                            "el": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "or",
+                                                                    "el": [
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "item[egg]"
+                                                                        },
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "Chicken"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -36284,12 +36640,48 @@
                                 "el": "mixin[is_child]{child}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "option[skip_child_zelda]"
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "mixin",
+                                                "el": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[hyrule_castle_grounds]{child}",
+                                                "el": {
+                                                    "type": "and",
+                                                    "el": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "el": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "or",
+                                                            "el": [
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "item[egg]"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "el": "Chicken"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -36312,12 +36704,88 @@
                                 "el": "mixin[is_child]{adult}"
                             },
                             {
-                                "type": "min",
-                                "el": {
-                                    "type": "value",
-                                    "el": "item[egg]"
-                                },
-                                "value": 3
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "value",
+                                        "el": "option[skip_child_zelda]"
+                                    },
+                                    {
+                                        "type": "or",
+                                        "el": [
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_castle_grounds]{child}",
+                                                        "el": {
+                                                            "type": "and",
+                                                            "el": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "or",
+                                                                    "el": [
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "item[egg]"
+                                                                        },
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "Chicken"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_castle_grounds]{adult}",
+                                                        "el": {
+                                                            "type": "and",
+                                                            "el": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "el": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "or",
+                                                                    "el": [
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "item[egg]"
+                                                                        },
+                                                                        {
+                                                                            "type": "value",
+                                                                            "el": "Chicken"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -41844,6 +42312,103 @@
                     }
                 ]
             },
+            "reach_location[spirit_temple.deku_shield_pot]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "fix_broken_drops"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[is_adult]{child}"
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "or",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "function[can_use](item[boomerang]){child}"
+                                                    },
+                                                    {
+                                                        "type": "value",
+                                                        "el": "item[slingshot]"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[has_bombchus]{child}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[can_mega]{child}"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "or",
+                                                "el": [
+                                                    {
+                                                        "type": "value",
+                                                        "el": "item[stick]"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[has_explosives]{child}"
+                                                    },
+                                                    {
+                                                        "type": "and",
+                                                        "el": [
+                                                            {
+                                                                "type": "or",
+                                                                "el": [
+                                                                    {
+                                                                        "type": "value",
+                                                                        "el": "item[nut]"
+                                                                    },
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "el": "function[can_use](item[boomerang]){child}"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "or",
+                                                                "el": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "el": "function[can_use](item[sword_kokiri]){child}"
+                                                                    },
+                                                                    {
+                                                                        "type": "value",
+                                                                        "el": "item[slingshot]"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
             "reach_location[temple_spirit.c_child_right]": {
                 "type": "and",
                 "el": [
@@ -42129,6 +42694,103 @@
                                                     {
                                                         "type": "value",
                                                         "el": "item[slingshot]"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "reach_location[spirit_temple.deku_shield_pot]": {
+                "type": "and",
+                "el": [
+                    {
+                        "type": "mixin",
+                        "el": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "and",
+                        "el": [
+                            {
+                                "type": "value",
+                                "el": "fix_broken_drops"
+                            },
+                            {
+                                "type": "or",
+                                "el": [
+                                    {
+                                        "type": "mixin",
+                                        "el": "mixin[is_adult]{adult}"
+                                    },
+                                    {
+                                        "type": "and",
+                                        "el": [
+                                            {
+                                                "type": "or",
+                                                "el": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "function[can_use](item[boomerang]){adult}"
+                                                    },
+                                                    {
+                                                        "type": "value",
+                                                        "el": "item[slingshot]"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[has_bombchus]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[can_mega]{adult}"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "or",
+                                                "el": [
+                                                    {
+                                                        "type": "value",
+                                                        "el": "item[stick]"
+                                                    },
+                                                    {
+                                                        "type": "mixin",
+                                                        "el": "mixin[has_explosives]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "and",
+                                                        "el": [
+                                                            {
+                                                                "type": "or",
+                                                                "el": [
+                                                                    {
+                                                                        "type": "value",
+                                                                        "el": "item[nut]"
+                                                                    },
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "el": "function[can_use](item[boomerang]){adult}"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "or",
+                                                                "el": [
+                                                                    {
+                                                                        "type": "mixin",
+                                                                        "el": "function[can_use](item[sword_kokiri]){adult}"
+                                                                    },
+                                                                    {
+                                                                        "type": "value",
+                                                                        "el": "item[slingshot]"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }
@@ -47079,36 +47741,77 @@
                 }
             ]
         },
-        "mixin[has_bombchus]{child}": {
-            "type": "and",
+        "mixin[can_refill_bombchus]{child}": {
+            "type": "or",
             "el": [
                 {
-                    "type": "or",
+                    "type": "value",
+                    "el": "item[bombchu_5]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu_10]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu_20]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu]"
+                }
+            ]
+        },
+        "mixin[can_refill_bombchus]{adult}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "value",
+                    "el": "item[bombchu_5]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu_10]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu_20]"
+                },
+                {
+                    "type": "value",
+                    "el": "item[bombchu]"
+                }
+            ]
+        },
+        "mixin[has_bombchus]{child}": {
+            "type": "or",
+            "el": [
+                {
+                    "type": "and",
                     "el": [
                         {
                             "type": "value",
-                            "el": "item[bombchu_5]"
+                            "el": "free_bombchu_drops"
                         },
                         {
-                            "type": "value",
-                            "el": "item[bombchu_10]"
-                        },
-                        {
-                            "type": "value",
-                            "el": "item[bombchu_20]"
-                        },
-                        {
-                            "type": "value",
-                            "el": "item[bombchu]"
+                            "type": "mixin",
+                            "el": "mixin[found_bombchus]{child}"
                         }
                     ]
                 },
                 {
-                    "type": "or",
+                    "type": "and",
                     "el": [
                         {
-                            "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "free_bombchu_drops"
+                            }
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[can_refill_bombchus]{child}"
                         },
                         {
                             "type": "value",
@@ -47119,35 +47822,34 @@
             ]
         },
         "mixin[has_bombchus]{adult}": {
-            "type": "and",
+            "type": "or",
             "el": [
                 {
-                    "type": "or",
+                    "type": "and",
                     "el": [
                         {
                             "type": "value",
-                            "el": "item[bombchu_5]"
+                            "el": "free_bombchu_drops"
                         },
                         {
-                            "type": "value",
-                            "el": "item[bombchu_10]"
-                        },
-                        {
-                            "type": "value",
-                            "el": "item[bombchu_20]"
-                        },
-                        {
-                            "type": "value",
-                            "el": "item[bombchu]"
+                            "type": "mixin",
+                            "el": "mixin[found_bombchus]{adult}"
                         }
                     ]
                 },
                 {
-                    "type": "or",
+                    "type": "and",
                     "el": [
                         {
-                            "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "type": "not",
+                            "el": {
+                                "type": "value",
+                                "el": "free_bombchu_drops"
+                            }
+                        },
+                        {
+                            "type": "mixin",
+                            "el": "mixin[can_refill_bombchus]{adult}"
                         },
                         {
                             "type": "value",
@@ -47165,7 +47867,7 @@
                     "el": [
                         {
                             "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "el": "free_bombchu_drops"
                         },
                         {
                             "type": "or",
@@ -47197,7 +47899,7 @@
                             "type": "not",
                             "el": {
                                 "type": "value",
-                                "el": "option[bombchu_logic]"
+                                "el": "free_bombchu_drops"
                             }
                         },
                         {
@@ -47216,7 +47918,7 @@
                     "el": [
                         {
                             "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "el": "free_bombchu_drops"
                         },
                         {
                             "type": "or",
@@ -47248,7 +47950,7 @@
                             "type": "not",
                             "el": {
                                 "type": "value",
-                                "el": "option[bombchu_logic]"
+                                "el": "free_bombchu_drops"
                             }
                         },
                         {
@@ -47271,7 +47973,7 @@
                     "el": [
                         {
                             "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "el": "free_bombchu_drops"
                         },
                         {
                             "type": "mixin",
@@ -47293,7 +47995,7 @@
                     "el": [
                         {
                             "type": "value",
-                            "el": "option[bombchu_logic]"
+                            "el": "free_bombchu_drops"
                         },
                         {
                             "type": "mixin",
@@ -48417,6 +49119,10 @@
                     ]
                 },
                 {
+                    "type": "value",
+                    "el": "option[plant_beans]"
+                },
+                {
                     "type": "mixin",
                     "el": "mixin[can_blast_or_smash]{child}"
                 },
@@ -48517,6 +49223,10 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "value",
+                    "el": "option[plant_beans]"
                 },
                 {
                     "type": "mixin",

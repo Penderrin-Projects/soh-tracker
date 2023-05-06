@@ -95,8 +95,7 @@
     },
     "shuffle_rupees_hearts": {
         "category": "options",
-        "type": "hidden",
-        "old_type": "choice",
+        "type": "choice",
         "default": "off",
         "values": [
             "off",
@@ -107,8 +106,7 @@
     },
     "shuffle_pots": {
         "category": "options",
-        "type": "hidden",
-        "old_type": "choice",
+        "type": "choice",
         "default": "off",
         "values": [
             "off",
@@ -119,8 +117,7 @@
     },
     "shuffle_crates": {
         "category": "options",
-        "type": "hidden",
-        "old_type": "choice",
+        "type": "choice",
         "default": "off",
         "values": [
             "off",
@@ -131,8 +128,7 @@
     },
     "shuffle_beehives": {
         "category": "options",
-        "type": "hidden",
-        "old_type": "check",
+        "type": "check",
         "default": false
     },
     "doors_open_forest": {

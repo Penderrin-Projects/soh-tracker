@@ -7,17 +7,28 @@ export default function parseBarren(addError, target = {}, data = {}, trans = {}
     const bar = new Set(data);
 
     for (const i of bar) {
-        if (barren_trans[i] != null) {
-            if (barren_trans[i] === "castle") {
+        const transValue = getTransValue(barren_trans, i);
+        if (transValue != null) {
+            if (transValue === "castle") {
                 castle++;
                 if (castle === 2) {
-                    target.areaHints["area/" + barren_trans[i]] = "barren";
+                    target.areaHints["area/" + transValue] = "barren";
                 }
             } else {
-                target.areaHints["area/" + barren_trans[i]] = "barren";
+                target.areaHints["area/" + transValue] = "barren";
             }
         } else {
             addError("[" + i + "] is a invalid Barren value");
         }
+    }
+}
+
+function getTransValue(source, key) {
+    const res = source[key];
+    if (res != null) {
+        return res;
+    }
+    if (key.startsWith("the ")) {
+        return source[key.slice(4)];
     }
 }
