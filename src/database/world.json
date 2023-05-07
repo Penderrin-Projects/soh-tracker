@@ -37,6 +37,10 @@
             "beehive": {
                 "icon": "/images/icons/beehive.svg",
                 "counting": true
+            },
+            "pot": {
+                "icon": "/images/icons/pot.svg",
+                "counting": true
             }
         },
         "region": {
@@ -66825,7 +66829,8 @@
             "areaContentHints": {
                 "skulltula": 1,
                 "gossipstone": 1,
-                "cow": 1
+                "cow": 1,
+                "pot": 2
             },
             "category": "grotto_cow",
             "map": {
@@ -68631,7 +68636,8 @@
             "icon": "/images/icons/grotto.svg",
             "areaContentHints": {
                 "skulltula": 1,
-                "gossipstone": 1
+                "gossipstone": 1,
+                "pot": 4
             },
             "map": {
                 "active": false,
