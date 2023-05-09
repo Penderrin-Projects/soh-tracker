@@ -29,15 +29,15 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
         const {player, item} = getData(value);
         const itemTrans = item_trans[item];
         if (itemTrans == null) {
-            addError("[" + item + "] is a invalid Item value");
+            addError("[" + item + "] is a invalid value", "Item");
         } else if (itemTrans) {
             if (targetWorld == null || player === targetWorld || ignoreWorldLocking) {
                 const locationTrans = location_trans?.[i];
                 if (locationTrans == null) {
-                    addError("[" + i + "] is a invalid Location value");
+                    addError("[" + i + "] is a invalid value", "Location");
                 } else if (Array.isArray(locationTrans)) {
                     if (locationTrans.length == 0) {
-                        addError("[" + i + "] is a invalid Location value");
+                        addError("[" + i + "] is a invalid value", "Location");
                     } else {
                         for (const locationTransValue of locationTrans) {
                             if (locationTransValue) {

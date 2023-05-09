@@ -91,7 +91,7 @@ export default function parseShops(addError, target = {}, data = {}, trans = {},
             if (shop_trans.has(i)) {
                 const item = item_trans[v["item"]] ?? "bad_item";
                 if (item === "bad_item") {
-                    addError("[" + v["item"] + "] is a invalid shop item");
+                    addError("[" + v["item"] + "] is a invalid shop item", "Shop");
                 }
                 const price = getPrice(v["price"]);
                 const player = getPlayer(v["player"]);

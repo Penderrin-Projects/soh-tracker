@@ -18,7 +18,7 @@ export default function parseBarren(addError, target = {}, data = {}, trans = {}
                 target.areaHints["area/" + transValue] = "barren";
             }
         } else {
-            addError("[" + i + "] is a invalid Barren value");
+            addError("[" + i + "] is a value", "Barren");
         }
     }
 }

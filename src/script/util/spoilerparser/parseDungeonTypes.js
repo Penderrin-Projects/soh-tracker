@@ -7,9 +7,9 @@ export default function parseDungeonTypes(addError, target = {}, data = {}, tran
         const v = data[i];
         if (dungeon_trans[i] != null) {
             if (Array.isArray(i)) {
-                addError("Unexpected Array within dungeon types.");
+                addError("Unexpected Array within dungeon types.", "Dungeon Type");
             } else if (dungeon_trans[i]["values"][v] === undefined) {
-                addError("[" + i + ": " + v + "] is a invalid Dungeon value");
+                addError("[" + i + ": " + v + "] is a invalid value", "Dungeon Type");
             } else {
                 target.dungeonTypes[dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
             }

@@ -33,9 +33,9 @@ Please report this issue on discord and provide...
 The following errors were recorded:`
 );
 
-function addError(error) {
-    console.warn(error);
-    errorDialogHandler.add(error);
+function addError(error, category) {
+    console.warn(category, error);
+    errorDialogHandler.addError(error, category);
 }
 
 function getVersionType(version) {

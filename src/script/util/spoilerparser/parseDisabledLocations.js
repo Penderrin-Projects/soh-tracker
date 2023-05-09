@@ -18,12 +18,12 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
                     }
                 }
             } else {
-                addError("[" + i + "] is a invalid Location value");
+                addError("[" + i + "] is a invalid value", "Location");
             }
         } else if (locationTrans) {
             target.locations[locationTrans] = true;
         } else {
-            addError("[" + i + "] is a invalid Location value");
+            addError("[" + i + "] is a invalid value", "Location");
         }
     }
 }

@@ -7,9 +7,9 @@ export default function parseTrials(addError, target = {}, data = {}, trans = {}
         const v = data[i];
         if (trial_trans[i] != null) {
             if (Array.isArray(i)) {
-                addError("Unexpected Array within active trials");
+                addError("Unexpected Array", "Trials");
             } else if (trial_trans[i]["values"][v] === undefined) {
-                addError("[" + i + ": " + v + "] is a invalid Trials value");
+                addError("[" + i + ": " + v + "] is a invalid value", "Trials");
             } else {
                 target.options[trial_trans[i]["name"]] = trial_trans[i]["values"][v];
             }

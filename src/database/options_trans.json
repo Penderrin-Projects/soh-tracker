@@ -108,6 +108,20 @@
                 "false": false
             }
         },
+        "free_bombchu_drops": {
+            "name": "bombchu_logic",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
+        "fix_broken_drops": {
+            "name": "fix_broken_drops",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "skip_child_zelda": {
             "name": "shuffle_child_trade",
             "values": {
@@ -792,7 +806,7 @@
                 "Lon Lon Ranch -> Lon Lon Grotto": "ranch_grotto_gateway -> grotto_ranch_gateway",
                 "Lost Woods -> Lost Woods Generic Grotto": "woods_near_shortcuts_grotto_gateway -> near_shortcuts_grotto_woods_gateway",
                 "Lost Woods Beyond Mido -> Deku Theater": "woods_deku_theater_gateway -> deku_theater_woods_gateway",
-                "Lost Woods Beyond Mido -> Lost Woods Sales Grotto": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
+                "Lost Woods Beyond Mido -> Lost Woods Sales Grotto": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
                 "Sacred Forest Meadow -> Meadow Fairy Grotto": "meadow_fairy_grotto_gateway -> fairy_grotto_meadow_gateway",
                 "Sacred Forest Meadow -> Meadow Storms Grotto": "meadow_storms_grotto_gateway -> storms_grotto_meadow_gateway",
                 "Sacred Forest Meadow Entryway -> Front of Meadow Grotto": "meadow_wolfos_grotto_gateway -> wolfos_grotto_meadow_gateway",
@@ -827,7 +841,7 @@
                 "Kakariko Village -> Kak Redead Grotto": "kakariko_redead_grotto_gateway -> redead_grotto_kakariko_gateway",
                 "Kokiri Forest -> KF Storms Grotto": "kokiri_storms_grotto_gateway -> storms_grotto_kokiri_gateway",
                 "LW Beyond Mido -> Deku Theater": "woods_deku_theater_gateway -> deku_theater_woods_gateway",
-                "LW Beyond Mido -> LW Scrubs Grotto": "woods_scrubs_grotto_gateway -> near_scrubs_woods_gateway",
+                "LW Beyond Mido -> LW Scrubs Grotto": "woods_scrubs_grotto_gateway -> scrubs_grotto_woods_gateway",
                 "Lake Hylia -> LH Grotto": "lake_grotto_gateway -> grotto_lake_gateway",
                 "Lon Lon Ranch -> LLR Grotto": "ranch_grotto_gateway -> grotto_ranch_gateway",
                 "Lost Woods -> LW Near Shortcuts Grotto": "woods_near_shortcuts_grotto_gateway -> near_shortcuts_grotto_woods_gateway",
@@ -1065,7 +1079,7 @@
                 "Lon Lon Grotto": "grotto_ranch_gateway -> ranch_grotto_gateway",
                 "Lost Woods Generic Grotto": "near_shortcuts_grotto_woods_gateway -> woods_near_shortcuts_grotto_gateway",
                 "Deku Theater": "deku_theater_woods_gateway -> woods_deku_theater_gateway",
-                "Lost Woods Sales Grotto": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+                "Lost Woods Sales Grotto": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
                 "Meadow Fairy Grotto": "fairy_grotto_meadow_gateway -> meadow_fairy_grotto_gateway",
                 "Meadow Storms Grotto": "storms_grotto_meadow_gateway -> meadow_storms_grotto_gateway",
                 "Front of Meadow Grotto": "wolfos_grotto_meadow_gateway -> meadow_wolfos_grotto_gateway",
@@ -1096,7 +1110,7 @@
                 "Kak Open Grotto": "open_grotto_kakariko_gateway -> kakariko_open_grotto_gateway",
                 "Kak Redead Grotto": "redead_grotto_kakariko_gateway -> kakariko_redead_grotto_gateway",
                 "KF Storms Grotto": "storms_grotto_kokiri_gateway -> kokiri_storms_grotto_gateway",
-                "LW Scrubs Grotto": "near_scrubs_woods_gateway -> woods_scrubs_grotto_gateway",
+                "LW Scrubs Grotto": "scrubs_grotto_woods_gateway -> woods_scrubs_grotto_gateway",
                 "LH Grotto": "grotto_lake_gateway -> lake_grotto_gateway",
                 "LLR Grotto": "grotto_ranch_gateway -> ranch_grotto_gateway",
                 "LW Near Shortcuts Grotto": "near_shortcuts_grotto_woods_gateway -> woods_near_shortcuts_grotto_gateway",

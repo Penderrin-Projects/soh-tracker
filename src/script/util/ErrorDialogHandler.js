@@ -1,28 +1,59 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
-const TITLE = new WeakMap();
-const MESSAGE = new WeakMap();
-const ERRORS = new WeakMap();
-
 export default class ErrorDialogHandler {
 
+    #title;
+
+    #message;
+
+    #errors = new Map();
+
     constructor(title, message) {
-        TITLE.set(this, title);
-        MESSAGE.set(this, message);
-        ERRORS.set(this, new Set());
+        this.#title = title;
+        this.#message = message;
     }
 
-    add(error) {
-        const errors = ERRORS.get(this);
+    addError(error, category = "") {
+        const errors = this.#getErrorCategory(category);
         errors.add(error);
     }
 
+    clearErrors() {
+        this.#errors.clear();
+    }
+
+    #getErrorCategory(category) {
+        if (this.#errors.has(category)) {
+            return this.#errors.get(category);
+        }
+        const errors = new Set();
+        this.#errors.set(category, errors);
+        return errors;
+    }
+
+    #collectErrors() {
+        const res = [];
+        if (this.#errors.has("")) {
+            const errorSet = this.#errors.get("");
+            const errors = Array.from(errorSet);
+            res.push(...errors.sort(), "");
+        }
+        for (const [category, errorSet] of this.#errors) {
+            if (category === "") {
+                continue;
+            }
+            const errors = Array.from(errorSet);
+            res.push(`[${category}]`, ...errors.sort(), "");
+        }
+        return res;
+    }
+
     async send() {
-        const errors = ERRORS.get(this);
+        const errors = this.#collectErrors();
         if (errors.size) {
-            const title = TITLE.get(this);
-            const message = MESSAGE.get(this);
-            await Dialog.error(title, message, Array.from(errors.values()));
+            const title = this.#title;
+            const message = this.#message;
+            await Dialog.error(title, message, errors);
             errors.clear();
         }
     }

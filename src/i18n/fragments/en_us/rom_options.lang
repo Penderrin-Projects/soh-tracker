@@ -13,12 +13,6 @@ skip_child_zelda=Skip Child Zelda
 
 option[skip_epona_race]=Skip Epona Race
 option[free_scarecrow]=Free Scarecrow's Song
-option[scrubsanity]=Scrubsanity
-option[cowsanity]=Cowsanity
-option[shopsanity]=Shopsanity slots
-option[beansanity]=Beansanity
-option[frogsanity]=Frogsanity
-option[shuffleMediCarpet]=Shuffle Medigoron and Carpet Bombchu Saleman
 option[doors_open_temple]=Open Temple of Time
 option[trade_sequence_start_item]=Start adult trading sequence at
 option[big_poe_count]=Big Poes Required
@@ -37,8 +31,6 @@ option[dungeon_count_bridge]=Required Dungeon Rewards for Rainbow Bridge
 option[heart_count_bridge]=Required Hearts for Rainbow Bridge
 
 option[heart_count_ganon_bosskey]=Required Hearts for Ganons Boss Key
-
-option[skullsanity]=Skullsanity (do not autocount) [WIP]
 
 option[blue_fire_arrows]=Blue Fire Arrows
 option[chicken_count]=Cucco Count
@@ -172,6 +164,16 @@ shadow_trial=Shadow Trial
 fire_trial=Fire Trial
 light_trial=Light Trial
 spirit_trial=Spirit Trial
+
+# ITEM SANITIES
+item_sanity=Item Sanity
+option[skullsanity]=Skullsanity (do not autocount) [WIP]
+option[scrubsanity]=Scrubsanity
+option[cowsanity]=Cowsanity
+option[shopsanity]=Shopsanity slots
+option[beansanity]=Beansanity
+option[frogsanity]=Frogsanity
+option[shuffleMediCarpet]=Shuffle Medigoron and Carpet Bombchu Saleman
 
 # KEY LOGIC
 keylogic=Key Logic

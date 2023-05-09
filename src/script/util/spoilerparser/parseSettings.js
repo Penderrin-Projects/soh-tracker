@@ -15,7 +15,7 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
                             try {
                                 setSettingToTarget(target.options, el, parsedValue);
                             } catch {
-                                addError("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] ?? el + "]");
+                                addError("[" + key + ": " + parsedValue + "] is a invalid value for sub option [" + el["name"] ?? el + "]", "Settings");
                             }
                         } else {
                             target.options[el.replace("logic_", "skip.")] = valueSet.has(el);
@@ -26,14 +26,14 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
                         try {
                             setSettingToTarget(target.options, transData, el);
                         } catch {
-                            addError("[" + key + ": " + el + "] is a invalid value for sub option [" + transData["name"] ?? transData + "]");
+                            addError("[" + key + ": " + el + "] is a invalid value for sub option [" + transData["name"] ?? transData + "]", "Settings");
                         }
                     }
                 } else {
                     try {
                         setSettingToTarget(target.options, transData, parsedValue);
                     } catch {
-                        addError("[" + key + ": " + parsedValue + "] is a invalid value");
+                        addError("[" + key + ": " + parsedValue + "] is a invalid value", "Settings");
                     }
                 }
             } else {

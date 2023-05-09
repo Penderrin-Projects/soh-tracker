@@ -18,11 +18,11 @@ export default function parseStartingInventory(addError, target = {}, settingsSp
         for (const item in data) {
             const spoilerValue = parseInt(data[item]);
             if (typeof item != "string") {
-                addError(`Unexpected type "${typeof item}" within starting items`);
+                addError(`Unexpected type "${typeof item}"`, "Starting Items");
             } else {
                 const transData = starting_trans[item];
                 if (transData == null) {
-                    addError(`Unknown Starting item "${item}"`);
+                    addError(`Unknown value "${item}"`, "Starting Items");
                 } else if (transData === false) {
                     // ignore them
                 } else if (typeof transData == "string") {
@@ -34,7 +34,7 @@ export default function parseStartingInventory(addError, target = {}, settingsSp
                 } else {
                     const name = transData["name"];
                     if (typeof name != "string") {
-                        addError(`Translation for Starting item "${item}" is errornous`);
+                        addError(`Translation for value "${item}" is errornous`, "Starting Items");
                     } else if (!isNaN(spoilerValue)) {
                         addValue(target.startItems, name, spoilerValue);
                     } else {
@@ -55,17 +55,17 @@ export default function parseStartingInventory(addError, target = {}, settingsSp
             const starting_trans = trans[key] ?? {};
             for (const item of data) {
                 if (typeof item != "string") {
-                    addError(`Unexpected type "${typeof item}" within starting items`);
+                    addError(`Unexpected type "${typeof item}"`, "Starting Items");
                 } else {
                     const transData = starting_trans[item];
                     if (transData == null) {
-                        addError(`Unknown Starting item "${item}" for "${key}"`);
+                        addError(`Unknown value "${item}" for "${key}"`, "Starting Items");
                     } else if (typeof transData == "string") {
                         addValue(target.startItems, transData, 1);
                     } else {
                         const name = transData["name"];
                         if (typeof name != "string") {
-                            addError(`Translation for Starting item "${item}" in "${key}" is errornous`);
+                            addError(`Translation for value "${item}" in "${key}" is errornous`, "Starting Items");
                         } else {
                             const value = parseInt(transData["value"]);
                             if (!isNaN(value)) {
