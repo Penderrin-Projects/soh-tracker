@@ -1,35 +1,18 @@
-// frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/LabeledIcon.js";
-
-// GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
+import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
-// Track-OOT
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
-import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
-
-const TPL = new Template(`
-<emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>
-`);
-
-const STYLE = new GlobalStyle(`
-#item {
-    width: 32px;
-    height: 32px;
-    margin-left: 5px;
-    font-size: 0.7em;
-}
-`);
+import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu";
+import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};
+import STYLE from "./TrackerLocationListShopSlot.js.css" assert {type: "css"};
 
 function applyElements(target) {
-    const textEl = target.getElementById("text");
+    const textEl = target.getElementById("ref");
     const tpl = TPL.generate();
     const itemEl = tpl.getElementById("item");
     textEl.insertAdjacentElement("afterend", itemEl);
@@ -38,12 +21,12 @@ function applyElements(target) {
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
 const BaseClass = mix(
-    WorldListElement
+    LocationListEntry
 ).with(
     AccessTextMarkerMixin
 );
 
-export default class WorldListShopSlot extends BaseClass {
+export default class TrackerLocationListShopSlot extends BaseClass {
 
     constructor() {
         super();
@@ -174,6 +157,6 @@ export default class WorldListShopSlot extends BaseClass {
 
 }
 
-customElements.define("ootrt-worldlist-shopslot", WorldListShopSlot);
-UIRegistry.get("worldlist-location")
-    .register("shopslot", WorldListShopSlot);
+customElements.define("ootrt-locationlist-shopslot", TrackerLocationListShopSlot);
+UIRegistry.get("locationlist-location")
+    .register("shopslot", TrackerLocationListShopSlot);

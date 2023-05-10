@@ -1,7 +1,6 @@
 {
     "config": {
         "defaultArea": "hyrule",
-        "prefetchEntries": false,
         "map": {
             "color": "black"
         },

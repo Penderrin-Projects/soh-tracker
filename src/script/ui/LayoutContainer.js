@@ -4,10 +4,10 @@ import Layout from "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
 import "/GameTrackerJS/ui/panel/exitlist/ExitList.js";
-import "/GameTrackerJS/ui/panel/locationlist/LocationList.js";
 // Track-OOT
 import LayoutsResource from "/script/resource/LayoutsResource.js";
 import "/script/ui/panel/itemgrid/ItemGrid.js";
+import "/script/ui/panel/locationlist/TrackerLocationList.js";
 import "/script/ui/panel/worldlist/WorldList.js";
 import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/panel/shoplist/ShopList.js";
