@@ -6,6 +6,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
 
@@ -135,5 +136,4 @@ export default class WorldListGossipstone extends BaseClass {
 }
 
 customElements.define("ootrt-worldlist-gossipstone", WorldListGossipstone);
-UIRegistry.get("worldlist-location")
-    .register("gossipstone", WorldListGossipstone);
+UIRegistry.get("worldlist-location").register("gossipstone", WorldListGossipstone);

@@ -11,9 +11,10 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 // Track-OOT
-import ShopItemChoiceDialog from "/script/ui/dialog/ShipItemChoiceDialog/ShopItemChoiceDialog.js";
-import ShopSlotContextMenu from "/script/ui/ctxmenu/ShopSlotContextMenu.js";
+import ShopItemChoiceDialog from "../../../../dialog/ShipItemChoiceDialog/ShopItemChoiceDialog.js";
+import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 
 const TPL = new Template(`
 <emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>
@@ -175,5 +176,4 @@ export default class WorldListShopSlot extends BaseClass {
 }
 
 customElements.define("ootrt-worldlist-shopslot", WorldListShopSlot);
-UIRegistry.get("worldlist-location")
-    .register("shopslot", WorldListShopSlot);
+UIRegistry.get("worldlist-location").register("shopslot", WorldListShopSlot);
