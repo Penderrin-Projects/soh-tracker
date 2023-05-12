@@ -14,6 +14,7 @@ import LocationStateManager from "/GameTrackerJS/statemanager/world/location/Loc
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import ListRecordState from "/GameTrackerJS/state/world/ListRecordState.js";
+import "../../state/world/WorldStates.js";
 
 const DUNGEON_TYPES = [
     "dungeon",
