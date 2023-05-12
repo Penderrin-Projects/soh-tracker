@@ -86,11 +86,13 @@ export default class RTCPeer extends EventTarget {
     }
 
     async rtcMessageHandler(key, msg) {
-        if (msg.type == "event") {
+        if (msg.type == "event" && STORAGES[msg.category] != null) {
             this.mute();
-            STORAGES[msg.category]?.setAll(msg.data);
+            STORAGES[msg.category].setAll(msg.data);
             this.unmute();
+            return true;
         }
+        return false;
     }
 
 }
