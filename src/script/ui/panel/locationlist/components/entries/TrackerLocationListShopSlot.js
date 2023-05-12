@@ -12,7 +12,7 @@ import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};
 import STYLE from "./TrackerLocationListShopSlot.js.css" assert {type: "css"};
 
 function applyElements(target) {
-    const textEl = target.getElementById("ref");
+    const textEl = target.getElementById("text");
     const tpl = TPL.generate();
     const itemEl = tpl.getElementById("item");
     textEl.insertAdjacentElement("afterend", itemEl);
