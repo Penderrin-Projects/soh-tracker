@@ -27,6 +27,14 @@ Application:    Track-OOT
 
 ---
 
+## VERSION 2.2.2
+
+### HOTFIX
+
+- added S6 preset
+
+---
+
 ## VERSION 2.2.1
 
 ### BUGFIX
