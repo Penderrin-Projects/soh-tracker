@@ -338,6 +338,92 @@
             "nut": 1
         }
     },
+    "S6 Tournament": {
+        "options": {
+            "logic_rules": "logic_rules_glitchless",
+            "starting_age": "child",
+            "consider_buyable": false,
+            "bombchu_logic": false,
+            "free_scarecrow": false,
+            "keysanity_small": false,
+            "track_keys": true,
+            "track_bosskeys": true,
+            "skip_child_zelda": "skip_child_zelda",
+            "skip_epona_race": true,
+            "scrubsanity": false,
+            "cowsanity": false,
+            "beansanity": false,
+            "shuffleMediCarpet": false,
+            "doors_open_forest": "doors_open_forest_deku",
+            "doors_open_kakariko": "doors_open_kakariko_open",
+            "doors_open_temple": true,
+            "doors_open_zora": "doors_open_zora_closed",
+            "gerudo_fortress_open": "gerudo_fortress_open_one",
+            "shuffle_grottos": false,
+            "shuffle_dungeons": false,
+            "entrance_shuffle_interior": "entrance_shuffle_off",
+            "trade_sequence_start_item": 8,
+            "big_poe_count": 1,
+            "keysanity_small_old": "keysanity_small_ignore",
+            "keysanity_boss_old": "keysanity_boss_ignore",
+            "small_key_logic": "keylogic_own_dungeon",
+            "boss_key_logic": "keylogic_own_dungeon",
+            "ganon_key_logic": "keylogic_own_dungeon",
+            "skullsanity": false,
+            "shuffle_overworld": false,
+            "light_arrow_cutscene": "light_arrow_cutscene_vanilla",
+            "lacs_skulltulas": 100,
+            "stone_count_lacs": 3,
+            "medallion_count_lacs": 6,
+            "dungeon_count_lacs": 9,
+            "ganon_castle_open": "ganon_castle_open_medallion",
+            "ganon_castle_skulltulas": 100,
+            "stone_count_bridge": 3,
+            "medallion_count_bridge": 6,
+            "dungeon_count_bridge": 9,
+            "ganon_boss_door_open": true,
+            "number_trials": 0,
+            "trials": [],
+            "skip.lens_required": "lens_required_never",
+            "overworld_skips": [
+                "skip.grottos_without_agony",
+                "skip.rusted_switches",
+                "skip.fewer_tunic_requirements",
+                "skip.man_on_roof",
+                "skip.windmill_poh",
+                "skip.crater_bean_poh_with_hovers"
+            ],
+            "child_dungeons": [
+                "skip.lens_botw",
+                "skip.child_deadhand",
+                "skip.dc_jump"
+            ],
+            "mini_adult_dungeons": [
+                "skip.lens_gtg",
+                "skip.lens_castle"
+            ],
+            "area.temple_forest": [
+                "skip.forest_vines"
+            ],
+            "area.temple_fire": [],
+            "area.temple_water": [],
+            "area.temple_shadow": [
+                "skip.lens_shadow",
+                "skip.lens_shadow_back"
+            ],
+            "area.temple_spirit": [
+                "skip.lens_spirit"
+            ],
+            "known_sequence_breaks": []
+        },
+        "items": {
+            "shield_kokiri": 1,
+            "ocarina": 1,
+            "egg": 3,
+            "stick": 1,
+            "nut": 1
+        }
+    },
     "S3 Scrub Tournament": {
         "options": {
             "logic_rules": "logic_rules_glitchless",
