@@ -6,6 +6,7 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu";
 import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};

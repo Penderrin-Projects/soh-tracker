@@ -5,6 +5,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu";
 import LogicViewer from "../../../../window/LogicViewer";
 import TPL from "./TrackerLocationListGossipstone.js.html" assert {type: "html"};
