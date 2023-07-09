@@ -1,9 +1,6 @@
 {
     "config": {
         "defaultArea": "hyrule",
-        "map": {
-            "color": "black"
-        },
         "areaContentHints": {
             "chest": {
                 "icon": "/images/icons/chest.svg",
