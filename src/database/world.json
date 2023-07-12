@@ -60755,7 +60755,7 @@
             ]
         },
         "kokiri": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -60894,7 +60894,7 @@
             ]
         },
         "desert": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -60952,7 +60952,7 @@
             ]
         },
         "colossus": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61055,7 +61055,7 @@
             ]
         },
         "river": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61189,7 +61189,7 @@
             ]
         },
         "hyrule_field": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61323,7 +61323,7 @@
             ]
         },
         "gerudo_valley": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61425,7 +61425,7 @@
             ]
         },
         "lake": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61560,7 +61560,7 @@
             ]
         },
         "lonlon": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61654,7 +61654,7 @@
             ]
         },
         "gerudo": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61765,7 +61765,7 @@
             ]
         },
         "woods": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -61895,7 +61895,7 @@
             ]
         },
         "meadow": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62002,7 +62002,7 @@
             ]
         },
         "town_entrance": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62056,7 +62056,7 @@
             ]
         },
         "castle_town": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62166,7 +62166,7 @@
             ]
         },
         "temple_time": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62232,7 +62232,7 @@
             ]
         },
         "castle_gateway": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62282,7 +62282,7 @@
             ]
         },
         "castle": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62360,7 +62360,7 @@
             ]
         },
         "castle_ganon_outside": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62418,7 +62418,7 @@
             ]
         },
         "kakariko": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62613,7 +62613,7 @@
             ]
         },
         "graveyard": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62732,7 +62732,7 @@
             ]
         },
         "mountain": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62863,7 +62863,7 @@
             ]
         },
         "crater": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -62982,7 +62982,7 @@
             ]
         },
         "goron": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -63096,7 +63096,7 @@
             ]
         },
         "zoras": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
@@ -63178,7 +63178,7 @@
             ]
         },
         "fountain": {
-            "category": "area",
+            "type": "area",
             "tags": [],
             "visible": true,
             "filter": {
