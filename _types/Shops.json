@@ -1,0 +1,12 @@
+{
+    "__type__": "NamedList",
+    "optional": false,
+    "children": {
+        "__type__": "List",
+        "optional": true,
+        "children": {
+            "type": "ShopSlot",
+            "optional": true
+        }
+    }
+}

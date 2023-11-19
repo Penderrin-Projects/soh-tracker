@@ -1,0 +1,18 @@
+{
+    "ref": {
+        "__type__": "Link",
+        "optional": false,
+        "linkedType": "Location"
+    },
+    "item": {
+        "__type__": "Link",
+        "optional": false,
+        "linkedType": "Item"
+    },
+    "price": {
+        "__type__": "Number",
+        "optional": false,
+        "default": 0,
+        "decimalPlaces": 0
+    }
+}

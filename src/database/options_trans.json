@@ -212,6 +212,13 @@
                 "false": false
             }
         },
+        "shuffle_gerudo_valley_river_exit": {
+            "name": "shuffle_gerudo_valley_river_exit",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "owl_drops": {
             "name": "shuffle_owls",
             "values": {

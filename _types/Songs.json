@@ -1,0 +1,8 @@
+{
+    "__type__": "NamedList",
+    "optional": false,
+    "children": {
+        "type": "Song",
+        "optional": true
+    }
+}

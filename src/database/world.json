@@ -75310,17 +75310,8 @@
             ],
             "ignoreBound": false,
             "entranceActive": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "option[shuffle_overworld]"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option[detached_entrances]"
-                    }
-                ]
+                "type": "value",
+                "el": "option[shuffle_gerudo_valley_river_exit]"
             },
             "includeInactiveEntrances": false,
             "isBiDir": false
@@ -76781,17 +76772,8 @@
                 "to"
             ],
             "visible": {
-                "type": "and",
-                "el": [
-                    {
-                        "type": "value",
-                        "el": "option[shuffle_overworld]"
-                    },
-                    {
-                        "type": "value",
-                        "el": "option[detached_entrances]"
-                    }
-                ]
+                "type": "value",
+                "el": "option[shuffle_gerudo_valley_river_exit]"
             },
             "visibleRootOnly": false,
             "filter": {

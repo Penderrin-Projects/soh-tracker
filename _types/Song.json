@@ -1,0 +1,13 @@
+{
+    "notes": {
+        "__type__": "String",
+        "optional": false,
+        "default": "",
+        "pattern": "/[AUDLR]*/"
+    },
+    "editable": {
+        "__type__": "Boolean",
+        "optional": false,
+        "default": false
+    }
+}

@@ -412,6 +412,11 @@
         "type": "check",
         "default": false
     },
+    "shuffle_gerudo_valley_river_exit": {
+        "category": "entrance_randomizer",
+        "type": "check",
+        "default": false
+    },
     "shuffle_owls": {
         "category": "entrance_randomizer",
         "type": "check",
