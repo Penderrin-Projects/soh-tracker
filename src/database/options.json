@@ -353,9 +353,20 @@
             "keylogic_medallions",
             "keylogic_dungeons",
             "keylogic_tokens",
-            "keylogic_hearts",
-            "keylogic_triforce"
+            "keylogic_hearts"
         ]
+    },
+    "token_count_ganon_bosskey": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "ref": "ganon_key_logic",
+            "value": "keylogic_tokens"
+        },
+        "min": 1,
+        "max": 100
     },
     "heart_count_ganon_bosskey": {
         "category": "keylogic",
