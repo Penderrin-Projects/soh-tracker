@@ -363,7 +363,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "content": "ganon_key_logic",
+            "ref": "ganon_key_logic",
             "value": "keylogic_hearts"
         },
         "min": 4,
@@ -380,7 +380,7 @@
         "default": 20,
         "visible": {
             "type": "value",
-            "content": "triforce_hunt"
+            "ref": "triforce_hunt"
         },
         "min": 0,
         "max": 10000
@@ -396,7 +396,7 @@
         "default": false,
         "visible": {
             "type": "value",
-            "content": "mixed_entrance_pool"
+            "ref": "mixed_entrance_pool"
         }
     },
     "detached_entrances": {
@@ -502,7 +502,7 @@
         "default": 100,
         "visible": {
             "type": "state",
-            "content": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_skulltulas"
         },
         "min": 0,
@@ -514,7 +514,7 @@
         "default": 3,
         "visible": {
             "type": "state",
-            "content": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_stones"
         },
         "min": 1,
@@ -526,7 +526,7 @@
         "default": 6,
         "visible": {
             "type": "state",
-            "content": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_medallions"
         },
         "min": 1,
@@ -538,7 +538,7 @@
         "default": 9,
         "visible": {
             "type": "state",
-            "content": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_dungeons"
         },
         "min": 1,
@@ -550,7 +550,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "content": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_hearts"
         },
         "min": 4,
@@ -576,7 +576,7 @@
         "default": 100,
         "visible": {
             "type": "state",
-            "content": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_skulltulas"
         },
         "min": 0,
@@ -588,7 +588,7 @@
         "default": 3,
         "visible": {
             "type": "state",
-            "content": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_stones"
         },
         "min": 1,
@@ -600,7 +600,7 @@
         "default": 6,
         "visible": {
             "type": "state",
-            "content": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_medallion"
         },
         "min": 1,
@@ -612,7 +612,7 @@
         "default": 9,
         "visible": {
             "type": "state",
-            "content": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_dungeon"
         },
         "min": 1,
@@ -624,7 +624,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "content": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_hearts"
         },
         "min": 4,
@@ -643,7 +643,7 @@
             "type": "not",
             "content": {
                 "type": "value",
-                "content": "trials_random"
+                "ref": "trials_random"
             }
         },
         "min": 0,
