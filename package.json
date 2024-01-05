@@ -41,7 +41,7 @@
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
     "build": "gulp build",
-    "buildDev": "gulp buildDev -rebuild -nocompress",
+    "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",
     "serve": "node ./server.js",
     "buildEditor": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress",
