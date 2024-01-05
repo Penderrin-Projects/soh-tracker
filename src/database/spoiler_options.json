@@ -22,7 +22,7 @@
         "default": false,
         "visible": {
             "type": "value",
-            "el": "item_association"
+            "content": "item_association"
         }
     },
     "woth_hints": {

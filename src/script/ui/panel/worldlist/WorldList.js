@@ -15,8 +15,8 @@ import "../dungeonstate/components/DungeonType.js";
 
 const TPL = new Template(`
 <ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
-<ootrt-worldlist-typebutton id="vanilla" class="button" type="v" text="vanilla"></ootrt-worldlist-typebutton>
-<ootrt-worldlist-typebutton id="masterquest" class="button" type="mq" text="masterquest"></ootrt-worldlist-typebutton>
+<ootrt-worldlist-typebutton id="vanilla" class="button" listname="v" text="vanilla"></ootrt-worldlist-typebutton>
+<ootrt-worldlist-typebutton id="masterquest" class="button" listname="mq" text="masterquest"></ootrt-worldlist-typebutton>
 `);
 
 function applyElements(target) {
@@ -40,7 +40,7 @@ export default class TrackerWorldList extends WorldList {
         super();
         applyElements(this.shadowRoot);
         /* state handler */
-        this.registerStateHandler("type", (event) => {
+        this.registerStateHandler("activeListChange", (event) => {
             this.refreshList();
             /* buttons */
             this.applyType(event.value);
@@ -74,13 +74,13 @@ export default class TrackerWorldList extends WorldList {
         const masterquestEl = this.shadowRoot.getElementById("masterquest");
         masterquestEl.ref = state.ref;
         /* type */
-        this.applyType(state.type);
+        this.applyType(state.activeList);
     }
 
     applyType(type) {
         const vanillaEl = this.shadowRoot.getElementById("vanilla");
         const masterquestEl = this.shadowRoot.getElementById("masterquest");
-        if (type == "n") {
+        if (type == null) {
             vanillaEl.classList.remove("hidden");
             masterquestEl.classList.remove("hidden");
         } else {

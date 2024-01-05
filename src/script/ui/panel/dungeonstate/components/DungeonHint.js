@@ -7,8 +7,6 @@ import "/emcJS/ui/input/Option.js";
 // GameTrackerJS
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-// Track-OOT
-import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
 <emc-option value="" style="background-image: url('images/icons/area_nohint.svg')"></emc-option>
@@ -42,6 +40,7 @@ slot {
     color: white;
     font-size: 1em;
     text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+    background-image: var(--default-unknown-back-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

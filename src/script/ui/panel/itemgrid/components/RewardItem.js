@@ -6,10 +6,7 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 
 // GameTrackerJS
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import ItemElement from "/GameTrackerJS/ui/panel/itemgrid/components/abstract/ItemElement.js";
-import "/GameTrackerJS/ui/itempicker/components/Item.js";
-// Track-OOT
-import "/script/state/item/RewardItemState.js";
+import ItemElement from "/GameTrackerJS/ui/itemgrid/interactive/components/abstract/ItemElement.js";
 
 const TPL = new Template(`
 <div id="icon">
@@ -21,6 +18,7 @@ const STYLE = new GlobalStyle(`
 #icon {
     width: 100%;
     height: 100%;
+    background-image: var(--default-unknown-back-image);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -61,8 +59,6 @@ function applyElements(target) {
     const iconEl = tpl.getElementById("icon");
     tooltipEl.append(iconEl);
 }
-
-// FIXME dungeon name is not shown
 
 export default class RewardItem extends ItemElement {
 

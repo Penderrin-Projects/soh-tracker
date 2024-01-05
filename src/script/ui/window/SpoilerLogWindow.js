@@ -4,7 +4,7 @@ import Template from "/emcJS/util/html/Template.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
+import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import "/emcJS/ui/Paging.js";
 
 // GameTrackerJS
@@ -53,7 +53,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
         this.shadowRoot.getElementById("footer").prepend(loadSpoilerRow);
         /* --- */
         this.addEventListener("submit", async (event) => {
-            await BusyIndicator.busy();
+            await BusyIndicatorManager.busy();
             SavestateHandler.set("parseSpoiler", event.data);
             if (!!spoiler && !!spoiler.data) {
                 try {
@@ -63,14 +63,14 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
                     }
                     Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                     spoiler = {};
-                    await BusyIndicator.unbusy();
+                    await BusyIndicatorManager.unbusy();
                 } catch (err) {
                     console.error(err);
-                    await BusyIndicator.unbusy();
+                    await BusyIndicatorManager.unbusy();
                     await Dialog.alert("Error loading spoiler", err.message);
                 }
             } else {
-                await BusyIndicator.unbusy();
+                await BusyIndicatorManager.unbusy();
                 await Dialog.alert("No spoiler log loaded", "Please load a spoiler log first, then try again!");
                 this.show();
             }

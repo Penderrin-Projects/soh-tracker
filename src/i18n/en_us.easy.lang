@@ -1,11 +1,7 @@
-# language file for track-oot
-# language: English (Descriptive names)
-# ---------------------------
-# base: en_us
-# ---------------------------
-# author: ZidArgs, Fraggerman, Luigimeansme
+@label: English (Descriptive names)
+@author: ZidArgs, Fraggerman, Luigimeansme
+@base: en_us
 
-# LOCATIONS - OVERWORLD
 collection[spawns]=Spawn Exits
 area[hyrule]=Hyrule
 area[hyrule_field]=Hyrule Field
@@ -41,9 +37,6 @@ location[river.c_zora_hp_1]=Zora River Freestanding Item 1
 location[river.c_zora_hp_2]=Zora River Freestanding Item 2
 location[river.c_zora_grotto]=Zora River Grotto
 location[desert.c_bombchu_wasteland]=Bombchu Carpet Salesman
-
-
-# LOCATIONS - KOKIRI
 location[kokiri.c_sword]=Kokiri Sword Chest
 location[kokiri.c_midos_house_1]=Mido Chest 1
 location[kokiri.c_midos_house_2]=Mido Chest 2
@@ -51,19 +44,14 @@ location[kokiri.c_midos_house_3]=Mido Chest 3
 location[kokiri.c_midos_house_4]=Mido Chest 4
 location[kokiri.c_saria_ocarina]=Saria's Ocarina
 location[kokiri.c_storm_grotto]=Kokiri Song of Storms Grotto
-
 location[kokiri.kokiri_shop_8]=Kokiri Shop Left - Top Left
 location[kokiri.kokiri_shop_7]=Kokiri Shop Left - Bottom Left
 location[kokiri.kokiri_shop_6]=Kokiri Shop Left - Top Right
 location[kokiri.kokiri_shop_5]=Kokiri Shop Left - Bottom Right
-
-# LOCATIONS - LONLON
 area[lonlon]=Lon Lon Ranch
 location[lonlon.c_talon_chicken]=Talon's Chickens Minigame
 location[lonlon.c_maron_song]=Epona's Song
 location[lonlon.c_hp]=Tower Item
-
-# LOCATIONS - GERUDO
 area[gerudo]=Gerudo Fortress
 location[gerudo.c_rooftop]=Fortress Rooftop Chest
 location[gerudo.c_guard_1]=Carpenter Guard 1
@@ -73,8 +61,6 @@ location[gerudo.c_guard_4]=Carpenter Guard 4
 location[gerudo.c_fortress_clear]=Rescued all Carpenters
 location[gerudo.c_archer_1]=Horseback Archery Game 1000pts
 location[gerudo.c_archer_2]=Horseback Archery Game 1500pts
-
-# LOCATIONS - DEKU
 area[deku]=Deku Tree
 area[deku.short]=DEKU
 location[deku.c_lobby]=Lobby Chest
@@ -84,7 +70,6 @@ location[deku.c_basement]=Basement Chest
 location[deku.c_slingshot]=Falling Plattform Back Chest
 location[deku.c_slingshot_side]=Falling Plattform Upper Chest
 location[deku.c_gohma]=Gohma
-# LOCATIONS - DEKU MQ
 location[deku_mq.c_lobby]=Lobby Chest
 location[deku_mq.c_slingshot]=Rising Pillars Side Chest
 location[deku_mq.c_slingshot_back]=Rising Pillars Back Chest
@@ -93,8 +78,6 @@ location[deku_mq.c_basement]=Basement Chest
 location[deku_mq.c_before_log]=Before Spinning Log
 location[deku_mq.c_after_log]=After Spinning Log
 location[deku_mq.c_gohma]=Gohma
-
-# LOCATIONS - DODONGO
 area[dodongo]=Dodongo's Cavern
 area[dodongo.short]=DCVN
 location[dodongo.c_map]=Lobby Chest
@@ -104,7 +87,6 @@ location[dodongo.c_bomb_bag]=Spike Room Highest Chest
 location[dodongo.c_end_bridge]=End of Bridge Chest
 location[dodongo.c_chest_above_dodongo]=Chest Above King Dodongo
 location[dodongo.c_dodongo]=King Dodongo
-# LOCATIONS - DODONGO MQ
 location[dodongo_mq.c_map]=Lobby Bombable
 location[dodongo_mq.c_compass]=Bombflower Pillar Room
 location[dodongo_mq.c_gohma_larva_room]=Gohma Larva Room
@@ -113,15 +95,12 @@ location[dodongo_mq.c_under_grave]=Under Grave Chest
 location[dodongo_mq.c_bomb_bag]=Lobby Elevated Alcove
 location[dodongo_mq.c_chest_above_dodongo]=Chest Above King Dodongo
 location[dodongo_mq.c_dodongo]=King Dodongo
-
-# LOCATIONS - JABU JABU
 area[jabujabu]=Jabu Jabu's Belly
 area[jabujabu.short]=JABU
 location[jabujabu.c_boomerang]=Stinger Chest
 location[jabujabu.c_map]=Left Tentacle Chest
 location[jabujabu.c_compass]=Shabom Chest
 location[jabujabu.c_barinade]=Barinade
-# LOCATIONS - JABU JABU MQ
 location[jabujabu_mq.c_map]=Entrance Button Chest
 location[jabujabu_mq.c_entry_side_chest]=Entry Room Side Chest
 location[jabujabu_mq.c_second_room_lower_chest]=Second Room Lower Chest
@@ -134,8 +113,6 @@ location[jabujabu_mq.c_like_like_chest]=Falling Like Like Chest
 location[jabujabu_mq.c_second_room_upper]=Second Room Upper Chest
 location[jabujabu_mq.c_near_boss]=Near Boss Chest
 location[jabujabu_mq.c_barinade]=Barinade
-
-# LOCATIONS - TEMPLE FOREST
 area[temple_forest]=Forest Temple
 area[temple_forest.short]=FRST
 location[temple_forest.c_entrance]=First Chest
@@ -152,7 +129,6 @@ location[temple_forest.c_poe_red]=Red Poe Chest
 location[temple_forest.c_poe_blue]=Blue Poe Chest
 location[temple_forest.c_near_boss]=Near Boss Chest
 location[temple_forest.c_phantomganon]=Phantom Ganon
-# LOCATIONS - TEMPLE FOREST MQ
 location[temple_forest_mq.c_entrance]=First Chest
 location[temple_forest_mq.c_behind_lobby]=Chest Behind Lobby
 location[temple_forest_mq.c_boss_key]=Twisted Hallway Chest
@@ -166,8 +142,6 @@ location[temple_forest_mq.c_compass]=Blue Poe Chest
 location[temple_forest_mq.c_falling_room]=Falling Room Chest
 location[temple_forest_mq.c_near_boss]=Near Boss Chest
 location[temple_forest_mq.c_phantomganon]=Phantom Ganon
-
-# LOCATIONS - TEMPLE FIRE
 area[temple_fire]=Fire Temple
 area[temple_fire.short]=FIRE
 location[temple_fire.c_near_boss]=Chest Near Boss
@@ -185,7 +159,6 @@ location[temple_fire.c_compass]=Fire Maze Side Room
 location[temple_fire.c_highest_goron]=Highest Goron Chest
 location[temple_fire.c_hammer]=Narrow Path Fire Switch Chest
 location[temple_fire.c_volvagia]=Volvagia
-# LOCATIONS - TEMPLE FIRE MQ
 location[temple_fire_mq.c_chest_near_boss]=Chest Near Boss
 location[temple_fire_mq.c_megaton_hammer]=Lobby Lower Path Fire Dancer
 location[temple_fire_mq.c_map]=Lobby Lower Path Prison
@@ -199,8 +172,6 @@ location[temple_fire_mq.c_compass]=Lizalfos Maze Bombable Chest
 location[temple_fire_mq.c_freestanding_key]=Freestanding Item
 location[temple_fire_mq.c_west_tower_top]=West Tower Top
 location[temple_fire_mq.c_volvagia]=Volvagia
-
-# LOCATIONS - TEMPLE WATER
 area[temple_water]=Water Temple
 area[temple_water.short]=WATR
 location[temple_water.c_map]=Near Lowest Water Switch Chest
@@ -214,7 +185,6 @@ location[temple_water.c_cracked_wall]=Cracked Wall Chest
 location[temple_water.c_dark_link]=Dark Link Chest
 location[temple_water.c_river]=River Chest
 location[temple_water.c_morpha]=Morpha
-# LOCATIONS - TEMPLE WATER MQ
 location[temple_water_mq.c_map]=Three Stalfos Room
 location[temple_water_mq.c_central_pillar]=Central Pillar Chest
 location[temple_water_mq.c_compass]=Torches Chest
@@ -222,8 +192,6 @@ location[temple_water_mq.c_longshot]=Cracked Wall Hidden Chest
 location[temple_water_mq.c_boss_key]=Geyser Torches Chest
 location[temple_water_mq.c_freestanding_key]=Freestanding Item
 location[temple_water_mq.c_morpha]=Morpha
-
-# LOCATIONS - TEMPLE SHADOW
 area[temple_shadow]=Shadow Temple
 area[temple_shadow.short]=SHDW
 location[temple_shadow.c_map]=Near Dead Hand Side Room
@@ -244,7 +212,6 @@ location[temple_shadow.c_spike_walls]=Spike Walls Left Chest
 location[temple_shadow.c_boss_key]=Spike Walls Right Chest
 location[temple_shadow.c_hidden_floormaster]=Hidden Floormaster Chest
 location[temple_shadow.c_bongobongo]=Bongo Bongo
-# LOCATIONS - TEMPLE SHADOW MQ
 location[temple_shadow_mq.c_compass]=Early Redeads Chest
 location[temple_shadow_mq.c_boots]=Dead Hand Chest
 location[temple_shadow_mq.c_map]=Early Silver Rupees Chest
@@ -266,8 +233,6 @@ location[temple_shadow_mq.c_boss_key]=Spike Walls Right Chest
 location[temple_shadow_mq.c_bomb_flower_chest]=Bomb Flower Chest
 location[temple_shadow_mq.c_freestanding_key]=Freestanding Item
 location[temple_shadow_mq.c_bongobongo]=Bongo Bongo
-
-# LOCATIONS - TEMPLE SPIRIT
 area[temple_spirit]=Spirit Temple
 area[temple_spirit.short]=SPRT
 location[temple_spirit.c_child_left]=Child Left Chest
@@ -290,7 +255,6 @@ location[temple_spirit.c_hallway_right_invisible]=Hallway Right Invisible Chest
 location[temple_spirit.c_boss_key]=Slugs Behind Fire Chest
 location[temple_spirit.c_topmost]=Topmost Chest
 location[temple_spirit.c_twinrova]=Twinrova
-# LOCATIONS - TEMPLE SPIRIT MQ
 location[temple_spirit_mq.c_entrance_front_left]=Entrance Front Left Chest
 location[temple_spirit_mq.c_entrance_back_left]=Entrance Back Left Chest
 location[temple_spirit_mq.c_entrance_back_right]=Entrance Back Right Chest
@@ -314,8 +278,6 @@ location[temple_spirit_mq.c_mirror_shield]=Outdoor Right Hand Chest
 location[temple_spirit_mq.c_boss_key]=Dinolfos Sun Switch Chest
 location[temple_spirit_mq.c_mirror_puzzle_invisible]=Mirror Puzzle Invisible Chest
 location[temple_spirit_mq.c_twinrova]=Twinrova
-
-# LOCATIONS - GANON
 area[castle_ganon]=Ganon's Castle
 location[castle_ganon.c_forest_trial]=Forest Trial Chest
 location[castle_ganon.c_water_trial_left]=Water Trial Left Chest
@@ -334,7 +296,6 @@ location[castle_ganon.c_light_trail_invisible_enemies]=Light Trial Invisible Ene
 location[castle_ganon.c_light_trial_lullaby]=Light Trial Lullaby Chest
 location[castle_ganon.c_boss_key]=Stalfos Chest
 location[castle_ganon.c_boss]=Ganon Fight
-# LOCATIONS - GANON MQ
 location[castle_ganon_mq.c_forest_trial_first]=Forest Trial First Chest
 location[castle_ganon_mq.c_forest_trial_second]=Forest Trial Second Chest
 location[castle_ganon_mq.c_forest_trial_key]=Forest Trial Freestanding Key
@@ -350,8 +311,6 @@ location[castle_ganon_mq.c_spirit_sun_back_right]=Spirit Trial Sun Back Right Ch
 location[castle_ganon_mq.c_light_trial_lullaby]=Light Trial Lullaby Chest
 location[castle_ganon_mq.c_boss_key]=Boss Key Chest
 location[castle_ganon_mq.c_boss]=Ganon Fight
-
-# LOCATIONS - TOWN
 area[town_entrance]=Castle Town Entrance
 area[castle_town]=Castle Town
 area[temple_time]=Temple of Time
@@ -370,7 +329,6 @@ location[castle_town.c_hyrule_fairy]=Hyrule Castle Fairy
 location[castle_town.c_ganon_fairy]=Ganon's Castle Fairy
 location[castle_town.c_warp]=Prelude of Light
 location[castle_town.c_light_arrows]=Light Arrows
-
 location[castle_town.shop_bombchu_8]=Bombchu Shop Left - Top Left
 location[castle_town.shop_bombchu_7]=Bombchu Shop Left - Bottom Left
 location[castle_town.shop_bombchu_6]=Bombchu Shop Left - Top Right
@@ -383,8 +341,6 @@ location[castle_town.shop_magic_8]=Child Potion Shop Left - Top Left
 location[castle_town.shop_magic_7]=Child Potion Shop Left - Bottom Left
 location[castle_town.shop_magic_6]=Child Potion Shop Left - Top Right
 location[castle_town.shop_magic_5]=Child Potion Shop Left - Bottom Right
-
-# LOCATIONS - KAKARIKO
 area[kakariko]=Kakariko Village
 area[graveyard]=Graveyard
 location[kakariko.c_anju_adult]=Anju as Adult
@@ -410,7 +366,6 @@ location[kakariko.c_skulltula_20]=Skulltula House 20
 location[kakariko.c_skulltula_30]=Skulltula House 30
 location[kakariko.c_skulltula_40]=Skulltula House 40
 location[kakariko.c_skulltula_50]=Skulltula House 50
-
 location[kakariko.shop_bazaar_8]=Adult Bazaar Left - Top Left
 location[kakariko.shop_bazaar_7]=Adult Bazaar Left - Bottom Left
 location[kakariko.shop_bazaar_6]=Adult Bazaar Left - Top Right
@@ -419,8 +374,6 @@ location[kakariko.shop_magic_8]=Adult Potion Shop Left - Top Left
 location[kakariko.shop_magic_7]=Adult Potion Shop Left - Bottom Left
 location[kakariko.shop_magic_6]=Adult Potion Shop Left - Top Right
 location[kakariko.shop_magic_5]=Adult Potion Shop Left - Bottom Right
-
-# LOCATIONS - GORON
 area[goron]=Goron City
 location[goron.c_maze_left]=Left Boulder Maze Chest
 location[goron.c_maze_center]=Center Boulder Maze Chest
@@ -430,13 +383,10 @@ location[goron.c_little_link]=Link the Goron
 location[goron.c_spinning_pot_hp]=Spinning Pot Freestanding Item
 location[goron.c_darunia]=Darunia's Joy
 location[goron.c_medigoron]=Medi-Goron
-
 location[goron.goron_shop_8]=Goron Shop Left - Top Left
 location[goron.goron_shop_7]=Goron Shop Left - Bottom Left
 location[goron.goron_shop_6]=Goron Shop Left - Top Right
 location[goron.goron_shop_5]=Goron Shop Left - Bottom Right
-
-# LOCATIONS - MOUNTAIN
 area[mountain]=Death Mountain
 area[crater]=Death Mountain Crater
 location[mountain.c_above_dodongo]=Freestanding Item Above Dodongo Cavern
@@ -449,8 +399,6 @@ location[mountain.c_crater_grotto]=Crater Grotto
 location[mountain.c_crater_fairy]=Crater Fairy Fountain
 location[mountain.c_summit_fairy]=Summit Fairy Fountain
 location[mountain.c_biggoron]=Biggoron Sword
-
-# LOCATIONS - WOODS
 area[woods]=Lost Woods
 area[meadow]=Sacred Forest Meadow
 location[woods.c_skull_kid]=Skull Kid
@@ -462,8 +410,6 @@ location[woods.c_saria]=Saria's Song
 location[woods.c_warp]=Minuet of Forest
 location[woods.c_deku_theater_1]=Deku Theatre Skull Mask
 location[woods.c_deku_theater_2]=Deku Theatre Mask of Truth
-
-# LOCATIONS - ZORA
 area[zoras]=Zora's Domain
 area[fountain]=Zora Fountain
 location[zoras.c_diving]=Diving Minigame
@@ -472,13 +418,10 @@ location[zoras.c_fairy]=Fairy Fountain
 location[zoras.c_ice]=Iceberg Freestanding Item
 location[zoras.c_underwater]=Underwater Freestanding Item
 location[zoras.c_king_zora]=King Zora Thawed
-
 location[zoras.zoras_shop_8]=Zora Shop Left - Top Left
 location[zoras.zoras_shop_7]=Zora Shop Left - Bottom Left
 location[zoras.zoras_shop_6]=Zora Shop Left - Top Right
 location[zoras.zoras_shop_5]=Zora Shop Left - Bottom Right
-
-# LOCATIONS - TRAINING
 area[training_grounds]=Gerudo Training Grounds
 location[training_grounds.c_lobby_left]=Lobby Left Chest
 location[training_grounds.c_lobby_right]=Lobby Right Chest
@@ -519,8 +462,6 @@ location[training_grounds_mq.c_flame_circle]=Flame Circle Chest
 location[training_grounds_mq.c_maze_right_central]=Maze Right Central Chest
 location[training_grounds_mq.c_maze_right_side]=Maze Right Side Chest
 location[training_grounds_mq.c_ice_arrows]=Ice Arrows Chest
-
-# LOCATIONS - WELL
 area[well]=Bottom of the Well
 location[well.c_front_left_hidden_wall]=Front Left Hidden Wall
 location[well.c_front_center_bombable]=Front Center Bombable
@@ -536,20 +477,16 @@ location[well.c_underwater_left]=Underwater Left Chest
 location[well.c_basement_ches]=Basement Chest
 location[well.c_locked_pits]=Locked Pits
 location[well.c_behind_right_grate]=Behind Right Grate
-# LOCATIONS - WELL MQ
 location[well_mq.c_compass_chest]=Dead Hand Chest
 location[well_mq.c_map_chest]=Center Chest
 location[well_mq.c_lens_chest]=Basement Chest
 well_Dead Hand_freestanding_key_mq=Dead Hand Freestandng Item
 location[well_mq.c_east_inner_freestanding_key]=East Inner Room Freestanding Item
-
-# LOCATIONS - ICE
 area[ice_cavern]=Ice Cavern
 location[ice_cavern.c_map]=Freezard Bridges Chest
 location[ice_cavern.c_compass]=Chest Near Freestanding Item
 location[ice_cavern.c_hp]=Freestanding Item
 location[ice_cavern.c_boots]=Ice Cavern Beaten
-# LOCATIONS - ICE MQ
 area[ice_cavern_mq]=Ice Cavern
 location[ice_cavern_mq.c_map]=Near Freestanding Item Chest
 location[ice_cavern_mq.c_compass]=Ice Bridges Chest
@@ -557,8 +494,6 @@ location[ice_cavern_mq.c_hp]=Freestanding Item
 location[ice_cavern_mq.c_boots]=Ice Cavern Last Chest
 location[ice_cavern.c_sheik]=Ice Cavern Beaten
 location[ice_cavern_mq.c_sheik]=Ice Cavern Beaten
-
-# LOCATIONS - SCRUBS
 location[hyrule_field.c_hyrule_deku_salesman_grotto]=Hyrule Field Deku Salesman Grotto
 location[woods.c_deku_salesman]=Near Bridge Deku Salesman
 location[woods.c_deku_salesman_grotto]=Near Meadow Grotto left Deku Salesman
@@ -606,8 +541,6 @@ location[castle_ganon_mq.c_under_bridge_salesman_2]=Ganon's Castle under Bridge 
 location[castle_ganon_mq.c_under_bridge_salesman_3]=Ganon's Castle under Bridge 3rd Deku Salesman
 location[castle_ganon_mq.c_under_bridge_salesman_4]=Ganon's Castle under Bridge 4th Deku Salesman
 location[castle_ganon_mq.c_under_bridge_salesman_5]=Ganon's Castle under Bridge 5th Deku Salesman
-
-# COWS
 location[kokiri.c_links_house_cow]=Cow in Link's House
 location[hyrule_field.c_hyrule_west_grotto_cow]=Cow in West Grotto
 location[gerudo_valley.c_gerudo_river_cow]=Cow near Gerudo Fortress
@@ -618,8 +551,6 @@ location[lonlon.c_cow_stables_2]=Right Cow in Stables
 location[kakariko.c_impas_cow]=Cow in Impa's House
 location[mountain.c_grotto_cow]=Cow in Mountain Grotto
 location[jabujabu_mq.c_cow]=Cow in Jabu Jabu
-
-# SKULLTULAS
 location[kokiri.s_know_it_all_brothers_child_night]=Kokiri Know It All House
 location[kokiri.s_beanspot_near_shop_child]=Kokiri Bean Patch
 location[kokiri.s_twins_adult_night]=Kokiri House of Twins
@@ -764,8 +695,6 @@ location[temple_fire_mq.s_fire_wall_maze_center_adult]=Fire Temple Fire Wall Maz
 location[hyrule_field.s_hyrule_west_grotto]=Hyrule Field Near Gerudo Valley
 location[hyrule_field.s_hyrule_north_east_grotto]=Hyrule Field near Kakariko
 location[castle_town.s_storm_grotto_child]=Hyrule Castle Grotto
-
-# GOSSIP STONES
 location[mountain.g_gossip_dm_crater]=Death Mountain Crater Gossip Stone
 location[mountain.g_gossip_dm_trail]=Death Mountain Trail Gossip Stone
 location[desert.g_gossip_desert]=Desert Colossus Gossip Stone
@@ -806,8 +735,6 @@ location[woods.g_gossip_grotto_woods]=Generic Woods Grotto Gossip Stone
 location[hyrule_field.g_gossip_grotto_near_market]=Generic Near Market Grotto Gossip Stone
 location[hyrule_field.g_gossip_grotto_near_lake]=Generic Near Lake Grotto Gossip Stone
 location[hyrule_field.g_gossip_grotto_small_forest]=Generic Small Forest Grotto Gossip Stone
-
-# SUBAREAS
 area[kokiri.links_house]=Link's House
 area[kokiri.midos_house]=Mido's House
 area[hyrule_field.dive_grotto]=Field Diving Grotto
@@ -886,8 +813,6 @@ area[gerudo_valley.octorock_grotto]=Valley Octorock Grotto
 area[gerudo.storms_grotto]=Gerudo Storms Grotto
 area[desert.fairy_fountain]=Colossus Great Fairy
 area[desert.strength_grotto]=Colossus Grotto
-
-#songs
 song[zelda]=Zelda's Lullaby
 song[epona]=Epona's Song
 song[saria]=Saria's Song
@@ -903,8 +828,6 @@ song[warp_light]=Prelude of Light
 song[scarecrow]=Scarecrow's Song
 song[frogs]=Frog Choir's Song
 song[woods]=Skull Kid's Ocarina Game
-
-# SETTINGS
 App settings=App settings
 Randomizer options=Randomizer options
 Spoiler parser=Spoiler parser
@@ -913,8 +836,6 @@ options=Randomizer options
 lacsAndGanon=LACS and Bridge options
 skips=Active skips
 a11y=Accessibility
-
-# SETTINGS - GENERAL
 font=Select Font
 layout=Select Layout
 show_filter_badges=Show filter badges for checks
@@ -933,8 +854,6 @@ location_status_opened_color=Color for finished checks
 location_status_available_color=Color for available checks
 location_status_unavailable_color=Color for unavailable checks
 location_status_possible_color=Color for partially available checks
-
-# SETTINGS - ROM OPTIONS
 option[consider_buyable]=Consider buyable Items (Tunics / Blue Fire) in logic
 option[bombchu_logic]=Consider Bombchus in logic
 option[free_scarecrow]=Free Scarecrow's Song
@@ -966,7 +885,7 @@ option[entrance_shuffle_interior]=Shuffle Interior Entrances
 option[shuffle_grottos]=Shuffle Grottos
 option[shuffle_dungeons]=Shuffle Dungeons
 option[shuffle_overworld]=Shuffle Overworld Entrances
-option[shuffleMediCarpet]=Shuffle Medigoron and Carpet Bombchu Saleman
+option[shuffle_expensive_merchants]=Shuffle Medigoron and Carpet Bombchu Saleman
 option[ganon_castle_skulltulas]=Required Skulltulas for Rainbow Bridge
 option[lacs_skulltulas]=Required Skulltulas for LACS
 option[stone_count_lacs]=Required Spiritual Stones for LACS
@@ -981,16 +900,11 @@ option[shuffle_owls]=Shuffle Owl Drops
 option[shuffle_warps]=Shuffle Song Warps
 option[shuffle_spawns]=Shuffle Spawn Locations
 option[sun_song_skulltuta]=Force Night Skulltutas to require Sun Song
-
 option[keysanity_small_old]=Unused
 option[keysanity_boss_old]=Unused
-
 option[shopsanity]=Shopsanity slots
-
 entrance_randomizer=Entrance randomization
 option[mixed_entrance_pool]=Mixed entrance pool
-
-# SETTINGS - SKIPS
 skip.lens_required=Lens of Truth requirement
 tricks=Tricks
 known_sequence_breaks=Sequence Breaks
@@ -1002,8 +916,6 @@ area.temple_fire=Fire Temple Skips
 area.temple_water=Water Temple Skips
 area.temple_shadow=Shadow Temple Skips
 area.temple_spirit=Spirit Temple Skips
-
-# SETTINGS - TRICKS
 skip.fewer_tunic_requirements=Fewer Tunic Requirements
 skip.grottos_without_agony=Hidden Grottos without Stone of Agony
 skip.visible_collisions=Pass Through Visible One-Way Collisions
@@ -1136,12 +1048,10 @@ skip.lens_shadow=Shadow Temple before Invisible Moving Platform without Lens of 
 skip.lens_shadow_back=Shadow Temple beyond Invisible Moving Platform without Lens of Truth
 skip.lens_spirit=Spirit Temple without Lens of Truth
 skip.lens_spirit_mq=Spirit Temple MQ without Lens of Truth
-
 skip.water_bk_chest=Water Temple Boss Key Chest with Iron Boots
 skip.water_falling_platform_gs=Water Temple Falling Platform Room GS with Hookshot
 skip.water_dragon_bombchu=Water Temple Dragon Statue with Bombchu
 skip.water_north_basement_ledge_jump=Water temple Bosskey chest without additional Items
-
 skip.botw_mq_pits=Bottom of the Well MQ Jump Over the Pits
 skip.deku_mq_compass_gs=Deku Tree MQ Compass Room GS Boulders with Just Hammer
 skip.deku_mq_log=Deku Tree MQ Roll Under the Spiked Log
@@ -1163,8 +1073,6 @@ skip.spirit_mq_sun_block_sot=Spirit Temple MQ Sun Block Room as Child without So
 skip.water_mq_central_pillar=Water Temple MQ Central Pillar with Fire Arrows
 skip.water_mq_locked_gs=Water Temple MQ North Basement GS without Small Key
 skip.water_central_gs_fw=Water Temple Central Pillar GS with Farore's Wind
-
-# SETTINGS - SEQUENCE BREAKS
 skip.ground_jump=Enable Bomb Bag Ground Jumping
 skip.invisible_ocarina=Enable Ocarina Items (Put Away method - safe)
 skip.invisible_ocarina_midair=Enable Ocarina Items (Midair method - warning: will overwrite items if done incorrectly)
@@ -1184,28 +1092,18 @@ skip.gtg_clip=Clip Into Gerudo Training Grounds with Hover Boots
 skip.gtg_hammer_switch_nohammer=Gerudo Training Grounds Hammer Switch Chest Without Hammer
 skip.spt_bosskey_nohookshot=Spirit Temple Boss Key Without Hookshot or Arrows
 skip.morpha_scale=Morpha with Gold Scale
-
-# SETTINGS - AGE
 child=Child
 adult=Adult
-
-# SETTINGS - LOGIC
 logic_rules_glitchless=Glitchless
 logic_rules_glitched=Glitched
-
-# SETTINGS - LACS
 light_arrow_cutscene_vanilla=Vanilla Requirements
 light_arrow_cutscene_stones=Spirital Stones Requirements
 light_arrow_cutscene_medallions=Medallions Requirements
 light_arrow_cutscene_dungeons=Dungeons Rewards Requirements
 light_arrow_cutscene_skulltulas=Skulltulas Token Requirements
-
-# SETTINGS - ENTRANCESHUFFLE
 entrance_shuffle_off=Off
 entrance_shuffle_simple=Shuffle Simple Indoors
 entrance_shuffle_all=Shuffle All Indoors
-
-# SETTINGS - DOORS
 doors_open_forest_closed=Closed Forest
 doors_open_forest_deku=Closed Deku, Open Forest
 doors_open_forest_open=Open Forest and Deku
@@ -1215,21 +1113,15 @@ doors_open_zora_both=Open Fountain Both
 doors_open_kakariko_closed=Kakariko Gate Closed
 doors_open_kakariko_zelda=Kakariko Gate Opened Immediately after Zelda's Letter
 doors_open_kakariko_open=Kakariko Gate Opened
-
-# SETTINGS - KEYSANITY
 keysanity_small_ignore=Ignore Key Logic
 keysanity_small_track=Normal Key Logic
 keysanity_small_keysanity=Keysanity Logic
 keysanity_boss_ignore=Ignore Key Logic
 keysanity_boss_track=Normal Key Logic
 keysanity_boss_keysanity=Keysanity Logic
-
-# SETTINGS - GERUDO FORTRESS
 gerudo_fortress_open_default=Default behavior
 gerudo_fortress_open_one=Rescue one carpenter
 gerudo_fortress_open_open=Carpenters are already rescued
-
-# SETTINGS - GANON
 ganon_castle_open_default=Vanilla Requirements
 ganon_castle_open_dungeon=Dungeons Rewards Requirements
 ganon_castle_open_medallion=Medallions Requirements
@@ -1237,21 +1129,15 @@ ganon_castle_open_stones=Spiritual Stones Requirements
 ganon_castle_open_skulltulas=Skulltulas Tokens Requirements
 ganon_castle_open_triforce=Triforce Hunt
 ganon_castle_open_open=Always open
-
-# SETTINGS - LENS
 lens_required_default=Required everywhere
 lens_required_wasteland=Chest Minigame and Wastelands
 lens_required_never=Only Chest Minigame
-
-# SETTINGS - TRIALS
 option[forest_trial]=Forest Trial
 option[water_trial]=Water Trial
 option[shadow_trial]=Shadow Trial
 option[fire_trial]=Fire Trial
 option[light_trial]=Light Trial
 option[spirit_trial]=Spirit Trial
-
-# SETTINGS - FONT
 font_default=Default
 font_charlemagne=Charlemagne
 font_ravenna=Ravenna
@@ -1259,8 +1145,6 @@ font_returnofganon=ReturnofGanon
 font_zeldadx=ZeldaDX
 font_triforce=Triforce
 font_sheikah=Sheikah
-
-# SETTINGS - LAYOUT
 items=Items only (key)
 items-dt=Items only (key/type)
 items-list=Items and List (key)
@@ -1275,11 +1159,7 @@ map-right-dtr=Minimal Items with Map (reward/type)
 essential-map=Essential Items with Map (reward)
 essential-map-key=Essential Items with Map (key/reward)
 standard-essential-map=Standard Essential Items with Map (reward)
-
-# SETTINGS - RULESET
 load-preset-button=Load preset
-
-# SETTINGS - SPOILER
 load-spoiler-button=Load Spoiler
 loaded-spoiler-button=Spoiler Loaded
 spoilerOptions=Spoiler Options
@@ -1305,8 +1185,6 @@ parse[multiworld]=Your Multiworld World
 parse[entro_owls]=Set Randomized Owl Flights
 parse[entro_spawns]=Set Randomized Spawns
 parse[entro_warps]=Set Randomized Warp Targets
-
-# SHOPS
 shop.kokiri=Kokiri Shop
 shop.goron=Goron Shop
 shop.zora=Zora Shop
@@ -1315,7 +1193,6 @@ shop.basar_child=Castletown Bazaar
 shop.magic_child=Castletown Potion Shop
 shop.basar_adult=Kakariko Bazaar
 shop.magic_adult=Kakariko Potion Shop
-
 left/top-left=Left - Top Left
 left/top-right=Left - Top Right
 left/bottom-left=Left - Bottom Left
@@ -1324,8 +1201,6 @@ right/top-left=Right - Top Left
 right/top-right=Right - Top Right
 right/bottom-left=Right - Bottom Left
 right/bottom-right=Right - Bottom Right
-
-# SHOPS - CATEGORIES
 shop_items=Shop items
 junk_items=Junk
 tracking_items=Map & Compass
@@ -1335,8 +1210,6 @@ inventory_items=Items
 trading_items=Trade items
 equipment_items=Equipment
 song_items=Songs
-
-# OTHER
 vanilla=Vanilla
 masterquest=Master Quest
 area[pocket]=Pocket
@@ -1349,3 +1222,6 @@ dun_reward=Reward
 dun_type=Type (V/MQ)
 search=Search
 search_reset=Reset
+de_de=de_de
+en_us.easy=en_us.easy
+en_us=en_us

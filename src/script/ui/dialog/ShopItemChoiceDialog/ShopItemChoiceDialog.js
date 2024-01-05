@@ -159,8 +159,10 @@ export default class HTMLTrackerShopItemChoice extends Window {
         const items = ShopItemsResource.get();
         for (const item in items) {
             const values = items[item];
-            this.addTab(Language.generateLabel(values.category), values.category);
-            this.addItem(values.category, item, values.price || "???");
+            if (values.visible == null || values.visible === true) {
+                this.addTab(Language.generateLabel(values.category), values.category);
+                this.addItem(values.category, item, values.price || "???");
+            }
         }
     }
 

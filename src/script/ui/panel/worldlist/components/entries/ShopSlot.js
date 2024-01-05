@@ -169,8 +169,8 @@ export default class WorldListShopSlot extends BaseClass {
         }
     }
 
-    get category() {
-        return "location";
+    get type() {
+        return "Location";
     }
 
 }

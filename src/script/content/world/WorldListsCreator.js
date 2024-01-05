@@ -45,11 +45,9 @@ class WorldListsCreator {
 
         const result = {
             marker: {
-                "area": createMarkerList("area", world, custom_data),
-                "subarea": createMarkerList("subarea", world, custom_data),
-                "exit": createMarkerList("exit", world, custom_data),
-                "subexit": createMarkerList("subexit", world, custom_data),
-                "location": createMarkerList("location", world, custom_data)
+                "areas": createMarkerList("areas", world, custom_data),
+                "exits": createMarkerList("exits", world, custom_data),
+                "locations": createMarkerList("locations", world, custom_data)
             },
             areas: [],
             exits: []

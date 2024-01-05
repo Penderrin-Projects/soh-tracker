@@ -11,18 +11,19 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.9.10",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.4.34",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.14",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.10.10",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.4.45",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.16",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },
   "devDependencies": {
+    "webservice": "git+https://bitbucket.org/zidargs/webservice.git/@1.4.4",
     "@babel/core": "^7.16.10",
     "@babel/eslint-parser": "^7.16.5",
-    "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/plugin-syntax-import-assertions": "^7.17.12",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "del": "^5.1.0",
-    "electron": "^25.0.1",
+    "electron": "^28.1.0",
     "eslint": "^8.0.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
@@ -34,16 +35,17 @@
     "gulp-newer": "^1.4.0",
     "gulp-svgo": "^2.1.0",
     "gulp-terser": "^1.4.1",
-    "serve": "^11.3.2",
     "through": "^2.3.8"
   },
   "scripts": {
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
     "build": "gulp build",
-    "buildDev": "gulp buildDev",
+    "buildDev": "gulp buildDev -rebuild -nocompress",
     "watch": "gulp watch -nocompress",
-    "serve": "serve -p 5000 dev",
-    "edit": "gulp buildEditor -rebuild -nocompress && electron ./editor --no-sandbox > ./editor/info.log 2>&1"
+    "serve": "node ./server.js",
+    "buildEditor": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress",
+    "edit": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && electron ./editor --no-sandbox > ./editor/info.log 2>&1 -debug",
+    "editWeb": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && node ./editor/server.js"
   }
 }

@@ -20,14 +20,14 @@ export default class KeyState extends DefaultItemState {
             const area = AreaStateManager.get(props.relatedDungeon);
             if (area != null) {
                 AREA.set(this, area);
-                if (area.props.list_mq != null) {
-                    area.addEventListener("type", (event) => {
+                if (area.props.lists?.mq != null) {
+                    area.addEventListener("activeListChange", (event) => {
                         this.#setMax(props.typeMax[event.value] ?? super.max);
                         const ev = new Event("type");
                         ev.value = event.value;
                         this.dispatchEvent(ev);
                     });
-                    MAX.set(this, props.typeMax[area.type] ?? super.max);
+                    MAX.set(this, props.typeMax[area.activeList] ?? super.max);
                 }
             }
         }
@@ -60,7 +60,7 @@ export default class KeyState extends DefaultItemState {
     get type() {
         const area = AREA.get(this);
         if (area != null) {
-            return area.type;
+            return area.activeList;
         }
         return "v";
     }

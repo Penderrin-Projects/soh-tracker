@@ -57,11 +57,13 @@ export default class WorldListGossipstone extends BaseClass {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("sethint", () => {
+        this.addDefaultContextMenuHandler("sethint", async () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(this.ref);
-                LogicViewer.show(state.props.logicAccess, title);
+                // TODO show hint dialog
+                // select Location/Area/Exit
+                // if Exit select target
+                // if Area/Location select item/WOTH
             }
         });
         this.addDefaultContextMenuHandler("junk", () => {
@@ -129,8 +131,8 @@ export default class WorldListGossipstone extends BaseClass {
         }
     }
 
-    get category() {
-        return "location";
+    get type() {
+        return "Location";
     }
 
 }

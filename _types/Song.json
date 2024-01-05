@@ -1,13 +1,18 @@
 {
-    "notes": {
-        "__type__": "String",
-        "optional": false,
-        "default": "",
-        "pattern": "/[AUDLR]*/"
+    "parameters": {
+        "allowExtension": false
     },
-    "editable": {
-        "__type__": "Boolean",
-        "optional": false,
-        "default": false
+    "definition": {
+        "notes": {
+            "@type": "String",
+            "optional": false,
+            "default": "",
+            "pattern": "[AUDLR]*"
+        },
+        "editable": {
+            "@type": "Boolean",
+            "optional": false,
+            "default": false
+        }
     }
 }

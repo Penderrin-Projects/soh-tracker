@@ -198,6 +198,51 @@
             "/images/items/ocarina_time.png"
         ]
     },
+    "ocarina_a_button": {
+        "type": "ocarina_note",
+        "max": 1,
+        "counting": false,
+        "alwaysCounting": false,
+        "icon": "/images/items/ocarina_note_a.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "ocarina_down_button": {
+        "type": "ocarina_note",
+        "max": 1,
+        "counting": false,
+        "alwaysCounting": false,
+        "icon": "/images/items/ocarina_note_down.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "ocarina_left_button": {
+        "type": "ocarina_note",
+        "max": 1,
+        "counting": false,
+        "alwaysCounting": false,
+        "icon": "/images/items/ocarina_note_left.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "ocarina_right_button": {
+        "type": "ocarina_note",
+        "max": 1,
+        "counting": false,
+        "alwaysCounting": false,
+        "icon": "/images/items/ocarina_note_right.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "ocarina_up_button": {
+        "type": "ocarina_note",
+        "max": 1,
+        "counting": false,
+        "alwaysCounting": false,
+        "icon": "/images/items/ocarina_note_up.png",
+        "halign": "end",
+        "valign": "end"
+    },
     "bottle": {
         "type": "item",
         "max": 4,
@@ -252,45 +297,115 @@
         "halign": "end",
         "valign": "end"
     },
-    "egg": {
-        "type": "progressive",
-        "max": 8,
-        "varMin": {
-            "option": "skip_child_zelda",
-            "values": {
-                "true": 3
-            }
-        },
-        "icon": [
-            "/images/items/egg.png",
-            "/images/items/egg.png",
-            "/images/items/cucco.png",
-            "/images/items/zelda_letter.png",
-            "/images/items/mask_keaton.png",
-            "/images/items/mask_skull.png",
-            "/images/items/mask_spooky.png",
-            "/images/items/mask_bunny.png",
-            "/images/items/mask_truth.png"
-        ]
+    "weird_egg": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/egg.png"
+    },
+    "chicken": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/cucco.png"
+    },
+    "zeldas_letter": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/zelda_letter.png"
+    },
+    "mask_keaton": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_keaton.png"
+    },
+    "mask_skull": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_skull.png"
+    },
+    "mask_spooky": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_spooky.png"
+    },
+    "mask_bunny": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_bunny.png"
+    },
+    "mask_truth": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_truth.png"
+    },
+    "mask_gerudo": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_gerudo.png"
+    },
+    "mask_goron": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_goron.png"
+    },
+    "mask_zora": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mask_zora.png"
+    },
+    "pocket_egg": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/egg.png"
+    },
+    "pocket_cucco": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/cucco.png"
     },
     "cojiro": {
-        "type": "progressive_startsettings",
-        "max": 11,
-        "start_settings": "trade_sequence_start_item",
-        "icon": [
-            "/images/items/egg_cojiro.png",
-            "/images/items/egg_cojiro.png",
-            "/images/items/cucco.png",
-            "/images/items/cojiro.png",
-            "/images/items/mushroom.png",
-            "/images/items/medicine.png",
-            "/images/items/saw.png",
-            "/images/items/broken_sword.png",
-            "/images/items/prescription.png",
-            "/images/items/frog.png",
-            "/images/items/eyedrops.png",
-            "/images/items/claim.png"
-        ]
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/cojiro.png"
+    },
+    "odd_mushroom": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/mushroom.png"
+    },
+    "odd_potion": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/medicine.png"
+    },
+    "poachers_saw": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/saw.png"
+    },
+    "broken_sword": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/broken_sword.png"
+    },
+    "prescription": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/prescription.png"
+    },
+    "eyeball_frog": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/frog.png"
+    },
+    "eyedrops": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/eyedrops.png"
+    },
+    "claim_check": {
+        "type": "item",
+        "max": 1,
+        "icon": "/images/items/claim.png"
     },
     "sword_kokiri": {
         "type": "item",
@@ -795,6 +910,17 @@
         "halign": "end",
         "valign": "end"
     },
+    "key_small_treasure_game": {
+        "type": "key",
+        "max": 6,
+        "relatedDungeon": "treasure_game",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/key_small.png",
+        "halign": "end",
+        "valign": "end"
+    },
     "key_small_generic": {
         "type": "visual",
         "icon": "/images/items/key_small.png"
@@ -1044,5 +1170,305 @@
         "alwaysActive": true,
         "halign": "end",
         "valign": "end"
+    },
+    "silver_rupee_well_basement": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "well",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_dodongo_staircase": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "dodongo",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_forest": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_fire": {
+        "type": "key",
+        "max": 5,
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_water": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_shadow": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_spirit": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_castle_ganon_trial_light": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_training_grounds_lava": {
+        "type": "key",
+        "max": 6,
+        "typeMax": {
+            "v": 5
+        },
+        "relatedDungeon": "training_grounds",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_training_grounds_water": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 3
+        },
+        "relatedDungeon": "training_grounds",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_training_grounds_slopes": {
+        "type": "key",
+        "max": 5,
+        "relatedDungeon": "training_grounds",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_ice_cavern_spinning_scythe": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "ice_cavern",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_ice_cavern_block_push": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "ice_cavern",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_shadow_scythe_shortcut": {
+        "type": "key",
+        "max": 5,
+        "relatedDungeon": "temple_shadow",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_shadow_invisible_blades": {
+        "type": "key",
+        "max": 10,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "temple_shadow",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_shadow_huge_pit": {
+        "type": "key",
+        "max": 5,
+        "relatedDungeon": "temple_shadow",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_shadow_invisible_spikes": {
+        "type": "key",
+        "max": 10,
+        "typeMax": {
+            "v": 5
+        },
+        "relatedDungeon": "temple_shadow",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_spirit_lobby_and_lower_adult": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "temple_spirit",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_spirit_adult_climb": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "temple_spirit",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_spirit_child_early_torches": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "temple_spirit",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_spirit_adult_boulders": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "temple_spirit",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_temple_spirit_sun_block": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "mq": 0
+        },
+        "relatedDungeon": "temple_spirit",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end"
+    },
+    "silver_rupee_generic": {
+        "type": "visual",
+        "icon": "/images/items/rupee_silver.png"
     }
 }

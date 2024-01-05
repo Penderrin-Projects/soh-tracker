@@ -1,0 +1,13 @@
+[
+    "overworld",
+    "dungeon_inner",
+    "dungeon_outer",
+    "interior_outer",
+    "interior_inner",
+    "grotto_outer",
+    "grotto_inner",
+    "flight",
+    "spawn",
+    "warp",
+    "voided"
+]

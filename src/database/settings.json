@@ -131,7 +131,7 @@
             "start_collapsed"
         ]
     },
-    "unknown_dungeon_need_both": {
+    "unknown_arealist_need_all": {
         "category": "world",
         "type": "check",
         "default": false

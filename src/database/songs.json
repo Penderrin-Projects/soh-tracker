@@ -1,25 +1,25 @@
 {
-    "zelda": {
+    "song_zelda": {
         "notes": "LURLUR",
         "editable": true
     },
-    "epona": {
+    "song_epona": {
         "notes": "ULRULR",
         "editable": true
     },
-    "saria": {
+    "song_saria": {
         "notes": "DRLDRL",
         "editable": true
     },
-    "sun": {
+    "song_sun": {
         "notes": "RDURDU",
         "editable": true
     },
-    "time": {
+    "song_time": {
         "notes": "RADRAD",
         "editable": true
     },
-    "storm": {
+    "song_storm": {
         "notes": "ADUADU",
         "editable": true
     },
@@ -47,15 +47,15 @@
         "notes": "URURLU",
         "editable": true
     },
-    "scarecrow": {
+    "song_scarecrow": {
         "notes": "",
         "editable": true
     },
-    "frogs": {
+    "song_frogs": {
         "notes": "ALRDLRDADADRLA",
         "editable": false
     },
-    "woods": {
+    "song_woods": {
         "notes": "",
         "editable": true
     }

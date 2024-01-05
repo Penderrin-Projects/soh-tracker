@@ -1,0 +1,126 @@
+import FileSystem from "/emcJS/util/file/FileSystem.js";
+import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
+import OptionGroupRegistry from "/emcJS/data/registry/form/OptionGroupRegistry.js";
+import FileLoader from "/emcJS/util/file/FileLoader.js";
+import "/GameTrackerJS/_editor/world/WorldEditor.js";
+
+async function laodResources() {
+    const [
+        icons,
+        mapImages,
+        settings,
+        options,
+        items,
+        filter,
+        areaTypes,
+        exitTypes,
+        locationTypes
+    ] = await Promise.all([
+        await FileLoader.jsonc("/images/_index.icons.json"),
+        await FileLoader.jsonc("/images/_index.maps.json"),
+        await FileLoader.jsonc("/database/settings.json"),
+        await FileLoader.jsonc("/database/options.json"),
+        await FileLoader.jsonc("/database/items.json"),
+        await FileLoader.jsonc("/database/filter.json"),
+        await FileLoader.jsonc("/modules/world/config/AreaTypes.json"),
+        await FileLoader.jsonc("/modules/world/config/ExitTypes.json"),
+        await FileLoader.jsonc("/modules/world/config/LocationTypes.json")
+    ]);
+    return {
+        icons,
+        mapImages,
+        settings,
+        options,
+        items,
+        filter,
+        areaTypes,
+        exitTypes,
+        locationTypes
+    };
+}
+
+export default async function() {
+    const editorEl = document.createElement("gt-edt-world-editor");
+    editorEl.addEventListener("change", () => {
+        const config = editorEl.getConfig();
+        console.log("change config:", config);
+    })
+
+    // refresh
+    async function refreshFn() {
+        await BusyIndicatorManager.busy();
+        // ---
+        editorEl.reset();
+        OptionGroupRegistry.reset();
+        // ---
+        const {
+            icons,
+            mapImages,
+            settings,
+            options,
+            items,
+            filter,
+            areaTypes,
+            exitTypes,
+            locationTypes
+        } = await laodResources();
+        // ---
+        OptionGroupRegistry.load({
+            worldEditor_icons: {
+                "": "",
+                ...icons
+            },
+            worldEditor_areaMapImages: {
+                "": "",
+                ...mapImages
+            },
+            worldEditor_areaTypes: areaTypes,
+            worldEditor_exitTypes: exitTypes,
+            worldEditor_locationTypes: locationTypes
+        });
+        // ---
+        editorEl.setSettings(settings);
+        editorEl.setOptions(options);
+        editorEl.setItems(items);
+        editorEl.setFilterConfig(filter);
+        // ---
+        await BusyIndicatorManager.unbusy();
+    }
+
+    // navigation
+    const NAV = [{
+        "content": "FILE",
+        "submenu": [{
+            "content": "SAVE",
+            "handler": async () => {
+                const config = editorEl.getWorldData();
+                FileSystem.save(JSON.stringify(config, " ", 4), `world_${(new Date()).getTime()}.json`);
+            }
+        }, {
+            "content": "LOAD",
+            "handler": async () => {
+                const res = await FileSystem.load(".json");
+                if (res != null) {
+                    const {data} = res;
+                    if (data != null) {
+                        editorEl.setWorldData(data);
+                    }
+                }
+            }
+        }, {
+            "content": "EXIT EDITOR",
+            "handler": () => {
+                editorEl.reset();
+                const event = new Event("close");
+                editorEl.dispatchEvent(event);
+            }
+        }]
+    }];
+
+    return {
+        name: "World Editor",
+        panelEl: editorEl,
+        navConfig: NAV,
+        refreshFn
+    }
+}

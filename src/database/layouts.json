@@ -283,8 +283,7 @@
                             "active": [
                                 "key",
                                 "bosskey",
-                                "map",
-                                "compass",
+                                "silver_rupees",
                                 "reward",
                                 "type"
                             ]
@@ -333,8 +332,7 @@
                             "active": [
                                 "key",
                                 "bosskey",
-                                "map",
-                                "compass",
+                                "silver_rupees",
                                 "reward",
                                 "type"
                             ]
@@ -369,8 +367,7 @@
                             "active": [
                                 "key",
                                 "bosskey",
-                                "map",
-                                "compass",
+                                "silver_rupees",
                                 "reward",
                                 "type"
                             ]
@@ -402,8 +399,7 @@
                     "active": [
                         "key",
                         "bosskey",
-                        "map",
-                        "compass",
+                        "silver_rupees",
                         "reward",
                         "type"
                     ]

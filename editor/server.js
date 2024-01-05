@@ -1,31 +1,21 @@
-const handler = require("serve-handler");
-const http = require("http");
+import WebService from "webservice/WebService.js";
+import StaticService from "webservice/services/StaticService.js";
 
-const MODULE_PATHS = {
-    emcJS: "../node_modules/emcjs/src/",
-    trackerEditor: "../node_modules/jseditors/src/",
-    gameTrackerJS: "../node_modules/gametrackerjs/src/"
-};
+const cors = process.argv.indexOf("-cors") >= 1;
+const port = process.argv.indexOf("-port") >= 1 ? process.argv[process.argv.indexOf("-port") + 1] : "15000";
 
-const server = http.createServer((request, response) => {
-    console.log(request);
-    return handler(request, response, {
-        "public": `${__dirname}/web`,
-        "rewrites": [
-            {"source": "/src/:path", "destination": "../src/:path"},
-            {"source": "/images/:path", "destination": "../dev/images/:path"},
-            {"source": "/script/:path", "destination": "../dev/script/:path"},
-            {"source": "/GameTrackerJS/:path", "destination": `${MODULE_PATHS.gameTrackerJS}/:path`},
-            {"source": "/emcjs/:path", "destination": `${MODULE_PATHS.emcJS}/:path`},
-            {"source": "/editors/:path", "destination": `${MODULE_PATHS.trackerEditor}/:path`}
-        ]
-    });
-});
+const service = new WebService(port, cors);
+service.registerService(StaticService, "", {serveFolder: "./editor/build"});
+service.registerService(StaticService, "/database", {serveFolder: "./src/database"});
 
-exports.startServer = function startServer() {
-    return new Promise((resolve) => {
-        server.listen(4242, () => {
-            resolve();
-        });
-    });
-};
+const po = port.toString().padEnd(5);
+
+console.log(``);
+console.log(`╔════════════════════════════════════════╗`);
+console.log(`║ ┌╦┐ ╭────────────────────────────╮ ┌╦┐ ║`);
+console.log(`║  │  │                            │  │  ║`);
+console.log(`╠─═╬═─╡   http://localhost:${po}   ╞─═╬═─╣`);
+console.log(`║  │  │                            │  │  ║`);
+console.log(`║ └╩┘ ╰────────────────────────────╯ └╩┘ ║`);
+console.log(`╚════════════════════════════════════════╝`);
+console.log(``);

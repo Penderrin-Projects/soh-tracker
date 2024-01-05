@@ -1,8 +1,13 @@
 {
-    "__type__": "NamedList",
-    "optional": false,
-    "children": {
-        "type": "Song",
-        "optional": true
+    "parameters": {
+        "allowExtension": false
+    },
+    "definition": {
+        "@type": "AssociativeList",
+        "optional": false,
+        "children": {
+            "@type": "Song",
+            "optional": true
+        }
     }
 }

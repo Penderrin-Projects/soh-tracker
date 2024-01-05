@@ -61,13 +61,13 @@ export default class LogicElement extends AbstractElement {
     }
 
     loadLogic(logic) {
-        this.ref = logic.el;
+        this.ref = logic.ref;
     }
 
     toJSON() {
         return {
             type: REFERENCE,
-            el: this.ref
+            ref: this.ref
         };
     }
 

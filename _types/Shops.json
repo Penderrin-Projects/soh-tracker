@@ -1,12 +1,17 @@
 {
-    "__type__": "NamedList",
-    "optional": false,
-    "children": {
-        "__type__": "List",
-        "optional": true,
+    "parameters": {
+        "allowExtension": false
+    },
+    "definition": {
+        "@type": "AssociativeList",
+        "optional": false,
         "children": {
-            "type": "ShopSlot",
-            "optional": true
+            "@type": "List",
+            "optional": true,
+            "children": {
+                "@type": "ShopSlot",
+                "optional": true
+            }
         }
     }
 }

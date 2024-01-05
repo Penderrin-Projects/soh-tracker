@@ -23,13 +23,11 @@ export default class DefaultDungeonState extends DataState {
         const area = AreaStateManager.get(ref);
         if (area != null) {
             AREA.set(this, area);
-            if (area.props.list_mq != null) {
-                area.addEventListener("type", (event) => {
-                    const ev = new Event("type");
-                    ev.value = event.value;
-                    this.dispatchEvent(ev);
-                });
-            }
+            area.addEventListener("activeListChange", (event) => {
+                const ev = new Event("type");
+                ev.value = event.value;
+                this.dispatchEvent(ev);
+            });
         }
 
         const dungeonRewardsObserver = new ObservableStorageObserver(STORAGES.dungeonRewards, ref);
@@ -42,14 +40,14 @@ export default class DefaultDungeonState extends DataState {
     set type(value) {
         const area = AREA.get(this);
         if (area != null) {
-            area.type = value;
+            area.activeList = value;
         }
     }
 
     get type() {
         const area = AREA.get(this);
         if (area != null) {
-            return area.type;
+            return area.activeList;
         }
         return "v";
     }
