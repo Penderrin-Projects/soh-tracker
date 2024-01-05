@@ -100209,8 +100209,32 @@
         },
         "kokiri.sarias_house": {
             "type": "interior",
-            "category": "interior_empty",
-            "visible": false,
+            "category": "interior_hearts_rupees",
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[entrance_shuffle_interior]",
+                        "value": "entrance_shuffle_off"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_rupees_hearts]",
+                                "value": "all"
+                            },
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_rupees_hearts]",
+                                "value": "overworld"
+                            }
+                        ]
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100340,8 +100364,32 @@
         },
         "kokiri.twins_house": {
             "type": "interior",
-            "category": "interior_empty",
-            "visible": false,
+            "category": "interior_pot",
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[entrance_shuffle_interior]",
+                        "value": "entrance_shuffle_off"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "all"
+                            },
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "overworld"
+                            }
+                        ]
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100449,8 +100497,32 @@
         },
         "kokiri.know_it_all_house": {
             "type": "interior",
-            "category": "interior_empty",
-            "visible": false,
+            "category": "interior_pot",
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[entrance_shuffle_interior]",
+                        "value": "entrance_shuffle_off"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "all"
+                            },
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "overworld"
+                            }
+                        ]
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100522,6 +100594,28 @@
                         "ref": {
                             "type": "Exit",
                             "name": "know_it_all_house_kokiri_gateway -> kokiri_know_it_all_house_gateway"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.know_it_all_house_pot_1"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.know_it_all_house_pot_2"
                         },
                         "pos": {
                             "x": 0,
@@ -101514,8 +101608,8 @@
         },
         "kakariko.kakariko_witch": {
             "type": "interior",
-            "category": "interior_empty",
-            "visible": false,
+            "category": "interior",
+            "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102529,8 +102623,34 @@
         },
         "gerudo_valley.octorock_grotto": {
             "type": "grotto",
-            "category": "grotto_empty",
-            "visible": false,
+            "category": "grotto_rupee_heart",
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "option[shuffle_grottos]"
+                        }
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_rupees_hearts]",
+                                "value": "all"
+                            },
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_rupees_hearts]",
+                                "value": "overworld"
+                            }
+                        ]
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
