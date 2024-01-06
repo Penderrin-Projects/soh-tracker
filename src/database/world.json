@@ -68485,36 +68485,6 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "market.c_bombchu_bowling_bomb": {
-            "type": "chest",
-            "logicAccess": "reach_location[market.c_bombchu_bowling_bomb]",
-            "visible": true,
-            "visibleRootOnly": false,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "lake.c_loach_fishing": {
             "type": "chest",
             "logicAccess": "reach_location[lake.c_loach_fishing]",
