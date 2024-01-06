@@ -70214,6 +70214,39 @@
                             "y": 0
                         },
                         "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kokiri.sarias_house"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kokiri.know_it_all_house"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kokiri.twins_house"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
                     }
                 ]
             },
@@ -71494,6 +71527,17 @@
                         "ref": {
                             "type": "Location",
                             "name": "gerudo_valley.c_trade_poachers_saw"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley.octorock_grotto"
                         },
                         "pos": {
                             "x": 0,
@@ -74710,6 +74754,17 @@
                         "ref": {
                             "type": "Location",
                             "name": "kakariko.adult_red_rupee_crate"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kakariko.kakariko_witch"
                         },
                         "pos": {
                             "x": 0,
@@ -95144,17 +95199,6 @@
                         "ref": {
                             "type": "Location",
                             "name": "castle_town.c_bowling_2"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "visible": true
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "market.c_bombchu_bowling_bomb"
                         },
                         "pos": {
                             "x": 0,
