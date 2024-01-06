@@ -101,6 +101,11 @@
         "default": "#ffff00",
         "resettable": true
     },
+    "sort_worldlist_by_access": {
+        "category": "world",
+        "type": "check",
+        "default": false
+    },
     "show_detailed_maps": {
         "category": "world",
         "type": "check",

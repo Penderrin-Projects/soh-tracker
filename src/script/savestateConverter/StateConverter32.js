@@ -22,7 +22,7 @@ SavestateConverter.register(function(state) {
             "": state.data?.[""] ?? {},
             items: state.data?.items ?? {},
             locations: state.data?.locations ?? {},
-            exitBindings: {},
+            exitBindings: state.data?.exitBindings ?? {},
             areaHints: state.data?.areaHints ?? {},
             areaActiveLists: state.data?.dungeonTypes ?? {},
             locationItems: state.data?.locationItems ?? {},
