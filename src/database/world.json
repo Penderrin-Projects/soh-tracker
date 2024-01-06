@@ -100771,6 +100771,17 @@
                             "y": 0
                         },
                         "visible": true
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.shop_blue_rupee"
+                        },
+                        "pos": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "visible": true
                     }
                 ]
             },
