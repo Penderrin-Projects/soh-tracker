@@ -152,7 +152,7 @@ export default class TrackerLocationListShopSlot extends BaseClass {
         }
     }
 
-    get category() {
+    get type() {
         return "location";
     }
 

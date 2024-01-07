@@ -120,7 +120,7 @@ export default class TrackerLocationListGossipstone extends BaseClass {
         }
     }
 
-    get category() {
+    get type() {
         return "location";
     }
 
