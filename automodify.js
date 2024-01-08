@@ -12,7 +12,7 @@ function modify(source = {}, target = {}) {
     console.log("locations");
     const locations = {};
     for (const ref in source.locations) {
-        console.log(ref);
+        // console.log(ref);
         const oldProps = source.locations[ref];
         const newProps = {
             type: oldProps.type ?? "",
@@ -31,7 +31,7 @@ function modify(source = {}, target = {}) {
     console.log("collections");
     const collections = {};
     for (const ref in source.collections) {
-        console.log(ref);
+        // console.log(ref);
         const oldProps = source.collections[ref];
         const newProps = {
             map: convertMapConfig(oldProps.map),
@@ -45,7 +45,7 @@ function modify(source = {}, target = {}) {
     console.log("areas");
     const areas = {};
     for (const ref in source.areas) {
-        console.log(ref);
+        // console.log(ref);
         const oldProps = source.areas[ref];
         const newProps = {
             type: oldProps.type ?? "",
@@ -58,7 +58,7 @@ function modify(source = {}, target = {}) {
             icon: oldProps.icon ?? "",
             map: convertMapConfig(oldProps.map),
             connections: oldProps.connections ?? [],
-            lists: oldProps.lists ?? {
+            lists: oldProps.lists != null ? convertEntryLists(oldProps.lists) : {
                 v: convertEntryList(oldProps.list),
                 mq: convertEntryList(oldProps.list_mq)
             },
@@ -73,7 +73,7 @@ function modify(source = {}, target = {}) {
     console.log("exits");
     const exits = {};
     for (const ref in source.exits) {
-        console.log(ref);
+        // console.log(ref);
         const oldProps = source.exits[ref];
         const newProps = {
             type: oldProps.type ?? "",
@@ -112,7 +112,7 @@ function convertMapConfig(oldConfig) {
         backgroundImage: oldConfig.backgroundImage ?? oldConfig.background ?? "",
         width: oldConfig.width ?? 0,
         height: oldConfig.height ?? 0,
-        zoom: oldConfig.zoom ?? 0
+        zoom: oldConfig.zoom == null || oldConfig.zoom === 0 ? 100 : oldConfig.zoom
     };
 }
 
@@ -123,22 +123,29 @@ function getColor(color) {
     return color;
 }
 
+function convertEntryLists(lists) {
+    console.log("convert lists", lists);
+    const res = {};
+    for (const key in lists) {
+        res[key] = convertEntryList(lists[key]);
+    }
+    return res;
+}
+
 function convertEntryList(oldList) {
     if (oldList == null) {
         return;
     }
     return oldList.map((entry) => {
-        if (entry.ref != null) {
-            return entry;
-        }
         return {
-            ref: {
+            ref: entry.ref ?? {
                 type: entry.entity?.type ?? upperCaseFirstLetter(entry.category),
                 name: entry.entity?.name ?? entry.id
             },
             pos: {
                 x: entry.pos?.x ?? 0,
-                y: entry.pos?.y ?? 0
+                y: entry.pos?.y ?? 0,
+                scale: entry.pos?.scale ?? 100
             },
             visible: entry.visible ?? true
         };
