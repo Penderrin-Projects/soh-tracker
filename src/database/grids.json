@@ -175,49 +175,61 @@
                 "visible": true
             },
             {
-                "type": "collection",
-                "value": "ocarina",
-                "counting": true,
-                "valign": "end",
-                "halign": "end",
-                "countBlacklist": [
-                    "ocarina"
-                ],
-                "contentGrid": [
-                    [
-                        {
-                            "type": "item",
-                            "value": "ocarina",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_a_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_down_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_left_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_right_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_up_button",
-                            "visible": true
-                        }
-                    ]
-                ],
-                "visible": true
+                "type": "conditional",
+                "condition": {
+                    "type": "value",
+                    "ref": "option[shuffle_individual_ocarina_notes]"
+                },
+                "onTrue": {
+                    "type": "collection",
+                    "value": "ocarina",
+                    "counting": true,
+                    "valign": "end",
+                    "halign": "end",
+                    "countBlacklist": [
+                        "ocarina"
+                    ],
+                    "contentGrid": [
+                        [
+                            {
+                                "type": "item",
+                                "value": "ocarina",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_a_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_down_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_left_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_right_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_up_button",
+                                "visible": true
+                            }
+                        ]
+                    ],
+                    "visible": true
+                },
+                "onFalse": {
+                    "type": "item",
+                    "value": "ocarina",
+                    "visible": true
+                }
             },
             {
                 "type": "item",
@@ -325,7 +337,7 @@
                     "type": "not",
                     "content": {
                         "type": "state",
-                        "content": "option[doors_open_zora]",
+                        "ref": "option[doors_open_zora]",
                         "value": "doors_open_zora_both"
                     }
                 }
@@ -717,49 +729,61 @@
                 "visible": true
             },
             {
-                "type": "collection",
-                "value": "ocarina",
-                "counting": true,
-                "valign": "end",
-                "halign": "end",
-                "countBlacklist": [
-                    "ocarina"
-                ],
-                "contentGrid": [
-                    [
-                        {
-                            "type": "item",
-                            "value": "ocarina",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_a_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_down_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_left_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_right_button",
-                            "visible": true
-                        },
-                        {
-                            "type": "item",
-                            "value": "ocarina_up_button",
-                            "visible": true
-                        }
-                    ]
-                ],
-                "visible": true
+                "type": "conditional",
+                "condition": {
+                    "type": "value",
+                    "ref": "option[shuffle_individual_ocarina_notes]"
+                },
+                "onTrue": {
+                    "type": "collection",
+                    "value": "ocarina",
+                    "counting": true,
+                    "valign": "end",
+                    "halign": "end",
+                    "countBlacklist": [
+                        "ocarina"
+                    ],
+                    "contentGrid": [
+                        [
+                            {
+                                "type": "item",
+                                "value": "ocarina",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_a_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_down_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_left_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_right_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_up_button",
+                                "visible": true
+                            }
+                        ]
+                    ],
+                    "visible": true
+                },
+                "onFalse": {
+                    "type": "item",
+                    "value": "ocarina",
+                    "visible": true
+                }
             },
             {
                 "type": "item",

@@ -1,6 +1,21 @@
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
 import "./AugmentOptions.js";
 
+const SONGS = [
+    "song_zelda",
+    "song_epona",
+    "song_saria",
+    "song_sun",
+    "song_time",
+    "song_storm",
+    "warp_forest",
+    "warp_fire",
+    "warp_water",
+    "warp_spirit",
+    "warp_shadow",
+    "warp_light"
+];
+
 export function augment(cache) {
     // augment zoras letter
     if (cache.hasChange("option[shuffle_individual_ocarina_notes]") ||
@@ -34,22 +49,7 @@ export function augment(cache) {
             // cache.set("calculated[has_all_notes_for_song(song_frogs)]", hasA && hasU && hasD && hasL && hasR);
             cache.set("calculated[has_all_notes_for_song(song_scarecrow)]", (hasA + hasU + hasD + hasL + hasR) > 2);
 
-            const songs = [
-                "song_zelda",
-                "song_epona",
-                "song_saria",
-                "song_sun",
-                "song_time",
-                "song_storm",
-                "warp_forest",
-                "warp_fire",
-                "warp_water",
-                "warp_spirit",
-                "warp_shadow",
-                "warp_light"
-            ];
-
-            for (const ref of songs) {
+            for (const ref of SONGS) {
                 if (ref === "scarecrow" || ref === "woods" || ref === "frogs") {
                     continue;
                 }

@@ -7,7 +7,6 @@ import SongsResource from "/script/resource/SongsResource.js";
 
 // dungeons
 Savestate.registerStorage("dungeonRewards", new ObservableDefaultValueStorage(""));
-Savestate.registerStorage("dungeonTypes", new ObservableDefaultValueStorage("n"));
 
 // shops
 Savestate.registerStorage("shopItems", new ObservableDefaultValueStorage(""));
