@@ -57,11 +57,7 @@ function augment(cache) {
     const dungeonData = DungeonstateResource.get();
     for (const [ref, dData] of Object.entries(dungeonData)) {
         // augment dungeontypes
-        const dTypeKey = `dungeontype[${ref}]`;
-        if (cache.hasChange(dTypeKey)) {
-            const dungeonType = getDungeonType(cache.get(dTypeKey), dData.hasmq);
-            cache.set(dTypeKey, dungeonType);
-        }
+        const dTypeKey = `arealist[${ref}]`;
         // augment keys
         if (dData.keys) {
             const keyRef = `item[${dData.keys}]`;

@@ -63508,7 +63508,14 @@
         "well.basement_silver_rupee_wood_beam_front": {
             "type": "chest",
             "logicAccess": "reach_location[well.basement_silver_rupee_wood_beam_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63538,7 +63545,14 @@
         "well.basement_silver_rupee_wood_beam_back": {
             "type": "chest",
             "logicAccess": "reach_location[well.basement_silver_rupee_wood_beam_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63568,7 +63582,14 @@
         "well.basement_silver_rupee_ladders_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[well.basement_silver_rupee_ladders_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63598,7 +63619,14 @@
         "well.basement_silver_rupee_ladders_middle": {
             "type": "chest",
             "logicAccess": "reach_location[well.basement_silver_rupee_ladders_middle]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63628,7 +63656,14 @@
         "well.basement_silver_rupee_ladders_top": {
             "type": "chest",
             "logicAccess": "reach_location[well.basement_silver_rupee_ladders_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63658,7 +63693,14 @@
         "dodongo_mq.staircase_silver_rupee_beamos": {
             "type": "chest",
             "logicAccess": "reach_location[dodongo_mq.staircase_silver_rupee_beamos]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63688,7 +63730,14 @@
         "dodongo_mq.staircase_silver_rupee_lower_crate": {
             "type": "chest",
             "logicAccess": "reach_location[dodongo_mq.staircase_silver_rupee_lower_crate]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63718,7 +63767,14 @@
         "dodongo_mq.staircase_silver_rupee_mid_left_crate": {
             "type": "chest",
             "logicAccess": "reach_location[dodongo_mq.staircase_silver_rupee_mid_left_crate]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63748,7 +63804,14 @@
         "dodongo_mq.staircase_silver_rupee_top_right_crate": {
             "type": "chest",
             "logicAccess": "reach_location[dodongo_mq.staircase_silver_rupee_top_right_crate]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63778,7 +63841,14 @@
         "dodongo_mq.staircase_silver_rupee_vines": {
             "type": "chest",
             "logicAccess": "reach_location[dodongo_mq.staircase_silver_rupee_vines]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63808,7 +63878,14 @@
         "castle_ganon_mq.water_trial_silver_rupee_hole": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.water_trial_silver_rupee_hole]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63838,7 +63915,14 @@
         "castle_ganon_mq.water_trial_silver_rupee_near_blocks": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.water_trial_silver_rupee_near_blocks]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63868,7 +63952,14 @@
         "castle_ganon_mq.water_trial_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.water_trial_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63898,7 +63989,14 @@
         "castle_ganon_mq.water_trial_silver_rupee_red_ice": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.water_trial_silver_rupee_red_ice]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63928,7 +64026,14 @@
         "castle_ganon_mq.water_trial_silver_rupee_above_void": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.water_trial_silver_rupee_above_void]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63958,7 +64063,14 @@
         "castle_ganon_mq.shadow_trial_silver_rupee_moving_platform": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_moving_platform]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -63988,7 +64100,14 @@
         "castle_ganon_mq.shadow_trial_silver_rupee_bomb_flower": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_bomb_flower]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64018,7 +64137,14 @@
         "castle_ganon_mq.shadow_trial_silver_rupee_first_beamos": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64048,7 +64174,14 @@
         "castle_ganon_mq.shadow_trial_silver_rupee_last_beamos": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_last_beamos]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64078,7 +64211,14 @@
         "castle_ganon_mq.shadow_trial_silver_rupee_guillotine": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_guillotine]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64108,7 +64248,14 @@
         "castle_ganon_mq.fire_trial_silver_rupee_rising_platform": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.fire_trial_silver_rupee_rising_platform]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64138,7 +64285,14 @@
         "castle_ganon_mq.fire_trial_silver_rupee_beamos": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.fire_trial_silver_rupee_beamos]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64168,7 +64322,14 @@
         "castle_ganon_mq.fire_trial_silver_rupee_left_front": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64198,7 +64359,14 @@
         "castle_ganon_mq.fire_trial_silver_rupee_left_center": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64228,7 +64396,14 @@
         "castle_ganon_mq.fire_trial_silver_rupee_left_back": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64258,7 +64433,14 @@
         "castle_ganon.forest_trial_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.forest_trial_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64288,7 +64470,14 @@
         "castle_ganon.forest_trial_silver_rupee_front_left": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.forest_trial_silver_rupee_front_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64318,7 +64507,14 @@
         "castle_ganon.forest_trial_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.forest_trial_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64348,7 +64544,14 @@
         "castle_ganon.forest_trial_silver_rupee_back_center": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.forest_trial_silver_rupee_back_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64378,7 +64581,14 @@
         "castle_ganon.forest_trial_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.forest_trial_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64408,7 +64618,14 @@
         "castle_ganon.fire_trial_silver_rupee_right_back": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.fire_trial_silver_rupee_right_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64438,7 +64655,14 @@
         "castle_ganon.fire_trial_silver_rupee_flamethrower": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.fire_trial_silver_rupee_flamethrower]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64468,7 +64692,14 @@
         "castle_ganon.fire_trial_silver_rupee_right_center": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.fire_trial_silver_rupee_right_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64498,7 +64729,14 @@
         "castle_ganon.fire_trial_silver_rupee_right_front": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.fire_trial_silver_rupee_right_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64528,7 +64766,14 @@
         "castle_ganon.fire_trial_silver_rupee_inside_pillar": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.fire_trial_silver_rupee_inside_pillar]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64558,7 +64803,14 @@
         "castle_ganon.light_trial_silver_rupee_right_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.light_trial_silver_rupee_right_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64588,7 +64840,14 @@
         "castle_ganon.light_trial_silver_rupee_left_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.light_trial_silver_rupee_left_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64618,7 +64877,14 @@
         "castle_ganon.light_trial_silver_rupee_center_top": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.light_trial_silver_rupee_center_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64648,7 +64914,14 @@
         "castle_ganon.light_trial_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.light_trial_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64678,7 +64951,14 @@
         "castle_ganon.light_trial_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.light_trial_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64708,7 +64988,14 @@
         "castle_ganon.spirit_trial_silver_rupee_ceiling": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.spirit_trial_silver_rupee_ceiling]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64738,7 +65025,14 @@
         "castle_ganon.spirit_trial_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.spirit_trial_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64768,7 +65062,14 @@
         "castle_ganon.spirit_trial_silver_rupee_center": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.spirit_trial_silver_rupee_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64798,7 +65099,14 @@
         "castle_ganon.spirit_trial_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.spirit_trial_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64828,7 +65136,14 @@
         "castle_ganon.spirit_trial_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon.spirit_trial_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64858,7 +65173,14 @@
         "training_grounds_mq.lava_room_silver_rupee_front_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_front_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64888,7 +65210,14 @@
         "training_grounds_mq.lava_room_silver_rupee_front_center": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_front_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64918,7 +65247,14 @@
         "training_grounds_mq.lava_room_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64948,7 +65284,14 @@
         "training_grounds_mq.lava_room_silver_rupee_back_center": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_back_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -64978,7 +65321,14 @@
         "training_grounds_mq.lava_room_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65008,7 +65358,14 @@
         "training_grounds_mq.lava_room_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.lava_room_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65038,7 +65395,14 @@
         "training_grounds_mq.underwater_silver_rupee_middle": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.underwater_silver_rupee_middle]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65068,7 +65432,14 @@
         "training_grounds_mq.underwater_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.underwater_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65098,7 +65469,14 @@
         "training_grounds_mq.underwater_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.underwater_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65128,7 +65506,14 @@
         "training_grounds_mq.icicle_room_silver_rupee_freezard": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.icicle_room_silver_rupee_freezard]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65158,7 +65543,14 @@
         "training_grounds_mq.icicle_room_silver_rupee_icicles": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.icicle_room_silver_rupee_icicles]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65188,7 +65580,14 @@
         "training_grounds_mq.icicle_room_silver_rupee_center": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.icicle_room_silver_rupee_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65218,7 +65617,14 @@
         "training_grounds_mq.icicle_room_silver_rupee_ceiling": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.icicle_room_silver_rupee_ceiling]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65248,7 +65654,14 @@
         "training_grounds_mq.icicle_room_silver_rupee_above_void": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds_mq.icicle_room_silver_rupee_above_void]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65278,7 +65691,14 @@
         "training_grounds.lava_room_silver_rupee_front_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.lava_room_silver_rupee_front_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65308,7 +65728,14 @@
         "training_grounds.lava_room_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.lava_room_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65338,7 +65765,14 @@
         "training_grounds.lava_room_silver_rupee_flame_circle": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.lava_room_silver_rupee_flame_circle]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65368,7 +65802,14 @@
         "training_grounds.lava_room_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.lava_room_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65398,7 +65839,14 @@
         "training_grounds.underwater_silver_rupee_top": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.underwater_silver_rupee_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65428,7 +65876,14 @@
         "training_grounds.underwater_silver_rupee_bottom_center": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.underwater_silver_rupee_bottom_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65458,7 +65913,14 @@
         "training_grounds.underwater_silver_rupee_bottom_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.underwater_silver_rupee_bottom_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65488,7 +65950,14 @@
         "training_grounds.underwater_silver_rupee_middle": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.underwater_silver_rupee_middle]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65518,7 +65987,14 @@
         "training_grounds.underwater_silver_rupee_bottom_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.underwater_silver_rupee_bottom_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65548,7 +66024,14 @@
         "training_grounds.boulder_room_silver_rupee_bottom_right": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.boulder_room_silver_rupee_bottom_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65578,7 +66061,14 @@
         "training_grounds.boulder_room_silver_rupee_bottom_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.boulder_room_silver_rupee_bottom_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65608,7 +66098,14 @@
         "training_grounds.boulder_room_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.boulder_room_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65638,7 +66135,14 @@
         "training_grounds.boulder_room_silver_rupee_top_left": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.boulder_room_silver_rupee_top_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65668,7 +66172,14 @@
         "training_grounds.boulder_room_silver_rupee_ceiling": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.boulder_room_silver_rupee_ceiling]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65698,7 +66209,14 @@
         "training_grounds.lava_room_silver_rupee_hookshot_target": {
             "type": "chest",
             "logicAccess": "reach_location[training_grounds.lava_room_silver_rupee_hookshot_target]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65728,7 +66246,14 @@
         "ice_cavern.spinning_scythe_silver_rupee_icicles": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.spinning_scythe_silver_rupee_icicles]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65758,7 +66283,14 @@
         "ice_cavern.spinning_scythe_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65788,7 +66320,14 @@
         "ice_cavern.spinning_scythe_silver_rupee_center_back": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65818,7 +66357,14 @@
         "ice_cavern.spinning_scythe_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65848,7 +66394,14 @@
         "ice_cavern.spinning_scythe_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.spinning_scythe_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65878,7 +66431,14 @@
         "ice_cavern.push_block_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.push_block_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65908,7 +66468,14 @@
         "ice_cavern.push_block_silver_rupee_back_center": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.push_block_silver_rupee_back_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65938,7 +66505,14 @@
         "ice_cavern.push_block_silver_rupee_front_center": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.push_block_silver_rupee_front_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65968,7 +66542,14 @@
         "ice_cavern.push_block_silver_rupee_red_ice": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.push_block_silver_rupee_red_ice]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -65998,7 +66579,14 @@
         "ice_cavern.push_block_silver_rupee_front_left": {
             "type": "chest",
             "logicAccess": "reach_location[ice_cavern.push_block_silver_rupee_front_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66028,7 +66616,14 @@
         "temple_shadow_mq.scythe_shortcut_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66058,7 +66653,14 @@
         "temple_shadow_mq.scythe_shortcut_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66088,7 +66690,14 @@
         "temple_shadow_mq.scythe_shortcut_silver_rupee_back_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_back_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66118,7 +66727,14 @@
         "temple_shadow_mq.scythe_shortcut_silver_rupee_left_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_left_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66148,7 +66764,14 @@
         "temple_shadow_mq.scythe_shortcut_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66178,7 +66801,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66208,7 +66838,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66238,7 +66875,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_1": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_1]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66268,7 +66912,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_2": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_2]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66298,7 +66949,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_3": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_3]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66328,7 +66986,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_4": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_4]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66358,7 +67023,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_5": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_5]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66388,7 +67060,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_6": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_6]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66418,7 +67097,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_like_like": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_like_like]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66448,7 +67134,14 @@
         "temple_shadow_mq.invisible_blades_silver_rupee_song_of_time_block": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_song_of_time_block]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66478,7 +67171,14 @@
         "temple_shadow_mq.huge_pit_silver_rupee_center_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.huge_pit_silver_rupee_center_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66508,7 +67208,14 @@
         "temple_shadow_mq.huge_pit_silver_rupee_center_back": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.huge_pit_silver_rupee_center_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66538,7 +67245,14 @@
         "temple_shadow_mq.huge_pit_silver_rupee_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.huge_pit_silver_rupee_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66568,7 +67282,14 @@
         "temple_shadow_mq.huge_pit_silver_rupee_ceiling_upper": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.huge_pit_silver_rupee_ceiling_upper]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66598,7 +67319,14 @@
         "temple_shadow_mq.huge_pit_silver_rupee_ceiling_lower": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.huge_pit_silver_rupee_ceiling_lower]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66628,7 +67356,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_center_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_center_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66658,7 +67393,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66688,7 +67430,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_left_hookshot_target": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_left_hookshot_target]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66718,7 +67467,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_right_hookshot_target": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_right_hookshot_target]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66748,7 +67504,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66778,7 +67541,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66808,7 +67578,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_near_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_near_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66838,7 +67615,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66868,7 +67652,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_middle": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_middle]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66898,7 +67689,14 @@
         "temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_back": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66928,7 +67726,14 @@
         "temple_shadow.scythe_shortcut_silver_rupee_center_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.scythe_shortcut_silver_rupee_center_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66958,7 +67763,14 @@
         "temple_shadow.scythe_shortcut_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.scythe_shortcut_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -66988,7 +67800,14 @@
         "temple_shadow.scythe_shortcut_silver_rupee_back_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.scythe_shortcut_silver_rupee_back_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67018,7 +67837,14 @@
         "temple_shadow.scythe_shortcut_silver_rupee_left_alcove": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.scythe_shortcut_silver_rupee_left_alcove]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67048,7 +67874,14 @@
         "temple_shadow.scythe_shortcut_silver_rupee_center_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.scythe_shortcut_silver_rupee_center_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67078,7 +67911,14 @@
         "temple_shadow.huge_pit_silver_rupee_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.huge_pit_silver_rupee_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67108,7 +67948,14 @@
         "temple_shadow.huge_pit_silver_rupee_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.huge_pit_silver_rupee_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67138,7 +67985,14 @@
         "temple_shadow.huge_pit_silver_rupee_center": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.huge_pit_silver_rupee_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67168,7 +68022,14 @@
         "temple_shadow.huge_pit_silver_rupee_center_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.huge_pit_silver_rupee_center_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67198,7 +68059,14 @@
         "temple_shadow.huge_pit_silver_rupee_center_back": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.huge_pit_silver_rupee_center_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67228,7 +68096,14 @@
         "temple_shadow.invisible_spikes_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.invisible_spikes_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67258,7 +68133,14 @@
         "temple_shadow.invisible_spikes_silver_rupee_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.invisible_spikes_silver_rupee_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67288,7 +68170,14 @@
         "temple_shadow.invisible_spikes_silver_rupee_center": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.invisible_spikes_silver_rupee_center]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67318,7 +68207,14 @@
         "temple_shadow.invisible_spikes_silver_rupee_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.invisible_spikes_silver_rupee_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67348,7 +68244,14 @@
         "temple_shadow.invisible_spikes_silver_rupee_near_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow.invisible_spikes_silver_rupee_near_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67378,7 +68281,14 @@
         "temple_spirit_mq.lobby_and_lower_adult_silver_rupee_right_boulder": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_right_boulder]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67408,7 +68318,14 @@
         "temple_spirit_mq.lobby_and_lower_adult_silver_rupee_left_boulder": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_left_boulder]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67438,7 +68355,14 @@
         "temple_spirit_mq.lobby_and_lower_adult_silver_rupee_near_door": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_near_door]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67468,7 +68392,14 @@
         "temple_spirit_mq.lobby_and_lower_adult_silver_rupee_behind_water_jet": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_behind_water_jet]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67498,7 +68429,14 @@
         "temple_spirit_mq.lobby_and_lower_adult_silver_rupee_water_jet": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_water_jet]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67528,7 +68466,14 @@
         "temple_spirit_mq.adult_climb_silver_rupee_1": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.adult_climb_silver_rupee_1]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67558,7 +68503,14 @@
         "temple_spirit_mq.adult_climb_silver_rupee_2": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.adult_climb_silver_rupee_2]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67588,7 +68540,14 @@
         "temple_spirit_mq.adult_climb_silver_rupee_3": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.adult_climb_silver_rupee_3]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67618,7 +68577,14 @@
         "temple_spirit_mq.adult_climb_silver_rupee_4": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.adult_climb_silver_rupee_4]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67648,7 +68614,14 @@
         "temple_spirit_mq.adult_climb_silver_rupee_5": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.adult_climb_silver_rupee_5]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67678,7 +68651,14 @@
         "temple_spirit.child_early_torches_silver_rupee_top_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.child_early_torches_silver_rupee_top_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67708,7 +68688,14 @@
         "temple_spirit.child_early_torches_silver_rupee_bottom_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.child_early_torches_silver_rupee_bottom_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67738,7 +68725,14 @@
         "temple_spirit.child_early_torches_silver_rupee_bottom_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.child_early_torches_silver_rupee_bottom_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67768,7 +68762,14 @@
         "temple_spirit.child_early_torches_silver_rupee_top_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.child_early_torches_silver_rupee_top_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67798,7 +68799,14 @@
         "temple_spirit.child_early_torches_silver_rupee_near_torch": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.child_early_torches_silver_rupee_near_torch]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67828,7 +68836,14 @@
         "temple_spirit.adult_boulder_silver_rupee_ledge": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.adult_boulder_silver_rupee_ledge]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67858,7 +68873,14 @@
         "temple_spirit.adult_boulder_silver_rupee_front_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.adult_boulder_silver_rupee_front_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67888,7 +68910,14 @@
         "temple_spirit.adult_boulder_silver_rupee_front_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.adult_boulder_silver_rupee_front_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67918,7 +68947,14 @@
         "temple_spirit.adult_boulder_silver_rupee_back_right": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.adult_boulder_silver_rupee_back_right]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67948,7 +68984,14 @@
         "temple_spirit.adult_boulder_silver_rupee_back_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.adult_boulder_silver_rupee_back_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -67978,7 +69021,14 @@
         "temple_spirit.sun_block_room_silver_rupee_left": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.sun_block_room_silver_rupee_left]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68008,7 +69058,14 @@
         "temple_spirit.sun_block_room_silver_rupee_center_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.sun_block_room_silver_rupee_center_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68038,7 +69095,14 @@
         "temple_spirit.sun_block_room_silver_rupee_center_back": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.sun_block_room_silver_rupee_center_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68060,6 +69124,9 @@
                             "ref": "$IS_DONE"
                         }
                     }
+                },
+                "skulltulas": {
+                    "false": true
                 }
             },
             "icon": "/images/icons/rupee_silver.svg",
@@ -68068,7 +69135,14 @@
         "temple_spirit.sun_block_room_silver_rupee_right_front": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.sun_block_room_silver_rupee_right_front]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68098,7 +69172,14 @@
         "temple_spirit.sun_block_room_silver_rupee_right_back": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit.sun_block_room_silver_rupee_right_back]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68158,7 +69239,14 @@
         "market.c_treasure_chest_game_salesman": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_salesman]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68188,7 +69276,14 @@
         "market.c_treasure_chest_game_room_1_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_1_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68218,7 +69313,14 @@
         "market.c_treasure_chest_game_room_1_top": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_1_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68248,7 +69350,14 @@
         "market.c_treasure_chest_game_room_2_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_2_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68278,7 +69387,14 @@
         "market.c_treasure_chest_game_room_2_top": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_2_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68308,7 +69424,14 @@
         "market.c_treasure_chest_game_room_3_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_3_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68338,7 +69461,14 @@
         "market.c_treasure_chest_game_room_3_top": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_3_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68368,7 +69498,14 @@
         "market.c_treasure_chest_game_room_4_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_4_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68398,7 +69535,14 @@
         "market.c_treasure_chest_game_room_4_top": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_4_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68428,7 +69572,14 @@
         "market.c_treasure_chest_game_room_5_bottom": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_5_bottom]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -68458,7 +69609,14 @@
         "market.c_treasure_chest_game_room_5_top": {
             "type": "chest",
             "logicAccess": "reach_location[market.c_treasure_chest_game_room_5_top]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -107770,16 +108928,14 @@
                 }
             },
             "icon": "/images/icons/entrance.svg",
-            "bindsTo": [
-                "overworld"
-            ],
+            "bindsTo": [],
             "unbindable": false,
-            "ignoreBound": false,
+            "ignoreBound": true,
             "entranceActive": {
                 "type": "value",
                 "ref": "option[shuffle_gerudo_valley_river_exit]"
             },
-            "includeInactiveEntrances": false,
+            "includeInactiveEntrances": true,
             "isBiDir": false,
             "ignoreMixedEntrances": false,
             "tags": [
@@ -109520,10 +110676,13 @@
             "bindsTo": [
                 "overworld"
             ],
-            "unbindable": false,
-            "ignoreBound": false,
-            "entranceActive": false,
-            "includeInactiveEntrances": false,
+            "unbindable": true,
+            "ignoreBound": true,
+            "entranceActive": {
+                "type": "value",
+                "ref": "option[shuffle_gerudo_valley_river_exit]"
+            },
+            "includeInactiveEntrances": true,
             "isBiDir": false,
             "ignoreMixedEntrances": false,
             "tags": [

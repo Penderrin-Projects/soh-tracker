@@ -2,6 +2,7 @@ import FileSystem from "/emcJS/util/file/FileSystem.js";
 import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import OptionGroupRegistry from "/emcJS/data/registry/form/OptionGroupRegistry.js";
 import FileLoader from "/emcJS/util/file/FileLoader.js";
+import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import "/GameTrackerJS/_editor/world/WorldEditor.js";
 
 async function laodResources() {
@@ -44,7 +45,13 @@ export default async function() {
     editorEl.addEventListener("change", () => {
         const config = editorEl.getConfig();
         console.log("change config:", config);
-    })
+    });
+
+    window.onbeforeunload = function() {
+        if (editorEl.checkCurrentEditorHasChanges()) {
+            return "You have unsaved changes in the current form. Discard changes and continue?";
+        }
+    }
 
     // refresh
     async function refreshFn() {
@@ -99,6 +106,12 @@ export default async function() {
         }, {
             "content": "LOAD",
             "handler": async () => {
+                if (editorEl.checkCurrentEditorHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved changes", "You have unsaved changes in the current form. Discard changes and continue?");
+                    if (result !== true) {
+                        return;
+                    }
+                }
                 const res = await FileSystem.load(".json");
                 if (res != null) {
                     const {data} = res;
@@ -109,7 +122,13 @@ export default async function() {
             }
         }, {
             "content": "EXIT EDITOR",
-            "handler": () => {
+            "handler": async () => {
+                if (editorEl.checkCurrentEditorHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved changes", "You have unsaved changes in the current form. Discard changes and continue?");
+                    if (result !== true) {
+                        return;
+                    }
+                }
                 editorEl.reset();
                 const event = new Event("close");
                 editorEl.dispatchEvent(event);
