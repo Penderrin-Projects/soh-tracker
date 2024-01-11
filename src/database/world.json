@@ -110674,7 +110674,9 @@
             },
             "icon": "/images/icons/entrance.svg",
             "bindsTo": [
-                "overworld"
+                "flight",
+                "overworld",
+                "warp"
             ],
             "unbindable": true,
             "ignoreBound": true,
@@ -111002,13 +111004,8 @@
             "icon": "/images/icons/location.svg",
             "bindsTo": [
                 "flight",
-                "spawn",
-                "warp",
                 "overworld",
-                "interior_outer",
-                "interior_inner",
-                "grotto_outer",
-                "grotto_inner"
+                "warp"
             ],
             "unbindable": true,
             "ignoreBound": true,
@@ -111095,13 +111092,8 @@
             "icon": "/images/icons/location.svg",
             "bindsTo": [
                 "flight",
-                "spawn",
-                "warp",
                 "overworld",
-                "interior_outer",
-                "interior_inner",
-                "grotto_outer",
-                "grotto_inner"
+                "warp"
             ],
             "unbindable": true,
             "ignoreBound": true,
