@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import TypeConfigMap from "../emcJS/src/data/type/TypeConfigMap.js";
-import TypeValidator from "../emcJS/src/util/type/TypeValidator.js";
+import TypeConfigMap from "emcJS/data/type/TypeConfigMap.js";
+import TypeValidator from "emcJS/util/type/TypeValidator.js";
 
 // TODO make packae dependend and verify more than just world file
 // TODO use this as pre compile requirement

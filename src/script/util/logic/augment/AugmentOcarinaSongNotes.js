@@ -45,9 +45,9 @@ export function augment(cache) {
             const hasL = cache.get("item[ocarina_left_button]");
             const hasR = cache.get("item[ocarina_right_button]");
 
-            // cache.set("calculated[has_all_notes_for_song(song_woods)]", hasA && hasU && hasD && hasL && hasR);
-            // cache.set("calculated[has_all_notes_for_song(song_frogs)]", hasA && hasU && hasD && hasL && hasR);
-            cache.set("calculated[has_all_notes_for_song(song_scarecrow)]", (hasA + hasU + hasD + hasL + hasR) > 2);
+            // cache.setAugmented("calculated[has_all_notes_for_song(song_woods)]", hasA && hasU && hasD && hasL && hasR);
+            // cache.setAugmented("calculated[has_all_notes_for_song(song_frogs)]", hasA && hasU && hasD && hasL && hasR);
+            cache.setAugmented("calculated[has_all_notes_for_song(song_scarecrow)]", (hasA + hasU + hasD + hasL + hasR) > 2);
 
             for (const ref of SONGS) {
                 if (ref === "scarecrow" || ref === "woods" || ref === "frogs") {
@@ -55,27 +55,33 @@ export function augment(cache) {
                 }
                 const notes = cache.get(`songnotes[${ref}]`) ?? "";
                 if (!hasA && notes.includes("A")) {
-                    cache.set(`calculated[has_all_notes_for_song(${ref})]`, false);
+                    cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, false);
                     continue;
                 }
                 if (!hasU && notes.includes("U")) {
-                    cache.set(`calculated[has_all_notes_for_song(${ref})]`, false);
+                    cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, false);
                     continue;
                 }
                 if (!hasD && notes.includes("D")) {
-                    cache.set(`calculated[has_all_notes_for_song(${ref})]`, false);
+                    cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, false);
                     continue;
                 }
                 if (!hasL && notes.includes("L")) {
-                    cache.set(`calculated[has_all_notes_for_song(${ref})]`, false);
+                    cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, false);
                     continue;
                 }
                 if (!hasR && notes.includes("R")) {
-                    cache.set(`calculated[has_all_notes_for_song(${ref})]`, false);
+                    cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, false);
                     continue;
                 }
-                cache.set(`calculated[has_all_notes_for_song(${ref})]`, true);
+                cache.setAugmented(`calculated[has_all_notes_for_song(${ref})]`, true);
             }
+        } else {
+            cache.setAugmented("item[ocarina_a_button]", true);
+            cache.setAugmented("item[ocarina_up_button]", true);
+            cache.setAugmented("item[ocarina_down_button]", true);
+            cache.setAugmented("item[ocarina_left_button]", true);
+            cache.setAugmented("item[ocarina_right_button]", true);
         }
     }
 }

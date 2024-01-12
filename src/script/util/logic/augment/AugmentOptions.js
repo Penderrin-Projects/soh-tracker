@@ -8,7 +8,7 @@ function augment(cache) {
     if (cache.hasChange("option[small_key_logic]")) {
         const keyLogic = cache.get("option[small_key_logic]");
         if (KEYSANITY.includes(keyLogic)) {
-            cache.set("option[small_key_logic]", "keylogic_keysanity");
+            cache.setAugmented("option[small_key_logic]", "keylogic_keysanity");
         }
     }
     // open forest
@@ -26,7 +26,7 @@ function augment(cache) {
             const shuffleSpawns = cache.get("option[shuffle_spawns]");
             const shuffleOverworld = cache.get("option[shuffle_overworld]");
             if (shuffleSpecialInterior || shuffleOverworld || shuffleWarps || shuffleSpawns) {
-                cache.set("option[doors_open_forest]", "doors_open_forest_deku");
+                cache.setAugmented("option[doors_open_forest]", "doors_open_forest_deku");
             }
         }
     }

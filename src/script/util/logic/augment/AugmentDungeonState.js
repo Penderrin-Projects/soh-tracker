@@ -40,14 +40,14 @@ function augmentGerudoKeys(keyLogic, keys) {
 }
 
 function augmentTCGKeys(keyLogic, keys) {
-    if (keyLogic == "keylogic_keysy" || keyLogic == "keylogic_vanilla") {
+    if (keyLogic == "keylogic_keysy") {
         return 9999;
     }
     return keys;
 }
 
 function augmentSilverRupees(keyLogic, keys) {
-    if (keyLogic == "keylogic_keysy" || keyLogic == "keylogic_vanilla") {
+    if (keyLogic == "keylogic_keysy") {
         return 9999;
     }
     return keys;
@@ -78,20 +78,20 @@ function augment(cache) {
                 if (cache.hasChange("option[shuffle_tcgkeys]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[shuffle_tcgkeys]");
                     const augKeys = augmentTCGKeys(keyLogic, cache.get(keyRef) ?? 0);
-                    cache.set(keyRef, augKeys);
+                    cache.setAugmented(keyRef, augKeys);
                 }
             } else if (keyGroup === "gerudo") {
                 if (cache.hasChange("option[gerudo_key_logic]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[gerudo_key_logic]");
                     const augKeys = augmentGerudoKeys(keyLogic, cache.get(keyRef) ?? 0);
-                    cache.set(keyRef, augKeys);
+                    cache.setAugmented(keyRef, augKeys);
                 }
             } else if (keyGroup === "dungeon" || keyGroup == "ganon") {
                 const dTypeKey = `arealist[${ref}]`;
                 if (cache.hasChange("option[small_key_logic]") || cache.hasChange(keyRef) || cache.hasChange(dTypeKey)) {
                     const keyLogic = cache.get("option[small_key_logic]");
                     const augKeys = augmentKeys(keyLogic, cache.get(keyRef) ?? 0, ref, getDungeonType(cache.get(dTypeKey), dData.hasmq));
-                    cache.set(keyRef, augKeys);
+                    cache.setAugmented(keyRef, augKeys);
                 }
             }
         }
@@ -103,13 +103,13 @@ function augment(cache) {
                 if (cache.hasChange("option[ganon_key_logic]") || cache.hasChange(bossKeyRef)) {
                     const keyLogic = cache.get("option[ganon_key_logic]");
                     const augKeys = augmentGanonBossKey(keyLogic, cache.get(bossKeyRef) ?? 0);
-                    cache.set(bossKeyRef, augKeys);
+                    cache.setAugmented(bossKeyRef, augKeys);
                 }
             } else if (keyGroup == "dungeon") {
                 if (cache.hasChange("option[boss_key_logic]") || cache.hasChange(bossKeyRef)) {
                     const keyLogic = cache.get("option[boss_key_logic]");
                     const augKeys = augmentBossKeys(keyLogic, cache.get(bossKeyRef) ?? 0);
-                    cache.set(bossKeyRef, augKeys);
+                    cache.setAugmented(bossKeyRef, augKeys);
                 }
             }
         }
@@ -120,7 +120,7 @@ function augment(cache) {
                 if (cache.hasChange("option[shuffle_silver_rupees]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[shuffle_silver_rupees]");
                     const augKeys = augmentSilverRupees(keyLogic, cache.get(keyRef) ?? 0);
-                    cache.set(keyRef, augKeys);
+                    cache.setAugmented(keyRef, augKeys);
                 }
             }
         }
