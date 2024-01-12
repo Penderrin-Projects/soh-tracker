@@ -131,11 +131,13 @@ export default class WorldMapGossipstone extends WorldMapElement {
                 state.value = false;
             }
         });
-        this.addDefaultContextMenuHandler("sethint", () => {
+        this.addDefaultContextMenuHandler("sethint", async () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(this.ref);
-                LogicViewer.show(state.props.logicAccess, title);
+                // TODO show hint dialog
+                // select Location/Area/Exit
+                // if Exit select target
+                // if Area/Location select item/WOTH
             }
         });
         this.addDefaultContextMenuHandler("junk", () => {
@@ -143,6 +145,7 @@ export default class WorldMapGossipstone extends WorldMapElement {
             if (state != null) {
                 state.location = "junk_hint";
                 state.item = "";
+                state.value = true;
             }
         });
         this.addDefaultContextMenuHandler("clearhint", () => {
@@ -150,8 +153,23 @@ export default class WorldMapGossipstone extends WorldMapElement {
             if (state != null) {
                 state.location = "";
                 state.item = "";
+                state.value = false;
             }
         });
+        this.addDefaultContextMenuHandler("show_logic", () => {
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.generateLabel(`location[${this.ref}]`);
+                LogicViewer.show(state.props.logicAccess, title);
+            }
+        });
+    }
+
+    clickHandler() {
+        const state = this.getState();
+        if (state != null) {
+            state.value = !state.value;
+        }
     }
 
     applyDefaultValues() {
@@ -170,8 +188,7 @@ export default class WorldMapGossipstone extends WorldMapElement {
         const itemContainerEl = this.shadowRoot.getElementById("hintitem-container");
         const itemEl = this.shadowRoot.getElementById("hintitem");
         if (itemEl != null) {
-            const state = this.getState();
-            if (state?.value && item) {
+            if (item) {
                 itemEl.i18nValue = item;
                 itemContainerEl.classList.remove("hidden");
             } else {
@@ -185,8 +202,7 @@ export default class WorldMapGossipstone extends WorldMapElement {
         const itemContainerEl = this.shadowRoot.getElementById("hintlocation-container");
         const locationEl = this.shadowRoot.getElementById("hintlocation");
         if (locationEl != null) {
-            const state = this.getState();
-            if (state?.value && location) {
+            if (location) {
                 locationEl.i18nValue = location;
                 itemContainerEl.classList.remove("hidden");
             } else {

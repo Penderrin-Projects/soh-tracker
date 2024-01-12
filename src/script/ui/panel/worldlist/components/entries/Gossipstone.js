@@ -37,11 +37,17 @@ export default class WorldListGossipstone extends BaseClass {
         super();
         applyElements(this.shadowRoot);
         /* observer */
-        this.registerStateHandler("item", (event) => {
-            this.applyItem(event.value);
+        this.registerStateHandler("item", () => {
+            const state = this.getState();
+            if (state != null) {
+                this.applyItem(state.item);
+            }
         });
-        this.registerStateHandler("location", (event) => {
-            this.applyLocation(event.value);
+        this.registerStateHandler("location", () => {
+            const state = this.getState();
+            if (state != null) {
+                this.applyLocation(state.location);
+            }
         });
         /* context menu */
         this.setDefaultContextMenu(GossipstoneContextMenu);
@@ -71,6 +77,7 @@ export default class WorldListGossipstone extends BaseClass {
             if (state != null) {
                 state.location = "junk_hint";
                 state.item = "";
+                state.value = true;
             }
         });
         this.addDefaultContextMenuHandler("clearhint", () => {
@@ -78,6 +85,7 @@ export default class WorldListGossipstone extends BaseClass {
             if (state != null) {
                 state.location = "";
                 state.item = "";
+                state.value = false;
             }
         });
         this.addDefaultContextMenuHandler("show_logic", () => {
@@ -87,6 +95,13 @@ export default class WorldListGossipstone extends BaseClass {
                 LogicViewer.show(state.props.logicAccess, title);
             }
         });
+    }
+
+    clickHandler() {
+        const state = this.getState();
+        if (state != null) {
+            state.value = !state.value;
+        }
     }
 
     applyDefaultValues() {
@@ -105,8 +120,7 @@ export default class WorldListGossipstone extends BaseClass {
         const itemContainerEl = this.shadowRoot.getElementById("hintitem-container");
         const itemEl = this.shadowRoot.getElementById("hintitem");
         if (itemEl != null) {
-            const state = this.getState();
-            if (state?.value && item) {
+            if (item) {
                 itemEl.i18nValue = item;
                 itemContainerEl.classList.remove("hidden");
             } else {
@@ -117,16 +131,15 @@ export default class WorldListGossipstone extends BaseClass {
     }
 
     applyLocation(location) {
-        const itemContainerEl = this.shadowRoot.getElementById("hintlocation-container");
+        const locationContainerEl = this.shadowRoot.getElementById("hintlocation-container");
         const locationEl = this.shadowRoot.getElementById("hintlocation");
         if (locationEl != null) {
-            const state = this.getState();
-            if (state?.value && location) {
+            if (location) {
                 locationEl.i18nValue = location;
-                itemContainerEl.classList.remove("hidden");
+                locationContainerEl.classList.remove("hidden");
             } else {
                 locationEl.i18nValue = "";
-                itemContainerEl.classList.add("hidden");
+                locationContainerEl.classList.add("hidden");
             }
         }
     }
