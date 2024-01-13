@@ -48,7 +48,7 @@ export default async function() {
     });
 
     window.onbeforeunload = function() {
-        if (editorEl.checkCurrentEditorHasChanges()) {
+        if (editorEl.checkWorldDataHasChanges() || editorEl.checkCurrentEditorHasChanges()) {
             return "You have unsaved changes in the current form. Discard changes and continue?";
         }
     }
@@ -100,30 +100,45 @@ export default async function() {
         "submenu": [{
             "content": "SAVE",
             "handler": async () => {
+                await BusyIndicatorManager.busy();
                 const config = editorEl.getWorldData();
                 FileSystem.save(JSON.stringify(config, " ", 4), `world_${(new Date()).getTime()}.json`);
+                editorEl.flushWorldDataChanges();
+                await BusyIndicatorManager.unbusy();
             }
         }, {
             "content": "LOAD",
             "handler": async () => {
-                if (editorEl.checkCurrentEditorHasChanges()) {
-                    const result = await ModalDialog.confirm("Unsaved changes", "You have unsaved changes in the current form. Discard changes and continue?");
+                if (editorEl.checkWorldDataHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved data changes", "You have not saved your changes to file. Discard changes and continue?");
+                    if (result !== true) {
+                        return;
+                    }
+                } else if (editorEl.checkCurrentEditorHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved changes in Form", "You have unsaved changes in the current form. Discard changes and continue?");
                     if (result !== true) {
                         return;
                     }
                 }
+                await BusyIndicatorManager.busy();
                 const res = await FileSystem.load(".json");
                 if (res != null) {
                     const {data} = res;
                     if (data != null) {
-                        editorEl.setWorldData(data);
+                        await editorEl.setWorldData(data);
                     }
                 }
+                await BusyIndicatorManager.unbusy();
             }
         }, {
             "content": "EXIT EDITOR",
             "handler": async () => {
-                if (editorEl.checkCurrentEditorHasChanges()) {
+                if (editorEl.checkWorldDataHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved data changes", "You have not saved your changes to file. Discard changes and continue?");
+                    if (result !== true) {
+                        return;
+                    }
+                } else if (editorEl.checkCurrentEditorHasChanges()) {
                     const result = await ModalDialog.confirm("Unsaved changes", "You have unsaved changes in the current form. Discard changes and continue?");
                     if (result !== true) {
                         return;

@@ -70299,6 +70299,7 @@
             "type": "overworld",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {},
             "listContents": false,
@@ -70951,6 +70952,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -71514,6 +71516,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -71713,6 +71716,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -71916,6 +71920,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -72295,6 +72300,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -72626,6 +72632,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -72909,6 +72916,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -73244,6 +73252,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -73551,6 +73560,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -74138,6 +74148,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -74589,6 +74600,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -74804,6 +74816,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -74895,6 +74908,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -75250,6 +75264,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -75377,6 +75392,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -75456,6 +75472,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -75619,6 +75636,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -75722,6 +75740,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -76381,6 +76400,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -76632,6 +76652,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -76967,6 +76988,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -77446,6 +77468,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -77933,6 +77956,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -78216,6 +78240,7 @@
             "type": "area",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -78735,6 +78760,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -79668,6 +79694,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -80344,6 +80371,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -81320,6 +81348,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -81981,6 +82010,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -82039,6 +82069,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -83624,6 +83655,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -83694,6 +83726,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -84570,6 +84603,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -84703,6 +84737,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -85867,6 +85902,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -85925,6 +85961,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -87317,6 +87354,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -87375,6 +87413,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -89415,6 +89454,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -89473,6 +89513,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -91686,6 +91727,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -91744,6 +91786,7 @@
             "type": "dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -93501,6 +93544,7 @@
             "type": "bossarea",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -93559,6 +93603,7 @@
             "type": "boss_dungeon",
             "category": "",
             "visible": true,
+            "visibleIfEmpty": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -95578,6 +95623,7 @@
                     "value": "entrance_shuffle_all"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -95696,6 +95742,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -95840,6 +95887,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -95948,6 +95996,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96056,6 +96105,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96202,6 +96252,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96361,6 +96412,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96482,6 +96534,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96628,6 +96681,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96774,6 +96828,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -96920,6 +96975,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -97066,6 +97122,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -97199,6 +97256,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -97317,6 +97375,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -97425,6 +97484,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -97556,6 +97616,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -98306,6 +98367,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -98422,6 +98484,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -98658,6 +98721,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -98765,6 +98829,7 @@
                     "value": "entrance_shuffle_all"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -98881,6 +98946,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99021,6 +99087,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99139,6 +99206,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99271,6 +99339,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99414,6 +99483,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99520,6 +99590,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99688,6 +99759,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99792,6 +99864,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -99944,6 +100017,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100050,6 +100124,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100168,6 +100243,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100275,6 +100351,7 @@
                     "value": "entrance_shuffle_all"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100393,6 +100470,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100539,6 +100617,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100647,6 +100726,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100756,6 +100836,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -100864,6 +100945,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101162,6 +101244,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101278,6 +101361,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101384,6 +101468,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101530,6 +101615,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101782,6 +101868,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -101888,6 +101975,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102033,6 +102121,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102179,6 +102268,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102324,6 +102414,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102457,6 +102548,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102601,6 +102693,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102705,6 +102798,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102869,6 +102963,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -102999,6 +103094,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103144,6 +103240,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103275,6 +103372,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103381,6 +103479,7 @@
                     "ref": "option[shuffle_grottos]"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103508,6 +103607,7 @@
             "type": "grotto",
             "category": "grotto_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103622,6 +103722,7 @@
                     }
                 ]
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103782,6 +103883,7 @@
                     }
                 ]
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -103918,6 +104020,7 @@
                     }
                 ]
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104034,6 +104137,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104182,6 +104286,7 @@
             "type": "grotto",
             "category": "grotto_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104272,6 +104377,7 @@
             "type": "interior",
             "category": "",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104460,6 +104566,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104600,6 +104707,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104736,6 +104844,7 @@
             "type": "interior",
             "category": "interior_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104828,6 +104937,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -104964,6 +105074,7 @@
             "type": "interior",
             "category": "interior_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105052,6 +105163,7 @@
             "type": "interior",
             "category": "interior",
             "visible": true,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105168,6 +105280,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105311,6 +105424,7 @@
                     "value": "entrance_shuffle_all"
                 }
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105459,6 +105573,7 @@
             "type": "interior",
             "category": "interior_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105551,6 +105666,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105687,6 +105803,7 @@
             "type": "grotto",
             "category": "grotto_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105781,6 +105898,7 @@
                 "ref": "option[entrance_shuffle_interior]",
                 "value": "entrance_shuffle_off"
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -105917,6 +106035,7 @@
             "type": "grotto",
             "category": "grotto_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -106007,6 +106126,7 @@
             "type": "interior",
             "category": "interior_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -106121,6 +106241,7 @@
                     }
                 ]
             },
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
@@ -106307,6 +106428,7 @@
             "type": "grotto",
             "category": "grotto_empty",
             "visible": false,
+            "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {

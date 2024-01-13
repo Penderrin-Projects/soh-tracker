@@ -51,6 +51,7 @@ function modify(source = {}, target = {}) {
             type: oldProps.type ?? "",
             category: oldProps.category ?? "",
             visible: oldProps.visible ?? true,
+            visibleIfEmpty: oldProps.visibleIfEmpty ?? !(oldProps.type === "interior" || oldProps.type === "grotto"),
             visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             listContents: oldProps.listContents ?? false,

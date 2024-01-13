@@ -2,5 +2,8 @@
     "overworld",
     "area",
     "dungeon",
-    "interior"
+    "boss_dungeon",
+    "bossarea",
+    "interior",
+    "grotto"
 ]
