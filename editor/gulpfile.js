@@ -222,7 +222,7 @@ function finish(done) {
     };
     FileIndex.finish(BUILD_PATH, undefined, config);
     ImageIndex.finish(BUILD_PATH, "images/_index.icons.json", /^\/images\/icons\/.*/);
-    ImageIndex.finish(BUILD_PATH, "images/_index.maps.json", /^\/images\/maps\/.*/);
+    ImageIndex.finish(BUILD_PATH, "images/_index.maps.json", /^\/images\/maps\/.*/, /^\/images\/maps\/(.*)\.[^.]+$/);
     done();
 }
 
