@@ -3,10 +3,9 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import "/emcJS/ui/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
+import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
-import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
 
 const TPL = new Template(`
 <emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>

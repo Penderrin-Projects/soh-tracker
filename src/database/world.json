@@ -104130,7 +104130,7 @@
             "tags": []
         },
         "kokiri.shop": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -104559,7 +104559,7 @@
             "tags": []
         },
         "castle_town.shop_magic": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -104700,7 +104700,7 @@
             "tags": []
         },
         "castle_town.shop_bombchu": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -104930,7 +104930,7 @@
             "tags": []
         },
         "castle_town.shop_bazaar": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -105273,7 +105273,7 @@
             "tags": []
         },
         "kakariko.shop_bazaar": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -105414,7 +105414,7 @@
             "tags": []
         },
         "kakariko.shop_magic": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "not",
@@ -105659,7 +105659,7 @@
             "tags": []
         },
         "goron.shop": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
@@ -105891,7 +105891,7 @@
             "tags": []
         },
         "zoras.shop": {
-            "type": "interior",
+            "type": "shop",
             "category": "interior_shop",
             "visible": {
                 "type": "state",
