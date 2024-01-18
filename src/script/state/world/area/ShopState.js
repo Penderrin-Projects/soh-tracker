@@ -1,8 +1,8 @@
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
-import DefaultAreaState from "/GameTrackerJS/state/world/area/DefaultAreaState.js";
 import ShopSlotState from "../location/ShopSlotState.js";
+import AreaState from "./AreaState.js";
 
-export default class ShopState extends DefaultAreaState {
+export default class ShopState extends AreaState  {
 
     setAllEntries(value = true) {
         const list = this.getList();
