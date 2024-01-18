@@ -54,7 +54,7 @@ function modify(source = {}, target = {}) {
             visibleIfEmpty: oldProps.visibleIfEmpty ?? !(oldProps.type === "interior" || oldProps.type === "grotto"),
             visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
-            listContents: oldProps.listContents ?? false,
+            listContents: !!(oldProps.listContents ?? false),
             accessPenetration: oldProps.accessPenetration ?? false,
             icon: oldProps.icon ?? "",
             map: convertMapConfig(oldProps.map),
@@ -125,7 +125,6 @@ function getColor(color) {
 }
 
 function convertEntryLists(lists) {
-    console.log("convert lists", lists);
     const res = {};
     for (const key in lists) {
         res[key] = convertEntryList(lists[key]);

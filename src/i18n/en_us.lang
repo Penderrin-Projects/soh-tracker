@@ -994,7 +994,6 @@ doors_open_kakariko_zelda=Kakariko Gate Opened Immediately after Zelda's Letter
 doors_open_kakariko_open=Kakariko Gate Opened
 entrance_randomizer=Entrance randomization
 option[mixed_entrance_pool]=Mixed entrance pool
-option[show_sublists_on_mixed_entrances]=Enforce sublist rendering for mixed entrance pool (can clutter the list a lot)
 option[detached_entrances]=Detached Entrances
 option[shuffle_grottos]=Shuffle Grottos
 option[shuffle_overworld]=Shuffle Overworld Entrances

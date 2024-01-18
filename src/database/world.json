@@ -95644,34 +95644,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -95763,34 +95736,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -95908,34 +95854,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96017,34 +95936,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96126,34 +96018,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96273,34 +96138,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96433,34 +96271,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96555,34 +96366,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96702,34 +96486,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96849,34 +96606,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -96996,34 +96726,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -97143,34 +96846,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -97277,34 +96953,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -97396,34 +97045,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -97505,34 +97127,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -97637,34 +97232,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -98388,34 +97956,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -98505,34 +98046,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -98742,34 +98256,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -98850,34 +98337,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -98967,34 +98427,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99108,34 +98541,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99227,34 +98633,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99360,34 +98739,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99504,34 +98856,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99611,34 +98936,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99780,34 +99078,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -99885,34 +99156,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100038,34 +99282,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100145,34 +99362,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100264,34 +99454,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100372,34 +99535,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100491,34 +99627,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100638,34 +99747,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100747,34 +99829,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100857,34 +99912,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -100966,34 +99994,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101265,34 +100266,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101382,34 +100356,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101489,34 +100436,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101636,34 +100556,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101889,34 +100782,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -101996,34 +100862,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102142,34 +100981,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102289,34 +101101,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102435,34 +101220,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102569,34 +101327,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102714,34 +101445,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102819,34 +101523,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -102984,34 +101661,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103115,34 +101765,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103261,34 +101884,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103393,34 +101989,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103500,34 +102069,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103628,34 +102170,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103743,34 +102258,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -103904,34 +102392,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104041,34 +102502,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104158,34 +102592,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104307,34 +102714,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104398,34 +102778,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104587,34 +102940,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104728,34 +103054,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104865,34 +103164,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -104958,34 +103230,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105095,34 +103340,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105184,34 +103402,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105301,34 +103492,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105445,34 +103609,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105594,34 +103731,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105687,34 +103797,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105824,34 +103907,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -105919,34 +103975,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -106056,34 +104085,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -106147,34 +104149,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -106262,34 +104237,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {
@@ -106449,34 +104397,7 @@
                     }
                 }
             },
-            "listContents": {
-                "type": "and",
-                "content": [
-                    {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IN_ROOT"
-                        }
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "value",
-                                "ref": "option[show_sublists_on_mixed_entrances]"
-                            },
-                            {
-                                "type": "not",
-                                "content": {
-                                    "type": "value",
-                                    "ref": "option[mixed_entrance_pool]"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
+            "listContents": true,
             "accessPenetration": {
                 "type": "not",
                 "content": {

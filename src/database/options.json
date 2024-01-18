@@ -401,15 +401,6 @@
         "type": "check",
         "default": false
     },
-    "show_sublists_on_mixed_entrances": {
-        "category": "entrance_randomizer",
-        "type": "check",
-        "default": false,
-        "visible": {
-            "type": "value",
-            "ref": "mixed_entrance_pool"
-        }
-    },
     "detached_entrances": {
         "category": "entrance_randomizer",
         "type": "check",
