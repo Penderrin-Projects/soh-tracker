@@ -11,8 +11,8 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.11.3",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.4",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.11.5",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.6",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.17",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
   },

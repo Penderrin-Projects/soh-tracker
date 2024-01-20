@@ -147,7 +147,8 @@ function convertEntryList(oldList) {
                 y: entry.pos?.y ?? 0,
                 scale: entry.pos?.scale ?? 100
             },
-            visible: entry.visible ?? true
+            visible: entry.visible ?? true,
+            listHidden: entry.listHidden ?? false
         };
     });
 }
