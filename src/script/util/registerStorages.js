@@ -27,5 +27,4 @@ for (const ref in songData) {
 Savestate.registerStorage("songNotes", songNotesStorage);
 
 // --> register to logic caller
-LogicCaller.registerStorage(Savestate.getStorage("areaActiveLists"), "dungeontype[", "]");
 LogicCaller.registerStorage(Savestate.getStorage("songNotes"), "songnotes[", "]");

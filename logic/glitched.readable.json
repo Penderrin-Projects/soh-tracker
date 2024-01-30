@@ -1301,12 +1301,12 @@
             }
         },
         "region[kakariko_well_gateway:in]{child}": {
-            "region[well_kakriko_gateway:out]{child}": {
+            "region[well_kakariko_gateway:out]{child}": {
                 "type": "true"
             }
         },
         "region[kakariko_well_gateway:in]{adult}": {
-            "region[well_kakriko_gateway:out]{adult}": {
+            "region[well_kakariko_gateway:out]{adult}": {
                 "type": "true"
             }
         },
@@ -1320,17 +1320,17 @@
                 "type": "true"
             }
         },
-        "region[well_kakriko_gateway:in]{child}": {
+        "region[well_kakariko_gateway:in]{child}": {
             "region[kakariko_well_gateway:out]{child}": {
                 "type": "true"
             }
         },
-        "region[well_kakriko_gateway:in]{adult}": {
+        "region[well_kakariko_gateway:in]{adult}": {
             "region[kakariko_well_gateway:out]{adult}": {
                 "type": "true"
             }
         },
-        "region[well_kakriko_gateway:out]{child}": {
+        "region[well_kakariko_gateway:out]{child}": {
             "region[bottom_of_the_well]{child}": {
                 "type": "not",
                 "content": {
@@ -1348,7 +1348,7 @@
                 }
             }
         },
-        "region[well_kakriko_gateway:out]{adult}": {
+        "region[well_kakariko_gateway:out]{adult}": {
             "region[bottom_of_the_well]{adult}": {
                 "type": "not",
                 "content": {
@@ -5373,7 +5373,7 @@
             }
         },
         "region[bottom_of_the_well_mq]{child}": {
-            "region[well_kakriko_gateway:in]{child}": {
+            "region[well_kakariko_gateway:in]{child}": {
                 "type": "true"
             },
             "reach_location[well_mq.c_compass_chest]": {
@@ -5580,7 +5580,7 @@
             }
         },
         "region[bottom_of_the_well_mq]{adult}": {
-            "region[well_kakriko_gateway:in]{adult}": {
+            "region[well_kakariko_gateway:in]{adult}": {
                 "type": "true"
             },
             "reach_location[well_mq.c_compass_chest]": {
