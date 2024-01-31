@@ -70896,7 +70896,7 @@
                     {
                         "ref": {
                             "type": "Exit",
-                            "name": "kakariko_well_gateway -> well_kakriko_gateway"
+                            "name": "kakariko_well_gateway -> well_kakariko_gateway"
                         },
                         "pos": {
                             "x": 1306,
@@ -76628,7 +76628,7 @@
                     {
                         "ref": {
                             "type": "Exit",
-                            "name": "kakariko_well_gateway -> well_kakriko_gateway"
+                            "name": "kakariko_well_gateway -> well_kakariko_gateway"
                         },
                         "pos": {
                             "x": 1306,
@@ -79413,7 +79413,7 @@
                     {
                         "ref": {
                             "type": "Exit",
-                            "name": "well_kakriko_gateway -> kakariko_well_gateway"
+                            "name": "well_kakariko_gateway -> kakariko_well_gateway"
                         },
                         "pos": {
                             "x": 1306,
@@ -80091,7 +80091,7 @@
                     {
                         "ref": {
                             "type": "Exit",
-                            "name": "well_kakriko_gateway -> kakariko_well_gateway"
+                            "name": "well_kakariko_gateway -> kakariko_well_gateway"
                         },
                         "pos": {
                             "x": 1306,
@@ -107099,11 +107099,11 @@
                 "child"
             ]
         },
-        "kakariko_well_gateway -> well_kakriko_gateway": {
+        "kakariko_well_gateway -> well_kakariko_gateway": {
             "type": "dungeon_outer",
             "target": {
                 "type": "Exit",
-                "name": "well_kakriko_gateway -> kakariko_well_gateway"
+                "name": "well_kakariko_gateway -> kakariko_well_gateway"
             },
             "logicAccess": "kakariko_well_gateway",
             "area": {
@@ -107162,13 +107162,13 @@
                 "child"
             ]
         },
-        "well_kakriko_gateway -> kakariko_well_gateway": {
+        "well_kakariko_gateway -> kakariko_well_gateway": {
             "type": "dungeon_inner",
             "target": {
                 "type": "Exit",
-                "name": "kakariko_well_gateway -> well_kakriko_gateway"
+                "name": "kakariko_well_gateway -> well_kakariko_gateway"
             },
-            "logicAccess": "well_kakriko_gateway",
+            "logicAccess": "well_kakariko_gateway",
             "area": {
                 "type": "Area",
                 "name": "well"

@@ -1,5 +1,5 @@
 /**
- * move to serverside earliest past 2024‑07‑05
+ * move to serverside earliest past 2024‑07‑31
  */
 
 import SavestateConverter from "/GameTrackerJS/savestate/SavestateConverter.js";
@@ -22,9 +22,9 @@ SavestateConverter.register(function(state) {
             "": state.data?.[""] ?? {},
             items: state.data?.items ?? {},
             locations: state.data?.locations ?? {},
-            exitBindings: state.data?.exitBindings ?? {},
+            exitBindings: {},
             areaHints: state.data?.areaHints ?? {},
-            areaActiveLists: state.data?.dungeonTypes ?? {},
+            areaActiveLists: state.data?.areaActiveLists ?? {},
             locationItems: state.data?.locationItems ?? {},
             startItems: state.data?.startItems ?? {},
             options: state.data?.options ?? {},
@@ -45,6 +45,12 @@ SavestateConverter.register(function(state) {
         timestamp: state.timestamp ?? new Date(),
         name: state.name ?? ""
     };
+
+    for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
+        const newKey = key.replace("kakriko", "kakariko");
+        const newValue = value.replace("kakriko", "kakariko");
+        res.data.exitBindings[newKey] = newValue;
+    }
 
     return res;
 });
