@@ -35441,12 +35441,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "overworld"
                     }
                 ]
@@ -35474,7 +35474,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "goron.spinning_pot_bomb_drop_2": {
@@ -35485,12 +35485,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "overworld"
                     }
                 ]
@@ -35518,7 +35518,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "goron.spinning_pot_bomb_drop_3": {
@@ -35529,12 +35529,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "overworld"
                     }
                 ]
@@ -35562,7 +35562,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "crater.near_goron_pot_1": {
@@ -48553,12 +48553,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48586,7 +48586,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_2": {
@@ -48597,12 +48597,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48630,7 +48630,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_3": {
@@ -48641,12 +48641,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48674,7 +48674,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_4": {
@@ -48685,12 +48685,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48718,7 +48718,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_5": {
@@ -48729,12 +48729,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48762,7 +48762,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_6": {
@@ -48773,12 +48773,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48806,7 +48806,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_7": {
@@ -48817,12 +48817,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48850,7 +48850,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_8": {
@@ -48861,12 +48861,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48894,7 +48894,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple_mq.3_spinning_pots_rupee_9": {
@@ -48905,12 +48905,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -48938,7 +48938,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.whispering_walls_front_pot_1": {
@@ -49873,12 +49873,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -49906,7 +49906,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_2": {
@@ -49917,12 +49917,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -49950,7 +49950,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_3": {
@@ -49961,12 +49961,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -49994,7 +49994,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_4": {
@@ -50005,12 +50005,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50038,7 +50038,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_5": {
@@ -50049,12 +50049,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50082,7 +50082,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_6": {
@@ -50093,12 +50093,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50126,7 +50126,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_7": {
@@ -50137,12 +50137,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50170,7 +50170,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_8": {
@@ -50181,12 +50181,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50214,7 +50214,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.3_spinning_pots_rupee_9": {
@@ -50225,12 +50225,12 @@
                 "content": [
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "all"
                     },
                     {
                         "type": "state",
-                        "ref": "option[shuffle_pots]",
+                        "ref": "option[shuffle_rupees_hearts]",
                         "value": "dungeons"
                     }
                 ]
@@ -50258,7 +50258,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/pot.svg",
+            "icon": "/images/icons/rupee.svg",
             "tags": []
         },
         "shadow_temple.near_boss_pot_1": {
