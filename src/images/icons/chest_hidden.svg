@@ -89,18 +89,6 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient1885">
-      <stop
-         style="stop-color:#664214;stop-opacity:1;"
-         offset="0"
-         id="stop1881" />
-      <stop
-         style="stop-color:#3a2510;stop-opacity:1;"
-         offset="1"
-         id="stop1883" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient2195"
        id="linearGradient2135"
        x1="45.76886"
@@ -583,10 +571,62 @@
        y1="146.80095"
        x2="43.112705"
        y2="145.63271" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient1939"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-73.161751,139.71075)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6626">
+      <stop
+         style="stop-color:#8c682f;stop-opacity:1;"
+         offset="0"
+         id="stop6622" />
+      <stop
+         style="stop-color:#634726;stop-opacity:1;"
+         offset="1"
+         id="stop6624" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29833"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-73.161751,123.07378)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29837"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-73.161751,106.43681)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29841"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-73.161751,89.79984)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient30420-4"
+       id="radialGradient30420"
        cx="53.896538"
        cy="217.70506"
        fx="53.896538"
@@ -597,7 +637,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient30426-3"
+       id="radialGradient30426"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-116.79548,-465.88813)"
        cx="53.896538"
@@ -608,7 +648,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient30430-5"
+       id="radialGradient30430"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-95.502935,-465.89862)"
        cx="53.896538"
@@ -619,7 +659,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient30434-9"
+       id="radialGradient30434"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-95.513445,-473.55278)"
        cx="53.896538"
@@ -630,7 +670,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient31643"
-       id="radialGradient31645-0"
+       id="radialGradient31645"
        cx="64.130836"
        cy="220.31198"
        fx="64.130836"
@@ -641,7 +681,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient30449-3"
+       id="radialGradient30449"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-176.14964,-506.42937)"
        cx="53.896538"
@@ -652,7 +692,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31141-4"
+       id="radialGradient31141"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-176.14965,-433.01153)"
        cx="53.896538"
@@ -663,7 +703,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31145-9"
+       id="radialGradient31145"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-36.183917,-433.01155)"
        cx="53.896538"
@@ -674,7 +714,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31149-6"
+       id="radialGradient31149"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-36.183899,-506.42945)"
        cx="53.896538"
@@ -685,7 +725,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31153-5"
+       id="radialGradient31153"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-151.98675,-508.34183)"
        cx="53.896538"
@@ -696,7 +736,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31157-5"
+       id="radialGradient31157"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-127.6422,-508.3418)"
        cx="53.896538"
@@ -707,7 +747,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31165-9"
+       id="radialGradient31165"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-84.691333,-508.34183)"
        cx="53.896538"
@@ -718,7 +758,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31163-3"
+       id="radialGradient31163"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-60.346783,-508.3418)"
        cx="53.896538"
@@ -729,7 +769,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31181-0"
+       id="radialGradient31181"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-153.65189,-431.09899)"
        cx="53.896538"
@@ -740,7 +780,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31179-7"
+       id="radialGradient31179"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-129.30734,-431.09896)"
        cx="53.896538"
@@ -751,7 +791,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31177-8"
+       id="radialGradient31177"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-86.356472,-431.09899)"
        cx="53.896538"
@@ -762,7 +802,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31175-2"
+       id="radialGradient31175"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-62.011922,-431.09896)"
        cx="53.896538"
@@ -773,7 +813,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31185-8"
+       id="radialGradient31185"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-178.06211,-469.72036)"
        cx="53.896538"
@@ -784,7 +824,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31189-6"
+       id="radialGradient31189"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-178.06211,-452.03195)"
        cx="53.896538"
@@ -795,7 +835,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31195-5"
+       id="radialGradient31195"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-178.06211,-487.40875)"
        cx="53.896538"
@@ -806,7 +846,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31207-0"
+       id="radialGradient31207"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-34.271388,-469.72036)"
        cx="53.896538"
@@ -817,7 +857,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31205-3"
+       id="radialGradient31205"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-34.271388,-452.03195)"
        cx="53.896538"
@@ -828,7 +868,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31203-2"
+       id="radialGradient31203"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-34.271388,-487.40875)"
        cx="53.896538"
@@ -836,10 +876,40 @@
        fx="53.896538"
        fy="217.70506"
        r="0.88307339" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29929"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.79982664,-73.161752,87.177265)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29937"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.58535515,-73.161752,98.652599)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6626"
+       id="linearGradient29941"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.31028336,-73.161752,120.69841)"
+       x1="71.04747"
+       y1="107.23079"
+       x2="71.047493"
+       y2="115.54926" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31386-7"
+       id="radialGradient31386"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-34.271388,-519.80263)"
        cx="53.896538"
@@ -850,7 +920,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31417-5"
+       id="radialGradient31417"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,3.1750795,-178.06213,-519.80263)"
        cx="53.896538"
@@ -861,7 +931,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31415-0"
+       id="radialGradient31415"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,2.5465426,-178.06213,-400.03563)"
        cx="53.927624"
@@ -872,7 +942,7 @@
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30418"
-       id="radialGradient31431-4"
+       id="radialGradient31431"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(3.1750847,0,0,2.5465426,-34.27139,-400.03563)"
        cx="53.927624"
@@ -882,48 +952,8 @@
        r="0.88307339" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4418"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-73.161751,139.71075)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4420"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-73.161751,123.07378)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4422"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-73.161751,106.43681)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4424"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-73.161751,89.79984)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4426"
+       id="linearGradient9191"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,1.2739529,0,-60.813738)"
        x1="-11.229782"
@@ -933,7 +963,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4428"
+       id="linearGradient9193"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1,0,0,1.2739526,0,-60.813664)"
        x1="130.98148"
@@ -943,7 +973,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4430"
+       id="linearGradient9195"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-368.3088,128.86719)"
        x1="179.59665"
@@ -953,7 +983,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4432"
+       id="linearGradient9197"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-519.63555,128.86719)"
        x1="255.26003"
@@ -963,7 +993,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4434"
+       id="linearGradient9199"
        gradientUnits="userSpaceOnUse"
        x1="59.875843"
        y1="221.98608"
@@ -971,38 +1001,8 @@
        y2="221.98608" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4436"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.79982664,-73.161752,87.177265)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4438"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.58535515,-73.161752,98.652599)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1885"
-       id="linearGradient4440"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1,0,0,0.31028336,-73.161752,120.69841)"
-       x1="71.04747"
-       y1="107.23079"
-       x2="71.047493"
-       y2="115.54926" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4442"
+       id="linearGradient9201"
        gradientUnits="userSpaceOnUse"
        x1="-11.229782"
        y1="165.49295"
@@ -1011,7 +1011,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4444"
+       id="linearGradient9203"
        gradientUnits="userSpaceOnUse"
        x1="59.875847"
        y1="165.49295"
@@ -1020,7 +1020,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient30456"
-       id="linearGradient4446"
+       id="linearGradient9205"
        gradientUnits="userSpaceOnUse"
        x1="130.98148"
        y1="165.49295"
@@ -1029,7 +1029,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient31439"
-       id="linearGradient4448"
+       id="linearGradient9207"
        gradientUnits="userSpaceOnUse"
        x1="64.433594"
        y1="179.59665"
@@ -1043,9 +1043,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="305.47013"
-     inkscape:cy="568.51385"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="862.67027"
+     inkscape:cy="828.72915"
      inkscape:document-units="px"
      inkscape:current-layer="g5053"
      showgrid="false"
@@ -1079,60 +1079,60 @@
        d="M 13.229167 40.954606 L 13.229167 223.62873 L 20.357931 223.62873 L 16.940568 225.25964 L 16.567464 228.11269 C 16.567464 228.11269 16.469595 229.95548 16.875456 231.49078 C 17.098098 232.33297 17.840895 233.50181 18.349784 234.53607 L 14.118518 251.56087 L 31.143319 247.32909 C 32.177451 247.83795 33.346049 248.58127 34.188094 248.80394 C 35.723139 249.20985 37.566699 249.11193 37.566699 249.11193 L 40.419755 248.73882 L 45.360022 238.38597 L 58.554049 223.62873 L 251.35417 223.62873 L 251.35417 40.954606 L 13.229167 40.954606 z " />
     <g
        inkscape:label="chest"
-       id="layer1-4-3"
-       transform="matrix(1.4462684,0,0,1.4462684,39.103396,-168.36206)"
+       id="layer1-4"
+       transform="matrix(1.4462684,0,0,1.4462684,39.103392,-168.36206)"
        style="stroke-width:0.691435">
       <g
-         id="g31379-9"
+         id="g31379"
          inkscape:label="container"
          style="stroke-width:0.691435">
         <g
-           id="g29959-7"
+           id="g29959"
            inkscape:label="planks"
            style="stroke-width:0.691435">
           <path
-             id="rect1852-0"
-             style="display:inline;opacity:1;fill:url(#linearGradient4418);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="rect1852"
+             style="display:inline;opacity:1;fill:url(#linearGradient1939);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.114281,238.62305 H 130.98147 v 16.63697 H -2.114281 Z" />
           <path
-             id="path29831-6"
-             style="display:inline;opacity:1;fill:url(#linearGradient4420);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29831"
+             style="display:inline;opacity:1;fill:url(#linearGradient29833);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.114281,221.98608 H 130.98147 v 16.63697 H -2.114281 Z"
              inkscape:label="plank" />
           <path
-             id="path29835-2"
-             style="display:inline;opacity:1;fill:url(#linearGradient4422);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29835"
+             style="display:inline;opacity:1;fill:url(#linearGradient29837);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.114281,205.34911 H 130.98147 v 16.63697 H -2.114281 Z"
              inkscape:label="plank" />
           <path
-             id="path29839-3"
-             style="display:inline;opacity:1;fill:url(#linearGradient4424);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29839"
+             style="display:inline;opacity:1;fill:url(#linearGradient29841);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.114281,188.71214 H 130.98147 v 16.63697 H -2.114281 Z"
              inkscape:label="plank" />
         </g>
         <g
-           id="g31300-9"
+           id="g31300"
            inkscape:label="steel beams"
            style="stroke-width:0.691435">
           <rect
-             style="fill:url(#linearGradient4426);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29895-0"
+             style="fill:url(#linearGradient9191);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29895"
              width="9.1155005"
              height="84.77887"
              x="-11.229782"
              y="179.59665"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4428);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29897-6"
+             style="fill:url(#linearGradient9193);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29897"
              width="9.1155005"
              height="84.778847"
              x="130.98148"
              y="179.59666"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4430);fill-opacity:1;stroke-width:2.65377;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29899-7"
+             style="fill:url(#linearGradient9195);fill-opacity:1;stroke-width:2.65377;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29899"
              width="9.1155005"
              height="151.32675"
              x="-188.71214"
@@ -1140,8 +1140,8 @@
              transform="rotate(-90)"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4432);fill-opacity:1;stroke-width:2.65377;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29910-2"
+             style="fill:url(#linearGradient9197);fill-opacity:1;stroke-width:2.65377;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29910"
              width="9.1155005"
              height="151.32675"
              x="-264.37552"
@@ -1149,8 +1149,8 @@
              transform="rotate(-90)"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4434);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29912-3"
+             style="fill:url(#linearGradient9199);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29912"
              width="9.1155005"
              height="66.547882"
              x="59.875843"
@@ -1158,92 +1158,92 @@
              inkscape:label="steel beam" />
         </g>
         <g
-           id="g30349-4"
+           id="g30349"
            inkscape:label="lock"
            style="stroke-width:0.691435">
           <path
-             id="path1635"
+             id="path1635-4"
              style="fill:#14161c;fill-opacity:1;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              inkscape:label="background"
              d="m 213.62219,-49.238326 h 16.72777 v -30.390537 h -16.72777 z"
              transform="rotate(90)"
              sodipodi:nodetypes="ccccc" />
           <path
-             id="rect29949-7"
+             id="rect29949"
              style="fill:#3d4353;fill-opacity:1;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              inkscape:label="face"
              d="m 213.62219,-49.238326 h 16.72777 v -30.390537 h -16.72777 z m 3.45697,-15.358201 a 2.6876972,2.6876972 0 0 1 2.68767,-2.687676 2.6876972,2.6876972 0 0 1 2.3611,1.404937 l 4.32343,-2.223532 v 7.012899 l -4.32343,-2.223533 a 2.6876972,2.6876972 0 0 1 -2.3611,1.404581 2.6876972,2.6876972 0 0 1 -2.68767,-2.687676 z"
              transform="rotate(90)" />
           <path
-             id="rect30333-3"
+             id="rect30333"
              style="fill:#353a48;fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              d="m 49.238312,213.6223 2.095535,2.09553 v 12.5365 l -2.095535,2.09554 z"
              sodipodi:nodetypes="ccccc"
              inkscape:label="shadow" />
           <path
-             id="rect30335-1"
+             id="rect30335"
              style="fill:#484e61;fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              d="m 77.53334,215.71783 2.095545,-2.09553 v 16.72757 l -2.095545,-2.09554 z"
              sodipodi:nodetypes="ccccc"
              inkscape:label="gleam" />
           <path
-             id="rect30337-8"
+             id="rect30337"
              style="fill:#555e74;fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              transform="rotate(-90)"
              d="m -215.71783,51.333847 2.09553,-2.095535 v 30.390571 l -2.09553,-2.095543 z"
              sodipodi:nodetypes="ccccc"
              inkscape:label="gleam" />
           <path
-             id="rect30339-0"
+             id="rect30339"
              style="fill:#272b35;fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
              transform="rotate(-90)"
              d="m -230.34987,49.238312 2.09554,2.095535 V 77.53334 l -2.09554,2.095543 z"
              sodipodi:nodetypes="ccccc"
              inkscape:label="shadow" />
           <g
-             id="g30440-5"
+             id="g30440"
              inkscape:label="bolts"
              style="stroke-width:0.691435">
             <circle
-               style="fill:url(#radialGradient30420-4);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-               id="path30412-5"
+               style="fill:url(#radialGradient30420);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+               id="path30412"
                cx="53.769753"
                cy="218.12399"
                r="2.1028793"
                inkscape:label="bolt" />
             <circle
-               style="fill:url(#radialGradient30426-3);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-               id="circle30424-7"
+               style="fill:url(#radialGradient30426);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+               id="circle30424"
                cx="53.80489"
                cy="225.81842"
                r="2.1028793"
                inkscape:label="bolt" />
             <circle
-               style="fill:url(#radialGradient30430-5);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-               id="circle30428-9"
+               style="fill:url(#radialGradient30430);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+               id="circle30428"
                cx="75.097427"
                cy="225.80791"
                r="2.1028793"
                inkscape:label="bolt" />
             <circle
-               style="fill:url(#radialGradient30434-9);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-               id="circle30432-7"
+               style="fill:url(#radialGradient30434);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+               id="circle30432"
                cx="75.086914"
                cy="218.15373"
                r="2.1028793"
                inkscape:label="bolt" />
           </g>
           <g
-             id="g31267-0"
+             id="g31267"
              inkscape:label="keyhole"
              style="fill:#151515;fill-opacity:1;stroke-width:0.691435">
             <path
-               id="path31209-5"
-               style="fill:url(#radialGradient31645-0);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+               id="path31209"
+               style="fill:url(#radialGradient31645);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
                d="m 64.637382,216.7489 c -0.02817,-1e-4 -0.05635,2.1e-4 -0.08456,9.7e-4 -1.789471,-0.0129 -3.303917,1.79895 -2.909115,3.55631 0.124987,0.91572 0.737305,1.67186 1.526919,2.09899 l 0.142773,-0.27742 a 2.6876972,2.6876972 0 0 1 -1.404636,-2.36079 2.6876972,2.6876972 0 0 1 2.687639,-2.68764 2.6876972,2.6876972 0 0 1 2.687638,2.68764 2.6876972,2.6876972 0 0 1 -1.404635,2.36079 l 0.147,0.28587 c 1.622983,-0.80485 2.118637,-3.20608 0.893386,-4.57588 -0.556633,-0.67163 -1.409112,-1.08585 -2.282411,-1.08884 z"
                inkscape:label="round-shadow" />
             <path
-               id="path31635-9"
+               id="path31635"
                style="display:inline;fill:#393f4e;fill-opacity:1;stroke-width:2.4337;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
                inkscape:transform-center-x="-7.8681088e-06"
                inkscape:transform-center-y="-2.0860334"
@@ -1251,7 +1251,7 @@
                transform="matrix(0.17136793,0,0,0.19237878,-15.812167,75.029023)"
                sodipodi:nodetypes="ccccc" />
             <path
-               id="path31637-8"
+               id="path31637"
                style="display:inline;fill:#353a47;fill-opacity:1;stroke-width:2.4337;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
                inkscape:transform-center-x="-7.8681088e-06"
                inkscape:transform-center-y="-2.0860334"
@@ -1259,7 +1259,7 @@
                transform="matrix(0.17136793,0,0,0.19237878,-15.812167,75.029023)"
                sodipodi:nodetypes="ccccc" />
             <path
-               id="path31487-5"
+               id="path31487"
                style="display:inline;fill:#545c72;fill-opacity:1;stroke-width:2.4337;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
                inkscape:transform-center-x="-7.8681088e-06"
                inkscape:transform-center-y="-2.0860334"
@@ -1269,131 +1269,131 @@
           </g>
         </g>
         <g
-           id="g31286-5"
+           id="g31286"
            inkscape:label="bolts"
            style="stroke-width:0.691435">
           <circle
-             style="fill:url(#radialGradient30449-3);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle30447-6"
+             style="fill:url(#radialGradient30449);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle30447"
              cx="-5.5492716"
              cy="185.27718"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31141-4);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31139-9"
+             style="fill:url(#radialGradient31141);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31139"
              cx="-5.5492716"
              cy="258.69504"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31145-9);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31143-3"
+             style="fill:url(#radialGradient31145);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31143"
              cx="134.41644"
              cy="258.69504"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31149-6);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31147-5"
+             style="fill:url(#radialGradient31149);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31147"
              cx="134.41644"
              cy="185.27718"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31153-5);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31151-1"
+             style="fill:url(#radialGradient31153);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31151"
              cx="18.613611"
              cy="183.36464"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31157-5);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31155-0"
+             style="fill:url(#radialGradient31157);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31155"
              cx="42.958153"
              cy="183.36464"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31165-9);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31159-2"
+             style="fill:url(#radialGradient31165);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31159"
              cx="85.909012"
              cy="183.36464"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31163-3);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31161-1"
+             style="fill:url(#radialGradient31163);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31161"
              cx="110.25356"
              cy="183.36464"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31181-0);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31167-1"
+             style="fill:url(#radialGradient31181);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31167"
              cx="16.948471"
              cy="260.60745"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31179-7);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31169-7"
+             style="fill:url(#radialGradient31179);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31169"
              cx="41.293015"
              cy="260.60745"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31177-8);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31171-4"
+             style="fill:url(#radialGradient31177);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31171"
              cx="84.243874"
              cy="260.60745"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31175-2);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31173-6"
+             style="fill:url(#radialGradient31175);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31173"
              cx="108.58842"
              cy="260.60745"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31185-8);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31183-2"
+             style="fill:url(#radialGradient31185);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31183"
              cx="-7.4617634"
              cy="221.98608"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31189-6);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31187-3"
+             style="fill:url(#radialGradient31189);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31187"
              cx="-7.4617634"
              cy="239.67448"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31195-5);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31191-0"
+             style="fill:url(#radialGradient31195);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31191"
              cx="-7.4617634"
              cy="204.29768"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31207-0);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31197-5"
+             style="fill:url(#radialGradient31207);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31197"
              cx="136.32896"
              cy="221.98608"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31205-3);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31199-0"
+             style="fill:url(#radialGradient31205);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31199"
              cx="136.32896"
              cy="239.67448"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31203-2);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31201-2"
+             style="fill:url(#radialGradient31203);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31201"
              cx="136.32896"
              cy="204.29768"
              r="2.1028793"
@@ -1401,52 +1401,52 @@
         </g>
       </g>
       <g
-         id="g31323-0"
+         id="g31323"
          inkscape:label="lid"
          style="stroke-width:0.691435">
         <g
-           id="g31317-3"
+           id="g31317"
            inkscape:label="planks"
            style="stroke-width:0.691435">
           <path
-             id="path29927-5"
-             style="display:inline;fill:url(#linearGradient4436);stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29927"
+             style="display:inline;fill:url(#linearGradient29929);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.1142818,166.28996 H 130.98147 v 13.30669 H -2.1142818 Z"
              inkscape:label="plank" />
           <path
-             id="path29935-3"
-             style="display:inline;fill:url(#linearGradient4438);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29935"
+             style="display:inline;fill:url(#linearGradient29937);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.1142818,156.55143 H 130.98147 v 9.73853 H -2.1142818 Z"
              inkscape:label="plank" />
           <path
-             id="path29939-8"
-             style="display:inline;fill:url(#linearGradient4440);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
+             id="path29939"
+             style="display:inline;fill:url(#linearGradient29941);fill-opacity:1;stroke-width:2.27039;stroke-linecap:round;stroke-linejoin:round"
              d="M -2.1142818,151.38926 H 130.98147 v 5.16217 H -2.1142818 Z"
              inkscape:label="plank" />
         </g>
         <g
-           id="g31328-7"
+           id="g31328"
            inkscape:label="steel beams"
            style="stroke-width:0.691435">
           <rect
-             style="fill:url(#linearGradient4442);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29943-9"
+             style="fill:url(#linearGradient9201);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29943"
              width="9.1155005"
              height="28.20739"
              x="-11.229782"
              y="151.38925"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4444);fill-opacity:1;stroke:none;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29945-8"
+             style="fill:url(#linearGradient9203);fill-opacity:1;stroke:none;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29945"
              width="9.1155005"
              height="28.20739"
              x="59.875847"
              y="151.38927"
              inkscape:label="steel beam" />
           <rect
-             style="fill:url(#linearGradient4446);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="rect29947-7"
+             style="fill:url(#linearGradient9205);fill-opacity:1;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="rect29947"
              width="9.1155005"
              height="28.20739"
              x="130.98148"
@@ -1455,42 +1455,42 @@
              inkscape:label="steel beam" />
         </g>
         <rect
-           style="display:inline;fill:url(#linearGradient4448);fill-opacity:1;stroke:none;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-           id="rect31433-5"
+           style="display:inline;fill:url(#linearGradient9207);fill-opacity:1;stroke:none;stroke-width:2.65376;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+           id="rect31433"
            width="151.32675"
            height="28.207392"
            x="-11.229781"
            y="151.38925"
            inkscape:label="gleam" />
         <g
-           id="g31427-6"
+           id="g31427"
            inkscape:label="bolts"
            style="stroke-width:0.691435">
           <circle
-             style="fill:url(#radialGradient31386-7);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31383-6"
+             style="fill:url(#radialGradient31386);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31383"
              cx="136.32896"
              cy="171.90379"
              r="2.1028793"
              inkscape:label="bolt" />
           <circle
-             style="fill:url(#radialGradient31417-5);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31407-8"
+             style="fill:url(#radialGradient31417);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31407"
              cx="-7.4617758"
              cy="171.90379"
              r="2.1028793"
              inkscape:label="bolt" />
           <ellipse
-             style="fill:url(#radialGradient31415-0);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="circle31411-7"
+             style="fill:url(#radialGradient31415);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="circle31411"
              cx="-7.4617758"
              cy="154.74098"
              rx="2.1028793"
              ry="1.6865945"
              inkscape:label="bolt" />
           <ellipse
-             style="fill:url(#radialGradient31431-4);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
-             id="ellipse31429-9"
+             style="fill:url(#radialGradient31431);fill-opacity:1;stroke:none;stroke-width:2.65375;stroke-linecap:round;stroke-miterlimit:1;paint-order:markers stroke fill"
+             id="ellipse31429"
              cx="136.32896"
              cy="154.74098"
              rx="2.1028793"
