@@ -29,7 +29,7 @@ import "/GameTrackerJS/ui/LocationState.js";
 // Track-OOT
 import "/script/content/index.js";
 import "/script/content/Tracker.js";
-import "/script/content/EditorChoice.js";
+import "/script/content/EditorContainer.js";
 import "/script/savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/AugmentationLoader.js";

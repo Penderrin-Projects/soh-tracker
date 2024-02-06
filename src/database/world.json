@@ -69310,11 +69310,8 @@
             "type": "chest",
             "logicAccess": "reach_location[kakariko.c_granny_buy_blue_potion]",
             "visible": {
-                "type": "not",
-                "content": {
-                    "type": "value",
-                    "ref": "option[shuffle_expensive_merchants]"
-                }
+                "type": "value",
+                "ref": "option[shuffle_expensive_merchants]"
             },
             "visibleRootOnly": false,
             "filter": {

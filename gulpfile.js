@@ -80,7 +80,7 @@ function copyJSEditors(dest = DEV_PATH) {
         `!${MODULE_PATHS.JSEditors}/node_modules/**/*.js`
     ];
     const SRC = MODULE_PATHS.JSEditors;
-    const DST = `${dest}/editors`;
+    const DST = `${dest}/JSEditors`;
     return copyJS(FILES, SRC, DST, dest);
 }
 

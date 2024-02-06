@@ -16,7 +16,7 @@
                 "../../emcJS/src/*",
                 "../node_modules/emcjs/src/*"
             ],
-            "/editors/*": [
+            "/JSEditors/*": [
                 "../../JSEditors/src/*",
                 "../node_modules/jseditors/src/*"
             ],

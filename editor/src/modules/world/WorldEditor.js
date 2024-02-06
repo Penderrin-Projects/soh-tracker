@@ -122,13 +122,13 @@ export default async function() {
                 }
                 await BusyIndicatorManager.busy();
                 const res = await FileSystem.load(".json");
+                await BusyIndicatorManager.unbusy();
                 if (res != null) {
                     const {data} = res;
                     if (data != null) {
                         await editorEl.setWorldData(data);
                     }
                 }
-                await BusyIndicatorManager.unbusy();
             }
         }, {
             "content": "EXIT EDITOR",
