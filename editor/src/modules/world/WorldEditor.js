@@ -100,6 +100,12 @@ export default async function() {
         "submenu": [{
             "content": "SAVE",
             "handler": async () => {
+                if (editorEl.checkCurrentEditorHasChanges()) {
+                    const result = await ModalDialog.confirm("Unsaved changes in Form", "You have unsaved changes in the current form. Do you want to save anyways?");
+                    if (result !== true) {
+                        return;
+                    }
+                }
                 await BusyIndicatorManager.busy();
                 const config = editorEl.getWorldData();
                 FileSystem.save(JSON.stringify(config, " ", 4), `world_${(new Date()).getTime()}.json`);

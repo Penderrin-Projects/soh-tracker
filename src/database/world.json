@@ -69780,23 +69780,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_1": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_1]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69810,23 +69828,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_2": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_2]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69840,23 +69876,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_3": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_3]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69870,23 +69924,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_4": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_4]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69900,23 +69972,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_5": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_5]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69930,23 +70020,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_6": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_6]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69960,23 +70068,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_7": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_7]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -69990,23 +70116,41 @@
             "tags": []
         },
         "market.m_mask_shop_item_8": {
-            "type": "shopslot",
+            "type": "chest",
             "logicAccess": "reach_location[market.m_mask_shop_item_8]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -75358,14 +75502,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -75386,7 +75551,47 @@
                 "height": 828,
                 "zoom": 100
             },
-            "connections": [],
+            "connections": [
+                {
+                    "label": "A",
+                    "posA": {
+                        "x": 600,
+                        "y": 640,
+                        "scale": 50
+                    },
+                    "posB": {
+                        "x": 495,
+                        "y": 640,
+                        "scale": 50
+                    }
+                },
+                {
+                    "label": "B",
+                    "posA": {
+                        "x": 600,
+                        "y": 200,
+                        "scale": 50
+                    },
+                    "posB": {
+                        "x": 495,
+                        "y": 200,
+                        "scale": 50
+                    }
+                },
+                {
+                    "label": "C",
+                    "posA": {
+                        "x": 212,
+                        "y": 667,
+                        "scale": 50
+                    },
+                    "posB": {
+                        "x": 298,
+                        "y": 454,
+                        "scale": 50
+                    }
+                }
+            ],
             "lists": {
                 "v": [
                     {
@@ -75651,6 +75856,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town.back_house"
+                        },
+                        "pos": {
+                            "x": 207,
+                            "y": 148,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "market_back_house_gateway -> back_house_market_gateway"
                         },
@@ -75664,7 +75882,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "temple_time": {
@@ -105558,27 +105786,22 @@
             "type": "interior",
             "category": "interior_pot",
             "visible": {
-                "type": "and",
+                "type": "or",
                 "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[shuffle_pots]",
+                        "value": "all"
+                    },
+                    {
+                        "type": "state",
+                        "ref": "option[shuffle_pots]",
+                        "value": "overworld"
+                    },
                     {
                         "type": "state",
                         "ref": "option[entrance_shuffle_interior]",
                         "value": "entrance_shuffle_off"
-                    },
-                    {
-                        "type": "or",
-                        "content": [
-                            {
-                                "type": "state",
-                                "ref": "option[shuffle_pots]",
-                                "value": "all"
-                            },
-                            {
-                                "type": "state",
-                                "ref": "option[shuffle_pots]",
-                                "value": "overworld"
-                            }
-                        ]
                     }
                 ]
             },
@@ -105586,14 +105809,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -105603,14 +105847,8 @@
                     }
                 }
             },
-            "listContents": true,
-            "accessPenetration": {
-                "type": "not",
-                "content": {
-                    "type": "value",
-                    "ref": "option[detached_entrances]"
-                }
-            },
+            "listContents": false,
+            "accessPenetration": false,
             "icon": "/images/icons/interior.svg",
             "map": {
                 "active": true,
@@ -105677,7 +105915,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.shop_bazaar": {
