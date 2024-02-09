@@ -39,6 +39,12 @@ export function augment(cache) {
     ) {
         const areNotesShuffled = cache.get("option[shuffle_individual_ocarina_notes]");
         if (areNotesShuffled) {
+            cache.deleteAugmented("item[ocarina_a_button]");
+            cache.deleteAugmented("item[ocarina_up_button]");
+            cache.deleteAugmented("item[ocarina_down_button]");
+            cache.deleteAugmented("item[ocarina_left_button]");
+            cache.deleteAugmented("item[ocarina_right_button]");
+
             const hasA = cache.get("item[ocarina_a_button]");
             const hasU = cache.get("item[ocarina_up_button]");
             const hasD = cache.get("item[ocarina_down_button]");

@@ -71262,14 +71262,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71287,7 +71308,7 @@
                 "backgroundColor": "#000000",
                 "backgroundImage": "/images/maps/area/kokiri_forest.webp",
                 "width": 1920,
-                "height": 1065,
+                "height": 1284,
                 "zoom": 100
             },
             "connections": [],
@@ -71390,8 +71411,8 @@
                             "name": "kokiri.boulder_maze_blue_rupee_1"
                         },
                         "pos": {
-                            "x": 256,
-                            "y": 966,
+                            "x": 240,
+                            "y": 1061,
                             "scale": 50
                         },
                         "visible": true,
@@ -71403,8 +71424,8 @@
                             "name": "kokiri.boulder_maze_blue_rupee_2"
                         },
                         "pos": {
-                            "x": 300,
-                            "y": 1008,
+                            "x": 316,
+                            "y": 1138,
                             "scale": 50
                         },
                         "visible": true,
@@ -71416,8 +71437,8 @@
                             "name": "kokiri.c_sword"
                         },
                         "pos": {
-                            "x": 359,
-                            "y": 1031,
+                            "x": 436,
+                            "y": 1236,
                             "scale": 50
                         },
                         "visible": true,
@@ -71858,7 +71879,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "desert": {
@@ -75758,7 +75789,46 @@
                         "pos": {
                             "x": 865,
                             "y": 185,
-                            "scale": 100
+                            "scale": 55
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.night_green_rupee_crate_1"
+                        },
+                        "pos": {
+                            "x": 839,
+                            "y": 185,
+                            "scale": 55
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.night_green_rupee_crate_2"
+                        },
+                        "pos": {
+                            "x": 1097,
+                            "y": 470,
+                            "scale": 55
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.night_green_rupee_crate_3"
+                        },
+                        "pos": {
+                            "x": 1097,
+                            "y": 554,
+                            "scale": 55
                         },
                         "visible": true,
                         "listHidden": false
@@ -105847,8 +105917,14 @@
                     }
                 }
             },
-            "listContents": false,
-            "accessPenetration": false,
+            "listContents": true,
+            "accessPenetration": {
+                "type": "not",
+                "content": {
+                    "type": "value",
+                    "ref": "option[detached_entrances]"
+                }
+            },
             "icon": "/images/icons/interior.svg",
             "map": {
                 "active": true,

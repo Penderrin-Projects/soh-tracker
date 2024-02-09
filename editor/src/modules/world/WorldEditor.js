@@ -126,14 +126,18 @@ export default async function() {
                         return;
                     }
                 }
-                await BusyIndicatorManager.busy();
-                const res = await FileSystem.load(".json");
-                await BusyIndicatorManager.unbusy();
-                if (res != null) {
-                    const {data} = res;
-                    if (data != null) {
-                        await editorEl.setWorldData(data);
+                try {
+                    await BusyIndicatorManager.busy();
+                    const res = await FileSystem.load(".json");
+                    await BusyIndicatorManager.unbusy();
+                    if (res != null) {
+                        const {data} = res;
+                        if (data != null) {
+                            await editorEl.setWorldData(data);
+                        }
                     }
+                } catch {
+                    await BusyIndicatorManager.reset();
                 }
             }
         }, {
