@@ -77828,14 +77828,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -78056,8 +78077,8 @@
                     },
                     {
                         "ref": {
-                            "type": "Location",
-                            "name": "mountain.c_crater_wall"
+                            "type": "Exit",
+                            "name": "crater_hammer_grotto_gateway -> hammer_grotto_crater_gateway"
                         },
                         "pos": {
                             "x": 278,
@@ -78304,154 +78325,11 @@
                     {
                         "ref": {
                             "type": "Area",
-                            "name": "crater.fairy_fountain"
-                        },
-                        "pos": {
-                            "x": 885,
-                            "y": 99,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Exit",
-                            "name": "crater_great_fairy_gateway -> great_fairy_crater_gateway"
-                        },
-                        "pos": {
-                            "x": 885,
-                            "y": 99,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "mountain.s_crater_beanspot_child"
-                        },
-                        "pos": {
-                            "x": 833,
-                            "y": 690,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "mountain.c_magic_bean"
-                        },
-                        "pos": {
-                            "x": 618,
-                            "y": 784,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_1"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_2"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_3"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_4"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_5"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_green_rupee_6"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "crater.adult_red_rupee"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Area",
                             "name": "temple_fire"
                         },
                         "pos": {
-                            "x": 1690,
-                            "y": 605,
+                            "x": 885,
+                            "y": 98,
                             "scale": 100
                         },
                         "visible": {
@@ -78467,8 +78345,8 @@
                             "name": "crater_fire_temple_gateway -> fire_temple_crater_gateway"
                         },
                         "pos": {
-                            "x": 1306,
-                            "y": 70,
+                            "x": 885,
+                            "y": 98,
                             "scale": 100
                         },
                         "visible": true,
@@ -78476,7 +78354,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "goron": {
@@ -100251,14 +100139,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -101002,38 +100911,12 @@
                         },
                         "visible": true,
                         "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "castle_town.c_poes"
-                        },
-                        "pos": {
-                            "x": 194,
-                            "y": 39,
-                            "scale": 70
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Exit",
-                            "name": "guard_house_market_gateway -> market_guard_house_gateway"
-                        },
-                        "pos": {
-                            "x": 13,
-                            "y": 56,
-                            "scale": 51
-                        },
-                        "visible": true,
-                        "listHidden": false
                     }
                 ]
             },
             "areaContentHints": {
-                "skulltula": 1,
                 "chest": 0,
+                "skulltula": 1,
                 "gossipstone": 0,
                 "scrub": 0,
                 "cow": 0,
@@ -102076,14 +101959,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -102197,21 +102101,8 @@
                             "name": "storms_grotto_grounds_gateway -> grounds_storms_grotto_gateway"
                         },
                         "pos": {
-                            "x": 116,
+                            "x": 115,
                             "y": 334,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Exit",
-                            "name": "storms_grotto_grounds_gateway -> grounds_storms_grotto_gateway"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
                             "scale": 100
                         },
                         "visible": true,
@@ -102220,8 +102111,14 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
                 "skulltula": 1,
                 "gossipstone": 1,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
                 "pot": 4
             },
             "tags": []
@@ -102318,14 +102215,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -102432,23 +102350,20 @@
                         },
                         "visible": true,
                         "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Exit",
-                            "name": "skulltula_house_kakariko_gateway -> kakariko_skulltula_house_gateway"
-                        },
-                        "pos": {
-                            "x": 372,
-                            "y": 128,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.impas_house": {
