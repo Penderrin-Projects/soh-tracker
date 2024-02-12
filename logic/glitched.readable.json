@@ -10762,7 +10762,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[fire_temple_upper]{child}",
+                                                "node": "region[fire_temple_upper_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -10778,7 +10778,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[fire_temple_upper]{adult}",
+                                                "node": "region[fire_temple_upper_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -10990,7 +10990,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[fire_temple_upper]{child}",
+                                                "node": "region[fire_temple_upper_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -11006,7 +11006,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[fire_temple_upper]{adult}",
+                                                "node": "region[fire_temple_upper_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }

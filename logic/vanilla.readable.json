@@ -10150,7 +10150,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[deku_tree_basement_water_room_front]{child}",
+                                                "node": "region[deku_tree_basement_water_room_front_mq]{child}",
                                                 "content": {
                                                     "type": "mixin",
                                                     "ref": "function[can_use](item[arrow_fire]){child}"
@@ -10167,7 +10167,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[deku_tree_basement_water_room_front]{adult}",
+                                                "node": "region[deku_tree_basement_water_room_front_mq]{adult}",
                                                 "content": {
                                                     "type": "mixin",
                                                     "ref": "function[can_use](item[arrow_fire]){adult}"
@@ -10365,7 +10365,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[deku_tree_basement_water_room_front]{child}",
+                                                "node": "region[deku_tree_basement_water_room_front_mq]{child}",
                                                 "content": {
                                                     "type": "mixin",
                                                     "ref": "function[can_use](item[arrow_fire]){child}"
@@ -10382,7 +10382,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[deku_tree_basement_water_room_front]{adult}",
+                                                "node": "region[deku_tree_basement_water_room_front_mq]{adult}",
                                                 "content": {
                                                     "type": "mixin",
                                                     "ref": "function[can_use](item[arrow_fire]){adult}"
@@ -13422,7 +13422,7 @@
                                     },
                                     {
                                         "type": "at",
-                                        "node": "region[dodongos_cavern_torch_puzzle_upper]{child}",
+                                        "node": "region[dodongos_cavern_torch_puzzle_upper_mq]{child}",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[glove]"
@@ -13439,7 +13439,7 @@
                                     },
                                     {
                                         "type": "at",
-                                        "node": "region[dodongos_cavern_torch_puzzle_upper]{adult}",
+                                        "node": "region[dodongos_cavern_torch_puzzle_upper_mq]{adult}",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[glove]"
@@ -13752,7 +13752,7 @@
                                     },
                                     {
                                         "type": "at",
-                                        "node": "region[dodongos_cavern_torch_puzzle_upper]{child}",
+                                        "node": "region[dodongos_cavern_torch_puzzle_upper_mq]{child}",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[glove]"
@@ -13769,7 +13769,7 @@
                                     },
                                     {
                                         "type": "at",
-                                        "node": "region[dodongos_cavern_torch_puzzle_upper]{adult}",
+                                        "node": "region[dodongos_cavern_torch_puzzle_upper_mq]{adult}",
                                         "content": {
                                             "type": "value",
                                             "ref": "item[glove]"
@@ -23374,7 +23374,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[forest_temple_outside_upper_ledge]{child}",
+                                                "node": "region[forest_temple_outside_upper_ledge_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -23390,7 +23390,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[forest_temple_outside_upper_ledge]{adult}",
+                                                "node": "region[forest_temple_outside_upper_ledge_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -23737,7 +23737,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[forest_temple_outside_upper_ledge]{child}",
+                                                "node": "region[forest_temple_outside_upper_ledge_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -23753,7 +23753,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[forest_temple_outside_upper_ledge]{adult}",
+                                                "node": "region[forest_temple_outside_upper_ledge_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33459,7 +33459,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{child}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33475,7 +33475,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{adult}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33542,7 +33542,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{child}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33558,7 +33558,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{adult}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33712,7 +33712,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{child}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33728,7 +33728,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{adult}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33798,7 +33798,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{child}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{child}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -33814,7 +33814,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[gerudo_training_ground_central_maze_right]{adult}",
+                                                "node": "region[gerudo_training_ground_central_maze_right_mq]{adult}",
                                                 "content": {
                                                     "type": "true"
                                                 }
@@ -84279,7 +84279,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[adult_spirit_temple]{child}",
+                                                "node": "region[adult_spirit_temple_mq]{child}",
                                                 "content": {
                                                     "type": "and",
                                                     "content": [
@@ -84313,7 +84313,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[adult_spirit_temple]{adult}",
+                                                "node": "region[adult_spirit_temple_mq]{adult}",
                                                 "content": {
                                                     "type": "and",
                                                     "content": [
@@ -84925,7 +84925,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[adult_spirit_temple]{child}",
+                                                "node": "region[adult_spirit_temple_mq]{child}",
                                                 "content": {
                                                     "type": "and",
                                                     "content": [
@@ -84959,7 +84959,7 @@
                                             },
                                             {
                                                 "type": "at",
-                                                "node": "region[adult_spirit_temple]{adult}",
+                                                "node": "region[adult_spirit_temple_mq]{adult}",
                                                 "content": {
                                                     "type": "and",
                                                     "content": [
