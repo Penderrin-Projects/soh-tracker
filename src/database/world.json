@@ -106005,19 +106005,44 @@
         "castle_town.shop_mask": {
             "type": "interior",
             "category": "",
-            "visible": true,
+            "visible": {
+                "type": "state",
+                "ref": "option[entrance_shuffle_interior]",
+                "value": "entrance_shuffle_off"
+            },
             "visibleIfEmpty": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -106166,7 +106191,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.shop_magic": {
