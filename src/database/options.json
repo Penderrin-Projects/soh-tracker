@@ -89,16 +89,6 @@
             "doors_open_zora_both"
         ]
     },
-    "gerudo_fortress_open": {
-        "category": "options",
-        "type": "choice",
-        "default": "gerudo_fortress_open_default",
-        "values": [
-            "gerudo_fortress_open_default",
-            "gerudo_fortress_open_one",
-            "gerudo_fortress_open_open"
-        ]
-    },
     "trade_sequence_start_item": {
         "category": "options",
         "type": "choice",
@@ -216,7 +206,7 @@
         "type": "check",
         "default": false
     },
-    "shuffleMediCarpet": {
+    "shuffle_expensive_merchants": {
         "category": "item_sanity",
         "type": "check",
         "default": false
@@ -259,6 +249,30 @@
         "type": "check",
         "default": false
     },
+    "adult_trade_shuffle": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
+    "shuffle_individual_ocarina_notes": {
+        "category": "item_sanity",
+        "type": "check",
+        "default": false
+    },
+    "shuffle_silver_rupees": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_vanilla",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_own_dungeon",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_regional",
+            "keylogic_keysanity"
+        ]
+    },
     "small_key_logic": {
         "category": "keylogic",
         "type": "choice",
@@ -269,6 +283,7 @@
             "keylogic_own_dungeon",
             "keylogic_overworld",
             "keylogic_any_dungeon",
+            "keylogic_regional",
             "keylogic_keysanity"
         ]
     },
@@ -278,6 +293,31 @@
         "default": "keylogic_vanilla",
         "values": [
             "keylogic_vanilla",
+            "keylogic_fortress",
+            "keylogic_overworld",
+            "keylogic_any_dungeon",
+            "keylogic_regional",
+            "keylogic_keysanity"
+        ]
+    },
+    "gerudo_fortress_open": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "gerudo_fortress_open_default",
+        "values": [
+            "gerudo_fortress_open_default",
+            "gerudo_fortress_open_one",
+            "gerudo_fortress_open_open"
+        ]
+    },
+    "shuffle_tcgkeys": {
+        "category": "keylogic",
+        "type": "choice",
+        "default": "keylogic_vanilla",
+        "values": [
+            "keylogic_keysy",
+            "keylogic_vanilla",
+            "keylogic_regional",
             "keylogic_overworld",
             "keylogic_any_dungeon",
             "keylogic_keysanity"
@@ -293,6 +333,7 @@
             "keylogic_own_dungeon",
             "keylogic_overworld",
             "keylogic_any_dungeon",
+            "keylogic_regional",
             "keylogic_keysanity"
         ]
     },
@@ -312,9 +353,20 @@
             "keylogic_medallions",
             "keylogic_dungeons",
             "keylogic_tokens",
-            "keylogic_hearts",
-            "keylogic_triforce"
+            "keylogic_hearts"
         ]
+    },
+    "token_count_ganon_bosskey": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 4,
+        "visible": {
+            "type": "state",
+            "ref": "ganon_key_logic",
+            "value": "keylogic_tokens"
+        },
+        "min": 1,
+        "max": 100
     },
     "heart_count_ganon_bosskey": {
         "category": "keylogic",
@@ -322,7 +374,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "el": "ganon_key_logic",
+            "ref": "ganon_key_logic",
             "value": "keylogic_hearts"
         },
         "min": 4,
@@ -339,7 +391,7 @@
         "default": 20,
         "visible": {
             "type": "value",
-            "el": "triforce_hunt"
+            "ref": "triforce_hunt"
         },
         "min": 0,
         "max": 10000
@@ -348,15 +400,6 @@
         "category": "entrance_randomizer",
         "type": "check",
         "default": false
-    },
-    "show_sublists_on_mixed_entrances": {
-        "category": "entrance_randomizer",
-        "type": "check",
-        "default": false,
-        "visible": {
-            "type": "value",
-            "el": "mixed_entrance_pool"
-        }
     },
     "detached_entrances": {
         "category": "entrance_randomizer",
@@ -461,7 +504,7 @@
         "default": 100,
         "visible": {
             "type": "state",
-            "el": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_skulltulas"
         },
         "min": 0,
@@ -473,7 +516,7 @@
         "default": 3,
         "visible": {
             "type": "state",
-            "el": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_stones"
         },
         "min": 1,
@@ -485,7 +528,7 @@
         "default": 6,
         "visible": {
             "type": "state",
-            "el": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_medallions"
         },
         "min": 1,
@@ -497,7 +540,7 @@
         "default": 9,
         "visible": {
             "type": "state",
-            "el": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_dungeons"
         },
         "min": 1,
@@ -509,7 +552,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "el": "light_arrow_cutscene",
+            "ref": "light_arrow_cutscene",
             "value": "light_arrow_cutscene_hearts"
         },
         "min": 4,
@@ -535,7 +578,7 @@
         "default": 100,
         "visible": {
             "type": "state",
-            "el": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_skulltulas"
         },
         "min": 0,
@@ -547,7 +590,7 @@
         "default": 3,
         "visible": {
             "type": "state",
-            "el": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_stones"
         },
         "min": 1,
@@ -559,7 +602,7 @@
         "default": 6,
         "visible": {
             "type": "state",
-            "el": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_medallion"
         },
         "min": 1,
@@ -571,7 +614,7 @@
         "default": 9,
         "visible": {
             "type": "state",
-            "el": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_dungeon"
         },
         "min": 1,
@@ -583,7 +626,7 @@
         "default": 4,
         "visible": {
             "type": "state",
-            "el": "ganon_castle_open",
+            "ref": "ganon_castle_open",
             "value": "ganon_castle_open_hearts"
         },
         "min": 4,
@@ -600,9 +643,9 @@
         "default": 6,
         "visible": {
             "type": "not",
-            "el": {
+            "content": {
                 "type": "value",
-                "el": "trials_random"
+                "ref": "trials_random"
             }
         },
         "min": 0,

@@ -5,7 +5,7 @@
 // frameworks
 import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
 import Logger from "/emcJS/util/log/Logger.js";
-import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
+import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
@@ -25,17 +25,14 @@ import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
 import "/GameTrackerJS/ui/TextEditor.js";
 import "/GameTrackerJS/ui/layout/ViewChoice.js";
+import "/GameTrackerJS/ui/LocationState.js";
 // Track-OOT
 import "/script/content/index.js";
 import "/script/content/Tracker.js";
-import "/script/content/EditorChoice.js";
+import "/script/content/EditorContainer.js";
 import "/script/savestateConverter/StateConverter.js";
 import "/script/util/logic/AugmentCustomLogic.js";
-import "/script/util/logic/augment/AugmentOptions.js";
-import "/script/util/logic/augment/AugmentDungeons.js";
-import "/script/util/logic/augment/AugmentZoraLetter.js";
-import "/script/util/logic/augment/AugmentReachEpona.js";
-import "/script/util/logic/augment/AugmentStartingHearts.js";
+import "/script/util/logic/AugmentationLoader.js";
 import "/script/util/A11y.js";
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
 import RomOptionsWindow from "/script/ui/window/RomOptionsWindow.js";
@@ -43,7 +40,6 @@ import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
-import "/script/ui/LocationStatus.js";
 
 import "/script/ui/multiplayer/Multiplayer.js";
 
@@ -82,7 +78,7 @@ try {
 
     updateLoadingMessage("initialize components...");
     // busy indicator
-    BusyIndicator.setIndicator(document.getElementById("busy-animation"));
+    BusyIndicatorManager.setIndicator(document.getElementById("busy-animation"));
     // notepad
     const notePad = document.getElementById("notes-editor");
     notePad.value = Savestate.notes;

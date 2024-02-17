@@ -18,8 +18,8 @@
                 <ootrt-shoplist>
                 </ootrt-shoplist>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="dungeonstate" label="Dungeonstate" icon="images/icons/dungeon.svg">
-                <ootrt-dungeonstate orientation="column" active="key,bosskey,map,compass,reward,type,hint">
+            <gt-viewchoice-panel slot="dungeonstate" label="Dungeonstate" icon="images/icons/dungeonstate.svg">
+                <ootrt-dungeonstate orientation="column" active="key,bosskey,silver_rupees,map,compass,reward,type,hint">
                 </ootrt-dungeonstate>
             </gt-viewchoice-panel>
             <gt-viewchoice-panel slot="exits" label="Exits" icon="images/icons/entrance.svg">
@@ -39,12 +39,12 @@
                 </gt-texteditor>
             </gt-viewchoice-panel>
         </gt-viewchoice>
-        <jse-choice id="editor-choice" slot="editor_choice"></jse-choice>
+        <ootrt-editor-container id="editor-choice" slot="editor_choice"></ootrt-editor-container>
     </emc-paging>
 </emc-page>
 <footer class="footer">
-    <ootrt-locationstate>
-    </ootrt-locationstate>
+    <gt-locationstate>
+    </gt-locationstate>
 </footer>
 
 <div id="busy-animation"></div>

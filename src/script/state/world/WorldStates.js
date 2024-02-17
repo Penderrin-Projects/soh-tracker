@@ -7,6 +7,7 @@ import "/GameTrackerJS/statemanager/world/exit/ExitStateManager.js";
 import "/GameTrackerJS/state/world/area/OverworldState.js";
 
 // Track-OOT
-import "./area/DungeonState.js";
+import "./area/AreaState.js";
+import "./area/ShopState.js";
 import "./location/GossipstoneState.js";
 import "./location/ShopSlotState.js";

@@ -1,6 +1,6 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
-import BusyIndicator from "/emcJS/ui/BusyIndicator.js";
+import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 
 // GameTrackerJS
 import VersionData from "/GameTrackerJS/data/VersionData.js";
@@ -84,9 +84,9 @@ class SpoilerParser {
             throw new Error("Not a valid OOTR Spoiler log found");
         }
         if (versionType == "unknown") {
-            await BusyIndicator.unbusy();
+            await BusyIndicatorManager.unbusy();
             const cont = await Dialog.confirm("Unknown Spoiler log version", "The file you loaded might not be a valid OOTR Spoiler log.<br>This could break the Tracker.<br>Do you want to continue loading the file?");
-            await BusyIndicator.busy();
+            await BusyIndicatorManager.busy();
             if (!cont) {
                 return;
             }

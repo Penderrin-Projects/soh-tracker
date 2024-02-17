@@ -1,7 +1,7 @@
 // frameworks
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
-import "/editors/modules/logic/Editor.js";
+import "/JSEditors/modules/logic/Editor.js";
 
 import LogicGlitchedResource from "/script/resource/LogicGlitchedResource.js";
 import LogicListsCreator from "../logic/LogicListsCreator.js";
@@ -133,8 +133,8 @@ export default async function() {
 
     return {
         name: "Logic Glitched",
-        panel: logicEditor,
-        navigation: NAV,
+        panelEl: logicEditor,
+        navConfig: NAV,
         refreshFn: refreshLogicEditor
     }
 }

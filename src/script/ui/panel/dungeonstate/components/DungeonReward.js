@@ -43,6 +43,7 @@ slot {
     color: white;
     font-size: 1em;
     text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+    background-image: var(--default-unknown-back-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -107,10 +108,10 @@ const TAKEN_REWARDS = new Map();
 
 function resolveIcon(icon) {
     if (icon == null) {
-        return "/images/items/unknown.png";
+        return null;
     }
     if (typeof icon == "object") {
-        return icon[0] ?? "/images/items/unknown.png";
+        return icon[0];
     }
     return icon;
 }
@@ -237,9 +238,11 @@ class HTMLTrackerDungeonReward extends ContextMenuManagerMixin(StateDataEventMan
 
 customElements.define("ootrt-dungeonreward", HTMLTrackerDungeonReward);
 
-function createOption(value, img) {
-    const opt = document.createElement("emc-option");
-    opt.value = value;
-    opt.style.backgroundImage = `url("${img}"`;
-    return opt;
+function createOption(value, icon) {
+    const optionEl = document.createElement("emc-option");
+    optionEl.value = value;
+    if (icon != null) {
+        optionEl.style.backgroundImage = `url('${icon}')`;
+    }
+    return optionEl;
 }

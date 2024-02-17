@@ -1,18 +1,21 @@
 {
-    "ref": {
-        "__type__": "Link",
-        "optional": false,
-        "linkedType": "Location"
+    "parameters": {
+        "allowExtension": false
     },
-    "item": {
-        "__type__": "Link",
-        "optional": false,
-        "linkedType": "Item"
-    },
-    "price": {
-        "__type__": "Number",
-        "optional": false,
-        "default": 0,
-        "decimalPlaces": 0
+    "definition": {
+        "ref": {
+            "@type": "String",
+            "optional": false
+        },
+        "item": {
+            "@type": "String",
+            "optional": false
+        },
+        "price": {
+            "@type": "Number",
+            "optional": false,
+            "default": 0,
+            "decimalPlaces": 0
+        }
     }
 }

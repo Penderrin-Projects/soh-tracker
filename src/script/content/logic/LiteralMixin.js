@@ -1,6 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
-import AbstractElement from "/editors/ui/logic/AbstractElement.js";
+import AbstractElement from "/JSEditors/ui/logic/AbstractElement.js";
 
 const TPL_CAPTION = "MIXIN";
 const TPL_BACKGROUND = "#ffffff";
@@ -61,13 +61,13 @@ export default class LogicElement extends AbstractElement {
     }
 
     loadLogic(logic) {
-        this.ref = logic.el;
+        this.ref = logic.ref;
     }
 
     toJSON() {
         return {
             type: REFERENCE,
-            el: this.ref
+            ref: this.ref
         };
     }
 

@@ -9,10 +9,9 @@ import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventMa
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
-import "/script/state/world/area/DungeonState.js";
 
 const TPL = new Template(`
-<emc-option value="n" style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
+<emc-option value style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
 <emc-option value="v" style="background-image: url('images/icons/dungeontype_vanilla.svg')"></emc-option>
 <emc-option value="mq" style="background-image: url('images/icons/dungeontype_masterquest.svg')"></emc-option>
 `);
@@ -43,6 +42,7 @@ slot {
     color: white;
     font-size: 1em;
     text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+    background-image: var(--default-unknown-back-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -128,7 +128,7 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
                         this.readonly = true;
                         if (state != null) {
                             const area = AreaStateManager.get(newValue);
-                            if (area?.props.list_mq != null) {
+                            if (area?.props.lists?.mq != null) {
                                 this.readonly = false;
                             }
                         }
@@ -141,7 +141,7 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
                         if (oe) {
                             oe.classList.remove("active");
                         }
-                        const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`);
+                        const ne = this.shadowRoot.querySelector(`[value="${newValue}"]`) ?? this.shadowRoot.querySelector(`[value]`);
                         if (ne) {
                             ne.classList.add("active");
                         }
@@ -170,7 +170,7 @@ class HTMLTrackerDungeonType extends StateDataEventManagerMixin(CustomElement) {
         if (!this.readonly) {
             const state = this.getState();
             if (state != null) {
-                state.type = "n";
+                state.type = undefined;
             }
         }
         event.preventDefault();

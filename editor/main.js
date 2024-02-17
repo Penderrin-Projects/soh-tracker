@@ -1,8 +1,13 @@
-const {app, protocol, BrowserWindow} = require("electron");
-const path = require("path");
-// const {startServer} = require("./server.js");
+import {
+    app, BrowserWindow
+} from "electron";
+import readline from "readline";
+import WebService from "webservice/WebService.js";
+import StaticService from "webservice/services/StaticService.js";
 
-const __dirnameUnix = __dirname.replace(/\\/g, "/");
+const service = new WebService();
+const webServicePort = service.port;
+service.registerService(StaticService, "", {serveFolder: "./editor/build"});
 
 const OPTIONS = {debug: false};
 if (process.argv.indexOf("-debug") >= 1) {
@@ -10,31 +15,6 @@ if (process.argv.indexOf("-debug") >= 1) {
 }
 
 function createWindow() {
-    protocol.interceptFileProtocol("file", (request, callback) => {
-        console.log("-------------------");
-        let url = request.url.replace(/file:\/+/i, "");
-        console.log(url);
-        if (!url.startsWith(__dirnameUnix)) {
-            url = url.replace(/(:?[a-z]:)?/i, "");
-        }
-        console.log(url);
-        url = url.replace(__dirnameUnix, "");
-        console.log(url);
-        /* redirects */
-        url = url.replace(/^\/?src\//i, "../src/");
-        url = url.replace(/^\/?logic\//i, "../logic/");
-        url = url.replace(/^\/?database\//i, "./build/database/");
-        url = url.replace(/^\/?images\//i, "./build/images/");
-        url = url.replace(/^\/?script\//i, "./build/script/");
-        url = url.replace(/^\/?GameTrackerJS\//i, "./build/GameTrackerJS/");
-        url = url.replace(/^\/?emcJS\//i, "./build/emcJS/");
-        url = url.replace(/^\/?editors\//i, "./build/editors/");
-        url = path.join(__dirnameUnix, ".", url);
-        url = path.normalize(url);
-        console.log(url);
-        callback({path: url});
-    });
-
     const win = new BrowserWindow({
         width: 800,
         height: 700,
@@ -50,8 +30,8 @@ function createWindow() {
     });
     win.maximize();
     win.setMenu(null);
-    //win.loadURL("http://localhost:4242");
-    win.loadFile("./web/index.html");
+    win.loadURL(`http://localhost:${webServicePort}`);
+    // win.loadFile("./build/index.html");
     if (OPTIONS.debug) {
         win.toggleDevTools();
     }
@@ -72,4 +52,20 @@ app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
         app.quit();
     }
+});
+
+if (process.platform === "win32") {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.on("SIGINT", function() {
+        process.emit("SIGINT");
+    });
+}
+
+process.on("SIGINT", function() {
+    //graceful shutdown
+    process.exit();
 });

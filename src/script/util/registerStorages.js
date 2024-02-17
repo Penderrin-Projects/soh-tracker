@@ -7,7 +7,6 @@ import SongsResource from "/script/resource/SongsResource.js";
 
 // dungeons
 Savestate.registerStorage("dungeonRewards", new ObservableDefaultValueStorage(""));
-Savestate.registerStorage("dungeonTypes", new ObservableDefaultValueStorage("n"));
 
 // shops
 Savestate.registerStorage("shopItems", new ObservableDefaultValueStorage(""));
@@ -28,4 +27,4 @@ for (const ref in songData) {
 Savestate.registerStorage("songNotes", songNotesStorage);
 
 // --> register to logic caller
-LogicCaller.registerStorage(Savestate.getStorage("dungeonTypes"), "dungeontype[", "]");
+LogicCaller.registerStorage(Savestate.getStorage("songNotes"), "songnotes[", "]");

@@ -572,6 +572,160 @@
         "mark": "gold",
         "price": false
     },
+    "silver_rupee_well_basement": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_dodongo_staircase": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_forest": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_fire": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_water": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_shadow": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_spirit": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_castle_ganon_trial_light": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_training_grounds_lava": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_training_grounds_water": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_training_grounds_slopes": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_ice_cavern_spinning_scythe": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_ice_cavern_block_push": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_shadow_scythe_shortcut": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_shadow_invisible_blades": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_shadow_huge_pit": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_shadow_invisible_spikes": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_spirit_lobby_and_lower_adult": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_spirit_adult_climb": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_spirit_child_early_torches": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_spirit_adult_boulders": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "silver_rupee_temple_spirit_sun_block": {
+        "image": "/images/items/key_small.png",
+        "category": "unlocking_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
     "compass_deku": {
         "image": "/images/items/compass.png",
         "category": "tracking_items",
@@ -827,13 +981,6 @@
         "mark": "gold",
         "price": false
     },
-    "ocarina": {
-        "image": "/images/items/ocarina_saria.png",
-        "category": "inventory_items",
-        "refill": false,
-        "mark": "gold",
-        "price": false
-    },
     "bottle": {
         "image": "/images/items/bottle.png",
         "category": "inventory_items",
@@ -848,13 +995,6 @@
         "mark": "gold",
         "price": false
     },
-    "weird_egg": {
-        "image": "/images/items/egg.png",
-        "category": "inventory_items",
-        "refill": false,
-        "mark": "gold",
-        "price": false
-    },
     "bean": {
         "image": "/images/items/bean.png",
         "category": "inventory_items",
@@ -862,79 +1002,198 @@
         "mark": "gold",
         "price": false
     },
+    "ocarina": {
+        "image": "/images/items/ocarina_saria.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "ocarina_a_button": {
+        "image": "/images/items/ocarina_note_a.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "ocarina_down_button": {
+        "image": "/images/items/ocarina_note_down.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "ocarina_left_button": {
+        "image": "/images/items/ocarina_note_left.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "ocarina_right_button": {
+        "image": "/images/items/ocarina_note_right.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "ocarina_up_button": {
+        "image": "/images/items/ocarina_note_up.png",
+        "category": "ocarina",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "weird_egg": {
+        "image": "/images/items/egg.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "chicken": {
+        "image": "/images/items/cucco.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "zeldas_letter": {
+        "image": "/images/items/zelda_letter.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_keaton": {
+        "image": "/images/items/mask_keaton.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_skull": {
+        "image": "/images/items/mask_skull.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_spooky": {
+        "image": "/images/items/mask_spooky.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_bunny": {
+        "image": "/images/items/mask_bunny.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_truth": {
+        "image": "/images/items/mask_truth.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_gerudo": {
+        "image": "/images/items/mask_gerudo.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_goron": {
+        "image": "/images/items/mask_goron.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
+    "mask_zora": {
+        "image": "/images/items/mask_zora.png",
+        "category": "child_trading_items",
+        "refill": false,
+        "mark": "gold",
+        "price": false
+    },
     "pocket_egg": {
         "image": "/images/items/egg_cojiro.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "pocket_cucco": {
         "image": "/images/items/cucco.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "cojiro": {
         "image": "/images/items/cojiro.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "mushroom": {
+    "odd_mushroom": {
         "image": "/images/items/mushroom.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "medicine": {
+    "odd_potion": {
         "image": "/images/items/medicine.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "saw": {
+    "poachers_saw": {
         "image": "/images/items/saw.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "broken_sword": {
         "image": "/images/items/broken_sword.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "prescription": {
         "image": "/images/items/prescription.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "frog": {
+    "eyeball_frog": {
         "image": "/images/items/frog.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "eyedrops": {
         "image": "/images/items/eyedrops.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "claim": {
+    "claim_check": {
         "image": "/images/items/claim.png",
-        "category": "trading_items",
+        "category": "adult_trading_items",
         "refill": false,
         "mark": "gold",
         "price": false
@@ -1028,6 +1287,7 @@
         "category": "hidden_items",
         "refill": false,
         "mark": false,
-        "price": false
+        "price": false,
+        "visible": false
     }
 }

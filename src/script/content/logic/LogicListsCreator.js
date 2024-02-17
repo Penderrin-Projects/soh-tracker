@@ -61,7 +61,7 @@ class LogicListsCreator {
             operators: []
         };
 
-        const locations = WorldResource.get("location");
+        const locations = WorldResource.get("locations");
         const items = ItemsResource.get();
         const randomizer_options = OptionsResource.get();
         const tracker_settings = SettingsResource.get();

@@ -1,0 +1,23 @@
+:root {
+
+    /* === page === */
+    --page-text-color: #000000;
+    --page-back-color: #ffffff;
+    --page-border-color: #000000; /* all; top_bottom right_left; top right bottom left*/
+    --page-border-width: 2px;
+    --page-border-radius: 0.25em;
+
+    /* === panel === */
+    --panel-header-back-color: #84d7ff;
+
+    /* === form === */
+    --form-text-color: #000000;
+    --form-back-color: #e1f3e9;
+    --form-hover-text-color: #ffffff;
+    --form-hover-back-color: #1f4b30;
+    --form-border-color: #000000; /* all; top_bottom right_left; top right bottom left*/
+
+    /* === fieldset === */
+    --fieldset-back-color: #e1f3e9;
+
+}

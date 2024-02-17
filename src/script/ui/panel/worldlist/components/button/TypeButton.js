@@ -5,7 +5,7 @@ import {
 } from "/emcJS/util/Mixin.js";
 
 // GameTrackerJS
-import WorldListStateButton from "/GameTrackerJS/ui/panel/worldlist/components/button/StateButton.js";
+import WorldListAreaListButton from "/GameTrackerJS/ui/panel/worldlist/components/button/AreaListButton.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/BadgeAccess.js";
 // Track-OOT
@@ -16,9 +16,9 @@ const TPL = new Template(`
 `);
 
 const ICONS = {
-    n: "images/icons/dungeontype_undefined.svg",
-    v: "images/icons/dungeontype_vanilla.svg",
-    mq: "images/icons/dungeontype_masterquest.svg"
+    "": "images/icons/dungeontype_undefined.svg",
+    "v": "images/icons/dungeontype_vanilla.svg",
+    "mq": "images/icons/dungeontype_masterquest.svg"
 };
 
 function applyElements(target) {
@@ -29,7 +29,7 @@ function applyElements(target) {
 }
 
 const BaseClass = mix(
-    WorldListStateButton
+    WorldListAreaListButton
 ).with(
     AccessTextMarkerMixin
 );
@@ -44,7 +44,7 @@ export default class ListButton extends BaseClass {
     clickHandler() {
         const state = this.getState();
         if (state != null) {
-            state.type = this.type ?? "n";
+            state.activeList = this.listName;
         }
         super.clickHandler();
     }
@@ -54,7 +54,7 @@ export default class ListButton extends BaseClass {
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
-            badgeEl.typeIcon = ICONS[this.type] ?? ICONS["n"];
+            badgeEl.typeIcon = ICONS[this.listName] ?? ICONS[""];
         }
     }
 
@@ -63,63 +63,39 @@ export default class ListButton extends BaseClass {
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
-            badgeEl.typeIcon = ICONS[this.type] ?? ICONS["n"];
+            badgeEl.typeIcon = ICONS[this.listName] ?? ICONS[""];
         }
     }
 
-    getStateAccess(state) {
-        if (state.getAccess != null) {
-            return state.getAccess(this.type);
-        } else {
-            return state.access;
-        }
-    }
-
-    applyAccess(value = "unavailable", data = {}) {
-        super.applyAccess(value, data);
+    applyAccess(access = {}) {
+        super.applyAccess(access);
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         if (badgeEl != null) {
-            badgeEl.access = value;
-            badgeEl.available = data.reachable ?? 0;
-            badgeEl.unopened = data.unopened ?? 0;
+            const accessValue = access.value?.toString();
+            if (typeof accessValue === "string") {
+                badgeEl.access = accessValue.toLowerCase();
+            } else {
+                badgeEl.access = "";
+            }
+            badgeEl.available = access.reachable ?? 0;
+            badgeEl.unopened = access.unopened ?? 0;
         }
-    }
-
-    get type() {
-        return this.getAttribute("type");
-    }
-
-    set type(val) {
-        this.setAttribute("type", val);
-    }
-
-    static get observedAttributes() {
-        return [...super.observedAttributes, "type"];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         super.attributeChangedCallback(name, oldValue, newValue);
         if (oldValue != newValue) {
             switch (name) {
-                case "type": {
-                    const state = this.getState();
-                    if (state != null) {
-                        const access = state.getAccess(newValue);
-                        this.applyAccess(access);
-                    }
+                case "listname": {
                     /* badge */
                     const badgeEl = this.shadowRoot.getElementById("badge");
                     if (badgeEl != null) {
-                        badgeEl.typeIcon = ICONS[newValue] ?? ICONS["n"];
+                        badgeEl.typeIcon = ICONS[newValue] ?? ICONS[""];
                     }
                 } break;
             }
         }
-    }
-
-    get category() {
-        return "area";
     }
 
 }

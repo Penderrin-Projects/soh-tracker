@@ -1,13 +1,9 @@
-// frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-
-// GameTrackerJS
 import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
-import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import "/GameTrackerJS/ui/panel/itemgrid/components/entries/Item.js";
-import "/GameTrackerJS/ui/panel/itemgrid/components/entries/ProgressiveItem.js";
-// Track-OOT
+import ItemGridInteractive from "/GameTrackerJS/ui/itemgrid/interactive/ItemGridInteractive.js";
+import "/GameTrackerJS/ui/itemgrid/interactive/components/entries/Item.js";
+import "/GameTrackerJS/ui/itemgrid/interactive/components/entries/ProgressiveItem.js";
 import DungeonstateResource from "../../../resource/DungeonstateResource.js";
 import "../itemgrid/components/RewardItem.js";
 import "./components/DungeonReward.js";
@@ -97,7 +93,7 @@ class DungeonState extends Panel {
         const dungeonData = DungeonstateResource.get();
         for (const ref in dungeonData) {
             const dData = dungeonData[ref];
-            this.shadowRoot.append(createRow(ref, dData));
+            this.shadowRoot.append(createRow(this, ref, dData));
         }
         this.#switchActive(this.active);
     }
@@ -160,7 +156,7 @@ class DungeonState extends Panel {
 Panel.registerReference("dungeon-status", DungeonState);
 customElements.define("ootrt-dungeonstate", DungeonState);
 
-function createRow(ref, data) {
+function createRow(target, ref, data) {
     const el = document.createElement("DIV");
     el.classList.add("item-row");
     el.classList.add("inactive");
@@ -177,7 +173,7 @@ function createRow(ref, data) {
     // small key
     if (data.keys) {
         const itemData = items[data.keys];
-        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.keys);
+        const itm = ItemGridInteractive.createItem(data.keys, itemData.type);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
         el.append(itm);
@@ -193,7 +189,7 @@ function createRow(ref, data) {
     // boss key
     if (data.bosskey) {
         const itemData = items[data.bosskey];
-        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.bosskey);
+        const itm = ItemGridInteractive.createItem(data.bosskey, itemData.type);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
         el.append(itm);
@@ -206,13 +202,61 @@ function createRow(ref, data) {
         el.append(itm);
     }
     //////////////////////////////////
+    // silver rupees
+    if (typeof data.silver_rupees === "object") {
+        const contentGrid = [];
+        if (Array.isArray(data.silver_rupees)) {
+            contentGrid.push(data.silver_rupees.map((e) => {
+                return [
+                    {
+                        "type": "item",
+                        "value": e,
+                        "visible": true
+                    }
+                ];
+            }));
+        } else {
+            for (const [label, entry] of Object.entries(data.silver_rupees)) {
+                contentGrid.push([
+                    {
+                        "type": "text",
+                        "value": label,
+                        "visible": true,
+                        "halign": "start",
+                        "width": 60
+                    }, {
+                        "type": "item",
+                        "value": entry,
+                        "visible": true
+                    }
+                ]);
+            }
+        }
+        const itm = ItemGridInteractive.createItemMirrorCollection(target, {
+            icon: "/images/items/rupee_silver.png",
+            halign: "end",
+            valign: "end",
+            contentGrid,
+            counting: true
+        });
+        itm.classList.add("inactive");
+        itm.setAttribute("type", "silver_rupees");
+        el.append(itm);
+        /* register */
+        types.push("silver_rupees");
+    } else {
+        const itm = createItemPlaceholder();
+        itm.classList.add("inactive");
+        itm.setAttribute("type", "silver_rupees");
+        el.append(itm);
+    }
+    //////////////////////////////////
     // map
     if (data.map) {
         const itemData = items[data.map];
-        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.map);
+        const itm = ItemGridInteractive.createItem(data.map, itemData.type);
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
-        itm.setAttribute("ref", data.map);
         el.append(itm);
         /* register */
         types.push("map");
@@ -226,10 +270,9 @@ function createRow(ref, data) {
     // compass
     if (data.compass) {
         const itemData = items[data.compass];
-        const itm = UIRegistry.get("itemgrid-item").create(itemData.type, data.compass);
+        const itm = ItemGridInteractive.createItem(data.compass, itemData.type);
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
-        itm.setAttribute("ref", data.compass);
         el.append(itm);
         /* register */
         types.push("compass");
@@ -274,7 +317,7 @@ function createRow(ref, data) {
         el.append(itm);
     }
     //////////////////////////////////
-    // type
+    // hint
     if (data.hint) {
         const itm = document.createElement("ootrt-dungeonhint");
         itm.classList.add("dungeon-status");

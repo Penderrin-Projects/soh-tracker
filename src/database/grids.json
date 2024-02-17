@@ -175,9 +175,61 @@
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "ocarina",
-                "visible": true
+                "type": "conditional",
+                "condition": {
+                    "type": "value",
+                    "ref": "option[shuffle_individual_ocarina_notes]"
+                },
+                "onTrue": {
+                    "type": "collection",
+                    "value": "ocarina",
+                    "counting": true,
+                    "valign": "end",
+                    "halign": "end",
+                    "countBlacklist": [
+                        "ocarina"
+                    ],
+                    "contentGrid": [
+                        [
+                            {
+                                "type": "item",
+                                "value": "ocarina",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_a_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_down_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_left_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_right_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_up_button",
+                                "visible": true
+                            }
+                        ]
+                    ],
+                    "visible": true
+                },
+                "onFalse": {
+                    "type": "item",
+                    "value": "ocarina",
+                    "visible": true
+                }
             },
             {
                 "type": "item",
@@ -283,21 +335,153 @@
                 "value": "zora_letter",
                 "visible": {
                     "type": "not",
-                    "el": {
+                    "content": {
                         "type": "state",
-                        "el": "option[doors_open_zora]",
+                        "ref": "option[doors_open_zora]",
                         "value": "doors_open_zora_both"
                     }
                 }
             },
             {
-                "type": "item",
-                "value": "egg",
+                "type": "collection",
+                "icon": "/images/items/zelda_letter.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "weird_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "chicken",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "zeldas_letter",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_keaton",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_skull",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_spooky",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_bunny",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_truth",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_goron",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_zora",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_gerudo",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "cojiro",
+                "type": "collection",
+                "icon": "/images/items/cojiro.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "pocket_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "pocket_cucco",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "cojiro",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "odd_mushroom",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "odd_potion",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "poachers_saw",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "broken_sword",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "prescription",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "eyeball_frog",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "eyedrops",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "claim_check",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
@@ -545,9 +729,61 @@
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "ocarina",
-                "visible": true
+                "type": "conditional",
+                "condition": {
+                    "type": "value",
+                    "ref": "option[shuffle_individual_ocarina_notes]"
+                },
+                "onTrue": {
+                    "type": "collection",
+                    "value": "ocarina",
+                    "counting": true,
+                    "valign": "end",
+                    "halign": "end",
+                    "countBlacklist": [
+                        "ocarina"
+                    ],
+                    "contentGrid": [
+                        [
+                            {
+                                "type": "item",
+                                "value": "ocarina",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_a_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_down_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_left_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_right_button",
+                                "visible": true
+                            },
+                            {
+                                "type": "item",
+                                "value": "ocarina_up_button",
+                                "visible": true
+                            }
+                        ]
+                    ],
+                    "visible": true
+                },
+                "onFalse": {
+                    "type": "item",
+                    "value": "ocarina",
+                    "visible": true
+                }
             },
             {
                 "type": "item",
@@ -705,13 +941,145 @@
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "egg",
+                "type": "collection",
+                "icon": "/images/items/zelda_letter.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "weird_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "chicken",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "zeldas_letter",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_keaton",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_skull",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_spooky",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_bunny",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_truth",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_goron",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_zora",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_gerudo",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "cojiro",
+                "type": "collection",
+                "icon": "/images/items/cojiro.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "pocket_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "pocket_cucco",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "cojiro",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "odd_mushroom",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "odd_potion",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "poachers_saw",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "broken_sword",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "prescription",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "eyeball_frog",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "eyedrops",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "claim_check",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
@@ -963,13 +1331,145 @@
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "egg",
+                "type": "collection",
+                "icon": "/images/items/zelda_letter.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "weird_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "chicken",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "zeldas_letter",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_keaton",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_skull",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_spooky",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_bunny",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_truth",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_goron",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_zora",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_gerudo",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "cojiro",
+                "type": "collection",
+                "icon": "/images/items/cojiro.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "pocket_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "pocket_cucco",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "cojiro",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "odd_mushroom",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "odd_potion",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "poachers_saw",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "broken_sword",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "prescription",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "eyeball_frog",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "eyedrops",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "claim_check",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
@@ -1249,13 +1749,145 @@
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "egg",
+                "type": "collection",
+                "icon": "/images/items/zelda_letter.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "weird_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "chicken",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "zeldas_letter",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_keaton",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_skull",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_spooky",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_bunny",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_truth",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "mask_goron",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_zora",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "mask_gerudo",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "cojiro",
+                "type": "collection",
+                "icon": "/images/items/cojiro.png",
+                "counting": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "pocket_egg",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "pocket_cucco",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "cojiro",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "odd_mushroom",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "odd_potion",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "poachers_saw",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "broken_sword",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "prescription",
+                            "visible": true
+                        }
+                    ],
+                    [
+                        {
+                            "type": "item",
+                            "value": "eyeball_frog",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "eyedrops",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "claim_check",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             },
             {
@@ -1324,6 +1956,124 @@
         [
             {
                 "type": "item",
+                "value": "weird_egg",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "chicken",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "zeldas_letter",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_keaton",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_skull",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_spooky",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_bunny",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_truth",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_goron",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "item",
+                "value": "mask_zora",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "mask_gerudo",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "item",
+                "value": "pocket_egg",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "pocket_cucco",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "cojiro",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "odd_mushroom",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "odd_potion",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "poachers_saw",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "broken_sword",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "prescription",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "eyeball_frog",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "item",
+                "value": "eyedrops",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "claim_check",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "item",
                 "value": "song_zelda",
                 "visible": true
             },
@@ -1360,11 +2110,6 @@
             {
                 "type": "empty",
                 "value": "",
-                "visible": true
-            },
-            {
-                "type": "item",
-                "value": "triforce_piece",
                 "visible": true
             }
         ],
@@ -1408,11 +2153,6 @@
                 "type": "empty",
                 "value": "",
                 "visible": true
-            },
-            {
-                "type": "item",
-                "value": "refill_item",
-                "visible": true
             }
         ],
         [
@@ -1428,6 +2168,11 @@
             },
             {
                 "type": "item",
+                "value": "silver_rupee_generic",
+                "visible": true
+            },
+            {
+                "type": "item",
                 "value": "dungeon_map_generic",
                 "visible": true
             },
@@ -1435,7 +2180,9 @@
                 "type": "item",
                 "value": "compass_generic",
                 "visible": true
-            },
+            }
+        ],
+        [
             {
                 "type": "item",
                 "value": "rupee_green",
@@ -1459,6 +2206,18 @@
             {
                 "type": "item",
                 "value": "rupee_yellow",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "item",
+                "value": "triforce_piece",
+                "visible": true
+            },
+            {
+                "type": "item",
+                "value": "refill_item",
                 "visible": true
             }
         ]

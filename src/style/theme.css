@@ -3,9 +3,9 @@
     --page-text-color: #ffffff;
 
     /* all; top_bottom right_left; top right bottom left*/
-    --page-border-color: #664e1f #d0a650 #e5ce9e #b78c37;
+    --page-border-color: #a57d2c #d0a44e #dbb976 #b1862f;
     /* all; top_bottom right_left; top right bottom left*/
-    --page-border-color-inverted: #e5ce9e #b78c37 #664e1f #d0a650;
+    --page-border-color-inverted: #dbb976 #b1862f #a57d2c #d0a44e;
 
     --navigation-back-color: #cb9c3d;
     --navigation-text-color: #000000;

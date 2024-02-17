@@ -101,6 +101,16 @@
         "default": "#ffff00",
         "resettable": true
     },
+    "sort_worldlist_by_access": {
+        "category": "world",
+        "type": "check",
+        "default": false
+    },
+    "sort_locationlist_by_access": {
+        "category": "world",
+        "type": "check",
+        "default": false
+    },
     "show_detailed_maps": {
         "category": "world",
         "type": "check",
@@ -131,7 +141,7 @@
             "start_collapsed"
         ]
     },
-    "unknown_dungeon_need_both": {
+    "unknown_arealist_need_all": {
         "category": "world",
         "type": "check",
         "default": false

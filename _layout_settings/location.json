@@ -45,9 +45,9 @@
         "show_done": {
             "false": {
                 "type": "not",
-                "el": {
+                "content": {
                     "type": "value",
-                    "el": "$IS_DONE"
+                    "content": "$IS_DONE"
                 }
             }
         }

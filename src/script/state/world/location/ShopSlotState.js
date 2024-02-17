@@ -25,7 +25,7 @@ export default class ShopSlotState extends DefaultLocationState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const shopState = ShopLocationRegistry.get(props.shop);
+        const shopState = ShopLocationRegistry.get(ref);
         SHOP_STATE.set(this, shopState);
         /* EVENTS */
         if (shopState != null) {

@@ -1,18 +1,14 @@
-// frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
 import "/emcJS/ui/LabeledIcon.js";
-
-// GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
-// Track-OOT
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 
@@ -169,8 +165,8 @@ export default class WorldListShopSlot extends BaseClass {
         }
     }
 
-    get category() {
-        return "location";
+    get type() {
+        return "Location";
     }
 
 }

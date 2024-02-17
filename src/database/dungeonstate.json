@@ -4,6 +4,7 @@
         "color": "#ffffff",
         "keys": false,
         "bosskey": false,
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": false,
@@ -17,6 +18,7 @@
         "color": "#92ff92",
         "keys": false,
         "bosskey": false,
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_deku",
@@ -30,6 +32,9 @@
         "color": "#ff6a6a",
         "keys": false,
         "bosskey": false,
+        "silver_rupees": {
+            "Staircase": "silver_rupee_dodongo_staircase"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_dodongo",
@@ -43,6 +48,7 @@
         "color": "#8be4f3",
         "keys": false,
         "bosskey": false,
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_jabujabu",
@@ -56,6 +62,7 @@
         "color": "#1bf11b",
         "keys": "key_small_forest",
         "bosskey": "key_boss_forest",
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_temple_forest",
@@ -69,6 +76,7 @@
         "color": "#ff3c3c",
         "keys": "key_small_fire",
         "bosskey": "key_boss_fire",
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_temple_fire",
@@ -82,6 +90,7 @@
         "color": "#7cb6ff",
         "keys": "key_small_water",
         "bosskey": "key_boss_water",
+        "silver_rupees": false,
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_temple_water",
@@ -95,6 +104,12 @@
         "color": "#d967fd",
         "keys": "key_small_shadow",
         "bosskey": "key_boss_shadow",
+        "silver_rupees": {
+            "Scythe Shortcut": "silver_rupee_temple_shadow_scythe_shortcut",
+            "Invisible Block": "silver_rupee_temple_shadow_invisible_blades",
+            "Huge Pit": "silver_rupee_temple_shadow_huge_pit",
+            "Invisible Spikes": "silver_rupee_temple_shadow_invisible_spikes"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_temple_shadow",
@@ -108,6 +123,13 @@
         "color": "#ffcd71",
         "keys": "key_small_spirit",
         "bosskey": "key_boss_spirit",
+        "silver_rupees": {
+            "Lobby & Lower": "silver_rupee_temple_spirit_lobby_and_lower_adult",
+            "Adult Climb": "silver_rupee_temple_spirit_adult_climb",
+            "Child Torch": "silver_rupee_temple_spirit_child_early_torches",
+            "Adult Boulder": "silver_rupee_temple_spirit_adult_boulders",
+            "Sun Block": "silver_rupee_temple_spirit_sun_block"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_temple_spirit",
@@ -121,6 +143,9 @@
         "color": "#ff99ff",
         "keys": "key_small_well",
         "bosskey": false,
+        "silver_rupees": {
+            "Basement": "silver_rupee_well_basement"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_well",
@@ -134,6 +159,10 @@
         "color": "#abfdf5",
         "keys": false,
         "bosskey": false,
+        "silver_rupees": {
+            "Scythe": "silver_rupee_ice_cavern_spinning_scythe",
+            "Block Push": "silver_rupee_ice_cavern_block_push"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": "dungeon_map_ice",
@@ -147,6 +176,7 @@
         "color": "#ffb47d",
         "keys": "key_small_gerudo",
         "bosskey": "membership",
+        "silver_rupees": false,
         "keys_group": "gerudo",
         "bosskey_group": "gerudo",
         "map": false,
@@ -160,6 +190,11 @@
         "color": "#ffffa4",
         "keys": "key_small_training",
         "bosskey": false,
+        "silver_rupees": {
+            "Lava": "silver_rupee_training_grounds_lava",
+            "Water": "silver_rupee_training_grounds_water",
+            "Slopes": "silver_rupee_training_grounds_slopes"
+        },
         "keys_group": "dungeon",
         "bosskey_group": "dungeon",
         "map": false,
@@ -173,12 +208,34 @@
         "color": "#969696",
         "keys": "key_small_ganon",
         "bosskey": "key_boss_ganon",
+        "silver_rupees": {
+            "Forest Trial": "silver_rupee_castle_ganon_trial_forest",
+            "Fire Trial": "silver_rupee_castle_ganon_trial_fire",
+            "Water Trial": "silver_rupee_castle_ganon_trial_water",
+            "Shadow Trial": "silver_rupee_castle_ganon_trial_shadow",
+            "Spirit Trial": "silver_rupee_castle_ganon_trial_spirit",
+            "Light Trial": "silver_rupee_castle_ganon_trial_light"
+        },
         "keys_group": "ganon",
         "bosskey_group": "ganon",
         "map": false,
         "compass": false,
         "hint": true,
         "hasmq": true,
+        "boss_reward": false
+    },
+    "treasure_game": {
+        "title": "TCG",
+        "color": "#ff50a6",
+        "keys": "key_small_treasure_game",
+        "bosskey": false,
+        "silver_rupees": false,
+        "keys_group": "treasure_game",
+        "bosskey_group": "treasure_game",
+        "map": false,
+        "compass": false,
+        "hint": false,
+        "hasmq": false,
         "boss_reward": false
     }
 }
