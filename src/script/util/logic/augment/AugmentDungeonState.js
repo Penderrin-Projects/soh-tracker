@@ -1,6 +1,7 @@
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
 import DungeonstateResource from "/script/resource/DungeonstateResource.js";
 import "./AugmentOptions.js";
+import KEY_LOCATION_INDEX from "./AugmentDungeonState.js.json" assert {type: "json"};
 
 // ref: ItemPool.py -> world.settings.shuffle_smallkeys
 
@@ -32,32 +33,51 @@ function augmentKeys(keyLogic, keys = 0, ref = "", type = "") {
     return keys;
 }
 
-function augmentGerudoKeys(keyLogic, keys) {
-    if (keyLogic == "keylogic_vanilla") {
+function augmentGerudoKeys(keyLogic, keyRef, keys) {
+    const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
+    if (keyLogic === "keylogic_vanilla") {
+        for (const location of keyLocationList) {
+            LogicCaller.addCollectible(location, keyRef);
+        }
+        return 0;
+    }
+    for (const location of keyLocationList) {
+        LogicCaller.deleteCollectible(location);
+    }
+    return keys;
+}
+
+function augmentTCGKeys(keyLogic, keyRef, keys) {
+    const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
+    if (keyLogic === "keylogic_vanilla") {
+        for (const location of keyLocationList) {
+            LogicCaller.addCollectible(location, keyRef);
+        }
+        return 0;
+    }
+    for (const location of keyLocationList) {
+        LogicCaller.deleteCollectible(location);
+    }
+    if (keyLogic == "keylogic_keysy") {
         return 9999;
     }
     return keys;
 }
 
-function augmentTCGKeys(keyLogic, keys) {
+function augmentSilverRupees(keyLogic, keyRef, keys) {
+    const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
+    if (keyLogic === "keylogic_vanilla") {
+        for (const location of keyLocationList) {
+            LogicCaller.addCollectible(location, keyRef);
+        }
+        return 0;
+    }
+    for (const location of keyLocationList) {
+        LogicCaller.deleteCollectible(location);
+    }
     if (keyLogic == "keylogic_keysy") {
         return 9999;
     }
-    // if (keyLogic == "keylogic_vanilla") {
-    //     // TODO add all tcg key collectibles to logic
-    //     return 0;
-    // }
-    return keys;
-}
-
-function augmentSilverRupees(keyLogic, keys) {
-    if (keyLogic == "keylogic_keysy") {
-        return 9999;
-    }
-    // if (keyLogic == "keylogic_vanilla") {
-    //     // TODO add all silver rupee collectibles to logic
-    //     return 0;
-    // }
     return keys;
 }
 
@@ -83,10 +103,9 @@ function augment(cache) {
             const keyRef = `item[${dData.keys}]`;
             const keyGroup = dData.keys_group;
             if (keyGroup === "treasure_game") {
-                // TODO split option and item changes and include collectible management
                 if (cache.hasChange("option[shuffle_tcgkeys]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[shuffle_tcgkeys]");
-                    const augKeys = augmentTCGKeys(keyLogic, cache.get(keyRef) ?? 0);
+                    const augKeys = augmentTCGKeys(keyLogic, keyRef, cache.get(keyRef) ?? 0);
                     cache.setAugmented(keyRef, augKeys);
                 }
             } else if (keyGroup === "gerudo") {
@@ -128,7 +147,7 @@ function augment(cache) {
                 const keyRef = `item[${silver_rupee_key}]`;
                 if (cache.hasChange("option[shuffle_silver_rupees]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[shuffle_silver_rupees]");
-                    const augKeys = augmentSilverRupees(keyLogic, cache.get(keyRef) ?? 0);
+                    const augKeys = augmentSilverRupees(keyLogic, keyRef, cache.get(keyRef) ?? 0);
                     cache.setAugmented(keyRef, augKeys);
                 }
             }
