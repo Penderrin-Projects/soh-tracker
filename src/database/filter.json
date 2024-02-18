@@ -23,17 +23,23 @@
             },
             {
                 "values": {
-                    "child": true
+                    "child": true,
+                    "adult": false
                 },
                 "image": "/images/icons/era_child.svg"
             },
             {
                 "values": {
+                    "child": false,
                     "adult": true
                 },
                 "image": "/images/icons/era_adult.svg"
             },
             {
+                "values": {
+                    "child": false,
+                    "adult": false
+                },
                 "image": "/images/icons/era_none.svg"
             }
         ]
@@ -76,17 +82,23 @@
             },
             {
                 "values": {
-                    "day": true
+                    "day": true,
+                    "night": false
                 },
                 "image": "/images/icons/time_day.svg"
             },
             {
                 "values": {
+                    "day": false,
                     "night": true
                 },
                 "image": "/images/icons/time_night.svg"
             },
             {
+                "values": {
+                    "day": false,
+                    "night": false
+                },
                 "image": "/images/icons/time_never.svg"
             }
         ]
