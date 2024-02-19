@@ -919,7 +919,15 @@
         "showMax": true,
         "icon": "/images/items/key_small.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "not",
+            "content": {
+                "type": "state",
+                "ref": "option[shuffle_tcgkeys]",
+                "value": "keylogic_vanilla"
+            }
+        }
     },
     "key_small_generic": {
         "type": "visual",
@@ -1470,5 +1478,9 @@
     "silver_rupee_generic": {
         "type": "visual",
         "icon": "/images/items/rupee_silver.png"
+    },
+    "ap_item": {
+        "type": "visual",
+        "icon": "/images/items/ap_item.png"
     }
 }

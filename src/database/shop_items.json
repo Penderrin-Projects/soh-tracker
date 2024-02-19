@@ -866,6 +866,13 @@
         "mark": "gold",
         "price": false
     },
+    "ap_item": {
+        "image": "/images/items/ap_item.png",
+        "category": "inventory_items",
+        "refill": false,
+        "mark": false,
+        "price": false
+    },
     "bow": {
         "image": "/images/items/bow.png",
         "category": "inventory_items",

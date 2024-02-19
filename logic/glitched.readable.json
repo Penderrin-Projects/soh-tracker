@@ -55105,7 +55105,7 @@
                 },
                 {
                     "type": "value",
-                    "ref": "event[deku_tree_clear]"
+                    "ref": "event[defeat_queen_gohma]"
                 }
             ]
         },
@@ -55138,7 +55138,7 @@
                 },
                 {
                     "type": "value",
-                    "ref": "event[deku_tree_clear]"
+                    "ref": "event[defeat_queen_gohma]"
                 }
             ]
         },

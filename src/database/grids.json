@@ -2219,6 +2219,11 @@
                 "type": "item",
                 "value": "refill_item",
                 "visible": true
+            },
+            {
+                "type": "item",
+                "value": "ap_item",
+                "visible": true
             }
         ]
     ]
