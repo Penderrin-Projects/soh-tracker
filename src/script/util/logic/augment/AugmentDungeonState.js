@@ -81,20 +81,6 @@ function augmentSilverRupees(keyLogic, keyRef, keys) {
     return keys;
 }
 
-function augmentTCGKeys(keyLogic, keys) {
-    if (keyLogic == "keylogic_keysy") {
-        return 9999;
-    }
-    return keys;
-}
-
-function augmentSilverRupees(keyLogic, keys) {
-    if (keyLogic == "keylogic_keysy") {
-        return 9999;
-    }
-    return keys;
-}
-
 function augmentBossKeys(keyLogic, keys) {
     if (keyLogic == "keylogic_keysy") {
         return 9999;
