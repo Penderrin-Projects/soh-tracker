@@ -37,7 +37,6 @@ export default async function() {
         logicEditor.setPatch(patch);
     }
 
-    await refreshLogicEditor();
     // events
     logicEditor.addEventListener("save", async (event) => {
         LogicGlitchedStorage.set(event.key, event.logic);

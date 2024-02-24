@@ -1,0 +1,214 @@
+{
+    "item[key_small_gerudo]": [
+        "reach_location[gerudo.c_guard_1]",
+        "reach_location[gerudo.c_guard_2]",
+        "reach_location[gerudo.c_guard_3]",
+        "reach_location[gerudo.c_guard_4]"
+    ],
+    "item[key_small_treasure_game]": [
+        "reach_location[market.c_treasure_chest_game_salesman]",
+        "reach_location[market.c_treasure_chest_game_room_1_top]",
+        "reach_location[market.c_treasure_chest_game_room_2_top]",
+        "reach_location[market.c_treasure_chest_game_room_3_top]",
+        "reach_location[market.c_treasure_chest_game_room_4_top]",
+        "reach_location[market.c_treasure_chest_game_room_5_top]"
+    ],
+    "item[silver_rupee_well_basement]": [
+        "reach_location[well.basement_silver_rupee_wood_beam_front]",
+        "reach_location[well.basement_silver_rupee_wood_beam_back]",
+        "reach_location[well.basement_silver_rupee_ladders_bottom]",
+        "reach_location[well.basement_silver_rupee_ladders_middle]",
+        "reach_location[well.basement_silver_rupee_ladders_top]"
+    ],
+    "item[silver_rupee_dodongo_staircase]": [
+        "reach_location[dodongo_mq.staircase_silver_rupee_beamos]",
+        "reach_location[dodongo_mq.staircase_silver_rupee_lower_crate]",
+        "reach_location[dodongo_mq.staircase_silver_rupee_mid_left_crate]",
+        "reach_location[dodongo_mq.staircase_silver_rupee_top_right_crate]",
+        "reach_location[dodongo_mq.staircase_silver_rupee_vines]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_forest]": [
+        "reach_location[castle_ganon.forest_trial_silver_rupee_front_right]",
+        "reach_location[castle_ganon.forest_trial_silver_rupee_front_left]",
+        "reach_location[castle_ganon.forest_trial_silver_rupee_back_right]",
+        "reach_location[castle_ganon.forest_trial_silver_rupee_back_center]",
+        "reach_location[castle_ganon.forest_trial_silver_rupee_center_left]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_fire]": [
+        "reach_location[castle_ganon_mq.fire_trial_silver_rupee_rising_platform]",
+        "reach_location[castle_ganon_mq.fire_trial_silver_rupee_beamos]",
+        "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_front]",
+        "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_center]",
+        "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_back]",
+        "reach_location[castle_ganon.fire_trial_silver_rupee_right_back]",
+        "reach_location[castle_ganon.fire_trial_silver_rupee_flamethrower]",
+        "reach_location[castle_ganon.fire_trial_silver_rupee_right_center]",
+        "reach_location[castle_ganon.fire_trial_silver_rupee_right_front]",
+        "reach_location[castle_ganon.fire_trial_silver_rupee_inside_pillar]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_water]": [
+        "reach_location[castle_ganon_mq.water_trial_silver_rupee_hole]",
+        "reach_location[castle_ganon_mq.water_trial_silver_rupee_near_blocks]",
+        "reach_location[castle_ganon_mq.water_trial_silver_rupee_center_left]",
+        "reach_location[castle_ganon_mq.water_trial_silver_rupee_red_ice]",
+        "reach_location[castle_ganon_mq.water_trial_silver_rupee_above_void]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_shadow]": [
+        "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_moving_platform]",
+        "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_bomb_flower]",
+        "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]",
+        "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_last_beamos]",
+        "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_guillotine]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_spirit]": [
+        "reach_location[castle_ganon.spirit_trial_silver_rupee_ceiling]",
+        "reach_location[castle_ganon.spirit_trial_silver_rupee_front_right]",
+        "reach_location[castle_ganon.spirit_trial_silver_rupee_center]",
+        "reach_location[castle_ganon.spirit_trial_silver_rupee_back_left]",
+        "reach_location[castle_ganon.spirit_trial_silver_rupee_back_right]"
+    ],
+    "item[silver_rupee_castle_ganon_trial_light]": [
+        "reach_location[castle_ganon.light_trial_silver_rupee_right_alcove]",
+        "reach_location[castle_ganon.light_trial_silver_rupee_left_alcove]",
+        "reach_location[castle_ganon.light_trial_silver_rupee_center_top]",
+        "reach_location[castle_ganon.light_trial_silver_rupee_center_right]",
+        "reach_location[castle_ganon.light_trial_silver_rupee_center_left]"
+    ],
+    "item[silver_rupee_training_grounds_lava]": [
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_front_left]",
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_front_center]",
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_front_right]",
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_back_center]",
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_back_right]",
+        "reach_location[training_grounds_mq.lava_room_silver_rupee_back_left]",
+        "reach_location[training_grounds.lava_room_silver_rupee_front_left]",
+        "reach_location[training_grounds.lava_room_silver_rupee_front_right]",
+        "reach_location[training_grounds.lava_room_silver_rupee_flame_circle]",
+        "reach_location[training_grounds.lava_room_silver_rupee_center_right]",
+        "reach_location[training_grounds.lava_room_silver_rupee_hookshot_target]"
+    ],
+    "item[silver_rupee_training_grounds_water]": [
+        "reach_location[training_grounds_mq.underwater_silver_rupee_middle]",
+        "reach_location[training_grounds_mq.underwater_silver_rupee_front_right]",
+        "reach_location[training_grounds_mq.underwater_silver_rupee_back_left]",
+        "reach_location[training_grounds.underwater_silver_rupee_top]",
+        "reach_location[training_grounds.underwater_silver_rupee_bottom_center]",
+        "reach_location[training_grounds.underwater_silver_rupee_bottom_back_left]",
+        "reach_location[training_grounds.underwater_silver_rupee_middle]",
+        "reach_location[training_grounds.underwater_silver_rupee_bottom_front_right]"
+    ],
+    "item[silver_rupee_training_grounds_slopes]": [
+        "reach_location[training_grounds_mq.icicle_room_silver_rupee_freezard]",
+        "reach_location[training_grounds_mq.icicle_room_silver_rupee_icicles]",
+        "reach_location[training_grounds_mq.icicle_room_silver_rupee_center]",
+        "reach_location[training_grounds_mq.icicle_room_silver_rupee_ceiling]",
+        "reach_location[training_grounds_mq.icicle_room_silver_rupee_above_void]",
+        "reach_location[training_grounds.boulder_room_silver_rupee_bottom_right]",
+        "reach_location[training_grounds.boulder_room_silver_rupee_bottom_left]",
+        "reach_location[training_grounds.boulder_room_silver_rupee_ledge]",
+        "reach_location[training_grounds.boulder_room_silver_rupee_top_left]",
+        "reach_location[training_grounds.boulder_room_silver_rupee_ceiling]"
+    ],
+    "item[silver_rupee_ice_cavern_spinning_scythe]": [
+        "reach_location[ice_cavern.spinning_scythe_silver_rupee_icicles]",
+        "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_left]",
+        "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_back]",
+        "reach_location[ice_cavern.spinning_scythe_silver_rupee_center_right]",
+        "reach_location[ice_cavern.spinning_scythe_silver_rupee_ledge]"
+    ],
+    "item[silver_rupee_ice_cavern_block_push]": [
+        "reach_location[ice_cavern.push_block_silver_rupee_back_left]",
+        "reach_location[ice_cavern.push_block_silver_rupee_back_center]",
+        "reach_location[ice_cavern.push_block_silver_rupee_front_center]",
+        "reach_location[ice_cavern.push_block_silver_rupee_red_ice]",
+        "reach_location[ice_cavern.push_block_silver_rupee_front_left]"
+    ],
+    "item[silver_rupee_temple_shadow_scythe_shortcut]": [
+        "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_center_left]",
+        "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_ledge]",
+        "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_back_alcove]",
+        "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_left_alcove]",
+        "reach_location[temple_shadow_mq.scythe_shortcut_silver_rupee_center_right]",
+        "reach_location[temple_shadow.scythe_shortcut_silver_rupee_center_left]",
+        "reach_location[temple_shadow.scythe_shortcut_silver_rupee_ledge]",
+        "reach_location[temple_shadow.scythe_shortcut_silver_rupee_back_alcove]",
+        "reach_location[temple_shadow.scythe_shortcut_silver_rupee_left_alcove]",
+        "reach_location[temple_shadow.scythe_shortcut_silver_rupee_center_right]"
+    ],
+    "item[silver_rupee_temple_shadow_invisible_blades]": [
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_back_left]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_back_right]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_1]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_2]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_3]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_4]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_5]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_6]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_like_like]",
+        "reach_location[temple_shadow_mq.invisible_blades_silver_rupee_song_of_time_block]"
+    ],
+    "item[silver_rupee_temple_shadow_huge_pit]": [
+        "reach_location[temple_shadow_mq.huge_pit_silver_rupee_center_front]",
+        "reach_location[temple_shadow_mq.huge_pit_silver_rupee_center_back]",
+        "reach_location[temple_shadow_mq.huge_pit_silver_rupee_right]",
+        "reach_location[temple_shadow_mq.huge_pit_silver_rupee_ceiling_upper]",
+        "reach_location[temple_shadow_mq.huge_pit_silver_rupee_ceiling_lower]",
+        "reach_location[temple_shadow.huge_pit_silver_rupee_right]",
+        "reach_location[temple_shadow.huge_pit_silver_rupee_left]",
+        "reach_location[temple_shadow.huge_pit_silver_rupee_center]",
+        "reach_location[temple_shadow.huge_pit_silver_rupee_center_front]",
+        "reach_location[temple_shadow.huge_pit_silver_rupee_center_back]"
+    ],
+    "item[silver_rupee_temple_shadow_invisible_spikes]": [
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_center_front]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_center_right]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_left_hookshot_target]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_right_hookshot_target]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_back_right]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ledge]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_near_ledge]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_front]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_middle]",
+        "reach_location[temple_shadow_mq.invisible_spikes_silver_rupee_ceiling_back]",
+        "reach_location[temple_shadow.invisible_spikes_silver_rupee_ledge]",
+        "reach_location[temple_shadow.invisible_spikes_silver_rupee_right]",
+        "reach_location[temple_shadow.invisible_spikes_silver_rupee_center]",
+        "reach_location[temple_shadow.invisible_spikes_silver_rupee_left]",
+        "reach_location[temple_shadow.invisible_spikes_silver_rupee_near_ledge]"
+    ],
+    "item[silver_rupee_temple_spirit_lobby_and_lower_adult]": [
+        "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_right_boulder]",
+        "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_left_boulder]",
+        "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_near_door]",
+        "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_behind_water_jet]",
+        "reach_location[temple_spirit_mq.lobby_and_lower_adult_silver_rupee_water_jet]"
+    ],
+    "item[silver_rupee_temple_spirit_adult_climb]": [
+        "reach_location[temple_spirit_mq.adult_climb_silver_rupee_1]",
+        "reach_location[temple_spirit_mq.adult_climb_silver_rupee_2]",
+        "reach_location[temple_spirit_mq.adult_climb_silver_rupee_3]",
+        "reach_location[temple_spirit_mq.adult_climb_silver_rupee_4]",
+        "reach_location[temple_spirit_mq.adult_climb_silver_rupee_5]"
+    ],
+    "item[silver_rupee_temple_spirit_child_early_torches]": [
+        "reach_location[temple_spirit.child_early_torches_silver_rupee_top_right]",
+        "reach_location[temple_spirit.child_early_torches_silver_rupee_bottom_right]",
+        "reach_location[temple_spirit.child_early_torches_silver_rupee_bottom_left]",
+        "reach_location[temple_spirit.child_early_torches_silver_rupee_top_left]",
+        "reach_location[temple_spirit.child_early_torches_silver_rupee_near_torch]"
+    ],
+    "item[silver_rupee_temple_spirit_adult_boulders]": [
+        "reach_location[temple_spirit.adult_boulder_silver_rupee_ledge]",
+        "reach_location[temple_spirit.adult_boulder_silver_rupee_front_left]",
+        "reach_location[temple_spirit.adult_boulder_silver_rupee_front_right]",
+        "reach_location[temple_spirit.adult_boulder_silver_rupee_back_right]",
+        "reach_location[temple_spirit.adult_boulder_silver_rupee_back_left]"
+    ],
+    "item[silver_rupee_temple_spirit_sun_block]": [
+        "reach_location[temple_spirit.sun_block_room_silver_rupee_left]",
+        "reach_location[temple_spirit.sun_block_room_silver_rupee_center_front]",
+        "reach_location[temple_spirit.sun_block_room_silver_rupee_center_back]",
+        "reach_location[temple_spirit.sun_block_room_silver_rupee_right_front]",
+        "reach_location[temple_spirit.sun_block_room_silver_rupee_right_back]"
+    ]
+}

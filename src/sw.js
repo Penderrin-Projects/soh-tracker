@@ -40,7 +40,11 @@ async function getResponse(request) {
     const cache = await caches.open(CACHE_NAME);
     let response = await cache.match(request.url);
     if (!response) {
-        response = await fetch(request);
+        try {
+            response = await fetch(request);
+        } catch {
+            return new Response("", {"status": 500, "statusText": "offline"});
+        }
     }
     return response;
 }
@@ -84,15 +88,19 @@ self.addEventListener("message", async (event) => {
 });
 
 async function fetchFile(url, method = "GET") {
-    const r = await fetch(url, {
-        method: method,
-        headers: HEADER_CONFIG,
-        mode: "cors"
-    });
-    if (r.status < 200 || r.status >= 300) {
-        throw new Error(`error fetching file "${url}" - status: ${r.status}`);
+    try {
+        const r = await fetch(url, {
+            method: method,
+            headers: HEADER_CONFIG,
+            mode: "cors"
+        });
+        if (r.status < 200 || r.status >= 300) {
+            throw new Error(`error fetching file "${url}" - status: ${r.status}`);
+        }
+        return r;
+    } catch {
+        return new Response("", {"status": 500, "statusText": "offline"});
     }
-    return r;
 }
 
 async function overwriteCachedFile(cache, request, file) {
