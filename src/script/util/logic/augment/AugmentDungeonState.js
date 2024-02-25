@@ -111,7 +111,7 @@ function augment(cache) {
             } else if (keyGroup === "gerudo") {
                 if (cache.hasChange("option[gerudo_key_logic]") || cache.hasChange(keyRef)) {
                     const keyLogic = cache.get("option[gerudo_key_logic]");
-                    const augKeys = augmentGerudoKeys(keyLogic, cache.get(keyRef) ?? 0);
+                    const augKeys = augmentGerudoKeys(keyLogic, keyRef, cache.get(keyRef) ?? 0);
                     cache.setAugmented(keyRef, augKeys);
                 }
             } else if (keyGroup === "dungeon" || keyGroup == "ganon") {
