@@ -11,10 +11,11 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.11.14",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.13",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.11.15",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.14",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.19",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0"
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0",
+    "webservice": "git+https://bitbucket.org/zidargs/webservice.git#2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.10",
@@ -34,12 +35,12 @@
     "gulp-newer": "^1.4.0",
     "gulp-svgo": "^2.1.0",
     "gulp-terser": "^1.4.1",
-    "through": "^2.3.8",
-    "webservice": "git+https://bitbucket.org/zidargs/webservice.git#2.0.0"
+    "through": "^2.3.8"
   },
   "scripts": {
     "lint": "yarn eslint .",
     "lintfix": "yarn eslint --fix .",
+    "integrityCheck": "node ./test/verifyWorldFile.js",
     "build": "gulp build",
     "buildDev": "gulp buildDev",
     "watch": "gulp watch -nocompress",

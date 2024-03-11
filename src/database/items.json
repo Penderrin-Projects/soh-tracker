@@ -921,12 +921,19 @@
         "halign": "end",
         "valign": "end",
         "visible": {
-            "type": "not",
-            "content": {
-                "type": "state",
-                "ref": "option[shuffle_tcgkeys]",
-                "value": "keylogic_vanilla"
-            }
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_tcgkeys]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
         }
     },
     "key_small_generic": {
@@ -1191,7 +1198,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[well]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_dodongo_staircase": {
         "type": "key",
@@ -1205,7 +1232,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[dodongo]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_forest": {
         "type": "key",
@@ -1219,7 +1266,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_fire": {
         "type": "key",
@@ -1230,7 +1297,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_water": {
         "type": "key",
@@ -1244,7 +1326,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_shadow": {
         "type": "key",
@@ -1258,7 +1360,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_spirit": {
         "type": "key",
@@ -1272,7 +1394,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_castle_ganon_trial_light": {
         "type": "key",
@@ -1286,7 +1428,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_training_grounds_lava": {
         "type": "key",
@@ -1300,7 +1462,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_training_grounds_water": {
         "type": "key",
@@ -1314,7 +1491,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_training_grounds_slopes": {
         "type": "key",
@@ -1325,7 +1517,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_ice_cavern_spinning_scythe": {
         "type": "key",
@@ -1339,7 +1546,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[ice_cavern]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_ice_cavern_block_push": {
         "type": "key",
@@ -1353,7 +1580,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[ice_cavern]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_shadow_scythe_shortcut": {
         "type": "key",
@@ -1364,7 +1611,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_shadow_invisible_blades": {
         "type": "key",
@@ -1378,7 +1640,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_shadow]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_shadow_huge_pit": {
         "type": "key",
@@ -1389,7 +1671,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_shadow_invisible_spikes": {
         "type": "key",
@@ -1403,7 +1700,22 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_spirit_lobby_and_lower_adult": {
         "type": "key",
@@ -1417,7 +1729,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_spirit]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_spirit_adult_climb": {
         "type": "key",
@@ -1431,7 +1763,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_spirit]",
+                    "value": "v"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_spirit_child_early_torches": {
         "type": "key",
@@ -1445,7 +1797,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_spirit]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_spirit_adult_boulders": {
         "type": "key",
@@ -1459,7 +1831,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_spirit]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_temple_spirit_sun_block": {
         "type": "key",
@@ -1473,7 +1865,27 @@
         "showMax": true,
         "icon": "/images/items/rupee_silver.png",
         "halign": "end",
-        "valign": "end"
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[temple_spirit]",
+                    "value": "mq"
+                }
+            ]
+        }
     },
     "silver_rupee_generic": {
         "type": "visual",
