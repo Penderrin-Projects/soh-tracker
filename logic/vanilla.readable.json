@@ -68793,7 +68793,7 @@
                 "type": "mixin",
                 "ref": "function[can_use](item[tunic_fire]){child}"
             },
-            "region[dmc_ladder_area_nearby]{child}": {
+            "region[crater_goron_gateway:in]{child}": {
                 "type": "true"
             },
             "region[crater_great_fairy_gateway:in]{child}": {
@@ -68862,7 +68862,7 @@
                 "type": "mixin",
                 "ref": "function[can_use](item[tunic_fire]){adult}"
             },
-            "region[dmc_ladder_area_nearby]{adult}": {
+            "region[crater_goron_gateway:in]{adult}": {
                 "type": "true"
             },
             "region[crater_great_fairy_gateway:in]{adult}": {
@@ -68930,7 +68930,7 @@
             "region[dmc_lower_nearby]{child}": {
                 "type": "true"
             },
-            "region[crater_goron_gateway:in]{child}": {
+            "region[dmc_ladder_area_nearby]{child}": {
                 "type": "true"
             },
             "region[dmc_central_nearby]{child}": {
@@ -69012,7 +69012,7 @@
             "region[dmc_lower_nearby]{adult}": {
                 "type": "true"
             },
-            "region[crater_goron_gateway:in]{adult}": {
+            "region[dmc_ladder_area_nearby]{adult}": {
                 "type": "true"
             },
             "region[dmc_central_nearby]{adult}": {
