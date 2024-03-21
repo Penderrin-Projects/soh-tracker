@@ -51,8 +51,8 @@ export default class TrackerLocationListGossipstone extends BaseClass {
         this.addDefaultContextMenuHandler("sethint", () => {
             const state = this.getState();
             if (state != null) {
-                const title = Language.generateLabel(this.ref);
-                LogicViewer.show(state.props.logicAccess, title);
+                // const title = Language.generateLabel(this.ref);
+                // LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
         this.addDefaultContextMenuHandler("junk", () => {
@@ -73,7 +73,7 @@ export default class TrackerLocationListGossipstone extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess, title);
+                LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
     }

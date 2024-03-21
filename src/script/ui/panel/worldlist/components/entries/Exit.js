@@ -19,7 +19,7 @@ export default class TrackerWorldListExit extends WorldListExit {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`exit[${this.ref}]`);
-                LogicViewer.show(getGatewayIn(state.props.logicAccess), title);
+                LogicViewer.show(getGatewayIn(state.props.logicAccess ?? ""), title);
             }
         });
     }

@@ -16,7 +16,7 @@ export default class TrackerWorldMapExit extends WorldMapExit {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`exit[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess, title);
+                LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
     }

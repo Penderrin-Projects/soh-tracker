@@ -16,7 +16,7 @@ export default class TrackerWorldListLocation extends WorldListLocation {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess, title);
+                LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
     }
