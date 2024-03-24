@@ -113663,10 +113663,7 @@
                 "type": "Area",
                 "name": "castle_town.temple_of_time"
             },
-            "visible": {
-                "type": "value",
-                "ref": "option[shuffle_warps]"
-            },
+            "visible": false,
             "visibleRootOnly": false,
             "filter": {
                 "era": {
