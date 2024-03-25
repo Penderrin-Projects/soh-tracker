@@ -6026,7 +6026,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_morpha"
+                                        "ref": "option[skip.water_morpha]"
                                     },
                                     {
                                         "type": "or",
@@ -6097,7 +6097,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_morpha"
+                                        "ref": "option[skip.water_morpha]"
                                     },
                                     {
                                         "type": "or",
@@ -16430,7 +16430,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_dc_chu_eyes"
+                                "ref": "option[skip.dc_chu_eyes]"
                             },
                             {
                                 "type": "mixin",
@@ -16718,7 +16718,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_dc_chu_eyes"
+                                "ref": "option[skip.dc_chu_eyes]"
                             },
                             {
                                 "type": "mixin",
@@ -18460,7 +18460,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_fire_mq_child_flame"
+                                "ref": "option[skip.fire_mq_child_flame]"
                             }
                         ]
                     },
@@ -18602,7 +18602,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_fire_mq_child_flame"
+                                "ref": "option[skip.fire_mq_child_flame]"
                             }
                         ]
                     },
@@ -24184,7 +24184,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_forest_courtyard_hearts"
+                        "ref": "option[skip.forest_courtyard_hearts]"
                     },
                     {
                         "type": "mixin",
@@ -24241,7 +24241,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_forest_courtyard_hearts"
+                        "ref": "option[skip.forest_courtyard_hearts]"
                     },
                     {
                         "type": "mixin",
@@ -26115,7 +26115,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_forest_courtyard_hearts"
+                        "ref": "option[skip.forest_courtyard_hearts]"
                     },
                     {
                         "type": "mixin",
@@ -26412,7 +26412,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_forest_courtyard_hearts"
+                        "ref": "option[skip.forest_courtyard_hearts]"
                     },
                     {
                         "type": "mixin",
@@ -28994,7 +28994,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -29070,7 +29070,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -29229,7 +29229,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_lens_shadow_trial_mq"
+                                "ref": "option[skip.lens_shadow_trial_mq]"
                             },
                             {
                                 "type": "mixin",
@@ -29372,7 +29372,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_lens_shadow_trial_mq"
+                                "ref": "option[skip.lens_shadow_trial_mq]"
                             },
                             {
                                 "type": "mixin",
@@ -31895,7 +31895,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_fire_trial_slug_rupee"
+                                "ref": "option[skip.fire_trial_slug_rupee]"
                             }
                         ]
                     }
@@ -32000,7 +32000,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_fire_trial_slug_rupee"
+                                "ref": "option[skip.fire_trial_slug_rupee]"
                             }
                         ]
                     }
@@ -34394,7 +34394,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_gtg_mq_eye_statue_jumpslash"
+                                        "ref": "option[skip.gtg_mq_eye_statue_jumpslash]"
                                     }
                                 ]
                             }
@@ -34520,7 +34520,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_gtg_mq_eye_statue_jumpslash"
+                                        "ref": "option[skip.gtg_mq_eye_statue_jumpslash]"
                                     }
                                 ]
                             }
@@ -34578,7 +34578,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_gtg_mq_maze_right"
+                        "ref": "option[skip.gtg_mq_maze_right]"
                     },
                     {
                         "type": "value",
@@ -34613,7 +34613,7 @@
                 "content": [
                     {
                         "type": "value",
-                        "ref": "logic_gtg_mq_maze_right"
+                        "ref": "option[skip.gtg_mq_maze_right]"
                     },
                     {
                         "type": "value",
@@ -35592,7 +35592,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_gtg_underwater_highest"
+                                                "ref": "option[skip.gtg_underwater_highest]"
                                             },
                                             {
                                                 "type": "min",
@@ -35694,7 +35694,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_gtg_underwater_highest"
+                                                "ref": "option[skip.gtg_underwater_highest]"
                                             },
                                             {
                                                 "type": "min",
@@ -35823,7 +35823,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_gtg_flame_wall"
+                                "ref": "option[skip.gtg_flame_wall]"
                             }
                         ]
                     }
@@ -35889,7 +35889,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_gtg_flame_wall"
+                                "ref": "option[skip.gtg_flame_wall]"
                             }
                         ]
                     }
@@ -36977,14 +36977,14 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_ice_frozen_rupee"
+                                "ref": "option[skip.ice_frozen_rupee]"
                             },
                             {
                                 "type": "and",
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -37086,14 +37086,14 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_ice_frozen_rupee"
+                                "ref": "option[skip.ice_frozen_rupee]"
                             },
                             {
                                 "type": "and",
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -37414,7 +37414,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_ice_frozen_pot"
+                                "ref": "option[skip.ice_frozen_pot]"
                             }
                         ]
                     }
@@ -37476,7 +37476,7 @@
                             },
                             {
                                 "type": "value",
-                                "ref": "logic_ice_frozen_pot"
+                                "ref": "option[skip.ice_frozen_pot]"
                             }
                         ]
                     }
@@ -44409,7 +44409,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_adult_kokiri_gs_hovers"
+                                                "ref": "option[skip.adult_kokiri_gs_hovers]"
                                             },
                                             {
                                                 "type": "value",
@@ -44419,7 +44419,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_adult_kokiri_gs_nothing"
+                                        "ref": "option[skip.adult_kokiri_gs_nothing]"
                                     }
                                 ]
                             }
@@ -45262,7 +45262,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_adult_kokiri_gs_hovers"
+                                                "ref": "option[skip.adult_kokiri_gs_hovers]"
                                             },
                                             {
                                                 "type": "value",
@@ -45272,7 +45272,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_adult_kokiri_gs_nothing"
+                                        "ref": "option[skip.adult_kokiri_gs_nothing]"
                                     }
                                 ]
                             }
@@ -47579,7 +47579,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -47880,7 +47880,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_boomerang_boulders"
+                                        "ref": "option[skip.boomerang_boulders]"
                                     },
                                     {
                                         "type": "mixin",
@@ -52351,7 +52351,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "logic_gf_break_room_jump"
+                        "ref": "option[skip.logic_gf_break_room_jump]"
                     }
                 ]
             }
@@ -52401,7 +52401,7 @@
                     },
                     {
                         "type": "value",
-                        "ref": "logic_gf_break_room_jump"
+                        "ref": "option[skip.logic_gf_break_room_jump]"
                     }
                 ]
             }
@@ -64506,7 +64506,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_boomerang_boulders"
+                                                "ref": "option[skip.boomerang_boulders]"
                                             },
                                             {
                                                 "type": "value",
@@ -64546,7 +64546,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_boomerang_boulders"
+                                                "ref": "option[skip.boomerang_boulders]"
                                             },
                                             {
                                                 "type": "value",
@@ -64648,7 +64648,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_trail_gs_lower"
+                                        "ref": "option[skip.trail_gs_lower]"
                                     }
                                 ]
                             }
@@ -65070,7 +65070,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_boomerang_boulders"
+                                                "ref": "option[skip.boomerang_boulders]"
                                             },
                                             {
                                                 "type": "value",
@@ -65110,7 +65110,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_boomerang_boulders"
+                                                "ref": "option[skip.boomerang_boulders]"
                                             },
                                             {
                                                 "type": "value",
@@ -65212,7 +65212,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_trail_gs_lower"
+                                        "ref": "option[skip.trail_gs_lower]"
                                     }
                                 ]
                             }
@@ -70547,7 +70547,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -70578,7 +70578,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -70609,7 +70609,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -70640,7 +70640,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -71294,7 +71294,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -71325,7 +71325,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -71356,7 +71356,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -71387,7 +71387,7 @@
                                     },
                                     {
                                         "type": "value",
-                                        "ref": "logic_zora_river_rupees"
+                                        "ref": "option[skip.zora_river_rupees]"
                                     }
                                 ]
                             }
@@ -81416,7 +81416,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_shadow_mq_after_boat_gs"
+                                        "ref": "option[skip.shadow_mq_after_boat_gs]"
                                     },
                                     {
                                         "type": "or",
@@ -81500,7 +81500,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_shadow_mq_after_boat_gs"
+                                        "ref": "option[skip.shadow_mq_after_boat_gs]"
                                     },
                                     {
                                         "type": "or",
@@ -81617,7 +81617,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_shadow_triple_pots"
+                                "ref": "option[skip.shadow_triple_pots]"
                             },
                             {
                                 "type": "mixin",
@@ -81756,7 +81756,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_shadow_triple_pots"
+                                "ref": "option[skip.shadow_triple_pots]"
                             },
                             {
                                 "type": "mixin",
@@ -83445,7 +83445,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_shadow_triple_pots"
+                                "ref": "option[skip.shadow_triple_pots]"
                             },
                             {
                                 "type": "mixin",
@@ -83553,7 +83553,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_shadow_triple_pots"
+                                "ref": "option[skip.shadow_triple_pots]"
                             },
                             {
                                 "type": "mixin",
@@ -87082,7 +87082,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_mq_water_rupee"
+                                        "ref": "option[skip.spirit_mq_water_rupee]"
                                     },
                                     {
                                         "type": "min",
@@ -87235,7 +87235,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_mq_water_rupee"
+                                        "ref": "option[skip.spirit_mq_water_rupee]"
                                     },
                                     {
                                         "type": "min",
@@ -88254,7 +88254,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_fence_gs"
+                                        "ref": "option[skip.spirit_fence_gs]"
                                     },
                                     {
                                         "type": "value",
@@ -88278,7 +88278,7 @@
                                             },
                                             {
                                                 "type": "value",
-                                                "ref": "logic_spirit_fence_gs"
+                                                "ref": "option[skip.spirit_fence_gs]"
                                             }
                                         ]
                                     },
@@ -88397,7 +88397,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_fence_gs"
+                                        "ref": "option[skip.spirit_fence_gs]"
                                     },
                                     {
                                         "type": "value",
@@ -88421,7 +88421,7 @@
                                             },
                                             {
                                                 "type": "value",
-                                                "ref": "logic_spirit_fence_gs"
+                                                "ref": "option[skip.spirit_fence_gs]"
                                             }
                                         ]
                                     },
@@ -89407,7 +89407,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_adult_side_hovers"
+                                        "ref": "option[skip.spirit_adult_side_hovers]"
                                     },
                                     {
                                         "type": "mixin",
@@ -89672,7 +89672,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_spirit_sun_chest_no_rupees"
+                                                "ref": "option[skip.spirit_sun_chest_no_rupees]"
                                             },
                                             {
                                                 "type": "min",
@@ -89713,7 +89713,7 @@
                                                 "content": [
                                                     {
                                                         "type": "value",
-                                                        "ref": "logic_spirit_sun_chest_bow"
+                                                        "ref": "option[skip.spirit_sun_chest_bow]"
                                                     },
                                                     {
                                                         "type": "min",
@@ -89784,7 +89784,7 @@
                                                                 "content": [
                                                                     {
                                                                         "type": "value",
-                                                                        "ref": "logic_spirit_sun_chest_bow"
+                                                                        "ref": "option[skip.spirit_sun_chest_bow]"
                                                                     },
                                                                     {
                                                                         "type": "min",
@@ -89811,7 +89811,7 @@
                                                         "content": [
                                                             {
                                                                 "type": "value",
-                                                                "ref": "logic_spirit_sun_chest_no_rupees"
+                                                                "ref": "option[skip.spirit_sun_chest_no_rupees]"
                                                             },
                                                             {
                                                                 "type": "min",
@@ -90591,7 +90591,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_spirit_adult_side_hovers"
+                                        "ref": "option[skip.spirit_adult_side_hovers]"
                                     },
                                     {
                                         "type": "mixin",
@@ -90856,7 +90856,7 @@
                                         "content": [
                                             {
                                                 "type": "value",
-                                                "ref": "logic_spirit_sun_chest_no_rupees"
+                                                "ref": "option[skip.spirit_sun_chest_no_rupees]"
                                             },
                                             {
                                                 "type": "min",
@@ -90897,7 +90897,7 @@
                                                 "content": [
                                                     {
                                                         "type": "value",
-                                                        "ref": "logic_spirit_sun_chest_bow"
+                                                        "ref": "option[skip.spirit_sun_chest_bow]"
                                                     },
                                                     {
                                                         "type": "min",
@@ -90968,7 +90968,7 @@
                                                                 "content": [
                                                                     {
                                                                         "type": "value",
-                                                                        "ref": "logic_spirit_sun_chest_bow"
+                                                                        "ref": "option[skip.spirit_sun_chest_bow]"
                                                                     },
                                                                     {
                                                                         "type": "min",
@@ -90995,7 +90995,7 @@
                                                         "content": [
                                                             {
                                                                 "type": "value",
-                                                                "ref": "logic_spirit_sun_chest_no_rupees"
+                                                                "ref": "option[skip.spirit_sun_chest_no_rupees]"
                                                             },
                                                             {
                                                                 "type": "min",
@@ -92561,7 +92561,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_mq_dark_link"
+                                        "ref": "option[skip.water_mq_dark_link]"
                                     },
                                     {
                                         "type": "value",
@@ -92639,7 +92639,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_mq_dark_link"
+                                        "ref": "option[skip.water_mq_dark_link]"
                                     },
                                     {
                                         "type": "value",
@@ -95709,7 +95709,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_water_north_basement"
+                                "ref": "option[skip.water_north_basement]"
                             },
                             {
                                 "type": "value",
@@ -95887,7 +95887,7 @@
                         "content": [
                             {
                                 "type": "value",
-                                "ref": "logic_water_north_basement"
+                                "ref": "option[skip.water_north_basement]"
                             },
                             {
                                 "type": "value",
@@ -97755,7 +97755,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_north_basement"
+                                        "ref": "option[skip.water_north_basement]"
                                     },
                                     {
                                         "type": "value",
@@ -98008,7 +98008,7 @@
                                 "content": [
                                     {
                                         "type": "value",
-                                        "ref": "logic_water_north_basement"
+                                        "ref": "option[skip.water_north_basement]"
                                     },
                                     {
                                         "type": "value",
