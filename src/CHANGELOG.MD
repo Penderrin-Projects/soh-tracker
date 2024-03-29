@@ -4,6 +4,12 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 2.4.0 (NIGHTLY)
+
+### DETAILED MAPS
+
+- add detailed maps for all vanilla and mq maps (enable via Tracker Setting > World > Activate detailed maps)
+
 ## VERSION 2.3.0 (DEV)
 
 ### UI
