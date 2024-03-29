@@ -1,7 +1,7 @@
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import ItemsResource from "/GameTrackerJS/data/resource/ItemsResource.js";
 import ItemGridInteractive from "/GameTrackerJS/ui/itemgrid/interactive/ItemGridInteractive.js";
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import "/GameTrackerJS/ui/itemgrid/interactive/components/entries/Item.js";
 import "/GameTrackerJS/ui/itemgrid/interactive/components/entries/ProgressiveItem.js";
 import DungeonstateResource from "../../../resource/DungeonstateResource.js";
@@ -9,67 +9,8 @@ import "../itemgrid/components/RewardItem.js";
 import "./components/DungeonReward.js";
 import "./components/DungeonType.js";
 import "./components/DungeonHint.js";
-
-const STYLE = new GlobalStyle(`
-:host {
-    cursor: default;
-}
-:host {
-    display: flex;
-    flex-direction: row;
-    width: min-content;
-    height: min-content;
-}
-:host([orientation="column"]) {
-    flex-direction: column;
-}
-div.item-row {
-    display: flex;
-    flex-direction: column;
-}
-div.item-row:hover {
-    background-color: var(--main-hover-color, #ffffff32);
-}
-:host([orientation="column"]) div.item-row {
-    flex-direction: row;
-}
-ootrt-item {
-    display: block;
-    padding: 2px;
-}
-.dungeon-status {
-    display: block;
-    padding: 5px;
-}
-.dungeon-status:hover {
-    padding: 2px;
-}
-div.text {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 20px;
-    padding: 2px;
-    font-size: 1em;
-    -moz-user-select: none;
-    user-select: none;
-}
-:host([orientation="column"]) div.text {
-    height: 40px;
-}
-div.placeholder {
-    width: 40px;
-    height: 40px;
-}
-[type]:hover,
-[type].ctx-marked {
-    background-color: var(--main-hover-color, #ffffff32);
-}
-[type].inactive {
-    display: none;
-}
-`);
+import STYLE from "./DungeonState.js.css" assert {type: "css"};
+import EventTargetManager from "/emcJS/util/event/EventTargetManager.js";
 
 function createItemText(text) {
     const el = document.createElement("DIV");
@@ -86,6 +27,10 @@ function createItemPlaceholder() {
 
 class DungeonState extends Panel {
 
+    #activeTypesOptionsObserver = null;
+
+    #activeTypesOptionsObserverEventManager = new EventTargetManager();
+
     constructor() {
         super();
         STYLE.apply(this.shadowRoot);
@@ -95,11 +40,25 @@ class DungeonState extends Panel {
             const dData = dungeonData[ref];
             this.shadowRoot.append(createRow(this, ref, dData));
         }
-        this.#switchActive(this.active);
+        this.#activeTypesOptionsObserverEventManager.set("change", (event) => {
+            const {value} = event;
+            this.#applyActiveTypeOption(value);
+        });
     }
 
     connectedCallback() {
         this.setAttribute("data-fontmod", "items");
+        // load active types
+        const activeTypesOption = this.activeTypesOption;
+        if (!activeTypesOption) {
+            this.#activeTypesOptionsObserver = null;
+            this.#activeTypesOptionsObserverEventManager.switchTarget(null);
+            this.#switchActive(this.active);
+        } else {
+            this.#activeTypesOptionsObserver = new OptionsObserver(activeTypesOption);
+            this.#activeTypesOptionsObserverEventManager.switchTarget(this.#activeTypesOptionsObserver);
+            this.#applyActiveTypeOption(this.#activeTypesOptionsObserver.value);
+        }
     }
 
     get active() {
@@ -118,25 +77,57 @@ class DungeonState extends Panel {
         this.setAttribute("orientation", val);
     }
 
-    static get observedAttributes() {
-        return ["active"];
+    get activeTypesOption() {
+        return this.getAttribute("activetypesoption");
+    }
+
+    set activeTypesOption(val) {
+        this.setAttribute("activetypesoption", val);
+    }
+
+    static get i18nObservedAttributes() {
+        return ["active", "activetypesoption"];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case "active":
+            case "active": {
                 if (oldValue != newValue) {
                     this.#switchActive(newValue);
                 }
-                break;
+            } break;
+            case "activetypesoption": {
+                if (oldValue != newValue) {
+                    const activeTypesOption = this.activeTypesOption;
+                    if (!activeTypesOption) {
+                        this.#activeTypesOptionsObserver = null;
+                        this.#activeTypesOptionsObserverEventManager.switchTarget(null);
+                        this.#switchActive(this.active);
+                    } else {
+                        this.#activeTypesOptionsObserver = new OptionsObserver(activeTypesOption);
+                        this.#activeTypesOptionsObserverEventManager.switchTarget(this.#activeTypesOptionsObserver);
+                        this.#applyActiveTypeOption(this.#activeTypesOptionsObserver.value);
+                    }
+                }
+            } break;
+        }
+    }
+
+    #applyActiveTypeOption(value) {
+        if (!value) {
+            this.#switchActive(this.active);
+        } else {
+            this.#switchActive(value);
         }
     }
 
     #switchActive(value) {
-        if (typeof value === "string") {
-            value = value.split(/,\s*/);
-        } else {
-            value = [];
+        if (!Array.isArray(value)) {
+            if (typeof value === "string") {
+                value = value.split(/,\s*/);
+            } else {
+                value = [];
+            }
         }
         for (const el of this.shadowRoot.querySelectorAll("[type]")) {
             el.classList.add("inactive");

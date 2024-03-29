@@ -1,12 +1,13 @@
-// frameworks
 import Template from "/emcJS/util/html/Template.js";
-
-// GameTrackerJS
+import "/emcJS/ui/i18n/builtin/I18nOption.js";
 import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
-// Track-OOT
-import RulesetsResource from "/script/resource/RulesetsResource.js";
+import RulesetsResource from "../../resource/RulesetsResource.js";
+import "../form/input/dungeonStateActiveTypes/DungeonStateActiveTypes.js";
+import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
+
+OptionsStorage.registerDefault("dungeonstate_active_types", "");
 
 const LOAD_RULESET = new Template(`
     <div id="options-preset-wrapper">
@@ -19,6 +20,9 @@ export default class RomOptionsWindow extends SavestateOptionsWindow {
 
     constructor() {
         super() ;
+        // add dungeonstate active types choice
+        const inputEl = document.createElement("ootrt-input-dungeonstateactivetype");
+        this.addCustomInput("dungeonstate", inputEl, "dungeonstate_active_types", "dungeonstate_active_types", "", "", true, true);
         // add preset choice
         const loadRulesetRow = LOAD_RULESET.generate();
         const loadRulesetWrapper = loadRulesetRow.getElementById("options-preset-wrapper");

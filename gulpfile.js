@@ -115,7 +115,8 @@ function copyDetachedScript(src = SRC_PATH, dest = DEV_PATH) {
 
 function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
-        `${src}/**/*.html`
+        `${src}/**/*.html`,
+        `!${src}/script/**/*.html`
     ];
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
@@ -129,7 +130,8 @@ function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
 
 function copyJSON(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
-        `${src}/**/*.json`
+        `${src}/**/*.json`,
+        `!${src}/script/**/*.json`
     ];
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
