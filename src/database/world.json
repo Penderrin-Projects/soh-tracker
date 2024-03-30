@@ -2694,18 +2694,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
                 "skulltulas": {
-                    "false": false,
-                    "dungeons": false
+                    "true": true,
+                    "dungeons": false,
+                    "overworld": true,
+                    "false": false
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
                 },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -23131,17 +23148,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -24065,7 +24100,7 @@
                 },
                 "time": {
                     "both": true,
-                    "day": true,
+                    "day": false,
                     "night": true
                 },
                 "chests": {
@@ -24127,7 +24162,7 @@
                 },
                 "time": {
                     "both": true,
-                    "day": true,
+                    "day": false,
                     "night": true
                 },
                 "chests": {
@@ -24189,7 +24224,7 @@
                 },
                 "time": {
                     "both": true,
-                    "day": true,
+                    "day": false,
                     "night": true
                 },
                 "chests": {
@@ -24251,7 +24286,7 @@
                 },
                 "time": {
                     "both": true,
-                    "day": true,
+                    "day": false,
                     "night": true
                 },
                 "chests": {
@@ -56739,17 +56774,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -56783,17 +56836,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -56827,17 +56898,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -56871,17 +56960,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -56915,17 +57022,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -56959,17 +57084,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -57003,17 +57146,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -57487,17 +57648,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -57531,17 +57710,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -57575,17 +57772,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60127,17 +60342,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60171,17 +60404,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60215,17 +60466,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60259,17 +60528,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60303,17 +60590,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60347,17 +60652,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60391,17 +60714,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -60435,17 +60776,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
-                    "child": true,
+                    "both": true,
+                    "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -61007,17 +61366,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -61051,17 +61428,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -61095,17 +61490,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -70981,17 +71394,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71018,17 +71449,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71055,17 +71504,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71092,17 +71559,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71129,17 +71614,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71166,17 +71669,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71203,17 +71724,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71240,17 +71779,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71277,17 +71834,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71314,17 +71889,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71351,17 +71944,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
                 },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71413,7 +72024,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71461,7 +72072,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71509,7 +72120,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71557,7 +72168,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71605,7 +72216,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71653,7 +72264,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71701,7 +72312,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71749,7 +72360,7 @@
                 "era": {
                     "both": true,
                     "child": true,
-                    "adult": true
+                    "adult": false
                 },
                 "era_apply": {
                     "loose": true,
@@ -71791,21 +72402,51 @@
         "woods.c_trade_cojiro": {
             "type": "chest",
             "logicAccess": "reach_location[woods.c_trade_cojiro]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[mushroom]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71821,21 +72462,51 @@
         "woods.c_trade_odd_potion": {
             "type": "chest",
             "logicAccess": "reach_location[woods.c_trade_odd_potion]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[saw]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71851,21 +72522,51 @@
         "lake.c_trade_eyeball_frog": {
             "type": "chest",
             "logicAccess": "reach_location[lake.c_trade_eyeball_frog]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[eyedrops]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71881,21 +72582,51 @@
         "gerudo_valley.c_trade_poachers_saw": {
             "type": "chest",
             "logicAccess": "reach_location[gerudo_valley.c_trade_poachers_saw]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[broken_sword]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71911,21 +72642,51 @@
         "mountain.c_trade_broken_sword": {
             "type": "chest",
             "logicAccess": "reach_location[mountain.c_trade_broken_sword]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[prescription]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71941,21 +72702,51 @@
         "mountain.c_trade_eyedrops": {
             "type": "chest",
             "logicAccess": "reach_location[mountain.c_trade_eyedrops]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[claim]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71971,21 +72762,51 @@
         "zora.c_trade_prescription": {
             "type": "chest",
             "logicAccess": "reach_location[zora.c_trade_prescription]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[frog]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -72001,21 +72822,51 @@
         "kakariko.c_granny_trade_odd_mushroom": {
             "type": "chest",
             "logicAccess": "reach_location[kakariko.c_granny_trade_odd_mushroom]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[medicine]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -72031,21 +72882,51 @@
         "kakariko.c_anju_trade_pocket_cucco": {
             "type": "chest",
             "logicAccess": "reach_location[kakariko.c_anju_trade_pocket_cucco]",
-            "visible": true,
+            "visible": {
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[adult_trade_shuffle]"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "option[item[pocket_cojiro]]"
+                    }
+                ]
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -74017,14 +74898,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -74145,9 +75047,9 @@
                             "name": "river.c_frog_epona"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 976,
+                            "y": 197,
+                            "scale": 40
                         },
                         "visible": true,
                         "listHidden": false
@@ -74184,9 +75086,9 @@
                             "name": "river.c_frog_time"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 964,
+                            "y": 189,
+                            "scale": 40
                         },
                         "visible": true,
                         "listHidden": false
@@ -74197,9 +75099,9 @@
                             "name": "river.c_frog_rain"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 958,
+                            "y": 168,
+                            "scale": 40
                         },
                         "visible": true,
                         "listHidden": false
@@ -74414,7 +75316,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "hyrule_field": {
@@ -78362,14 +79274,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -78754,9 +79687,9 @@
                             "name": "kakariko.c_anju_adult"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 1336,
+                            "y": 1037,
+                            "scale": 70
                         },
                         "visible": true,
                         "listHidden": false
@@ -78767,9 +79700,9 @@
                             "name": "kakariko.c_anju_trade_pocket_cucco"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 1316,
+                            "y": 1024,
+                            "scale": 70
                         },
                         "visible": true,
                         "listHidden": false
@@ -78809,6 +79742,19 @@
                             "x": 1529,
                             "y": 774,
                             "scale": 70
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.adult_red_rupee_crate"
+                        },
+                        "pos": {
+                            "x": 1496,
+                            "y": 638,
+                            "scale": 60
                         },
                         "visible": true,
                         "listHidden": false
@@ -79046,23 +79992,20 @@
                         },
                         "visible": true,
                         "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "kakariko.adult_red_rupee_crate"
-                        },
-                        "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "graveyard": {

@@ -55876,7 +55876,7 @@
                     "content": [
                         {
                             "type": "value",
-                            "ref": "option[skip.logic_beehives_bombchus]"
+                            "ref": "option[skip.beehives_bombchus]"
                         },
                         {
                             "type": "mixin",
@@ -55906,7 +55906,7 @@
                     "content": [
                         {
                             "type": "value",
-                            "ref": "option[skip.logic_beehives_bombchus]"
+                            "ref": "option[skip.beehives_bombchus]"
                         },
                         {
                             "type": "mixin",
@@ -55932,7 +55932,7 @@
                     "content": [
                         {
                             "type": "value",
-                            "ref": "option[skip.logic_beehives_bombchus]"
+                            "ref": "option[skip.beehives_bombchus]"
                         },
                         {
                             "type": "mixin",
@@ -55958,7 +55958,7 @@
                     "content": [
                         {
                             "type": "value",
-                            "ref": "option[skip.logic_beehives_bombchus]"
+                            "ref": "option[skip.beehives_bombchus]"
                         },
                         {
                             "type": "mixin",
