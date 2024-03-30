@@ -9,6 +9,10 @@
 
     --navigation-back-color: #cb9c3d;
     --navigation-text-color: #000000;
+    
+    --tooltip-text-color: #ffffff;
+    --tooltip-back-color: #000000;
+    --tooltip-border-color: #ffffff;
 
     --edit-background-color: #222222;
     --edit-text-color: #ffffff;

@@ -34,16 +34,6 @@
         "type": "check",
         "default": false
     },
-    "shuffle_child_trade": {
-        "category": "options",
-        "type": "choice",
-        "default": "vanilla",
-        "values": [
-            "vanilla_child_trade",
-            "shuffle_egg",
-            "skip_child_zelda"
-        ]
-    },
     "skip_epona_race": {
         "category": "options",
         "type": "check",
@@ -230,6 +220,24 @@
         "category": "item_sanity",
         "type": "check",
         "default": false
+    },
+    "shuffle_child_trade": {
+        "category": "item_sanity",
+        "type": "list",
+        "default": "vanilla",
+        "values": [
+            "item[weird_egg]",
+            "item[chicken]",
+            "item[zeldas_letter]",
+            "item[mask_keaton]",
+            "item[mask_skull]",
+            "item[mask_spooky]",
+            "item[mask_bunny]",
+            "item[mask_goron]",
+            "item[mask_zora]",
+            "item[mask_gerudo]",
+            "item[mask_truth]"
+        ]
     },
     "adult_trade_shuffle": {
         "category": "item_sanity",

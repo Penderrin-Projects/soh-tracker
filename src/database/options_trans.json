@@ -136,21 +136,6 @@
                 "false": false
             }
         },
-        "skip_child_zelda": {
-            "name": "shuffle_child_trade",
-            "values": {
-                "true": "skip_child_zelda",
-                "false": "vanilla_child_trade"
-            }
-        },
-        "shuffle_child_trade": {
-            "name": "shuffle_child_trade",
-            "values": {
-                "vanilla": "vanilla_child_trade",
-                "shuffle": "shuffle_egg",
-                "skip_child_zelda": "skip_child_zelda"
-            }
-        },
         "no_epona_race": {
             "name": "skip_epona_race",
             "values": {
@@ -378,19 +363,36 @@
         "lacs_medallions": "medallion_count_lacs",
         "lacs_rewards": "dungeon_count_lacs",
         "lacs_hearts": "heart_count_lacs",
-        "logic_earliest_adult_trade": {
+        "shuffle_child_trade": {
+            "name": "shuffle_child_trade",
+            "values": {
+                "Weird Egg": "item[weird_egg]",
+                "Chicken": "item[chicken]",
+                "Zeldas Letter": "item[zeldas_letter]",
+                "Keaton Mask": "item[mask_keaton]",
+                "Skull Mask": "item[mask_skull]",
+                "Spooky Mask": "item[mask_spooky]",
+                "Bunny Hood": "item[mask_bunny]",
+                "Goron Mask": "item[mask_goron]",
+                "Zora Mask": "item[mask_zora]",
+                "Gerudo Mask": "item[mask_gerudo]",
+                "Mask of Truth": "item[mask_truth]"
+            }
+        },
+        "adult_trade_start": {
             "name": "trade_sequence_start_item",
             "values": {
-                "pocket_egg": 1,
-                "pocket_cucco": 2,
-                "cojiro": 3,
-                "odd_mushroom": 4,
-                "poachers_saw": 6,
-                "broken_sword": 7,
-                "prescription": 8,
-                "eyeball_frog": 9,
-                "eyedrops": 10,
-                "claim_check": 11
+                "Pocket Egg": "item[pocket_egg]",
+                "Pocket Cucco": "item[pocket_cucco]",
+                "Cojiro": "item[pocket_cojiro]",
+                "Odd Mushroom": "item[mushroom]",
+                "Odd Potion": "item[medicine]",
+                "Poachers Saw": "item[saw]",
+                "Broken Sword": "item[broken_sword]",
+                "Prescription": "item[prescription]",
+                "Eyeball Frog": "item[frog]",
+                "Eyedrops": "item[eyedrops]",
+                "Claim Check": "item[claim]"
             }
         },
         "starting_age": {
