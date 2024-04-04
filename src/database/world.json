@@ -72938,6 +72938,53 @@
             },
             "icon": "/images/icons/saw.svg",
             "tags": []
+        },
+        "castle_town.c_lullaby": {
+            "type": "chest",
+            "logicAccess": "reach_location[castle_town.c_lullaby]",
+            "visible": true,
+            "visibleRootOnly": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": false
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/chest.svg",
+            "tags": [
+                "child",
+                "overworld",
+                "castle",
+                "grounds"
+            ]
         }
     },
     "collections": {
@@ -78991,14 +79038,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -79151,10 +79219,33 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.c_lullaby"
+                        },
+                        "pos": {
+                            "x": 322,
+                            "y": 159,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": false
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_ganon_outside": {

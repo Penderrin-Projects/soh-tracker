@@ -39,6 +39,11 @@
         "type": "check",
         "default": false
     },
+    "skip_child_zelda": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "free_scarecrow": {
         "category": "options",
         "type": "check",

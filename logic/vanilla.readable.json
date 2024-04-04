@@ -56894,10 +56894,18 @@
             "reach_location[castle_town.c_zelda]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
+            },
+            "reach_location[castle_town.c_lullaby]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{child}"
             }
         },
         "region[hc_garden_locations]{adult}": {
             "reach_location[castle_town.c_zelda]": {
+                "type": "mixin",
+                "ref": "mixin[filter_era]{adult}"
+            },
+            "reach_location[castle_town.c_lullaby]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             }
