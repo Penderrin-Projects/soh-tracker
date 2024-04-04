@@ -26,6 +26,8 @@ const MODULE_PATHS = {
     RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src")
 };
 
+/* configuration */
+const DELETE_UNUSED_FILES = true;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
@@ -249,7 +251,7 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     return res;
 }
 
-function finish(dest, deleteUnused, done) {
+function finish(dest, done) {
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
@@ -258,10 +260,12 @@ function finish(dest, deleteUnused, done) {
             path.resolve(dest, "sw.js"),
             path.resolve(dest, "index.js"),
             path.resolve(dest, "script/StateRecovery.js"),
-            path.resolve(dest, "detached/index.js")
+            path.resolve(dest, "detached/index.js"),
+            path.resolve(dest, "emcJS/util/html/Template.js"),
+            path.resolve(dest, "emcJS/util/html/GlobalStyle.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/,
-        deleteUnused: deleteUnused
+        deleteUnused: DELETE_UNUSED_FILES
     };
     FileIndex.finish(dest, undefined, config);
     done();
@@ -308,7 +312,7 @@ export const buildDev = gulp.series(
         copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
         copyChangelog.bind(this, SRC_PATH, DEV_PATH)
     ),
-    finish.bind(this, DEV_PATH, true)
+    finish.bind(this, DEV_PATH)
 );
 
 export const watch = function() {

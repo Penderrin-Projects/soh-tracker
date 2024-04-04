@@ -86,4 +86,7 @@
     --world-entry-status-possible-color: #ffff00;
     --world-connection-background-color: #ffffff;
     --world-connection-text-color: #000000;
+
+    /* badges */
+    --gt-badge-back-color: #795d0044;
 }

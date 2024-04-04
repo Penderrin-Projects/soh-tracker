@@ -26,6 +26,8 @@ const MODULE_PATHS = {
     JSEditors: path.resolve(NODE_FOLDER, "jseditors/src")
 };
 
+/* configuration */
+const DELETE_UNUSED_FILES = true;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
@@ -215,10 +217,12 @@ function finish(done) {
     FileIndex.add(LanguageManager.finish(`${BUILD_PATH}/i18n`));
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
-            BUILD_PATH
+            BUILD_PATH,
+            path.resolve(BUILD_PATH, "emcJS/util/html/Template.js"),
+            path.resolve(BUILD_PATH, "emcJS/util/html/GlobalStyle.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*)\.js/,
-        deleteUnused: true
+        deleteUnused: DELETE_UNUSED_FILES
     };
     FileIndex.finish(BUILD_PATH, undefined, config);
     ImageIndex.finish(BUILD_PATH, "images/_index.icons.json", /^\/images\/icons\/.*/);
