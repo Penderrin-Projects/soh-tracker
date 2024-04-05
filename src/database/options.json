@@ -44,6 +44,11 @@
         "type": "check",
         "default": false
     },
+    "complete_mask_quest": {
+        "category": "options",
+        "type": "check",
+        "default": false
+    },
     "free_scarecrow": {
         "category": "options",
         "type": "check",

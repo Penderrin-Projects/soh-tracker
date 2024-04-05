@@ -58796,24 +58796,524 @@
                 ]
             },
             "reach_location[market.m_mask_shop_item_5]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{child}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[kakariko_village]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_keaton]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[kakariko_village]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_keaton]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "reach_location[market.m_mask_shop_item_6]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
             "reach_location[market.m_mask_shop_item_7]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{child}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[graveyard]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_day]{child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_spooky]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[graveyard]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_day]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_spooky]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "reach_location[market.m_mask_shop_item_8]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{child}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[lost_woods]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "function[can_play](item[song_saria]){child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_skull]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[lost_woods]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "function[can_play](item[song_saria]){adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_skull]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "event[mask_of_truth_access]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{child}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{child}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[kakariko_village]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_keaton]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[kakariko_village]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_keaton]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[lost_woods]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "function[can_play](item[song_saria]){child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_skull]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[lost_woods]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "function[can_play](item[song_saria]){adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_skull]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[graveyard]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_day]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_spooky]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[graveyard]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_day]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_spooky]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_field]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[has_all_stones]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_bunny]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_field]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[has_all_stones]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_bunny]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[market_mask_shop_storefront]{adult}": {
@@ -58870,24 +59370,524 @@
                 ]
             },
             "reach_location[market.m_mask_shop_item_5]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{adult}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[kakariko_village]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_keaton]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[kakariko_village]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_keaton]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "reach_location[market.m_mask_shop_item_6]": {
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
             "reach_location[market.m_mask_shop_item_7]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{adult}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[graveyard]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_day]{child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_spooky]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[graveyard]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_day]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_spooky]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "reach_location[market.m_mask_shop_item_8]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{adult}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "or",
+                                "content": [
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{child}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[lost_woods]{child}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{child}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "function[can_play](item[song_saria]){child}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_skull]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "and",
+                                        "content": [
+                                            {
+                                                "type": "mixin",
+                                                "ref": "mixin[filter_era]{adult}"
+                                            },
+                                            {
+                                                "type": "at",
+                                                "node": "region[lost_woods]{adult}",
+                                                "content": {
+                                                    "type": "and",
+                                                    "content": [
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "mixin[is_child]{adult}"
+                                                        },
+                                                        {
+                                                            "type": "mixin",
+                                                            "ref": "function[can_play](item[song_saria]){adult}"
+                                                        },
+                                                        {
+                                                            "type": "value",
+                                                            "ref": "item[mask_skull]"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             "event[mask_of_truth_access]": {
-                "type": "mixin",
-                "ref": "mixin[filter_era]{adult}"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[filter_era]{adult}"
+                    },
+                    {
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "value",
+                                "ref": "option[complete_mask_quest]"
+                            },
+                            {
+                                "type": "and",
+                                "content": [
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[kakariko_village]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_keaton]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[kakariko_village]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_keaton]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[lost_woods]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "function[can_play](item[song_saria]){child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_skull]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[lost_woods]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "function[can_play](item[song_saria]){adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_skull]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[graveyard]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_day]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_spooky]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[graveyard]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_day]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_spooky]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "or",
+                                        "content": [
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{child}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_field]{child}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[has_all_stones]{child}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_bunny]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "and",
+                                                "content": [
+                                                    {
+                                                        "type": "mixin",
+                                                        "ref": "mixin[filter_era]{adult}"
+                                                    },
+                                                    {
+                                                        "type": "at",
+                                                        "node": "region[hyrule_field]{adult}",
+                                                        "content": {
+                                                            "type": "and",
+                                                            "content": [
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[is_child]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "mixin",
+                                                                    "ref": "mixin[has_all_stones]{adult}"
+                                                                },
+                                                                {
+                                                                    "type": "value",
+                                                                    "ref": "item[mask_bunny]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "region[market_shooting_gallery]{child}": {

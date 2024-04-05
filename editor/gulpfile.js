@@ -218,6 +218,7 @@ function finish(done) {
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
             BUILD_PATH,
+            path.resolve(BUILD_PATH, "index.js"),
             path.resolve(BUILD_PATH, "emcJS/util/html/Template.js"),
             path.resolve(BUILD_PATH, "emcJS/util/html/GlobalStyle.js")
         ),

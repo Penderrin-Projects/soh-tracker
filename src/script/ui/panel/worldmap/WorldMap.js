@@ -10,18 +10,8 @@ import "../../../state/world/WorldStates.js";
 import "./components/entries/Exit.js";
 import "./components/entries/Location.js";
 // import "./components/entries/Gossipstone.js";
-
-// import "./listitems/Button.js";
-// import "./listitems/TypeButton.js";
-// import "./listitems/Location.js";
-// import "./listitems/Gossipstone.js";
-// import "./listitems/ShopSlot.js";
-// import "./listitems/Area.js";
-// import "./listitems/SubArea.js";
-// import "./listitems/Exit.js";
-// import "./listitems/SubExit.js";
-// import "./listitems/ListCollection.js";
-// import "../dungeonstate/DungeonType.js";
+import "./components/entries/ShopSlot.js";
+import "./components/entries/ScubLocation.js";
 
 const TPL = new Template(`
 <ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
