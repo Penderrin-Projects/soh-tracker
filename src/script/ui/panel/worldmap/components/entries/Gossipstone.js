@@ -1,102 +1,34 @@
 import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import WorldMapElement from "/GameTrackerJS/ui/panel/worldmap/components/abstract/Element.js";
+import WorldMapMarkedEntry from "/GameTrackerJS/ui/panel/worldmap/components/abstract/MarkedEntry.js";
+import "/GameTrackerJS/ui/Badge.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
 
-// TODO fix this
-
-// frameworks
-// import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-
-// GameTrackerJS
-import "/GameTrackerJS/ui/Badge.js";
-
 const TPL = new Template(`
-<div id="marker"></div>
-<emc-tooltip position="top" id="tooltip">
-    <div class="textarea">
-        <div id="text"></div>
-        <div id="item"></div>
-        <gt-badge id="badge"></gt-badge>
-    </div>
-    <div id="hintlocation" class="textarea"></div>
-    <div id="hintitem" class="textarea"></div>
-</emc-tooltip>
+<div id="hintlocation-container" class="textarea">
+    <emc-i18n-label id="hintlocation"></emc-i18n-label>
+</div>
+<div id="hintitem-container" class="textarea">
+    <emc-i18n-label id="hintitem"></emc-i18n-label>
+</div>
 `);
 
-/*
 const STYLE = new GlobalStyle(`
 :host {
-    position: absolute;
-    display: inline;
-    width: 32px;
-    height: 32px;
-    box-sizing: border-box;
-    user-select: none;
-    transform: translate(-8px, -8px);
-}
-:host(:hover) {
-    z-index: 1000;
-}
-#marker {
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    background-color: var(--world-entry-status-unavailable-color, #ff0000);
-    border: solid 4px black;
-    border-radius: 50%;
-    cursor: pointer;
-}
-#marker[data-state="opened"] {
-    background-color: var(--world-entry-status-opened-color, #777777);
-}
-#marker[data-state="available"] {
-    background-color: var(--world-entry-status-available-color, #00ff00);
-}
-#marker[data-state="unavailable"] {
-    background-color: var(--world-entry-status-unavailable-color, #ff0000);
-}
-#marker[data-state="possible"] {
-    background-color: var(--world-entry-status-possible-color, #ffff00);
-}
-#marker:hover,
-:host(.ctx-marked) #marker {
-    box-shadow: 0 0 2px 4px #67ffea;
-}
-#marker:hover + #tooltip,
-:host(.ctx-marked) #marker + #tooltp {
-    display: block;
-}
-#tooltip {
-    padding: 5px 12px;
-    user-select: none;
-    white-space: nowrap;
-    font-size: 30px;
-}
-.textarea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 46px;
-    word-break: break-word;
-}
-.textarea:empty,
-.textarea.hidden {
-    display: none;
-}
-#text {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    white-space: nowrap;
+    --size: 32px;
+    --rotation: 0deg;
+    --border-radius: 50%;
 }
 #item {
+    width: 32px;
+    height: 32px;
     margin-left: 5px;
+    font-size: 0.7em;
 }
-`); */
+`);
 
 function applyElements(target) {
     const headerEl = target.getElementById("header");
@@ -104,12 +36,15 @@ function applyElements(target) {
     headerEl.append(tpl);
 }
 
-// TODO save gossipstone data to extra storage
-export default class WorldMapGossipstone extends WorldMapElement {
+export default class WorldMapGossipstone extends WorldMapMarkedEntry {
 
     constructor() {
         super();
         applyElements(this.shadowRoot);
+        STYLE.apply(this.shadowRoot);
+        /* badge */
+        const badgeEl = this.shadowRoot.getElementById("badge");
+        badgeEl.hideValues = true;
         /* observer */
         this.registerStateHandler("item", (event) => {
             this.applyItem(event.value);
@@ -173,13 +108,13 @@ export default class WorldMapGossipstone extends WorldMapElement {
     }
 
     applyDefaultValues() {
-        super.applyDefaultValues();
+        super.applyDefaultValues("images/icons/gossipstone.svg");
         this.applyItem();
         this.applyLocation();
     }
 
     applyStateValues(state) {
-        super.applyStateValues(state);
+        super.applyStateValues(state, "images/icons/gossipstone.svg");
         this.applyItem(state.item);
         this.applyLocation(state.location);
     }
@@ -212,8 +147,12 @@ export default class WorldMapGossipstone extends WorldMapElement {
         }
     }
 
-    get category() {
-        return "location";
+    get textRef() {
+        return `location[${super.textRef}]`;
+    }
+
+    get type() {
+        return "Location";
     }
 
 }

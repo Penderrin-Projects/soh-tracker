@@ -9,7 +9,7 @@ import WorldMap from "/GameTrackerJS/ui/panel/worldmap/WorldMap.js";
 import "../../../state/world/WorldStates.js";
 import "./components/entries/Exit.js";
 import "./components/entries/Location.js";
-// import "./components/entries/Gossipstone.js";
+import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
 import "./components/entries/ScubLocation.js";
 
