@@ -276,7 +276,7 @@ async function updateFileList(client, cache, filelist) {
 
 async function updateFile(cache, url) {
     const file = await downloadFile(url);
-    await overwriteCachedFile(cache, url, file)
+    await overwriteCachedFile(cache, url, file);
 }
 
 async function downloadFile(url, tries = 3) {

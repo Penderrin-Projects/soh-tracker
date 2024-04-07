@@ -135,5 +135,5 @@ export default async function() {
         panelEl: logicEditor,
         navConfig: NAV,
         refreshFn: refreshLogicEditor
-    }
+    };
 }

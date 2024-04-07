@@ -63,4 +63,4 @@ const TRANSLATION = {
     "hyrule_field": "owl_lake_gateway",
     "dmt_owl_flight": "mountain_owl_gateway",
     "kak_impas_rooftop": "owl_mountain_gateway"
-}
+};

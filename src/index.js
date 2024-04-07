@@ -47,7 +47,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
         } catch (e) {
             printError(e);
         }
-    }
+    };
 
     const swMsgRecieve = (event) => {
         if (event.data.type == "state") {
@@ -75,7 +75,7 @@ if (document.head.createShadowRoot || document.head.attachShadow) {
                 <a class="button" href="${location.origin}?nosw">NO SERVICEWORKER</a>
             `, true);
         }
-    }
+    };
 
     updateLoadingMessage("loading...");
 

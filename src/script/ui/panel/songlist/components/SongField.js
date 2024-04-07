@@ -8,7 +8,7 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
-import SongStateManager from "/script/state/song/SongStateManager.js"
+import SongStateManager from "/script/state/song/SongStateManager.js";
 import "./SongStave.js";
 import "./SongBuilder.js";
 

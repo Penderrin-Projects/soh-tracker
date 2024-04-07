@@ -26,6 +26,8 @@ const MODULE_PATHS = {
     JSEditors: path.resolve(NODE_FOLDER, "jseditors/src")
 };
 
+/* configuration */
+const DELETE_UNUSED_FILES = true;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
@@ -35,10 +37,10 @@ console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 /* JS START */
 function copyJS(files, src, dest, target) {
     let res = gulp.src(files);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(ImportAnalyzer.register(src, dest, target));
     if (!REBUILDJS && !REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
@@ -89,11 +91,11 @@ function copyEmcJSCSS() {
     ];
     const DST = `${BUILD_PATH}/emcJS`;
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(MODULE_PATHS.emcJS, DST))
+    res = res.pipe(FileIndex.register(MODULE_PATHS.emcJS, DST));
     if (!REBUILD) {
-        res = res.pipe(newer(DST))
+        res = res.pipe(newer(DST));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(DST));
     return res;
 }
@@ -133,11 +135,11 @@ function copyCSS() {
         `${SRC_PATH}/**/*.css`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(SRC_PATH, BUILD_PATH))
+    res = res.pipe(FileIndex.register(SRC_PATH, BUILD_PATH));
     if (!REBUILD) {
-        res = res.pipe(newer(BUILD_PATH))
+        res = res.pipe(newer(BUILD_PATH));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(BUILD_PATH));
     return res;
 }
@@ -152,9 +154,9 @@ function copyFonts() {
         `${SRC_PATH}/fonts/**/*.svg`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${SRC_PATH}/fonts`, `${BUILD_PATH}/fonts`))
+    res = res.pipe(FileIndex.register(`${SRC_PATH}/fonts`, `${BUILD_PATH}/fonts`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${BUILD_PATH}/fonts`))
+        res = res.pipe(newer(`${BUILD_PATH}/fonts`));
     }
     res = res.pipe(gulp.dest(`${BUILD_PATH}/fonts`));
     return res;
@@ -202,9 +204,9 @@ function copyTrackerImg() {
     res = res.pipe(FileIndex.register(`${TRACKER_SRC_PATH}/images`, `${BUILD_PATH}/images`));
     res = res.pipe(ImageIndex.register(`${TRACKER_SRC_PATH}/images`, `${BUILD_PATH}/images`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${BUILD_PATH}/images`))
+        res = res.pipe(newer(`${BUILD_PATH}/images`));
     }
-    res = res.pipe(svgo())
+    res = res.pipe(svgo());
     res = res.pipe(gulp.dest(`${BUILD_PATH}/images`));
     return res;
 }
@@ -215,10 +217,13 @@ function finish(done) {
     FileIndex.add(LanguageManager.finish(`${BUILD_PATH}/i18n`));
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
-            BUILD_PATH
+            BUILD_PATH,
+            path.resolve(BUILD_PATH, "index.js"),
+            path.resolve(BUILD_PATH, "emcJS/util/html/Template.js"),
+            path.resolve(BUILD_PATH, "emcJS/util/html/GlobalStyle.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*)\.js/,
-        deleteUnused: true
+        deleteUnused: DELETE_UNUSED_FILES
     };
     FileIndex.finish(BUILD_PATH, undefined, config);
     ImageIndex.finish(BUILD_PATH, "images/_index.icons.json", /^\/images\/icons\/.*/);

@@ -41,12 +41,12 @@ export default function parseItemLocations(addError, target = {}, data = {}, tar
                     } else {
                         for (const locationTransValue of locationTrans) {
                             if (locationTransValue) {
-                                target.locationItems[locationTransValue] = itemTrans;
+                                target.locationItems[locationTransValue] = itemTrans.ref ?? itemTrans;
                             }
                         }
                     }
                 } else if (locationTrans) {
-                    target.locationItems[locationTrans] = itemTrans;
+                    target.locationItems[locationTrans] = itemTrans.ref ?? itemTrans;
                 }
             }
         }

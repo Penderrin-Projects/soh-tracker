@@ -11,3 +11,4 @@ import "./area/AreaState.js";
 import "./area/ShopState.js";
 import "./location/GossipstoneState.js";
 import "./location/ShopSlotState.js";
+import "./location/ScrubLocationState.js";

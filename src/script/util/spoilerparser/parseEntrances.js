@@ -70,15 +70,15 @@ export default function parseEntrances(addError, target = {}, data = {}, trans =
         let node = null;
 
         for (const ent in entrance) {
-            node = entrance[ent]
+            node = entrance[ent];
             if (node[i] !== undefined) {
                 edgeThere = node[i];
             }
         }
         for (const ent in exit) {
-            node = exit[ent]
+            node = exit[ent];
             if (node[v] !== undefined) {
-                edgeBack = node[v]
+                edgeBack = node[v];
             }
         }
 

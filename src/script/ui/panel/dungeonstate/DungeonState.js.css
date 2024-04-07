@@ -1,0 +1,58 @@
+:host {
+    cursor: default;
+}
+:host {
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    height: min-content;
+}
+:host([orientation="column"]) {
+    flex-direction: column;
+}
+div.item-row {
+    display: flex;
+    flex-direction: column;
+}
+div.item-row:hover {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+:host([orientation="column"]) div.item-row {
+    flex-direction: row;
+}
+ootrt-item {
+    display: block;
+    padding: 2px;
+}
+.dungeon-status {
+    display: block;
+    padding: 5px;
+}
+.dungeon-status:hover {
+    padding: 2px;
+}
+div.text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 20px;
+    padding: 2px;
+    font-size: 1em;
+    -moz-user-select: none;
+    user-select: none;
+}
+:host([orientation="column"]) div.text {
+    height: 40px;
+}
+div.placeholder {
+    width: 40px;
+    height: 40px;
+}
+[type]:hover,
+[type].ctx-marked {
+    background-color: var(--main-hover-color, #ffffff32);
+}
+[type].inactive {
+    display: none;
+}

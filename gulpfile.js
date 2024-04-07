@@ -26,6 +26,8 @@ const MODULE_PATHS = {
     RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src")
 };
 
+/* configuration */
+const DELETE_UNUSED_FILES = true;
 const NOCOMPRESS = process.argv.indexOf("-nocompress") >= 0;
 const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
@@ -35,10 +37,10 @@ console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 /* JS START */
 function copyJS(files, src, dest, target) {
     let res = gulp.src(files);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(ImportAnalyzer.register(src, dest, target));
     if (!REBUILDJS && !REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
@@ -115,7 +117,8 @@ function copyDetachedScript(src = SRC_PATH, dest = DEV_PATH) {
 
 function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
-        `${src}/**/*.html`
+        `${src}/**/*.html`,
+        `!${src}/script/**/*.html`
     ];
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
@@ -129,7 +132,8 @@ function copyHTML(src = SRC_PATH, dest = DEV_PATH) {
 
 function copyJSON(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
-        `${src}/**/*.json`
+        `${src}/**/*.json`,
+        `!${src}/script/**/*.json`
     ];
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(src, dest));
@@ -195,9 +199,9 @@ function copyImg(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/images`, `${dest}/images`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/images`))
+        res = res.pipe(newer(`${dest}/images`));
     }
-    res = res.pipe(svgo())
+    res = res.pipe(svgo());
     res = res.pipe(gulp.dest(`${dest}/images`));
     return res;
 }
@@ -207,9 +211,9 @@ function copyChangelog(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/CHANGELOG.MD`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     if (!REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(gulp.dest(dest));
     return res;
@@ -220,11 +224,11 @@ function copyCSS(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/style/**/*.css`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${src}/style`, `${dest}/style`))
+    res = res.pipe(FileIndex.register(`${src}/style`, `${dest}/style`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/style`))
+        res = res.pipe(newer(`${dest}/style`));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(`${dest}/style`));
     return res;
 }
@@ -239,15 +243,15 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/fonts/**/*.svg`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${src}/fonts`, `${dest}/fonts`))
+    res = res.pipe(FileIndex.register(`${src}/fonts`, `${dest}/fonts`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/fonts`))
+        res = res.pipe(newer(`${dest}/fonts`));
     }
     res = res.pipe(gulp.dest(`${dest}/fonts`));
     return res;
 }
 
-function finish(dest, deleteUnused, done) {
+function finish(dest, done) {
     FileIndex.add(LanguageManager.finish(`${dest}/i18n`));
     const config = {
         usedImports: ImportAnalyzer.getUsedImports(
@@ -256,10 +260,12 @@ function finish(dest, deleteUnused, done) {
             path.resolve(dest, "sw.js"),
             path.resolve(dest, "index.js"),
             path.resolve(dest, "script/StateRecovery.js"),
-            path.resolve(dest, "detached/index.js")
+            path.resolve(dest, "detached/index.js"),
+            path.resolve(dest, "emcJS/util/html/Template.js"),
+            path.resolve(dest, "emcJS/util/html/GlobalStyle.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/,
-        deleteUnused: deleteUnused
+        deleteUnused: DELETE_UNUSED_FILES
     };
     FileIndex.finish(dest, undefined, config);
     done();
@@ -306,7 +312,7 @@ export const buildDev = gulp.series(
         copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
         copyChangelog.bind(this, SRC_PATH, DEV_PATH)
     ),
-    finish.bind(this, DEV_PATH, true)
+    finish.bind(this, DEV_PATH)
 );
 
 export const watch = function() {
@@ -315,4 +321,4 @@ export const watch = function() {
         SRC_PATH,
         buildDev
     );
-}
+};

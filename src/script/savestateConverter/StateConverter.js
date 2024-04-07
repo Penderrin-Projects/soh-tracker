@@ -9,7 +9,7 @@ let counter = OFFSET;
 
 while (counter >= 0) {
     try {
-        await import(`${PATH}${counter++}.js`)
+        await import(`${PATH}${counter++}.js`);
     } catch {
         break;
     }

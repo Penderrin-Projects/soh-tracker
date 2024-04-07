@@ -73,7 +73,7 @@ const FULL_TRANSLATION = {
     "temple_of_time -> prelude_of_light_warp": "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway",
     "tot_entrance -> temple_of_time": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway",
     "temple_of_time -> tot_entrance": "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway"
-}
+};
 
 const TRANSLATION = {
     "minuet_of_forest_warp": "minuet_meadow_gateway",
@@ -86,4 +86,4 @@ const TRANSLATION = {
     "graveyard_warp_pad_region": "graveyard_nocturne_gateway",
     "requiem_of_spirit_warp": "requiem_colossus_gateway",
     "desert_colossus": "colossus_requiem_gateway"
-}
+};

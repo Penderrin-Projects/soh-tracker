@@ -51,7 +51,7 @@ export default async function() {
         if (editorEl.checkWorldDataHasChanges() || editorEl.checkCurrentEditorHasChanges()) {
             return "You have unsaved changes in the current form. Discard changes and continue?";
         }
-    }
+    };
 
     // refresh
     async function refreshFn() {
@@ -166,5 +166,5 @@ export default async function() {
         panelEl: editorEl,
         navConfig: NAV,
         refreshFn
-    }
+    };
 }

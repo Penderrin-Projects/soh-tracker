@@ -1,5 +1,3 @@
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
@@ -8,22 +6,13 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import Language from "/GameTrackerJS/util/Language.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
-
-const TPL = new Template(`
-<emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>
-`);
-
-const STYLE = new GlobalStyle(`
-#item {
-    width: 32px;
-    height: 32px;
-    margin-left: 5px;
-    font-size: 0.7em;
-}
-`);
+import LogicViewer from "../../../../window/LogicViewer.js";
+import TPL from "./ShopSlot.js.html" assert {type: "html"};
+import STYLE from "./ShopSlot.js.css" assert {type: "css"};
 
 function applyElements(target) {
     const textEl = target.getElementById("text");
@@ -56,20 +45,20 @@ export default class WorldListShopSlot extends BaseClass {
         /* observer */
         shopsanityObserver.addEventListener("change", () => {
             const state = this.getState();
-            this.#applyItem(state?.itemData, state?.price);
+            this.#applyItem(state?.itemData);
         });
         /* state handler */
         this.registerStateHandler("item", () => {
             const state = this.getState();
-            this.#applyItem(state?.itemData, state?.price);
+            this.#applyItem(state?.itemData);
         });
         this.registerStateHandler("bought", () => {
             const state = this.getState();
-            this.#applyItem(state?.itemData, state?.price);
+            this.#applyItem(state?.itemData);
         });
         this.registerStateHandler("price", () => {
             const state = this.getState();
-            this.#applyItem(state?.itemData, state?.price);
+            this.#applyItem(state?.itemData);
         });
         /* context menu */
         this.setDefaultContextMenu(ShopSlotContextMenu);
@@ -100,6 +89,13 @@ export default class WorldListShopSlot extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 state.reset();
+            }
+        });
+        this.addDefaultContextMenuHandler("show_logic", () => {
+            const state = this.getState();
+            if (state != null) {
+                const title = Language.generateLabel(`location[${this.ref}]`);
+                LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
     }

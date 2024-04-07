@@ -51,9 +51,9 @@ function setSettingToTarget(target, transData, parsedValue) {
             const resultValue = values[parsedValue];
             if (resultValue == null) {
                 if (values["default"] == null) {
-                    throw "Invalid value"
+                    throw "Invalid value";
                 } else {
-                    target[name] = values["default"]
+                    target[name] = values["default"];
                 }
             } else if (typeof resultValue == "object") {
                 const resName = resultValue["name"];

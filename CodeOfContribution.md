@@ -15,8 +15,10 @@
 ### creating a hotfix - forked
 
 1. fork the repo
+2. create a branch using the pattern `hotfix/[short description]`
+    - each hotfix gets its own branch
 2. if possible, check your changes locally before committing
-3. change the changelog file
+3. change the changelog file `src/CHANGELOG.MD`
     - increase sub-version-number (e.g. `1.2.9` -> `1.2.10`)
     - add a caption named hotfix `### HOTFIX`
     - describe your changes in bullet points
@@ -29,9 +31,9 @@
 
 1. always pull first `!`
 2. create a branch using the pattern `hotfix/[short description]`
-    - all changes will be commited to the new branch
+    - each hotfix gets its own branch
 3. if possible, check your changes locally before committing
-4. change the changelog file
+4. change the changelog file `src/CHANGELOG.MD`
     - increase sub-version-number (e.g. `1.2.9` -> `1.2.10`)
     - add a caption named hotfix `### HOTFIX`
     - describe your changes in bullet points
@@ -40,7 +42,6 @@
     - for commitmessage mark linebreaks with a semicolon `;`
 6. create pull request, target `master`
     - mark your hotfix branch as remove after merge
-        - each hotfix gets its own branch
 
 ### merging
 
@@ -59,7 +60,7 @@
 
 ---
 
-## dev - features
+## dev/nightly - features
 
 ### used for
 
@@ -69,34 +70,34 @@
 ### creating a patch - forked
 
 1. fork the repo
-2. if possible, check your changes locally before committing
-3. change the changelog file
-    - if not existing, add `dev` version
-    - add a captions starting with `###`
-    - describe your changes in bullet points
-4. commit your changes
-    - describe what you did
-    - for commitmessage mark linebreaks with a semicolon `;`
-5. create pull request, target `dev`
-    - if you are using a branch mark your feature branch as remove after merge
-        - each major feature gets its own branch
-
-### creating a patch - branched
-
-1. always pull first `!`
 2. create a branch using the pattern `feature/[short description]`
-    - all changes will be commited to the new branch
+    - each feature gets its own branch
 3. if possible, check your changes locally before committing
-4. change the changelog file
+4. change the changelog file `src/CHANGELOG.MD`
     - if not existing, add `dev` version
     - add a captions starting with `###`
     - describe your changes in bullet points
 5. commit your changes
     - describe what you did
     - for commitmessage mark linebreaks with a semicolon `;`
-6. create pull request, target `dev`
-    - if you are using a branch mark your feature branch as remove after merge
-        - each major feature gets its own branch
+6. create pull request, target `dev` or `nightly` on the original reposotory
+    - mark your feature branch as remove after merge
+
+### creating a patch - branched
+
+1. always pull first `!`
+2. create a branch using the pattern `feature/[short description]`
+    - each feature gets its own branch
+3. if possible, check your changes locally before committing
+4. change the changelog file `src/CHANGELOG.MD`
+    - if not existing, add `dev` version
+    - add a captions starting with `###`
+    - describe your changes in bullet points
+5. commit your changes
+    - describe what you did
+    - for commitmessage mark linebreaks with a semicolon `;`
+6. create pull request, target `dev` or `nightly` on the original reposotory
+    - mark your feature branch as remove after merge
 
 ---
 

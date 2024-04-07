@@ -1,3 +1,28 @@
+Gerudo Mask - r-bl - market.m_mask_shop_item_3
+"Market Mask Shop Item 1"
+
+Zora Mask - r-tl - market.m_mask_shop_item_4
+"Market Mask Shop Item 2"
+
+Mask of Truth - r-br - market.m_mask_shop_item_1
+"Market Mask Shop Item 3"
+
+Goron Mask - r-tr - market.m_mask_shop_item_2
+"Market Mask Shop Item 4"
+
+Skull Mask - l-br - market.m_mask_shop_item_5
+"Market Mask Shop Item 5"
+
+Keaton Mask - l-tr - market.m_mask_shop_item_6
+"Market Mask Shop Item 6"
+
+Bunny Hood - l-bl - market.m_mask_shop_item_7
+"Market Mask Shop Item 7"
+
+Spooky Mask - l-tl - market.m_mask_shop_item_8
+"Market Mask Shop Item 8"
+
+
 ### gateway errors (not accessible)
 
 - HF Fairy Grotto -> Hyrule Field becomes red once it’s bound to an entrance

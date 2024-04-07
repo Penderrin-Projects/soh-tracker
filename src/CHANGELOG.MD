@@ -9,6 +9,7 @@ Application:    Track-OOT
 ### UI
 
 - add hidden icons for chests and skulltulas
+- add sort options for location lists
 
 ### ROM OPTIONS
 
@@ -24,6 +25,10 @@ Application:    Track-OOT
 
 - fix dirty flag handling
 - fix new state popup shown after load of every state
+
+### DETAILED MAPS
+
+- add detailed maps for all vanilla and mq maps (enable via Tracker Setting > World > Activate detailed maps)
 
 ---
 

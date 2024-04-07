@@ -14,7 +14,7 @@ function cursorToPromise(cursor, fn) {
         };
         cursor.onerror = function(e) {
             reject(e);
-        }
+        };
     });
 }
 
@@ -44,7 +44,7 @@ class StateRecoveryModule {
             };
             request.onerror = function(e) {
                 reject(e);
-            }
+            };
         });
     }
 

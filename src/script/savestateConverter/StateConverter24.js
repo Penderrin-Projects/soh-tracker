@@ -238,4 +238,4 @@ const TRANSLATION = {
     "gv_carpenter_tent": "carpenter_tent_valley_gateway",
     "colossus_great_fairy_fountain_entrance": "colossus_great_fairy_gateway",
     "colossus_great_fairy_fountain": "great_fairy_colossus_gateway"
-}
+};

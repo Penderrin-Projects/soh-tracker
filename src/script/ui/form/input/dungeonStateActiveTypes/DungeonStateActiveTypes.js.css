@@ -1,0 +1,38 @@
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#input {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 200px;
+    height: 2rem;
+    color: var(--input-text-color, #000000);
+    background-color: var(--input-back-color, #ffffff);
+    border: none;
+    border-radius: 0px;
+    user-select: none;
+}
+
+#input:focus {
+    box-shadow: 0 0 2px 2px var(--input-focus-color, #06b5ff);
+    outline: none;
+}
+
+#input:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+#selection {
+    display: none;
+    border-top: solid 1px var(--input-border-color, #000000);
+}
+
+#selection.active {
+    display: flex;
+}

@@ -94,7 +94,7 @@ class SpoilerParser {
 
         const world = getWorldNumber(settings["multiworld"], spoiler["settings"]?.["world_count"]);
 
-        const debugSpoiler = SettingsStorage.get("debug_spoiler")
+        const debugSpoiler = SettingsStorage.get("debug_spoiler");
         if (debugSpoiler || settings["settings"]) {
             // options
             parseSettings(addError, result, spoiler["settings"], trans);

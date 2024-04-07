@@ -92,7 +92,7 @@ export default class WorldListGossipstone extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
-                LogicViewer.show(state.props.logicAccess, title);
+                LogicViewer.show(state.props.logicAccess ?? "", title);
             }
         });
     }
