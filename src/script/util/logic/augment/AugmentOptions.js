@@ -1,7 +1,7 @@
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
 
 // ref: World.py -> self.keysanity = settings.shuffle_smallkeys in ...
-const KEYSANITY = ["keylogic_keysanity", "keylogic_remove", "keylogic_any_dungeon", "keylogic_overworld"]
+const KEYSANITY = ["keylogic_keysanity", "keylogic_remove", "keylogic_any_dungeon", "keylogic_overworld"];
 
 function augment(cache) {
     // small keys

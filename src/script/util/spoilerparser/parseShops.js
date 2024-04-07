@@ -87,7 +87,7 @@ export default function parseShops(addError, target = {}, data = {}, trans = {},
 
     if (shopsanity !== "off") {
         for (const i in data) {
-            const v = data[i]
+            const v = data[i];
             if (shop_trans.has(i)) {
                 const item = item_trans[v["item"]] ?? "bad_item";
                 if (item === "bad_item") {

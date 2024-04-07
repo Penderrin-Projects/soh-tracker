@@ -91,7 +91,7 @@ async function state_SaveAs() {
 }
 
 async function state_Load() {
-    const activestate = await SavestateHandler.getName()
+    const activestate = await SavestateHandler.getName();
     const w = new LoadWindow();
     if (activestate) {
         w.show(activestate);
@@ -110,7 +110,7 @@ async function state_New() {
 }
 
 async function states_Manage() {
-    const activestate = await SavestateHandler.getName()
+    const activestate = await SavestateHandler.getName();
     const w = new ManageWindow();
     if (activestate) {
         w.show(activestate);

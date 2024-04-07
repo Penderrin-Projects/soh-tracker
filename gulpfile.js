@@ -37,10 +37,10 @@ console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 /* JS START */
 function copyJS(files, src, dest, target) {
     let res = gulp.src(files);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(ImportAnalyzer.register(src, dest, target));
     if (!REBUILDJS && !REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
@@ -199,9 +199,9 @@ function copyImg(src = SRC_PATH, dest = DEV_PATH) {
     let res = gulp.src(FILES);
     res = res.pipe(FileIndex.register(`${src}/images`, `${dest}/images`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/images`))
+        res = res.pipe(newer(`${dest}/images`));
     }
-    res = res.pipe(svgo())
+    res = res.pipe(svgo());
     res = res.pipe(gulp.dest(`${dest}/images`));
     return res;
 }
@@ -211,9 +211,9 @@ function copyChangelog(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/CHANGELOG.MD`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     if (!REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(gulp.dest(dest));
     return res;
@@ -224,11 +224,11 @@ function copyCSS(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/style/**/*.css`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${src}/style`, `${dest}/style`))
+    res = res.pipe(FileIndex.register(`${src}/style`, `${dest}/style`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/style`))
+        res = res.pipe(newer(`${dest}/style`));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(`${dest}/style`));
     return res;
 }
@@ -243,9 +243,9 @@ function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
         `${src}/fonts/**/*.svg`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${src}/fonts`, `${dest}/fonts`))
+    res = res.pipe(FileIndex.register(`${src}/fonts`, `${dest}/fonts`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${dest}/fonts`))
+        res = res.pipe(newer(`${dest}/fonts`));
     }
     res = res.pipe(gulp.dest(`${dest}/fonts`));
     return res;
@@ -321,4 +321,4 @@ export const watch = function() {
         SRC_PATH,
         buildDev
     );
-}
+};

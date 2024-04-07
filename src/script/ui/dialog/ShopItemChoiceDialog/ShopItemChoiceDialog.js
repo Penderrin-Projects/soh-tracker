@@ -138,7 +138,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
                 event.preventDefault();
                 return false;
             }
-        }
+        };
 
         const sbm = this.shadowRoot.getElementById("submit");
         if (!!options.submit && typeof options.submit === "string") {

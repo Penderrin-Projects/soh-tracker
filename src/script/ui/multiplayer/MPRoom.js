@@ -117,9 +117,9 @@ class HTMLMultiplayerLobbyRoom extends CustomElement {
             switch (name) {
                 case "pass":
                     if (!!newValue && newValue != "false") {
-                        this.shadowRoot.getElementById("icon").classList.add("lock-closed")
+                        this.shadowRoot.getElementById("icon").classList.add("lock-closed");
                     } else {
-                        this.shadowRoot.getElementById("icon").classList.remove("lock-closed")
+                        this.shadowRoot.getElementById("icon").classList.remove("lock-closed");
                     }
                     break;
                 case "name":

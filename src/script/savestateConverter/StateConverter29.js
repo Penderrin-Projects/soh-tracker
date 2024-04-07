@@ -62,8 +62,8 @@ SavestateConverter.register(function(state) {
     return res;
 });
 
-const FULL_TRANSLATION = {}
+const FULL_TRANSLATION = {};
 
 const TRANSLATION = {
     "near_scrubs_woods_gateway": "scrubs_grotto_woods_gateway"
-}
+};

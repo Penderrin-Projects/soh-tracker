@@ -160,7 +160,7 @@ function convertRelation(relation, type) {
     return {
         type: type,
         name: relation.name ?? relation
-    }
+    };
 }
 
 function upperCaseFirstLetter(str) {

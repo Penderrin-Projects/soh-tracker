@@ -39,7 +39,7 @@ export default class RTCPeer extends EventTarget {
 
         /* RTC */
         rtcClient.setMessageHandler("data", (key, msg) => {
-            this.rtcMessageHandler(key, msg)
+            this.rtcMessageHandler(key, msg);
         });
 
         /* STORAGES */

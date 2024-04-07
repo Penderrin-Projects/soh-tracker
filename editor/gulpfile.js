@@ -37,10 +37,10 @@ console.log({NOCOMPRESS, REBUILDJS, REBUILD});
 /* JS START */
 function copyJS(files, src, dest, target) {
     let res = gulp.src(files);
-    res = res.pipe(FileIndex.register(src, dest))
+    res = res.pipe(FileIndex.register(src, dest));
     res = res.pipe(ImportAnalyzer.register(src, dest, target));
     if (!REBUILDJS && !REBUILD) {
-        res = res.pipe(newer(dest))
+        res = res.pipe(newer(dest));
     }
     res = res.pipe(sourceImport());
     res = res.pipe(gulp.dest(dest));
@@ -91,11 +91,11 @@ function copyEmcJSCSS() {
     ];
     const DST = `${BUILD_PATH}/emcJS`;
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(MODULE_PATHS.emcJS, DST))
+    res = res.pipe(FileIndex.register(MODULE_PATHS.emcJS, DST));
     if (!REBUILD) {
-        res = res.pipe(newer(DST))
+        res = res.pipe(newer(DST));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(DST));
     return res;
 }
@@ -135,11 +135,11 @@ function copyCSS() {
         `${SRC_PATH}/**/*.css`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(SRC_PATH, BUILD_PATH))
+    res = res.pipe(FileIndex.register(SRC_PATH, BUILD_PATH));
     if (!REBUILD) {
-        res = res.pipe(newer(BUILD_PATH))
+        res = res.pipe(newer(BUILD_PATH));
     }
-    res = res.pipe(autoprefixer())
+    res = res.pipe(autoprefixer());
     res = res.pipe(gulp.dest(BUILD_PATH));
     return res;
 }
@@ -154,9 +154,9 @@ function copyFonts() {
         `${SRC_PATH}/fonts/**/*.svg`
     ];
     let res = gulp.src(FILES);
-    res = res.pipe(FileIndex.register(`${SRC_PATH}/fonts`, `${BUILD_PATH}/fonts`))
+    res = res.pipe(FileIndex.register(`${SRC_PATH}/fonts`, `${BUILD_PATH}/fonts`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${BUILD_PATH}/fonts`))
+        res = res.pipe(newer(`${BUILD_PATH}/fonts`));
     }
     res = res.pipe(gulp.dest(`${BUILD_PATH}/fonts`));
     return res;
@@ -204,9 +204,9 @@ function copyTrackerImg() {
     res = res.pipe(FileIndex.register(`${TRACKER_SRC_PATH}/images`, `${BUILD_PATH}/images`));
     res = res.pipe(ImageIndex.register(`${TRACKER_SRC_PATH}/images`, `${BUILD_PATH}/images`));
     if (!REBUILD) {
-        res = res.pipe(newer(`${BUILD_PATH}/images`))
+        res = res.pipe(newer(`${BUILD_PATH}/images`));
     }
-    res = res.pipe(svgo())
+    res = res.pipe(svgo());
     res = res.pipe(gulp.dest(`${BUILD_PATH}/images`));
     return res;
 }
