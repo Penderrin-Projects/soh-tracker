@@ -4,12 +4,26 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 2.3.0 (DEV)
+## VERSION 3.0.0 (DEV)
 
 ### UI
 
-- add hidden icons for chests and skulltulas
+- add hidden icons for chests and skulltulas (filter)
+- add location overview panel containing
 - add sort options for location lists
+- add detailed maps for all vanilla and mq maps
+
+### CONTENT
+
+- update logic to ootr version 8.0
+- add individual frog song checks
+- add adult trading items
+- add child trading items/masks
+- add treasure chest game keys
+- add silver rupees
+- add individual song note items
+- add gerudo waterfall gateway
+- add set price option for deku salesmen
 
 ### ROM OPTIONS
 
@@ -20,15 +34,15 @@ Application:    Track-OOT
 - add blue fire arrows
 - add cucco count
 - add magic beans planted
+- add dungeonstate panel customizer option
 
-### SAVESTATE
+### BUG FIXES
 
-- fix dirty flag handling
+- fix dirty flag handling in savestate
 - fix new state popup shown after load of every state
-
-### DETAILED MAPS
-
-- add detailed maps for all vanilla and mq maps (enable via Tracker Setting > World > Activate detailed maps)
+- fix map marker tooltip size and position
+- fix gossipstone marker not showing on maps
+- fix check/uncheck all for shops
 
 ---
 
