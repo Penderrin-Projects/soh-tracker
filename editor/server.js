@@ -5,8 +5,8 @@ const enableCors = process.argv.indexOf("-cors") >= 1;
 const port = process.argv.indexOf("-port") >= 1 ? process.argv[process.argv.indexOf("-port") + 1] : "15000";
 
 const service = new WebService(port, {enableCors});
-service.registerService(StaticService, "", {serveFolder: "./editor/build"});
-service.registerService(StaticService, "/database", {serveFolder: "./src/database"});
+service.registerServiceModule(StaticService, "", {serveFolder: "./editor/build"});
+service.registerServiceModule(StaticService, "/database", {serveFolder: "./src/database"});
 
 const po = service.port.toString().padEnd(5);
 
