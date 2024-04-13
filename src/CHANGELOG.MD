@@ -4,14 +4,17 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 3.0.0 (DEV)
+## VERSION 3.0.0
 
 ### UI
 
-- add hidden icons for chests and skulltulas (filter)
-- add location overview panel containing
+- add "hidden" option for chest and skulltula filter
+- add location overview panel
 - add sort options for location lists
-- add detailed maps for all vanilla and mq maps
+- add detailed maps for all interiors
+- add detailed maps for all grottos
+- add detailed maps for all overworld areas
+- add detailed maps for all vanilla and mq dungeons
 - reduce width of dialog windows
 
 ### CONTENT
@@ -45,10 +48,6 @@ Application:    Track-OOT
 - fix gossipstone marker not showing on maps
 - fix check/uncheck all for shops
 - fix minor internal bug where savestates could include unwanted (old) data keys
-
-### DETAILED MAPS
-
-- add detailed maps for all vanilla and mq maps (enable via Tracker Setting > World > Activate detailed maps)
 
 ---
 
