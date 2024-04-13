@@ -7,7 +7,7 @@ import StaticService from "webservice/services/StaticService.js";
 
 const service = new WebService();
 const webServicePort = service.port;
-service.registerService(StaticService, "", {serveFolder: "./editor/build"});
+service.registerServiceModule(StaticService, "", {serveFolder: "./editor/build"});
 
 const OPTIONS = {debug: false};
 if (process.argv.indexOf("-debug") >= 1) {

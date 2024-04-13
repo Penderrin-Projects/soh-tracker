@@ -33,14 +33,14 @@ export default class TrackerWorldListScrubLocation extends WorldListLocation {
         /* context menu */
         this.setAddedDefaultContextMenuItems([
             "splitter",
-            {menuAction: "set_price", content: "Set price"},
+            {menuAction: "set_price", content: "Set Price"},
             "splitter",
             {menuAction: "show_logic", content: "Show Logic"}
         ]);
         this.addDefaultContextMenuHandler("set_price", async () => {
             const state = this.getState();
             if (state != null) {
-                const price = await Dialog.promptNumber("Set price", "please enter a price");
+                const price = await Dialog.promptNumber("Set Price", "Please enter a price");
                 if (typeof price === "number") {
                     if (!isNaN(price)) {
                         state.price = delimitInteger(price, 0, 999);
