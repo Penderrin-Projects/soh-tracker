@@ -13,7 +13,7 @@
   "dependencies": {
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.14.0",
     "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.25",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.1.20",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.2.0",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0",
     "webservice": "git+https://bitbucket.org/zidargs/webservice.git#2.0.5"
   },
