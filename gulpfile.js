@@ -290,7 +290,7 @@ export const build = gulp.series(
         copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
         copyChangelog.bind(this, SRC_PATH, PRD_PATH)
     ),
-    finish.bind(this, PRD_PATH, true)
+    finish.bind(this, PRD_PATH)
 );
 
 export const buildDev = gulp.series(

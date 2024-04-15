@@ -2,8 +2,8 @@ import {
     app, BrowserWindow
 } from "electron";
 import readline from "readline";
-import WebService from "webservice/WebService.js";
-import StaticService from "webservice/services/StaticService.js";
+import WebService from "jswebservice/WebService.js";
+import StaticService from "jswebservice/services/StaticService.js";
 
 const service = new WebService();
 const webServicePort = service.port;
