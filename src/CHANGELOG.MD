@@ -4,6 +4,12 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.0.1
+
+### BUG FIXES
+
+- fixed rare issue with StateConverter28 causing initial load to always have dungeon shuffle active
+
 ## VERSION 3.0.0
 
 ### UI

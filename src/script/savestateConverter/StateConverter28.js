@@ -51,7 +51,7 @@ SavestateConverter.register(function(state) {
 
     for (const [key, value] of Object.entries(state.data?.options ?? {})) {
         if (key === "shuffle_dungeons") {
-            res.data.options["shuffle_dungeons"] = value ? "shuffle_dungeons_simple" : "shuffle_dungeons_off";
+            res.data.options["shuffle_dungeons"] = "shuffle_dungeons_off";
         } else {
             res.data.options[key] = value;
         }
