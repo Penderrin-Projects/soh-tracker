@@ -4,6 +4,24 @@ Application:    Track-OOT
 
 ***
 
+## VERSION [Nightly]
+
+### CHANGES
+
+- added "bug"-logic (buyable and collectible)
+- added "fish"-logic (buyable and collectible)
+- added "fairy"-logic (buyable and collectible)
+- added "sticks"-logic (buyable and collectible)
+- added "nuts"-logic (buyable and collectible)
+- changed "blue fire"-logic (buyable)
+- removed deprecated "consider buyable" option
+- change "sticks" in item-panel to "stick upgrade" (internal value)
+- change "nuts" in item-panel to "nut upgrade" (internal value)
+
+### BUG FIXES
+
+- fixed firefox specific "(intermediate value).get(...)" error caused by map-gossipstones not importing default location
+
 ## VERSION 3.0.1
 
 ### BUG FIXES

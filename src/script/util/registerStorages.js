@@ -28,3 +28,4 @@ Savestate.registerStorage("songNotes", songNotesStorage);
 
 // --> register to logic caller
 LogicCaller.registerStorage(Savestate.getStorage("songNotes"), "songnotes[", "]");
+LogicCaller.registerStorage(Savestate.getStorage("shopItems"), "shopslot[", "]");

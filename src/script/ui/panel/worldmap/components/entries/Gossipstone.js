@@ -3,6 +3,7 @@ import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapMarkedEntry from "/GameTrackerJS/ui/panel/worldmap/components/abstract/MarkedEntry.js";
+import "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
 import "/GameTrackerJS/ui/Badge.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";

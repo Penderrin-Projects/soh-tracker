@@ -20388,7 +20388,7 @@
         },
         "kokiri.kokiri_shop_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kokiri.m_shop_8]",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20437,7 +20437,7 @@
         },
         "kokiri.kokiri_shop_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kokiri.m_shop_7]",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20496,7 +20496,7 @@
         },
         "kokiri.kokiri_shop_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kokiri.m_shop_6]",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20540,7 +20540,7 @@
         },
         "kokiri.kokiri_shop_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kokiri.m_shop_5]",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20594,7 +20594,7 @@
         },
         "kakariko.shop_bazaar_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop_8]",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20643,7 +20643,7 @@
         },
         "kakariko.shop_bazaar_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop_7]",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20702,7 +20702,7 @@
         },
         "kakariko.shop_bazaar_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop_6]",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20746,7 +20746,7 @@
         },
         "kakariko.shop_bazaar_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop_5]",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20800,7 +20800,7 @@
         },
         "kakariko.shop_magic_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop2_8]",
+            "logicAccess": "reach_location[kakariko.shop_magic_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20849,7 +20849,7 @@
         },
         "kakariko.shop_magic_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop2_7]",
+            "logicAccess": "reach_location[kakariko.shop_magic_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20908,7 +20908,7 @@
         },
         "kakariko.shop_magic_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop2_6]",
+            "logicAccess": "reach_location[kakariko.shop_magic_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -20952,7 +20952,7 @@
         },
         "kakariko.shop_magic_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[kakariko.m_shop2_5]",
+            "logicAccess": "reach_location[kakariko.shop_magic_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21006,7 +21006,7 @@
         },
         "castle_town.shop_bazaar_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop_8]",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21055,7 +21055,7 @@
         },
         "castle_town.shop_bazaar_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop_7]",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21114,7 +21114,7 @@
         },
         "castle_town.shop_bazaar_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop_6]",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21158,7 +21158,7 @@
         },
         "castle_town.shop_bazaar_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop_5]",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21212,7 +21212,7 @@
         },
         "castle_town.shop_magic_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop2_8]",
+            "logicAccess": "reach_location[castle_town.shop_magic_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21261,7 +21261,7 @@
         },
         "castle_town.shop_magic_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop2_7]",
+            "logicAccess": "reach_location[castle_town.shop_magic_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21320,7 +21320,7 @@
         },
         "castle_town.shop_magic_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop2_6]",
+            "logicAccess": "reach_location[castle_town.shop_magic_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21364,7 +21364,7 @@
         },
         "castle_town.shop_magic_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop2_5]",
+            "logicAccess": "reach_location[castle_town.shop_magic_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21418,7 +21418,7 @@
         },
         "castle_town.shop_bombchu_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop3_8]",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21467,7 +21467,7 @@
         },
         "castle_town.shop_bombchu_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop3_7]",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21526,7 +21526,7 @@
         },
         "castle_town.shop_bombchu_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop3_6]",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21570,7 +21570,7 @@
         },
         "castle_town.shop_bombchu_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[castle_town.m_shop3_5]",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21624,7 +21624,7 @@
         },
         "goron.goron_shop_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[goron.m_shop_8]",
+            "logicAccess": "reach_location[goron.goron_shop_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21673,7 +21673,7 @@
         },
         "goron.goron_shop_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[goron.m_shop_7]",
+            "logicAccess": "reach_location[goron.goron_shop_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21732,7 +21732,7 @@
         },
         "goron.goron_shop_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[goron.m_shop_6]",
+            "logicAccess": "reach_location[goron.goron_shop_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21776,7 +21776,7 @@
         },
         "goron.goron_shop_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[goron.m_shop_5]",
+            "logicAccess": "reach_location[goron.goron_shop_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21830,7 +21830,7 @@
         },
         "zoras.zoras_shop_8": {
             "type": "shopslot",
-            "logicAccess": "reach_location[zoras.m_shop_8]",
+            "logicAccess": "reach_location[zoras.zoras_shop_8]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21879,7 +21879,7 @@
         },
         "zoras.zoras_shop_7": {
             "type": "shopslot",
-            "logicAccess": "reach_location[zoras.m_shop_7]",
+            "logicAccess": "reach_location[zoras.zoras_shop_7]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21938,7 +21938,7 @@
         },
         "zoras.zoras_shop_6": {
             "type": "shopslot",
-            "logicAccess": "reach_location[zoras.m_shop_6]",
+            "logicAccess": "reach_location[zoras.zoras_shop_6]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -21982,7 +21982,7 @@
         },
         "zoras.zoras_shop_5": {
             "type": "shopslot",
-            "logicAccess": "reach_location[zoras.m_shop_5]",
+            "logicAccess": "reach_location[zoras.zoras_shop_5]",
             "visible": {
                 "type": "or",
                 "content": [
@@ -72842,9 +72842,9 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_1": {
+        "market.mask_shop_1": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_1]",
+            "logicAccess": "reach_location[market.mask_shop_1]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -72890,9 +72890,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_2": {
+        "market.mask_shop_2": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_2]",
+            "logicAccess": "reach_location[market.mask_shop_2]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -72938,9 +72938,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_3": {
+        "market.mask_shop_3": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_3]",
+            "logicAccess": "reach_location[market.mask_shop_3]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -72986,9 +72986,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_4": {
+        "market.mask_shop_4": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_4]",
+            "logicAccess": "reach_location[market.mask_shop_4]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -73034,9 +73034,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_5": {
+        "market.mask_shop_5": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_5]",
+            "logicAccess": "reach_location[market.mask_shop_5]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -73082,9 +73082,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_6": {
+        "market.mask_shop_6": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_6]",
+            "logicAccess": "reach_location[market.mask_shop_6]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -73130,9 +73130,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_7": {
+        "market.mask_shop_7": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_7]",
+            "logicAccess": "reach_location[market.mask_shop_7]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -73178,9 +73178,9 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
-        "market.m_mask_shop_item_8": {
+        "market.mask_shop_8": {
             "type": "chest",
-            "logicAccess": "reach_location[market.m_mask_shop_item_8]",
+            "logicAccess": "reach_location[market.mask_shop_8]",
             "visible": true,
             "visibleRootOnly": false,
             "filter": {
@@ -110563,7 +110563,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_4"
+                            "name": "market.mask_shop_4"
                         },
                         "pos": {
                             "x": 109,
@@ -110576,7 +110576,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_3"
+                            "name": "market.mask_shop_3"
                         },
                         "pos": {
                             "x": 129,
@@ -110589,7 +110589,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_2"
+                            "name": "market.mask_shop_2"
                         },
                         "pos": {
                             "x": 109,
@@ -110602,7 +110602,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_1"
+                            "name": "market.mask_shop_1"
                         },
                         "pos": {
                             "x": 129,
@@ -110615,7 +110615,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_8"
+                            "name": "market.mask_shop_8"
                         },
                         "pos": {
                             "x": 181,
@@ -110628,7 +110628,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_7"
+                            "name": "market.mask_shop_7"
                         },
                         "pos": {
                             "x": 201,
@@ -110641,7 +110641,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_6"
+                            "name": "market.mask_shop_6"
                         },
                         "pos": {
                             "x": 181,
@@ -110654,7 +110654,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.m_mask_shop_item_5"
+                            "name": "market.mask_shop_5"
                         },
                         "pos": {
                             "x": 201,

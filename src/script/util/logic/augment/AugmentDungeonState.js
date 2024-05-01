@@ -37,7 +37,7 @@ function augmentGerudoKeys(keyLogic, keyRef, keys) {
     const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
     if (keyLogic === "keylogic_vanilla") {
         for (const location of keyLocationList) {
-            LogicCaller.addCollectible(location, keyRef);
+            LogicCaller.setCollectible(location, keyRef);
         }
         return 0;
     }
@@ -51,7 +51,7 @@ function augmentTCGKeys(keyLogic, keyRef, keys) {
     const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
     if (keyLogic === "keylogic_vanilla") {
         for (const location of keyLocationList) {
-            LogicCaller.addCollectible(location, keyRef);
+            LogicCaller.setCollectible(location, keyRef);
         }
         return 0;
     }
@@ -68,7 +68,7 @@ function augmentSilverRupees(keyLogic, keyRef, keys) {
     const keyLocationList = KEY_LOCATION_INDEX[keyRef] ?? [];
     if (keyLogic === "keylogic_vanilla") {
         for (const location of keyLocationList) {
-            LogicCaller.addCollectible(location, keyRef);
+            LogicCaller.setCollectible(location, keyRef);
         }
         return 0;
     }

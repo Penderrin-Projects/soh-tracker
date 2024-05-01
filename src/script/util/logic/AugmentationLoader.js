@@ -5,3 +5,4 @@ import "./augment/AugmentZeldaLetter.js";
 import "./augment/AugmentReachEpona.js";
 import "./augment/AugmentOcarinaSongNotes.js";
 import "./augment/AugmentTotalHearts.js";
+import "./augment/AugmentBuyables.js";

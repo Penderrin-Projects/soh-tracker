@@ -24,11 +24,6 @@
         "min": 3,
         "max": 20
     },
-    "consider_buyable": {
-        "category": "options",
-        "type": "check",
-        "default": false
-    },
     "bombchu_logic": {
         "category": "options",
         "type": "check",
