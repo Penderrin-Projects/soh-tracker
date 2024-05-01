@@ -124,12 +124,12 @@
         [
             {
                 "type": "item",
-                "value": "stick",
+                "value": "stick_upgrade",
                 "visible": true
             },
             {
                 "type": "item",
-                "value": "nut",
+                "value": "nut_upgrade",
                 "visible": true
             },
             {
@@ -693,12 +693,12 @@
         [
             {
                 "type": "item",
-                "value": "stick",
+                "value": "stick_upgrade",
                 "visible": true
             },
             {
                 "type": "item",
-                "value": "nut",
+                "value": "nut_upgrade",
                 "visible": true
             },
             {
@@ -1589,12 +1589,12 @@
         [
             {
                 "type": "item",
-                "value": "stick",
+                "value": "stick_upgrade",
                 "visible": true
             },
             {
                 "type": "item",
-                "value": "nut",
+                "value": "nut_upgrade",
                 "visible": true
             },
             {

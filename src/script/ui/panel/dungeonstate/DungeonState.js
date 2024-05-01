@@ -164,7 +164,7 @@ function createRow(target, ref, data) {
     // small key
     if (data.keys) {
         const itemData = items[data.keys];
-        const itm = ItemGridInteractive.createItem(data.keys, itemData.type);
+        const itm = ItemGridInteractive.createItem(data.keys, itemData);
         itm.classList.add("inactive");
         itm.setAttribute("type", "key");
         el.append(itm);
@@ -180,7 +180,7 @@ function createRow(target, ref, data) {
     // boss key
     if (data.bosskey) {
         const itemData = items[data.bosskey];
-        const itm = ItemGridInteractive.createItem(data.bosskey, itemData.type);
+        const itm = ItemGridInteractive.createItem(data.bosskey, itemData);
         itm.classList.add("inactive");
         itm.setAttribute("type", "bosskey");
         el.append(itm);
@@ -245,7 +245,7 @@ function createRow(target, ref, data) {
     // map
     if (data.map) {
         const itemData = items[data.map];
-        const itm = ItemGridInteractive.createItem(data.map, itemData.type);
+        const itm = ItemGridInteractive.createItem(data.map, itemData);
         itm.classList.add("inactive");
         itm.setAttribute("type", "map");
         el.append(itm);
@@ -261,7 +261,7 @@ function createRow(target, ref, data) {
     // compass
     if (data.compass) {
         const itemData = items[data.compass];
-        const itm = ItemGridInteractive.createItem(data.compass, itemData.type);
+        const itm = ItemGridInteractive.createItem(data.compass, itemData);
         itm.classList.add("inactive");
         itm.setAttribute("type", "compass");
         el.append(itm);
