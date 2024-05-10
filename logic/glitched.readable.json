@@ -61414,12 +61414,12 @@
                 }
             ]
         },
-        "function[can_use](item[stick]){child}": {
+        "function[can_use](mixin[sticks]){child}": {
             "type": "and",
             "content": [
                 {
-                    "type": "value",
-                    "ref": "item[stick]"
+                    "type": "mixin",
+                    "ref": "mixin[sticks]{child}"
                 },
                 {
                     "type": "mixin",
@@ -61427,12 +61427,12 @@
                 }
             ]
         },
-        "function[can_use](item[stick]){adult}": {
+        "function[can_use](mixin[sticks]){adult}": {
             "type": "and",
             "content": [
                 {
-                    "type": "value",
-                    "ref": "item[stick]"
+                    "type": "mixin",
+                    "ref": "mixin[sticks]{adult}"
                 },
                 {
                     "type": "mixin",

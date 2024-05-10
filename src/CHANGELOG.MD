@@ -4,6 +4,12 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.0.3
+
+### BUG FIXES
+
+- fix sticks logic not applied everywhere
+
 ## VERSION 3.0.2
 
 ### CHANGES
