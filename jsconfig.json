@@ -1,27 +1,23 @@
 {
     "compilerOptions": {
-        "target": "es2020",
+        "target": "esnext",
         "allowSyntheticDefaultImports": false,
         "checkJs": false,
-        "baseUrl": "./src/",
+        "baseUrl": "./src",
         "paths": {
             "/script/*": [
                 "./script/*"
             ],
             "/GameTrackerJS/*": [
-                "../../GameTrackerJS/src/*",
                 "../node_modules/gametrackerjs/src/*"
             ],
             "/emcJS/*": [
-                "../../emcJS/src/*",
                 "../node_modules/emcjs/src/*"
             ],
             "/JSEditors/*": [
-                "../../JSEditors/src/*",
                 "../node_modules/jseditors/src/*"
             ],
             "/rtc/*": [
-                "../../RTCClient/src/*",
                 "../node_modules/rtcclient/src/*"
             ]
         }

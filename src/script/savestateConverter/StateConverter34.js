@@ -47,9 +47,11 @@ SavestateConverter.register(function(state) {
     };
 
     for (const [key, value] of Object.entries(state.data?.exitBindings ?? {})) {
-        const newKey = key.replace("kakriko", "kakariko");
-        const newValue = value.replace("kakriko", "kakariko");
-        res.data.exitBindings[newKey] = newValue;
+        if (typeof value === "string") {
+            const newKey = key.replace("kakriko", "kakariko");
+            const newValue = value.replace("kakriko", "kakariko");
+            res.data.exitBindings[newKey] = newValue;
+        }
     }
 
     return res;

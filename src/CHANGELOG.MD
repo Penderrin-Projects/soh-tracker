@@ -21,6 +21,7 @@ Application:    Track-OOT
 ### BUG FIXES
 
 - fixed firefox specific "(intermediate value).get(...)" error caused by map-gossipstones not importing default location
+- fixed an error where non string entrance values for exits crashed the application
 
 ## VERSION 3.0.1
 
