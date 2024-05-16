@@ -284,6 +284,16 @@
         "type": "check",
         "default": false
     },
+    "shuffle_loach_reward": {
+        "category": "item_sanity",
+        "type": "choice",
+        "default": "off",
+        "values": [
+            "off",
+            "vanilla",
+            "easy"
+        ]
+    },
     "shuffle_silver_rupees": {
         "category": "keylogic",
         "type": "choice",

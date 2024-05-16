@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.0.5
+
+### CHANGES
+
+- add loach option to hide the hyrule loach if not shuffled
+
+---
+
 ## VERSION 3.0.4
 
 ### CHANGES

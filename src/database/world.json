@@ -72815,7 +72815,14 @@
         "lake.c_loach_fishing": {
             "type": "chest",
             "logicAccess": "reach_location[lake.c_loach_fishing]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[shuffle_loach_reward]",
+                    "value": "off"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {

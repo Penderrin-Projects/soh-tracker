@@ -7,6 +7,14 @@
                 "false": false
             }
         },
+        "shuffle_loach_reward": {
+            "name": "shuffle_loach_reward",
+            "values": {
+                "off": "off",
+                "vanilla": "vanilla",
+                "easy": "easy"
+            }
+        },
         "shuffle_silver_rupees": {
             "name": "shuffle_silver_rupees",
             "values": {
