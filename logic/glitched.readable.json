@@ -58397,10 +58397,12 @@
             "ref": "option[dungeon_shortcuts.temple_spirit]"
         },
         "mixin[king_dodongo_shortcuts]{child}": {
-            "type": "false"
+            "type": "value",
+            "ref": "calculated[king_dodongo_shortcuts]"
         },
         "mixin[king_dodongo_shortcuts]{adult}": {
-            "type": "false"
+            "type": "value",
+            "ref": "calculated[king_dodongo_shortcuts]"
         },
         "mixin[can_become_adult]{child}": {
             "type": "or",

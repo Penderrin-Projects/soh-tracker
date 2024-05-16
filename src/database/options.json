@@ -497,7 +497,7 @@
     },
     "dungeon_shortcuts": {
         "category": "entrance_randomizer",
-        "type": "-list",
+        "type": "list",
         "default": [],
         "values": [
             "dungeon_shortcuts.deku",

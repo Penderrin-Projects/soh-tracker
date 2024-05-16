@@ -4,11 +4,21 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.0.4
+
+### CHANGES
+
+- add dungeon shortcut logic
+
+---
+
 ## VERSION 3.0.3
 
 ### BUG FIXES
 
 - fix sticks logic not applied everywhere
+
+---
 
 ## VERSION 3.0.2
 
@@ -29,11 +39,15 @@ Application:    Track-OOT
 - fixed firefox specific "(intermediate value).get(...)" error caused by map-gossipstones not importing default location
 - fixed an error where non string entrance values for exits crashed the application
 
+---
+
 ## VERSION 3.0.1
 
 ### BUG FIXES
 
 - fixed rare issue with StateConverter28 causing initial load to always have dungeon shuffle active
+
+---
 
 ## VERSION 3.0.0
 
