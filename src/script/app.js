@@ -88,6 +88,17 @@ try {
     notePad.addEventListener("change", function() {
         Savestate.notes = notePad.value;
     });
+    // main-content viewchoice
+    const viewchoiceEl = document.getElementById("main-content");
+    viewchoiceEl.setTab("tracker", "Item & Map Tracker", "images/icons/tracker.svg");
+    viewchoiceEl.setTab("locationlist", "Locationlist", "images/icons/locationlist.svg");
+    viewchoiceEl.setTab("maps", "Maps", "images/icons/area.svg");
+    viewchoiceEl.setTab("shops", "Shops", "images/icons/shops.svg");
+    viewchoiceEl.setTab("dungeonstate", "Dungeonstate", "images/icons/dungeonstate.svg");
+    viewchoiceEl.setTab("exits", "Exits", "images/icons/entrance.svg");
+    viewchoiceEl.setTab("songs", "Songs", "images/icons/songs.svg");
+    viewchoiceEl.setTab("multi", "Multiplayer", "images/icons/multi.svg");
+    viewchoiceEl.setTab("notes", "Notes", "images/icons/notes.svg");
 
     updateLoadingMessage("initialize settings...");
     // windows

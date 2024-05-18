@@ -2,39 +2,39 @@
 <emc-page>
     <emc-paging id="view-pager" active="main">
         <gt-viewchoice id="main-content" slot="main" active="tracker">
-            <gt-viewchoice-panel slot="tracker" label="Item & Map Tracker" icon="images/icons/tracker.svg">
+            <gt-viewchoice-panel category="tracker">
                 <ootrt-layoutcontainer id="layout-container" layout="map-compact">
                 </ootrt-layoutcontainer>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="locationlist" label="Locationlist" icon="images/icons/locationlist.svg">
+            <gt-viewchoice-panel category="locationlist">
                 <ootrt-locationlist>
                 </ootrt-locationlist>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="maps" label="Maps" icon="images/icons/area.svg">
+            <gt-viewchoice-panel category="maps">
                 <ootrt-worldmap detailed="true">
                 </ootrt-worldmap>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="shops" label="Shops" icon="images/icons/shops.svg">
+            <gt-viewchoice-panel category="shops">
                 <ootrt-shoplist>
                 </ootrt-shoplist>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="dungeonstate" label="Dungeonstate" icon="images/icons/dungeonstate.svg">
+            <gt-viewchoice-panel category="dungeonstate">
                 <ootrt-dungeonstate orientation="column" active="key,bosskey,silver_rupees,map,compass,reward,type,hint">
                 </ootrt-dungeonstate>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="exits" label="Exits" icon="images/icons/entrance.svg">
+            <gt-viewchoice-panel category="exits">
                 <gt-exitlist>
                 </gt-exitlist>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="songs" label="Songs" icon="images/icons/songs.svg">
+            <gt-viewchoice-panel category="songs">
                 <ootrt-songlist>
                 </ootrt-songlist>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="multi" label="Multiplayer" icon="images/icons/multi.svg">
+            <gt-viewchoice-panel category="multi">
                 <ootrt-multiplayer>
                 </ootrt-multiplayer>
             </gt-viewchoice-panel>
-            <gt-viewchoice-panel slot="notes" label="Notes" icon="images/icons/notes.svg">
+            <gt-viewchoice-panel category="notes">
                 <gt-texteditor id="notes-editor" title="Notes">
                 </gt-texteditor>
             </gt-viewchoice-panel>

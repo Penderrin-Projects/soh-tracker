@@ -160,7 +160,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
         for (const item in items) {
             const values = items[item];
             if (values.visible == null || values.visible === true) {
-                this.addTab(Language.generateLabel(values.category), values.category);
+                this.setTab(Language.generateLabel(values.category), values.category);
                 this.addItem(values.category, item, values.price || "???");
             }
         }
@@ -288,7 +288,7 @@ export default class HTMLTrackerShopItemChoice extends Window {
         a[a.length - 1].focus();
     }
 
-    addTab(title, id) {
+    setTab(title, id) {
         if (!this.shadowRoot.getElementById(`panel_${id}`)) {
             const pnl = document.createElement("div");
             pnl.className = "panel";
