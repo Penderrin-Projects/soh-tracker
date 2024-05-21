@@ -1,15 +1,14 @@
-// GameTrackerJS
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import {
     parseSafeRange
 } from "/GameTrackerJS/util/helper/ItemHelper.js";
-import DefaultItemState from "/GameTrackerJS/state/item/DefaultItemState.js";
+import DefaultAPItemState from "./DefaultAPItemState.js";
 
 const AREA = new WeakMap();
 const MAX = new WeakMap();
 
-export default class KeyState extends DefaultItemState {
+export default class KeyState extends DefaultAPItemState {
 
     constructor(ref, props) {
         super(ref, props);

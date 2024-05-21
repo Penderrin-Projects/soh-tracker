@@ -6,7 +6,7 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateManager.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
 // Track-OOT
-import "../world/WorldStates.js";
+import "../StateTypesLoader.js";
 import "../../util/registerStorages.js";
 
 const STORAGES = {dungeonRewards: Savestate.getStorage("dungeonRewards")};

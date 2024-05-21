@@ -1,11 +1,11 @@
 // GameTrackerJS
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 // Track-OOT
 import ShopsResource from "/script/resource/ShopsResource.js";
 import ShopStates from "../../shop/ShopStateManager.js";
 import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
+import DefaultAPLocationState from "./DefaultAPLocationState.js";
 
 const SHOP_STATE = new WeakMap();
 const WALLET = ItemStateManager.get("wallet");
@@ -20,7 +20,7 @@ const WALLET_CAPACITIES = [99, 200, 500, 999];
     }
 }
 
-export default class ShopSlotState extends DefaultLocationState {
+export default class ShopSlotState extends DefaultAPLocationState {
 
     constructor(ref, props) {
         super(ref, props);
@@ -125,12 +125,23 @@ export default class ShopSlotState extends DefaultLocationState {
 
     isDefault() {
         const shopState = SHOP_STATE.get(this);
-        return shopState.isDefault();
+        if (shopState != null) {
+            return shopState.isDefault();
+        }
     }
 
     reset() {
         const shopState = SHOP_STATE.get(this);
-        shopState.reset();
+        if (shopState != null) {
+            shopState.reset();
+        }
+    }
+
+    setAPValue(value) {
+        const shopState = SHOP_STATE.get(this);
+        if (shopState != null) {
+            shopState.bought = value;
+        }
     }
 
 }

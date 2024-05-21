@@ -31,6 +31,7 @@ import "/script/content/index.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorContainer.js";
 import "/script/savestateConverter/StateConverter.js";
+import ArchipelagoController from "/script/util/archipelago/ArchipelagoController.js";
 import "/script/util/logic/AugmentCustomLogic.js";
 import "/script/util/logic/AugmentationLoader.js";
 import "/script/util/A11y.js";
@@ -40,8 +41,8 @@ import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
-
 import "/script/ui/multiplayer/Multiplayer.js";
+import APWindow from "./ui/window/APWindow.js";
 
 const spl = document.getElementById("loading-info");
 
@@ -100,12 +101,16 @@ try {
     viewchoiceEl.setTab("multi", "Multiplayer", "images/icons/multi.svg");
     viewchoiceEl.setTab("notes", "Notes", "images/icons/notes.svg");
 
+    // XXX
+    window.ArchipelagoController = ArchipelagoController;
+
     updateLoadingMessage("initialize settings...");
     // windows
     {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        GlobalContext.set("ArchipelagoWindow", new APWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);

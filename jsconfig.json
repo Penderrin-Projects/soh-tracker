@@ -19,6 +19,9 @@
             ],
             "/rtc/*": [
                 "../node_modules/rtcclient/src/*"
+            ],
+            "/ArchipelagoJS/*": [
+                "../node_modules/archipelagojs/src/*"
             ]
         }
     }

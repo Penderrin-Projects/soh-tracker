@@ -23,7 +23,8 @@ const MODULE_PATHS = {
     emcJS: path.resolve(NODE_FOLDER, "emcjs/src"),
     GameTrackerJS: path.resolve(NODE_FOLDER, "gametrackerjs/src"),
     JSEditors: path.resolve(NODE_FOLDER, "jseditors/src"),
-    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src")
+    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src"),
+    ArchipelagoJS: path.resolve(NODE_FOLDER, "archipelagojs/src")
 };
 
 /* configuration */
@@ -33,6 +34,8 @@ const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
 console.log({NOCOMPRESS, REBUILDJS, REBUILD});
+
+// ImportAnalyzer.reportImport(true);
 
 /* JS START */
 function copyJS(files, src, dest, target) {
@@ -92,6 +95,15 @@ function copyRTCClient(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.RTCClient;
     const DST = `${dest}/rtc`;
+    return copyJS(FILES, SRC, DST, dest);
+}
+
+function copyArchipelagoJS(dest = DEV_PATH) {
+    const FILES = [
+        `${MODULE_PATHS.ArchipelagoJS}/**/*.js`
+    ];
+    const SRC = MODULE_PATHS.ArchipelagoJS;
+    const DST = `${dest}/ArchipelagoJS`;
     return copyJS(FILES, SRC, DST, dest);
 }
 
@@ -286,6 +298,7 @@ export const build = gulp.series(
         copyEmcJS.bind(this, PRD_PATH),
         copyJSEditors.bind(this, PRD_PATH),
         copyRTCClient.bind(this, PRD_PATH),
+        copyArchipelagoJS.bind(this, PRD_PATH),
         copyInitializer.bind(this, SRC_PATH, PRD_PATH),
         copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
         copyChangelog.bind(this, SRC_PATH, PRD_PATH)
@@ -308,6 +321,7 @@ export const buildDev = gulp.series(
         copyEmcJS.bind(this, DEV_PATH),
         copyJSEditors.bind(this, DEV_PATH),
         copyRTCClient.bind(this, DEV_PATH),
+        copyArchipelagoJS.bind(this, DEV_PATH),
         copyInitializer.bind(this, SRC_PATH, DEV_PATH),
         copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
         copyChangelog.bind(this, SRC_PATH, DEV_PATH)

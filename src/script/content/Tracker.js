@@ -52,6 +52,9 @@ PageSwitcher.register("main", [{
         "handler": showEditors
     }]
 }, {
+    "content": "ARCHIPELAGO",
+    "handler": openArchipelagoWindow
+}, {
     "content": "RANDOMIZER OPTIONS",
     "handler": openRomSettingsWindow
 }, {
@@ -135,6 +138,13 @@ function openSettingsWindow() {
     const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");
     if (trackerSettingsWindow) {
         trackerSettingsWindow.show();
+    }
+}
+
+function openArchipelagoWindow() {
+    const archipelagoWindow = GlobalContext.get("ArchipelagoWindow");
+    if (archipelagoWindow) {
+        archipelagoWindow.show();
     }
 }
 

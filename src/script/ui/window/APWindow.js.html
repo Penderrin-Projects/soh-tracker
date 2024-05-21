@@ -1,0 +1,29 @@
+<div id="form">
+    <label class="label">
+        <emc-i18n-label class="labelText" i18n-value="Hostname"></emc-i18n-label>
+        <input id="apHostname" value="archipelago.gg">
+    </label>
+    <label class="label">
+        <emc-i18n-label class="labelText" i18n-value="Port"></emc-i18n-label>
+        <input id="apPort" type="number" min="1" max="65535">
+    </label>
+    <label class="label">
+        <emc-i18n-label class="labelText" i18n-value="Slot name"></emc-i18n-label>
+        <input id="apSlotName">
+    </label>
+    <label class="label">
+        <emc-i18n-label class="labelText" i18n-value="Password"></emc-i18n-label>
+        <input id="apPassword">
+    </label>
+</div>
+<div id="footer">
+    <button id="connect" title="connect">
+        connect
+    </button>
+    <button id="disconnect" class="hidden" title="disconnect">
+        disconnect
+    </button>
+    <button id="cancel" title="cancel">
+        cancel
+    </button>
+</div>

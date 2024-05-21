@@ -1,9 +1,9 @@
 
 import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import DefaultAPLocationState from "./DefaultAPLocationState.js";
 
 const STORAGES = {
     scrubPrices: Savestate.getStorage("scrubPrices")
@@ -12,7 +12,7 @@ const STORAGES = {
 const WALLET = ItemStateManager.get("wallet");
 const WALLET_CAPACITIES = [99, 200, 500, 999];
 
-export default class ScrubLocationState extends DefaultLocationState {
+export default class ScrubLocationState extends DefaultAPLocationState {
 
     #price = 0;
 

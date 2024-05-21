@@ -1,13 +1,9 @@
-// frameworks
 import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
-
-// GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
-// Track-OOT
-import ShopItemsResource from "/script/resource/ShopItemsResource.js";
-import ShopLocationRegistry from "/script/registry/ShopLocationRegistry.js";
+import ShopItemsResource from "../../resource/ShopItemsResource.js";
+import ShopLocationRegistry from "../../registry/ShopLocationRegistry.js";
 import "../../util/registerStorages.js";
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
@@ -32,6 +28,8 @@ export default class DefaultShopState extends DataState {
     #price = 0;
 
     #bought = false;
+
+    #apBought = false;
 
     #name = "";
 
@@ -165,19 +163,23 @@ export default class DefaultShopState extends DataState {
         if (typeof value != "boolean" || this.isDefault() || this.isRefill()) {
             value = false;
         }
-        const old = this.bought;
+        const old = this.#bought;
         if (value != old) {
+            const oldResValue = this.bought;
             this.#bought = value;
             STORAGES.shopItemsBought.set(ref, value);
-            // external
-            const event = new Event("bought");
-            event.value = value;
-            this.dispatchEvent(event);
+            const newResValue = this.value;
+            if (newResValue != oldResValue) {
+                // external
+                const event = new Event("bought");
+                event.value = newResValue;
+                this.dispatchEvent(event);
+            }
         }
     }
 
     get bought() {
-        return this.#bought;
+        return this.#bought || this.#apBought;
     }
 
     set name(value) {
@@ -254,6 +256,24 @@ export default class DefaultShopState extends DataState {
         STORAGES.shopItemsPrice.delete(ref);
         STORAGES.shopItemsBought.delete(ref);
         STORAGES.shopItemsName.delete(ref);
+    }
+
+    setAPBought(value) {
+        if (typeof value != "boolean" || this.isDefault() || this.isRefill()) {
+            value = false;
+        }
+        const old = this.#apBought;
+        if (value != old) {
+            const oldResValue = this.bought;
+            this.#apBought = value;
+            const newResValue = this.value;
+            if (newResValue != oldResValue) {
+                // external
+                const event = new Event("bought");
+                event.value = newResValue;
+                this.dispatchEvent(event);
+            }
+        }
     }
 
 }
