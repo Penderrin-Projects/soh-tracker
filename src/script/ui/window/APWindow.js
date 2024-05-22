@@ -54,12 +54,12 @@ export default class APWindow extends Window {
     show() {
         WindowLayer.append(this, "dialogs");
 
-        const {apHostname, apPort, apSlotName, apPassword} = APStateStorage.getAll();
+        const {apHostname, apPort, apSlotName} = APStateStorage.getAll();
 
         this.#apHostnameEl.value = apHostname ?? "archipelago.gg";
         this.#apPortEl.value = apPort;
         this.#apSlotNameEl.value = apSlotName ?? "";
-        this.#apPasswordEl.value = apPassword ?? "";
+        this.#apPasswordEl.value = "";
 
         if (ArchipelagoController.isConnected()) {
             this.#apHostnameEl.setAttribute("disabled", "");
@@ -81,7 +81,7 @@ export default class APWindow extends Window {
 
         try {
             await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword);
-            APStateStorage.setAll({apHostname, apPort, apSlotName, apPassword});
+            APStateStorage.setAll({apHostname, apPort, apSlotName});
             this.remove();
         } catch (error) {
             Dialog.error("Error", "An error occured", [error]);

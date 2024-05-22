@@ -1,4 +1,5 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import Client from "/ArchipelagoJS/Client.js";
 import {
     COMMON_TAGS
@@ -10,6 +11,7 @@ import {
     CONNECTION_STATUS
 } from "/ArchipelagoJS/consts/ConnectionStatus.js";
 import {
+    CLIENT_PACKET_TYPE,
     SERVER_PACKET_TYPE
 } from "/ArchipelagoJS/consts/CommandPacketType.js";
 import {
@@ -21,60 +23,82 @@ import {
 } from "./APNameTranslator.js";
 
 const GAME_NAME = "Ocarina of Time";
-
-const client = new Client();
-
-let slotId = null;
-let itemIndex = -1;
-const statusInterval = null;
+const BOUNCE_PERIOD_TIME = 120; // seconds
+const BOUNCE_TIMEOUT_TIME = 1; // seconds
 
 class ArchipelagoController {
 
+    #client = new Client();
+
+    #slotId = null;
+
+    #itemIndex = -1;
+
+    #connectionTimeout = null;
+
+    #periodTimer = null;
+
     connect(apHostname, apPort, apSlotName, apPassword) {
-        if (client.status === CONNECTION_STATUS.DISCONNECTED) {
+        if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
                 hostname: apHostname,
                 port: apPort,
                 game: GAME_NAME,
                 name: apSlotName,
+                password: apPassword,
                 items_handling: ITEMS_HANDLING_FLAGS.REMOTE_ALL,
                 slot_data: true,
                 tags: [COMMON_TAGS.TRACKER]
             };
 
-            if (apPassword != null) {
-                connectionInfo.password = apPassword;
-            }
+            this.#client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, (event) => {
+                this.#onConnectedEvent(event);
+            });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, (event) => {
+                this.#onPrintJSONEvent(event);
+            });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.RECEIVED_ITEMS, (event) => {
+                this.#onRecievedItemsEvent(event);
+            });
+            this.#client.addEventListener("SocketDisconnected", () => {
+                this.#onDisonnectedEvent();
+            });
+            this.#client.addEventListener("SocketClosed", () => {
+                this.#onClosedEvent();
+            });
+            this.#client.addEventListener("PacketReceived", () => {
+                this.#resetTimeout();
+            });
 
-            client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, this.#onConnectedEvent);
-            client.addEventListener(SERVER_PACKET_TYPE.DISCONNECTED, this.#onDisonnectedEvent);
-            client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, this.#onPrintJSONEvent);
-            client.addEventListener(SERVER_PACKET_TYPE.RECEIVED_ITEMS, this.#onRecievedItemsEvent);
-
-            return client.connect(connectionInfo);
+            return this.#client.connect(connectionInfo);
         }
         return Promise.reject("Already connected or in conencting state");
     }
 
     disconnect() {
-        disconnectAP();
+        this.#client.disconnect();
+        AP_STORAGES.items.clear();
+        AP_STORAGES.locations.clear();
+        this.#itemIndex = -1;
+        this.#slotId = null;
     }
 
     isConnected() {
-        return client.status !== CONNECTION_STATUS.DISCONNECTED;
+        return this.#client.status !== CONNECTION_STATUS.DISCONNECTED;
     }
 
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
         // console.log("Connected to server: ", packet);
-        Dialog.alert("AP Connected", "You are now connected to AP");
+        Toast.success("You are now connected to Archipelago");
+        this.#resetTimeout();
 
         const {slot, checked_locations} = packet;
-        slotId = slot;
+        this.#slotId = slot;
 
         for (const location of checked_locations) {
-            const apLocationName = client.locations.name(slotId, location);
+            const apLocationName = this.#client.locations.name(this.#slotId, location);
             const locationName = translateLocation(apLocationName);
             // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
             AP_STORAGES.locations.set(locationName, true);
@@ -82,8 +106,15 @@ class ArchipelagoController {
     }
 
     #onDisonnectedEvent() {
-        clearInterval(statusInterval);
-        Dialog.alert("AP Disconnected", "The connection to Archipelago has been closed");
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        Dialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
+    }
+
+    #onClosedEvent() {
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        Toast.warn("You are no longer connected to Archipelago");
     }
 
     #onPrintJSONEvent(event) {
@@ -91,8 +122,8 @@ class ArchipelagoController {
             const {type, item} = data;
             if (type == "ItemSend") {
                 const {location, player} = item;
-                if (player === slotId) {
-                    const apLocationName = client.locations.name(slotId, location);
+                if (player === this.#slotId) {
+                    const apLocationName = this.#client.locations.name(this.#slotId, location);
                     const locationName = translateLocation(apLocationName);
                     // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
                     AP_STORAGES.locations.set(locationName, true);
@@ -106,12 +137,12 @@ class ArchipelagoController {
         const [packet] = data;
 
         const {index, items} = packet;
-        if (index > itemIndex) {
+        if (index > this.#itemIndex) {
             const resultItems = {};
             for (const itemEntry of items) {
-                itemIndex++;
+                this.#itemIndex++;
                 const {item} = itemEntry;
-                const apItemName = client.items.name(slotId, item);
+                const apItemName = this.#client.items.name(this.#slotId, item);
                 const itemName = translateItem(apItemName);
                 const value = index === 0 ? resultItems[itemName] ?? 0 : AP_STORAGES.items.get(itemName);
                 resultItems[itemName] = value + 1;
@@ -121,17 +152,21 @@ class ArchipelagoController {
         }
     }
 
-}
+    #resetTimeout() {
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        this.#periodTimer = setTimeout(() => {
+            this.#client.send({cmd: CLIENT_PACKET_TYPE.BOUNCE, slots: [this.#slotId]});
+            this.#connectionTimeout = setTimeout(() => {
+                this.#client.purgeConnection();
+                AP_STORAGES.items.clear();
+                AP_STORAGES.locations.clear();
+                this.#itemIndex = -1;
+                this.#slotId = null;
+            }, BOUNCE_TIMEOUT_TIME * 1000);
+        }, BOUNCE_PERIOD_TIME * 1000);
+    }
 
-window.addEventListener("beforeunload", disconnectAP);
-
-function disconnectAP() {
-    client.disconnect();
-    AP_STORAGES.items.clear();
-    AP_STORAGES.locations.clear();
-    itemIndex = -1;
-    slotId = null;
-    clearInterval(statusInterval);
 }
 
 export default new ArchipelagoController();
