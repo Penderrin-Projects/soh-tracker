@@ -4,10 +4,13 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import ArchipelagoController from "../../util/archipelago/ArchipelagoController.js";
+import {
+    AP_STORAGES
+} from "../../util/archipelago/storage/RegisterAPStorage.js";
 import TPL from "./APWindow.js.html" assert {type: "html"};
 import STYLE from "./APWindow.js.css" assert {type: "css"};
 
-const APStateStorage = Savestate.getStorage("APState");
+const APStateStorage = Savestate.getStorage("APConfig");
 
 export default class APWindow extends Window {
 
@@ -22,6 +25,8 @@ export default class APWindow extends Window {
     #connectEl;
 
     #disconnectEl;
+
+    #purgeEl;
 
     constructor() {
         super("Archipelago");
@@ -49,6 +54,9 @@ export default class APWindow extends Window {
 
         const cancelEl = this.shadowRoot.getElementById("cancel");
         cancelEl.addEventListener("click", () => this.cancel());
+
+        this.#purgeEl = this.shadowRoot.getElementById("purge");
+        this.#purgeEl.addEventListener("click", () => this.#purgeAPState());
     }
 
     show() {
@@ -67,6 +75,7 @@ export default class APWindow extends Window {
             this.#apSlotNameEl.setAttribute("disabled", "");
             this.#apPasswordEl.setAttribute("disabled", "");
             this.#connectEl.classList.add("hidden");
+            this.#purgeEl.classList.add("hidden");
             this.#disconnectEl.classList.remove("hidden");
         }
 
@@ -105,7 +114,16 @@ export default class APWindow extends Window {
         this.#apSlotNameEl.removeAttribute("disabled");
         this.#apPasswordEl.removeAttribute("disabled");
         this.#connectEl.classList.remove("hidden");
+        this.#purgeEl.classList.remove("hidden");
         this.#disconnectEl.classList.add("hidden");
+    }
+
+    async #purgeAPState() {
+        const result = await Dialog.confirm("Delete AP Savedata", "Do you really want to delete the AP Item/Location data");
+        if (result === true) {
+            AP_STORAGES.items.clear();
+            AP_STORAGES.locations.clear();
+        }
     }
 
 }

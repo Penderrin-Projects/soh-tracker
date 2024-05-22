@@ -77,8 +77,6 @@ class ArchipelagoController {
 
     disconnect() {
         this.#client.disconnect();
-        AP_STORAGES.items.clear();
-        AP_STORAGES.locations.clear();
         this.#itemIndex = -1;
         this.#slotId = null;
     }
@@ -97,11 +95,21 @@ class ArchipelagoController {
         const {slot, checked_locations} = packet;
         this.#slotId = slot;
 
+        const unknownLocations = [];
+        const resLocations = {};
         for (const location of checked_locations) {
             const apLocationName = this.#client.locations.name(this.#slotId, location);
             const locationName = translateLocation(apLocationName);
             // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
-            AP_STORAGES.locations.set(locationName, true);
+            if (locationName != null) {
+                resLocations[locationName] = true;
+            } else {
+                unknownLocations.push(location);
+            }
+        }
+        AP_STORAGES.deserialize(resLocations);
+        if (unknownLocations.length) {
+            Dialog.error("Unknown AP Locations", "Some locations could not be translated", unknownLocations);
         }
     }
 
@@ -126,7 +134,11 @@ class ArchipelagoController {
                     const apLocationName = this.#client.locations.name(this.#slotId, location);
                     const locationName = translateLocation(apLocationName);
                     // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
-                    AP_STORAGES.locations.set(locationName, true);
+                    if (locationName != null) {
+                        AP_STORAGES.locations.set(locationName, true);
+                    } else {
+                        Dialog.error("Unknown AP Locations", "Some locations could not be translated", [location]);
+                    }
                 }
             }
         }
@@ -138,17 +150,29 @@ class ArchipelagoController {
 
         const {index, items} = packet;
         if (index > this.#itemIndex) {
+            const unknownItems = [];
             const resultItems = {};
             for (const itemEntry of items) {
                 this.#itemIndex++;
                 const {item} = itemEntry;
                 const apItemName = this.#client.items.name(this.#slotId, item);
                 const itemName = translateItem(apItemName);
-                const value = index === 0 ? resultItems[itemName] ?? 0 : AP_STORAGES.items.get(itemName);
-                resultItems[itemName] = value + 1;
-                // console.log("[AP] (Item) %s -> %s", apItemName, itemName);
+                if (itemName != null) {
+                    const value = index === 0 ? resultItems[itemName] ?? 0 : AP_STORAGES.items.get(itemName);
+                    resultItems[itemName] = value + 1;
+                    // console.log("[AP] (Item) %s -> %s", apItemName, itemName);
+                } else {
+                    unknownItems.push(apItemName);
+                }
             }
-            AP_STORAGES.items.setAll(resultItems);
+            if (index === 0) {
+                AP_STORAGES.items.deserialize(resultItems);
+            } else {
+                AP_STORAGES.items.setAll(resultItems);
+            }
+            if (unknownItems.length) {
+                Dialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
+            }
         }
     }
 
@@ -159,8 +183,6 @@ class ArchipelagoController {
             this.#client.send({cmd: CLIENT_PACKET_TYPE.BOUNCE, slots: [this.#slotId]});
             this.#connectionTimeout = setTimeout(() => {
                 this.#client.purgeConnection();
-                AP_STORAGES.items.clear();
-                AP_STORAGES.locations.clear();
                 this.#itemIndex = -1;
                 this.#slotId = null;
             }, BOUNCE_TIMEOUT_TIME * 1000);

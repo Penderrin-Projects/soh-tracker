@@ -76,6 +76,8 @@ function joinValuesAPLocation(newData) {
 TrackerLogicDataCollector.registerStorage(STORAGES.items, "item[", "]", joinValuesItem);
 TrackerLogicDataCollector.registerStorage(STORAGES.startItems, "item[", "]", joinValuesStartItem);
 TrackerLogicDataCollector.registerStorage(AP_STORAGES.items, "item[", "]", joinValuesAPItem);
+Savestate.registerStorage("APItems", AP_STORAGES.items);
 
 TrackerLogicDataCollector.registerStorage(STORAGES.locations, "location[", "]", joinValuesLocation);
 TrackerLogicDataCollector.registerStorage(AP_STORAGES.locations, "location[", "]", joinValuesAPLocation);
+Savestate.registerStorage("APLocations", AP_STORAGES.locations);
