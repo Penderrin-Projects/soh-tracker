@@ -4,11 +4,18 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 3.0.6 (Nightly)
+## VERSION 3.1.0 (Nightly)
 
 ### CHANGES
 
 - add autotracking for archipelago
+
+---
+
+## VERSION 3.0.6
+
+### CHANGES
+
 - make big locationlist load on demand and unload if not active to reduce lag
 
 ---
