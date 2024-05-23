@@ -4,6 +4,7 @@ import {
     mix
 } from "/emcJS/util/Mixin.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
 import StateVisibilityMixin from "/GameTrackerJS/state/mixins/StateVisibilityMixin.js";
 import {
@@ -279,3 +280,5 @@ export default class DefaultAPItemState extends BaseClass {
     }
 
 }
+
+ItemStateManager.setDefaultState(DefaultAPItemState);

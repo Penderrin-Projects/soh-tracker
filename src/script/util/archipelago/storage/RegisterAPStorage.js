@@ -73,6 +73,8 @@ function joinValuesAPLocation(newData) {
     return res;
 }
 
+window.AP_STORAGES = AP_STORAGES;
+
 TrackerLogicDataCollector.registerStorage(STORAGES.items, "item[", "]", joinValuesItem);
 TrackerLogicDataCollector.registerStorage(STORAGES.startItems, "item[", "]", joinValuesStartItem);
 TrackerLogicDataCollector.registerStorage(AP_STORAGES.items, "item[", "]", joinValuesAPItem);

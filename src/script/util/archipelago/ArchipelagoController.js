@@ -1,5 +1,6 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Client from "/ArchipelagoJS/Client.js";
 import {
     COMMON_TAGS
@@ -99,15 +100,26 @@ class ArchipelagoController {
         const resLocations = {};
         for (const location of checked_locations) {
             const apLocationName = this.#client.locations.name(this.#slotId, location);
-            const locationName = translateLocation(apLocationName);
-            // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
-            if (locationName != null) {
-                resLocations[locationName] = true;
+            const locationTranslation = translateLocation(apLocationName);
+            // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranslation);
+            if (locationTranslation != null) {
+                if (locationTranslation !== false) {
+                    if (typeof locationTranslation === "string") {
+                        resLocations[locationTranslation] = true;
+                    } else {
+                        for (const locationName of locationTranslation) {
+                            if (typeof locationName === "string") {
+                                resLocations[locationName] = true;
+                            }
+                        }
+                    }
+                }
             } else {
                 unknownLocations.push(location);
             }
         }
-        AP_STORAGES.deserialize(resLocations);
+        AP_STORAGES.locations.deserialize(resLocations);
+        SavestateHandler.forceCache();
         if (unknownLocations.length) {
             Dialog.error("Unknown AP Locations", "Some locations could not be translated", unknownLocations);
         }
@@ -132,10 +144,20 @@ class ArchipelagoController {
                 const {location, player} = item;
                 if (player === this.#slotId) {
                     const apLocationName = this.#client.locations.name(this.#slotId, location);
-                    const locationName = translateLocation(apLocationName);
-                    // console.log("[AP] (Location) %s -> %s", apLocationName, locationName);
-                    if (locationName != null) {
-                        AP_STORAGES.locations.set(locationName, true);
+                    const locationTranslation = translateLocation(apLocationName);
+                    // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranlation);
+                    if (locationTranslation != null) {
+                        if (locationTranslation !== false) {
+                            if (typeof locationTranslation === "string") {
+                                AP_STORAGES.locations.set(locationTranslation, true);
+                            } else {
+                                for (const locationName of locationTranslation) {
+                                    if (typeof locationName === "string") {
+                                        AP_STORAGES.locations.set(locationName, true);
+                                    }
+                                }
+                            }
+                        }
                     } else {
                         Dialog.error("Unknown AP Locations", "Some locations could not be translated", [location]);
                     }
@@ -156,17 +178,28 @@ class ArchipelagoController {
                 this.#itemIndex++;
                 const {item} = itemEntry;
                 const apItemName = this.#client.items.name(this.#slotId, item);
-                const itemName = translateItem(apItemName);
-                if (itemName != null) {
-                    const value = index === 0 ? resultItems[itemName] ?? 0 : AP_STORAGES.items.get(itemName);
-                    resultItems[itemName] = value + 1;
-                    // console.log("[AP] (Item) %s -> %s", apItemName, itemName);
+                const itemTranslation = translateItem(apItemName);
+                // console.log("[AP] (Item) %s -> %s", apItemName, itemTranslation);
+                if (itemTranslation != null) {
+                    if (itemTranslation !== false) {
+                        if (typeof itemTranslation === "string") {
+                            const value = index === 0 ? resultItems[itemTranslation] ?? 0 : AP_STORAGES.items.get(itemTranslation);
+                            resultItems[itemTranslation] = value + 1;
+                        } else {
+                            const {ref, amount} = itemTranslation;
+                            if (typeof ref === "string") {
+                                const value = index === 0 ? resultItems[ref] ?? 0 : AP_STORAGES.items.get(ref);
+                                resultItems[ref] = value + amount;
+                            }
+                        }
+                    }
                 } else {
                     unknownItems.push(apItemName);
                 }
             }
             if (index === 0) {
                 AP_STORAGES.items.deserialize(resultItems);
+                SavestateHandler.forceCache();
             } else {
                 AP_STORAGES.items.setAll(resultItems);
             }

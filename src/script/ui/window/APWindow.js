@@ -3,6 +3,7 @@ import Window from "/emcJS/ui/overlay/window/Window.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import ArchipelagoController from "../../util/archipelago/ArchipelagoController.js";
 import {
     AP_STORAGES
@@ -123,6 +124,7 @@ export default class APWindow extends Window {
         if (result === true) {
             AP_STORAGES.items.clear();
             AP_STORAGES.locations.clear();
+            SavestateHandler.forceCache();
         }
     }
 

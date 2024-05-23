@@ -21,6 +21,7 @@ import DataState from "/GameTrackerJS/state/DataState.js";
 import StateVisibilityMixin from "/GameTrackerJS/state/mixins/StateVisibilityMixin.js";
 import StateFilterMixin from "/GameTrackerJS/state/mixins/StateFilterMixin.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
 import {
     AP_STORAGES
 } from "../../../util/archipelago/storage/RegisterAPStorage.js";
@@ -246,3 +247,5 @@ export default class DefaultAPLocationState extends BaseClass {
     }
 
 }
+
+LocationStateManager.setDefaultState(DefaultAPLocationState);
