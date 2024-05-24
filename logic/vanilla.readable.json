@@ -100978,6 +100978,16 @@
                 "ref": "mixin[filter_era]{adult}"
             }
         },
+        "region[desert_colossus_hands_mq]{child}": {
+            "region[desert_colossus]{child}": {
+                "type": "true"
+            }
+        },
+        "region[desert_colossus_hands_mq]{adult}": {
+            "region[desert_colossus]{adult}": {
+                "type": "true"
+            }
+        },
         "region[root]": {
             "region[root]{child}": {
                 "type": "state",
