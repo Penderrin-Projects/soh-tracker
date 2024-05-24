@@ -10,6 +10,10 @@ Application:    Track-OOT
 
 - add autotracking for archipelago
 
+### BUG FIXES
+
+- fix spirit_temple_mq hands to colossus gateway
+
 ---
 
 ## VERSION 3.0.6
