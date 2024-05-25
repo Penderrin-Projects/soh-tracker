@@ -264,8 +264,6 @@ export default class DefaultShopState extends DataState {
         }
         if (value && this.isDefault()) {
             this.item = "ap_item";
-        } else if (!value && !this.isDefault()) {
-            this.item = "";
         }
         const old = this.#apBought;
         if (value != old) {
