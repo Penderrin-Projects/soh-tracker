@@ -140,7 +140,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
     setAPValue(value) {
         const shopState = SHOP_STATE.get(this);
         if (shopState != null) {
-            shopState.bought = value;
+            shopState.setAPBought(value);
         }
     }
 

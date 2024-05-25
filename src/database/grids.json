@@ -584,13 +584,46 @@
                 "visible": true
             },
             {
-                "type": "empty",
-                "value": "",
+                "type": "item",
+                "value": "triforce_piece",
                 "visible": true
             },
             {
-                "type": "item",
-                "value": "triforce_piece",
+                "type": "collection",
+                "icon": "/images/icons/rupees.svg",
+                "counting": true,
+                "hideMax": true,
+                "valign": "end",
+                "halign": "end",
+                "contentGrid": [
+                    [
+                        {
+                            "type": "item",
+                            "value": "rupee_green",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "rupee_blue",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "rupee_red",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "rupee_purple",
+                            "visible": true
+                        },
+                        {
+                            "type": "item",
+                            "value": "rupee_yellow",
+                            "visible": true
+                        }
+                    ]
+                ],
                 "visible": true
             }
         ],

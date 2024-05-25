@@ -39,6 +39,14 @@ class ArchipelagoController {
 
     #periodTimer = null;
 
+    constructor() {
+        SavestateHandler.addEventListener("beforeload", () => {
+            if (this.isConnected()) {
+                this.disconnect();
+            }
+        });
+    }
+
     connect(apHostname, apPort, apSlotName, apPassword) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
@@ -55,11 +63,14 @@ class ArchipelagoController {
             this.#client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, (event) => {
                 this.#onConnectedEvent(event);
             });
-            this.#client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, (event) => {
-                this.#onPrintJSONEvent(event);
-            });
+            // this.#client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, (event) => {
+            //     this.#onPrintJSONEvent(event);
+            // });
             this.#client.addEventListener(SERVER_PACKET_TYPE.RECEIVED_ITEMS, (event) => {
                 this.#onRecievedItemsEvent(event);
+            });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.ROOM_UPDATE, (event) => {
+                this.#onRoomUpdate(event);
             });
             this.#client.addEventListener("SocketDisconnected", () => {
                 this.#onDisonnectedEvent();
@@ -89,16 +100,106 @@ class ArchipelagoController {
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
-        // console.log("Connected to server: ", packet);
+        const {slot, checked_locations} = packet;
+
+        this.#slotId = slot;
         Toast.success("You are now connected to Archipelago");
         this.#resetTimeout();
 
-        const {slot, checked_locations} = packet;
-        this.#slotId = slot;
+        const translatedLocations = this.#collectLocations(checked_locations);
 
+        AP_STORAGES.locations.deserialize(translatedLocations);
+        SavestateHandler.forceCache();
+    }
+
+    #onDisonnectedEvent() {
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        Dialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
+    }
+
+    #onClosedEvent() {
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        Toast.warn("You are no longer connected to Archipelago");
+    }
+
+    // #onPrintJSONEvent(event) {
+    //     for (const data of event.data) {
+    //         const {type, item} = data;
+    //         if (type == "ItemSend") {
+    //             const {location, player} = item;
+    //             if (player === this.#slotId) {
+    //                 const apLocationName = this.#client.locations.name(this.#slotId, location);
+    //                 const locationTranslation = translateLocation(apLocationName);
+    //                 // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranlation);
+    //                 if (locationTranslation != null) {
+    //                     if (locationTranslation !== false) {
+    //                         if (typeof locationTranslation === "string") {
+    //                             AP_STORAGES.locations.set(locationTranslation, true);
+    //                         } else {
+    //                             for (const locationName of locationTranslation) {
+    //                                 if (typeof locationName === "string") {
+    //                                     AP_STORAGES.locations.set(locationName, true);
+    //                                 }
+    //                             }
+    //                         }
+    //                     }
+    //                 } else {
+    //                     Dialog.error("Unknown AP Locations", "Some locations could not be translated", [location]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    #onRecievedItemsEvent(event) {
+        const {data} = event;
+        const [packet] = data;
+        const {index, items} = packet;
+
+        if (index === 0) {
+            const collectedItems = this.#collectItems(items);
+            this.#itemIndex = collectedItems.length;
+
+            AP_STORAGES.items.deserialize(collectedItems);
+            SavestateHandler.forceCache();
+        } else if (index > this.#itemIndex) {
+            const collectedItems = this.#collectItems(items, AP_STORAGES.items.getAll());
+            this.#itemIndex += collectedItems.length;
+
+            AP_STORAGES.items.setAll(collectedItems);
+        }
+    }
+
+    #onRoomUpdate(event) {
+        const {data} = event;
+        const [packet] = data;
+        const {checked_locations} = packet;
+
+        const collectedLocations = this.#collectLocations(checked_locations);
+
+        AP_STORAGES.locations.setAll(collectedLocations);
+        SavestateHandler.forceCache();
+    }
+
+    #resetTimeout() {
+        clearTimeout(this.#connectionTimeout);
+        clearTimeout(this.#periodTimer);
+        this.#periodTimer = setTimeout(() => {
+            this.#client.send({cmd: CLIENT_PACKET_TYPE.BOUNCE, slots: [this.#slotId]});
+            this.#connectionTimeout = setTimeout(() => {
+                this.#client.purgeConnection();
+                this.#itemIndex = -1;
+                this.#slotId = null;
+            }, BOUNCE_TIMEOUT_TIME * 1000);
+        }, BOUNCE_PERIOD_TIME * 1000);
+    }
+
+    #collectLocations(locationList = []) {
         const unknownLocations = [];
         const resLocations = {};
-        for (const location of checked_locations) {
+        for (const location of locationList) {
             const apLocationName = this.#client.locations.name(this.#slotId, location);
             const locationTranslation = translateLocation(apLocationName);
             // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranslation);
@@ -118,108 +219,41 @@ class ArchipelagoController {
                 unknownLocations.push(location);
             }
         }
-        AP_STORAGES.locations.deserialize(resLocations);
-        SavestateHandler.forceCache();
         if (unknownLocations.length) {
             Dialog.error("Unknown AP Locations", "Some locations could not be translated", unknownLocations);
         }
+        return resLocations;
     }
 
-    #onDisonnectedEvent() {
-        clearTimeout(this.#connectionTimeout);
-        clearTimeout(this.#periodTimer);
-        Dialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
-    }
-
-    #onClosedEvent() {
-        clearTimeout(this.#connectionTimeout);
-        clearTimeout(this.#periodTimer);
-        Toast.warn("You are no longer connected to Archipelago");
-    }
-
-    #onPrintJSONEvent(event) {
-        for (const data of event.data) {
-            const {type, item} = data;
-            if (type == "ItemSend") {
-                const {location, player} = item;
-                if (player === this.#slotId) {
-                    const apLocationName = this.#client.locations.name(this.#slotId, location);
-                    const locationTranslation = translateLocation(apLocationName);
-                    // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranlation);
-                    if (locationTranslation != null) {
-                        if (locationTranslation !== false) {
-                            if (typeof locationTranslation === "string") {
-                                AP_STORAGES.locations.set(locationTranslation, true);
-                            } else {
-                                for (const locationName of locationTranslation) {
-                                    if (typeof locationName === "string") {
-                                        AP_STORAGES.locations.set(locationName, true);
-                                    }
-                                }
-                            }
-                        }
+    #collectItems(itemList = [], initialItems = {}) {
+        const unknownItems = [];
+        const resultItems = {};
+        for (const itemEntry of itemList) {
+            const {item} = itemEntry;
+            const apItemName = this.#client.items.name(this.#slotId, item);
+            const itemTranslation = translateItem(apItemName);
+            // console.log("[AP] (Item) %s -> %s", apItemName, itemTranslation);
+            if (itemTranslation != null) {
+                if (itemTranslation !== false) {
+                    if (typeof itemTranslation === "string") {
+                        const value = initialItems[itemTranslation] ?? resultItems[itemTranslation] ?? 0;
+                        resultItems[itemTranslation] = value + 1;
                     } else {
-                        Dialog.error("Unknown AP Locations", "Some locations could not be translated", [location]);
-                    }
-                }
-            }
-        }
-    }
-
-    #onRecievedItemsEvent(event) {
-        const {data} = event;
-        const [packet] = data;
-
-        const {index, items} = packet;
-        if (index > this.#itemIndex) {
-            const unknownItems = [];
-            const resultItems = {};
-            for (const itemEntry of items) {
-                this.#itemIndex++;
-                const {item} = itemEntry;
-                const apItemName = this.#client.items.name(this.#slotId, item);
-                const itemTranslation = translateItem(apItemName);
-                // console.log("[AP] (Item) %s -> %s", apItemName, itemTranslation);
-                if (itemTranslation != null) {
-                    if (itemTranslation !== false) {
-                        if (typeof itemTranslation === "string") {
-                            const value = index === 0 ? resultItems[itemTranslation] ?? 0 : AP_STORAGES.items.get(itemTranslation);
-                            resultItems[itemTranslation] = value + 1;
-                        } else {
-                            const {ref, amount} = itemTranslation;
-                            if (typeof ref === "string") {
-                                const value = index === 0 ? resultItems[ref] ?? 0 : AP_STORAGES.items.get(ref);
-                                resultItems[ref] = value + amount;
-                            }
+                        const {ref, amount} = itemTranslation;
+                        if (typeof ref === "string") {
+                            const value = initialItems[ref] ?? resultItems[ref] ?? 0;
+                            resultItems[ref] = value + amount;
                         }
                     }
-                } else {
-                    unknownItems.push(apItemName);
                 }
-            }
-            if (index === 0) {
-                AP_STORAGES.items.deserialize(resultItems);
-                SavestateHandler.forceCache();
             } else {
-                AP_STORAGES.items.setAll(resultItems);
-            }
-            if (unknownItems.length) {
-                Dialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
+                unknownItems.push(apItemName);
             }
         }
-    }
-
-    #resetTimeout() {
-        clearTimeout(this.#connectionTimeout);
-        clearTimeout(this.#periodTimer);
-        this.#periodTimer = setTimeout(() => {
-            this.#client.send({cmd: CLIENT_PACKET_TYPE.BOUNCE, slots: [this.#slotId]});
-            this.#connectionTimeout = setTimeout(() => {
-                this.#client.purgeConnection();
-                this.#itemIndex = -1;
-                this.#slotId = null;
-            }, BOUNCE_TIMEOUT_TIME * 1000);
-        }, BOUNCE_PERIOD_TIME * 1000);
+        if (unknownItems.length) {
+            Dialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
+        }
+        return resultItems;
     }
 
 }

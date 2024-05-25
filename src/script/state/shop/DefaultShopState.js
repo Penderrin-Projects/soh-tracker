@@ -259,8 +259,13 @@ export default class DefaultShopState extends DataState {
     }
 
     setAPBought(value) {
-        if (typeof value != "boolean" || this.isDefault() || this.isRefill()) {
+        if (typeof value != "boolean" || this.isRefill()) {
             value = false;
+        }
+        if (value && this.isDefault()) {
+            this.item = "ap_item";
+        } else if (!value && !this.isDefault()) {
+            this.item = "";
         }
         const old = this.#apBought;
         if (value != old) {
