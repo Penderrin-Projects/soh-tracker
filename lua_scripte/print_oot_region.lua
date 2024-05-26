@@ -291,8 +291,13 @@ function main()
         if  (frame % 60 == 0) then
             local current_entrance = mainmemory.read_u16_be(entrance_address)
             current_region = entrance_to_region_table[current_entrance]
+            if (current_region == nil) then
+                current_region = ""
+            end
         end
-        gui.drawString(10, 10, "Region: " .. current_region);
+        if (current_region ~= "") then
+            gui.drawString(10, 10, "Region: " .. current_region)
+        end
         emu.frameadvance()
     end
 end
