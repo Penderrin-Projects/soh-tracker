@@ -79314,6 +79314,25 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "town_entrance"
+                        },
+                        "pos": {
+                            "x": 899,
+                            "y": 694,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "market_marketentrance_gateway -> marketentrance_market_gateway"
                         },
@@ -79431,6 +79450,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "temple_time"
+                        },
+                        "pos": {
+                            "x": 1268,
+                            "y": 211,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "market_tot_gateway -> tot_market_gateway"
                         },
@@ -79519,6 +79557,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "castle_gateway"
+                        },
+                        "pos": {
+                            "x": 899,
+                            "y": 64,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -79660,14 +79717,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -79681,11 +79759,11 @@
             "accessPenetration": false,
             "icon": "/images/icons/area.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/area/tot_area.webp",
+                "width": 914,
+                "height": 688,
                 "zoom": 100
             },
             "connections": [],
@@ -79693,12 +79771,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 50,
+                            "y": 640,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 50,
+                            "y": 640,
                             "scale": 100
                         },
                         "visible": true,
@@ -79710,11 +79807,18 @@
                             "name": "castle_town.temple_of_time"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 410,
+                            "y": 330,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[entrance_shuffle_interior]",
+                                "value": "entrance_shuffle_off"
+                            }
+                        },
                         "listHidden": false
                     },
                     {
@@ -79723,8 +79827,8 @@
                             "name": "tot_market_gateway -> market_tot_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 410,
+                            "y": 330,
                             "scale": 100
                         },
                         "visible": true,
@@ -79736,9 +79840,9 @@
                             "name": "castle_town.g_gossip_tot_1"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 246,
+                            "y": 532,
+                            "scale": 50
                         },
                         "visible": true,
                         "listHidden": false
@@ -79749,9 +79853,9 @@
                             "name": "castle_town.g_gossip_tot_2"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 246,
+                            "y": 558,
+                            "scale": 50
                         },
                         "visible": true,
                         "listHidden": false
@@ -79762,9 +79866,9 @@
                             "name": "castle_town.g_gossip_tot_3"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 246,
+                            "y": 584,
+                            "scale": 50
                         },
                         "visible": true,
                         "listHidden": false
@@ -79775,16 +79879,26 @@
                             "name": "castle_town.g_gossip_tot_4"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
-                            "scale": 100
+                            "x": 246,
+                            "y": 610,
+                            "scale": 50
                         },
                         "visible": true,
                         "listHidden": false
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_gateway": {
@@ -79795,14 +79909,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -79816,11 +79951,11 @@
             "accessPenetration": false,
             "icon": "/images/icons/area.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/area/castle_gateway.webp",
+                "width": 1000,
+                "height": 600,
                 "zoom": 100
             },
             "connections": [],
@@ -79832,8 +79967,8 @@
                             "name": "castle"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 245,
+                            "y": 400,
                             "scale": 100
                         },
                         "visible": true,
@@ -79845,8 +79980,8 @@
                             "name": "castle_ganon_outside"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 734,
+                            "y": 400,
                             "scale": 100
                         },
                         "visible": true,
@@ -79854,12 +79989,31 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 485,
+                            "y": 525,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "grounds_market_gateway -> market_grounds_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 485,
+                            "y": 525,
                             "scale": 100
                         },
                         "visible": true,
@@ -79867,7 +80021,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle": {
@@ -79930,6 +80094,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 690,
+                            "y": 2340,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -80096,14 +80279,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -80127,6 +80331,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 959,
+                            "y": 2161,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -80194,7 +80417,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko": {
@@ -82662,14 +82895,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -82695,6 +82949,25 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "river"
+                        },
+                        "pos": {
+                            "x": 74,
+                            "y": 1142,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "domain_river_gateway -> river_domain_gateway"
                         },
@@ -82718,6 +82991,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "lake"
+                        },
+                        "pos": {
+                            "x": 604,
+                            "y": 1051,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -82916,6 +83208,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "fountain"
+                        },
+                        "pos": {
+                            "x": 673,
+                            "y": 73,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "domain_fountain_gateway -> fountain_domain_gateway"
                         },
@@ -82955,7 +83266,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "fountain": {
