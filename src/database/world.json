@@ -80365,6 +80365,26 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_ganon"
+                        },
+                        "pos": {
+                            "x": 853,
+                            "y": 820,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "castle_grounds_ganons_castle_gateway -> ganons_castle_castle_grounds_gateway"
                         },
@@ -101191,6 +101211,26 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_ganon_outside"
+                        },
+                        "pos": {
+                            "x": 844,
+                            "y": 1468,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway"
                         },
@@ -102377,12 +102417,32 @@
                 "mq": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_ganon_outside"
+                        },
+                        "pos": {
+                            "x": 844,
+                            "y": 1486,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[shuffle_dungeons]",
+                                "value": "shuffle_dungeons_all"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "ganons_castle_castle_grounds_gateway -> castle_grounds_ganons_castle_gateway"
                         },
                         "pos": {
-                            "x": 845,
-                            "y": 1471,
+                            "x": 844,
+                            "y": 1486,
                             "scale": 100
                         },
                         "visible": true,
@@ -105686,6 +105746,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "town_entrance"
+                        },
+                        "pos": {
+                            "x": 13,
+                            "y": 56,
+                            "scale": 51
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "guard_house_market_gateway -> market_guard_house_gateway"
                         },
@@ -106154,14 +106231,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -106219,6 +106317,26 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "temple_time"
+                        },
+                        "pos": {
+                            "x": 233,
+                            "y": 302,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[entrance_shuffle_interior]",
+                                "value": "entrance_shuffle_all"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "temple_of_time_tot_entrance_gateway -> tot_entrance_temple_of_time_gateway"
                         },
@@ -106232,7 +106350,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "lonlon.house": {
@@ -106910,6 +107038,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "castle"
+                        },
+                        "pos": {
+                            "x": 115,
+                            "y": 334,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -111389,6 +111536,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 99,
+                            "y": 213,
+                            "scale": 70
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "back_house_market_gateway -> market_back_house_gateway"
                         },
@@ -111427,14 +111591,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": false
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111518,6 +111703,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 263,
+                            "y": 217,
+                            "scale": 81
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "bazaar_market_gateway -> market_bazaar_gateway"
                         },
@@ -111531,7 +111733,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.carpenter_house": {

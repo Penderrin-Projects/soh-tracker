@@ -279,24 +279,146 @@ local entrance_to_region_table = {
     [0x0199]="Zora River",
 }
 
+local game_modes = {
+    [-1]={name="Unknown", loaded=false},
+    [0]={name="N64 Logo", loaded=false},
+    [1]={name="Title Screen", loaded=false},
+    [2]={name="File Select", loaded=false},
+    [3]={name="Normal Gameplay", loaded=true},
+    [4]={name="Cutscene", loaded=true},
+    [5]={name="Paused", loaded=true},
+    [6]={name="Dying", loaded=true},
+    [7]={name="Dying Menu Start", loaded=false},
+    [8]={name="Dead", loaded=false},
+}
 
 local entrance_address = 0x11A5D2
-
 local frame = 0
-local current_region = "";
+local current_region = ""
+local last_printed_region = ""
+
+local function MemBit(addr, bytes, pos)
+    local obj = {
+        get = function() return 0 end,
+        set = function(value) end
+    }
+
+    local _addr = addr + bytes - math.floor(pos / 8) - 1
+    local _pos = pos % 8
+
+    function obj.get()
+        return bit.check(mainmemory.read_u8(_addr), _pos)
+    end
+
+    function obj.set(value)
+        local orig = mainmemory.readbyte(_addr)
+        local changed
+        if value then
+            changed = bit.set(orig, _pos)
+        else
+            changed = bit.clear(orig, _pos)
+        end
+        mainmemory.writebyte(_addr, changed)
+    end
+
+    return obj
+end
+
+local function MemInt(addr, width)
+    local obj = {
+        get = function() return 0 end,
+        set = function(value) end
+    }
+
+    local gets = {
+        [1] = function() return mainmemory.read_u8(addr) end,
+        [2] = function() return mainmemory.read_u16_be(addr) end,
+        [3] = function() return mainmemory.read_u24_be(addr) end,
+        [4] = function() return mainmemory.read_u32_be(addr) end,
+    }
+    obj.get = gets[width]
+
+    local sets = {
+        [1] = function(value) mainmemory.write_u8(addr, value) end,
+        [2] = function(value) mainmemory.write_u16_be(addr, value) end,
+        [3] = function(value) mainmemory.write_u24_be(addr, value) end,
+        [4] = function(value) mainmemory.write_u32_be(addr, value) end,
+    }
+    obj.set = sets[width]
+
+    return obj
+end
+
+local value_list = {
+    state_main = MemInt(0x11B92F, 1),
+    state_sub = MemInt(0x11B933, 1),
+    state_menu = MemInt(0x1D8DD5, 1),
+    state_logo = MemInt(0x11F200, 4),
+    entrance = MemInt(0x11A5D2, 2),
+    cur_health = MemInt(0x11A600, 2),
+    link_dying = MemBit(0x1DB09F, 8, 0x27)
+}
+
+local function get_current_game_mode()
+    local mode = -1
+    local logo_state = value_list.state_logo.get()
+    if logo_state == 0x802C5880 or logo_state == 0x00000000 then
+        mode = 0
+    else
+        local main_state = value_list.state_main.get()
+        if main_state == 1 then
+            mode = 1
+        elseif main_state == 2 then
+            mode = 2
+        else
+            local menu_state = value_list.state_menu.get()
+            if menu_state == 0 then
+                if value_list.link_dying.get() or value_list.cur_health.get() <= 0 then
+                    mode = 6
+                else
+                    if value_list.state_sub.get() == 4 then
+                        mode = 4
+                    else
+                        mode = 3
+                    end
+                end
+            elseif (0 < menu_state and menu_state < 9) or menu_state == 13 then
+                mode = 5
+            elseif menu_state == 9 or menu_state == 0xB then
+                mode = 7
+            else
+                mode = 8
+            end
+        end
+    end
+    return mode, game_modes[mode]
+end
+
+function isGameLoaded()
+    return get_current_game_mode() > 2
+end
 
 function main()
     while true do
         frame = frame + 1
         if  (frame % 60 == 0) then
-            local current_entrance = mainmemory.read_u16_be(entrance_address)
-            current_region = entrance_to_region_table[current_entrance]
-            if (current_region == nil) then
+            if (isGameLoaded()) then
+                local current_entrance = value_list.entrance.get()
+                current_region = entrance_to_region_table[current_entrance]
+                if (current_region == nil) then
+                    current_region = ""
+                end
+            else
                 current_region = ""
             end
         end
-        if (current_region ~= "") then
-            gui.drawString(10, 10, "Region: " .. current_region)
+        if (current_region ~= last_printed_region) then
+            if (current_region ~= "") then
+                gui.drawString(20, 20, "Region: " .. current_region, "white", "black", 18, nil, "bold")
+            else
+                gui.drawString(20, 20, "")
+            end
+            last_printed_region = current_region
         end
         emu.frameadvance()
     end

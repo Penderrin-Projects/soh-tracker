@@ -108,7 +108,7 @@ export default async function() {
                 }
                 await BusyIndicatorManager.busy();
                 const config = editorEl.getWorldData();
-                FileSystem.save(JSON.stringify(config, " ", 4), `world_${(new Date()).getTime()}.json`);
+                FileSystem.save(JSON.stringify(config, " ", 4) + "\n", `world_${(new Date()).getTime()}.json`);
                 editorEl.flushWorldDataChanges();
                 await BusyIndicatorManager.unbusy();
             }
