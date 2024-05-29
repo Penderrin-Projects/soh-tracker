@@ -192,7 +192,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     },
@@ -230,7 +233,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     },
@@ -267,7 +273,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     },
@@ -304,7 +313,10 @@
             {
                 "type": "panel",
                 "name": "worldmap",
-                "autosize": true
+                "autosize": true,
+                "options": {
+                    "storetransform": "main-map"
+                }
             },
             {
                 "type": "panel",
@@ -351,7 +363,10 @@
                     },
                     {
                         "type": "panel",
-                        "name": "worldmap"
+                        "name": "worldmap",
+                        "options": {
+                            "storetransform": "main-map"
+                        }
                     }
                 ]
             }
@@ -461,7 +476,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     },
@@ -503,7 +521,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     },
@@ -544,7 +565,10 @@
             },
             {
                 "type": "panel",
-                "name": "worldmap"
+                "name": "worldmap",
+                "options": {
+                    "storetransform": "main-map"
+                }
             }
         ]
     }
