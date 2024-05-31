@@ -75599,7 +75599,13 @@
                             "y": 775,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
                         "listHidden": true
                     },
                     {
@@ -81918,7 +81924,13 @@
                             "y": 1576,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
                         "listHidden": true
                     },
                     {
@@ -82100,7 +82112,13 @@
                             "y": 765,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
                         "listHidden": true
                     },
                     {
@@ -105934,7 +105952,11 @@
                             "y": 115,
                             "scale": 70
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -106201,7 +106223,11 @@
                             "y": 74,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -106325,7 +106351,11 @@
                             "y": 296,
                             "scale": 75
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -107042,7 +107072,11 @@
                             "y": 665,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -107363,7 +107397,11 @@
                             "y": 664,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -109213,7 +109251,11 @@
                             "y": 660,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -109378,7 +109420,13 @@
                             "y": 340,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
                         "listHidden": true
                     },
                     {
@@ -109543,7 +109591,13 @@
                             "y": 317,
                             "scale": 100
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
                         "listHidden": true
                     },
                     {
@@ -111502,7 +111556,11 @@
                             "y": 217,
                             "scale": 79
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -111665,7 +111723,11 @@
                             "y": 215,
                             "scale": 86
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
@@ -111828,7 +111890,11 @@
                             "y": 221,
                             "scale": 70
                         },
-                        "visible": true,
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": true
                     },
                     {
