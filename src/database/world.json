@@ -75591,6 +75591,19 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "desert"
+                        },
+                        "pos": {
+                            "x": 1637,
+                            "y": 775,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "colossus_wasteland_gateway -> wasteland_colossus_gateway"
                         },
@@ -81897,6 +81910,19 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "mountain"
+                        },
+                        "pos": {
+                            "x": 299,
+                            "y": 1576,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "crater_mountain_gateway -> mountain_crater_gateway"
                         },
@@ -82063,6 +82089,19 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "goron"
+                        },
+                        "pos": {
+                            "x": 153,
+                            "y": 765,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -87279,19 +87318,6 @@
                 "mq": [
                     {
                         "ref": {
-                            "type": "Exit",
-                            "name": "deku_kokiri_gateway -> kokiri_deku_gateway"
-                        },
-                        "pos": {
-                            "x": 817,
-                            "y": 936,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
                             "type": "Area",
                             "name": "kokiri"
                         },
@@ -87305,6 +87331,19 @@
                             "ref": "option[shuffle_dungeons]",
                             "value": "shuffle_dungeons_off"
                         },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Exit",
+                            "name": "deku_kokiri_gateway -> kokiri_deku_gateway"
+                        },
+                        "pos": {
+                            "x": 817,
+                            "y": 936,
+                            "scale": 100
+                        },
+                        "visible": true,
                         "listHidden": false
                     },
                     {
@@ -105887,6 +105926,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 294,
+                            "y": 115,
+                            "scale": 70
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "bombchu_bowling_market_gateway -> market_bombchu_bowling_gateway"
                         },
@@ -105925,14 +105977,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": false,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -106120,6 +106193,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 4,
+                            "y": 74,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "treasure_chest_game_market_gateway -> market_treasure_chest_game_gateway"
                         },
@@ -106133,7 +106219,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.minigame_shooting": {
@@ -106148,14 +106244,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": false
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -106200,6 +106317,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 95,
+                            "y": 296,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "shooting_gallery_market_gateway -> market_shooting_gallery_gateway"
                         },
@@ -106213,7 +106343,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.temple_of_time": {
@@ -106821,14 +106961,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -106873,6 +107034,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle"
+                        },
+                        "pos": {
+                            "x": 115,
+                            "y": 665,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "great_fairy_grounds_gateway -> grounds_great_fairy_gateway"
                         },
@@ -106886,7 +107060,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle.storm_grotto": {
@@ -107098,14 +107282,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -107150,6 +107355,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_ganon_outside"
+                        },
+                        "pos": {
+                            "x": 115,
+                            "y": 664,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "great_fairy_ganon_grounds_gateway -> ganon_grounds_great_fairy_gateway"
                         },
@@ -107163,7 +107381,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.skulltula_house": {
@@ -108904,14 +109132,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108956,6 +109205,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "crater"
+                        },
+                        "pos": {
+                            "x": 114,
+                            "y": 660,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "great_fairy_crater_gateway -> crater_great_fairy_gateway"
                         },
@@ -108969,7 +109231,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "crater.hammer_grotto": {
@@ -108986,14 +109258,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -109077,6 +109370,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "crater"
+                        },
+                        "pos": {
+                            "x": 150,
+                            "y": 340,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "hammer_grotto_crater_gateway -> crater_hammer_grotto_gateway"
                         },
@@ -109091,8 +109397,15 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
                 "scrub": 3,
-                "beehive": 1
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 1,
+                "pot": 0
             },
             "tags": []
         },
@@ -109110,14 +109423,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -109201,6 +109535,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "crater"
+                        },
+                        "pos": {
+                            "x": 96,
+                            "y": 317,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "bomb_grotto_crater_gateway -> crater_bomb_grotto_gateway"
                         },
@@ -109216,8 +109563,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
+                "skulltula": 0,
                 "gossipstone": 1,
-                "beehive": 2
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 2,
+                "pot": 0
             },
             "tags": []
         },
@@ -111141,6 +111494,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 163,
+                            "y": 217,
+                            "scale": 79
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "mask_shop_market_gateway -> market_mask_shop_gateway"
                         },
@@ -111179,14 +111545,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": false
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111270,6 +111657,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 162,
+                            "y": 215,
+                            "scale": 86
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "potion_shop_market_gateway -> market_potion_shop_gateway"
                         },
@@ -111283,7 +111683,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.shop_bombchu": {
@@ -111298,14 +111708,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": false,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111389,6 +111820,19 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "castle_town"
+                        },
+                        "pos": {
+                            "x": 169,
+                            "y": 221,
+                            "scale": 70
+                        },
+                        "visible": true,
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "bombchu_shop_market_gateway -> market_bombchu_shop_gateway"
                         },
@@ -111402,7 +111846,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "castle_town.back_house": {
