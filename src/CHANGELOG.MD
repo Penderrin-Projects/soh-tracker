@@ -13,6 +13,7 @@ Application:    Track-OOT
 ### BUG FIXES
 
 - fix spirit_temple_mq hands to colossus gateway
+- fix logic running before app loaded completely
 
 ---
 

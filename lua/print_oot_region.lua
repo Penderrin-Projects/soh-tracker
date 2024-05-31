@@ -1,3 +1,10 @@
+------------------------------------------------------------
+-- Area Detection Script for Ocarina of Time (Randomizer) --
+-- Version: v03                                           --
+-- Author: ZidArgs                                        --
+-- Source: https://bitbucket.org/zidargs/track-oot/src    --
+-- License: MIT                                           --
+------------------------------------------------------------
 local entrance_to_region_table = {
     --- Dungeon
     [0x0000] = "Deku Tree",
@@ -156,129 +163,44 @@ local entrance_to_region_table = {
     [0x03A4] = "Gerudo Fortress",
     --- Grotto
     [0x05BC] = {
-        [0xFD] = {
-            [0x5C] = "Desert Colossus Grotto"
-        },
-        [0xEB] = {
-            [0x54] = "Zora River Storms Grotto"
-        },
-        [0xEE] = {
-            [0x56] = "Sacred Forest Meadow Storms Grotto"
-        },
-        [0xF0] = {
-            [0x5A] = "Gerudo Valley Storms Grotto"
-        }
+        [0xFD] = "Desert Colossus Grotto",
+        [0xEB] = "Zora River Storms Grotto",
+        [0xEE] = "Sacred Forest Meadow Storms Grotto",
+        [0xF0] = "Gerudo Valley Storms Grotto"
     },
     [0x05A4] = {
-        [0xEF] = {
-            [0x57] = "Lake Hylia Grotto"
-        },
-        [0xF9] = {
-            [0x61] = "Death Mountain Crater Hammer Grotto"
-        },
-        [0xFB] = {
-            [0x62] = "Goron City Grotto"
-        },
-        [0xFC] = {
-            [0x63] = "Lon Lon Ranch Grotto"
-        }
-    },
-    [0x036D] = {
-        [0xE6] = {
-            [0x54] = "Zora River Fairy Grotto"
-        },
-        [0xFF] = {
-            [0x51] = "Hyrule Field Fairy Grotto",
-            [0x56] = "Sacred Forest Meadow Fairy Grotto",
-            [0x58] = "Zoras Domain Storms Grotto"
-        },
-        [0xF0] = {
-            [0x5D] = "Gerudo Fortress Storms Grotto"
-        }
+        [0xEF] = "Lake Hylia Grotto",
+        [0xF9] = "Death Mountain Crater Hammer Grotto",
+        [0xFB] = "Goron City Grotto",
+        [0xFC] = "Lon Lon Ranch Grotto"
     },
     [0x003F] = {
-        [0x29] = {
-            [0x54] = "Zora River Open Grotto"
-        },
-        [0x7A] = {
-            [0x61] = "Death Mountain Crater Upper Grotto"
-        },
-        [0x57] = {
-            [0x60] = "Death Mountain Storms Grotto"
-        },
-        [0x28] = {
-            [0x52] = "Kakariko Village Open Grotto"
-        },
-        [0x00] = {
-            [0x51] = "Hyrule Field Near Market Grotto"
-        },
-        [0x03] = {
-            [0x51] = "Hyrule Field Open Grotto"
-        },
-        [0x22] = {
-            [0x51] = "Hyrule Field Southeast Grotto"
-        },
-        [0x14] = {
-            [0x5B] = "Lost Woods Near Shortcuts Grotto"
-        },
-        [0x2C] = {
-            [0x55] = "Kokiri Forest Storms Grotto"
-        }
+        [0x29] = "Zora River Open Grotto",
+        [0x7A] = "Death Mountain Crater Upper Grotto",
+        [0x57] = "Death Mountain Storms Grotto",
+        [0x28] = "Kakariko Village Open Grotto",
+        [0x00] = "Hyrule Field Near Market Grotto",
+        [0x03] = "Hyrule Field Open Grotto",
+        [0x22] = "Hyrule Field Southeast Grotto",
+        [0x14] = "Lost Woods Near Shortcuts Grotto",
+        [0x2C] = "Kokiri Forest Storms Grotto"
     },
-    [0x05FC] = {
-        [0xF8] = {
-            [0x60] = "Death Mountain Cow Grotto"
-        }
-    },
-    [0x05A0] = {
-        [0xE7] = {
-            [0x52] = "Kakariko Village Redead Grotto"
-        }
-    },
-    [0x05B8] = {
-        [0xF6] = {
-            [0x5F] = "Hyrule Castle Storms Grotto"
-        }
-    },
-    [0x05C0] = {
-        [0xE1] = {
-            [0x51] = "Hyrule Field Tektite Grotto"
-        }
-    },
-    [0x0598] = {
-        [0xE5] = {
-            [0x51] = "Hyrule Field Near Kakariko Grotto"
-        }
-    },
-    [0x05A8] = {
-        [0xE4] = {
-            [0x51] = "Hyrule Field Cow Grotto"
-        }
-    },
-    [0x059C] = {
-        [0xE6] = {
-            [0x51] = "Hyrule Field Inside Fence Grotto"
-        }
-    },
-    [0x05B4] = {
-        [0xED] = {
-            [0x56] = "Sacred Forest Meadow Wolfos Grotto"
-        }
-    },
-    [0x05B0] = {
-        [0xF5] = {
-            [0x5B] = "Lost Woods Scrubs Grotto"
-        }
-    },
-    [0x05AC] = {
-        [0xF2] = {
-            [0x5A] = "Gerudo Valley Octorok Grotto"
-        }
-    },
-    [0x05C4] = {
-        [0xF3] = {
-            [0x5B] = "Deku Theater"
-        }
+    [0x05FC] = "Death Mountain Cow Grotto",
+    [0x05A0] = "Kakariko Village Redead Grotto",
+    [0x05B8] = "Hyrule Castle Storms Grotto",
+    [0x05C0] = "Hyrule Field Tektite Grotto",
+    [0x0598] = "Hyrule Field Near Kakariko Grotto",
+    [0x05A8] = "Hyrule Field Cow Grotto",
+    [0x059C] = "Hyrule Field Inside Fence Grotto",
+    [0x05B4] = "Sacred Forest Meadow Wolfos Grotto",
+    [0x05B0] = "Lost Woods Scrubs Grotto",
+    [0x05AC] = "Gerudo Valley Octorok Grotto",
+    [0x05C4] = "Deku Theater",
+    -- Fairy Grottos
+    [0x036D] = {
+        [0xE6] = "Zora River Fairy Grotto",
+        [0xF0] = "Gerudo Fortress Storms Grotto",
+        [0xFF] = "Hyrule Field Fairy Grotto / Sacred Forest Meadow Fairy Grotto / Zoras Domain Storms Grotto"
     },
     --- Grave
     [0x004B] = "Shield Grave",
@@ -415,7 +337,6 @@ local game_modes = {
 }
 
 local frame = 0
-local last_scene = 0
 local current_region = ""
 local last_printed_region = ""
 
@@ -550,17 +471,11 @@ function main()
         frame = frame + 1
         if (frame % 60 == 0) then
             if (isGameLoaded()) then
-                local current_scene = value_list.scene_index.get()
-                -- gui.drawString(20, 60, "Scene: " .. tostring(current_scene))
-                if (current_scene >= 0x51 and current_scene <= 0x63) then
-                    -- gui.drawString(20, 80, "in range " .. tostring(0x51) .. " to " .. tostring(0x63))
-                    last_scene = current_scene
-                end
                 local current_entrance = value_list.entrance.get()
                 current_region = entrance_to_region_table[current_entrance]
                 if (type(current_region) == "table") then
                     local current_content = value_list.content.get()
-                    current_region = current_region[current_content][last_scene]
+                    current_region = current_region[current_content]
                 end
                 if (type(current_region) ~= "string") then
                     current_region = ""
