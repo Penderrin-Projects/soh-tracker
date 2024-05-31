@@ -165,6 +165,7 @@ function convertEntryList(oldList, parentRef, parentType) {
                 case "shop": {
                     if (SPECIAL_INTERIORS.includes(parentRef)) {
                         // special interiors
+                        res.listHidden = false;
                         res.visible = {
                             "type": "not",
                             "content": {
@@ -175,6 +176,7 @@ function convertEntryList(oldList, parentRef, parentType) {
                         };
                     } else {
                         // normal interiors
+                        res.listHidden = false;
                         res.visible = {
                             "type": "state",
                             "ref": "option[entrance_shuffle_interior]",
@@ -183,6 +185,7 @@ function convertEntryList(oldList, parentRef, parentType) {
                     }
                 } break;
                 case "grotto": {
+                    res.listHidden = false;
                     res.visible = {
                         "type": "not",
                         "content": {

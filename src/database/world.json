@@ -105816,7 +105816,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -105957,7 +105957,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -106228,7 +106228,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -106356,7 +106356,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -106503,7 +106503,7 @@
                                 "value": "entrance_shuffle_all"
                             }
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -107077,7 +107077,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -107274,7 +107274,7 @@
                                 "ref": "option[shuffle_grottos]"
                             }
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -107402,7 +107402,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -109256,7 +109256,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -109427,7 +109427,7 @@
                                 "ref": "option[shuffle_grottos]"
                             }
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -109598,7 +109598,7 @@
                                 "ref": "option[shuffle_grottos]"
                             }
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -111561,7 +111561,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -111728,7 +111728,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -111895,7 +111895,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -112069,7 +112069,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
@@ -112236,7 +112236,7 @@
                             "ref": "option[entrance_shuffle_interior]",
                             "value": "entrance_shuffle_off"
                         },
-                        "listHidden": true
+                        "listHidden": false
                     },
                     {
                         "ref": {
