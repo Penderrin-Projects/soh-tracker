@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.0.7
+
+### BUGFIXES
+
+- fix kakariko -> well spoiler parser entry
+
+---
+
 ## VERSION 3.0.6
 
 ### CHANGES
