@@ -32,7 +32,7 @@ import "/script/content/Tracker.js";
 import "/script/content/EditorContainer.js";
 import "/script/savestateConverter/StateConverter.js";
 import ArchipelagoController from "/script/util/archipelago/ArchipelagoController.js";
-import "/script/util/logic/AugmentCustomLogic.js";
+import CustomLogicUpdater from "./util/logic/CustomLogicUpdater.js";
 import "/script/util/logic/AugmentationLoader.js";
 import "/script/util/A11y.js";
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
@@ -43,6 +43,9 @@ import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import APWindow from "./ui/window/APWindow.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+
+Logic.suspended = true;
 
 const spl = document.getElementById("loading-info");
 
@@ -115,6 +118,10 @@ try {
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
+
+    updateLoadingMessage("update logic...");
+    new CustomLogicUpdater();
+    Logic.suspended = false;
 
     updateLoadingMessage("wake up...");
     // remove splashscreen

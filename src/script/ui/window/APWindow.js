@@ -1,4 +1,3 @@
-import WindowLayer from "/emcJS/ui/overlay/window/WindowLayer.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
@@ -61,8 +60,6 @@ export default class APWindow extends Window {
     }
 
     show() {
-        WindowLayer.append(this, "dialogs");
-
         const {apHostname, apPort, apSlotName} = APStateStorage.getAll();
 
         this.#apHostnameEl.value = apHostname ?? "archipelago.gg";
@@ -80,7 +77,7 @@ export default class APWindow extends Window {
             this.#disconnectEl.classList.remove("hidden");
         }
 
-        this.initialFocus();
+        super.show();
     }
 
     async connect() {
