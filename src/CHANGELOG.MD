@@ -12,6 +12,7 @@ Application:    Track-OOT
 - add rupee item collection to grid
 - add store/reload functionality (automatic) for map size and position per area
 - add reset map size and position button per area
+- add remaining exits counter to overview
 
 ### BUG FIXES
 

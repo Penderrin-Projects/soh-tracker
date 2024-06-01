@@ -79791,6 +79791,36 @@
                     {
                         "ref": {
                             "type": "Area",
+                            "name": "castle_town.temple_of_time"
+                        },
+                        "pos": {
+                            "x": 410,
+                            "y": 330,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Exit",
+                            "name": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway"
+                        },
+                        "pos": {
+                            "x": 410,
+                            "y": 330,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
                             "name": "castle_town"
                         },
                         "pos": {
@@ -79810,44 +79840,11 @@
                     {
                         "ref": {
                             "type": "Exit",
-                            "name": "tot_entrance_temple_of_time_gateway -> temple_of_time_tot_entrance_gateway"
+                            "name": "tot_market_gateway -> market_tot_gateway"
                         },
                         "pos": {
                             "x": 50,
                             "y": 640,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Area",
-                            "name": "castle_town.temple_of_time"
-                        },
-                        "pos": {
-                            "x": 410,
-                            "y": 330,
-                            "scale": 100
-                        },
-                        "visible": {
-                            "type": "not",
-                            "content": {
-                                "type": "state",
-                                "ref": "option[entrance_shuffle_interior]",
-                                "value": "entrance_shuffle_off"
-                            }
-                        },
-                        "listHidden": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Exit",
-                            "name": "tot_market_gateway -> market_tot_gateway"
-                        },
-                        "pos": {
-                            "x": 410,
-                            "y": 330,
                             "scale": 100
                         },
                         "visible": true,
