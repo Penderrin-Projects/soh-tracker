@@ -1,296 +1,172 @@
 ------------------------------------------------------------
 -- Area Detection Script for Ocarina of Time (Randomizer) --
--- Version: v03                                           --
+-- Version: v04                                           --
 -- Author: ZidArgs                                        --
 -- Source: https://bitbucket.org/zidargs/track-oot/src    --
 -- License: MIT                                           --
 ------------------------------------------------------------
-local entrance_to_region_table = {
+local region_table = {
     --- Dungeon
-    [0x0000] = "Deku Tree",
-    [0x0209] = "Kokiri Forest",
-    [0x0004] = "Dodongos Cavern",
-    [0x0242] = "Death Mountain",
-    [0x0028] = "Jabu Jabus Belly",
-    [0x0221] = "Zoras Fountain",
-    [0x0169] = "Forest Temple",
-    [0x0215] = "Sacred Forest Meadow",
-    [0x0165] = "Fire Temple",
-    [0x024A] = "Death Mountain Crater",
-    [0x0010] = "Water Temple",
-    [0x021D] = "Lake Hylia",
-    [0x0037] = "Shadow Temple",
-    [0x0205] = "Graveyard",
-    [0x0082] = "Spirit Temple",
-    [0x01E1] = "Desert Colossus",
-    [0x0098] = "Bottom of the Well",
-    [0x02A6] = "Kakariko Village",
-    [0x0088] = "Ice Cavern",
-    [0x03D4] = "Zoras Fountain",
-    [0x0008] = "Gerudo Training Ground",
-    [0x03A8] = "Gerudo Fortress",
-    --- DungeonSpecial
-    [0x0467] = "Ganons Castle",
-    [0x023D] = "Castle Grounds",
-    --- ChildBoss
-    [0x040f] = "Queen Gohma Boss Room",
-    [0x0252] = "Deku Tree",
-    [0x040b] = "King Dodongo Boss Room",
-    [0x00c5] = "Dodongos Cavern",
-    [0x0301] = "Barinade Boss Room",
-    [0x0407] = "Jabu Jabus Belly",
-    --- AdultBoss
-    [0x000c] = "Phantom Ganon Boss Room",
-    [0x024E] = "Forest Temple",
-    [0x0305] = "Volvagia Boss Room",
-    [0x0175] = "Fire Temple",
-    [0x0417] = "Morpha Boss Room",
-    [0x0423] = "Water Temple",
-    [0x0413] = "Bongo Bongo Boss Room",
-    [0x02B2] = "Shadow Temple",
-    [0x008D] = "Twinrova Boss Room",
-    [0x02F5] = "Spirit Temple",
+    [0x00] = "Inside the Deku Tree",
+    [0x01] = "Dodongo's Cavern",
+    [0x02] = "Inside Jabu-Jabu's Belly",
+    [0x03] = "Forest Temple",
+    [0x04] = "Fire Temple",
+    [0x05] = "Water Temple",
+    [0x06] = "Spirit Temple",
+    [0x07] = "Shadow Temple",
+    [0x08] = "Bottom of the Well",
+    [0x09] = "Ice Cavern",
+    [0x0A] = "Ganon's Tower",
+    [0x0B] = "Gerudo Training Ground",
+    [0x0D] = "Inside Ganon's Castle",
+    [0x0E] = "Collapsing Castle",
+    [0x0F] = "Collapsing Castle",
+    [0x1A] = "Collapsing Castle",
+    --- Boss Room
+    [0x11] = "Gohma's Boss Room",
+    [0x12] = "King Dodongo's Boss Room",
+    [0x13] = "Barinade's Boss Room",
+    [0x14] = "Phantom Ganon's Boss Room",
+    [0x15] = "Volvagia's Boss Room",
+    [0x16] = "Morpha's Boss Room",
+    [0x17] = "Twinrova's Boss Room",
+    [0x18] = "Bongo Bongo's Boss Room",
+    [0x19] = "Ganondorf's Boss Room",
+    [0x4F] = "Ganon's Battle Arena",
     --- Interior
-    [0x0433] = "Midos House",
-    [0x0443] = "Kokiri Forest",
-    [0x0437] = "Sarias House",
-    [0x0447] = "Kokiri Forest",
-    [0x009C] = "House of Twins",
-    [0x033C] = "Kokiri Forest",
-    [0x00C9] = "Know It All House",
-    [0x026A] = "Kokiri Forest",
-    [0x00C1] = "Kokiri Shop",
-    [0x0266] = "Kokiri Forest",
-    [0x0043] = "Lab",
-    [0x03CC] = "Lake Hylia",
-    [0x045F] = "Fishing Hole",
-    [0x0309] = "Lake Hylia",
-    [0x03A0] = "Carpenter Tent",
-    [0x03D0] = "Gerudo Valley",
-    [0x007E] = "Guard Tower",
-    [0x026E] = "Market Entrance",
-    [0x0530] = "Mask Shop",
-    [0x01D1] = "Market",
-    [0x0507] = "Bombchu Bowling",
-    [0x03BC] = "Market",
-    [0x0388] = "Child Potion Shop",
-    [0x02A2] = "Market",
-    [0x0063] = "Treasure Chest Game",
-    [0x01D5] = "Market",
-    [0x0528] = "Bombchu Shop",
-    [0x03C0] = "Market Back Alley",
-    [0x043B] = "Man in Green House",
-    [0x0067] = "Market Back Alley",
-    [0x02FD] = "Carpenter Boss House",
-    [0x0349] = "Kakariko Village",
-    [0x0550] = "House of Skulltula",
-    [0x04EE] = "Kakariko Village",
-    [0x039C] = "Impas House",
-    [0x0345] = "Kakariko Village",
-    [0x05C8] = "Impas House",
-    [0x05DC] = "Kakariko Village",
-    [0x0072] = "Odd Medicine Building",
-    [0x034D] = "Kakariko Village",
-    [0x030D] = "Dampes House",
-    [0x0355] = "Graveyard",
-    [0x037C] = "Goron Shop",
-    [0x03FC] = "Goron City",
-    [0x0380] = "Zora Shop",
-    [0x03C4] = "Zoras Domain",
-    [0x004F] = "Talons House",
-    [0x0378] = "Lon Lon Ranch",
-    [0x02F9] = "Stables",
-    [0x042F] = "Lon Lon Ranch",
-    [0x05D0] = "Silo",
-    [0x05D4] = "Lon Lon Ranch",
-    [0x052C] = "Child Bazaar",
-    [0x03B8] = "Market",
-    [0x016D] = "Child Shooting Gallery",
-    [0x01CD] = "Market",
-    [0x00B7] = "Adult Bazaar",
-    [0x0201] = "Kakariko Village",
-    [0x003B] = "Adult Shooting Gallery",
-    [0x0463] = "Kakariko Village",
-    [0x0588] = "Colossus Great Fairy Fountain",
-    [0x057C] = "Desert Colossus",
-    [0x0578] = "Castle Great Fairy Fountain",
-    [0x0340] = "Castle Grounds",
-    [0x04C2] = "Ganons Castle Grounds Great Fairy Fountain",
-    --- [0x0340] = "Castle Grounds", --- duplicate
-    [0x04BE] = "Death Mountain Crater Great Fairy Fountain",
-    [0x0482] = "Death Mountain Crater",
-    [0x0315] = "Death Mountain Great Fairy Fountain",
-    [0x045B] = "Death Mountain",
-    [0x0371] = "Zoras Fountain Great Fairy Fountain",
-    [0x0394] = "Zoras Fountain",
-    --- SpecialInterior
-    [0x0272] = "Links House",
-    [0x0211] = "Kokiri Forest",
-    [0x0053] = "Temple of Time",
-    [0x0472] = "Temple of Time Entrance",
-    [0x0453] = "Windmill",
-    [0x0351] = "Kakariko Village",
-    [0x0384] = "Adult Potion Shop",
-    [0x044B] = "Kakariko Village",
-    [0x03EC] = "Adult Potion Shop",
-    [0x04FF] = "Kakariko Village",
-    --- Hideout
-    [0x0486] = "Hideout 1 Torch Jail",
-    [0x0231] = "Gerudo Fortress",
-    [0x048A] = "Hideout 1 Torch Jail",
-    [0x0235] = "Gerudo Fortress",
-    [0x048E] = "Hideout Kitchen",
-    [0x0239] = "Gerudo Fortress",
-    [0x0492] = "Hideout Kitchen",
-    [0x02AA] = "Gerudo Fortress",
-    [0x0496] = "Hideout 4 Torches Jail",
-    [0x02BA] = "Gerudo Fortress",
-    [0x049A] = "Hideout 4 Torches Jail",
-    [0x02BE] = "Gerudo Fortress",
-    [0x049E] = "Hideout 2 Torches Jail",
-    [0x02C2] = "Gerudo Fortress",
-    [0x04A2] = "Hideout 2 Torches Jail",
-    [0x02C6] = "Gerudo Fortress",
-    [0x04A6] = "Hideout Kitchen",
-    [0x02D2] = "Gerudo Fortress",
-    [0x04AA] = "Hideout Kitchen",
-    [0x02D6] = "Gerudo Fortress",
-    [0x04AE] = "Hideout Break Room",
-    [0x02DA] = "Gerudo Fortress",
-    [0x04B2] = "Hideout Break Room",
-    [0x02DE] = "Gerudo Fortress",
-    [0x0570] = "Hideout 3 Torches Jail",
-    [0x03A4] = "Gerudo Fortress",
-    --- Grotto
-    [0x05BC] = {
-        [0xFD] = "Desert Colossus Grotto",
-        [0xEB] = "Zora River Storms Grotto",
-        [0xEE] = "Sacred Forest Meadow Storms Grotto",
-        [0xF0] = "Gerudo Valley Storms Grotto"
+    [0x0C] = "Thieves' Hideout",
+    [0x10] = "Treasure Box Shop",
+    [0x26] = "Know-It-All Brothers' House",
+    [0x27] = "House of Twins",
+    [0x28] = "Mido's House",
+    [0x29] = "Saria's House",
+    [0x2A] = "Carpenter Boss's House",
+    [0x2B] = "Man in Green's House",
+    [0x2C] = {
+        [0x00B7] = "Adult Bazaar",
+        [0x052C] = "Child Bazaar"
     },
-    [0x05A4] = {
-        [0xEF] = "Lake Hylia Grotto",
-        [0xF9] = "Death Mountain Crater Hammer Grotto",
-        [0xFB] = "Goron City Grotto",
-        [0xFC] = "Lon Lon Ranch Grotto"
+    [0x2D] = "Kokiri Shop",
+    [0x2E] = "Goron Shop",
+    [0x2F] = "Zora Shop",
+    [0x30] = {
+        [0x0384] = "Kakariko Potion Shop",
+        [0x03EC] = "Kakariko Potion Shop (back)"
     },
-    [0x003F] = {
-        [0x29] = "Zora River Open Grotto",
-        [0x7A] = "Death Mountain Crater Upper Grotto",
-        [0x57] = "Death Mountain Storms Grotto",
-        [0x28] = "Kakariko Village Open Grotto",
-        [0x00] = "Hyrule Field Near Market Grotto",
-        [0x03] = "Hyrule Field Open Grotto",
-        [0x22] = "Hyrule Field Southeast Grotto",
-        [0x14] = "Lost Woods Near Shortcuts Grotto",
-        [0x2C] = "Kokiri Forest Storms Grotto"
+    [0x31] = "Market Potion Shop",
+    [0x32] = "Bombchu Shop",
+    [0x33] = "Happy Mask Shop",
+    [0x34] = "Link's House",
+    [0x35] = "Dog Lady's House",
+    [0x36] = "Stable",
+    [0x37] = {
+        [0x039C] = "Impa's House",
+        [0x05C8] = "Impa's House (Back)"
     },
-    [0x05FC] = "Death Mountain Cow Grotto",
-    [0x05A0] = "Kakariko Village Redead Grotto",
-    [0x05B8] = "Hyrule Castle Storms Grotto",
-    [0x05C0] = "Hyrule Field Tektite Grotto",
-    [0x0598] = "Hyrule Field Near Kakariko Grotto",
-    [0x05A8] = "Hyrule Field Cow Grotto",
-    [0x059C] = "Hyrule Field Inside Fence Grotto",
-    [0x05B4] = "Sacred Forest Meadow Wolfos Grotto",
-    [0x05B0] = "Lost Woods Scrubs Grotto",
-    [0x05AC] = "Gerudo Valley Octorok Grotto",
-    [0x05C4] = "Deku Theater",
-    -- Fairy Grottos
-    [0x036D] = {
-        [0xE6] = "Zora River Fairy Grotto",
-        [0xF0] = "Gerudo Fortress Storms Grotto",
-        [0xFF] = "Hyrule Field Fairy Grotto / Sacred Forest Meadow Fairy Grotto / Zoras Domain Storms Grotto"
+    [0x38] = "Lakeside Laboratory",
+    [0x39] = "Carpenters' Tent",
+    [0x3A] = "Gravekeeper's Hut",
+    [0x3B] = {
+        [0x04C2] = "Ganons Castle Grounds - Great Fairy's Fountain",
+        [0x04BE] = "Death Mountain Crater - Great Fairy's Fountain",
+        [0x0315] = "Death Mountain - Great Fairy's Fountain"
     },
+    [0x3D] = {
+        [0x0578] = "Castle Grounds - Great Fairy's Fountain",
+        [0x0588] = "Desert Colossus - Great Fairy's Fountain"
+    },
+    [0x42] = {
+        [0x003B] = "Adult Shooting Gallery",
+        [0x016D] = "Child Shooting Gallery"
+    },
+    [0x43] = "Temple of Time",
+    [0x44] = "Chamber of the Sages",
+    [0x48] = {
+        [0x0453] = "Windmill",
+        [0x044F] = "Dampes Grave"
+    },
+    [0x49] = "Fishing Pond",
+    [0x4B] = "Bombchu Bowling Alley",
+    [0x4C] = {
+        [0x004F] = "Talons House",
+        [0x05E4] = "Talons House",
+        [0x05D0] = "Silo"
+    },
+    [0x4D] = "Guard House",
+    [0x4E] = "Granny's Potion Shop",
+    [0x50] = "House of Skulltula",
     --- Grave
-    [0x004B] = "Shield Grave",
-    [0x035D] = "Graveyard",
-    [0x031C] = "Redead Grave",
-    [0x0361] = "Graveyard",
-    [0x002D] = "Royal Familys Tomb",
-    [0x050B] = "Graveyard",
-    [0x044F] = "Dampes Grave",
-    [0x0359] = "Graveyard",
+    [0x3F] = "Redead Grave",
+    [0x40] = "Shield Grave",
+    [0x41] = "Royal Familys Tomb",
     --- Overworld
-    [0x05E0] = "Lost Woods",
-    [0x020D] = "Kokiri Forest",
-    [0x011E] = "Lost Woods",
-    [0x0286] = "Kokiri Forest",
-    [0x04E2] = "Goron City",
-    [0x04D6] = "Lost Woods",
-    [0x01DD] = "Zora River",
-    [0x04DA] = "Lost Woods",
-    [0x00FC] = "Sacred Forest Meadow",
-    [0x01A9] = "Lost Woods",
-    [0x0185] = "Hyrule Field",
-    [0x04DE] = "Lost Woods",
-    [0x0102] = "Lake Hylia",
-    [0x0189] = "Hyrule Field",
-    [0x0117] = "Gerudo Valley",
-    [0x018D] = "Hyrule Field",
-    [0x0276] = "Market Entrance",
-    [0x01FD] = "Hyrule Field",
-    [0x00DB] = "Kakariko Village",
-    [0x017D] = "Hyrule Field",
-    [0x00EA] = "Zora River",
-    [0x0181] = "Hyrule Field",
-    [0x0157] = "Lon Lon Ranch",
-    [0x01F9] = "Hyrule Field",
-    [0x0328] = "Zoras Domain",
-    [0x0560] = "Lake Hylia",
-    [0x0129] = "Gerudo Fortress",
-    [0x022D] = "Gerudo Valley",
-    [0x0130] = "Wasteland",
-    [0x03AC] = "Gerudo Fortress",
-    [0x0123] = "Desert Colossus",
-    [0x0365] = "Wasteland",
-    [0x00B1] = "Market",
-    [0x0033] = "Market Entrance",
-    [0x0138] = "Castle Grounds",
-    [0x025A] = "Market",
-    [0x0171] = "Temple of Time Entrance",
-    [0x025E] = "Market",
-    [0x00E4] = "Graveyard",
-    [0x0195] = "Kakariko Village",
-    [0x013D] = "Death Mountain",
-    [0x0191] = "Kakariko Village",
-    [0x014D] = "Goron City",
-    [0x01B9] = "Death Mountain",
-    [0x0246] = "Death Mountain Crater",
-    [0x01C1] = "Goron City",
-    [0x0147] = "Death Mountain Crater",
-    [0x01BD] = "Death Mountain",
-    [0x0108] = "Zoras Domain",
-    [0x019D] = "Zora River",
-    [0x0225] = "Zoras Fountain",
-    [0x01A1] = "Zoras Domain",
-    --- OverworldOneWay
-    [0x0219] = "Lake Hylia",
-    --- OwlDrop
-    [0x027E] = "Hyrule Field",
-    [0x0554] = "Kakariko Village",
-    --- Spawn
-    [0x00BB] = "Links House",
-    --- [0x05F4] = "Temple of Time", --- duplicate
-    --- WarpSong
-    [0x0600] = "Sacred Forest Meadow",
-    [0x04F6] = "Death Mountain Crater",
-    [0x0604] = "Lake Hylia",
-    [0x01F1] = "Desert Colossus",
-    [0x0568] = "Graveyard",
-    [0x05F4] = "Temple of Time",
-    --- BlueWarp
-    [0x0457] = "Kokiri Forest",
-    [0x047A] = "Death Mountain",
-    [0x010E] = "Zoras Fountain",
-    [0x0608] = "Sacred Forest Meadow",
-    [0x0564] = "Death Mountain Crater",
-    [0x060C] = "Lake Hylia",
-    [0x0580] = "Graveyard",
-    [0x0610] = "Desert Colossus",
-    --- extra
-    [0x0153] = "Zoras Domain",
-    [0x0199] = "Zora River"
+    [0x1B] = "Market Entrance", -- child day
+    [0x1C] = "Market Entrance", -- child night
+    [0x1D] = "Market Entrance", -- ruins
+    [0x1E] = "Market Back Alley", -- child day
+    [0x1F] = "Market Back Alley", -- child night
+    [0x20] = "Market", -- child day
+    [0x21] = "Market", -- child night
+    [0x22] = "Market", -- ruins
+    [0x23] = "Temple of Time Exterior", -- child day
+    [0x24] = "Temple of Time Exterior", -- child night
+    [0x25] = "Temple of Time Exterior", -- ruins
+    [0x45] = "Castle Hedge Maze", -- child day
+    [0x46] = "Castle Hedge Maze", -- child night
+    [0x4A] = "Castle Courtyard",
+    [0x51] = "Hyrule Field",
+    [0x52] = "Kakariko Village",
+    [0x53] = "Graveyard",
+    [0x54] = "Zora's River",
+    [0x55] = "Kokiri Forest",
+    [0x56] = "Sacred Forest Meadow",
+    [0x57] = "Lake Hylia",
+    [0x58] = "Zora's Domain",
+    [0x59] = "Zora's Fountain",
+    [0x5A] = "Gerudo Valley",
+    [0x5B] = "Lost Woods",
+    [0x5C] = "Desert Colossus",
+    [0x5D] = "Gerudo's Fortress",
+    [0x5E] = "Haunted Wasteland",
+    [0x5F] = "Hyrule Castle",
+    [0x60] = "Death Mountain Trail",
+    [0x61] = "Death Mountain Crater",
+    [0x62] = "Goron City",
+    [0x63] = "Lon Lon Ranch",
+    [0x64] = "Ganon's Castle Grounds"
+
+}
+
+local grotto_table = {
+    [0x00] = "Hyrule Field - Near Market Grotto",
+    [0x03] = "Hyrule Field - Open Grotto",
+    [0x14] = "Lost Woods - Near Shortcuts Grotto",
+    [0x22] = "Hyrule Field - Southeast Grotto",
+    [0x28] = "Kakariko Village - Open Grotto",
+    [0x29] = "Zora River - Open Grotto",
+    [0x2C] = "Kokiri Forest - Storms Grotto",
+    [0x57] = "Death Mountain - Storms Grotto",
+    [0x7A] = "Death Mountain Crater - Upper Grotto",
+    [0xE1] = "Hyrule Field - Tektite Grotto",
+    [0xE4] = "Hyrule Field - Cow Grotto",
+    [0xE5] = "Hyrule Field - Near Kakariko Grotto",
+    [0xE6] = "Hyrule Field - Inside Fence Grotto",
+    [0xE7] = "Kakariko Village - Redead Grotto",
+    [0xEB] = "Zora River - Storms Grotto",
+    [0xED] = "Sacred Forest Meadow - Wolfos Grotto",
+    [0xEE] = "Sacred Forest Meadow - Storms Grotto",
+    [0xEF] = "Lake Hylia - Gravestone Grotto",
+    [0xF0] = "Gerudo Valley - Storms Grotto",
+    [0xF2] = "Gerudo Valley - Octorok Grotto",
+    [0xF3] = "Lost Woods - Deku Theater",
+    [0xF5] = "Lost Woods - Scrubs Grotto",
+    [0xF6] = "Hyrule Castle - Storms Grotto",
+    [0xF8] = "Death Mountain - Cow Grotto",
+    [0xF9] = "Death Mountain Crater - Hammer Grotto",
+    [0xFB] = "Goron City - Open Grotto",
+    [0xFC] = "Lon Lon Ranch - Open Grotto",
+    [0xFD] = "Desert Colossus - Scrubs Grotto"
 }
 
 local game_modes = {
@@ -424,7 +300,7 @@ local value_list = {
     --- where am i?
     entrance = MemInt(0x11A5D2, 2),
     content = MemInt(0x11B967, 1),
-    scene_index = MemInt(0x1C8545, 1)
+    scene = MemInt(0x1C8545, 1)
 }
 
 local function get_current_game_mode()
@@ -466,32 +342,55 @@ function isGameLoaded()
     return get_current_game_mode() > 2
 end
 
+function updateRegion()
+    local current_scene = value_list.scene.get()
+
+    if (current_scene == 0x3C) then
+        -- Fairy's Fountain (hard to differentiate them)
+        current_region = "Fairy's Fountain"
+    elseif (current_scene == 0x3E) then
+        -- Any other Grotto
+        local current_content = value_list.content.get()
+        current_region = grotto_table[current_content]
+        if (current_region == nil) then
+            current_region = ""
+        end
+    else
+        -- Any other Scene
+        current_region = region_table[current_scene]
+        if (type(current_region) == "table") then
+            local current_entrance = value_list.entrance.get()
+            current_region = current_region[current_entrance]
+        end
+        if (current_region == nil) then
+            current_region = ""
+        end
+    end
+end
+
+function printRegion()
+    if (current_region ~= last_printed_region) then
+        if (current_region ~= "") then
+            gui.drawString(20, 20, current_region, "white", "black", 18, nil, "bold")
+        else
+            gui.drawString(20, 20, "")
+        end
+        last_printed_region = current_region
+    end
+end
+
 function main()
     while true do
         frame = frame + 1
         if (frame % 60 == 0) then
             if (isGameLoaded()) then
-                local current_entrance = value_list.entrance.get()
-                current_region = entrance_to_region_table[current_entrance]
-                if (type(current_region) == "table") then
-                    local current_content = value_list.content.get()
-                    current_region = current_region[current_content]
-                end
-                if (type(current_region) ~= "string") then
-                    current_region = ""
-                end
+                updateRegion()
             else
+                current_entrance = ""
                 current_region = ""
             end
         end
-        if (current_region ~= last_printed_region) then
-            if (current_region ~= "") then
-                gui.drawString(20, 20, "Region: " .. current_region, "white", "black", 18, nil, "bold")
-            else
-                gui.drawString(20, 20, "")
-            end
-            last_printed_region = current_region
-        end
+        printRegion()
         emu.frameadvance()
     end
 end
