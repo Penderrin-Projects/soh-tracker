@@ -3341,34 +3341,42 @@
             "type": "chest",
             "logicAccess": "reach_location[gerudo.c_guard_2]",
             "visible": {
-                "type": "nor",
-                "content": [
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_open"
-                    },
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_one"
-                    }
-                ]
+                "type": "state",
+                "ref": "option[gerudo_fortress_open]",
+                "value": "gerudo_fortress_open_default"
             },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -3385,34 +3393,42 @@
             "type": "chest",
             "logicAccess": "reach_location[gerudo.c_guard_3]",
             "visible": {
-                "type": "nor",
-                "content": [
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_open"
-                    },
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_one"
-                    }
-                ]
+                "type": "state",
+                "ref": "option[gerudo_fortress_open]",
+                "value": "gerudo_fortress_open_default"
             },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -3429,34 +3445,42 @@
             "type": "chest",
             "logicAccess": "reach_location[gerudo.c_guard_4]",
             "visible": {
-                "type": "nor",
-                "content": [
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_open"
-                    },
-                    {
-                        "type": "state",
-                        "ref": "option[gerudo_fortress_open]",
-                        "value": "gerudo_fortress_open_one"
-                    }
-                ]
+                "type": "state",
+                "ref": "option[gerudo_fortress_open]",
+                "value": "gerudo_fortress_open_default"
             },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -3472,21 +3496,46 @@
         "gerudo.c_fortress_clear": {
             "type": "chest",
             "logicAccess": "reach_location[gerudo.c_fortress_clear]",
-            "visible": true,
+            "visible": {
+                "type": "not",
+                "content": {
+                    "type": "state",
+                    "ref": "option[gerudo_fortress_open]",
+                    "value": "gerudo_fortress_open_open"
+                }
+            },
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -76281,14 +76330,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -76314,6 +76384,25 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "woods"
+                        },
+                        "pos": {
+                            "x": 1741,
+                            "y": 1026,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "field_woods_gateway -> woods_field_gateway"
                         },
@@ -76327,6 +76416,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "river"
+                        },
+                        "pos": {
+                            "x": 1841,
+                            "y": 515,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "field_river_gateway -> river_field_gateway"
                         },
@@ -76337,6 +76445,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 1605,
+                            "y": 128,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -76402,6 +76529,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "town_entrance"
+                        },
+                        "pos": {
+                            "x": 1187,
+                            "y": 123,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -76522,6 +76668,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley"
+                        },
+                        "pos": {
+                            "x": 176,
+                            "y": 915,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "field_valley_gateway -> valley_field_gateway"
                         },
@@ -76558,6 +76723,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "lake"
+                        },
+                        "pos": {
+                            "x": 561,
+                            "y": 1807,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -76626,7 +76810,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "gerudo_valley": {
@@ -76637,14 +76831,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -76668,6 +76883,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 1829,
+                            "y": 1329,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -76813,6 +77047,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "lake"
+                        },
+                        "pos": {
+                            "x": 1425,
+                            "y": 1953,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "valley_lake_gateway -> lake_valley_gateway"
                         },
@@ -76917,6 +77170,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo"
+                        },
+                        "pos": {
+                            "x": 255,
+                            "y": 786,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "valley_fortress_gateway -> fortress_valley_gateway"
                         },
@@ -76930,7 +77202,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "lake": {
@@ -77855,6 +78137,25 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley"
+                        },
+                        "pos": {
+                            "x": 664,
+                            "y": 1723,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "fortress_valley_gateway -> valley_fortress_gateway"
                         },
@@ -77947,6 +78248,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "desert"
+                        },
+                        "pos": {
+                            "x": 138,
+                            "y": 848,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -78951,14 +79271,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -79170,7 +79511,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "town_entrance": {
@@ -81254,14 +81605,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -81285,6 +81657,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 122,
+                            "y": 327,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -81512,7 +81903,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "mountain": {
@@ -82482,14 +82883,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -82513,6 +82935,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "mountain"
+                        },
+                        "pos": {
+                            "x": 682,
+                            "y": 1359,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -82746,6 +83187,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "woods"
+                        },
+                        "pos": {
+                            "x": 876,
+                            "y": 1346,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -82983,6 +83443,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "crater"
+                        },
+                        "pos": {
+                            "x": 696,
+                            "y": 75,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "goron_crater_gateway -> crater_goron_gateway"
                         },
@@ -82996,7 +83475,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "zoras": {
@@ -103704,14 +104193,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -103756,6 +104266,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 88,
+                            "y": 314,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "tektite_grotto_field_gateway -> field_tektite_grotto_gateway"
                         },
@@ -103770,7 +104299,15 @@
                 ]
             },
             "areaContentHints": {
-                "chest": 1
+                "chest": 1,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -103788,14 +104325,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -103840,6 +104398,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 91,
+                            "y": 319,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "near_kak_grotto_field_gateway -> field_near_kak_grotto_gateway"
                         },
@@ -103854,7 +104431,15 @@
                 ]
             },
             "areaContentHints": {
-                "skulltula": 1
+                "chest": 0,
+                "skulltula": 1,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -103872,14 +104457,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -103963,6 +104569,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 96,
+                            "y": 314,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "near_market_grotto_field_gateway -> field_near_market_grotto_gateway"
                         },
@@ -103978,8 +104603,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
+                "skulltula": 0,
                 "gossipstone": 1,
-                "beehive": 2
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 2,
+                "pot": 0
             },
             "tags": []
         },
@@ -103997,14 +104628,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104101,6 +104753,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 153,
+                            "y": 153,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "cow_grotto_field_gateway -> field_cow_grotto_gateway"
                         },
@@ -104115,9 +104786,14 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
                 "skulltula": 1,
                 "gossipstone": 1,
+                "scrub": 0,
                 "cow": 1,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
                 "pot": 2
             },
             "tags": []
@@ -104136,14 +104812,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104201,6 +104898,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 92,
+                            "y": 314,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "inside_fence_grotto_field_gateway -> field_inside_fence_grotto_gateway"
                         },
@@ -104215,8 +104931,15 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
                 "scrub": 1,
-                "beehive": 1
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 1,
+                "pot": 0
             },
             "tags": []
         },
@@ -104234,14 +104957,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104325,6 +105069,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 96,
+                            "y": 316,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "open_grotto_field_gateway -> field_open_grotto_gateway"
                         },
@@ -104340,8 +105103,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
+                "skulltula": 0,
                 "gossipstone": 1,
-                "beehive": 2
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 2,
+                "pot": 0
             },
             "tags": []
         },
@@ -104359,14 +105128,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104450,6 +105240,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 96,
+                            "y": 316,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "southeast_grotto_field_gateway -> field_southeast_grotto_gateway"
                         },
@@ -104465,8 +105274,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
+                "skulltula": 0,
                 "gossipstone": 1,
-                "beehive": 2
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 2,
+                "pot": 0
             },
             "tags": []
         },
@@ -108290,14 +109105,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108342,6 +109178,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 99,
+                            "y": 622,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "shield_grave_graveyard_gateway -> graveyard_shield_grave_gateway"
                         },
@@ -108357,7 +109212,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
-                "fountain": 1
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -108375,14 +109237,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108427,6 +109310,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 97,
+                            "y": 321,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "redead_grave_graveyard_gateway -> graveyard_redead_grave_gateway"
                         },
@@ -108441,7 +109343,15 @@
                 ]
             },
             "areaContentHints": {
-                "chest": 1
+                "chest": 1,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -108459,14 +109369,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108496,6 +109427,25 @@
             "connections": [],
             "lists": {
                 "v": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 453,
+                            "y": 148,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -108732,7 +109682,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "graveyard.royal_grave": {
@@ -108749,14 +109709,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108814,6 +109795,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 56,
+                            "y": 143,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "composers_grave_graveyard_gateway -> graveyard_composers_grave_gateway"
                         },
@@ -108827,7 +109827,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "mountain.fairy_fountain": {
@@ -109761,14 +110771,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -109852,6 +110883,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "goron"
+                        },
+                        "pos": {
+                            "x": 151,
+                            "y": 341,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "grotto_goron_gateway -> goron_grotto_gateway"
                         },
@@ -109866,8 +110916,15 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
                 "scrub": 3,
-                "beehive": 1
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 1,
+                "pot": 0
             },
             "tags": []
         },
@@ -110624,14 +111681,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -110702,6 +111780,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley"
+                        },
+                        "pos": {
+                            "x": 72,
+                            "y": 305,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "storms_grotto_valley_gateway -> valley_storms_grotto_gateway"
                         },
@@ -110716,8 +111813,15 @@
                 ]
             },
             "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
                 "scrub": 2,
-                "beehive": 1
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 1,
+                "pot": 0
             },
             "tags": []
         },
@@ -111015,14 +112119,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111042,11 +112167,11 @@
             },
             "icon": "/images/icons/grotto.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/grotto/fairy_fountain.webp",
+                "width": 321,
+                "height": 642,
                 "zoom": 100
             },
             "connections": [],
@@ -111054,12 +112179,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 161,
+                            "y": 598,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "fairy_grotto_field_gateway -> field_fairy_grotto_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 161,
+                            "y": 598,
                             "scale": 100
                         },
                         "visible": true,
@@ -111068,7 +112212,15 @@
                 ]
             },
             "areaContentHints": {
-                "fountain": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -111449,14 +112601,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111505,8 +112678,8 @@
                             "name": "kokiri.kokiri_shop_8"
                         },
                         "pos": {
-                            "x": 170,
-                            "y": 67,
+                            "x": 80,
+                            "y": 70,
                             "scale": 75
                         },
                         "visible": true,
@@ -111518,8 +112691,8 @@
                             "name": "kokiri.kokiri_shop_7"
                         },
                         "pos": {
-                            "x": 205,
-                            "y": 67,
+                            "x": 115,
+                            "y": 70,
                             "scale": 75
                         },
                         "visible": true,
@@ -111531,8 +112704,8 @@
                             "name": "kokiri.kokiri_shop_6"
                         },
                         "pos": {
-                            "x": 170,
-                            "y": 99,
+                            "x": 80,
+                            "y": 100,
                             "scale": 75
                         },
                         "visible": true,
@@ -111544,11 +112717,28 @@
                             "name": "kokiri.kokiri_shop_5"
                         },
                         "pos": {
-                            "x": 205,
-                            "y": 99,
+                            "x": 115,
+                            "y": 100,
                             "scale": 75
                         },
                         "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 257,
+                            "y": 214,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": false
                     },
                     {
@@ -111566,7 +112756,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "meadow.fairy_grotto": {
@@ -111577,14 +112777,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -111604,11 +112825,11 @@
             },
             "icon": "/images/icons/grotto.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/grotto/fairy_fountain.webp",
+                "width": 321,
+                "height": 642,
                 "zoom": 100
             },
             "connections": [],
@@ -111616,12 +112837,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "meadow"
+                        },
+                        "pos": {
+                            "x": 161,
+                            "y": 598,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "fairy_grotto_meadow_gateway -> meadow_fairy_grotto_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 161,
+                            "y": 598,
                             "scale": 100
                         },
                         "visible": true,
@@ -111630,7 +112870,15 @@
                 ]
             },
             "areaContentHints": {
-                "fountain": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -111710,8 +112958,8 @@
                             "name": "market.mask_shop_4"
                         },
                         "pos": {
-                            "x": 109,
-                            "y": 112,
+                            "x": 110,
+                            "y": 110,
                             "scale": 49
                         },
                         "visible": true,
@@ -111723,8 +112971,8 @@
                             "name": "market.mask_shop_3"
                         },
                         "pos": {
-                            "x": 129,
-                            "y": 112,
+                            "x": 130,
+                            "y": 110,
                             "scale": 49
                         },
                         "visible": true,
@@ -111736,8 +112984,8 @@
                             "name": "market.mask_shop_2"
                         },
                         "pos": {
-                            "x": 109,
-                            "y": 128,
+                            "x": 110,
+                            "y": 130,
                             "scale": 49
                         },
                         "visible": true,
@@ -111749,8 +112997,8 @@
                             "name": "market.mask_shop_1"
                         },
                         "pos": {
-                            "x": 129,
-                            "y": 128,
+                            "x": 130,
+                            "y": 130,
                             "scale": 49
                         },
                         "visible": true,
@@ -111762,8 +113010,8 @@
                             "name": "market.mask_shop_8"
                         },
                         "pos": {
-                            "x": 181,
-                            "y": 112,
+                            "x": 180,
+                            "y": 110,
                             "scale": 49
                         },
                         "visible": true,
@@ -111775,8 +113023,8 @@
                             "name": "market.mask_shop_7"
                         },
                         "pos": {
-                            "x": 201,
-                            "y": 112,
+                            "x": 200,
+                            "y": 110,
                             "scale": 49
                         },
                         "visible": true,
@@ -111788,8 +113036,8 @@
                             "name": "market.mask_shop_6"
                         },
                         "pos": {
-                            "x": 181,
-                            "y": 128,
+                            "x": 180,
+                            "y": 130,
                             "scale": 49
                         },
                         "visible": true,
@@ -111801,8 +113049,8 @@
                             "name": "market.mask_shop_5"
                         },
                         "pos": {
-                            "x": 201,
-                            "y": 128,
+                            "x": 200,
+                            "y": 130,
                             "scale": 49
                         },
                         "visible": true,
@@ -111929,9 +113177,9 @@
                             "name": "castle_town.shop_magic_8"
                         },
                         "pos": {
-                            "x": 219,
-                            "y": 73,
-                            "scale": 65
+                            "x": 135,
+                            "y": 80,
+                            "scale": 60
                         },
                         "visible": true,
                         "listHidden": false
@@ -111942,9 +113190,9 @@
                             "name": "castle_town.shop_magic_7"
                         },
                         "pos": {
-                            "x": 259,
-                            "y": 73,
-                            "scale": 65
+                            "x": 160,
+                            "y": 80,
+                            "scale": 60
                         },
                         "visible": true,
                         "listHidden": false
@@ -111955,9 +113203,9 @@
                             "name": "castle_town.shop_magic_6"
                         },
                         "pos": {
-                            "x": 219,
-                            "y": 106,
-                            "scale": 65
+                            "x": 135,
+                            "y": 105,
+                            "scale": 60
                         },
                         "visible": true,
                         "listHidden": false
@@ -111968,9 +113216,9 @@
                             "name": "castle_town.shop_magic_5"
                         },
                         "pos": {
-                            "x": 259,
-                            "y": 106,
-                            "scale": 65
+                            "x": 160,
+                            "y": 105,
+                            "scale": 60
                         },
                         "visible": true,
                         "listHidden": false
@@ -112096,8 +113344,8 @@
                             "name": "castle_town.shop_bombchu_8"
                         },
                         "pos": {
-                            "x": 202,
-                            "y": 73,
+                            "x": 100,
+                            "y": 65,
                             "scale": 65
                         },
                         "visible": true,
@@ -112109,8 +113357,8 @@
                             "name": "castle_town.shop_bombchu_7"
                         },
                         "pos": {
-                            "x": 231,
-                            "y": 73,
+                            "x": 140,
+                            "y": 65,
                             "scale": 65
                         },
                         "visible": true,
@@ -112122,8 +113370,8 @@
                             "name": "castle_town.shop_bombchu_6"
                         },
                         "pos": {
-                            "x": 202,
-                            "y": 102,
+                            "x": 100,
+                            "y": 95,
                             "scale": 65
                         },
                         "visible": true,
@@ -112135,8 +113383,8 @@
                             "name": "castle_town.shop_bombchu_5"
                         },
                         "pos": {
-                            "x": 231,
-                            "y": 102,
+                            "x": 140,
+                            "y": 95,
                             "scale": 65
                         },
                         "visible": true,
@@ -112437,8 +113685,8 @@
                             "name": "castle_town.shop_bazaar_8"
                         },
                         "pos": {
-                            "x": 166,
-                            "y": 69,
+                            "x": 55,
+                            "y": 65,
                             "scale": 65
                         },
                         "visible": true,
@@ -112450,8 +113698,8 @@
                             "name": "castle_town.shop_bazaar_7"
                         },
                         "pos": {
-                            "x": 201,
-                            "y": 69,
+                            "x": 100,
+                            "y": 65,
                             "scale": 65
                         },
                         "visible": true,
@@ -112463,8 +113711,8 @@
                             "name": "castle_town.shop_bazaar_6"
                         },
                         "pos": {
-                            "x": 166,
-                            "y": 95,
+                            "x": 55,
+                            "y": 100,
                             "scale": 65
                         },
                         "visible": true,
@@ -112476,8 +113724,8 @@
                             "name": "castle_town.shop_bazaar_5"
                         },
                         "pos": {
-                            "x": 201,
-                            "y": 95,
+                            "x": 100,
+                            "y": 100,
                             "scale": 65
                         },
                         "visible": true,
@@ -112727,14 +113975,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": false
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -112770,9 +114039,9 @@
                             "name": "kakariko.shop_bazaar_8"
                         },
                         "pos": {
-                            "x": 163,
+                            "x": 55,
                             "y": 65,
-                            "scale": 60
+                            "scale": 65
                         },
                         "visible": true,
                         "listHidden": false
@@ -112783,9 +114052,9 @@
                             "name": "kakariko.shop_bazaar_7"
                         },
                         "pos": {
-                            "x": 192,
+                            "x": 100,
                             "y": 65,
-                            "scale": 60
+                            "scale": 65
                         },
                         "visible": true,
                         "listHidden": false
@@ -112796,9 +114065,9 @@
                             "name": "kakariko.shop_bazaar_6"
                         },
                         "pos": {
-                            "x": 163,
-                            "y": 92,
-                            "scale": 60
+                            "x": 55,
+                            "y": 100,
+                            "scale": 65
                         },
                         "visible": true,
                         "listHidden": false
@@ -112809,9 +114078,9 @@
                             "name": "kakariko.shop_bazaar_5"
                         },
                         "pos": {
-                            "x": 192,
-                            "y": 92,
-                            "scale": 60
+                            "x": 100,
+                            "y": 100,
+                            "scale": 65
                         },
                         "visible": true,
                         "listHidden": false
@@ -112831,7 +114100,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.shop_magic": {
@@ -112849,14 +114128,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": false
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -112892,8 +114192,8 @@
                             "name": "kakariko.shop_magic_8"
                         },
                         "pos": {
-                            "x": 187,
-                            "y": 89,
+                            "x": 135,
+                            "y": 80,
                             "scale": 60
                         },
                         "visible": true,
@@ -112905,8 +114205,8 @@
                             "name": "kakariko.shop_magic_7"
                         },
                         "pos": {
-                            "x": 214,
-                            "y": 89,
+                            "x": 160,
+                            "y": 80,
                             "scale": 60
                         },
                         "visible": true,
@@ -112918,8 +114218,8 @@
                             "name": "kakariko.shop_magic_6"
                         },
                         "pos": {
-                            "x": 187,
-                            "y": 112,
+                            "x": 135,
+                            "y": 105,
                             "scale": 60
                         },
                         "visible": true,
@@ -112931,8 +114231,8 @@
                             "name": "kakariko.shop_magic_5"
                         },
                         "pos": {
-                            "x": 214,
-                            "y": 112,
+                            "x": 160,
+                            "y": 105,
                             "scale": 60
                         },
                         "visible": true,
@@ -112966,7 +114266,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "graveyard.dampes_hut": {
@@ -112977,14 +114287,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113004,11 +114335,11 @@
             },
             "icon": "/images/icons/interior.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/interior/dampes_hut.webp",
+                "width": 639,
+                "height": 476,
                 "zoom": 100
             },
             "connections": [],
@@ -113016,12 +114347,29 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 440,
+                            "y": 235,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "dampes_house_graveyard_gateway -> graveyard_dampes_house_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 440,
+                            "y": 235,
                             "scale": 100
                         },
                         "visible": true,
@@ -113029,7 +114377,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "goron.shop": {
@@ -113044,14 +114402,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113135,6 +114514,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "goron"
+                        },
+                        "pos": {
+                            "x": 230,
+                            "y": 212,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "shop_goron_gateway -> goron_shop_gateway"
                         },
@@ -113148,7 +114544,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "river.bomb_grotto": {
@@ -113159,14 +114565,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113186,11 +114613,11 @@
             },
             "icon": "/images/icons/grotto.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/grotto/fairy_fountain.webp",
+                "width": 321,
+                "height": 642,
                 "zoom": 100
             },
             "connections": [],
@@ -113198,12 +114625,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "river"
+                        },
+                        "pos": {
+                            "x": 161,
+                            "y": 598,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "fairy_grotto_river_gateway -> river_fairy_grotto_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 161,
+                            "y": 598,
                             "scale": 100
                         },
                         "visible": true,
@@ -113212,7 +114658,15 @@
                 ]
             },
             "areaContentHints": {
-                "fountain": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -113228,14 +114682,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113271,8 +114746,8 @@
                             "name": "zoras.zoras_shop_8"
                         },
                         "pos": {
-                            "x": 231,
-                            "y": 83,
+                            "x": 120,
+                            "y": 80,
                             "scale": 70
                         },
                         "visible": true,
@@ -113284,8 +114759,8 @@
                             "name": "zoras.zoras_shop_7"
                         },
                         "pos": {
-                            "x": 269,
-                            "y": 83,
+                            "x": 155,
+                            "y": 80,
                             "scale": 70
                         },
                         "visible": true,
@@ -113297,8 +114772,8 @@
                             "name": "zoras.zoras_shop_6"
                         },
                         "pos": {
-                            "x": 231,
-                            "y": 120,
+                            "x": 120,
+                            "y": 110,
                             "scale": 70
                         },
                         "visible": true,
@@ -113310,11 +114785,28 @@
                             "name": "zoras.zoras_shop_5"
                         },
                         "pos": {
-                            "x": 269,
-                            "y": 120,
+                            "x": 155,
+                            "y": 110,
                             "scale": 70
                         },
                         "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "zoras"
+                        },
+                        "pos": {
+                            "x": 73,
+                            "y": 221,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": false
                     },
                     {
@@ -113332,7 +114824,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "zoras.storms_grotto": {
@@ -113343,14 +114845,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113370,11 +114893,11 @@
             },
             "icon": "/images/icons/grotto.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/grotto/fairy_fountain.webp",
+                "width": 321,
+                "height": 642,
                 "zoom": 100
             },
             "connections": [],
@@ -113382,12 +114905,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "zoras"
+                        },
+                        "pos": {
+                            "x": 161,
+                            "y": 598,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "storms_grotto_domain_gateway -> domain_storms_grotto_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 161,
+                            "y": 598,
                             "scale": 100
                         },
                         "visible": true,
@@ -113396,7 +114938,15 @@
                 ]
             },
             "areaContentHints": {
-                "fountain": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -113408,14 +114958,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113435,11 +115006,11 @@
             },
             "icon": "/images/icons/interior.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/interior/tent.webp",
+                "width": 320,
+                "height": 240,
                 "zoom": 100
             },
             "connections": [],
@@ -113447,12 +115018,29 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley"
+                        },
+                        "pos": {
+                            "x": 279,
+                            "y": 143,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "carpenter_tent_valley_gateway -> valley_carpenter_tent_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 279,
+                            "y": 143,
                             "scale": 100
                         },
                         "visible": true,
@@ -113460,7 +115048,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "gerudo_valley.octorock_grotto": {
@@ -113497,14 +115095,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113640,6 +115259,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo_valley"
+                        },
+                        "pos": {
+                            "x": 92,
+                            "y": 313,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "octorok_grotto_valley_gateway -> valley_octorok_grotto_gateway"
                         },
@@ -113654,7 +115292,15 @@
                 ]
             },
             "areaContentHints": {
-                "rupees": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 1,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -113666,14 +115312,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113693,11 +115360,11 @@
             },
             "icon": "/images/icons/grotto.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/grotto/fairy_fountain.webp",
+                "width": 321,
+                "height": 642,
                 "zoom": 100
             },
             "connections": [],
@@ -113705,12 +115372,31 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "gerudo"
+                        },
+                        "pos": {
+                            "x": 161,
+                            "y": 598,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "storms_grotto_fortress_gateway -> fortress_storms_grotto_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 161,
+                            "y": 598,
                             "scale": 100
                         },
                         "visible": true,
@@ -113719,7 +115405,15 @@
                 ]
             },
             "areaContentHints": {
-                "fountain": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 1,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         }
