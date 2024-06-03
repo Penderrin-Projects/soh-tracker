@@ -71,10 +71,8 @@ export default class TrackerWorldListScrubLocation extends WorldListLocation {
 
     #applyPrice(price) {
         if (price != null) {
-            this.#itemEl.src = "/images/items/unknown.png";
             this.#itemEl.text = price;
         } else {
-            this.#itemEl.src = "/images/items/unknown.png";
             this.#itemEl.text = "?";
         }
     }

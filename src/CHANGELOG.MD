@@ -21,6 +21,14 @@ Application:    Track-OOT
 
 ---
 
+## VERSION 3.0.8
+
+### BUGFIXES
+
+- fix scrubs item visualization to actually show stored item
+
+---
+
 ## VERSION 3.0.7
 
 ### BUGFIXES
