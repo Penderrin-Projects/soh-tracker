@@ -30,7 +30,7 @@
 
 #selection {
     display: none;
-    border-top: solid 1px var(--input-border-color, #000000);
+    border-top: solid 1px var(--input-border-color, #222222);
 }
 
 #selection.active {
