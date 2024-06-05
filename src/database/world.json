@@ -75295,6 +75295,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "woods"
+                        },
+                        "pos": {
+                            "x": 417,
+                            "y": 301,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "kokiri_woods_gateway -> woods_kokiri_gateway"
                         },
@@ -80917,6 +80936,25 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "hyrule_field"
+                        },
+                        "pos": {
+                            "x": 228,
+                            "y": 910,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "kakariko_field_gateway -> field_kakariko_gateway"
                         },
@@ -81151,6 +81189,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "mountain"
+                        },
+                        "pos": {
+                            "x": 1178,
+                            "y": 153,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "kakariko_mountain_gateway -> mountain_kakariko_gateway"
                         },
@@ -81295,6 +81352,25 @@
                         },
                         "visible": true,
                         "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "graveyard"
+                        },
+                        "pos": {
+                            "x": 1742,
+                            "y": 993,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_overworld]"
+                            }
+                        },
+                        "listHidden": true
                     },
                     {
                         "ref": {
@@ -85728,6 +85804,23 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "fountain"
+                        },
+                        "pos": {
+                            "x": 818,
+                            "y": 2369,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "ice_cavern_fountain_gateway -> fountain_ice_cavern_gateway"
                         },
@@ -86183,6 +86276,23 @@
                     }
                 ],
                 "mq": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "fountain"
+                        },
+                        "pos": {
+                            "x": 822,
+                            "y": 2355,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -90389,6 +90499,23 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "fountain"
+                        },
+                        "pos": {
+                            "x": 520,
+                            "y": 1696,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        },
+                        "listHidden": true
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "jabu_fountain_gateway -> fountain_jabu_gateway"
                         },
@@ -90755,6 +90882,23 @@
                     }
                 ],
                 "mq": [
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "fountain"
+                        },
+                        "pos": {
+                            "x": 520,
+                            "y": 1692,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[shuffle_dungeons]",
+                            "value": "shuffle_dungeons_off"
+                        },
+                        "listHidden": true
+                    },
                     {
                         "ref": {
                             "type": "Exit",
@@ -103975,14 +104119,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104040,6 +104205,26 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 53,
+                            "y": 59,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[entrance_shuffle_interior]",
+                                "value": "entrance_shuffle_all"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "links_house_kokiri_gateway -> kokiri_links_house_gateway"
                         },
@@ -104054,7 +104239,15 @@
                 ]
             },
             "areaContentHints": {
-                "cow": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 1,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -104070,14 +104263,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -104161,6 +104375,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 53,
+                            "y": 47,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "midos_house_kokiri_gateway -> kokiri_midos_house_gateway"
                         },
@@ -104175,7 +104406,15 @@
                 ]
             },
             "areaContentHints": {
-                "chest": 4
+                "chest": 4,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -105407,6 +105646,25 @@
                             "scale": 70
                         },
                         "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 95,
+                            "y": 314,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
                         "listHidden": false
                     },
                     {
@@ -108503,6 +108761,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 372,
+                            "y": 128,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "skulltula_house_kakariko_gateway -> kakariko_skulltula_house_gateway"
                         },
@@ -108541,14 +108816,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108593,6 +108889,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 289,
+                            "y": 78,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "impas_house_kakariko_gateway -> kakariko_impas_house_gateway"
                         },
@@ -108607,7 +108920,15 @@
                 ]
             },
             "areaContentHints": {
-                "cow": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 1,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -108623,14 +108944,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108688,6 +109030,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 21,
+                            "y": 83,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "impas_back_kakariko_gateway -> kakariko_impas_back_gateway"
                         },
@@ -108702,7 +109061,15 @@
                 ]
             },
             "areaContentHints": {
-                "cow": 1
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 1,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -108718,14 +109085,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108770,6 +109158,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 94,
+                            "y": 291,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "shooting_gallery_kakariko_gateway -> kakariko_shooting_gallery_gateway"
                         },
@@ -108783,7 +109188,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.windmill": {
@@ -108801,14 +109216,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108866,6 +109302,26 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 28,
+                            "y": 137,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[entrance_shuffle_interior]",
+                                "value": "entrance_shuffle_all"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "windmill_kakariko_gateway -> kakariko_windmill_gateway"
                         },
@@ -108879,7 +109335,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.open_grotto": {
@@ -108896,14 +109362,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -108987,6 +109474,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 97,
+                            "y": 313,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "open_grotto_kakariko_gateway -> kakariko_open_grotto_gateway"
                         },
@@ -109002,8 +109508,14 @@
             },
             "areaContentHints": {
                 "chest": 1,
+                "skulltula": 0,
                 "gossipstone": 1,
-                "beehive": 2
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 2,
+                "pot": 0
             },
             "tags": []
         },
@@ -109021,14 +109533,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -109073,6 +109606,25 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 74,
+                            "y": 295,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "value",
+                                "ref": "option[shuffle_grottos]"
+                            }
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "redead_grotto_kakariko_gateway -> kakariko_redead_grotto_gateway"
                         },
@@ -109087,7 +109639,15 @@
                 ]
             },
             "areaContentHints": {
-                "chest": 1
+                "chest": 1,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
             },
             "tags": []
         },
@@ -112256,14 +112816,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -112347,6 +112928,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 44,
+                            "y": 52,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "sarias_house_kokiri_gateway -> kokiri_sarias_house_gateway"
                         },
@@ -112360,7 +112958,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kokiri.twins_house": {
@@ -112395,14 +113003,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -112460,6 +113089,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 63,
+                            "y": 53,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "house_of_twins_kokiri_gateway -> kokiri_house_of_twins_gateway"
                         },
@@ -112473,7 +113119,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kokiri.know_it_all_house": {
@@ -112508,14 +113164,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -112573,6 +113250,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kokiri"
+                        },
+                        "pos": {
+                            "x": 262,
+                            "y": 47,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "know_it_all_house_kokiri_gateway -> kokiri_know_it_all_house_gateway"
                         },
@@ -112586,7 +113280,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kokiri.shop": {
@@ -113784,14 +114488,35 @@
             "visibleRootOnly": false,
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -113811,11 +114536,11 @@
             },
             "icon": "/images/icons/interior.svg",
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/interior/carpenter_home.webp",
+                "width": 320,
+                "height": 240,
                 "zoom": 100
             },
             "connections": [],
@@ -113823,12 +114548,29 @@
                 "v": [
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 216,
+                            "y": 209,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "carpenter_house_kakariko_gateway -> kakariko_carpenter_house_gateway"
                         },
                         "pos": {
-                            "x": 0,
-                            "y": 0,
+                            "x": 216,
+                            "y": 209,
                             "scale": 100
                         },
                         "visible": true,
@@ -113836,7 +114578,17 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 0,
+                "skulltula": 0,
+                "gossipstone": 0,
+                "scrub": 0,
+                "cow": 0,
+                "fountain": 0,
+                "rupees": 0,
+                "beehive": 0,
+                "pot": 0
+            },
             "tags": []
         },
         "kakariko.kakariko_witch": {
@@ -113933,6 +114685,23 @@
                             "scale": 100
                         },
                         "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 188,
+                            "y": 77,
+                            "scale": 75
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
                         "listHidden": false
                     },
                     {
@@ -114087,6 +114856,23 @@
                     },
                     {
                         "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 267,
+                            "y": 214,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "state",
+                            "ref": "option[entrance_shuffle_interior]",
+                            "value": "entrance_shuffle_off"
+                        },
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
                             "type": "Exit",
                             "name": "bazaar_kakariko_gateway -> kakariko_bazaar_gateway"
                         },
@@ -114236,6 +115022,26 @@
                             "scale": 60
                         },
                         "visible": true,
+                        "listHidden": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Area",
+                            "name": "kakariko"
+                        },
+                        "pos": {
+                            "x": 62,
+                            "y": 221,
+                            "scale": 100
+                        },
+                        "visible": {
+                            "type": "not",
+                            "content": {
+                                "type": "state",
+                                "ref": "option[entrance_shuffle_interior]",
+                                "value": "entrance_shuffle_all"
+                            }
+                        },
                         "listHidden": false
                     },
                     {

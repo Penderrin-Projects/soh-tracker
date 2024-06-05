@@ -10,6 +10,7 @@
     --page-hover-back-color: #222222;
     --page-marked-text-color: #000000;
     --page-marked-back-color: #ececec;
+    --page-focus-color: #e2b6ff;
 
     /* === navigation === */
     --navigation-text-color: #ffffff;
@@ -24,7 +25,6 @@
     --panel-header-back-color: #291537;
 
     /* === input === */
-    --input-focus-color: #e2b6ff;
     --input-placeholder-text-color: #adadad;
 
     /* === switch === */
