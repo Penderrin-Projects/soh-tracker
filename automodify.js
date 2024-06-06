@@ -5,15 +5,6 @@ import fs from "fs";
 const inFileName = "./src/database/world.json";
 const outFileName = "./src/database/world.json";
 
-/* special configurations*/
-
-const SPECIAL_INTERIORS = [
-    "kokiri.links_house",
-    "castle_town.temple_of_time",
-    "kakariko.windmill",
-    "kakariko.shop_magic"
-];
-
 /* modificator */
 
 function modify(source = {}, target = {}) {
@@ -27,7 +18,6 @@ function modify(source = {}, target = {}) {
             type: oldProps.type ?? "",
             logicAccess: oldProps.logicAccess ?? "",
             visible: oldProps.visible ?? true,
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             icon: oldProps.icon ?? "",
             tags: oldProps.tags ?? []
@@ -61,16 +51,15 @@ function modify(source = {}, target = {}) {
             category: oldProps.category ?? "",
             visible: oldProps.visible ?? true,
             visibleIfEmpty: oldProps.visibleIfEmpty ?? !(oldProps.type === "interior" || oldProps.type === "grotto"),
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             listContents: !!(oldProps.listContents ?? false),
             accessPenetration: oldProps.accessPenetration ?? false,
             icon: oldProps.icon ?? "",
             map: convertMapConfig(oldProps.map),
             connections: oldProps.connections ?? [],
-            lists: oldProps.lists != null ? convertEntryLists(oldProps.lists, ref, oldProps.type) : {
-                v: convertEntryList(oldProps.list, ref, oldProps.type),
-                mq: convertEntryList(oldProps.list_mq, ref, oldProps.type)
+            lists: oldProps.lists != null ? convertEntryLists(oldProps.lists) : {
+                v: convertEntryList(oldProps.list),
+                mq: convertEntryList(oldProps.list_mq)
             },
             areaContentHints: oldProps.areaContentHints || {},
             tags: oldProps.tags ?? []
@@ -91,7 +80,6 @@ function modify(source = {}, target = {}) {
             logicAccess: oldProps.logicAccess ?? "",
             area: convertRelation(oldProps.area, "Area"),
             visible: oldProps.visible ?? true,
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             icon: oldProps.icon ?? "",
             bindsTo: oldProps.bindsTo ?? [],
@@ -133,15 +121,15 @@ function getColor(color) {
     return color;
 }
 
-function convertEntryLists(lists, parentRef, parentType) {
+function convertEntryLists(lists) {
     const res = {};
     for (const key in lists) {
-        res[key] = convertEntryList(lists[key], parentRef, parentType);
+        res[key] = convertEntryList(lists[key]);
     }
     return res;
 }
 
-function convertEntryList(oldList, parentRef, parentType) {
+function convertEntryList(oldList) {
     if (oldList == null) {
         return;
     }
@@ -157,71 +145,9 @@ function convertEntryList(oldList, parentRef, parentType) {
                 scale: entry.pos?.scale ?? 100
             },
             visible: entry.visible ?? true,
-            listHidden: entry.listHidden ?? false
+            mapOnly: entry.mapOnly ?? false,
+            rootOnly: entry.rootOnly ?? false
         };
-        if (parentType != null && res.listHidden && res.ref.type === "Area") {
-            switch (parentType) {
-                case "interior":
-                case "shop": {
-                    if (SPECIAL_INTERIORS.includes(parentRef)) {
-                        // special interiors
-                        res.listHidden = false;
-                        res.visible = {
-                            "type": "not",
-                            "content": {
-                                "type": "state",
-                                "ref": "option[entrance_shuffle_interior]",
-                                "value": "entrance_shuffle_all"
-                            }
-                        };
-                    } else {
-                        // normal interiors
-                        res.listHidden = false;
-                        res.visible = {
-                            "type": "state",
-                            "ref": "option[entrance_shuffle_interior]",
-                            "value": "entrance_shuffle_off"
-                        };
-                    }
-                } break;
-                case "grotto": {
-                    res.listHidden = false;
-                    res.visible = {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "option[shuffle_grottos]"
-                        }
-                    };
-                } break;
-                case "area": {
-                    res.visible = {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "option[shuffle_overworld]"
-                        }
-                    };
-                } break;
-                case "dungeon": {
-                    res.visible = {
-                        "type": "state",
-                        "ref": "option[shuffle_dungeons]",
-                        "value": "shuffle_dungeons_off"
-                    };
-                } break;
-                case "boss_dungeon": {
-                    res.visible = {
-                        "type": "not",
-                        "content": {
-                            "type": "state",
-                            "ref": "option[shuffle_dungeons]",
-                            "value": "shuffle_dungeons_all"
-                        }
-                    };
-                } break;
-            }
-        }
         return res;
     });
 }
