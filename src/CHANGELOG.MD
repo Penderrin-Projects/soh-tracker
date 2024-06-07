@@ -13,6 +13,8 @@ Application:    Track-OOT
 - add store/reload functionality (automatic) for map size and position per area
 - add reset map size and position button per area
 - add remaining exits counter to overview
+- add transition area markers to map for main areas
+- add transition area markers to map and list for interiors/grottos/dungeons
 
 ### BUG FIXES
 
