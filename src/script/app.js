@@ -9,7 +9,7 @@ import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
-import "/emcJS/ui/Icon.js";
+import "/emcJS/ui/icon/Icon.js";
 import "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS

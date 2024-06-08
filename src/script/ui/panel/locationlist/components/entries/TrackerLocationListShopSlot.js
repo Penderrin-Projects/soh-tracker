@@ -1,7 +1,7 @@
 import {
     mix
 } from "/emcJS/util/Mixin.js";
-import "/emcJS/ui/LabeledIcon.js";
+import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
