@@ -119,8 +119,8 @@ export default class APWindow extends Window {
     async #purgeAPState() {
         const result = await Dialog.confirm("Delete AP Savedata", "Do you really want to delete the AP Item/Location data");
         if (result === true) {
-            AP_STORAGES.items.clear();
-            AP_STORAGES.locations.clear();
+            AP_STORAGES.items.clearAsChange();
+            AP_STORAGES.locations.clearAsChange();
             SavestateHandler.forceCache();
         }
     }
