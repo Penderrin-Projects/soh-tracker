@@ -108,7 +108,7 @@ class ArchipelagoController {
 
         const translatedLocations = this.#collectLocations(checked_locations);
 
-        AP_STORAGES.locations.deserialize(translatedLocations);
+        AP_STORAGES.locations.deserializeAsChange(translatedLocations);
         SavestateHandler.forceCache();
     }
 
@@ -162,7 +162,7 @@ class ArchipelagoController {
             const collectedItems = this.#collectItems(items);
             this.#itemIndex = collectedItems.length;
 
-            AP_STORAGES.items.deserialize(collectedItems);
+            AP_STORAGES.items.deserializeAsChange(collectedItems);
             SavestateHandler.forceCache();
         } else if (index > this.#itemIndex) {
             const collectedItems = this.#collectItems(items, AP_STORAGES.items.getAll());
