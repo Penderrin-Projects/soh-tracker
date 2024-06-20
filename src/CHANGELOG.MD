@@ -15,6 +15,7 @@ Application:    Track-OOT
 - add remaining exits counter to overview
 - add transition area markers to map for main areas
 - add transition area markers to map and list for interiors/grottos/dungeons
+- change orientation of gerudo fortress map to vertical
 
 ### BUG FIXES
 

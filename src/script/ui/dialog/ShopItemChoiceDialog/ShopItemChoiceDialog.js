@@ -9,6 +9,8 @@ import Language from "/GameTrackerJS/util/Language.js";
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 import "./components/ShopEditItem.js";
 
+// TODO use TabPanel
+
 const TPL = new Template(`
 <div id="categories">
 </div>
@@ -33,14 +35,52 @@ const STYLE = new GlobalStyle(`
     display: flex;
 }
 #categories {
-    padding: 5px;
+    display: flex;
+    flex-shrink: 0;
+    padding: 4px 3px 0;
     overflow-x: auto;
-    overflow-y: none;
-    border-bottom: solid 2px #cccccc;
+    overflow-y: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: var(--tabpanel-categories-border-width, 2px);
+    border-bottom-color: var(--tabpanel-categories-border-color, #222222);
+    user-select: none;
 }
 .category {
     display: inline-flex;
-    margin: 0 2px;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    padding: 0px 4px;
+    margin: 0 1px;
+    color: var(--button-text-color, #000000);
+    background-color: var(--button-back-color, #eaeaea);
+    background-image: var(--button-back-image, none);
+    border-style: solid;
+    border-width: var(--button-border-width, 2px);
+    border-color: var(--button-border-color, #222222);
+    border-radius: var(--button-border-radius, 6px) var(--button-border-radius, 6px) 0 0;
+    border-bottom-style: none;
+    appearance: none;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1em;
+    white-space: pre;
+    word-break: keep-all;
+    cursor: pointer;
+}
+.category:hover {
+    color: var(--button-hover-text-color, #ffffff);
+    background-color: var(--button-hover-back-color, #353935);
+    background-image: var(--button-hover-back-image, none);
+    border-color: var(--button-hover-border-color, #222222);
+}
+.category.active {
+    color: var(--button-active-text-color, #ffffff);
+    background-color: var(--button-active-back-color, #222222);
+    background-image: var(--button-active-back-image, none);
+    border-color: var(--button-active-border-color, #222222);
+    cursor: default;
+    pointer-events: none;
 }
 .panel {
     display: none;
@@ -76,32 +116,30 @@ const STYLE = new GlobalStyle(`
 }
 #submit,
 #cancel {
+    align-items: center;
+    justify-content: center;
     margin-left: 10px;
     padding: 5px;
-    border: solid 1px black;
-    border-radius: 2px;
-    align-items: center;
-    justify-content: center;
+    color: var(--button-text-color, #000000);
+    background-color: var(--button-back-color, #eaeaea);
+    border-style: solid;
+    border-width: var(--button-border-width, 2px);
+    border-color: var(--button-border-color, #222222);
+    border-radius: var(--button-border-radius, 6px);
+    font-weight: 900;
+    text-transform: uppercase;
     cursor: pointer;
-    -webkit-appearance: none;
-}
-.category {
-    padding: 5px;
-    border: solid 1px black;
-    border-radius: 2px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    -webkit-appearance: none;
-}
-.category:hover {
-    background-color: gray;
+    user-select: none;
+    appearance: none;
 }
 #submit:hover,
-#cancel:hover,
-.category.active {
-    color: white;
-    background-color: black;
+#cancel:hover {
+    color: var(--button-hover-text-color, #ffffff);
+    background-color: var(--button-hover-back-color, #353935);
+    border-color: var(--button-hover-border-color, #222222);
+}
+ootrt-shopedititem {
+    box-shadow: 0 0 2px 2px white;
 }
 ootrt-shopedititem.active {
     box-shadow: 0 0 2px 2px red;
