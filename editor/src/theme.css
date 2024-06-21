@@ -3,13 +3,15 @@
     /* === page === */
     --page-text-color: #ffffff;
     --page-back-color: #000000;
-    --page-border-color: #3b3b3b; /* all; top_bottom right_left; top right bottom left*/
+    --page-border-color: #3b3b3b;
+    /* all; top_bottom right_left; top right bottom left*/
     --page-border-width: 2px;
     --page-border-radius: 0.25em;
     --page-hover-text-color: #ffffff;
     --page-hover-back-color: #222222;
     --page-marked-text-color: #000000;
     --page-marked-back-color: #ececec;
+    --page-content-border-color: #443a4e;
     --page-focus-color: #e2b6ff;
 
     /* === navigation === */
@@ -27,6 +29,11 @@
     /* === input === */
     --input-placeholder-text-color: #adadad;
 
+    /* === button === */
+    --button-text-color: #aaaaaa;
+    --button-back-color: #1e0e2c;
+    --button-hover-back-color: #5a2b84;
+
     /* === switch === */
     --switch-checked-back-color: #c0f3c0;
     --switch-unchecked-back-color: #bd7676;
@@ -38,11 +45,13 @@
 
     /* === button === */
     --button-primary-back-color: #584faa;
-    --button-primary-border-color: #3d3775; /* all; top_bottom right_left; top right bottom left*/
+    --button-primary-border-color: #3d3775;
+    /* all; top_bottom right_left; top right bottom left*/
     --button-primary-hover-back-color: #837cca;
 
     --button-secondary-back-color: #aa4f63;
-    --button-secondary-border-color: #753741; /* all; top_bottom right_left; top right bottom left*/
+    --button-secondary-border-color: #753741;
+    /* all; top_bottom right_left; top right bottom left*/
     --button-secondary-hover-back-color: #ca7c8d;
 
     /* === scrollbar === */

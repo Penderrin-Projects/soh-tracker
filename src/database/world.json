@@ -4360,24 +4360,41 @@
             "visible": {
                 "type": "not",
                 "content": {
-                    "type": "state",
-                    "ref": "option[shuffle_child_trade]",
-                    "value": "skip_child_zelda"
+                    "type": "value",
+                    "ref": "option[skip_child_zelda]"
                 }
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": false
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
