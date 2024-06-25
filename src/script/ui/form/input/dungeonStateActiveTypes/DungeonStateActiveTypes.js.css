@@ -1,21 +1,33 @@
+:host {
+    padding: 0 !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
 #container {
     display: flex;
     flex-direction: column;
+    padding: 0;
+    border: none;
+    background-color: transparent;
 }
 
 #input {
     position: relative;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    min-width: 200px;
-    height: 2rem;
+    height: 2em;
     color: var(--input-text-color, #000000);
     background-color: var(--input-back-color, #ffffff);
-    border: none;
-    border-radius: 0px;
-    user-select: none;
+    border-style: solid;
+    border-width: var(--input-border-width, 2px);
+    border-color: var(--input-border-color, #222222);
+    border-radius: var(--input-border-radius, 6px);
+    font-size: 1rem;
+}
+
+#input.append-bottom {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 #input:focus {
@@ -30,7 +42,11 @@
 
 #selection {
     display: none;
-    border-top: solid 1px var(--input-border-color, #222222);
+    border-style: solid;
+    border-width: var(--input-border-width, 2px);
+    border-color: var(--input-border-color, #222222);
+    border-top: none;
+    border-radius: 0 0 var(--input-border-radius, 6px) var(--input-border-radius, 6px);
 }
 
 #selection.active {
