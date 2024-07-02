@@ -100,7 +100,11 @@ class ArchipelagoController {
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
-        const {slot, checked_locations} = packet;
+        const {slot, checked_locations, slot_data} = packet;
+
+        // TODO load option translation from ap_options.json
+        // TODO handle seperately: mq_dungeons_list, logic_tricks
+        console.log("slot data:", slot_data);
 
         this.#slotId = slot;
         Toast.success("You are now connected to Archipelago");

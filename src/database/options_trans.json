@@ -22,6 +22,40 @@
                 "false": false
             }
         },
+        "shuffle_freestanding_items": {
+            "name": "shuffle_rupees_hearts",
+            "values": {
+                "off": "off",
+                "all": "all",
+                "overworld": "overworld",
+                "dungeons": "dungeons"
+            }
+        },
+        "shuffle_pots": {
+            "name": "shuffle_pots",
+            "values": {
+                "off": "off",
+                "all": "all",
+                "overworld": "overworld",
+                "dungeons": "dungeons"
+            }
+        },
+        "shuffle_crates": {
+            "name": "shuffle_crates",
+            "values": {
+                "off": "off",
+                "all": "all",
+                "overworld": "overworld",
+                "dungeons": "dungeons"
+            }
+        },
+        "shuffle_beehives": {
+            "name": "shuffle_beehives",
+            "values": {
+                "true": true,
+                "false": false
+            }
+        },
         "damage_multiplier": {
             "name": "damage_multiplier",
             "values": {
@@ -262,6 +296,19 @@
                 }
             }
         },
+        "dungeon_shortcuts": {
+            "name": "dungeon_shortcuts",
+            "values": {
+                "Deku Tree": "dungeon_shortcuts.deku",
+                "Dodongo's Cavern": "dungeon_shortcuts.dodongo",
+                "Jabu Jabu's Belly": "dungeon_shortcuts.jabu",
+                "Forest Temple": "dungeon_shortcuts.temple_forest",
+                "Fire Temple": "dungeon_shortcuts.temple_fire",
+                "Water Temple": "dungeon_shortcuts.temple_water",
+                "Shadow Temple": "dungeon_shortcuts.temple_shadow",
+                "Spirit Temple": "dungeon_shortcuts.temple_spirit"
+            }
+        },
         "shuffle_scrubs": {
             "name": "scrubsanity",
             "values": {
@@ -313,6 +360,7 @@
                 "overworld": "keylogic_overworld",
                 "dungeon": "keylogic_own_dungeon",
                 "vanilla": "keylogic_vanilla",
+                "regional": "keylogic_regional",
                 "remove": "keylogic_keysy"
             }
         },
@@ -322,7 +370,9 @@
                 "keysanity": "keylogic_keysanity",
                 "any_dungeon": "keylogic_any_dungeon",
                 "overworld": "keylogic_overworld",
-                "vanilla": "keylogic_vanilla"
+                "vanilla": "keylogic_vanilla",
+                "fortress": "keylogic_fortress",
+                "regional": "keylogic_regional"
             }
         },
         "shuffle_bosskeys": {
@@ -333,6 +383,7 @@
                 "overworld": "keylogic_overworld",
                 "dungeon": "keylogic_own_dungeon",
                 "vanilla": "keylogic_vanilla",
+                "regional": "keylogic_regional",
                 "remove": "keylogic_keysy"
             }
         },
@@ -344,16 +395,20 @@
                 "dungeon": "keylogic_own_dungeon",
                 "overworld": "keylogic_overworld",
                 "any_dungeon": "keylogic_any_dungeon",
+                "regional": "keylogic_regional",
                 "keysanity": "keylogic_keysanity",
                 "on_lacs": "keylogic_lacs",
                 "stones": "keylogic_stones",
                 "medallions": "keylogic_medallions",
                 "dungeons": "keylogic_dungeons",
                 "tokens": "keylogic_tokens",
-                "hearts": "keylogic_hearts",
-                "triforce": "keylogic_triforce"
+                "hearts": "keylogic_hearts"
             }
         },
+        "ganon_bosskey_medallions": "medallion_count_ganon_bosskey",
+        "ganon_bosskey_stones": "stone_count_ganon_bosskey",
+        "ganon_bosskey_rewards": "dungeon_count_ganon_bosskey",
+        "ganon_bosskey_tokens": "token_count_ganon_bosskey",
         "ganon_bosskey_hearts": "heart_count_ganon_bosskey",
         "lacs_condition": {
             "name": "light_arrow_cutscene",
