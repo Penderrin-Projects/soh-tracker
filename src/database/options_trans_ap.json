@@ -100,7 +100,6 @@
         },
         "shop_slots": {
             "name": "shopsanity",
-            "overwrite": false,
             "values": [
                 "0",
                 "1",
@@ -111,32 +110,8 @@
         },
         "shopsanity_prices": false,
         "tokensanity": false,
-        "dungeon_shortcuts": {
-            "name": "dungeon_shortcuts",
-            "values": {
-                "Deku Tree": "dungeon_shortcuts.deku",
-                "Dodongo's Cavern": "dungeon_shortcuts.dodongo",
-                "Jabu Jabu's Belly": "dungeon_shortcuts.jabu",
-                "Forest Temple": "dungeon_shortcuts.temple_forest",
-                "Fire Temple": "dungeon_shortcuts.temple_fire",
-                "Water Temple": "dungeon_shortcuts.temple_water",
-                "Shadow Temple": "dungeon_shortcuts.temple_shadow",
-                "Spirit Temple": "dungeon_shortcuts.temple_spirit"
-            }
-        },
-        "dungeon_shortcuts_list": {
-            "name": "dungeon_shortcuts",
-            "values": {
-                "Deku Tree": "dungeon_shortcuts.deku",
-                "Dodongo's Cavern": "dungeon_shortcuts.dodongo",
-                "Jabu Jabu's Belly": "dungeon_shortcuts.jabu",
-                "Forest Temple": "dungeon_shortcuts.temple_forest",
-                "Fire Temple": "dungeon_shortcuts.temple_fire",
-                "Water Temple": "dungeon_shortcuts.temple_water",
-                "Shadow Temple": "dungeon_shortcuts.temple_shadow",
-                "Spirit Temple": "dungeon_shortcuts.temple_spirit"
-            }
-        },
+        "dungeon_shortcuts": false,
+        "dungeon_shortcuts_list": false,
         "mq_dungeons_mode": false,
         "mq_dungeons_list": false,
         "mq_dungeons_count": false,
@@ -338,51 +313,7 @@
                 true
             ]
         },
-        "spawn_positions": {
-            "name": false,
-            "values": [
-                [
-                    {
-                        "name": "shuffle_spawn_child",
-                        "value": false
-                    },
-                    {
-                        "name": "shuffle_spawn_adult",
-                        "value": false
-                    }
-                ],
-                [
-                    {
-                        "name": "shuffle_spawn_child",
-                        "value": true
-                    },
-                    {
-                        "name": "shuffle_spawn_adult",
-                        "value": false
-                    }
-                ],
-                [
-                    {
-                        "name": "shuffle_spawn_child",
-                        "value": false
-                    },
-                    {
-                        "name": "shuffle_spawn_adult",
-                        "value": true
-                    }
-                ],
-                [
-                    {
-                        "name": "shuffle_spawn_child",
-                        "value": true
-                    },
-                    {
-                        "name": "shuffle_spawn_adult",
-                        "value": true
-                    }
-                ]
-            ]
-        },
+        "spawn_positions": false,
         "owl_drops": {
             "name": "shuffle_owls",
             "values": [

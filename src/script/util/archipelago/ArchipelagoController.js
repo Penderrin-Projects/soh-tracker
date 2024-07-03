@@ -1,6 +1,7 @@
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import Client from "/ArchipelagoJS/Client.js";
 import {
     COMMON_TAGS
@@ -22,6 +23,9 @@ import {
     translateItem,
     translateLocation
 } from "./APNameTranslator.js";
+import {
+    translateAPSettings
+} from "./APSettingsTranslator.js";
 
 const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
@@ -39,6 +43,8 @@ class ArchipelagoController {
 
     #periodTimer = null;
 
+    #syncSettings = false;
+
     constructor() {
         SavestateHandler.addEventListener("beforeload", () => {
             if (this.isConnected()) {
@@ -47,7 +53,7 @@ class ArchipelagoController {
         });
     }
 
-    connect(apHostname, apPort, apSlotName, apPassword) {
+    connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
                 hostname: apHostname,
@@ -59,6 +65,8 @@ class ArchipelagoController {
                 slot_data: true,
                 tags: [COMMON_TAGS.TRACKER]
             };
+
+            this.#syncSettings = syncSettings;
 
             this.#client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, (event) => {
                 this.#onConnectedEvent(event);
@@ -103,8 +111,14 @@ class ArchipelagoController {
         const {slot, checked_locations, slot_data} = packet;
 
         // TODO load option translation from ap_options.json
-        // TODO handle seperately: mq_dungeons_list, logic_tricks
-        console.log("slot data:", slot_data);
+        // TODO handle seperately: mq_dungeons_list, dungeon_shortcuts_list, spawn_positions, logic_tricks
+        if (this.#syncSettings) {
+            const [options, errors] = translateAPSettings(slot_data);
+            Savestate.overwrite(options);
+            if (errors.length > 0) {
+                console.warn("errors converting data:", errors);
+            }
+        }
 
         this.#slotId = slot;
         Toast.success("You are now connected to Archipelago");

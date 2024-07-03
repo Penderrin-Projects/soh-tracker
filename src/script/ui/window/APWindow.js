@@ -12,6 +12,7 @@ import STYLE from "./APWindow.js.css" assert {type: "css"};
 
 const APStateStorage = Savestate.getStorage("APConfig");
 
+// TODO add "parse settings data"-switch
 export default class APWindow extends Window {
 
     #apHostnameEl;
@@ -87,7 +88,7 @@ export default class APWindow extends Window {
         const apPassword = this.#apPasswordEl.value;
 
         try {
-            await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword);
+            await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword, true);
             APStateStorage.setAll({apHostname, apPort, apSlotName});
             this.remove();
         } catch (error) {
