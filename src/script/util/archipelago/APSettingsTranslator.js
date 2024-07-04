@@ -16,6 +16,7 @@ export function translateAPSettings(data = {}) {
 
     const settingsTrans = trans["settings"];
     const dungeons = trans["dungeons"];
+    const tricks = trans["tricks"];
 
     for (const [key, value] of Object.entries(data)) {
         try {
@@ -37,7 +38,9 @@ export function translateAPSettings(data = {}) {
                 target.options["shuffle_spawn_child"] = !!(value & 1);
                 target.options["shuffle_spawn_adult"] = !!(value >> 1 & 1);
             } else if (key === "logic_tricks") {
-                // TODO
+                for (const [apTrick, trick] of Object.entries(tricks)) {
+                    target.options[trick] = value.includes(apTrick);
+                }
                 continue;
             } else {
                 const transData = settingsTrans[key];
