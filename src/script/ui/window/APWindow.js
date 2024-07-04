@@ -1,5 +1,6 @@
 import Window from "/emcJS/ui/overlay/window/Window.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
+import "/emcJS/ui/input/InputWrapper.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
@@ -12,7 +13,6 @@ import STYLE from "./APWindow.js.css" assert {type: "css"};
 
 const APStateStorage = Savestate.getStorage("APConfig");
 
-// TODO add "parse settings data"-switch
 export default class APWindow extends Window {
 
     #apHostnameEl;
@@ -22,6 +22,8 @@ export default class APWindow extends Window {
     #apSlotNameEl;
 
     #apPasswordEl;
+
+    #apSettingsSyncEl;
 
     #connectEl;
 
@@ -46,6 +48,7 @@ export default class APWindow extends Window {
         this.#apPortEl = this.shadowRoot.getElementById("apPort");
         this.#apSlotNameEl = this.shadowRoot.getElementById("apSlotName");
         this.#apPasswordEl = this.shadowRoot.getElementById("apPassword");
+        this.#apSettingsSyncEl = this.shadowRoot.getElementById("apSettingsSync");
 
         this.#connectEl = this.shadowRoot.getElementById("connect");
         this.#connectEl.addEventListener("click", () => this.connect());
@@ -61,12 +64,13 @@ export default class APWindow extends Window {
     }
 
     show() {
-        const {apHostname, apPort, apSlotName} = APStateStorage.getAll();
+        const {apHostname, apPort, apSlotName, apSettingsSync} = APStateStorage.getAll();
 
         this.#apHostnameEl.value = apHostname ?? "archipelago.gg";
         this.#apPortEl.value = apPort;
         this.#apSlotNameEl.value = apSlotName ?? "";
         this.#apPasswordEl.value = "";
+        this.#apSettingsSyncEl.checked = apSettingsSync ?? true;
 
         if (ArchipelagoController.isConnected()) {
             this.#apHostnameEl.setAttribute("disabled", "");
@@ -86,10 +90,11 @@ export default class APWindow extends Window {
         const apPort = parseInt(this.#apPortEl.value) || "";
         const apSlotName = this.#apSlotNameEl.value;
         const apPassword = this.#apPasswordEl.value;
+        const apSettingsSync = this.#apSettingsSyncEl.checked;
 
         try {
-            await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword, true);
-            APStateStorage.setAll({apHostname, apPort, apSlotName});
+            await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword, apSettingsSync);
+            APStateStorage.setAll({apHostname, apPort, apSlotName, apSettingsSync});
             this.remove();
         } catch (error) {
             Dialog.error("Error", "An error occured", [error]);

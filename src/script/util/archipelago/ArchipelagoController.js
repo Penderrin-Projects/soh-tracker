@@ -110,8 +110,6 @@ class ArchipelagoController {
         const [packet] = data;
         const {slot, checked_locations, slot_data} = packet;
 
-        // TODO load option translation from ap_options.json
-        // TODO handle seperately: mq_dungeons_list, dungeon_shortcuts_list, spawn_positions, logic_tricks
         if (this.#syncSettings) {
             const [options, errors] = translateAPSettings(slot_data);
             Savestate.overwrite(options);

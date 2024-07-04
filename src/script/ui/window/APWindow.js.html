@@ -1,19 +1,33 @@
 <div id="form">
     <label class="label">
         <emc-i18n-label class="labelText" i18n-value="Hostname"></emc-i18n-label>
-        <input id="apHostname" value="archipelago.gg">
+        <emc-input-wrapper>
+            <input id="apHostname" value="archipelago.gg">
+        </emc-input-wrapper>
     </label>
     <label class="label">
         <emc-i18n-label class="labelText" i18n-value="Port"></emc-i18n-label>
-        <input id="apPort" type="number" min="1" max="65535">
+        <emc-input-wrapper>
+            <input id="apPort" type="number" min="1" max="65535">
+        </emc-input-wrapper>
     </label>
     <label class="label">
         <emc-i18n-label class="labelText" i18n-value="Slot name"></emc-i18n-label>
-        <input id="apSlotName">
+        <emc-input-wrapper>
+            <input id="apSlotName">
+        </emc-input-wrapper>
     </label>
     <label class="label">
         <emc-i18n-label class="labelText" i18n-value="Password"></emc-i18n-label>
-        <input id="apPassword" type="password">
+        <emc-input-wrapper>
+            <input id="apPassword" type="password">
+        </emc-input-wrapper>
+    </label>
+    <label class="label">
+        <emc-i18n-label class="labelText" i18n-value="Sync Settings"></emc-i18n-label>
+        <emc-input-wrapper>
+            <input id="apSettingsSync" type="checkbox">
+        </emc-input-wrapper>
     </label>
 </div>
 <div id="footer">
