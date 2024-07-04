@@ -58,7 +58,7 @@ export function translateAPSettings(data = {}) {
                             // ignore value
                             continue;
                         } else if (overwrite || target.options[name] == null) {
-                            target.options[name] = parsedValue;
+                            target.options[name] = transValue;
                         }
                     }
                 }
