@@ -1,5 +1,7 @@
 {
     "settings": {
+        "collectible_override_flags": false,
+        "collectible_flag_offsets": false,
         "open_forest": {
             "name": "doors_open_forest",
             "values": [
