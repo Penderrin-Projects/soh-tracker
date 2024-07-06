@@ -168,7 +168,7 @@ export default class DefaultShopState extends DataState {
             const oldResValue = this.bought;
             this.#bought = value;
             STORAGES.shopItemsBought.set(ref, value);
-            const newResValue = this.value;
+            const newResValue = this.bought;
             if (newResValue != oldResValue) {
                 // external
                 const event = new Event("bought");
@@ -258,23 +258,27 @@ export default class DefaultShopState extends DataState {
         STORAGES.shopItemsName.delete(ref);
     }
 
-    setAPBought(value) {
+    setAPBought(value, silent = false) {
         if (typeof value != "boolean" || this.isRefill()) {
             value = false;
         }
         if (value && this.isDefault()) {
             this.item = "ap_item";
         }
-        const old = this.#apBought;
-        if (value != old) {
-            const oldResValue = this.bought;
+        if (silent) {
             this.#apBought = value;
-            const newResValue = this.value;
-            if (newResValue != oldResValue) {
-                // external
-                const event = new Event("bought");
-                event.value = newResValue;
-                this.dispatchEvent(event);
+        } else {
+            const old = this.#apBought;
+            if (value != old) {
+                const oldResValue = this.bought;
+                this.#apBought = value;
+                const newResValue = this.bought;
+                if (newResValue != oldResValue) {
+                    // external
+                    const event = new Event("bought");
+                    event.value = newResValue;
+                    this.dispatchEvent(event);
+                }
             }
         }
     }

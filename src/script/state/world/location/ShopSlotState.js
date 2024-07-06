@@ -25,9 +25,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
     constructor(ref, props) {
         super(ref, props);
         /* --- */
-        const shopState = ShopLocationRegistry.get(ref);
-        SHOP_STATE.set(this, shopState);
-        /* EVENTS */
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.addEventListener("bought", (event) => {
                 this.refreshAccess();
@@ -54,8 +52,17 @@ export default class ShopSlotState extends DefaultAPLocationState {
         }
     }
 
+    get shopState() {
+        let shopState = SHOP_STATE.get(this);
+        if (shopState == null) {
+            shopState = ShopLocationRegistry.get(this.ref);
+            SHOP_STATE.set(this, shopState);
+        }
+        return shopState;
+    }
+
     get reachable() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState == null || WALLET_CAPACITIES[WALLET.value] < shopState.price) {
             return false;
         }
@@ -71,14 +78,14 @@ export default class ShopSlotState extends DefaultAPLocationState {
     }
 
     set value(value) {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.bought = value;
         }
     }
 
     get value() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             return shopState.isRefill() || shopState.bought;
         }
@@ -86,14 +93,14 @@ export default class ShopSlotState extends DefaultAPLocationState {
     }
 
     set item(value) {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.item = value;
         }
     }
 
     get item() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             return shopState.item;
         }
@@ -101,14 +108,14 @@ export default class ShopSlotState extends DefaultAPLocationState {
     }
 
     set price(value) {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.price = value;
         }
     }
 
     get price() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             return shopState.price;
         }
@@ -116,7 +123,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
     }
 
     get itemData() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             return shopState.itemData;
         }
@@ -124,21 +131,21 @@ export default class ShopSlotState extends DefaultAPLocationState {
     }
 
     isDefault() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             return shopState.isDefault();
         }
     }
 
     reset() {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.reset();
         }
     }
 
     setAPValue(value) {
-        const shopState = SHOP_STATE.get(this);
+        const shopState = this.shopState;
         if (shopState != null) {
             shopState.setAPBought(value);
         }

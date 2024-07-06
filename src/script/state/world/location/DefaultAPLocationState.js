@@ -81,7 +81,7 @@ export default class DefaultAPLocationState extends BaseClass {
 
         /* VALUES */
         const apLocationsObserver = new ObservableStorageObserver(AP_STORAGES.locations, ref);
-        this.#apValue = apLocationsObserver.value;
+        this.setAPValue(apLocationsObserver.value, true);
         apLocationsObserver.addEventListener("change", (event) => {
             this.setAPValue(event.value);
         });
@@ -228,20 +228,25 @@ export default class DefaultAPLocationState extends BaseClass {
         return this.#visible;
     }
 
-    setAPValue(value) {
+    setAPValue(value, silent = false) {
         if (typeof value != "boolean") {
             value = !!value;
         }
-        if (value != this.#apValue) {
-            const oldResValue = this.value;
+        if (silent) {
             this.#apValue = value;
-            const newResValue = this.value;
-            if (newResValue != oldResValue) {
-                this.refreshAccess();
-                // external
-                const event = new Event("value");
-                event.value = newResValue;
-                this.dispatchEvent(event);
+        } else {
+            const old = this.#apValue;
+            if (value != old) {
+                const oldResValue = this.value;
+                this.#apValue = value;
+                const newResValue = this.value;
+                if (newResValue != oldResValue) {
+                    this.refreshAccess();
+                    // external
+                    const event = new Event("value");
+                    event.value = newResValue;
+                    this.dispatchEvent(event);
+                }
             }
         }
     }

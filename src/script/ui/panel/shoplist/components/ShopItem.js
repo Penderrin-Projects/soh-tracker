@@ -190,13 +190,13 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
-                state.value = true;
+                state.bought = true;
             }
         });
         this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
-                state.value = false;
+                state.bought = false;
             }
         });
         this.addDefaultContextMenuHandler("associate", () => {
@@ -207,7 +207,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             if (state != null) {
                 state.item = "refill_item";
                 state.price = "0";
-                state.value = true;
+                state.bought = true;
             }
         });
         this.addDefaultContextMenuHandler("disassociate", () => {
@@ -225,7 +225,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                     if (state.item != "refill_item") {
                         state.item = "refill_item";
                         state.price = "0";
-                        state.value = true;
+                        state.bought = true;
                     } else {
                         state.reset();
                     }
