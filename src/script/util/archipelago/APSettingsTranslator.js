@@ -34,7 +34,12 @@ export function translateAPSettings(data = {}) {
     }
 
     // dungeon shortcuts
-    if (dungeon_shortcuts === 1) {
+    if (dungeon_shortcuts === 0) {
+        for (const dungeonName in dungeons) {
+            const internalName = dungeons[dungeonName];
+            target.options[`dungeon_shortcuts.${internalName}`] = false;
+        }
+    } else if (dungeon_shortcuts === 1) {
         for (const dungeonName in dungeons) {
             const internalName = dungeons[dungeonName];
             target.options[`dungeon_shortcuts.${internalName}`] = dungeon_shortcuts_list.includes(dungeonName);
@@ -43,11 +48,6 @@ export function translateAPSettings(data = {}) {
         for (const dungeonName in dungeons) {
             const internalName = dungeons[dungeonName];
             target.options[`dungeon_shortcuts.${internalName}`] = true;
-        }
-    } else {
-        for (const dungeonName in dungeons) {
-            const internalName = dungeons[dungeonName];
-            target.options[`dungeon_shortcuts.${internalName}`] = false;
         }
     }
 
@@ -67,13 +67,9 @@ export function translateAPSettings(data = {}) {
             const internalName = dungeons[dungeonName];
             target.areaActiveLists[internalName] = mq_dungeons_list.includes(dungeonName) ? "mq" : "v";
         }
-    } else {
-        for (const dungeonName in dungeons) {
-            const internalName = dungeons[dungeonName];
-            target.areaActiveLists[internalName] = "";
-        }
     }
 
+    // other settings
     for (const [key, value] of Object.entries(rest_data)) {
         try {
             const transData = settingsTrans[key];
