@@ -79382,6 +79382,7 @@
                             "scale": 100
                         },
                         "visible": true,
+                        "accessPenetration": true,
                         "mapOnly": false,
                         "rootOnly": true
                     },
@@ -79396,6 +79397,7 @@
                             "scale": 100
                         },
                         "visible": true,
+                        "accessPenetration": true,
                         "mapOnly": false,
                         "rootOnly": true
                     },

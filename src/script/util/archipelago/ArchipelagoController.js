@@ -111,10 +111,14 @@ class ArchipelagoController {
         const {slot, checked_locations, slot_data} = packet;
 
         if (this.#syncSettings) {
-            const [options, errors] = translateAPSettings(slot_data);
-            Savestate.overwrite(options);
-            if (errors.length > 0) {
-                console.warn("errors converting data:", errors);
+            if (slot_data != null) {
+                const [options, errors] = translateAPSettings(slot_data);
+                Savestate.overwrite(options);
+                if (errors.length > 0) {
+                    console.warn("errors converting data:", errors);
+                }
+            } else {
+                Dialog.alert("No slot data found!", "Your game has not send any slot data.");
             }
         }
 
