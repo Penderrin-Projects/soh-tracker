@@ -71106,7 +71106,10 @@
         "market.mask_shop_1": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_1]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_gerudo]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71147,13 +71150,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_2": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_2]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_zora]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71194,13 +71200,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_3": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_3]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_truth]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71241,13 +71250,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_4": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_4]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_goron]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71288,13 +71300,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_5": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_5]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_skull]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71335,13 +71350,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_6": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_6]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_keaton]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71382,13 +71400,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_7": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_7]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_bunny]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71429,13 +71450,16 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "market.mask_shop_8": {
             "type": "chest",
             "logicAccess": "reach_location[market.mask_shop_8]",
-            "visible": true,
+            "visible": {
+                "type": "value",
+                "ref": "option[item[mask_spooky]]"
+            },
             "filter": {
                 "era": {
                     "both": true,
@@ -71476,7 +71500,7 @@
                     }
                 }
             },
-            "icon": "/images/icons/shops.svg",
+            "icon": "/images/icons/mask_bunny.svg",
             "tags": []
         },
         "woods.c_trade_cojiro": {
@@ -115634,80 +115658,10 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "market.mask_shop_4"
-                        },
-                        "pos": {
-                            "x": 110,
-                            "y": 110,
-                            "scale": 49
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "market.mask_shop_3"
-                        },
-                        "pos": {
-                            "x": 130,
-                            "y": 110,
-                            "scale": 49
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "market.mask_shop_2"
-                        },
-                        "pos": {
-                            "x": 110,
-                            "y": 130,
-                            "scale": 49
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "market.mask_shop_1"
-                        },
-                        "pos": {
-                            "x": 130,
-                            "y": 130,
-                            "scale": 49
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
                             "name": "market.mask_shop_8"
                         },
                         "pos": {
-                            "x": 180,
-                            "y": 110,
-                            "scale": 49
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "market.mask_shop_7"
-                        },
-                        "pos": {
-                            "x": 200,
+                            "x": 110,
                             "y": 110,
                             "scale": 49
                         },
@@ -115721,7 +115675,21 @@
                             "name": "market.mask_shop_6"
                         },
                         "pos": {
-                            "x": 180,
+                            "x": 130,
+                            "y": 110,
+                            "scale": 49
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.mask_shop_7"
+                        },
+                        "pos": {
+                            "x": 110,
                             "y": 130,
                             "scale": 49
                         },
@@ -115733,6 +115701,62 @@
                         "ref": {
                             "type": "Location",
                             "name": "market.mask_shop_5"
+                        },
+                        "pos": {
+                            "x": 130,
+                            "y": 130,
+                            "scale": 49
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.mask_shop_2"
+                        },
+                        "pos": {
+                            "x": 180,
+                            "y": 110,
+                            "scale": 49
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.mask_shop_4"
+                        },
+                        "pos": {
+                            "x": 200,
+                            "y": 110,
+                            "scale": 49
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.mask_shop_1"
+                        },
+                        "pos": {
+                            "x": 180,
+                            "y": 130,
+                            "scale": 49
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "market.mask_shop_3"
                         },
                         "pos": {
                             "x": 200,

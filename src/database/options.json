@@ -229,7 +229,7 @@
     "shuffle_child_trade": {
         "category": "item_sanity",
         "type": "list",
-        "default": "vanilla",
+        "default": [],
         "values": [
             "item[weird_egg]",
             "item[chicken]",
