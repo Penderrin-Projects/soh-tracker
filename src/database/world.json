@@ -4,6 +4,14 @@
             "type": "Area",
             "name": "hyrule"
         },
+        "metaArea": {
+            "active": true,
+            "ref": {
+                "type": "Collection",
+                "name": "spawns"
+            },
+            "icon": "/images/icons/spawns.webp"
+        },
         "areaContentHints": {
             "chest": {
                 "icon": "/images/icons/chest.svg",
@@ -72090,11 +72098,11 @@
     "collections": {
         "spawns": {
             "map": {
-                "active": false,
+                "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "",
-                "width": 0,
-                "height": 0,
+                "backgroundImage": "/images/maps/area/spawns.png",
+                "width": 500,
+                "height": 326,
                 "zoom": 100
             },
             "list": [
@@ -72104,9 +72112,9 @@
                         "name": "child_spawn_links_house_gateway -> links_house_child_spawn_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 70,
+                        "y": 275,
+                        "scale": 70
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72118,9 +72126,9 @@
                         "name": "adult_spawn_temple_of_time_gateway -> temple_of_time_adult_spawn_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 430,
+                        "y": 275,
+                        "scale": 70
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72132,9 +72140,9 @@
                         "name": "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 178,
+                        "y": 203,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72146,9 +72154,9 @@
                         "name": "minuet_meadow_gateway -> meadow_minuet_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 178,
+                        "y": 120,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72160,9 +72168,9 @@
                         "name": "bolero_crater_gateway -> crater_bolero_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 250,
+                        "y": 80,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72174,9 +72182,9 @@
                         "name": "serenade_lake_gateway -> lake_serenade_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 321,
+                        "y": 120,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72188,9 +72196,9 @@
                         "name": "nocturne_graveyard_gateway -> graveyard_nocturne_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 250,
+                        "y": 244,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
@@ -72202,9 +72210,9 @@
                         "name": "requiem_colossus_gateway -> colossus_requiem_gateway"
                     },
                     "pos": {
-                        "x": 0,
-                        "y": 0,
-                        "scale": 100
+                        "x": 321,
+                        "y": 203,
+                        "scale": 40
                     },
                     "visible": true,
                     "mapOnly": false,
