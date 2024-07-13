@@ -10,7 +10,7 @@
                 "type": "Collection",
                 "name": "spawns"
             },
-            "icon": "/images/icons/spawns.webp"
+            "icon": "/images/icons/spawns.svg"
         },
         "areaContentHints": {
             "chest": {
@@ -72100,7 +72100,7 @@
             "map": {
                 "active": true,
                 "backgroundColor": "#000000",
-                "backgroundImage": "/images/maps/area/spawns.png",
+                "backgroundImage": "/images/maps/area/spawns.webp",
                 "width": 500,
                 "height": 326,
                 "zoom": 100
