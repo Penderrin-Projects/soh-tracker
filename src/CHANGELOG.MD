@@ -9,6 +9,7 @@ Application:    Track-OOT
 ### CHANGES
 
 - add autotracking for archipelago
+- add settings sync for archipelago
 - add rupee item collection to grid
 - add store/reload functionality (automatic) for map size and position per area
 - add reset map size and position button per area
@@ -16,6 +17,8 @@ Application:    Track-OOT
 - add transition area markers to map for main areas
 - add transition area markers to map and list for interiors/grottos/dungeons
 - change orientation of gerudo fortress map to vertical
+- add spawns popup to maps
+- fix visibility logic for mask shop locations
 
 ### BUG FIXES
 
