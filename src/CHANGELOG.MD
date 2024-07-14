@@ -18,12 +18,12 @@ Application:    Track-OOT
 - add transition area markers to map and list for interiors/grottos/dungeons
 - change orientation of gerudo fortress map to vertical
 - add spawns popup to maps
-- fix visibility logic for mask shop locations
 
 ### BUG FIXES
 
 - fix spirit_temple_mq hands to colossus gateway
 - fix logic running before app loaded completely
+- fix visibility logic for mask shop locations
 
 ---
 
