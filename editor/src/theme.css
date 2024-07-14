@@ -1,23 +1,64 @@
 :root {
 
     /* === page === */
-    --page-text-color: #000000;
-    --page-back-color: #ffffff;
-    --page-border-color: #000000; /* all; top_bottom right_left; top right bottom left*/
+    --page-text-color: #ffffff;
+    --page-back-color: #000000;
+    --page-border-color: #3b3b3b;
+    /* all; top_bottom right_left; top right bottom left*/
     --page-border-width: 2px;
     --page-border-radius: 0.25em;
+    --page-hover-text-color: #ffffff;
+    --page-hover-back-color: #222222;
+    --page-marked-text-color: #000000;
+    --page-marked-back-color: #ececec;
+    --page-content-border-color: #443a4e;
+    --page-focus-color: #e2b6ff;
+
+    /* === navigation === */
+    --navigation-text-color: #ffffff;
+    --navigation-back-color: #383838;
+    --navigation-shadow-color: #292550;
+    --navigation-marker-color: #ffffff;
+
+    /* === modal === */
+    --modal-header-back-color: #291537;
 
     /* === panel === */
-    --panel-header-back-color: #84d7ff;
+    --panel-header-back-color: #291537;
 
-    /* === form === */
-    --form-text-color: #000000;
-    --form-back-color: #e1f3e9;
-    --form-hover-text-color: #ffffff;
-    --form-hover-back-color: #1f4b30;
-    --form-border-color: #000000; /* all; top_bottom right_left; top right bottom left*/
+    /* === input === */
+    --input-placeholder-text-color: #adadad;
 
-    /* === fieldset === */
-    --fieldset-back-color: #e1f3e9;
+    /* === button === */
+    --button-text-color: #aaaaaa;
+    --button-back-color: #1e0e2c;
+    --button-hover-back-color: #5a2b84;
+
+    /* === switch === */
+    --switch-checked-back-color: #c0f3c0;
+    --switch-unchecked-back-color: #bd7676;
+
+    /* === select === */
+    --select-option-marked-back-color: #493258;
+    --select-option-selected-back-color: #252525;
+    --select-option-selected-marked-back-color: #876c99;
+
+    /* === button === */
+    --button-primary-back-color: #584faa;
+    --button-primary-border-color: #3d3775;
+    /* all; top_bottom right_left; top right bottom left*/
+    --button-primary-hover-back-color: #837cca;
+
+    --button-secondary-back-color: #aa4f63;
+    --button-secondary-border-color: #753741;
+    /* all; top_bottom right_left; top right bottom left*/
+    --button-secondary-hover-back-color: #ca7c8d;
+
+    /* === scrollbar === */
+    --scrollbar-track-color: #292550;
+    --scrollbar-resizer-color: #685dc5;
+    --scrollbar-thumb-color: #685dc5;
+    --scrollbar-thumb-hover-color: #837cca;
+    --scrollbar-thumb-active-color: #837cca;
 
 }

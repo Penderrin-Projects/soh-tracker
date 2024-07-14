@@ -23,7 +23,8 @@ const MODULE_PATHS = {
     emcJS: path.resolve(NODE_FOLDER, "emcjs/src"),
     GameTrackerJS: path.resolve(NODE_FOLDER, "gametrackerjs/src"),
     JSEditors: path.resolve(NODE_FOLDER, "jseditors/src"),
-    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src")
+    RTCClient: path.resolve(NODE_FOLDER, "rtcclient/src"),
+    ArchipelagoJS: path.resolve(NODE_FOLDER, "archipelagojs/src")
 };
 
 /* configuration */
@@ -33,6 +34,8 @@ const REBUILD = process.argv.indexOf("-rebuild") >= 0;
 const REBUILDJS = process.argv.indexOf("-rebuildjs") >= 0;
 
 console.log({NOCOMPRESS, REBUILDJS, REBUILD});
+
+// ImportAnalyzer.reportImport(true);
 
 /* JS START */
 function copyJS(files, src, dest, target) {
@@ -92,6 +95,15 @@ function copyRTCClient(dest = DEV_PATH) {
     ];
     const SRC = MODULE_PATHS.RTCClient;
     const DST = `${dest}/rtc`;
+    return copyJS(FILES, SRC, DST, dest);
+}
+
+function copyArchipelagoJS(dest = DEV_PATH) {
+    const FILES = [
+        `${MODULE_PATHS.ArchipelagoJS}/**/*.js`
+    ];
+    const SRC = MODULE_PATHS.ArchipelagoJS;
+    const DST = `${dest}/ArchipelagoJS`;
     return copyJS(FILES, SRC, DST, dest);
 }
 
@@ -233,6 +245,20 @@ function copyCSS(src = SRC_PATH, dest = DEV_PATH) {
     return res;
 }
 
+function copyEmcJSCSS(dest = DEV_PATH) {
+    const FILES = [
+        `${MODULE_PATHS.emcJS}/_style/*.css`
+    ];
+    let res = gulp.src(FILES);
+    res = res.pipe(FileIndex.register(`${MODULE_PATHS.emcJS}/_style`, `${dest}/emcJS/_style`));
+    if (!REBUILD) {
+        res = res.pipe(newer(`${dest}/emcJS/_style`));
+    }
+    res = res.pipe(autoprefixer());
+    res = res.pipe(gulp.dest(`${dest}/emcJS/_style`));
+    return res;
+}
+
 function copyFonts(src = SRC_PATH, dest = DEV_PATH) {
     const FILES = [
         `${src}/fonts/**/*.ttf`,
@@ -280,12 +306,14 @@ export const build = gulp.series(
         copyI18NFragments.bind(this, SRC_PATH, PRD_PATH),
         copyImg.bind(this, SRC_PATH, PRD_PATH),
         copyCSS.bind(this, SRC_PATH, PRD_PATH),
+        copyEmcJSCSS.bind(this, PRD_PATH),
         copyFonts.bind(this, SRC_PATH, PRD_PATH),
         copyScript.bind(this, SRC_PATH, PRD_PATH),
         copyGameTrackerJS.bind(this, PRD_PATH),
         copyEmcJS.bind(this, PRD_PATH),
         copyJSEditors.bind(this, PRD_PATH),
         copyRTCClient.bind(this, PRD_PATH),
+        copyArchipelagoJS.bind(this, PRD_PATH),
         copyInitializer.bind(this, SRC_PATH, PRD_PATH),
         copyDetachedScript.bind(this, SRC_PATH, PRD_PATH),
         copyChangelog.bind(this, SRC_PATH, PRD_PATH)
@@ -302,12 +330,14 @@ export const buildDev = gulp.series(
         copyI18NFragments.bind(this, SRC_PATH, DEV_PATH),
         copyImg.bind(this, SRC_PATH, DEV_PATH),
         copyCSS.bind(this, SRC_PATH, DEV_PATH),
+        copyEmcJSCSS.bind(this, DEV_PATH),
         copyFonts.bind(this, SRC_PATH, DEV_PATH),
         copyScript.bind(this, SRC_PATH, DEV_PATH),
         copyGameTrackerJS.bind(this, DEV_PATH),
         copyEmcJS.bind(this, DEV_PATH),
         copyJSEditors.bind(this, DEV_PATH),
         copyRTCClient.bind(this, DEV_PATH),
+        copyArchipelagoJS.bind(this, DEV_PATH),
         copyInitializer.bind(this, SRC_PATH, DEV_PATH),
         copyDetachedScript.bind(this, SRC_PATH, DEV_PATH),
         copyChangelog.bind(this, SRC_PATH, DEV_PATH)

@@ -1,6 +1,10 @@
+@import "/emcJS/_style/theme.css";
+
 :root {
-    --page-background-color: #000000;
     --page-text-color: #ffffff;
+    --page-back-color: #000000;
+    --page-hover-text-color: #ffffff;
+    --page-hover-back-color: #cb9c3d5c;
 
     /* all; top_bottom right_left; top right bottom left*/
     --page-border-color: #a57d2c #d0a44e #dbb976 #b1862f;
@@ -9,23 +13,31 @@
 
     --navigation-back-color: #cb9c3d;
     --navigation-text-color: #000000;
+
+    --modal-border-color: var(--page-border-color-inverted);
+    --modal-header-text-color: #000000;
+    --modal-header-back-color: #cb9c3d;
+    --modal-footer-text-color: #000000;
+    --modal-footer-back-color: #cb9c3d;
+    
+    --tabpanel-categories-border-color: #cb9c3d;
     
     --tooltip-text-color: #ffffff;
     --tooltip-back-color: #000000;
     --tooltip-border-color: #ffffff;
 
-    --edit-background-color: #222222;
     --edit-text-color: #ffffff;
+    --edit-back-color: #222222;
 
     --main-hover-color: #cb9c3d32;
 
-    --contextmenu-background: #000000;
-    --contextmenu-text: #cb9c3d;
-    --contextmenu-info: #cccccc;
+    --contextmenu-text-color: #cb9c3d;
+    --contextmenu-back-color: #000000;
+    --contextmenu-info-text-color: #cccccc;
     /* all; top_bottom right_left; top right bottom left*/
-    --contextmenu-border: #cb9c3d;
-    --contextmenu-background-hover: #cb9c3d32;
-    --contextmenu-text-hover: #e7be6b;
+    --contextmenu-border-color: #cb9c3d;
+    --contextmenu-hover-text-color: #e7be6b;
+    --contextmenu-hover-back-color: #cb9c3d32;
 
     /* all; top_bottom right_left; top right bottom left*/
     --list-border-top-color: #d4ad5e77;
@@ -44,7 +56,20 @@
     --input-color-hover: #eeeeee;
     --input-focus-color: #06b5ff;
 
-    /* slider */
+    --button-text-color: #000000;
+    --button-back-color: #e3cfa6;
+    --button-hover-text-color: #000000;
+    --button-hover-back-color: #c9b07d;
+    --button-active-text-color: #000000;
+    --button-active-back-color: #cb9c3d;
+
+    --switch-checked-back-color: #a4a4ff;
+    --switch-unchecked-back-color: #ffa4a4;
+    --switch-button-back-color: #ffffff;
+
+    --progress-back-color: #ffffff;
+    --progress-fill-color: #cb9c3d;
+
     --slider-track-size: 5px;
     --slider-track-color: #755922;
     --slider-track-border-width: 0px;
@@ -59,7 +84,6 @@
     --slider-thumb-border-color: var(--page-border-color-inverted);
     --slider-thumb-border-radius: 0px;
 
-    /* scrollbar */
     --scrollbar-size: 12px;
     --scrollbar-corner-color: #000000;
 
@@ -79,6 +103,8 @@
     --scrollbar-thumb-border-color: var(--page-border-color-inverted);
     --scrollbar-thumb-border-radius: 0px;
 
+    --gt-badge-back-color: #795d0044;
+
     /* ally color variables for world entities */
     --world-entry-status-opened-color: #777777;
     --world-entry-status-available-color: #00ff00;
@@ -86,7 +112,4 @@
     --world-entry-status-possible-color: #ffff00;
     --world-connection-background-color: #ffffff;
     --world-connection-text-color: #000000;
-
-    /* badges */
-    --gt-badge-back-color: #795d0044;
 }

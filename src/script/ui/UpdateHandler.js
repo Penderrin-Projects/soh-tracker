@@ -1,5 +1,6 @@
 // frameworks
 import Template from "/emcJS/util/html/Template.js";
+import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
@@ -42,12 +43,33 @@ const TPL = new Template(`
     </div>
 `);
 
+const STYLE = new GlobalStyle(`
+#update-progress {
+    -webkit-appearance: none;
+}
+#update-progress::-webkit-progress-inner-element {
+    border-style: solid;
+    border-width: var(--progress-border-width, 2px);
+    border-color: var(--progress-border-color, #222222);
+    border-radius: var(--progress-border-radius, 6px);
+    overflow: hidden;
+}
+#update-progress::-webkit-progress-bar {
+    background-color: var(--progress-back-color, #ffffff);
+}
+#update-progress::-webkit-progress-value {
+    background-color: var(--progress-fill-color, #eaeaea);
+    border-radius: var(--progress-border-radius, 6px);
+}
+`);
+
 export default class UpdateHandler extends CustomElement {
 
     constructor() {
         super();
         if ("serviceWorker" in navigator) {
             this.shadowRoot.append(TPL.generate());
+            STYLE.apply(this.shadowRoot);
 
             const prog = this.shadowRoot.getElementById("update-progress");
             const progtext = this.shadowRoot.getElementById("update-progress-text");

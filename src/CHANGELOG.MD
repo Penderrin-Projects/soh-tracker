@@ -4,6 +4,29 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.0 (Nightly)
+
+### CHANGES
+
+- add autotracking for archipelago
+- add settings sync for archipelago
+- add rupee item collection to grid
+- add store/reload functionality (automatic) for map size and position per area
+- add reset map size and position button per area
+- add remaining exits counter to overview
+- add transition area markers to map for main areas
+- add transition area markers to map and list for interiors/grottos/dungeons
+- change orientation of gerudo fortress map to vertical
+- add spawns popup to maps
+- fix visibility logic for mask shop locations
+
+### BUG FIXES
+
+- fix spirit_temple_mq hands to colossus gateway
+- fix logic running before app loaded completely
+
+---
+
 ## VERSION 3.0.8
 
 ### BUGFIXES

@@ -11,11 +11,12 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git#0.14.12",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git#0.5.31",
-    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git#0.2.0",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git#1.2.0",
-    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git#2.0.5"
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.15.11",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.5.52",
+    "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.2.0",
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.0",
+    "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.0.1",
+    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.10",

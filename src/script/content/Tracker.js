@@ -32,10 +32,12 @@ PageSwitcher.register("main", [{
     }]
 }, {
     "content": "DISCORD",
-    "handler": openDiscortJoin
+    "href": "https://discord.gg/wgFVtuv",
+    "target": "_blank"
 }, {
     "content": "PATREON",
-    "handler": openPatreon
+    "href": "https://www.patreon.com/zidargs",
+    "target": "_blank"
 }, {
     "content": "EXTRAS",
     "submenu": [{"mixin": "fullscreen"}, {
@@ -51,6 +53,9 @@ PageSwitcher.register("main", [{
         "content": "EDITORS",
         "handler": showEditors
     }]
+}, {
+    "content": "ARCHIPELAGO",
+    "handler": openArchipelagoWindow
 }, {
     "content": "RANDOMIZER OPTIONS",
     "handler": openRomSettingsWindow
@@ -120,21 +125,20 @@ async function states_Manage() {
 }
 
 function openDetachedItems() {
-    window.open("/detached/#items", "TrackOOT", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
-}
-
-function openDiscortJoin() {
-    window.open("https://discord.gg/wgFVtuv", "_blank");
-}
-
-function openPatreon() {
-    window.open("https://www.patreon.com/zidargs", "_blank");
+    window.open("/detached/#items", "TrackOOT", "popup=1,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
 }
 
 function openSettingsWindow() {
     const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");
     if (trackerSettingsWindow) {
         trackerSettingsWindow.show();
+    }
+}
+
+function openArchipelagoWindow() {
+    const archipelagoWindow = GlobalContext.get("ArchipelagoWindow");
+    if (archipelagoWindow) {
+        archipelagoWindow.show();
     }
 }
 

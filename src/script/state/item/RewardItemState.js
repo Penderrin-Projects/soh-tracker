@@ -1,8 +1,6 @@
-// GameTrackerJS
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import DefaultItemState from "/GameTrackerJS/state/item/DefaultItemState.js";
-// Track-OOT
 import RewardItemObserver from "../../util/observer/RewardItemObserver.js";
+import DefaultAPItemState from "./DefaultAPItemState.js";
 
 const DUNGEON = new WeakMap();
 
@@ -20,7 +18,7 @@ const DUNGEON = new WeakMap();
 //     }
 // }
 
-export default class RewardItemState extends DefaultItemState {
+export default class RewardItemState extends DefaultAPItemState {
 
     constructor(ref, props) {
         super(ref, props);

@@ -33,8 +33,9 @@ const TPL = new Template(`
 
 const STYLE = new GlobalStyle(`
 #credits {
-    height: 400px;
+    height: 100%;
     display: flex;
+    padding: 5px;
     color: white;
     overflow: hidden;
 }
@@ -42,7 +43,7 @@ const STYLE = new GlobalStyle(`
     display: block;
     flex: 1;
     padding: 10px;
-    margin: 1px;
+    margin: 5px;
     background-color: #282828;
 }
 #credits ul {

@@ -1,6 +1,6 @@
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import "/emcJS/ui/LabeledIcon.js";
+import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";

@@ -1,11 +1,7 @@
-// frameworks
 import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
-
-// GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import DefaultLocationState from "/GameTrackerJS/state/world/location/DefaultLocationState.js";
-// Track-OOT
+import DefaultAPLocationState from "./DefaultAPLocationState.js";
 import "../../../util/registerStorages.js";
 
 const STORAGES = {
@@ -16,7 +12,7 @@ const STORAGES = {
 const LOCATION = new WeakMap();
 const ITEM = new WeakMap();
 
-export default class GossipstoneState extends DefaultLocationState {
+export default class GossipstoneState extends DefaultAPLocationState {
 
     constructor(ref, props) {
         super(ref, props);

@@ -8,5 +8,9 @@
     },
     "eslint.validate": [
         "javascript"
-    ]
+    ],
+    "files.exclude": {
+        "/dev/**": true,
+        "/prod/**": true
+    }
 }

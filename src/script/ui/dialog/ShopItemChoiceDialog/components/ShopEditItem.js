@@ -12,8 +12,8 @@ const TPL = new Template(`
         :host {
             display: inline-flex;
             flex-direction: column;
-            width: 200px;
-            height: 150px;
+            width: 220px;
+            height: 100px;
             padding: 10px;
             margin: 5px;
             color: white;

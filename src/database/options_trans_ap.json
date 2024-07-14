@@ -1,0 +1,581 @@
+{
+    "settings": {
+        "collectible_override_flags": false,
+        "collectible_flag_offsets": false,
+        "open_forest": {
+            "name": "doors_open_forest",
+            "values": [
+                "doors_open_forest_open",
+                "doors_open_forest_deku",
+                "doors_open_forest_closed"
+            ]
+        },
+        "open_kakariko": {
+            "name": "doors_open_kakariko",
+            "values": [
+                "doors_open_kakariko_open",
+                "doors_open_kakariko_zelda",
+                "doors_open_kakariko_closed"
+            ]
+        },
+        "open_door_of_time": {
+            "name": "doors_open_temple",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "zora_fountain": {
+            "name": "doors_open_zora",
+            "values": [
+                "doors_open_zora_both",
+                "doors_open_zora_adult",
+                "doors_open_zora_closed"
+            ]
+        },
+        "gerudo_fortress": {
+            "name": "gerudo_fortress_open",
+            "values": [
+                "gerudo_fortress_open_default",
+                "gerudo_fortress_open_one",
+                "gerudo_fortress_open_open"
+            ]
+        },
+        "bridge": {
+            "name": "ganon_castle_open",
+            "values": [
+                "ganon_castle_open_open",
+                "ganon_castle_open_default",
+                "ganon_castle_open_stones",
+                "ganon_castle_open_medallion",
+                "ganon_castle_open_dungeon",
+                "ganon_castle_open_skulltulas",
+                "ganon_castle_open_hearts"
+            ]
+        },
+        "bridge_stones": "stone_count_bridge",
+        "bridge_medallions": "medallion_count_bridge",
+        "bridge_rewards": "dungeon_count_bridge",
+        "bridge_tokens": "ganon_castle_skulltulas",
+        "bridge_hearts": "heart_count_bridge",
+        "shuffle_ganon_bosskey": {
+            "name": "ganon_key_logic",
+            "values": [
+                "keylogic_keysy",
+                false,
+                "keylogic_vanilla",
+                "keylogic_own_dungeon",
+                "keylogic_regional",
+                "keylogic_overworld",
+                "keylogic_any_dungeon",
+                "keylogic_keysanity",
+                "keylogic_lacs",
+                "keylogic_stones",
+                "keylogic_medallions",
+                "keylogic_dungeons",
+                "keylogic_tokens",
+                "keylogic_hearts"
+            ]
+        },
+        "ganon_bosskey_medallions": "medallion_count_ganon_bosskey",
+        "ganon_bosskey_stones": "stone_count_ganon_bosskey",
+        "ganon_bosskey_rewards": "dungeon_count_ganon_bosskey",
+        "ganon_bosskey_tokens": "token_count_ganon_bosskey",
+        "ganon_bosskey_hearts": "heart_count_ganon_bosskey",
+        "trials": "number_trials",
+        "triforce_hunt": {
+            "name": "triforce_hunt",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "triforce_goal": "triforce_hunt_goal",
+        "extra_triforce_percentage": false,
+        "shopsanity": {
+            "name": "shopsanity",
+            "values": [
+                "off",
+                null,
+                "random"
+            ]
+        },
+        "shop_slots": {
+            "name": "shopsanity",
+            "values": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
+        },
+        "shopsanity_prices": false,
+        "tokensanity": false,
+        "dungeon_shortcuts": false,
+        "dungeon_shortcuts_list": false,
+        "mq_dungeons_mode": false,
+        "mq_dungeons_list": false,
+        "mq_dungeons_count": false,
+        "shuffle_interior_entrances": {
+            "name": "entrance_shuffle_interior",
+            "values": [
+                "entrance_shuffle_off",
+                "entrance_shuffle_simple",
+                "entrance_shuffle_all"
+            ]
+        },
+        "shuffle_grotto_entrances": {
+            "name": "shuffle_grottos",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_dungeon_entrances": {
+            "name": "shuffle_dungeons",
+            "values": [
+                "shuffle_dungeons_off",
+                "shuffle_dungeons_simple",
+                "shuffle_dungeons_all"
+            ]
+        },
+        "shuffle_overworld_entrances": {
+            "name": "shuffle_overworld",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_bosses": {
+            "name": "shuffle_bosses",
+            "values": [
+                "shuffle_bosses_off",
+                "shuffle_bosses_age",
+                "shuffle_bosses_all"
+            ]
+        },
+        "key_rings": false,
+        "key_rings_list": false,
+        "enhance_map_compass": false,
+        "shuffle_mapcompass": false,
+        "shuffle_smallkeys": {
+            "name": "small_key_logic",
+            "values": [
+                "keylogic_keysy",
+                false,
+                "keylogic_vanilla",
+                "keylogic_own_dungeon",
+                "keylogic_regional",
+                "keylogic_overworld",
+                "keylogic_any_dungeon",
+                "keylogic_keysanity"
+            ]
+        },
+        "shuffle_hideoutkeys": {
+            "name": "gerudo_key_logic",
+            "values": [
+                "keylogic_vanilla",
+                "keylogic_regional",
+                "keylogic_overworld",
+                "keylogic_any_dungeon",
+                "keylogic_keysanity"
+            ]
+        },
+        "shuffle_bosskeys": {
+            "name": "boss_key_logic",
+            "values": [
+                "keylogic_keysy",
+                false,
+                "keylogic_vanilla",
+                "keylogic_own_dungeon",
+                "keylogic_regional",
+                "keylogic_overworld",
+                "keylogic_any_dungeon",
+                "keylogic_keysanity"
+            ]
+        },
+        "logic_rules": {
+            "name": "logic_rules",
+            "values": [
+                "logic_rules_glitchless",
+                "logic_rules_glitched",
+                "logic_rules_glitched"
+            ]
+        },
+        "logic_no_night_tokens_without_suns_song": {
+            "name": "sun_song_skulltuta",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "logic_tricks": false,
+        "warp_songs": {
+            "name": "shuffle_warps",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_song_items": false,
+        "shuffle_medigoron_carpet_salesman": {
+            "name": "shuffle_expensive_merchants",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_frog_song_rupees": {
+            "name": "frogsanity",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_scrubs": {
+            "name": "scrubsanity",
+            "values": [
+                false,
+                true,
+                true,
+                true
+            ]
+        },
+        "shuffle_child_trade": {
+            "name": "skip_child_zelda",
+            "values": [
+                false,
+                false,
+                true
+            ]
+        },
+        "shuffle_freestanding_items": {
+            "name": "shuffle_rupees_hearts",
+            "values": [
+                "off",
+                "dungeons",
+                "overworld",
+                "all"
+            ]
+        },
+        "shuffle_pots": {
+            "name": "shuffle_pots",
+            "values": [
+                "off",
+                "dungeons",
+                "overworld",
+                "all"
+            ]
+        },
+        "shuffle_crates": {
+            "name": "shuffle_crates",
+            "values": [
+                "off",
+                "dungeons",
+                "overworld",
+                "all"
+            ]
+        },
+        "shuffle_cows": {
+            "name": "cowsanity",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_beehives": {
+            "name": "shuffle_beehives",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "shuffle_kokiri_sword": false,
+        "shuffle_ocarinas": false,
+        "shuffle_gerudo_card": false,
+        "shuffle_beans": {
+            "name": "beansanity",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "starting_age": {
+            "name": "starting_age",
+            "values": [
+                "child",
+                "adult"
+            ]
+        },
+        "bombchus_in_logic": {
+            "name": "bombchu_logic",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "spawn_positions": false,
+        "owl_drops": {
+            "name": "shuffle_owls",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "no_epona_race": {
+            "name": "skip_epona_race",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "skip_some_minigame_phases": false,
+        "complete_mask_quest": false,
+        "free_scarecrow": {
+            "name": "free_scarecrow",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "plant_beans": {
+            "name": "plant_beans",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "chicken_count": "chicken_count",
+        "big_poe_count": "big_poe_count",
+        "fae_torch_count": false,
+        "blue_fire_arrows": {
+            "name": "blue_fire_arrows",
+            "values": [
+                false,
+                true
+            ]
+        },
+        "damage_multiplier": {
+            "name": "damage_multiplier",
+            "values": [
+                "dmg_half",
+                "dmg_normal",
+                "dmg_double",
+                "dmg_quadruple",
+                "dmg_ohko"
+            ]
+        },
+        "deadly_bonks": {
+            "name": "deadly_bonks",
+            "values": [
+                "bonk_off",
+                "bonk_quarter",
+                "bonk_half",
+                "bonk_one",
+                "bonk_two",
+                "bonk_ohko"
+            ]
+        },
+        "starting_tod": false,
+        "junk_ice_traps": false,
+        "start_with_consumables": false,
+        "adult_trade_start": {
+            "name": "trade_sequence_start_item",
+            "values": [
+                "item[pocket_egg]",
+                "item[pocket_cucco]",
+                "item[pocket_cojiro]",
+                "item[mushroom]",
+                "item[saw]",
+                "item[broken_sword]",
+                "item[prescription]",
+                "item[frog]",
+                "item[eyedrops]",
+                "item[claim]"
+            ]
+        },
+        "plando_connections": false
+    },
+    "tricks": {
+        "pass through visible one-way collisions": "skip.visible_collisions",
+        "hidden grottos without stone of agony": "skip.grottos_without_agony",
+        "fewer tunic requirements": "skip.fewer_tunic_requirements",
+        "beehives with bombchus": "skip.beehives_bombchus",
+        "hammer rusted switches through walls": "skip.rusted_switches",
+        "adult kokiri forest gs with hover boots": "skip.adult_kokiri_gs",
+        "jump onto the lost woods bridge as adult with nothing": "skip.lost_woods_bridge",
+        "backflip over mido as adult": "skip.mido_backflip",
+        "lost woods adult gs without bean": "skip.lost_woods_gs_bean",
+        "hyrule castle storms grotto gs with just boomerang": "skip.castle_storms_gs",
+        "man on roof without hookshot": "skip.man_on_roof",
+        "kakariko tower gs with jump slash": "skip.kakariko_tower_gs",
+        "windmill poh as adult with nothing": "skip.windmill_poh",
+        "kakariko rooftop gs with hover boots": "skip.kakariko_rooftop_gs",
+        "graveyard freestanding poh with boomerang": "skip.graveyard_poh",
+        "second dampe race as child": "skip.child_dampe_race_poh",
+        "shadow temple entry with fire arrows": "skip.shadow_fire_arrow_entry",
+        "death mountain trail soil gs without destroying boulder": "skip.dmt_soil_gs",
+        "death mountain trail chest with strength": "skip.dmt_bombable",
+        "death mountain trail lower red rock gs with hookshot": "skip.trail_gs_lower_hookshot",
+        "death mountain trail lower red rock gs with hover boots": "skip.trail_gs_lower_hovers",
+        "death mountain trail lower red rock gs with magic bean": "skip.trail_gs_lower_bean",
+        "death mountain trail climb with hover boots": "skip.dmt_climb_hovers",
+        "death mountain trail upper red rock gs without hammer": "skip.trail_gs_upper",
+        "deliver eye drops with bolero of fire": "skip.biggoron_bolero",
+        "goron city spinning pot poh with bombchu": "skip.goron_city_pot",
+        "goron city spinning pot poh with strength": "skip.goron_city_pot_with_strength",
+        "rolling goron (hot rodder goron) as child with strength": "skip.child_rolling_with_strength",
+        "stop link the goron with din's fire": "skip.link_goron_dins",
+        "goron city maze left chest with hover boots": "skip.goron_city_leftmost",
+        "goron city grotto with hookshot while taking damage": "skip.goron_grotto",
+        "crater's bean poh with hover boots": "skip.crater_bean_poh_with_hovers",
+        "death mountain crater jump to bolero": "skip.crater_bolero_jump",
+        "death mountain crater upper to lower with hammer": "skip.crater_boulder_jumpslash",
+        "death mountain crater upper to lower boulder skip": "skip.crater_boulder_skip",
+        "zora's river lower freestanding poh as adult with nothing": "skip.zora_river_lower",
+        "zora's river upper freestanding poh as adult with nothing": "skip.zora_river_upper",
+        "zora's domain entry with cucco": "skip.zora_with_cucco",
+        "zora's domain entry with hover boots": "skip.zora_with_hovers",
+        "zora's river rupees with jump dive": "skip.zora_river_rupees",
+        "skip king zora as adult with nothing": "skip.king_zora_skip",
+        "zora's domain gs with no additional items": "skip.domain_gs",
+        "lake hylia lab wall gs with jump slash": "skip.lab_wall_gs",
+        "lake hylia lab dive without gold scale": "skip.lab_diving",
+        "water temple entry without iron boots using hookshot": "skip.water_hookshot_entry",
+        "gerudo valley crate poh as adult with hover boots": "skip.valley_crate_hovers",
+        "thieves' hideout \"kitchen\" with no additional items": "skip.gerudo_kitchen",
+        "gerudo's fortress ledge jumps": "skip.gf_jump",
+        "wasteland crossing without hover boots or longshot": "skip.wasteland_crossing",
+        "lensless wasteland": "skip.lens_wasteland",
+        "reverse wasteland": "skip.reverse_wasteland",
+        "colossus hill gs with hookshot": "skip.colossus_gs",
+        "deku tree basement vines gs with jump slash": "skip.deku_basement_gs",
+        "deku tree basement without slingshot": "skip.deku_b1_skip",
+        "deku tree basement web to gohma with bow": "skip.deku_b1_webs_with_bow",
+        "deku tree mq compass room gs boulders with just hammer": "skip.deku_mq_compass_gs",
+        "deku tree mq roll under the spiked log": "skip.deku_mq_log",
+        "dodongo's cavern scarecrow gs with armos statue": "skip.dc_scarecrow_gs",
+        "dodongo's cavern vines gs from below with longshot": "skip.dc_vines_gs",
+        "dodongo's cavern staircase with bow": "skip.dc_staircase",
+        "dodongo's cavern child slingshot skips": "skip.dc_slingshot_skip",
+        "dodongo's cavern two scrub room with strength": "skip.dc_scrub_room",
+        "dodongo's cavern spike trap room jump without hover boots": "skip.dc_jump",
+        "dodongo's cavern smash the boss lobby floor": "skip.dc_hammer_floor",
+        "dodongo's cavern mq early bomb bag area as child": "skip.dc_mq_child_bombs",
+        "dodongo's cavern mq light the eyes with strength as child": "skip.dc_mq_eyes_child",
+        "dodongo's cavern mq light the eyes with strength as adult": "skip.dc_mq_eyes_adult",
+        "jabu underwater alcove as adult with jump dive": "skip.jabu_alcove_jump_dive",
+        "jabu near boss room with hover boots": "skip.jabu_boss_hover",
+        "jabu near boss ceiling switch/gs without boomerang or explosives": "skip.jabu_near_boss_ranged",
+        "jabu near boss ceiling switch with explosives": "skip.jabu_near_boss_explosives",
+        "jabu mq without lens of truth": "skip.lens_jabu_mq",
+        "jabu mq compass chest with boomerang": "skip.jabu_mq_rang_jump",
+        "jabu mq song of time block gs with boomerang": "skip.jabu_mq_sot_gs",
+        "bottom of the well without lens of truth": "skip.lens_botw",
+        "child dead hand without kokiri sword": "skip.child_deadhand",
+        "bottom of the well map chest with strength & sticks": "skip.botw_basement",
+        "bottom of the well mq jump over the pits": "skip.botw_mq_pits",
+        "bottom of the well mq dead hand freestanding key with boomerang": "skip.botw_mq_dead_hand_key",
+        "forest temple first room gs with difficult-to-use weapons": "skip.forest_first_gs",
+        "forest temple east courtyard gs with boomerang": "skip.forest_outdoor_east_gs",
+        "forest temple east courtyard vines with hookshot": "skip.forest_vines",
+        "forest temple ne outdoors ledge with hover boots": "skip.forest_outdoors_ledge",
+        "forest temple east courtyard door frame with hover boots": "skip.forest_door_frame",
+        "forest temple outside backdoor with jump slash": "skip.forest_outside_backdoor",
+        "swim through forest temple mq well with hookshot": "skip.forest_well_swim",
+        "skip forest temple mq block puzzle with bombchu": "skip.forest_mq_block_puzzle",
+        "forest temple mq twisted hallway switch with jump slash": "skip.forest_mq_hallway_switch_jumpslash",
+        "forest temple mq twisted hallway switch with boomerang": "skip.forest_mq_hallway_switch_boomerang",
+        "fire temple boss door without hover boots or pillar": "skip.fire_boss_door_jump",
+        "fire temple song of time room gs without song of time": "skip.fire_song_of_time",
+        "fire temple climb without strength": "skip.fire_strength",
+        "fire temple east tower without scarecrow's song": "skip.fire_scarecrow",
+        "fire temple flame wall maze skip": "skip.fire_flame_maze",
+        "fire temple mq chest near boss without breaking crate": "skip.fire_mq_near_boss",
+        "fire temple mq big lava room blocked door without hookshot": "skip.fire_mq_blocked_chest",
+        "fire temple mq boss key chest without bow": "skip.fire_mq_bk_chest",
+        "fire temple mq climb without fire source": "skip.fire_mq_climb",
+        "fire temple mq lizalfos maze side room without box": "skip.fire_mq_maze_side_room",
+        "fire temple mq lower to upper lizalfos maze with hover boots": "skip.fire_mq_maze_hovers",
+        "fire temple mq lower to upper lizalfos maze with precise jump": "skip.fire_mq_maze_jump",
+        "fire temple mq above flame wall maze gs from below with longshot": "skip.fire_mq_above_maze_gs",
+        "fire temple mq flame wall maze skip": "skip.fire_mq_flame_maze",
+        "water temple torch longshot": "skip.water_temple_torch_longshot",
+        "water temple cracked wall with hover boots": "skip.water_cracked_wall_hovers",
+        "water temple cracked wall with no additional items": "skip.water_cracked_wall_nothing",
+        "water temple boss key region with hover boots": "skip.water_boss_key_region",
+        "water temple north basement ledge with precise jump": "skip.water_north_basement_ledge_jump",
+        "water temple boss key jump dive": "skip.water_bk_jump_dive",
+        "water temple central pillar gs with farore's wind": "skip.water_central_gs_fw",
+        "water temple central pillar gs with iron boots": "skip.water_central_gs_irons",
+        "water temple central bow target without longshot or hover boots": "skip.water_central_bow",
+        "water temple falling platform room gs with hookshot": "skip.water_falling_platform_gs_hookshot",
+        "water temple falling platform room gs with boomerang": "skip.water_falling_platform_gs_boomerang",
+        "water temple river gs without iron boots": "skip.water_river_gs",
+        "water temple dragon statue jump dive": "skip.water_dragon_jump_dive",
+        "water temple dragon statue switch from above the water as adult": "skip.water_dragon_adult",
+        "water temple dragon statue switch from above the water as child": "skip.water_dragon_child",
+        "water temple mq central pillar with fire arrows": "skip.water_mq_central_pillar",
+        "water temple mq north basement gs without small key": "skip.water_mq_locked_gs",
+        "shadow temple stationary objects without lens of truth": "skip.lens_shadow",
+        "shadow temple invisible moving platform without lens of truth": "skip.lens_shadow_platform",
+        "shadow temple bongo bongo without lens of truth": "skip.lens_bongo",
+        "shadow temple stone umbrella skip": "skip.shadow_umbrella",
+        "shadow temple falling spikes gs with hover boots": "skip.shadow_umbrella_gs",
+        "shadow temple freestanding key with bombchu": "skip.shadow_freestanding_key",
+        "shadow temple river statue with bombchu": "skip.shadow_statue",
+        "shadow temple bongo bongo without projectiles": "skip.shadow_bongo",
+        "shadow temple mq stationary objects without lens of truth": "skip.lens_shadow_mq",
+        "shadow temple mq invisible blades silver rupees without lens of truth": "skip.lens_shadow_mq_invisible_blades",
+        "shadow temple mq invisible moving platform without lens of truth": "skip.lens_shadow_mq_platform",
+        "shadow temple mq 2nd dead hand without lens of truth": "skip.lens_shadow_mq_dead_hand",
+        "shadow temple mq truth spinner gap with longshot": "skip.shadow_mq_gap",
+        "shadow temple mq invisible blades without song of time": "skip.shadow_mq_invisible_blades",
+        "shadow temple mq lower huge pit without fire source": "skip.shadow_mq_huge_pit",
+        "shadow temple mq windy walkway reverse without hover boots": "skip.shadow_mq_windy_walkway",
+        "spirit temple without lens of truth": "skip.lens_spirit",
+        "spirit temple child side bridge with bombchu": "skip.spirit_child_bombchu",
+        "spirit temple main room gs with boomerang": "skip.spirit_lobby_gs",
+        "spirit temple lower adult switch with bombs": "skip.spirit_lower_adult_switch",
+        "spirit temple main room jump from hands to upper ledges": "skip.spirit_lobby_jump",
+        "spirit temple main room hookshot to boss platform": "skip.spirit_platform_hookshot",
+        "spirit temple map chest with bow": "skip.spirit_map_chest",
+        "spirit temple sun block room chest with bow": "skip.spirit_sun_chest",
+        "spirit temple shifting wall with no additional items": "skip.spirit_wall",
+        "spirit temple mq without lens of truth": "skip.lens_spirit_mq",
+        "spirit temple mq sun block room as child without song of time": "skip.spirit_mq_sun_block_sot",
+        "spirit temple mq sun block room gs with boomerang": "skip.spirit_mq_sun_block_gs",
+        "spirit temple mq lower adult without fire arrows": "skip.spirit_mq_lower_adult",
+        "spirit temple mq frozen eye switch without fire": "skip.spirit_mq_frozen_eye",
+        "ice cavern block room gs with hover boots": "skip.ice_block_gs",
+        "ice cavern mq red ice gs without song of time": "skip.ice_mq_red_ice_gs",
+        "ice cavern mq scarecrow gs with no additional items": "skip.ice_mq_scarecrow",
+        "gerudo training ground without lens of truth": "skip.lens_gtg",
+        "gerudo training ground left side silver rupees without hookshot": "skip.gtg_without_hookshot",
+        "reach gerudo training ground fake wall ledge with hover boots": "skip.gtg_fake_wall",
+        "gerudo training ground mq without lens of truth": "skip.lens_gtg_mq",
+        "gerudo training ground mq left side silver rupees with hookshot": "skip.gtg_mq_with_hookshot",
+        "gerudo training ground mq left side silver rupees without hookshot": "skip.gtg_mq_without_hookshot",
+        "ganon's castle without lens of truth": "skip.lens_castle",
+        "spirit trial without hookshot": "skip.spirit_trial_hookshot",
+        "ganon's castle mq without lens of truth": "skip.lens_castle_mq",
+        "fire trial mq with hookshot": "skip.fire_trial_mq",
+        "shadow trial mq torch with bow": "skip.shadow_trial_mq",
+        "light trial mq without hookshot": "skip.light_trial_mq"
+    },
+    "dungeons": {
+        "Deku Tree": "deku",
+        "Dodongos Cavern": "dodongo",
+        "Jabu Jabus Belly": "jabujabu",
+        "Bottom of the Well": "well",
+        "Ice Cavern": "ice_cavern",
+        "Gerudo Training Ground": "training_grounds",
+        "Forest Temple": "temple_forest",
+        "Fire Temple": "temple_fire",
+        "Water Temple": "temple_water",
+        "Spirit Temple": "temple_spirit",
+        "Shadow Temple": "temple_shadow",
+        "Ganons Castle": "castle_ganon"
+    }
+}

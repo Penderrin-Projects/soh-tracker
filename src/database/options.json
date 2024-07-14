@@ -229,7 +229,7 @@
     "shuffle_child_trade": {
         "category": "item_sanity",
         "type": "list",
-        "default": "vanilla",
+        "default": [],
         "values": [
             "item[weird_egg]",
             "item[chicken]",
@@ -382,6 +382,7 @@
             "keylogic_own_dungeon",
             "keylogic_overworld",
             "keylogic_any_dungeon",
+            "keylogic_regional",
             "keylogic_keysanity",
             "keylogic_lacs",
             "keylogic_stones",
@@ -390,6 +391,42 @@
             "keylogic_tokens",
             "keylogic_hearts"
         ]
+    },
+    "medallion_count_ganon_bosskey": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 6,
+        "visible": {
+            "type": "state",
+            "ref": "ganon_key_logic",
+            "value": "keylogic_medallions"
+        },
+        "min": 1,
+        "max": 6
+    },
+    "stone_count_ganon_bosskey": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 3,
+        "visible": {
+            "type": "state",
+            "ref": "ganon_key_logic",
+            "value": "keylogic_stones"
+        },
+        "min": 1,
+        "max": 3
+    },
+    "dungeon_count_ganon_bosskey": {
+        "category": "keylogic",
+        "type": "number",
+        "default": 9,
+        "visible": {
+            "type": "state",
+            "ref": "ganon_key_logic",
+            "value": "keylogic_dungeons"
+        },
+        "min": 1,
+        "max": 9
     },
     "token_count_ganon_bosskey": {
         "category": "keylogic",

@@ -18,7 +18,6 @@ function modify(source = {}, target = {}) {
             type: oldProps.type ?? "",
             logicAccess: oldProps.logicAccess ?? "",
             visible: oldProps.visible ?? true,
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             icon: oldProps.icon ?? "",
             tags: oldProps.tags ?? []
@@ -52,7 +51,6 @@ function modify(source = {}, target = {}) {
             category: oldProps.category ?? "",
             visible: oldProps.visible ?? true,
             visibleIfEmpty: oldProps.visibleIfEmpty ?? !(oldProps.type === "interior" || oldProps.type === "grotto"),
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             listContents: !!(oldProps.listContents ?? false),
             accessPenetration: oldProps.accessPenetration ?? false,
@@ -82,7 +80,6 @@ function modify(source = {}, target = {}) {
             logicAccess: oldProps.logicAccess ?? "",
             area: convertRelation(oldProps.area, "Area"),
             visible: oldProps.visible ?? true,
-            visibleRootOnly: oldProps.visibleRootOnly ?? false,
             filter: oldProps.filter ?? {},
             icon: oldProps.icon ?? "",
             bindsTo: oldProps.bindsTo ?? [],
@@ -137,7 +134,7 @@ function convertEntryList(oldList) {
         return;
     }
     return oldList.map((entry) => {
-        return {
+        const res = {
             ref: entry.ref ?? {
                 type: entry.entity?.type ?? upperCaseFirstLetter(entry.category),
                 name: entry.entity?.name ?? entry.id
@@ -148,8 +145,10 @@ function convertEntryList(oldList) {
                 scale: entry.pos?.scale ?? 100
             },
             visible: entry.visible ?? true,
-            listHidden: entry.listHidden ?? false
+            mapOnly: entry.mapOnly ?? false,
+            rootOnly: entry.rootOnly ?? false
         };
+        return res;
     });
 }
 
@@ -172,4 +171,4 @@ function upperCaseFirstLetter(str) {
 const inData = JSON.parse(fs.readFileSync(inFileName));
 const outData = {};
 modify(inData, outData);
-fs.writeFileSync(outFileName, JSON.stringify(outData, null, 4));
+fs.writeFileSync(outFileName, JSON.stringify(outData, null, 4) + "\n");

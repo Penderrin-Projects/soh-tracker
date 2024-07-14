@@ -9,7 +9,7 @@ import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import "/emcJS/ui/Page.js";
 import "/emcJS/ui/Paging.js";
 import "/emcJS/ui/LogScreen.js";
-import "/emcJS/ui/Icon.js";
+import "/emcJS/ui/icon/Icon.js";
 import "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
@@ -31,7 +31,8 @@ import "/script/content/index.js";
 import "/script/content/Tracker.js";
 import "/script/content/EditorContainer.js";
 import "/script/savestateConverter/StateConverter.js";
-import "/script/util/logic/AugmentCustomLogic.js";
+import ArchipelagoController from "/script/util/archipelago/ArchipelagoController.js";
+import CustomLogicUpdater from "./util/logic/CustomLogicUpdater.js";
 import "/script/util/logic/AugmentationLoader.js";
 import "/script/util/A11y.js";
 import TrackerSettingsWindow from "/script/ui/window/TrackerSettingsWindow.js";
@@ -40,8 +41,11 @@ import NewGameWindow from "/script/ui/window/NewGameWindow.js";
 import SpoilerLogWindow from "/script/ui/window/SpoilerLogWindow.js";
 import ClearDataWindow from "/script/ui/window/ClearDataWindow.js";
 import "/script/ui/LayoutContainer.js";
-
 import "/script/ui/multiplayer/Multiplayer.js";
+import APWindow from "./ui/window/APWindow.js";
+import Logic from "/GameTrackerJS/util/logic/Logic.js";
+
+Logic.suspended = true;
 
 const spl = document.getElementById("loading-info");
 
@@ -100,16 +104,24 @@ try {
     viewchoiceEl.setTab("multi", "Multiplayer", "images/icons/multi.svg");
     viewchoiceEl.setTab("notes", "Notes", "images/icons/notes.svg");
 
+    // XXX
+    window.ArchipelagoController = ArchipelagoController;
+
     updateLoadingMessage("initialize settings...");
     // windows
     {
         GlobalContext.set("TrackerSettingsWindow", new TrackerSettingsWindow());
         GlobalContext.set("RomOptionsWindow", new RomOptionsWindow());
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
+        GlobalContext.set("ArchipelagoWindow", new APWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
+
+    updateLoadingMessage("update logic...");
+    new CustomLogicUpdater();
+    Logic.suspended = false;
 
     updateLoadingMessage("wake up...");
     // remove splashscreen

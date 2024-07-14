@@ -36,9 +36,11 @@ export default class DungeonStateActiveTypes extends CustomFormElementDelegating
         this.#inputEl.addEventListener("change", () => {
             const value = this.#inputEl.value;
             if (value === "custom") {
+                this.#inputEl.classList.add("append-bottom");
                 this.#selectionEl.classList.add("active");
                 this.value = this.#selectionEl.value;
             } else {
+                this.#inputEl.classList.remove("append-bottom");
                 this.#selectionEl.classList.remove("active");
                 this.value = "";
             }

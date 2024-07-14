@@ -10,7 +10,7 @@ import VersionData from "/GameTrackerJS/data/VersionData.js";
 import "/script/ui/UpdateHandler.js";
 
 const TPL = new Template(`
-<div style="display: flex; margin-bottom: 10px; padding: 5px;">
+<div style="display: flex; padding: 5px;">
     <div style="flex: 1;">
         <div style="padding: 5px;">
             Tracker Version:
@@ -46,9 +46,11 @@ const TPL = new Template(`
     <div style="width: 100px; height: 100px; margin: 10px; background-image: url('images/logo.svg'); background-size: contain; background-position: left; background-repeat: no-repeat;"></div>
 </div>
 <hr>
-<div>
+<div style="padding: 5px;">
     <ootrt-updatehandler id="updatehandler"></ootrt-updatehandler>
-    <hr>
+</div>
+<hr>
+<div style="padding: 5px;">
     <div style="padding: 5px;">
         Erase all app data:
         <br>
@@ -58,7 +60,7 @@ const TPL = new Template(`
     </div>
 </div>
 <hr>
-<div>
+<div style="padding: 10px;">
     Please be aware, that the logic of this tracker (mostly) follows the randomizer logic.<br>
     This is due to the fact, that the logic of the randomizer is a good estimation of the logic of the game itself.<br>
     If the tracker acts weird, please report the error!
