@@ -4,7 +4,7 @@ Application:    Track-OOT
 
 ***
 
-## VERSION 3.1.0 (Nightly)
+## VERSION 3.1.0
 
 ### CHANGES
 
