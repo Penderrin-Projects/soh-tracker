@@ -1,8 +1,8 @@
-[
-    "chest",
-    "skulltula",
-    "gossipstone",
-    "scrub",
-    "bean",
-    "cow"
-]
+{
+    "chest": "Chest",
+    "skulltula": "Skulltula",
+    "gossipstone": "Gossipstone",
+    "scrub": "Deku Buisiness Scrub",
+    "bean": "Bean Salesman",
+    "cow": "Cow"
+}

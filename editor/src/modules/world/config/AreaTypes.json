@@ -1,10 +1,10 @@
-[
-    "overworld",
-    "area",
-    "dungeon",
-    "boss_dungeon",
-    "bossarea",
-    "interior",
-    "shop",
-    "grotto"
-]
+{
+    "overworld": "Overworld",
+    "area": "Area",
+    "dungeon": "Dungeon",
+    "boss_dungeon": "Boss Dungeon",
+    "bossarea": "Boss Area",
+    "interior": "Interior",
+    "shop": "Shop",
+    "grotto": "Grotto"
+}

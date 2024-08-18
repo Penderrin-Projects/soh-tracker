@@ -26,8 +26,25 @@
     /* === panel === */
     --panel-header-back-color: #291537;
 
+    /* === fieldset === */
+    --fieldset-legend-text-color: var(--form-text-color);
+    --fieldset-legend-back-color: var(--fieldset-border-color);
+    --fieldset-legend-border-color: var(--fieldset-border-color);
+    --fieldset-legend-border-width: var(--fieldset-border-width);
+    --fieldset-legend-border-radius: var(--fieldset-border-radius);
+
     /* === input === */
     --input-placeholder-text-color: #adadad;
+
+    /* === input-button === */
+    --input-button-text-color: #aaaaaa;
+    --input-button-back-color: #1e0e2c;
+
+    --input-button-hover-text-color: #ffffff;
+    --input-button-hover-back-color: #5a2b84;
+
+    --input-button-active-text-color: #5a2b84;
+    --input-button-active-back-color: #ffffff;
 
     /* === button === */
     --button-text-color: #aaaaaa;
