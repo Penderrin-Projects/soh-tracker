@@ -24,6 +24,8 @@ Application:    Track-OOT
 - fix spirit_temple_mq hands to colossus gateway
 - fix logic running before app loaded completely
 - fix visibility logic for mask shop locations
+- fix spoiler log parsing
+- fix font size in dungeon state panel context menus
 
 ---
 
