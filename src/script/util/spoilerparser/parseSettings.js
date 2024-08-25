@@ -21,19 +21,30 @@ export default function parseSetting(addError, target = {}, data = {}, trans = {
                             target.options[el.replace("logic_", "skip.")] = valueSet.has(el);
                         }
                     }
-                } else if (Array.isArray(parsedValue)) {
-                    for (const el of parsedValue) {
-                        try {
-                            setSettingToTarget(target.options, transData, el);
-                        } catch {
-                            addError("[" + key + ": " + el + "] is a invalid value for sub option [" + transData["name"] ?? transData + "]", "Settings");
+                } else {
+                    if (transData.preset != null) {
+                        if (typeof transData.preset == "object") {
+                            for (const presetKey in transData.preset) {
+                                target.options[presetKey] = transData.preset[presetKey];
+                            }
+                        } else {
+                            target.options[transData.name] = transData.preset;
                         }
                     }
-                } else {
-                    try {
-                        setSettingToTarget(target.options, transData, parsedValue);
-                    } catch {
-                        addError("[" + key + ": " + parsedValue + "] is a invalid value", "Settings");
+                    if (Array.isArray(parsedValue)) {
+                        for (const el of parsedValue) {
+                            try {
+                                setSettingToTarget(target.options, transData, el);
+                            } catch {
+                                addError("[" + key + ": " + el + "] is a invalid value for sub option [" + transData["name"] ?? transData + "]", "Settings");
+                            }
+                        }
+                    } else {
+                        try {
+                            setSettingToTarget(target.options, transData, parsedValue);
+                        } catch {
+                            addError("[" + key + ": " + parsedValue + "] is a invalid value", "Settings");
+                        }
                     }
                 }
             } else {

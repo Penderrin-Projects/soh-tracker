@@ -1,7 +1,7 @@
 export default function parseDungeonTypes(addError, target = {}, data = {}, trans = {}) {
     const dungeon_trans = trans["dungeons"];
 
-    target.dungeonTypes = target.dungeonTypes ?? {};
+    target.areaActiveLists = target.areaActiveLists ?? {};
 
     for (const i in data) {
         const v = data[i];
@@ -11,7 +11,7 @@ export default function parseDungeonTypes(addError, target = {}, data = {}, tran
             } else if (dungeon_trans[i]["values"][v] === undefined) {
                 addError("[" + i + ": " + v + "] is a invalid value", "Dungeon Type");
             } else {
-                target.dungeonTypes[dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
+                target.areaActiveLists[dungeon_trans[i]["name"]] = dungeon_trans[i]["values"][v];
             }
         }
     }

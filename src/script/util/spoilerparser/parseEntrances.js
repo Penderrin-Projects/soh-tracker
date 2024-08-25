@@ -1,134 +1,80 @@
 export default function parseEntrances(addError, target = {}, data = {}, trans = {}, opt = {}) {
-    const {
-        dungeon,
-        bossarea,
-        grottos,
-        indoors,
-        overworld,
-        owls,
-        spawns,
-        warps
-    } = opt;
-
-    const {
-        entro_dungeons,
-        entro_dungeon_bosses,
-        entro_grottos,
-        entro_simple,
-        entro_indoors,
-        entro_overworld,
-        entro_owls,
-        entro_spawns,
-        entro_warps
-    } = trans.entrances.entrances;
-
-    const {
-        exit_dungeons,
-        exit_dungeon_bosses,
-        exit_grottos,
-        exit_simple,
-        exit_indoors,
-        exit_overworld,
-        exit_extras
-    } = trans.entrances.exits;
-
-    const entrance = {
-        entro_dungeon: entro_dungeons,
-        entro_dungeon_boss: entro_dungeon_bosses,
-        entro_grottos: entro_grottos,
-        entro_simple: entro_simple,
-        entro_indoors: entro_indoors,
-        entro_overworld: entro_overworld,
-        entro_owls: entro_owls,
-        entro_spawns: entro_spawns,
-        entro_warps: entro_warps
-    };
-
-    const exit = {
-        exit_dungeon: exit_dungeons,
-        exit_dungeon_boss: exit_dungeon_bosses,
-        exit_grottos: exit_grottos,
-        exit_simple: exit_simple,
-        exit_indoors: exit_indoors,
-        exit_overworld: exit_overworld,
-        exit_extra: exit_extras
-    };
-
     target.exitBindings = target.exitBindings ?? {};
 
     for (const i in data) {
+        if (typeof i !== "string" || i === "") {
+            addError(`Unexpected key "${i}" [${typeof i}] in entrance value`, "Entrances");
+            continue;
+        }
+
         let v = data[i];
         if (typeof v === "object" && v !== null) {
-            if (exit_overworld[data[i]["region"] + " -> " + data[i]["from"]]) {
-                v = data[i]["region"] + " -> " + data[i]["from"];
-            } else {
-                v = data[i]["region"];
-            }
-        }
-        let edgeThere = null;
-        let edgeBack = null;
-        let node = null;
-
-        for (const ent in entrance) {
-            node = entrance[ent];
-            if (node[i] !== undefined) {
-                edgeThere = node[i];
-            }
-        }
-        for (const ent in exit) {
-            node = exit[ent];
-            if (node[v] !== undefined) {
-                edgeBack = node[v];
-            }
+            v = data[i]["region"] + " -> " + data[i]["from"];
         }
 
-        if (typeof i === "object" && i !== null) {
-            addError(`Unexpected Array ${i} in entrance value`, "Entrances");
-        } else if (edgeThere === null) {
+        const [category, edgeThere] = getCategoryAndTranslation(trans.entrances, i);
+        if (edgeThere == null) {
             addError(`"${i}" is a invalid entrance value`, "Entrances");
-        } else if (edgeBack === null) {
+            continue;
+        }
+        const [, edgeBack] = getCategoryAndTranslation(trans.entrances, v);
+        if (edgeBack === null) {
             addError(`"${v}" is a invalid exit value`, "Entrances");
-        } else {
-            if (dungeon) {
-                if (entro_dungeons[i] === edgeThere) {
+            continue;
+        }
+
+        switch (category) {
+            case "grottos": {
+                if (opt.grottos) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (bossarea) {
-                if (entro_dungeon_bosses[i] === edgeThere) {
+            } break;
+            case "simple_interiors":
+            case "other_interiors": {
+                if (opt.indoors) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (grottos) {
-                if (entro_grottos[i] === edgeThere) {
+            } break;
+            case "dungeons": {
+                if (opt.dungeon) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (indoors) {
-                if (entro_simple[i] === edgeThere || entro_indoors[i] === edgeThere) {
+            } break;
+            case "dungeon_bosses": {
+                if (opt.bossarea) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (overworld) {
-                if (entro_overworld[i] === edgeThere) {
+            } break;
+            case "overworld": {
+                if (opt.overworld) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (owls) {
-                if (entro_owls[i] === edgeThere) {
+            } break;
+            case "owls": {
+                if (opt.owls) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (spawns) {
-                if (entro_spawns[i] === edgeThere) {
+            } break;
+            case "spawns": {
+                if (opt.spawns) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
-            if (warps) {
-                if (entro_warps[i] === edgeThere) {
+            } break;
+            case "warps": {
+                if (opt.warps) {
                     target.exitBindings[edgeThere] = edgeBack;
                 }
-            }
+            } break;
         }
     }
+}
+
+function getCategoryAndTranslation(entrances, needle) {
+    for (const [category, values] of Object.entries(entrances)) {
+        const translation = values[needle];
+        if (translation != null) {
+            return [category, translation];
+        }
+    }
+    return [null, null];
 }

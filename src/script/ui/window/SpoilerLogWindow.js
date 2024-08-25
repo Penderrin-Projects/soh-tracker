@@ -59,7 +59,7 @@ export default class SpoilerLogWindow extends AbstractSettingsWindow {
                 try {
                     const data = await SpoilerParser.parse(spoiler.data, event.data);
                     if (data != null) {
-                        SavestateHandler.overwrite(data);
+                        SavestateHandler.overwriteClean(data);
                     }
                     Language.applyLabel(loadSpoilerButton, "load-spoiler-button");
                     spoiler = {};
