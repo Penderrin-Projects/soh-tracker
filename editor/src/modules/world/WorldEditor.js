@@ -1,6 +1,7 @@
 import FileSystem from "/emcJS/util/file/FileSystem.js";
 import BusyIndicatorManager from "/emcJS/util/BusyIndicatorManager.js";
 import OptionGroupRegistry from "/emcJS/data/registry/form/OptionGroupRegistry.js";
+import LogicOperatorRegistry from "/emcJS/data/registry/LogicOperatorRegistry.js";
 import FileLoader from "/emcJS/util/file/FileLoader.js";
 import ModalDialog from "/emcJS/ui/modal/ModalDialog.js";
 import "/GameTrackerJS/_editor/world/WorldEditor.js";
@@ -52,6 +53,10 @@ export default async function() {
             return "You have unsaved changes in the current form. Discard changes and continue?";
         }
     };
+
+    LogicOperatorRegistry.setAndLinkOperator("$AP_IS_CONNECTED", {
+        type: "value"
+    }, "special");
 
     // refresh
     async function refreshFn() {

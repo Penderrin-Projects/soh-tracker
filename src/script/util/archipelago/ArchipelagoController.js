@@ -31,7 +31,7 @@ const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
 const BOUNCE_TIMEOUT_TIME = 1; // seconds
 
-class ArchipelagoController {
+class ArchipelagoController extends EventTarget {
 
     #client = new Client();
 
@@ -46,6 +46,7 @@ class ArchipelagoController {
     #syncSettings = false;
 
     constructor() {
+        super();
         SavestateHandler.addEventListener("beforeload", () => {
             if (this.isConnected()) {
                 this.disconnect();
@@ -130,18 +131,27 @@ class ArchipelagoController {
 
         AP_STORAGES.locations.deserializeAsChange(translatedLocations);
         SavestateHandler.forceCache();
+
+        const ev = new Event("connected");
+        this.dispatchEvent(ev);
     }
 
     #onDisonnectedEvent() {
         clearTimeout(this.#connectionTimeout);
         clearTimeout(this.#periodTimer);
         Dialog.alert("AP Connection Lost", "The connection to Archipelago has been lost");
+
+        const ev = new Event("disconnected");
+        this.dispatchEvent(ev);
     }
 
     #onClosedEvent() {
         clearTimeout(this.#connectionTimeout);
         clearTimeout(this.#periodTimer);
         Toast.warn("You are no longer connected to Archipelago");
+
+        const ev = new Event("disconnected");
+        this.dispatchEvent(ev);
     }
 
     // #onPrintJSONEvent(event) {
