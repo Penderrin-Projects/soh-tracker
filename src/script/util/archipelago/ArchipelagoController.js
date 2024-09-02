@@ -72,9 +72,9 @@ class ArchipelagoController extends EventTarget {
             this.#client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, (event) => {
                 this.#onConnectedEvent(event);
             });
-            // this.#client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, (event) => {
-            //     this.#onPrintJSONEvent(event);
-            // });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.PRINT_JSON, (event) => {
+                this.#onChatMessage(event);
+            });
             this.#client.addEventListener(SERVER_PACKET_TYPE.RECEIVED_ITEMS, (event) => {
                 this.#onRecievedItemsEvent(event);
             });
@@ -154,37 +154,8 @@ class ArchipelagoController extends EventTarget {
         this.dispatchEvent(ev);
     }
 
-    // #onPrintJSONEvent(event) {
-    //     for (const data of event.data) {
-    //         const {type, item} = data;
-    //         if (type == "ItemSend") {
-    //             const {location, player} = item;
-    //             if (player === this.#slotId) {
-    //                 const apLocationName = this.#client.locations.name(this.#slotId, location);
-    //                 const locationTranslation = translateLocation(apLocationName);
-    //                 // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranlation);
-    //                 if (locationTranslation != null) {
-    //                     if (locationTranslation !== false) {
-    //                         if (typeof locationTranslation === "string") {
-    //                             AP_STORAGES.locations.set(locationTranslation, true);
-    //                         } else {
-    //                             for (const locationName of locationTranslation) {
-    //                                 if (typeof locationName === "string") {
-    //                                     AP_STORAGES.locations.set(locationName, true);
-    //                                 }
-    //                             }
-    //                         }
-    //                     }
-    //                 } else {
-    //                     Dialog.error("Unknown AP Locations", "Some locations could not be translated", [location]);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-    #onRecievedItemsEvent(event) {
-        const {data} = event;
+    #onRecievedItemsEvent(dataPacket) {
+        const {data} = dataPacket;
         const [packet] = data;
         const {index, items} = packet;
 
@@ -202,8 +173,8 @@ class ArchipelagoController extends EventTarget {
         }
     }
 
-    #onRoomUpdate(event) {
-        const {data} = event;
+    #onRoomUpdate(dataPacket) {
+        const {data} = dataPacket;
         const [packet] = data;
         const {checked_locations} = packet;
 
@@ -284,6 +255,21 @@ class ArchipelagoController extends EventTarget {
             Dialog.error("Unknown AP Items", "Some items could not be translated", unknownItems);
         }
         return resultItems;
+    }
+
+    #onChatMessage(event) {
+        const {data} = event;
+        const [packet, message] = data;
+        const ev = new Event("message");
+        ev.message = message;
+        ev.data = {
+            ...packet
+        };
+        this.dispatchEvent(ev);
+    }
+
+    sendChatMessage(message) {
+        this.#client.say(message);
     }
 
 }
