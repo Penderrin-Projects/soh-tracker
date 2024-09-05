@@ -1,0 +1,31 @@
+<emc-panel-tabpanel id="ap-tabs">
+    <div category="ap-log">
+        <!--
+            DataList with log elements
+            - search
+            - filter by item importance
+            - filter to current user recieving/sending
+        -->
+    </div>
+    <div category="hints">
+        <!--
+            DataGrid [Finder, Reciever, Item, Location, Game, Entrance, Found]
+            - search
+            - sort by [Finder, Reciever, Item, Location, Game, Entrance, Found]
+            - filter by finder/reciever is current user, filter found
+        -->
+    </div>
+</emc-panel-tabpanel>
+<!--
+    [Hint Item Button]
+    - custom item grid with item-categories and items
+    - on category/item click fill chat with "hint" message and wait for user to send
+    [Hint Location Button]
+    - search field
+    - datalist with 10 entries max to "force" search
+    - on location click fill chat with "hint_location" message and wait for user to send
+    -> locations in locationlist/-map should also get a "AP hint location" entry for contextmenu
+-->
+<!--
+    [StringInput for Chat/Commands][Send Button] -> also send by pressing "enter"
+-->
