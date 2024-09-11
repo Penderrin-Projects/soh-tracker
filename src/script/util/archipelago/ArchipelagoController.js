@@ -54,6 +54,10 @@ class ArchipelagoController extends EventTarget {
         });
     }
 
+    get playerId() {
+        return this.#slotId;
+    }
+
     connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
@@ -87,7 +91,8 @@ class ArchipelagoController extends EventTarget {
             this.#client.addEventListener("SocketClosed", () => {
                 this.#onClosedEvent();
             });
-            this.#client.addEventListener("PacketReceived", () => {
+            this.#client.addEventListener("PacketReceived", (event) => {
+                console.log("[AP] (PacketReceived)", event);
                 this.#resetTimeout();
             });
 
@@ -270,6 +275,22 @@ class ArchipelagoController extends EventTarget {
 
     sendChatMessage(message) {
         this.#client.say(message);
+    }
+
+    getPlayerAlias(playerId) {
+        return this.#client.players.alias(playerId);
+    }
+
+    getPlayerGame(playerId) {
+        return this.#client.players.game(playerId);
+    }
+
+    getLocationName(playerId, locationId) {
+        return this.#client.locations.name(playerId, locationId);
+    }
+
+    getItemName(playerId, itemId) {
+        return this.#client.items.name(playerId, itemId);
     }
 
 }

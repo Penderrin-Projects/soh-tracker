@@ -1,0 +1,41 @@
+#container {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 300px;
+    padding: 8px;
+    margin: 2px;
+    color: #ffffff;
+    background: #222222;
+}
+
+#content .player-current {
+    color: #b464ff;
+}
+
+#content .player-other {
+    color: #ff81ea;
+}
+
+#content .item-progressive {
+    color: #cfce73;
+}
+
+#content .item-useful {
+    color: #5654ff;
+}
+
+#content .item-normal {
+    color: #85e2ff;
+}
+
+#content .item-trap {
+    color: #ff8b6e;
+}
+
+#content .location {
+    color: #8cffae;
+}
+
+#content .entrance {
+    color: #95ffcd;
+}
