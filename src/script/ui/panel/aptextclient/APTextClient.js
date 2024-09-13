@@ -1,7 +1,9 @@
+import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-
+import "./chat/ChatList.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
+import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
 
 // TODO
 // text client with filter options (command list cache)
@@ -19,6 +21,13 @@ class APTextClient extends Panel {
         STYLE.apply(this.shadowRoot);
         /* --- */
         this.#apTabsEl = this.shadowRoot.getElementById("ap-tabs");
+        /* --- */
+        const apLogListEl = this.shadowRoot.getElementById("ap-log");
+        const apLogListDataProvider = new SimpleDataProvider(apLogListEl);
+        ArchipelagoController.addEventListener("message", (event) => {
+            const {data} = event;
+            apLogListDataProvider.addEntry(data);
+        });
     }
 
     switchToApLog() {

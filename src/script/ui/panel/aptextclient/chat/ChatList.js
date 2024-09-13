@@ -4,7 +4,7 @@ import "./components/ChatListEntry.js";
 export default class ChatList extends DataList {
 
     createListEntry() {
-        return document.createElement("cc-downloadlist-entry");
+        return document.createElement("ootrt-chatlist-entry");
     }
 
 }

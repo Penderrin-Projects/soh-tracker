@@ -13,6 +13,7 @@ import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/panel/shoplist/ShopList.js";
 import "/script/ui/panel/songlist/SongList.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
+import "/script/ui/panel/aptextclient/APTextClient.js";
 
 const STYLE = new GlobalStyle(`
 .state {
