@@ -2,40 +2,40 @@
     position: relative;
     box-sizing: border-box;
     min-width: 300px;
-    padding: 8px;
-    margin: 2px;
+    padding: 6px;
+    margin: 1px;
     color: #ffffff;
     background: #222222;
 }
 
-#content .player-current {
-    color: #b464ff;
+#container .player-current {
+    color: #ee00ee;
 }
 
-#content .player-other {
-    color: #ff81ea;
+#container .player-other {
+    color: #fafad2;
 }
 
-#content .item-progressive {
-    color: #cfce73;
+#container .item-progressive {
+    color: #af99ef;
 }
 
-#content .item-useful {
-    color: #5654ff;
+#container .item-useful {
+    color: #6d8be8;
 }
 
-#content .item-normal {
-    color: #85e2ff;
+#container .item-normal {
+    color: #00eeee;
 }
 
-#content .item-trap {
-    color: #ff8b6e;
+#container .item-trap {
+    color: #fa8072;
 }
 
-#content .location {
-    color: #8cffae;
+#container .location {
+    color: #00ff7f;
 }
 
-#content .entrance {
-    color: #95ffcd;
+#container .entrance {
+    color: #6495ed;
 }

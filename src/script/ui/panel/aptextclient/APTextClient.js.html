@@ -1,8 +1,13 @@
 <emc-panel-tabpanel id="ap-tabs">
     <div category="ap-log">
-        <ootrt-chatlist id="ap-log"></ootrt-chatlist>
+        <div class="container">
+            <ootrt-chatlist id="ap-log"></ootrt-chatlist>
+        </div>
     </div>
     <div category="hints">
+        <div class="container">
+
+        </div>
         <!--
             DataGrid [Finder, Reciever, Item, Location, Game, Entrance, Found]
             - search
@@ -11,6 +16,7 @@
         -->
     </div>
 </emc-panel-tabpanel>
+<emc-input-string id="chat-input" placeholder="Command" nohover autocomplete="false"></emc-input-string>
 <!--
     [Hint Item Button]
     - custom item grid with item-categories and items

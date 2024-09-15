@@ -46,8 +46,13 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
     }
 
     #consolidateMessage(packet) {
-        if (packet.type === PRINT_JSON_TYPE.CHAT || packet.type === PRINT_JSON_TYPE.SERVER_CHAT) {
+        if (packet.type === PRINT_JSON_TYPE.SERVER_CHAT) {
             return packet.message;
+        }
+
+        if (packet.type === PRINT_JSON_TYPE.CHAT) {
+            const playerAlias = ArchipelagoController.getPlayerAlias(packet.slot);
+            return `${playerAlias}: ${packet.message}`;
         }
 
         return packet.data.reduce((string, piece) => {
@@ -56,17 +61,17 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
                     const playerId = parseInt(piece.text);
                     const playerAlias = ArchipelagoController.getPlayerAlias(playerId);
                     if (playerId === ArchipelagoController.playerId) {
-                        return `${string}<span class="player-current"> ${playerAlias}</span>`;
+                        return `${string}<span class="player-current">${playerAlias}</span>`;
                     } else {
                         const playerGame = ArchipelagoController.getPlayerGame(playerId);
-                        return `${string}<span class="player-other"> ${playerAlias}<span class="showGameName">${playerGame}</span></span>`;
+                        return `${string}<span class="player-other">${playerAlias}<span class="showGameName"> [${playerGame}]</span></span>`;
                     }
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.LOCATION_ID: {
                     const locationId = parseInt(piece.text);
                     const locationName = ArchipelagoController.getLocationName(piece.player, locationId);
-                    return `${string}<span class="location"> ${locationName}</span>`;
+                    return `${string}<span class="location">${locationName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ITEM_ID: {
@@ -77,15 +82,15 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.COLOR: {
-                    return `${string}<span style="color: ${piece.color}"> ${piece.text}</span>`;
+                    return `${string}<span style="color: ${piece.color}">${piece.text}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
-                    return `${string}<span class="entrance"> ${piece.text}</span>`;
+                    return `${string}<span class="entrance">${piece.text}</span>`;
                 }
 
                 default: {
-                    return `${string}<span class="default"> ${piece.text} </span>`;
+                    return `${string}<span class="default">${piece.text}</span>`;
                 }
             }
         }, "");
