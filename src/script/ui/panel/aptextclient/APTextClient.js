@@ -1,184 +1,203 @@
 import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+import {
+    VALID_JSON_MESSAGE_TYPE
+} from "/ArchipelagoJS/types/JSONMessagePart.js";
+import {
+    ITEM_FLAGS
+} from "/ArchipelagoJS/consts/ItemFlags.js";
+import {
+    PRINT_JSON_TYPE
+} from "/ArchipelagoJS/consts/PrintJSONType.js";
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "./chat/ChatList.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
 
+const ITEM_CLASSES = {
+    [ITEM_FLAGS.PROGRESSION]: "progressive",
+    [ITEM_FLAGS.NEVER_EXCLUDE]: "useful",
+    [ITEM_FLAGS.FILLER]: "normal",
+    [ITEM_FLAGS.TRAP]: "trap"
+};
+
 const DEBUG_MESSAGES = [
     {
-        "cmd": "PrintJSON",
-        "data": [
+        "type": "ServerChat",
+        "message": "SERVER DEBUG MESSAGE"
+    },
+    {
+        "type": "Chat",
+        "playerAlias": "ZidArgs_OOT",
+        "message": "CLIENT DEBUG MESSAGE"
+    },
+    {
+        "type": "ItemSend",
+        "isSender": true,
+        "isReciever": false,
+        "sender": "ZidArgs_OOT",
+        "reciever": "fraggerEmerald",
+        "itemClass": "normal",
+        "itemName": "Glitter Mail",
+        "locationName": "Kak GS House Under Construction",
+        "message": [
             {
-                "text": "66",
-                "type": "player_id"
+                "type": "player_id",
+                "current": true,
+                "playerAlias": "ZidArgs_OOT"
             },
             {
                 "text": " sent "
             },
             {
-                "text": "3860123",
-                "player": 17,
-                "flags": 0,
-                "type": "item_id"
+                "type": "item_id",
+                "itemName": "Glitter Mail",
+                "itemClass": "normal"
             },
             {
                 "text": " to "
             },
             {
-                "text": "17",
-                "type": "player_id"
+                "type": "player_id",
+                "current": false,
+                "playerAlias": "fraggerEmerald",
+                "playerGame": "Pokemon Emerald"
             },
             {
                 "text": " ("
             },
             {
-                "text": "67137",
-                "player": 66,
-                "type": "location_id"
+                "type": "location_id",
+                "locationName": "Kak GS House Under Construction"
             },
             {
                 "text": ")"
             }
-        ],
-        "type": "ItemSend",
-        "receiving": 17,
-        "item": {
-            "item": 3860123,
-            "location": 67137,
-            "player": 66,
-            "flags": 0,
-            "class": "NetworkItem"
-        }
+        ]
     },
     {
-        "cmd": "PrintJSON",
-        "data": [
+        "type": "ItemSend",
+        "isSender": true,
+        "isReciever": false,
+        "sender": "ZidArgs_OOT",
+        "reciever": "ZidArgs_DLC",
+        "itemClass": "useful",
+        "itemName": "Live Freemium or Die: Coin Bundle",
+        "locationName": "Kak GS Tree",
+        "message": [
             {
-                "text": "66",
-                "type": "player_id"
+                "type": "player_id",
+                "current": true,
+                "playerAlias": "ZidArgs_OOT"
             },
             {
                 "text": " sent "
             },
             {
-                "text": "120043",
-                "player": 62,
-                "flags": 2,
-                "type": "item_id"
+                "type": "item_id",
+                "itemName": "Live Freemium or Die: Coin Bundle",
+                "itemClass": "useful"
             },
             {
                 "text": " to "
             },
             {
-                "text": "62",
-                "type": "player_id"
+                "type": "player_id",
+                "current": false,
+                "playerAlias": "ZidArgs_DLC",
+                "playerGame": "DLCQuest"
             },
             {
                 "text": " ("
             },
             {
-                "text": "67133",
-                "player": 66,
-                "type": "location_id"
+                "type": "location_id",
+                "locationName": "Kak GS Tree"
             },
             {
                 "text": ")"
             }
-        ],
-        "type": "ItemSend",
-        "receiving": 62,
-        "item": {
-            "item": 120043,
-            "location": 67133,
-            "player": 66,
-            "flags": 2,
-            "class": "NetworkItem"
-        }
+        ]
     },
     {
-        "cmd": "PrintJSON",
-        "data": [
+        "type": "ItemSend",
+        "isSender": true,
+        "isReciever": false,
+        "sender": "ZidArgs_OOT",
+        "reciever": "fraggerTBOI",
+        "itemClass": "progressive",
+        "itemName": "Shop Item",
+        "locationName": "Kak GS Near Gate Guard",
+        "message": [
             {
-                "text": "66",
-                "type": "player_id"
+                "type": "player_id",
+                "current": true,
+                "playerAlias": "ZidArgs_OOT"
             },
             {
                 "text": " sent "
             },
             {
-                "text": "7880001",
-                "player": 25,
-                "flags": 1,
-                "type": "item_id"
+                "type": "item_id",
+                "itemName": "Shop Item",
+                "itemClass": "progressive"
             },
             {
                 "text": " to "
             },
             {
-                "text": "25",
-                "type": "player_id"
+                "type": "player_id",
+                "current": false,
+                "playerAlias": "fraggerTBOI",
+                "playerGame": "The Binding of Isaac Repentance"
             },
             {
                 "text": " ("
             },
             {
-                "text": "67134",
-                "player": 66,
-                "type": "location_id"
+                "type": "location_id",
+                "locationName": "Kak GS Near Gate Guard"
             },
             {
                 "text": ")"
             }
-        ],
-        "type": "ItemSend",
-        "receiving": 25,
-        "item": {
-            "item": 7880001,
-            "location": 67134,
-            "player": 66,
-            "flags": 1,
-            "class": "NetworkItem"
-        }
+        ]
     },
     {
-        "cmd": "PrintJSON",
-        "data": [
+        "type": "ItemSend",
+        "isSender": true,
+        "isReciever": true,
+        "sender": "ZidArgs_OOT",
+        "reciever": "ZidArgs_OOT",
+        "itemClass": "trap",
+        "itemName": "Ice Trap",
+        "locationName": "Forest Temple Center Room Right Pot 1",
+        "message": [
             {
-                "text": "66",
-                "type": "player_id"
+                "type": "player_id",
+                "current": true,
+                "playerAlias": "ZidArgs_OOT"
             },
             {
                 "text": " found their "
             },
             {
-                "text": "66124",
-                "player": 66,
-                "flags": 4,
-                "type": "item_id"
+                "type": "item_id",
+                "itemName": "Ice Trap",
+                "itemClass": "trap"
             },
             {
                 "text": " ("
             },
             {
-                "text": "68235",
-                "player": 66,
-                "type": "location_id"
+                "type": "location_id",
+                "locationName": "Forest Temple Center Room Right Pot 1"
             },
             {
                 "text": ")"
             }
-        ],
-        "type": "ItemSend",
-        "receiving": 66,
-        "item": {
-            "item": 66124,
-            "location": 68235,
-            "player": 66,
-            "flags": 4,
-            "class": "NetworkItem"
-        }
+        ]
     }
 ];
 
@@ -206,7 +225,8 @@ class APTextClient extends Panel {
         const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES);
         ArchipelagoController.addEventListener("message", (event) => {
             const {data} = event;
-            apLogListDataProvider.addEntry(data);
+            const resolvedMessage = this.#resolveMessagegParts(data);
+            apLogListDataProvider.addEntry(resolvedMessage);
         });
         this.#chatInputEl.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
@@ -216,6 +236,10 @@ class APTextClient extends Panel {
                 return false;
             }
         });
+        apLogListEl.addEventListener("scrollend", (event) => {
+            event.stopPropagation();
+            apLogListEl.autoscroll = apLogListEl.getVerticalScrollFactor() === 1;
+        }, true);
     }
 
     switchToApLog() {
@@ -224,6 +248,116 @@ class APTextClient extends Panel {
 
     switchToHints() {
         this.#apTabsEl.active = "hints";
+    }
+
+    #resolveMessagegParts(packet) {
+        if (packet.type === PRINT_JSON_TYPE.SERVER_CHAT) {
+            return {
+                type: packet.type,
+                message: packet.message
+            };
+        }
+
+        if (packet.type === PRINT_JSON_TYPE.CHAT) {
+            const playerAlias = ArchipelagoController.getPlayerAlias(packet.slot);
+            return {
+                type: packet.type,
+                message: packet.message,
+                playerAlias
+            };
+        }
+
+        const apPlayerId = ArchipelagoController.playerId;
+        const resolvedMessageData = packet.data.map((piece) => {
+            switch (piece.type) {
+                case VALID_JSON_MESSAGE_TYPE.PLAYER_ID: {
+                    const playerId = parseInt(piece.text);
+                    const playerAlias = ArchipelagoController.getPlayerAlias(playerId);
+                    if (playerId === apPlayerId) {
+                        return {
+                            type: piece.type,
+                            current: true,
+                            playerAlias
+                        };
+                    } else {
+                        const playerGame = ArchipelagoController.getPlayerGame(playerId);
+                        return {
+                            type: piece.type,
+                            current: false,
+                            playerAlias,
+                            playerGame
+                        };
+                    }
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.LOCATION_ID: {
+                    const locationId = parseInt(piece.text);
+                    const locationName = ArchipelagoController.getLocationName(piece.player, locationId);
+                    return {
+                        type: piece.type,
+                        locationName
+                    };
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.ITEM_ID: {
+                    const itemClass = ITEM_CLASSES[piece.flags];
+                    const itemId = parseInt(piece.text);
+                    const itemName = ArchipelagoController.getItemName(piece.player, itemId);
+                    return {
+                        type: piece.type,
+                        itemName,
+                        itemClass
+                    };
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
+                    return {
+                        type: piece.type,
+                        entranceName: piece.text
+                    };
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.COLOR: {
+                    return {
+                        type: piece.type,
+                        color: piece.color,
+                        text: piece.text
+                    };
+                }
+
+                default: {
+                    return {
+                        type: piece.type,
+                        text: piece.text
+                    };
+                }
+            }
+        });
+
+        if (packet.type === PRINT_JSON_TYPE.ITEM_SEND) {
+            const senderAlias = ArchipelagoController.getPlayerAlias(packet.item.player);
+            const recieverAlias = ArchipelagoController.getPlayerAlias(packet.receiving);
+            const itemClass = ITEM_CLASSES[packet.item.flags];
+            const itemName = ArchipelagoController.getItemName(packet.receiving, packet.item.item);
+            const locationName = ArchipelagoController.getLocationName(packet.item.player, packet.item.location);
+
+            return {
+                type: packet.type,
+                isSender: packet.item.player === apPlayerId,
+                isReciever: packet.receiving === apPlayerId,
+                sender: senderAlias,
+                reciever: recieverAlias,
+                itemClass,
+                itemName,
+                locationName,
+                message: resolvedMessageData
+            };
+        }
+
+        return {
+            type: packet.type,
+            message: resolvedMessageData
+        };
     }
 
 }

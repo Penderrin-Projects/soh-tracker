@@ -4,21 +4,10 @@ import {
     VALID_JSON_MESSAGE_TYPE
 } from "/ArchipelagoJS/types/JSONMessagePart.js";
 import {
-    ITEM_FLAGS
-} from "/ArchipelagoJS/consts/ItemFlags.js";
-import {
     PRINT_JSON_TYPE
 } from "/ArchipelagoJS/consts/PrintJSONType.js";
-import ArchipelagoController from "../../../../../util/archipelago/ArchipelagoController.js";
 import TPL from "./ChatListEntry.js.html" assert {type: "html"};
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
-
-const ITEM_CLASSES = {
-    [ITEM_FLAGS.PROGRESSION]: "item-progressive",
-    [ITEM_FLAGS.NEVER_EXCLUDE]: "item-useful",
-    [ITEM_FLAGS.FILLER]: "item-normal",
-    [ITEM_FLAGS.TRAP]: "item-trap"
-};
 
 export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
 
@@ -51,42 +40,33 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
         }
 
         if (packet.type === PRINT_JSON_TYPE.CHAT) {
-            const playerAlias = ArchipelagoController.getPlayerAlias(packet.slot);
-            return `${playerAlias}: ${packet.message}`;
+            return `${packet.playerAlias}: ${packet.message}`;
         }
 
-        return packet.data.reduce((string, piece) => {
+        return packet.message.reduce((string, piece) => {
             switch (piece.type) {
                 case VALID_JSON_MESSAGE_TYPE.PLAYER_ID: {
-                    const playerId = parseInt(piece.text);
-                    const playerAlias = ArchipelagoController.getPlayerAlias(playerId);
-                    if (playerId === ArchipelagoController.playerId) {
-                        return `${string}<span class="player-current">${playerAlias}</span>`;
+                    if (piece.current) {
+                        return `${string}<span class="player-current">${piece.playerAlias}</span>`;
                     } else {
-                        const playerGame = ArchipelagoController.getPlayerGame(playerId);
-                        return `${string}<span class="player-other">${playerAlias}<span class="showGameName"> [${playerGame}]</span></span>`;
+                        return `${string}<span class="player-other">${piece.playerAlias}<span class="showGameName"> [${piece.playerGame}]</span></span>`;
                     }
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.LOCATION_ID: {
-                    const locationId = parseInt(piece.text);
-                    const locationName = ArchipelagoController.getLocationName(piece.player, locationId);
-                    return `${string}<span class="location">${locationName}</span>`;
+                    return `${string}<span class="location">${piece.locationName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ITEM_ID: {
-                    const itemClass = ITEM_CLASSES[piece.flags];
-                    const itemId = parseInt(piece.text);
-                    const itemName = ArchipelagoController.getItemName(piece.player, itemId);
-                    return `${string}<span class="${itemClass}">${itemName}</span>`;
+                    return `${string}<span class="item-${piece.itemClass}">${piece.itemName}</span>`;
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
+                    return `${string}<span class="entrance">${piece.entranceName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.COLOR: {
                     return `${string}<span style="color: ${piece.color}">${piece.text}</span>`;
-                }
-
-                case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
-                    return `${string}<span class="entrance">${piece.text}</span>`;
                 }
 
                 default: {

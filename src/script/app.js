@@ -103,6 +103,7 @@ try {
     viewchoiceEl.setTab("songs", "Songs", "images/icons/songs.svg");
     viewchoiceEl.setTab("multi", "Multiplayer", "images/icons/multi.svg");
     viewchoiceEl.setTab("notes", "Notes", "images/icons/notes.svg");
+    viewchoiceEl.setTab("ap", "Archipelago", "images/icons/ap.svg");
 
     // XXX
     window.ArchipelagoController = ArchipelagoController;

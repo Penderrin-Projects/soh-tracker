@@ -6,6 +6,7 @@
     margin: 1px;
     color: #ffffff;
     background: #222222;
+    user-select: text;
 }
 
 #container .player-current {
