@@ -19,9 +19,9 @@
     --modal-header-back-color: #cb9c3d;
     --modal-footer-text-color: #000000;
     --modal-footer-back-color: #cb9c3d;
-    
+
     --tabpanel-categories-border-color: #cb9c3d;
-    
+
     --tooltip-text-color: #ffffff;
     --tooltip-back-color: #000000;
     --tooltip-border-color: #ffffff;
@@ -74,7 +74,7 @@
     --slider-track-color: #755922;
     --slider-track-border-width: 0px;
     --slider-track-border-style: none;
-    --slider-track-border-color:transparent;
+    --slider-track-border-color: transparent;
     --slider-track-border-radius: 0px;
 
     --slider-thumb-size: 15px;
@@ -84,6 +84,22 @@
     --slider-thumb-border-color: var(--page-border-color-inverted);
     --slider-thumb-border-radius: 0px;
 
+    --datagrid-empty-text-color: #666666;
+    --datagrid-empty-back-color: #dadada;
+    --datagrid-empty-back-image: none;
+    --datagrid-empty-border-color: #666666;
+    --datagrid-empty-border-width: 2px;
+    --datagrid-empty-border-radius: 6px;
+
+    --datagrid-column-seperator-width: 2px;
+
+    --datagrid-header-text-color: #000000;
+    --datagrid-header-back-color: #cb9c3d;
+    --datagrid-header-seperator-color: #000000;
+
+    --datagrid-row-seperator-width: 1px;
+    --datagrid-row-seperator-color: #cb9c3d91;
+
     --scrollbar-size: 12px;
     --scrollbar-corner-color: #000000;
 
@@ -92,7 +108,7 @@
     --scrollbar-track-color-active: #000000;
     --scrollbar-track-border-width: 0px;
     --scrollbar-track-border-style: none;
-    --scrollbar-track-border-color:transparent;
+    --scrollbar-track-border-color: transparent;
     --scrollbar-track-border-radius: 0px;
 
     --scrollbar-thumb-color: var(--navigation-back-color);

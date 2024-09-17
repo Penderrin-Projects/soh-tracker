@@ -37,6 +37,8 @@ class ArchipelagoController extends EventTarget {
 
     #slotId = null;
 
+    #teamId = null;
+
     #itemIndex = -1;
 
     #connectionTimeout = null;
@@ -56,6 +58,10 @@ class ArchipelagoController extends EventTarget {
 
     get playerId() {
         return this.#slotId;
+    }
+
+    get teamId() {
+        return this.#teamId;
     }
 
     connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
@@ -84,6 +90,9 @@ class ArchipelagoController extends EventTarget {
             });
             this.#client.addEventListener(SERVER_PACKET_TYPE.ROOM_UPDATE, (event) => {
                 this.#onRoomUpdate(event);
+            });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.RETRIEVED, (event) => {
+                this.#onRetrieved(event);
             });
             this.#client.addEventListener("SocketDisconnected", () => {
                 this.#onDisonnectedEvent();
@@ -114,7 +123,7 @@ class ArchipelagoController extends EventTarget {
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
-        const {slot, checked_locations, slot_data} = packet;
+        const {slot, team, checked_locations, slot_data} = packet;
 
         if (this.#syncSettings) {
             if (slot_data != null) {
@@ -129,6 +138,7 @@ class ArchipelagoController extends EventTarget {
         }
 
         this.#slotId = slot;
+        this.#teamId = team;
         Toast.success("You are now connected to Archipelago");
         this.#resetTimeout();
 
@@ -187,6 +197,17 @@ class ArchipelagoController extends EventTarget {
 
         AP_STORAGES.locations.setAll(collectedLocations);
         SavestateHandler.forceCache();
+    }
+
+    #onRetrieved(dataPacket) {
+        const {data} = dataPacket;
+        const [packet] = data;
+        const hintKey = `_read_hints_${this.#teamId}_${this.#slotId}`;
+        if (hintKey in packet.keys) {
+            const ev = new Event("hintupdate");
+            ev.data = packet.keys[hintKey];
+            this.dispatchEvent(ev);
+        }
     }
 
     #resetTimeout() {

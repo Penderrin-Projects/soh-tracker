@@ -10,6 +10,7 @@ import {
     PRINT_JSON_TYPE
 } from "/ArchipelagoJS/consts/PrintJSONType.js";
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
+import "/emcJS/ui/dataview/datagrid/DataGrid.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "./chat/ChatList.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
@@ -228,6 +229,16 @@ class APTextClient extends Panel {
             const resolvedMessage = this.#resolveMessagegParts(data);
             apLogListDataProvider.addEntry(resolvedMessage);
         });
+        /* --- */
+        const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
+        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl);
+        ArchipelagoController.addEventListener("hintupdate", (event) => {
+            for (const hint of event.data) {
+                const resolvedHint = this.#resolveHint(hint);
+                apHintGridDataProvider.addEntry(resolvedHint);
+            }
+        });
+        /* --- */
         this.#chatInputEl.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
                 const text = this.#chatInputEl.value;
@@ -357,6 +368,35 @@ class APTextClient extends Panel {
         return {
             type: packet.type,
             message: resolvedMessageData
+        };
+    }
+
+    #resolveHint(data) {
+        const {
+            receiving_player,
+            finding_player,
+            location,
+            item,
+            found,
+            entrance,
+            item_flags
+        } = data;
+
+        const finderAlias = ArchipelagoController.getPlayerAlias(finding_player);
+        const recieverAlias = ArchipelagoController.getPlayerAlias(receiving_player);
+        const locationName = ArchipelagoController.getLocationName(finding_player, location);
+        const itemName = ArchipelagoController.getItemName(receiving_player, item);
+        const itemClass = ITEM_CLASSES[item_flags];
+
+        return {
+            key: `${finding_player}_${location}`,
+            finder: finderAlias,
+            reciever: recieverAlias,
+            location: locationName,
+            item: itemName,
+            itemClass: itemClass,
+            entrance,
+            found
         };
     }
 

@@ -6,7 +6,14 @@
     </div>
     <div category="hints">
         <div class="container">
-
+            <emc-datagrid id="ap-hints" stretched="location">
+                <emc-datagrid-column name="finder" caption="Finder" type="string" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="item" caption="Item" type="string" sortable width="400"></emc-datagrid-column>
+                <emc-datagrid-column name="reciever" caption="Reciever" type="string" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="location" caption="Location" type="string" sortable width="400"></emc-datagrid-column>
+                <emc-datagrid-column name="entrance" caption="Entrance" type="string" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="found" caption="Found" type="boolean" sortable width="120"></emc-datagrid-column>
+            </emc-datagrid>
         </div>
         <!--
             DataGrid [Finder, Reciever, Item, Location, Game, Entrance, Found]

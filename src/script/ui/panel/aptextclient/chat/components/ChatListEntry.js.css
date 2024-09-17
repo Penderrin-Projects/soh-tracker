@@ -1,11 +1,14 @@
-#container {
+:host {
     position: relative;
-    box-sizing: border-box;
-    min-width: 300px;
-    padding: 6px;
     margin: 1px;
     color: #ffffff;
     background: #222222;
+}
+
+#container {
+    position: relative;
+    box-sizing: border-box;
+    padding: 6px;
     user-select: text;
 }
 
