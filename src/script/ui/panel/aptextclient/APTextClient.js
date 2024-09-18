@@ -202,6 +202,49 @@ const DEBUG_MESSAGES = [
     }
 ];
 
+const DEBUG_HINTS = [
+    {
+        "key": "19_16777238",
+        "finder": "fraggerHK",
+        "reciever": "ZidArgs_OOT",
+        "location": "Sly_(Key)_7",
+        "item": "Piece of Heart",
+        "itemClass": "useful",
+        "entrance": "",
+        "found": true
+    },
+    {
+        "key": "3_16777945",
+        "finder": "CylerHK",
+        "reciever": "ZidArgs_OOT",
+        "location": "Lore_Tablet-Fungal_Core",
+        "item": "Piece of Heart",
+        "itemClass": "useful",
+        "entrance": "",
+        "found": false
+    },
+    {
+        "key": "39_2000301010",
+        "finder": "Klappi hat r",
+        "reciever": "ZidArgs_OOT",
+        "location": "Badge Seller - Item 8",
+        "item": "Gold Skulltula Token",
+        "itemClass": "progressive",
+        "entrance": "",
+        "found": true
+    },
+    {
+        "key": "65_67801",
+        "finder": "ZidArgs_OOT_TH2",
+        "reciever": "ZidArgs_OOT",
+        "location": "HF Southeast Grotto Beehive 1",
+        "item": "Progressive Strength Upgrade",
+        "itemClass": "progressive",
+        "entrance": "Graveyard -> Graveyard Shield Grave",
+        "found": false
+    }
+];
+
 // TODO
 // text client with filter options (command list cache)
 // show hints as sortable filterable grid
@@ -231,7 +274,7 @@ class APTextClient extends Panel {
         });
         /* --- */
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
-        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl);
+        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS);
         ArchipelagoController.addEventListener("hintupdate", (event) => {
             for (const hint of event.data) {
                 const resolvedHint = this.#resolveHint(hint);
@@ -243,6 +286,7 @@ class APTextClient extends Panel {
             if (event.key === "Enter") {
                 const text = this.#chatInputEl.value;
                 ArchipelagoController.sendChatMessage(text);
+                this.#chatInputEl.value = "";
                 event.stopPropagation();
                 return false;
             }

@@ -94,6 +94,9 @@ class ArchipelagoController extends EventTarget {
             this.#client.addEventListener(SERVER_PACKET_TYPE.RETRIEVED, (event) => {
                 this.#onRetrieved(event);
             });
+            this.#client.addEventListener(SERVER_PACKET_TYPE.SET_REPLY, (event) => {
+                this.#onSetReply(event);
+            });
             this.#client.addEventListener("SocketDisconnected", () => {
                 this.#onDisonnectedEvent();
             });
@@ -193,10 +196,12 @@ class ArchipelagoController extends EventTarget {
         const [packet] = data;
         const {checked_locations} = packet;
 
-        const collectedLocations = this.#collectLocations(checked_locations);
+        if (checked_locations != null) {
+            const collectedLocations = this.#collectLocations(checked_locations);
 
-        AP_STORAGES.locations.setAll(collectedLocations);
-        SavestateHandler.forceCache();
+            AP_STORAGES.locations.setAll(collectedLocations);
+            SavestateHandler.forceCache();
+        }
     }
 
     #onRetrieved(dataPacket) {
@@ -206,6 +211,17 @@ class ArchipelagoController extends EventTarget {
         if (hintKey in packet.keys) {
             const ev = new Event("hintupdate");
             ev.data = packet.keys[hintKey];
+            this.dispatchEvent(ev);
+        }
+    }
+
+    #onSetReply(dataPacket) {
+        const {data} = dataPacket;
+        const [packet] = data;
+        const hintKey = `_read_hints_${this.#teamId}_${this.#slotId}`;
+        if (packet.key === hintKey) {
+            const ev = new Event("hintupdate");
+            ev.data = packet.value;
             this.dispatchEvent(ev);
         }
     }
