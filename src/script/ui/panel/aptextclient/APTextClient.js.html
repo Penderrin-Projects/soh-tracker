@@ -1,21 +1,36 @@
 <emc-panel-tabpanel id="ap-tabs">
     <div category="ap-log">
         <div class="container">
+            <div class="filter-bar">
+                <emc-input-search id="ap-log-search" placeholder="Search" nohover></emc-input-search>
+            </div>
             <ootrt-chatlist id="ap-log" autoscroll></ootrt-chatlist>
         </div>
     </div>
     <div category="hints">
         <div class="container">
+            <div class="filter-bar">
+                <emc-input-search id="ap-hints-search" placeholder="Search..." nohover></emc-input-search>
+                <emc-select-token id="ap-hints-direction" placeholder="Direction" nohover chooseonly multiple value="[&quot;sender&quot;,&quot;reciever&quot;]">
+                    <option value="sender" label="Sender"></option>
+                    <option value="reciever" label="Reciever"></option>
+                </emc-select-token>
+                <emc-select-token id="ap-hints-status" placeholder="Status" nohover chooseonly multiple value="[&quot;found&quot;,&quot;missing&quot;]">
+                    <option value="found" label="Found"></option>
+                    <option value="missing" label="Not found"></option>
+                </emc-select-token>
+            </div>
             <emc-datagrid id="ap-hints" stretched="location">
-                <emc-datagrid-column name="finder" caption="Finder" type="string" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="item" caption="Item" type="string" sortable width="400"></emc-datagrid-column>
-                <emc-datagrid-column name="reciever" caption="Reciever" type="string" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="location" caption="Location" type="string" sortable width="400"></emc-datagrid-column>
-                <emc-datagrid-column name="entrance" caption="Entrance" type="string" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="found" caption="Found" type="boolean" sortable width="120"></emc-datagrid-column>
+                <emc-datagrid-column name="finder" label="Finder" type="text" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="item" label="Item" type="text" sortable width="400"></emc-datagrid-column>
+                <emc-datagrid-column name="reciever" label="Reciever" type="text" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="location" label="Location" type="text" sortable width="400"></emc-datagrid-column>
+                <emc-datagrid-column name="entrance" label="Entrance" type="text" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="found" label="Found" type="boolean" sortable width="120"></emc-datagrid-column>
             </emc-datagrid>
         </div>
-        <!--
+    </div>
+    <!--
             DataGrid [Finder, Reciever, Item, Location, Game, Entrance, Found]
             - search
             - sort by [Finder, Reciever, Item, Location, Game, Entrance, Found]
@@ -23,7 +38,7 @@
         -->
     </div>
 </emc-panel-tabpanel>
-<emc-input-string id="chat-input" placeholder="Command" nohover autocomplete="false"></emc-input-string>
+<emc-input-string id="chat-input" placeholder="Command" nohover autocomplete="off"></emc-input-string>
 <!--
     [Hint Item Button]
     - custom item grid with item-categories and items

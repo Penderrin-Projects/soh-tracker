@@ -12,6 +12,7 @@ import {
 import ArchipelagoController from "../../../util/archipelago/ArchipelagoController.js";
 import "/emcJS/ui/dataview/datagrid/DataGrid.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
+import "/emcJS/ui/form/element/select/token/TokenSelect.js";
 import "./chat/ChatList.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
@@ -205,6 +206,8 @@ const DEBUG_MESSAGES = [
 const DEBUG_HINTS = [
     {
         "key": "19_16777238",
+        "isSender": false,
+        "isReciever": true,
         "finder": "fraggerHK",
         "reciever": "ZidArgs_OOT",
         "location": "Sly_(Key)_7",
@@ -215,6 +218,8 @@ const DEBUG_HINTS = [
     },
     {
         "key": "3_16777945",
+        "isSender": false,
+        "isReciever": true,
         "finder": "CylerHK",
         "reciever": "ZidArgs_OOT",
         "location": "Lore_Tablet-Fungal_Core",
@@ -225,6 +230,8 @@ const DEBUG_HINTS = [
     },
     {
         "key": "39_2000301010",
+        "isSender": false,
+        "isReciever": true,
         "finder": "Klappi hat r",
         "reciever": "ZidArgs_OOT",
         "location": "Badge Seller - Item 8",
@@ -235,12 +242,26 @@ const DEBUG_HINTS = [
     },
     {
         "key": "65_67801",
+        "isSender": false,
+        "isReciever": true,
         "finder": "ZidArgs_OOT_TH2",
         "reciever": "ZidArgs_OOT",
         "location": "HF Southeast Grotto Beehive 1",
         "item": "Progressive Strength Upgrade",
         "itemClass": "progressive",
         "entrance": "Graveyard -> Graveyard Shield Grave",
+        "found": false
+    },
+    {
+        "key": "66_67801",
+        "isSender": true,
+        "isReciever": true,
+        "finder": "ZidArgs_OOT",
+        "reciever": "ZidArgs_OOT",
+        "location": "HF Southeast Grotto Beehive 1",
+        "item": "Test",
+        "itemClass": "trap",
+        "entrance": "",
         "found": false
     }
 ];
@@ -266,20 +287,67 @@ class APTextClient extends Panel {
         this.#chatInputEl = this.shadowRoot.getElementById("chat-input");
         /* --- */
         const apLogListEl = this.shadowRoot.getElementById("ap-log");
+        const apLogSearchEl = this.shadowRoot.getElementById("ap-log-search");
         const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES);
         ArchipelagoController.addEventListener("message", (event) => {
             const {data} = event;
             const resolvedMessage = this.#resolveMessagegParts(data);
             apLogListDataProvider.addEntry(resolvedMessage);
         });
+        apLogSearchEl.addEventListener("change", () => {
+            apLogListDataProvider.updateOptions({search: apLogSearchEl.value});
+        });
         /* --- */
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
+        const apHintsSearchEl = this.shadowRoot.getElementById("ap-hints-search");
+        const apHintsDirectionEl = this.shadowRoot.getElementById("ap-hints-direction");
+        const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
         const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS);
+        apHintGridDataProvider.setOptions({searchFields: ["finder", "item", "reciever", "location", "entrance"]});
         ArchipelagoController.addEventListener("hintupdate", (event) => {
             for (const hint of event.data) {
                 const resolvedHint = this.#resolveHint(hint);
                 apHintGridDataProvider.addEntry(resolvedHint);
             }
+        });
+        apHintsSearchEl.addEventListener("change", () => {
+            apHintGridDataProvider.updateOptions({search: apHintsSearchEl.value});
+        });
+        apHintsDirectionEl.addEventListener("change", () => {
+            const {filter} = apHintGridDataProvider.getOptions();
+            const value = apHintsDirectionEl.value;
+            if (value.includes("sender")) {
+                if (value.includes("reciever")) {
+                    filter.isSender = null;
+                    filter.isReciever = null;
+                } else {
+                    filter.isSender = true;
+                    filter.isReciever = null;
+                }
+            } else if (value.includes("reciever")) {
+                filter.isSender = null;
+                filter.isReciever = true;
+            } else {
+                filter.isSender = false;
+                filter.isReciever = false;
+            }
+            apHintGridDataProvider.updateOptions({filter});
+        });
+        apHintsStatusEl.addEventListener("change", () => {
+            const {filter} = apHintGridDataProvider.getOptions();
+            const value = apHintsStatusEl.value;
+            if (value.includes("found")) {
+                if (value.includes("missing")) {
+                    filter.found = null;
+                } else {
+                    filter.found = true;
+                }
+            } else if (value.includes("missing")) {
+                filter.found = false;
+            } else {
+                filter.found = "nope";
+            }
+            apHintGridDataProvider.updateOptions({filter});
         });
         /* --- */
         this.#chatInputEl.addEventListener("keydown", (event) => {
@@ -426,6 +494,8 @@ class APTextClient extends Panel {
             item_flags
         } = data;
 
+        const apPlayerId = ArchipelagoController.playerId;
+
         const finderAlias = ArchipelagoController.getPlayerAlias(finding_player);
         const recieverAlias = ArchipelagoController.getPlayerAlias(receiving_player);
         const locationName = ArchipelagoController.getLocationName(finding_player, location);
@@ -434,6 +504,8 @@ class APTextClient extends Panel {
 
         return {
             key: `${finding_player}_${location}`,
+            isSender: finding_player === apPlayerId,
+            isReciever: receiving_player === apPlayerId,
             finder: finderAlias,
             reciever: recieverAlias,
             location: locationName,
