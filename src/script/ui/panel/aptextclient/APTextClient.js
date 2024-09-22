@@ -288,6 +288,8 @@ class APTextClient extends Panel {
         /* --- */
         const apLogListEl = this.shadowRoot.getElementById("ap-log");
         const apLogSearchEl = this.shadowRoot.getElementById("ap-log-search");
+        const apLogItemClassEl = this.shadowRoot.getElementById("ap-log-itemclass");
+        const apLogDirectionEl = this.shadowRoot.getElementById("ap-log-direction");
         const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES);
         ArchipelagoController.addEventListener("message", (event) => {
             const {data} = event;
@@ -297,9 +299,35 @@ class APTextClient extends Panel {
         apLogSearchEl.addEventListener("change", () => {
             apLogListDataProvider.updateOptions({search: apLogSearchEl.value});
         });
+        apLogItemClassEl.addEventListener("change", () => {
+            const {filter} = apLogListDataProvider.getOptions();
+            filter.itemClass = apLogItemClassEl.value;
+            apLogListDataProvider.updateOptions({filter});
+        });
+        apLogDirectionEl.addEventListener("change", () => {
+            const {filter} = apLogListDataProvider.getOptions();
+            const value = apLogDirectionEl.value;
+            if (value.includes("sender")) {
+                if (value.includes("reciever")) {
+                    filter.isSender = null;
+                    filter.isReciever = null;
+                } else {
+                    filter.isSender = true;
+                    filter.isReciever = null;
+                }
+            } else if (value.includes("reciever")) {
+                filter.isSender = null;
+                filter.isReciever = true;
+            } else {
+                filter.isSender = false;
+                filter.isReciever = false;
+            }
+            apLogListDataProvider.updateOptions({filter});
+        });
         /* --- */
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
         const apHintsSearchEl = this.shadowRoot.getElementById("ap-hints-search");
+        const apHintsItemClassEl = this.shadowRoot.getElementById("ap-hints-itemclass");
         const apHintsDirectionEl = this.shadowRoot.getElementById("ap-hints-direction");
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
         const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS);
@@ -312,6 +340,11 @@ class APTextClient extends Panel {
         });
         apHintsSearchEl.addEventListener("change", () => {
             apHintGridDataProvider.updateOptions({search: apHintsSearchEl.value});
+        });
+        apHintsItemClassEl.addEventListener("change", () => {
+            const {filter} = apHintGridDataProvider.getOptions();
+            filter.itemClass = apHintsItemClassEl.value;
+            apHintGridDataProvider.updateOptions({filter});
         });
         apHintsDirectionEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();

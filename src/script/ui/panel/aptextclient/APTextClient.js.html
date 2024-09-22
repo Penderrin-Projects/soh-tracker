@@ -2,7 +2,17 @@
     <div category="ap-log">
         <div class="container">
             <div class="filter-bar">
-                <emc-input-search id="ap-log-search" placeholder="Search" nohover></emc-input-search>
+                <emc-input-search id="ap-log-search" class="search-field" placeholder="Search" nohover></emc-input-search>
+                <emc-select-token id="ap-log-itemclass" class="filter-choice" placeholder="Item Class" nohover chooseonly multiple value="[&quot;progressive&quot;,&quot;useful&quot;,&quot;normal&quot;,&quot;trap&quot;]">
+                    <option value="progressive" label="Progressive"></option>
+                    <option value="useful" label="Useful"></option>
+                    <option value="normal" label="Normal"></option>
+                    <option value="trap" label="Trap"></option>
+                </emc-select-token>
+                <emc-select-token id="ap-log-direction" class="filter-choice" placeholder="Direction" nohover chooseonly multiple value="[&quot;sender&quot;,&quot;reciever&quot;]">
+                    <option value="sender" label="Sender"></option>
+                    <option value="reciever" label="Reciever"></option>
+                </emc-select-token>
             </div>
             <ootrt-chatlist id="ap-log" autoscroll></ootrt-chatlist>
         </div>
@@ -10,12 +20,18 @@
     <div category="hints">
         <div class="container">
             <div class="filter-bar">
-                <emc-input-search id="ap-hints-search" placeholder="Search..." nohover></emc-input-search>
-                <emc-select-token id="ap-hints-direction" placeholder="Direction" nohover chooseonly multiple value="[&quot;sender&quot;,&quot;reciever&quot;]">
+                <emc-input-search id="ap-hints-search" class="search-field" placeholder="Search..." nohover></emc-input-search>
+                <emc-select-token id="ap-hints-itemclass" class="filter-choice" placeholder="Item Class" nohover chooseonly multiple value="[&quot;progressive&quot;,&quot;useful&quot;,&quot;normal&quot;,&quot;trap&quot;]">
+                    <option value="progressive" label="Progressive"></option>
+                    <option value="useful" label="Useful"></option>
+                    <option value="normal" label="Normal"></option>
+                    <option value="trap" label="Trap"></option>
+                </emc-select-token>
+                <emc-select-token id="ap-hints-direction" class="filter-choice" placeholder="Direction" nohover chooseonly multiple value="[&quot;sender&quot;,&quot;reciever&quot;]">
                     <option value="sender" label="Sender"></option>
                     <option value="reciever" label="Reciever"></option>
                 </emc-select-token>
-                <emc-select-token id="ap-hints-status" placeholder="Status" nohover chooseonly multiple value="[&quot;found&quot;,&quot;missing&quot;]">
+                <emc-select-token id="ap-hints-status" class="filter-choice" placeholder="Status" nohover chooseonly multiple value="[&quot;found&quot;,&quot;missing&quot;]">
                     <option value="found" label="Found"></option>
                     <option value="missing" label="Not found"></option>
                 </emc-select-token>

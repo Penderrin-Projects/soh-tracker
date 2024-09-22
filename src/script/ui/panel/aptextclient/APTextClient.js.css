@@ -31,20 +31,16 @@
     padding: 3px;
 }
 
-#ap-log-search,
-#ap-hints-search {
-    width: 300px;
-}
-
-#ap-log-search,
-#ap-hints-search,
-#ap-hints-direction,
-#ap-hints-status {
+.search-field,
+.filter-choice {
     padding: 3px;
 }
 
-#ap-hints-direction,
-#ap-hints-status {
+.search-field {
+    width: 300px;
+}
+
+.filter-choice {
     width: 240px;
     flex-grow: 0;
 }
