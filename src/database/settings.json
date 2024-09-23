@@ -77,6 +77,10 @@
         "type": "check",
         "default": true
     },
+    "locations_a11y_colors_caption": {
+        "category": "a11y",
+        "type": "caption"
+    },
     "location_status_opened_color": {
         "category": "a11y",
         "type": "color",
@@ -99,6 +103,58 @@
         "category": "a11y",
         "type": "color",
         "default": "#ffff00",
+        "resettable": true
+    },
+    "ap_a11y_colors_caption": {
+        "category": "a11y",
+        "type": "caption"
+    },
+    "ap_color_player_current": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#ee00ee",
+        "resettable": true
+    },
+    "ap_color_player_other": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#fafad2",
+        "resettable": true
+    },
+    "ap_color_item_progressive": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#af99ef",
+        "resettable": true
+    },
+    "ap_color_item_useful": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#6d8be8",
+        "resettable": true
+    },
+    "ap_color_item_normal": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#00eeee",
+        "resettable": true
+    },
+    "ap_color_item_trap": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#fa8072",
+        "resettable": true
+    },
+    "ap_color_location": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#00ff7f",
+        "resettable": true
+    },
+    "ap_color_entrance": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#6495ed",
         "resettable": true
     },
     "sort_worldlist_by_access": {

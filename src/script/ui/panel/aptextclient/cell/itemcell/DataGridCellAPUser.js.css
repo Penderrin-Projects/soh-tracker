@@ -1,0 +1,15 @@
+#content {
+    justify-content: center;
+}
+
+#value {
+    white-space: pre-wrap;
+}
+
+#value.player-current {
+    color: var(--ap-color-player-current, #ee00ee);
+}
+
+#value.player-other {
+    color: var(--ap-color-player-other, #fafad2);
+}

@@ -128,4 +128,14 @@
     --world-entry-status-possible-color: #ffff00;
     --world-connection-background-color: #ffffff;
     --world-connection-text-color: #000000;
+
+    /* ally color variables for archipelago */
+    --ap-color-player-current: #ee00ee;
+    --ap-color-player-other: #fafad2;
+    --ap-color-item-progressive: #af99ef;
+    --ap-color-item-useful: #6d8be8;
+    --ap-color-item-normal: #00eeee;
+    --ap-color-item-trap: #fa8072;
+    --ap-color-location: #00ff7f;
+    --ap-color-entrance: #6495ed;
 }

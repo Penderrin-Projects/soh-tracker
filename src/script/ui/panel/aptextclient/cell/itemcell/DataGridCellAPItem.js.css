@@ -1,0 +1,23 @@
+#content {
+    justify-content: center;
+}
+
+#value {
+    white-space: pre-wrap;
+}
+
+#value.item-progressive {
+    color: var(--ap-color-item-progressive, #af99ef);
+}
+
+#value.item-useful {
+    color: var(--ap-color-item-useful, #6d8be8);
+}
+
+#value.item-normal {
+    color: var(--ap-color-item-normal, #00eeee);
+}
+
+#value.item-trap {
+    color: var(--ap-color-item-trap, #fa8072);
+}

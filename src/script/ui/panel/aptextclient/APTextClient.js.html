@@ -27,8 +27,8 @@
                     <option value="normal" label="Normal"></option>
                     <option value="trap" label="Trap"></option>
                 </emc-select-token>
-                <emc-select-token id="ap-hints-direction" class="filter-choice" placeholder="Direction" nohover chooseonly multiple value="[&quot;sender&quot;,&quot;reciever&quot;]">
-                    <option value="sender" label="Sender"></option>
+                <emc-select-token id="ap-hints-direction" class="filter-choice" placeholder="Direction" nohover chooseonly multiple value="[&quot;finder&quot;,&quot;reciever&quot;]">
+                    <option value="finder" label="Finder"></option>
                     <option value="reciever" label="Reciever"></option>
                 </emc-select-token>
                 <emc-select-token id="ap-hints-status" class="filter-choice" placeholder="Status" nohover chooseonly multiple value="[&quot;found&quot;,&quot;missing&quot;]">
@@ -37,11 +37,11 @@
                 </emc-select-token>
             </div>
             <emc-datagrid id="ap-hints" stretched="location">
-                <emc-datagrid-column name="finder" label="Finder" type="text" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="item" label="Item" type="text" sortable width="400"></emc-datagrid-column>
-                <emc-datagrid-column name="reciever" label="Reciever" type="text" sortable width="300"></emc-datagrid-column>
-                <emc-datagrid-column name="location" label="Location" type="text" sortable width="400"></emc-datagrid-column>
-                <emc-datagrid-column name="entrance" label="Entrance" type="text" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="finder" label="Finder" type="apuser" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="item" label="Item" type="apitems" sortable width="400"></emc-datagrid-column>
+                <emc-datagrid-column name="reciever" label="Reciever" type="apuser" sortable width="300"></emc-datagrid-column>
+                <emc-datagrid-column name="location" label="Location" type="text" sortable width="400" textcolor="var(--ap-color-location, #00ff7f)"></emc-datagrid-column>
+                <emc-datagrid-column name="entrance" label="Entrance" type="text" sortable width="300" textcolor="var(--ap-color-entrance, #6495ed)"></emc-datagrid-column>
                 <emc-datagrid-column name="found" label="Found" type="boolean" sortable width="120"></emc-datagrid-column>
             </emc-datagrid>
         </div>

@@ -14,6 +14,8 @@ import "/emcJS/ui/dataview/datagrid/DataGrid.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "/emcJS/ui/form/element/select/token/TokenSelect.js";
 import "./chat/ChatList.js";
+import "./cell/itemcell/DataGridCellAPItem.js";
+import "./cell/itemcell/DataGridCellAPUser.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
 
@@ -208,11 +210,19 @@ const DEBUG_HINTS = [
         "key": "19_16777238",
         "isSender": false,
         "isReciever": true,
-        "finder": "fraggerHK",
-        "reciever": "ZidArgs_OOT",
+        "finder": {
+            "alias": "fraggerHK",
+            "current": false
+        },
+        "reciever": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
         "location": "Sly_(Key)_7",
-        "item": "Piece of Heart",
-        "itemClass": "useful",
+        "item": {
+            "item": "Piece of Heart",
+            "itemClass": "useful"
+        },
         "entrance": "",
         "found": true
     },
@@ -220,11 +230,19 @@ const DEBUG_HINTS = [
         "key": "3_16777945",
         "isSender": false,
         "isReciever": true,
-        "finder": "CylerHK",
-        "reciever": "ZidArgs_OOT",
+        "finder": {
+            "alias": "CylerHK",
+            "current": false
+        },
+        "reciever": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
         "location": "Lore_Tablet-Fungal_Core",
-        "item": "Piece of Heart",
-        "itemClass": "useful",
+        "item": {
+            "item": "Piece of Heart",
+            "itemClass": "useful"
+        },
         "entrance": "",
         "found": false
     },
@@ -232,11 +250,19 @@ const DEBUG_HINTS = [
         "key": "39_2000301010",
         "isSender": false,
         "isReciever": true,
-        "finder": "Klappi hat r",
-        "reciever": "ZidArgs_OOT",
+        "finder": {
+            "alias": "Klappi hat r",
+            "current": false
+        },
+        "reciever": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
         "location": "Badge Seller - Item 8",
-        "item": "Gold Skulltula Token",
-        "itemClass": "progressive",
+        "item": {
+            "item": "Gold Skulltula Token",
+            "itemClass": "progressive"
+        },
         "entrance": "",
         "found": true
     },
@@ -244,11 +270,19 @@ const DEBUG_HINTS = [
         "key": "65_67801",
         "isSender": false,
         "isReciever": true,
-        "finder": "ZidArgs_OOT_TH2",
-        "reciever": "ZidArgs_OOT",
+        "finder": {
+            "alias": "ZidArgs_OOT_TH2",
+            "current": false
+        },
+        "reciever": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
         "location": "HF Southeast Grotto Beehive 1",
-        "item": "Progressive Strength Upgrade",
-        "itemClass": "progressive",
+        "item": {
+            "item": "Progressive Strength Upgrade",
+            "itemClass": "progressive"
+        },
         "entrance": "Graveyard -> Graveyard Shield Grave",
         "found": false
     },
@@ -256,11 +290,19 @@ const DEBUG_HINTS = [
         "key": "66_67801",
         "isSender": true,
         "isReciever": true,
-        "finder": "ZidArgs_OOT",
-        "reciever": "ZidArgs_OOT",
+        "finder": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
+        "reciever": {
+            "alias": "ZidArgs_OOT",
+            "current": true
+        },
         "location": "HF Southeast Grotto Beehive 1",
-        "item": "Test",
-        "itemClass": "trap",
+        "item": {
+            "item": "Test",
+            "itemClass": "trap"
+        },
         "entrance": "",
         "found": false
     }
@@ -290,7 +332,9 @@ class APTextClient extends Panel {
         const apLogSearchEl = this.shadowRoot.getElementById("ap-log-search");
         const apLogItemClassEl = this.shadowRoot.getElementById("ap-log-itemclass");
         const apLogDirectionEl = this.shadowRoot.getElementById("ap-log-direction");
-        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES);
+        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES, {
+            filterIgnoreNullValues: true
+        });
         ArchipelagoController.addEventListener("message", (event) => {
             const {data} = event;
             const resolvedMessage = this.#resolveMessagegParts(data);
@@ -330,8 +374,10 @@ class APTextClient extends Panel {
         const apHintsItemClassEl = this.shadowRoot.getElementById("ap-hints-itemclass");
         const apHintsDirectionEl = this.shadowRoot.getElementById("ap-hints-direction");
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
-        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS);
-        apHintGridDataProvider.setOptions({searchFields: ["finder", "item", "reciever", "location", "entrance"]});
+        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS, {
+            searchFields: ["finder", "item.item", "reciever", "location", "entrance"],
+            filterIgnoreNullValues: true
+        });
         ArchipelagoController.addEventListener("hintupdate", (event) => {
             for (const hint of event.data) {
                 const resolvedHint = this.#resolveHint(hint);
@@ -343,26 +389,26 @@ class APTextClient extends Panel {
         });
         apHintsItemClassEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();
-            filter.itemClass = apHintsItemClassEl.value;
+            filter["item.itemClass"] = apHintsItemClassEl.value;
             apHintGridDataProvider.updateOptions({filter});
         });
         apHintsDirectionEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();
             const value = apHintsDirectionEl.value;
-            if (value.includes("sender")) {
+            if (value.includes("finder")) {
                 if (value.includes("reciever")) {
-                    filter.isSender = null;
-                    filter.isReciever = null;
+                    filter["finder.current"] = null;
+                    filter["reciever.current"] = null;
                 } else {
-                    filter.isSender = true;
-                    filter.isReciever = null;
+                    filter["finder.current"] = true;
+                    filter["reciever.current"] = null;
                 }
             } else if (value.includes("reciever")) {
-                filter.isSender = null;
-                filter.isReciever = true;
+                filter["finder.current"] = null;
+                filter["reciever.current"] = true;
             } else {
-                filter.isSender = false;
-                filter.isReciever = false;
+                filter["finder.current"] = false;
+                filter["reciever.current"] = false;
             }
             apHintGridDataProvider.updateOptions({filter});
         });
@@ -378,7 +424,7 @@ class APTextClient extends Panel {
             } else if (value.includes("missing")) {
                 filter.found = false;
             } else {
-                filter.found = "nope";
+                filter.found = [];
             }
             apHintGridDataProvider.updateOptions({filter});
         });
@@ -539,11 +585,19 @@ class APTextClient extends Panel {
             key: `${finding_player}_${location}`,
             isSender: finding_player === apPlayerId,
             isReciever: receiving_player === apPlayerId,
-            finder: finderAlias,
-            reciever: recieverAlias,
+            finder: {
+                alias: finderAlias,
+                current: finding_player === apPlayerId
+            },
+            reciever: {
+                alias: recieverAlias,
+                current: receiving_player === apPlayerId
+            },
             location: locationName,
-            item: itemName,
-            itemClass: itemClass,
+            item: {
+                item: itemName,
+                itemClass: itemClass
+            },
             entrance,
             found
         };

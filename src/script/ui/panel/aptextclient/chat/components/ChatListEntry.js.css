@@ -13,33 +13,33 @@
 }
 
 #container .player-current {
-    color: #ee00ee;
+    color: var(--ap-color-player-current, #ee00ee);
 }
 
 #container .player-other {
-    color: #fafad2;
+    color: var(--ap-color-player-other, #fafad2);
 }
 
 #container .item-progressive {
-    color: #af99ef;
+    color: var(--ap-color-item-progressive, #af99ef);
 }
 
 #container .item-useful {
-    color: #6d8be8;
+    color: var(--ap-color-item-useful, #6d8be8);
 }
 
 #container .item-normal {
-    color: #00eeee;
+    color: var(--ap-color-item-normal, #00eeee);
 }
 
 #container .item-trap {
-    color: #fa8072;
+    color: var(--ap-color-item-trap, #fa8072);
 }
 
 #container .location {
-    color: #00ff7f;
+    color: var(--ap-color-location, #00ff7f);
 }
 
 #container .entrance {
-    color: #6495ed;
+    color: var(--ap-color-entrance, #6495ed);
 }
