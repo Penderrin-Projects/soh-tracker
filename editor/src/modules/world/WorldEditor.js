@@ -54,7 +54,7 @@ export default async function() {
         }
     };
 
-    LogicOperatorRegistry.setAndLinkOperator("$AP_IS_CONNECTED", {
+    LogicOperatorRegistry.setAndLinkOperator("$IS_AP_STATE", {
         type: "value"
     }, "special");
 

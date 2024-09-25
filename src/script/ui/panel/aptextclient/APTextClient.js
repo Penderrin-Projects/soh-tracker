@@ -1,4 +1,7 @@
 import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
+import {
+    recordsToDict, dictToRecords
+} from "/emcJS/util/helper/storage/Records.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import {
     VALID_JSON_MESSAGE_TYPE
@@ -18,6 +21,9 @@ import "./cell/itemcell/DataGridCellAPItem.js";
 import "./cell/itemcell/DataGridCellAPUser.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
 import STYLE from "./APTextClient.js.css" assert {type: "css"};
+import {
+    AP_STORAGES
+} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 
 const ITEM_CLASSES = {
     [ITEM_FLAGS.PROGRESSION]: "progressive",
@@ -205,109 +211,6 @@ const DEBUG_MESSAGES = [
     }
 ];
 
-const DEBUG_HINTS = [
-    {
-        "key": "19_16777238",
-        "isSender": false,
-        "isReciever": true,
-        "finder": {
-            "alias": "fraggerHK",
-            "current": false
-        },
-        "reciever": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "location": "Sly_(Key)_7",
-        "item": {
-            "item": "Piece of Heart",
-            "itemClass": "useful"
-        },
-        "entrance": "",
-        "found": true
-    },
-    {
-        "key": "3_16777945",
-        "isSender": false,
-        "isReciever": true,
-        "finder": {
-            "alias": "CylerHK",
-            "current": false
-        },
-        "reciever": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "location": "Lore_Tablet-Fungal_Core",
-        "item": {
-            "item": "Piece of Heart",
-            "itemClass": "useful"
-        },
-        "entrance": "",
-        "found": false
-    },
-    {
-        "key": "39_2000301010",
-        "isSender": false,
-        "isReciever": true,
-        "finder": {
-            "alias": "Klappi hat r",
-            "current": false
-        },
-        "reciever": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "location": "Badge Seller - Item 8",
-        "item": {
-            "item": "Gold Skulltula Token",
-            "itemClass": "progressive"
-        },
-        "entrance": "",
-        "found": true
-    },
-    {
-        "key": "65_67801",
-        "isSender": false,
-        "isReciever": true,
-        "finder": {
-            "alias": "ZidArgs_OOT_TH2",
-            "current": false
-        },
-        "reciever": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "location": "HF Southeast Grotto Beehive 1",
-        "item": {
-            "item": "Progressive Strength Upgrade",
-            "itemClass": "progressive"
-        },
-        "entrance": "Graveyard -> Graveyard Shield Grave",
-        "found": false
-    },
-    {
-        "key": "66_67801",
-        "isSender": true,
-        "isReciever": true,
-        "finder": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "reciever": {
-            "alias": "ZidArgs_OOT",
-            "current": true
-        },
-        "location": "HF Southeast Grotto Beehive 1",
-        "item": {
-            "item": "Test",
-            "itemClass": "trap"
-        },
-        "entrance": "",
-        "found": false
-    }
-];
-
 // TODO
 // text client with filter options (command list cache)
 // show hints as sortable filterable grid
@@ -374,15 +277,17 @@ class APTextClient extends Panel {
         const apHintsItemClassEl = this.shadowRoot.getElementById("ap-hints-itemclass");
         const apHintsDirectionEl = this.shadowRoot.getElementById("ap-hints-direction");
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
-        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, DEBUG_HINTS, {
+        const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, dictToRecords(AP_STORAGES.hints.getAll()), {
             searchFields: ["finder", "item.item", "reciever", "location", "entrance"],
-            filterIgnoreNullValues: true
+            filterIgnoreNullValues: true,
+            sort: ["found"]
         });
         ArchipelagoController.addEventListener("hintupdate", (event) => {
             for (const hint of event.data) {
                 const resolvedHint = this.#resolveHint(hint);
                 apHintGridDataProvider.addEntry(resolvedHint);
             }
+            AP_STORAGES.hints.setAll(recordsToDict(apHintGridDataProvider.getSource()));
         });
         apHintsSearchEl.addEventListener("change", () => {
             apHintGridDataProvider.updateOptions({search: apHintsSearchEl.value});

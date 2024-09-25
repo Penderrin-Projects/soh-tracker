@@ -1,4 +1,5 @@
 import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
+import ObservableStorage from "/emcJS/data/storage/observable/ObservableStorage.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import TrackerLogicDataCollector from "/GameTrackerJS/util/logic/TrackerLogicDataCollector.js";
 
@@ -10,7 +11,8 @@ const STORAGES = {
 
 export const AP_STORAGES = {
     items: new ObservableDefaultValueStorage(0),
-    locations: new ObservableDefaultValueStorage(false)
+    locations: new ObservableDefaultValueStorage(false),
+    hints: new ObservableStorage()
 };
 
 function joinValuesItem(newData) {
@@ -83,3 +85,5 @@ Savestate.registerStorage("APItems", AP_STORAGES.items);
 TrackerLogicDataCollector.registerStorage(STORAGES.locations, "location[", "]", joinValuesLocation);
 TrackerLogicDataCollector.registerStorage(AP_STORAGES.locations, "location[", "]", joinValuesAPLocation);
 Savestate.registerStorage("APLocations", AP_STORAGES.locations);
+
+Savestate.registerStorage("APHints", AP_STORAGES.hints);

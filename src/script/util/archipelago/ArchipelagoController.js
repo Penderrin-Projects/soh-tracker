@@ -147,6 +147,7 @@ class ArchipelagoController extends EventTarget {
 
         const translatedLocations = this.#collectLocations(checked_locations);
 
+        Savestate.setMeta("archipelago", true);
         AP_STORAGES.locations.deserializeAsChange(translatedLocations);
         SavestateHandler.forceCache();
 

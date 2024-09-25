@@ -127,6 +127,7 @@ export default class APWindow extends Window {
         if (result === true) {
             AP_STORAGES.items.clearAsChange();
             AP_STORAGES.locations.clearAsChange();
+            Savestate.deleteMeta("archipelago");
             SavestateHandler.forceCache();
         }
     }
