@@ -105,6 +105,21 @@ try {
     viewchoiceEl.setTab("notes", "Notes", "images/icons/notes.svg");
     viewchoiceEl.setTab("ap", "Archipelago", "images/icons/ap.svg");
 
+    // AP state tab handling
+    if (!Savestate.getMeta("archipelago")) {
+        viewchoiceEl.setTabButtonVisibility("ap", false);
+    }
+    Savestate.addEventListener("meta", (event) => {
+        const {key, value} = event.data;
+        if (key === "archipelago") {
+            viewchoiceEl.setTabButtonVisibility("ap", !!value);
+        }
+    });
+    Savestate.addEventListener("load", () => {
+        const isApState = !!Savestate.getMeta("archipelago");
+        viewchoiceEl.setTabButtonVisibility("ap", isApState);
+    });
+
     // XXX
     window.ArchipelagoController = ArchipelagoController;
 

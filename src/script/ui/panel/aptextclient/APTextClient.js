@@ -3,6 +3,7 @@ import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import {
     VALID_JSON_MESSAGE_TYPE
 } from "/ArchipelagoJS/types/JSONMessagePart.js";
@@ -32,188 +33,7 @@ const ITEM_CLASSES = {
     [ITEM_FLAGS.TRAP]: "trap"
 };
 
-const DEBUG_MESSAGES = [
-    {
-        "type": "ServerChat",
-        "message": "SERVER DEBUG MESSAGE"
-    },
-    {
-        "type": "Chat",
-        "playerAlias": "ZidArgs_OOT",
-        "message": "CLIENT DEBUG MESSAGE"
-    },
-    {
-        "type": "ItemSend",
-        "isSender": true,
-        "isReciever": false,
-        "sender": "ZidArgs_OOT",
-        "reciever": "fraggerEmerald",
-        "itemClass": "normal",
-        "itemName": "Glitter Mail",
-        "locationName": "Kak GS House Under Construction",
-        "message": [
-            {
-                "type": "player_id",
-                "current": true,
-                "playerAlias": "ZidArgs_OOT"
-            },
-            {
-                "text": " sent "
-            },
-            {
-                "type": "item_id",
-                "itemName": "Glitter Mail",
-                "itemClass": "normal"
-            },
-            {
-                "text": " to "
-            },
-            {
-                "type": "player_id",
-                "current": false,
-                "playerAlias": "fraggerEmerald",
-                "playerGame": "Pokemon Emerald"
-            },
-            {
-                "text": " ("
-            },
-            {
-                "type": "location_id",
-                "locationName": "Kak GS House Under Construction"
-            },
-            {
-                "text": ")"
-            }
-        ]
-    },
-    {
-        "type": "ItemSend",
-        "isSender": true,
-        "isReciever": false,
-        "sender": "ZidArgs_OOT",
-        "reciever": "ZidArgs_DLC",
-        "itemClass": "useful",
-        "itemName": "Live Freemium or Die: Coin Bundle",
-        "locationName": "Kak GS Tree",
-        "message": [
-            {
-                "type": "player_id",
-                "current": true,
-                "playerAlias": "ZidArgs_OOT"
-            },
-            {
-                "text": " sent "
-            },
-            {
-                "type": "item_id",
-                "itemName": "Live Freemium or Die: Coin Bundle",
-                "itemClass": "useful"
-            },
-            {
-                "text": " to "
-            },
-            {
-                "type": "player_id",
-                "current": false,
-                "playerAlias": "ZidArgs_DLC",
-                "playerGame": "DLCQuest"
-            },
-            {
-                "text": " ("
-            },
-            {
-                "type": "location_id",
-                "locationName": "Kak GS Tree"
-            },
-            {
-                "text": ")"
-            }
-        ]
-    },
-    {
-        "type": "ItemSend",
-        "isSender": true,
-        "isReciever": false,
-        "sender": "ZidArgs_OOT",
-        "reciever": "fraggerTBOI",
-        "itemClass": "progressive",
-        "itemName": "Shop Item",
-        "locationName": "Kak GS Near Gate Guard",
-        "message": [
-            {
-                "type": "player_id",
-                "current": true,
-                "playerAlias": "ZidArgs_OOT"
-            },
-            {
-                "text": " sent "
-            },
-            {
-                "type": "item_id",
-                "itemName": "Shop Item",
-                "itemClass": "progressive"
-            },
-            {
-                "text": " to "
-            },
-            {
-                "type": "player_id",
-                "current": false,
-                "playerAlias": "fraggerTBOI",
-                "playerGame": "The Binding of Isaac Repentance"
-            },
-            {
-                "text": " ("
-            },
-            {
-                "type": "location_id",
-                "locationName": "Kak GS Near Gate Guard"
-            },
-            {
-                "text": ")"
-            }
-        ]
-    },
-    {
-        "type": "ItemSend",
-        "isSender": true,
-        "isReciever": true,
-        "sender": "ZidArgs_OOT",
-        "reciever": "ZidArgs_OOT",
-        "itemClass": "trap",
-        "itemName": "Ice Trap",
-        "locationName": "Forest Temple Center Room Right Pot 1",
-        "message": [
-            {
-                "type": "player_id",
-                "current": true,
-                "playerAlias": "ZidArgs_OOT"
-            },
-            {
-                "text": " found their "
-            },
-            {
-                "type": "item_id",
-                "itemName": "Ice Trap",
-                "itemClass": "trap"
-            },
-            {
-                "text": " ("
-            },
-            {
-                "type": "location_id",
-                "locationName": "Forest Temple Center Room Right Pot 1"
-            },
-            {
-                "text": ")"
-            }
-        ]
-    }
-];
-
 // TODO
-// text client with filter options (command list cache)
-// show hints as sortable filterable grid
 // add hint item function through clicking the desired icons (generate text user needs to send)
 // add hint location function through clicking the desired locations (generate text user needs to send)
 
@@ -233,9 +53,10 @@ class APTextClient extends Panel {
         /* --- */
         const apLogListEl = this.shadowRoot.getElementById("ap-log");
         const apLogSearchEl = this.shadowRoot.getElementById("ap-log-search");
+        const apLogMsgTypeEl = this.shadowRoot.getElementById("ap-log-msgtype");
         const apLogItemClassEl = this.shadowRoot.getElementById("ap-log-itemclass");
         const apLogDirectionEl = this.shadowRoot.getElementById("ap-log-direction");
-        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, DEBUG_MESSAGES, {
+        const apLogListDataProvider = new SimpleDataProvider(apLogListEl, [], {
             filterIgnoreNullValues: true
         });
         ArchipelagoController.addEventListener("message", (event) => {
@@ -245,6 +66,11 @@ class APTextClient extends Panel {
         });
         apLogSearchEl.addEventListener("change", () => {
             apLogListDataProvider.updateOptions({search: apLogSearchEl.value});
+        });
+        apLogMsgTypeEl.addEventListener("change", () => {
+            const {filter} = apLogListDataProvider.getOptions();
+            filter.type = apLogMsgTypeEl.value;
+            apLogListDataProvider.updateOptions({filter});
         });
         apLogItemClassEl.addEventListener("change", () => {
             const {filter} = apLogListDataProvider.getOptions();
@@ -332,6 +158,11 @@ class APTextClient extends Panel {
                 filter.found = [];
             }
             apHintGridDataProvider.updateOptions({filter});
+        });
+        /* --- */
+        Savestate.addEventListener("load", () => {
+            apLogListDataProvider.setSource([]);
+            apHintGridDataProvider.setSource(dictToRecords(AP_STORAGES.hints.getAll()));
         });
         /* --- */
         this.#chatInputEl.addEventListener("keydown", (event) => {

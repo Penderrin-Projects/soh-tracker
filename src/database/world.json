@@ -70450,22 +70450,52 @@
             "type": "chest",
             "logicAccess": "reach_location[kakariko.c_granny_buy_blue_potion]",
             "visible": {
-                "type": "value",
-                "ref": "option[shuffle_expensive_merchants]"
+                "type": "and",
+                "content": [
+                    {
+                        "type": "value",
+                        "ref": "option[shuffle_expensive_merchants]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
+                    }
+                ]
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": false,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -70473,9 +70503,6 @@
                             "ref": "$IS_DONE"
                         }
                     }
-                },
-                "skulltulas": {
-                    "overworld": true
                 }
             },
             "icon": "/images/icons/chest.svg",
@@ -71079,26 +71106,56 @@
             "type": "chest",
             "logicAccess": "reach_location[lake.c_loach_fishing]",
             "visible": {
-                "type": "not",
-                "content": {
-                    "type": "state",
-                    "ref": "option[shuffle_loach_reward]",
-                    "value": "off"
-                }
+                "type": "and",
+                "content": [
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "state",
+                            "ref": "option[shuffle_loach_reward]",
+                            "value": "off"
+                        }
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
+                    }
+                ]
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
                 "chests": {
+                    "true": true,
                     "false": false
                 },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -71524,6 +71581,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[mushroom]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71583,6 +71647,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[saw]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71642,6 +71713,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[eyedrops]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71701,6 +71779,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[broken_sword]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71760,6 +71845,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[prescription]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71819,6 +71911,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[claim]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71878,6 +71977,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[frog]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71937,6 +72043,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[medicine]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },
@@ -71996,6 +72109,13 @@
                     {
                         "type": "value",
                         "ref": "option[item[pocket_cojiro]]"
+                    },
+                    {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_AP_STATE"
+                        }
                     }
                 ]
             },

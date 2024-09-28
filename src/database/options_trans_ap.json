@@ -567,7 +567,9 @@
     "dungeons": {
         "Deku Tree": "deku",
         "Dodongos Cavern": "dodongo",
+        "Dodongo's Cavern": "dodongo",
         "Jabu Jabus Belly": "jabujabu",
+        "Jabu Jabu's Belly": "jabujabu",
         "Bottom of the Well": "well",
         "Ice Cavern": "ice_cavern",
         "Gerudo Training Ground": "training_grounds",

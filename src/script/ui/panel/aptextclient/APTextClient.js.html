@@ -3,6 +3,11 @@
         <div class="container">
             <div class="filter-bar">
                 <emc-input-search id="ap-log-search" class="search-field" placeholder="Search" nohover></emc-input-search>
+                <emc-select-token id="ap-log-msgtype" class="filter-choice" placeholder="Message Type" nohover chooseonly multiple value="[&quot;ServerChat&quot;,&quot;Chat&quot;,&quot;ItemSend&quot;]">
+                    <option value="ServerChat" label="Server Messages"></option>
+                    <option value="Chat" label="Chat Messages"></option>
+                    <option value="ItemSend" label="Item Transfers"></option>
+                </emc-select-token>
                 <emc-select-token id="ap-log-itemclass" class="filter-choice" placeholder="Item Class" nohover chooseonly multiple value="[&quot;progressive&quot;,&quot;useful&quot;,&quot;normal&quot;,&quot;trap&quot;]">
                     <option value="progressive" label="Progressive"></option>
                     <option value="useful" label="Useful"></option>
