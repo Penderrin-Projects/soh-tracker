@@ -9,6 +9,7 @@
     position: relative;
     box-sizing: border-box;
     padding: 6px;
+    white-space: pre-wrap;
     user-select: text;
 }
 

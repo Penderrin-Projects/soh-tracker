@@ -1,4 +1,5 @@
 import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
+import IndexedSet from "/emcJS/data/collection/IndexedSet.js";
 import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
@@ -42,6 +43,10 @@ class APTextClient extends Panel {
     #apTabsEl;
 
     #chatInputEl;
+
+    #commandHistory = new IndexedSet();
+
+    #commandHistoryNeedle = -1;
 
     constructor() {
         super();
@@ -166,12 +171,33 @@ class APTextClient extends Panel {
         });
         /* --- */
         this.#chatInputEl.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
+            const {key} = event;
+            if (key === "Enter") {
                 const text = this.#chatInputEl.value;
                 ArchipelagoController.sendChatMessage(text);
+                this.#commandHistoryNeedle = -1;
+                if (text.startsWith("!")) {
+                    this.#commandHistory.insertAt(0, text);
+                }
                 this.#chatInputEl.value = "";
                 event.stopPropagation();
                 return false;
+            } else if (key === "ArrowUp") {
+                if (this.#commandHistoryNeedle < this.#commandHistory.size - 1) {
+                    const index = ++this.#commandHistoryNeedle;
+                    const command = this.#commandHistory.at(index);
+                    this.#chatInputEl.value = command;
+                }
+            } else if (key === "ArrowDown") {
+                if (this.#commandHistoryNeedle >= 0) {
+                    const index = --this.#commandHistoryNeedle;
+                    if (index >= 0) {
+                        const command = this.#commandHistory.at(index);
+                        this.#chatInputEl.value = command;
+                    } else {
+                        this.#chatInputEl.value = "";
+                    }
+                }
             }
         });
         apLogListEl.addEventListener("scrollend", (event) => {
