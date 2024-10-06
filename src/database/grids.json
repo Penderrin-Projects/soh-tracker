@@ -2259,5 +2259,934 @@
                 "visible": true
             }
         ]
+    ],
+    "ap-hint-groups": [
+        [
+            {
+                "type": "icon",
+                "value": "Adult Trade Item",
+                "icon": "/images/items/adult_trade.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottles",
+                "icon": "/images/items/bottles.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Keys",
+                "icon": "/images/items/keys.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "stones",
+                "icon": "/images/items/stones.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "medallions",
+                "icon": "/images/items/medallions.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "rewards",
+                "icon": "/images/items/rewards.png",
+                "visible": true
+            }
+        ]
+    ],
+    "ap-hint-items": [
+        [
+            {
+                "type": "icon",
+                "value": "Progressive Hookshot",
+                "icon": "/images/items/hookshot_progressive.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Progressive Strength Upgrade",
+                "icon": "/images/items/glove_progressive.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Progressive Scale",
+                "icon": "/images/items/scale_progressive.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Progressive Wallet",
+                "icon": "/images/items/wallet_progressive.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Deku Stick Capacity",
+                "icon": "/images/items/stick_capacity.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Deku Nut Capacity",
+                "icon": "/images/items/nut_capacity.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bomb Bag",
+                "icon": "/images/items/bomb_bag_bombs.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bow",
+                "icon": "/images/items/bow.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Fire Arrows",
+                "icon": "/images/items/arrow_fire.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Ice Arrows",
+                "icon": "/images/items/arrow_ice.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Light Arrows",
+                "icon": "/images/items/arrow_light.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Slingshot",
+                "icon": "/images/items/slingshot.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Ocarina",
+                "icon": "/images/items/ocarina_saria.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bombchus",
+                "icon": "/images/items/bombchu.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Magic Meter",
+                "icon": "/images/items/magic_power_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Dins Fire",
+                "icon": "/images/items/magic_din.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Farores Wind",
+                "icon": "/images/items/magic_farore.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Nayrus Love",
+                "icon": "/images/items/magic_nayru.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Boomerang",
+                "icon": "/images/items/boomerang.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Lens of Truth",
+                "icon": "/images/items/lens.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Magic Bean",
+                "icon": "/images/items/bean.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Magic Bean Pack",
+                "icon": "/images/items/bean_pack.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Megaton Hammer",
+                "icon": "/images/items/hammer.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Gold Skulltula Token",
+                "icon": "/images/items/skulltula.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Triforce Piece",
+                "icon": "/images/items/triforce_piece.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Weird Egg",
+                "icon": "/images/items/egg.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Zeldas Letter",
+                "icon": "/images/items/zelda_letter.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Stone of Agony",
+                "icon": "/images/items/stoneofagony.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Piece of Heart",
+                "icon": "/images/items/heart_piece.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Piece of Heart (Treasure Chest Game)",
+                "icon": "/images/items/heart_piece.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Heart Container",
+                "icon": "/images/items/heart_container.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Double Defense",
+                "icon": "/images/items/heart_double.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Goron Tunic",
+                "icon": "/images/items/tunic_fire.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Zora Tunic",
+                "icon": "/images/items/tunic_water.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Iron Boots",
+                "icon": "/images/items/boots_iron.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Hover Boots",
+                "icon": "/images/items/boots_hover.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Kokiri Sword",
+                "icon": "/images/items/sword_kokiri.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Giants Knife",
+                "icon": "/images/items/sword_medigoron.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Biggoron Sword",
+                "icon": "/images/items/sword_biggoron.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Deku Shield",
+                "icon": "/images/items/shield_kokiri.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Hylian Shield",
+                "icon": "/images/items/shield_hylia.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Mirror Shield",
+                "icon": "/images/items/shield_mirror.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Zeldas Lullaby",
+                "icon": "/images/items/song_zelda.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Eponas Song",
+                "icon": "/images/items/song_epona.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Sarias Song",
+                "icon": "/images/items/song_saria.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Suns Song",
+                "icon": "/images/items/song_sun.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Song of Time",
+                "icon": "/images/items/song_time.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Song of Storms",
+                "icon": "/images/items/song_storm.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Minuet of Forest",
+                "icon": "/images/items/warp_forest.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bolero of Fire",
+                "icon": "/images/items/warp_fire.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Serenade of Water",
+                "icon": "/images/items/warp_water.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Requiem of Spirit",
+                "icon": "/images/items/warp_spirit.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Nocturne of Shadow",
+                "icon": "/images/items/warp_shadow.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Prelude of Light",
+                "icon": "/images/items/warp_light.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Bottle",
+                "icon": "/images/items/bottle.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Rutos Letter",
+                "icon": "/images/items/zora_letter.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Bugs",
+                "icon": "/images/items/bottle_bugs.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Fish",
+                "icon": "/images/items/bottle_fish.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Milk",
+                "icon": "/images/items/bottle_milk.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Red Potion",
+                "icon": "/images/items/bottle_potion_red.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Green Potion",
+                "icon": "/images/items/bottle_potion_green.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Blue Potion",
+                "icon": "/images/items/bottle_potion_blue.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Fairy",
+                "icon": "/images/items/bottle_fairy.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Blue Fire",
+                "icon": "/images/items/bottle_blue_fire.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Poe",
+                "icon": "/images/items/bottle_poe.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Bottle with Big Poe",
+                "icon": "/images/items/bottle_poe_big.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Pocket Egg",
+                "icon": "/images/items/egg.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Pocket Cucco",
+                "icon": "/images/items/cucco.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Cojiro",
+                "icon": "/images/items/cojiro.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Odd Mushroom",
+                "icon": "/images/items/mushroom.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Odd Potion",
+                "icon": "/images/items/medicine.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Poachers Saw",
+                "icon": "/images/items/saw.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Broken Sword",
+                "icon": "/images/items/broken_sword.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Prescription",
+                "icon": "/images/items/prescription.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Eyeball Frog",
+                "icon": "/images/items/frog.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Eyedrops",
+                "icon": "/images/items/eyedrops.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Claim Check",
+                "icon": "/images/items/claim.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "text",
+                "value": "DT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "DC",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "JB",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "FoT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "FiT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "WT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "ShT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "SpT",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "BotW",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "IC",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "GF",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "GTG",
+                "valign": "end",
+                "visible": true
+            },
+            {
+                "type": "text",
+                "value": "GC",
+                "valign": "end",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Forest Temple)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Fire Temple)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Water Temple)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Shadow Temple)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Spirit Temple)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Bottom of the Well)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Thieves Hideout)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Gerudo Training Ground)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key (Ganons Castle)",
+                "icon": "/images/items/key_small.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Forest Temple)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Fire Temple)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Water Temple)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Shadow Temple)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Spirit Temple)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Bottom of the Well)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Thieves Hideout)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Gerudo Training Ground)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Small Key Ring (Ganons Castle)",
+                "icon": "/images/items/key_ring.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Forest Temple)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Fire Temple)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Water Temple)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Shadow Temple)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Spirit Temple)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Bottom of the Well)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Gerudo Membership Card",
+                "icon": "/images/items/membership.png",
+                "visible": true
+            },
+            {
+                "type": "empty"
+            },
+            {
+                "type": "icon",
+                "value": "Boss Key (Ganons Castle)",
+                "icon": "/images/items/key_boss.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Map (Deku Tree)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Dodongos Cavern)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Jabu Jabus Belly)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Forest Temple)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Fire Temple)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Water Temple)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Shadow Temple)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Spirit Temple)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Bottom of the Well)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Map (Ice Cavern)",
+                "icon": "/images/items/dungeon_map.png",
+                "visible": true
+            }
+        ],
+        [
+            {
+                "type": "icon",
+                "value": "Compass (Deku Tree)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Dodongos Cavern)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Jabu Jabus Belly)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Forest Temple)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Fire Temple)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Water Temple)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Shadow Temple)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Spirit Temple)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Bottom of the Well)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            },
+            {
+                "type": "icon",
+                "value": "Compass (Ice Cavern)",
+                "icon": "/images/items/compass.png",
+                "visible": true
+            }
+        ]
     ]
 }

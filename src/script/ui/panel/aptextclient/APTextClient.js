@@ -3,6 +3,9 @@ import IndexedSet from "/emcJS/data/collection/IndexedSet.js";
 import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
+import {
+    isStringNotEmpty
+} from "/emcJS/util/helper/CheckType.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import {
@@ -19,6 +22,7 @@ import "/emcJS/ui/dataview/datagrid/DataGrid.js";
 import "/emcJS/ui/form/element/input/string/StringInput.js";
 import "/emcJS/ui/form/element/select/token/TokenSelect.js";
 import "./chat/ChatList.js";
+import "./hintbuilder/ItemHintBuilder.js";
 import "./cell/itemcell/DataGridCellAPItem.js";
 import "./cell/itemcell/DataGridCellAPUser.js";
 import TPL from "./APTextClient.js.html" assert {type: "html"};
@@ -102,6 +106,10 @@ class APTextClient extends Panel {
             }
             apLogListDataProvider.updateOptions({filter});
         });
+        apLogListEl.addEventListener("scrollend", (event) => {
+            event.stopPropagation();
+            apLogListEl.autoscroll = apLogListEl.getVerticalScrollFactor() === 1;
+        }, true);
         /* --- */
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
         const apHintsSearchEl = this.shadowRoot.getElementById("ap-hints-search");
@@ -165,6 +173,15 @@ class APTextClient extends Panel {
             apHintGridDataProvider.updateOptions({filter});
         });
         /* --- */
+        const apItemHintBuilderEl = this.shadowRoot.getElementById("ap-item-hint-builder");
+        apItemHintBuilderEl.addEventListener("hint", (event) => {
+            const {value} = event;
+            if (isStringNotEmpty(value)) {
+                this.#chatInputEl.value = `!hint ${value}`;
+                this.#chatInputEl.focus();
+            }
+        });
+        /* --- */
         Savestate.addEventListener("load", () => {
             apLogListDataProvider.setSource([]);
             apHintGridDataProvider.setSource(dictToRecords(AP_STORAGES.hints.getAll()));
@@ -200,10 +217,51 @@ class APTextClient extends Panel {
                 }
             }
         });
-        apLogListEl.addEventListener("scrollend", (event) => {
-            event.stopPropagation();
-            apLogListEl.autoscroll = apLogListEl.getVerticalScrollFactor() === 1;
-        }, true);
+        /* --- */
+        const apHintsAvailable = this.shadowRoot.getElementById("ap-hints-available");
+        const apHintPointsNext = this.shadowRoot.getElementById("ap-hint-points-next");
+        const apHintPointsNeeded = this.shadowRoot.getElementById("ap-hint-points-needed");
+        const apHintPointProgress = this.shadowRoot.getElementById("ap-hint-point-progress");
+        ArchipelagoController.addEventListener("connected", () => {
+            const currentHintPoints = ArchipelagoController.currentHintPoints;
+            const neededHintPoints = ArchipelagoController.neededHintPoints;
+
+            const points = Math.floor(currentHintPoints / neededHintPoints);
+            const nextHint = currentHintPoints % neededHintPoints;
+
+            apHintsAvailable.innerText = points;
+            apHintPointsNext.innerText = nextHint;
+            apHintPointsNeeded.innerText = neededHintPoints;
+
+            apHintPointProgress.max = neededHintPoints;
+            apHintPointProgress.value = nextHint;
+        });
+        ArchipelagoController.addEventListener("hintpoints", () => {
+            const currentHintPoints = ArchipelagoController.currentHintPoints;
+            const neededHintPoints = ArchipelagoController.neededHintPoints;
+
+            const points = Math.floor(currentHintPoints / neededHintPoints);
+            const nextHint = currentHintPoints % neededHintPoints;
+
+            apHintsAvailable.innerText = points;
+            apHintPointsNext.innerText = nextHint;
+
+            apHintPointProgress.value = nextHint;
+        });
+        ArchipelagoController.addEventListener("hintcost", () => {
+            const currentHintPoints = ArchipelagoController.currentHintPoints;
+            const neededHintPoints = ArchipelagoController.neededHintPoints;
+
+            const points = Math.floor(currentHintPoints / neededHintPoints);
+            const nextHint = currentHintPoints % neededHintPoints;
+
+            apHintsAvailable.innerText = points;
+            apHintPointsNext.innerText = nextHint;
+            apHintPointsNeeded.innerText = neededHintPoints;
+
+            apHintPointProgress.max = neededHintPoints;
+            apHintPointProgress.value = nextHint;
+        });
     }
 
     switchToApLog() {

@@ -1,5 +1,4 @@
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
-import FontawesomeMixin from "/emcJS/ui/mixin/FontawesomeMixin.js";
 import {
     VALID_JSON_MESSAGE_TYPE
 } from "/ArchipelagoJS/types/JSONMessagePart.js";
@@ -9,7 +8,7 @@ import {
 import TPL from "./ChatListEntry.js.html" assert {type: "html"};
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
 
-export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
+export default class ChatListEntry extends CustomElement {
 
     #containerEl;
 
@@ -36,41 +35,50 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
 
     #consolidateMessage(packet) {
         if (packet.type === PRINT_JSON_TYPE.SERVER_CHAT) {
-            return packet.message;
+            return packet.message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
 
         if (packet.type === PRINT_JSON_TYPE.CHAT) {
-            return `${packet.playerAlias}: ${packet.message}`;
+            const escapedText = packet.message.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            return `${packet.playerAlias}: ${escapedText.replace(/</g, "&lt;").replace(/>/g, "&gt;")}`;
         }
 
         return packet.message.reduce((string, piece) => {
             switch (piece.type) {
                 case VALID_JSON_MESSAGE_TYPE.PLAYER_ID: {
                     if (piece.current) {
-                        return `${string}<span class="player-current">${piece.playerAlias}</span>`;
+                        const escapedPlayerAlias = piece.playerAlias.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        return `${string}<span class="player-current">${escapedPlayerAlias}</span>`;
                     } else {
-                        return `${string}<span class="player-other">${piece.playerAlias}<span class="showGameName"> [${piece.playerGame}]</span></span>`;
+                        const escapedPlayerAlias = piece.playerAlias.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        const escapedPlayerGame = piece.playerGame.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        return `${string}<span class="player-other">${escapedPlayerAlias}<span class="showGameName"> [${escapedPlayerGame}]</span></span>`;
                     }
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.LOCATION_ID: {
-                    return `${string}<span class="location">${piece.locationName}</span>`;
+                    const escapedLocationName = piece.locationName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span class="location">${escapedLocationName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ITEM_ID: {
-                    return `${string}<span class="item-${piece.itemClass}">${piece.itemName}</span>`;
+                    const escapedItemName = piece.itemName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span class="item-${piece.itemClass}">${escapedItemName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
-                    return `${string}<span class="entrance">${piece.entranceName}</span>`;
+                    const escapedEntranceName = piece.entranceName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span class="entrance">${escapedEntranceName}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.COLOR: {
-                    return `${string}<span style="color: ${piece.color}">${piece.text}</span>`;
+                    const escapedText = piece.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span style="color: ${piece.color}">${escapedText}</span>`;
                 }
 
                 default: {
-                    return `${string}<span class="default">${piece.text}</span>`;
+                    const escapedText = piece.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span class="default">${escapedText}</span>`;
                 }
             }
         }, "");
@@ -78,4 +86,4 @@ export default class ChatListEntry extends FontawesomeMixin(CustomElement) {
 
 }
 
-customElements.define("ootrt-chatlist-entry", ChatListEntry);
+customElements.define("ootrt-ap-chatlist-entry", ChatListEntry);

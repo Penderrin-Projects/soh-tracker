@@ -7,8 +7,14 @@
     font-size: 1rem;
 }
 
-.ap-tabs {
+#ap-tabs {
     flex: 1;
+}
+
+.panel[category="hint_builder"] {
+    border-bottom-style: solid;
+    border-bottom-width: var(--tabpanel-categories-border-width, 2px);
+    border-bottom-color: var(--tabpanel-categories-border-color, #222222);
 }
 
 .container {
@@ -47,4 +53,30 @@
 
 #chat-input {
     flex-grow: 0;
+}
+
+.hint-stats {
+    padding: 10px 10px 0px;
+}
+
+#ap-hint-point-progress {
+    margin-left: 5px;
+    -webkit-appearance: none;
+}
+
+#ap-hint-point-progress::-webkit-progress-inner-element {
+    border-style: solid;
+    border-width: var(--progress-border-width, 2px);
+    border-color: var(--progress-border-color, #222222);
+    border-radius: var(--progress-border-radius, 6px);
+    overflow: hidden;
+}
+
+#ap-hint-point-progress::-webkit-progress-bar {
+    background-color: var(--progress-back-color, #ffffff);
+}
+
+#ap-hint-point-progress::-webkit-progress-value {
+    background-color: var(--progress-fill-color, #eaeaea);
+    border-radius: var(--progress-border-radius, 6px);
 }

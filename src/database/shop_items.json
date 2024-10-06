@@ -895,14 +895,14 @@
         "price": false
     },
     "stick": {
-        "image": "/images/items/stick.png",
+        "image": "/images/items/stick_capacity.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "nut": {
-        "image": "/images/items/nut.png",
+        "image": "/images/items/nut_capacity.png",
         "category": "inventory_items",
         "refill": false,
         "mark": "gold",

@@ -47,6 +47,14 @@ class ArchipelagoController extends EventTarget {
 
     #syncSettings = false;
 
+    #hintCostPercentage = 0;
+
+    #totalLocations = 0;
+
+    #currentHintPoints = 0;
+
+    #neededHintPoints = 0;
+
     constructor() {
         super();
         SavestateHandler.addEventListener("beforeload", () => {
@@ -64,6 +72,14 @@ class ArchipelagoController extends EventTarget {
         return this.#teamId;
     }
 
+    get currentHintPoints() {
+        return this.#currentHintPoints;
+    }
+
+    get neededHintPoints() {
+        return this.#neededHintPoints;
+    }
+
     connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
@@ -79,6 +95,9 @@ class ArchipelagoController extends EventTarget {
 
             this.#syncSettings = syncSettings;
 
+            this.#client.addEventListener(SERVER_PACKET_TYPE.ROOM_INFO, (event) => {
+                this.#onRoomInfoEvent(event);
+            });
             this.#client.addEventListener(SERVER_PACKET_TYPE.CONNECTED, (event) => {
                 this.#onConnectedEvent(event);
             });
@@ -123,10 +142,19 @@ class ArchipelagoController extends EventTarget {
         return this.#client.status !== CONNECTION_STATUS.DISCONNECTED;
     }
 
+    #onRoomInfoEvent(event) {
+        const {data} = event;
+        const [packet] = data;
+        const {hint_cost} = packet;
+
+        this.#hintCostPercentage = hint_cost;
+        this.#neededHintPoints = this.#totalLocations / 100 * this.#hintCostPercentage;
+    }
+
     #onConnectedEvent(event) {
         const {data} = event;
         const [packet] = data;
-        const {slot, team, checked_locations, slot_data} = packet;
+        const {slot, team, checked_locations, slot_data, hint_points, missing_locations} = packet;
 
         if (this.#syncSettings) {
             if (slot_data != null) {
@@ -150,6 +178,10 @@ class ArchipelagoController extends EventTarget {
         Savestate.setMeta("archipelago", true);
         AP_STORAGES.locations.deserializeAsChange(translatedLocations);
         SavestateHandler.forceCache();
+
+        this.#currentHintPoints = hint_points;
+        this.#totalLocations = checked_locations.length + missing_locations.length;
+        this.#neededHintPoints = Math.floor(this.#totalLocations / 100 * this.#hintCostPercentage);
 
         const ev = new Event("connected");
         this.dispatchEvent(ev);
@@ -195,13 +227,26 @@ class ArchipelagoController extends EventTarget {
     #onRoomUpdate(dataPacket) {
         const {data} = dataPacket;
         const [packet] = data;
-        const {checked_locations} = packet;
+        const {checked_locations, hint_points, hint_cost} = packet;
 
         if (checked_locations != null) {
             const collectedLocations = this.#collectLocations(checked_locations);
 
             AP_STORAGES.locations.setAll(collectedLocations);
             SavestateHandler.forceCache();
+        }
+
+        if (hint_points != null) {
+            this.#currentHintPoints = hint_points;
+            const ev = new Event("hintpoints");
+            this.dispatchEvent(ev);
+        }
+
+        if (hint_cost != null) {
+            this.#hintCostPercentage = hint_cost;
+            this.#neededHintPoints = Math.floor(this.#totalLocations / 100 * this.#hintCostPercentage);
+            const ev = new Event("hintcost");
+            this.dispatchEvent(ev);
         }
     }
 

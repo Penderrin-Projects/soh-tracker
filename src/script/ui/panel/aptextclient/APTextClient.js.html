@@ -19,7 +19,7 @@
                     <option value="reciever" label="Reciever"></option>
                 </emc-select-token>
             </div>
-            <ootrt-chatlist id="ap-log" autoscroll></ootrt-chatlist>
+            <ootrt-ap-chatlist id="ap-log" autoscroll></ootrt-ap-chatlist>
         </div>
     </div>
     <div category="hints">
@@ -51,25 +51,20 @@
             </emc-datagrid>
         </div>
     </div>
-    <!--
-            DataGrid [Finder, Reciever, Item, Location, Game, Entrance, Found]
-            - search
-            - sort by [Finder, Reciever, Item, Location, Game, Entrance, Found]
-            - filter by finder/reciever is current user, filter found
-        -->
+    <div category="hint_builder">
+        <div class="container">
+            <ootrt-ap-item-hint-builder id="ap-item-hint-builder"></ootrt-ap-item-hint-builder>
+        </div>
     </div>
 </emc-panel-tabpanel>
+<div class="hint-stats">
+    Hints available: <span id="ap-hints-available">0</span> | Next hint: <span id="ap-hint-points-next">0</span> / <span id="ap-hint-points-needed">0</span> <progress id="ap-hint-point-progress" value="0" max="0"></progress>
+</div>
 <emc-input-string id="chat-input" placeholder="Message / Command" description="!help for a list of commands - arrow up / arrow down for command history" nohover autocomplete="off"></emc-input-string>
 <!--
-    [Hint Item Button]
-    - custom item grid with item-categories and items
-    - on category/item click fill chat with "hint" message and wait for user to send
-    [Hint Location Button]
+    [Hint Location category]
     - search field
     - datalist with 10 entries max to "force" search
     - on location click fill chat with "hint_location" message and wait for user to send
     -> locations in locationlist/-map should also get a "AP hint location" entry for contextmenu
--->
-<!--
-    [StringInput for Chat/Commands][Send Button] -> also send by pressing "enter"
 -->

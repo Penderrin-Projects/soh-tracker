@@ -37,7 +37,7 @@
     "stick_upgrade": {
         "type": "item",
         "max": 2,
-        "icon": "/images/items/stick.png",
+        "icon": "/images/items/stick_capacity.png",
         "counting": [
             "10",
             "20",
@@ -51,7 +51,7 @@
     "nut_upgrade": {
         "type": "item",
         "max": 2,
-        "icon": "/images/items/nut.png",
+        "icon": "/images/items/nut_capacity.png",
         "counting": [
             "20",
             "30",
@@ -1102,7 +1102,7 @@
     },
     "milk": {
         "type": "visual",
-        "icon": "/images/items/sold_out.png",
+        "icon": "/images/items/bottle_milk.png",
         "alwaysActive": true
     },
     "poe": {
