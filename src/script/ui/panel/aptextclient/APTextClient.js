@@ -39,7 +39,6 @@ const ITEM_CLASSES = {
 };
 
 // TODO
-// add hint item function through clicking the desired icons (generate text user needs to send)
 // add hint location function through clicking the desired locations (generate text user needs to send)
 
 class APTextClient extends Panel {
