@@ -57,10 +57,28 @@ class ArchipelagoController extends EventTarget {
 
     constructor() {
         super();
+        /* --- */
+        const currentPoints = Savestate.getMeta("AP_CurrentHintPoints") ?? 0;
+        const neededPoints = Savestate.getMeta("AP_NeededHintPoints") ?? 0;
+        this.#currentHintPoints = currentPoints;
+        this.#neededHintPoints = neededPoints;
+        /* --- */
         SavestateHandler.addEventListener("beforeload", () => {
             if (this.isConnected()) {
                 this.disconnect();
             }
+        });
+        SavestateHandler.addEventListener("afterload", () => {
+            const currentPoints = Savestate.getMeta("AP_CurrentHintPoints") ?? 0;
+            const neededPoints = Savestate.getMeta("AP_NeededHintPoints") ?? 0;
+
+            this.#currentHintPoints = currentPoints;
+            this.#neededHintPoints = neededPoints;
+
+            const hintcostEv = new Event("hintcost");
+            this.dispatchEvent(hintcostEv);
+            const hintpointsEv = new Event("hintpoints");
+            this.dispatchEvent(hintpointsEv);
         });
     }
 
@@ -147,8 +165,12 @@ class ArchipelagoController extends EventTarget {
         const [packet] = data;
         const {hint_cost} = packet;
 
-        this.#hintCostPercentage = hint_cost;
-        this.#neededHintPoints = this.#totalLocations / 100 * this.#hintCostPercentage;
+        if (hint_cost != null) {
+            this.#hintCostPercentage = hint_cost;
+            this.#neededHintPoints = this.#totalLocations / 100 * this.#hintCostPercentage;
+
+            Savestate.setMeta("AP_NeededHintPoints", this.#neededHintPoints);
+        }
     }
 
     #onConnectedEvent(event) {
@@ -182,6 +204,9 @@ class ArchipelagoController extends EventTarget {
         this.#currentHintPoints = hint_points;
         this.#totalLocations = checked_locations.length + missing_locations.length;
         this.#neededHintPoints = Math.floor(this.#totalLocations / 100 * this.#hintCostPercentage);
+
+        Savestate.setMeta("AP_CurrentHintPoints", this.#currentHintPoints);
+        Savestate.setMeta("AP_NeededHintPoints", this.#neededHintPoints);
 
         const ev = new Event("connected");
         this.dispatchEvent(ev);
@@ -240,6 +265,8 @@ class ArchipelagoController extends EventTarget {
             this.#currentHintPoints = hint_points;
             const ev = new Event("hintpoints");
             this.dispatchEvent(ev);
+
+            Savestate.setMeta("AP_CurrentHintPoints", this.#currentHintPoints);
         }
 
         if (hint_cost != null) {
@@ -247,6 +274,8 @@ class ArchipelagoController extends EventTarget {
             this.#neededHintPoints = Math.floor(this.#totalLocations / 100 * this.#hintCostPercentage);
             const ev = new Event("hintcost");
             this.dispatchEvent(ev);
+
+            Savestate.setMeta("AP_NeededHintPoints", this.#neededHintPoints);
         }
     }
 
