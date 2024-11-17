@@ -27,6 +27,7 @@ Application:    Track-OOT
 - fix visibility logic for mask shop locations
 - fix spoiler log parsing
 - fix font size in dungeon state panel context menus
+- fix "Skip Child Zelda" bug where it would not get considered
 
 ---
 
