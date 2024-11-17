@@ -40864,8 +40864,17 @@
         },
         "region[root]{child}": {
             "region[root_exits]{child}": {
-                "type": "mixin",
-                "ref": "mixin[is_starting_age]{child}"
+                "type": "or",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[is_starting_age]{child}"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "flag[time_travel]"
+                    }
+                ]
             },
             "region[hc_garden_locations]{child}": {
                 "type": "value",
@@ -40924,8 +40933,17 @@
         },
         "region[root]{adult}": {
             "region[root_exits]{adult}": {
-                "type": "mixin",
-                "ref": "mixin[is_starting_age]{adult}"
+                "type": "or",
+                "content": [
+                    {
+                        "type": "mixin",
+                        "ref": "mixin[is_starting_age]{adult}"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "flag[time_travel]"
+                    }
+                ]
             },
             "region[hc_garden_locations]{adult}": {
                 "type": "value",
@@ -56550,11 +56568,9 @@
                 "type": "mixin",
                 "ref": "mixin[filter_era]{child}"
             },
-            "region[root_exits]{adult}": {
-                "type": "true"
-            },
             "region[beyond_door_of_time]{adult}": {
-                "type": "true"
+                "type": "value",
+                "ref": "flag[time_travel]"
             }
         },
         "region[beyond_door_of_time]{adult}": {
@@ -56587,11 +56603,9 @@
                 "type": "mixin",
                 "ref": "mixin[filter_era]{adult}"
             },
-            "region[root_exits]{child}": {
-                "type": "true"
-            },
             "region[beyond_door_of_time]{child}": {
-                "type": "true"
+                "type": "value",
+                "ref": "flag[time_travel]"
             }
         },
         "region[castle_grounds]{child}": {
@@ -100990,14 +101004,32 @@
         },
         "region[root]": {
             "region[root]{child}": {
-                "type": "state",
-                "ref": "option[starting_age]",
-                "value": "child"
+                "type": "or",
+                "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[starting_age]",
+                        "value": "child"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "flag[time_travel]"
+                    }
+                ]
             },
             "region[root]{adult}": {
-                "type": "state",
-                "ref": "option[starting_age]",
-                "value": "adult"
+                "type": "or",
+                "content": [
+                    {
+                        "type": "state",
+                        "ref": "option[starting_age]",
+                        "value": "adult"
+                    },
+                    {
+                        "type": "value",
+                        "ref": "flag[time_travel]"
+                    }
+                ]
             }
         }
     },

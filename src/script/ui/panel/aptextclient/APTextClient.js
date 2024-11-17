@@ -413,12 +413,12 @@ class APTextClient extends Panel {
         const points = Math.floor(currentHintPoints / neededHintPoints);
         const nextHint = currentHintPoints % neededHintPoints;
 
-        this.#apHintsAvailable.innerText = points;
-        this.#apHintPointsNext.innerText = nextHint;
-        this.#apHintPointsNeeded.innerText = neededHintPoints;
+        this.#apHintsAvailable.innerText = points || 0;
+        this.#apHintPointsNext.innerText = nextHint || 0;
+        this.#apHintPointsNeeded.innerText = neededHintPoints || 0;
 
-        this.#apHintPointProgress.max = neededHintPoints;
-        this.#apHintPointProgress.value = nextHint;
+        this.#apHintPointProgress.max = neededHintPoints || 0;
+        this.#apHintPointProgress.value = nextHint || 0;
     }
 
 }

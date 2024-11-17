@@ -98,6 +98,7 @@ export default class CustomLogicUpdater {
         } else {
             Logic.setLogic(logic, getRegion());
         }
+        Logic.setCollectible("reach_location[master_sword]", "flag[time_travel]");
     }
 
 }
