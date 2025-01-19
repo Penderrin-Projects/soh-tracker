@@ -19,6 +19,8 @@ Application:    Track-OOT
 - add transition area markers to map and list for interiors/grottos/dungeons
 - change orientation of gerudo fortress map to vertical
 - add spawns popup to maps
+- remove legacy mq dungeon boss entries
+- change location translations to be more consistent
 
 ### BUG FIXES
 

@@ -7,9 +7,9 @@
 ------------------------------------------------------------
 local region_table = {
     --- Dungeon
-    [0x00] = "Inside the Deku Tree",
-    [0x01] = "Dodongo's Cavern",
-    [0x02] = "Inside Jabu-Jabu's Belly",
+    [0x00] = "Deku Tree",
+    [0x01] = "Dodongos Cavern",
+    [0x02] = "Jabu Jabus Belly",
     [0x03] = "Forest Temple",
     [0x04] = "Fire Temple",
     [0x05] = "Water Temple",
@@ -17,32 +17,32 @@ local region_table = {
     [0x07] = "Shadow Temple",
     [0x08] = "Bottom of the Well",
     [0x09] = "Ice Cavern",
-    [0x0A] = "Ganon's Tower",
+    [0x0A] = "Ganons Tower",
     [0x0B] = "Gerudo Training Ground",
-    [0x0D] = "Inside Ganon's Castle",
+    [0x0D] = "Ganons Castle",
     [0x0E] = "Collapsing Castle",
     [0x0F] = "Collapsing Castle",
     [0x1A] = "Collapsing Castle",
     --- Boss Room
-    [0x11] = "Gohma's Boss Room",
-    [0x12] = "King Dodongo's Boss Room",
-    [0x13] = "Barinade's Boss Room",
-    [0x14] = "Phantom Ganon's Boss Room",
-    [0x15] = "Volvagia's Boss Room",
-    [0x16] = "Morpha's Boss Room",
-    [0x17] = "Twinrova's Boss Room",
-    [0x18] = "Bongo Bongo's Boss Room",
-    [0x19] = "Ganondorf's Boss Room",
-    [0x4F] = "Ganon's Battle Arena",
+    [0x11] = "Gohmas Boss Room",
+    [0x12] = "King Dodongos Boss Room",
+    [0x13] = "Barinades Boss Room",
+    [0x14] = "Phantom Ganons Boss Room",
+    [0x15] = "Volvagias Boss Room",
+    [0x16] = "Morphas Boss Room",
+    [0x17] = "Twinrovas Boss Room",
+    [0x18] = "Bongo Bongos Boss Room",
+    [0x19] = "Ganondorfs Boss Room",
+    [0x4F] = "Ganons Battle Arena",
     --- Interior
-    [0x0C] = "Thieves' Hideout",
-    [0x10] = "Treasure Box Shop",
-    [0x26] = "Know-It-All Brothers' House",
-    [0x27] = "House of Twins",
-    [0x28] = "Mido's House",
-    [0x29] = "Saria's House",
-    [0x2A] = "Carpenter Boss's House",
-    [0x2B] = "Man in Green's House",
+    [0x0C] = "Thieves Hideout",
+    [0x10] = "Chest Game",
+    [0x26] = "Know It All House",
+    [0x27] = "Twins House",
+    [0x28] = "Midos House",
+    [0x29] = "Sarias House",
+    [0x2A] = "Carpenter Boss House",
+    [0x2B] = "Market Back House",
     [0x2C] = {
         [0x00B7] = "Adult Bazaar",
         [0x052C] = "Child Bazaar"
@@ -51,30 +51,30 @@ local region_table = {
     [0x2E] = "Goron Shop",
     [0x2F] = "Zora Shop",
     [0x30] = {
-        [0x0384] = "Kakariko Potion Shop",
-        [0x03EC] = "Kakariko Potion Shop (back)"
+        [0x0384] = "Adult Potion Shop",
+        [0x03EC] = "Adult Potion Shop" --- back entrance
     },
-    [0x31] = "Market Potion Shop",
+    [0x31] = "Child Potion Shop",
     [0x32] = "Bombchu Shop",
-    [0x33] = "Happy Mask Shop",
-    [0x34] = "Link's House",
-    [0x35] = "Dog Lady's House",
-    [0x36] = "Stable",
+    [0x33] = "Mask Shop",
+    [0x34] = "Links House",
+    [0x35] = "Dog Ladys House",
+    [0x36] = "LLR Stables",
     [0x37] = {
-        [0x039C] = "Impa's House",
-        [0x05C8] = "Impa's House (Back)"
+        [0x039C] = "Impas House",
+        [0x05C8] = "Impas House" --- back entrance
     },
-    [0x38] = "Lakeside Laboratory",
-    [0x39] = "Carpenters' Tent",
-    [0x3A] = "Gravekeeper's Hut",
+    [0x38] = "Lake Lab",
+    [0x39] = "Carpenter Tent",
+    [0x3A] = "Dampes Hut",
     [0x3B] = {
-        [0x04C2] = "Ganons Castle Grounds - Great Fairy's Fountain",
-        [0x04BE] = "Death Mountain Crater - Great Fairy's Fountain",
-        [0x0315] = "Death Mountain - Great Fairy's Fountain"
+        [0x04C2] = "OGC Great Fairy",
+        [0x04BE] = "DMC Great Fairy",
+        [0x0315] = "DMT Great Fairy"
     },
     [0x3D] = {
-        [0x0578] = "Castle Grounds - Great Fairy's Fountain",
-        [0x0588] = "Desert Colossus - Great Fairy's Fountain"
+        [0x0578] = "HC Great Fairy",
+        [0x0588] = "Colossus Great Fairy"
     },
     [0x42] = {
         [0x003B] = "Adult Shooting Gallery",
@@ -87,19 +87,19 @@ local region_table = {
         [0x044F] = "Dampes Grave"
     },
     [0x49] = "Fishing Pond",
-    [0x4B] = "Bombchu Bowling Alley",
+    [0x4B] = "Bombchu Bowling",
     [0x4C] = {
         [0x004F] = "Talons House",
         [0x05E4] = "Talons House",
-        [0x05D0] = "Silo"
+        [0x05D0] = "LLR Tower"
     },
-    [0x4D] = "Guard House",
-    [0x4E] = "Granny's Potion Shop",
-    [0x50] = "House of Skulltula",
+    [0x4D] = "Market Guard House",
+    [0x4E] = "Odd Medicine Building",
+    [0x50] = "Skulltula House",
     --- Grave
     [0x3F] = "Redead Grave",
     [0x40] = "Shield Grave",
-    [0x41] = "Royal Familys Tomb",
+    [0x41] = "Royal Grave",
     --- Overworld
     [0x1B] = "Market Entrance", -- child day
     [0x1C] = "Market Entrance", -- child night
@@ -118,23 +118,23 @@ local region_table = {
     [0x51] = "Hyrule Field",
     [0x52] = "Kakariko Village",
     [0x53] = "Graveyard",
-    [0x54] = "Zora's River",
+    [0x54] = "Zora River",
     [0x55] = "Kokiri Forest",
     [0x56] = "Sacred Forest Meadow",
     [0x57] = "Lake Hylia",
-    [0x58] = "Zora's Domain",
-    [0x59] = "Zora's Fountain",
+    [0x58] = "Zoras Domain",
+    [0x59] = "Zoras Fountain",
     [0x5A] = "Gerudo Valley",
     [0x5B] = "Lost Woods",
     [0x5C] = "Desert Colossus",
-    [0x5D] = "Gerudo's Fortress",
+    [0x5D] = "Gerudo Fortress",
     [0x5E] = "Haunted Wasteland",
     [0x5F] = "Hyrule Castle",
     [0x60] = "Death Mountain Trail",
     [0x61] = "Death Mountain Crater",
     [0x62] = "Goron City",
     [0x63] = "Lon Lon Ranch",
-    [0x64] = "Ganon's Castle Grounds"
+    [0x64] = "Ganons Castle Grounds"
 
 }
 
@@ -346,8 +346,8 @@ function updateRegion()
     local current_scene = value_list.scene.get()
 
     if (current_scene == 0x3C) then
-        -- Fairy's Fountain (hard to differentiate them)
-        current_region = "Fairy's Fountain"
+        -- Fairy Fountain (hard to differentiate them)
+        current_region = "Fairy Fountain"
     elseif (current_scene == 0x3E) then
         -- Any other Grotto
         local current_content = value_list.content.get()

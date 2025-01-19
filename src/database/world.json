@@ -8611,35 +8611,6 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "ice_cavern_mq.c_sheik": {
-            "type": "chest",
-            "logicAccess": "reach_location[ice_cavern.c_sheik]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "ice_cavern.s_ice_blades_adult": {
             "type": "skulltula",
             "logicAccess": "reach_location[ice_cavern.s_ice_blades_adult]",
@@ -10438,35 +10409,6 @@
             "icon": "/images/icons/scrub.svg",
             "tags": []
         },
-        "deku_mq.c_gohma": {
-            "type": "chest",
-            "logicAccess": "reach_location[deku.c_gohma]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": false
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "deku.s_3f_compass_side_child": {
             "type": "skulltula",
             "logicAccess": "reach_location[deku.s_3f_compass_side_child]",
@@ -11436,64 +11378,6 @@
             "icon": "/images/icons/scrub.svg",
             "tags": []
         },
-        "dodongo_mq.c_chest_above_dodongo": {
-            "type": "chest",
-            "logicAccess": "reach_location[dodongo.c_chest_above_dodongo]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "dodongo_mq.c_dodongo": {
-            "type": "chest",
-            "logicAccess": "reach_location[dodongo.c_dodongo]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "dodongo.s_east_corridor_bombable": {
             "type": "skulltula",
             "logicAccess": "reach_location[dodongo.s_east_corridor_bombable]",
@@ -12296,35 +12180,6 @@
         "jabujabu_mq.c_near_boss": {
             "type": "chest",
             "logicAccess": "reach_location[jabujabu_mq.c_near_boss]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": false
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "jabujabu_mq.c_barinade": {
-            "type": "chest",
-            "logicAccess": "reach_location[jabujabu.c_barinade]",
             "visible": true,
             "filter": {
                 "era": {
@@ -13319,35 +13174,6 @@
         "temple_forest_mq.c_near_boss": {
             "type": "chest",
             "logicAccess": "reach_location[temple_forest_mq.c_near_boss]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "temple_forest_mq.c_phantomganon": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_forest.c_phantomganon]",
             "visible": true,
             "filter": {
                 "era": {
@@ -14457,35 +14283,6 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "temple_fire_mq.c_volvagia": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_fire.c_volvagia]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "temple_fire.s_big_lava_time_block_adult": {
             "type": "skulltula",
             "logicAccess": "reach_location[temple_fire.s_big_lava_time_block_adult]",
@@ -15253,35 +15050,6 @@
         "temple_water_mq.c_freestanding_key": {
             "type": "chest",
             "logicAccess": "reach_location[temple_water_mq.c_freestanding_key]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "temple_water_mq.c_morpha": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_water.c_morpha]",
             "visible": true,
             "filter": {
                 "era": {
@@ -16684,35 +16452,6 @@
         "temple_shadow_mq.c_freestanding_key": {
             "type": "chest",
             "logicAccess": "reach_location[temple_shadow_mq.c_freestanding_key]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "temple_shadow_mq.c_bongobongo": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_shadow.c_bongobongo]",
             "visible": true,
             "filter": {
                 "era": {
@@ -18257,35 +17996,6 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "temple_spirit_mq.c_twinrova": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_spirit.c_twinrova]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "temple_spirit.s_childsegment_left": {
             "type": "skulltula",
             "logicAccess": "reach_location[temple_spirit.s_childsegment_left]",
@@ -19718,64 +19428,6 @@
         "castle_ganon_mq.c_light_trial_lullaby": {
             "type": "chest",
             "logicAccess": "reach_location[castle_ganon_mq.c_light_trial_lullaby]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "castle_ganon_mq.c_boss_key": {
-            "type": "chest",
-            "logicAccess": "reach_location[castle_ganon.c_boss_key]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "castle_ganon_mq.c_boss": {
-            "type": "chest",
-            "logicAccess": "reach_location[castle_ganon.c_boss]",
             "visible": true,
             "filter": {
                 "era": {
@@ -86147,7 +85799,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "ice_cavern_mq.c_sheik"
+                            "name": "ice_cavern.c_sheik"
                         },
                         "pos": {
                             "x": 449,
@@ -88149,7 +87801,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "deku_mq.c_gohma"
+                            "name": "deku.c_gohma"
                         },
                         "pos": {
                             "x": 1589,
@@ -90130,7 +89782,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "dodongo_mq.c_chest_above_dodongo"
+                            "name": "dodongo.c_chest_above_dodongo"
                         },
                         "pos": {
                             "x": 191,
@@ -90148,7 +89800,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "dodongo_mq.c_dodongo"
+                            "name": "dodongo.c_dodongo"
                         },
                         "pos": {
                             "x": 211,
@@ -91403,7 +91055,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "jabujabu_mq.c_barinade"
+                            "name": "jabujabu.c_barinade"
                         },
                         "pos": {
                             "x": 876,
@@ -93098,7 +92750,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_forest_mq.c_phantomganon"
+                            "name": "temple_forest.c_phantomganon"
                         },
                         "pos": {
                             "x": 1685,
@@ -94972,7 +94624,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_fire_mq.c_volvagia"
+                            "name": "temple_fire.c_volvagia"
                         },
                         "pos": {
                             "x": 292,
@@ -97657,7 +97309,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_water_mq.c_morpha"
+                            "name": "temple_water.c_morpha"
                         },
                         "pos": {
                             "x": 809,
@@ -100399,7 +100051,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_shadow_mq.c_bongobongo"
+                            "name": "temple_shadow.c_bongobongo"
                         },
                         "pos": {
                             "x": 762,
@@ -102661,7 +102313,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_spirit_mq.c_twinrova"
+                            "name": "temple_spirit.c_twinrova"
                         },
                         "pos": {
                             "x": 1426,
@@ -104884,7 +104536,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "castle_ganon_mq.c_boss_key"
+                            "name": "castle_ganon.c_boss_key"
                         },
                         "pos": {
                             "x": 1763,
@@ -105094,7 +104746,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "castle_ganon_mq.c_boss"
+                            "name": "castle_ganon.c_boss"
                         },
                         "pos": {
                             "x": 1762,
@@ -132108,7 +131760,7 @@
             "tags": [
                 "interior",
                 "lake",
-                "hilya",
+                "hylia",
                 "lab",
                 "child",
                 "adult"
@@ -132172,7 +131824,7 @@
             "tags": [
                 "interior",
                 "lake",
-                "hilya",
+                "hylia",
                 "lab",
                 "child",
                 "adult"
@@ -132236,7 +131888,7 @@
             "tags": [
                 "interior",
                 "lake",
-                "hilya",
+                "hylia",
                 "fishing",
                 "child",
                 "adult"
@@ -132300,7 +131952,7 @@
             "tags": [
                 "interior",
                 "lake",
-                "hilya",
+                "hylia",
                 "fishing",
                 "child",
                 "adult"
@@ -132356,7 +132008,7 @@
             "tags": [
                 "grotto",
                 "lake",
-                "hilya",
+                "hylia",
                 "open",
                 "child",
                 "adult"
@@ -132412,7 +132064,7 @@
             "tags": [
                 "grotto",
                 "lake",
-                "hilya",
+                "hylia",
                 "open",
                 "child",
                 "adult"
