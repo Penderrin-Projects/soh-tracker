@@ -85,6 +85,9 @@ SavestateConverter.register(function(state) {
                 case "ice_cavern_mq.c_sheik": {
                     res.data.locations["ice_cavern.c_sheik"] = value;
                 } break;
+                default: {
+                    res.data.locations[key] = value;
+                } break;
             }
         }
     }
