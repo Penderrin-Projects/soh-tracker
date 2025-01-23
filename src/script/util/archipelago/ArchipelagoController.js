@@ -101,6 +101,7 @@ class ArchipelagoController extends EventTarget {
     connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
             const connectionInfo = {
+                protocol: "wss",
                 hostname: apHostname,
                 port: apPort,
                 game: GAME_NAME,
