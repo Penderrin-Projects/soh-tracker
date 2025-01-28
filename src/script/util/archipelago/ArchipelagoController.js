@@ -27,6 +27,7 @@ import {
     translateAPSettings
 } from "./APSettingsTranslator.js";
 
+const LOCALHOST_ALIASES = ["localhost", "127.0.0.1"];
 const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
 const BOUNCE_TIMEOUT_TIME = 1; // seconds
@@ -100,8 +101,9 @@ class ArchipelagoController extends EventTarget {
 
     connect(apHostname, apPort, apSlotName, apPassword, syncSettings = false) {
         if (this.#client.status === CONNECTION_STATUS.DISCONNECTED) {
+            const isLocalhost = LOCALHOST_ALIASES.includes(apHostname);
             const connectionInfo = {
-                protocol: "wss",
+                protocol: isLocalhost ? "ws" : "wss",
                 hostname: apHostname,
                 port: apPort,
                 game: GAME_NAME,
