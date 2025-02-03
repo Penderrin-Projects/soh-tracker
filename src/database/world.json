@@ -52474,17 +52474,26 @@
             "type": "pot",
             "logicAccess": "reach_location[spirit_temple.deku_shield_pot]",
             "visible": {
-                "type": "or",
+                "type": "and",
                 "content": [
                     {
-                        "type": "state",
-                        "ref": "option[shuffle_pots]",
-                        "value": "all"
+                        "type": "value",
+                        "ref": "option[fix_broken_drops]"
                     },
                     {
-                        "type": "state",
-                        "ref": "option[shuffle_pots]",
-                        "value": "dungeons"
+                        "type": "or",
+                        "content": [
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "all"
+                            },
+                            {
+                                "type": "state",
+                                "ref": "option[shuffle_pots]",
+                                "value": "dungeons"
+                            }
+                        ]
                     }
                 ]
             },
@@ -100418,6 +100427,20 @@
                         "pos": {
                             "x": 174,
                             "y": 681,
+                            "scale": 35
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "spirit_temple.deku_shield_pot"
+                        },
+                        "pos": {
+                            "x": 208,
+                            "y": 647,
                             "scale": 35
                         },
                         "visible": true,
