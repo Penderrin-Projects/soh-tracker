@@ -63,6 +63,10 @@
     --button-active-text-color: #000000;
     --button-active-back-color: #cb9c3d;
 
+    --button-disabled-text-color: #535353;
+    --button-disabled-back-color: #a19782;
+    --button-disabled-border-color: #535353;
+
     --switch-checked-back-color: #a4a4ff;
     --switch-unchecked-back-color: #ffa4a4;
     --switch-button-back-color: #ffffff;

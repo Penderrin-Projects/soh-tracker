@@ -4,6 +4,15 @@
     pointer-events: all;
 }
 
+button:disabled {
+    color: var(--button-disabled-text-color, #757575) !important;
+    background-color: var(--button-disabled-back-color, #999999) !important;
+    background-image: var(--button-disabled-back-image, none) !important;
+    border-color: var(--button-disabled-border-color, #6a6a6a) !important;
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
 #footer,
 #connect,
 #disconnect,

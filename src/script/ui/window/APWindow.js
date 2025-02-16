@@ -93,11 +93,16 @@ export default class APWindow extends Window {
         const apSettingsSync = this.#apSettingsSyncEl.checked;
 
         try {
+            this.#connectEl.innerText = "connecting...";
+            this.#connectEl.disabled = true;
             await ArchipelagoController.connect(apHostname, apPort, apSlotName, apPassword, apSettingsSync);
             APStateStorage.setAll({apHostname, apPort, apSlotName, apSettingsSync});
             this.remove();
         } catch (error) {
             Dialog.error("Error", "An error occured", [error]);
+        } finally {
+            this.#connectEl.innerText = "connect";
+            this.#connectEl.disabled = false;
         }
     }
 
