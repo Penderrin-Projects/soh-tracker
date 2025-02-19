@@ -1,5 +1,5 @@
 import SimpleDataProvider from "/emcJS/util/dataprovider/SimpleDataProvider.js";
-import IndexedSet from "/emcJS/data/collection/IndexedSet.js";
+import ArraySet from "/emcJS/data/collection/ArraySet.js";
 import {
     recordsToDict, dictToRecords
 } from "/emcJS/util/helper/storage/Records.js";
@@ -47,7 +47,7 @@ class APTextClient extends Panel {
 
     #chatInputEl;
 
-    #commandHistory = new IndexedSet();
+    #commandHistory = new ArraySet();
 
     #commandHistoryNeedle = -1;
 
