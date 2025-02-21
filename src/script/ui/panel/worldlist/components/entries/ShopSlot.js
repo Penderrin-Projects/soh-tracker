@@ -4,6 +4,7 @@ import {
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
@@ -11,8 +12,11 @@ import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
+import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./ShopSlot.js.html" assert {type: "html"};
 import STYLE from "./ShopSlot.js.css" assert {type: "css"};
+
+const apHintLocations = APHintLocations.get();
 
 function applyElements(target) {
     const textEl = target.getElementById("text");
@@ -96,6 +100,25 @@ export default class WorldListShopSlot extends BaseClass {
             if (state != null) {
                 const title = Language.generateLabel(`location[${this.ref}]`);
                 LogicViewer.show(state.props.logicAccess ?? "", title);
+            }
+        });
+        this.addDefaultContextMenuHandler("hint_ap_location", () => {
+            const apHintLocation = apHintLocations[this.ref];
+            if (apHintLocation != null) {
+                const viewchoiceEl = document.getElementById("main-content");
+                viewchoiceEl.active = "ap";
+                const apTextClient = document.getElementById("ap-textclient");
+                apTextClient.setChatMessageToSend(`!hint ${apHintLocation}`);
+            }
+        });
+        /* AP */
+        if (!Savestate.getMeta("archipelago")) {
+            this.toggleDefaultContextMenuGroupActive("ap", false);
+        }
+        Savestate.addEventListener("meta", (event) => {
+            const {key, value} = event.data;
+            if (key === "archipelago") {
+                this.toggleDefaultContextMenuGroupActive("ap", !!value);
             }
         });
     }

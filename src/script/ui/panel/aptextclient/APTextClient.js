@@ -196,9 +196,8 @@ class APTextClient extends Panel {
         /* --- */
         apItemHintBuilderEl.addEventListener("hint", (event) => {
             const {value} = event;
-            if (ArchipelagoController.isConnected() && isStringNotEmpty(value)) {
-                this.#chatInputEl.value = `!hint ${value}`;
-                this.#chatInputEl.focus();
+            if (isStringNotEmpty(value)) {
+                this.setChatMessageToSend(`!hint ${value}`);
             }
         });
         /* --- */
@@ -253,6 +252,13 @@ class APTextClient extends Panel {
 
     switchToHints() {
         this.#apTabsEl.active = "hints";
+    }
+
+    setChatMessageToSend(msg) {
+        if (/* ArchipelagoController.isConnected() &&  */isStringNotEmpty(msg)) {
+            this.#chatInputEl.value = msg;
+            this.#chatInputEl.focus();
+        }
     }
 
     #resolveMessagegParts(packet) {

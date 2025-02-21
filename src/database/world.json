@@ -48,6 +48,10 @@
             "pot": {
                 "icon": "/images/icons/pot.svg",
                 "counting": true
+            },
+            "boss": {
+                "icon": "/images/icons/area_boss.svg",
+                "counting": false
             }
         },
         "region": {
@@ -73447,7 +73451,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -73743,7 +73748,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -74023,7 +74029,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -74549,7 +74556,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -75099,7 +75107,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -75513,7 +75522,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -75967,7 +75977,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -76369,7 +76380,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -77287,7 +77299,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -77937,7 +77950,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -78231,7 +78245,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -78401,7 +78416,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -78925,7 +78941,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -79121,7 +79138,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -79259,7 +79277,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -79507,7 +79526,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -79692,7 +79712,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -80544,7 +80565,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -80880,7 +80902,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -81368,7 +81391,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -81990,7 +82014,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -82642,7 +82667,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -83056,7 +83082,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -83704,7 +83731,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -84983,7 +85011,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -85830,7 +85859,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -87054,7 +87084,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -87836,7 +87867,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -87902,7 +87934,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "dodongo": {
@@ -89835,7 +89869,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -89915,7 +89950,10 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "chest": 1,
+                "boss": 1
+            },
             "tags": []
         },
         "jabujabu": {
@@ -91090,7 +91128,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -91240,7 +91279,10 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "pot": 6,
+                "boss": 1
+            },
             "tags": []
         },
         "temple_forest": {
@@ -92785,7 +92827,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -92848,7 +92891,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "temple_fire": {
@@ -94659,7 +94704,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -94725,7 +94771,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "temple_water": {
@@ -97344,7 +97392,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -97407,7 +97456,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "temple_shadow": {
@@ -100086,7 +100137,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -100149,7 +100201,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "temple_spirit": {
@@ -102362,7 +102416,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -102425,7 +102480,9 @@
                     }
                 ]
             },
-            "areaContentHints": {},
+            "areaContentHints": {
+                "boss": 1
+            },
             "tags": []
         },
         "castle_ganon": {
@@ -104791,7 +104848,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -104941,7 +104999,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -105113,7 +105172,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -105247,7 +105307,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -105381,7 +105442,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -105557,7 +105619,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -105747,7 +105810,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 2
+                "pot": 2,
+                "boss": 0
             },
             "tags": []
         },
@@ -105895,7 +105959,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106071,7 +106136,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106247,7 +106313,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106423,7 +106490,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106599,7 +106667,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106761,7 +106830,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -106909,7 +106979,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -107043,7 +107114,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -107205,7 +107277,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108077,7 +108150,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108221,7 +108295,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108505,7 +108580,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108635,7 +108711,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108785,7 +108862,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -108957,7 +109035,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -109101,7 +109180,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -109259,7 +109339,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -109435,7 +109516,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -109565,7 +109647,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -109769,7 +109852,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 4
+                "pot": 4,
+                "boss": 0
             },
             "tags": []
         },
@@ -109899,7 +109983,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110085,7 +110170,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110215,7 +110301,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110359,7 +110446,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110489,7 +110577,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110639,7 +110728,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110815,7 +110905,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -110949,7 +111040,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -111083,7 +111175,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -111217,7 +111310,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -111581,7 +111675,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -111729,7 +111824,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -111859,7 +111955,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112035,7 +112132,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112337,7 +112435,8 @@
                 "fountain": 0,
                 "rupees": 1,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112467,7 +112566,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112643,7 +112743,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112819,7 +112920,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -112995,7 +113097,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113157,7 +113260,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113333,7 +113437,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 2,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113463,7 +113568,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113663,7 +113769,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113821,7 +113928,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -113997,7 +114105,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114159,7 +114268,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114289,7 +114399,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114451,7 +114562,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 1,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114565,7 +114677,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114757,7 +114870,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -114921,7 +115035,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115085,7 +115200,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115271,7 +115387,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115385,7 +115502,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115613,7 +115731,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115785,7 +115904,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -115957,7 +116077,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116135,7 +116256,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116307,7 +116429,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116419,7 +116542,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116563,7 +116687,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116735,7 +116860,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -116927,7 +117053,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117039,7 +117166,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117211,7 +117339,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117325,7 +117454,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117497,7 +117627,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117611,7 +117742,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117723,7 +117855,8 @@
                 "fountain": 0,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -117975,7 +118108,8 @@
                 "fountain": 0,
                 "rupees": 1,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         },
@@ -118089,7 +118223,8 @@
                 "fountain": 1,
                 "rupees": 0,
                 "beehive": 0,
-                "pot": 0
+                "pot": 0,
+                "boss": 0
             },
             "tags": []
         }
@@ -118149,7 +118284,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "forest",
                 "deku",
@@ -118212,7 +118346,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "forest",
                 "deku",
@@ -118275,7 +118408,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "mountain",
                 "dodongo",
@@ -118338,7 +118470,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "mountain",
                 "dodongo",
@@ -118401,7 +118532,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "zoras",
                 "fountain",
@@ -118464,7 +118594,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "zoras",
                 "fountain",
@@ -118527,7 +118656,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "kakariko",
                 "well",
@@ -118589,7 +118717,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "kakariko",
                 "well",
@@ -118651,7 +118778,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "meadow",
                 "forest",
@@ -118714,7 +118840,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "meadow",
                 "forest",
@@ -118777,7 +118902,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "crater",
                 "fire",
@@ -118840,7 +118964,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "crater",
                 "fire",
@@ -118903,7 +119026,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "lake",
                 "water",
@@ -118966,7 +119088,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "lake",
                 "water",
@@ -119029,7 +119150,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "colossus",
                 "spirit",
@@ -119092,7 +119212,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "colossus",
                 "spirit",
@@ -119155,7 +119274,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "graveyard",
                 "shadow",
@@ -119218,7 +119336,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "graveyard",
                 "shadow",
@@ -119281,7 +119398,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "zoras",
                 "fountain",
@@ -119345,7 +119461,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "zoras",
                 "fountain",
@@ -119409,7 +119524,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "fortress",
                 "gerudo",
@@ -119472,7 +119586,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "fortress",
                 "gerudo",
@@ -119529,7 +119642,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "castle_ganon_outside",
                 "castle_ganon",
@@ -119585,7 +119697,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "castle_ganon_outside",
                 "castle_ganon",
@@ -119639,7 +119750,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule_field",
@@ -119692,7 +119802,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -119746,7 +119855,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -119800,7 +119908,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -119854,7 +119961,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -119908,7 +120014,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -119962,7 +120067,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -120016,7 +120120,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kokiri",
@@ -120069,7 +120172,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kokiri",
@@ -120122,7 +120224,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120175,7 +120276,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120228,7 +120328,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120281,7 +120380,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120334,7 +120432,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120387,7 +120484,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "woods",
@@ -120440,7 +120536,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "meadow",
@@ -120493,7 +120588,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "lake",
@@ -120546,7 +120640,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "lake",
@@ -120594,7 +120687,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -120648,7 +120740,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "lonlon",
@@ -120701,7 +120792,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -120754,7 +120844,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -120807,7 +120896,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -120866,7 +120954,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -120925,7 +121012,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -120978,7 +121064,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -121031,7 +121116,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "market",
@@ -121084,7 +121168,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "castle",
@@ -121138,7 +121221,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "temple",
@@ -121192,7 +121274,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kakariko",
@@ -121245,7 +121326,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kakariko",
@@ -121298,7 +121378,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "graveyard",
@@ -121351,7 +121430,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kakariko",
@@ -121404,7 +121482,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "mountian",
@@ -121457,7 +121534,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "mountain",
@@ -121510,7 +121586,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "mountain",
@@ -121563,7 +121638,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "crater",
@@ -121616,7 +121690,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "crater",
@@ -121669,7 +121742,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "goron",
@@ -121722,7 +121794,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "goron",
@@ -121775,7 +121846,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "goron",
@@ -121828,7 +121898,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "zoras",
@@ -121882,7 +121951,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "river",
@@ -121935,7 +122003,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "river",
@@ -121988,7 +122055,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "zoras",
@@ -122041,7 +122107,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "zoras",
@@ -122095,7 +122160,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "zoras",
@@ -122148,7 +122212,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "fountain",
@@ -122201,7 +122264,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -122255,7 +122317,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -122311,7 +122372,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -122365,7 +122425,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -122419,7 +122478,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "gerudo",
@@ -122473,7 +122531,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "wasteland",
@@ -122526,7 +122583,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "wasteland",
@@ -122579,7 +122635,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "colossus",
@@ -122631,7 +122686,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -122663,7 +122717,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "hyrule",
@@ -122717,7 +122770,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kakariko",
@@ -122748,7 +122800,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "kakariko",
@@ -122806,7 +122857,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "links",
@@ -122837,7 +122887,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "links",
@@ -122895,7 +122944,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "temple",
@@ -122927,7 +122975,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "temple",
@@ -122986,7 +123033,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "temple",
@@ -123045,7 +123091,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "temple",
@@ -123104,7 +123149,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "meadow",
@@ -123135,7 +123179,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "meadow",
@@ -123193,7 +123236,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "crater",
@@ -123224,7 +123266,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "crater",
@@ -123282,7 +123323,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "lake",
@@ -123313,7 +123353,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "lake",
@@ -123371,7 +123410,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "graveyard",
@@ -123402,7 +123440,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "graveyard",
@@ -123460,7 +123497,6 @@
             "entranceActive": false,
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "colossus",
@@ -123491,7 +123527,6 @@
             },
             "includeInactiveEntrances": true,
             "isBiDir": false,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "overworld",
                 "colossus",
@@ -123545,7 +123580,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123601,7 +123635,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123657,7 +123690,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123714,7 +123746,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123771,7 +123802,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123827,7 +123857,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123883,7 +123912,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123940,7 +123968,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -123997,7 +124024,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124053,7 +124079,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124109,7 +124134,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124167,7 +124191,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124225,7 +124248,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124281,7 +124303,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124337,7 +124358,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124393,7 +124413,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "hyrule",
@@ -124457,7 +124476,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124521,7 +124539,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124585,7 +124602,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124649,7 +124665,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124713,7 +124728,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124777,7 +124791,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124841,7 +124854,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124905,7 +124917,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -124969,7 +124980,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -125033,7 +125043,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -125091,7 +125100,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -125149,7 +125157,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kokiri",
@@ -125205,7 +125212,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kokiri",
@@ -125261,7 +125267,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kokiri",
@@ -125317,7 +125322,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125374,7 +125378,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125431,7 +125434,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125489,7 +125491,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125547,7 +125548,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125603,7 +125603,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lost",
@@ -125659,7 +125658,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -125716,7 +125714,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -125773,7 +125770,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -125830,7 +125826,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -125887,7 +125882,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -125944,7 +125938,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "sacred",
@@ -126009,7 +126002,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126073,7 +126065,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126137,7 +126128,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126200,7 +126190,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126263,7 +126252,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126326,7 +126314,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126389,7 +126376,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126452,7 +126438,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126515,7 +126500,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126578,7 +126562,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126641,7 +126624,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126704,7 +126686,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126767,7 +126748,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126829,7 +126809,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126891,7 +126870,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -126953,7 +126931,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -127015,7 +126992,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -127077,7 +127053,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "market",
@@ -127133,7 +127108,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "temple",
@@ -127190,7 +127164,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "temple",
@@ -127253,7 +127226,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127317,7 +127289,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127381,7 +127352,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127444,7 +127414,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127507,7 +127476,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127570,7 +127538,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lonlon",
@@ -127625,7 +127592,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lonlon",
@@ -127680,7 +127646,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lonlon",
@@ -127743,7 +127708,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "castle",
@@ -127807,7 +127771,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "castle",
@@ -127863,7 +127826,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "castle",
@@ -127918,7 +127880,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "castle",
@@ -127981,7 +127942,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "castle",
@@ -128045,7 +128005,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "castle",
@@ -128109,7 +128068,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128172,7 +128130,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128235,7 +128192,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128298,7 +128254,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128361,7 +128316,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128424,7 +128378,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128487,7 +128440,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128550,7 +128502,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128613,7 +128564,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128675,7 +128625,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128737,7 +128686,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128799,7 +128747,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128861,7 +128808,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128924,7 +128870,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -128981,7 +128926,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129038,7 +128982,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129095,7 +129038,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129153,7 +129095,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129211,7 +129152,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129269,7 +129209,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "kakariko",
@@ -129325,7 +129264,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kakariko",
@@ -129380,7 +129318,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kakariko",
@@ -129435,7 +129372,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kakariko",
@@ -129490,7 +129426,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "kakariko",
@@ -129553,7 +129488,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "graveyard",
@@ -129616,7 +129550,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "graveyard",
@@ -129671,7 +129604,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -129727,7 +129659,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -129783,7 +129714,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -129841,7 +129771,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -129899,7 +129828,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -129955,7 +129883,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -130011,7 +129938,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -130066,7 +129992,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "graveyard",
@@ -130129,7 +130054,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "death",
@@ -130194,7 +130118,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "death",
@@ -130251,7 +130174,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130307,7 +130229,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130363,7 +130284,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130419,7 +130339,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130483,7 +130402,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "death",
@@ -130549,7 +130467,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "death",
@@ -130607,7 +130524,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130663,7 +130579,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130719,7 +130634,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130777,7 +130691,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "death",
@@ -130843,7 +130756,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "goron",
@@ -130906,7 +130818,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "goron",
@@ -130961,7 +130872,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "goron",
@@ -131014,7 +130924,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "goron",
@@ -131067,7 +130976,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131123,7 +131031,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131179,7 +131086,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131235,7 +131141,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131291,7 +131196,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131347,7 +131251,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131411,7 +131314,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "zoras",
@@ -131474,7 +131376,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "zoras",
@@ -131529,7 +131430,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131585,7 +131485,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "zoras",
@@ -131649,7 +131548,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "zoras",
@@ -131714,7 +131612,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "zoras",
@@ -131779,7 +131676,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lake",
@@ -131843,7 +131739,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lake",
@@ -131907,7 +131802,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lake",
@@ -131971,7 +131865,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "lake",
@@ -132027,7 +131920,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lake",
@@ -132083,7 +131975,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "lake",
@@ -132147,7 +132038,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "gerudo",
@@ -132212,7 +132102,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "gerudo",
@@ -132269,7 +132158,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132324,7 +132212,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132379,7 +132266,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132434,7 +132320,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132489,7 +132374,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132544,7 +132428,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "gerudo",
@@ -132607,7 +132490,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "colossus",
@@ -132671,7 +132553,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "interior",
                 "colossus",
@@ -132727,7 +132608,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "colossus",
@@ -132783,7 +132663,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": false,
             "tags": [
                 "grotto",
                 "colossus",
@@ -132838,7 +132717,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "deku"
@@ -132889,7 +132767,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "deku"
@@ -132940,7 +132817,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "dodongo"
@@ -132991,7 +132867,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "dodongo"
@@ -133042,7 +132917,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "jabu"
@@ -133093,7 +132967,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "jabu"
@@ -133144,7 +133017,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_forest"
@@ -133195,7 +133067,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_forest"
@@ -133246,7 +133117,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_fire"
@@ -133297,7 +133167,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_fire"
@@ -133348,7 +133217,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_water"
@@ -133399,7 +133267,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_water"
@@ -133450,7 +133317,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_shadow"
@@ -133501,7 +133367,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_shadow"
@@ -133552,7 +133417,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_spirit"
@@ -133603,7 +133467,6 @@
             },
             "includeInactiveEntrances": false,
             "isBiDir": true,
-            "ignoreMixedEntrances": true,
             "tags": [
                 "boss",
                 "temple_spirit"

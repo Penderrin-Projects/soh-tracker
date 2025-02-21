@@ -3321,10 +3321,7 @@
         "Deku Tree GS Compass Room": "deku.s_3f_compass_side_child",
         "Deku Tree GS Basement Gate": "deku.s_basement_metal_gate_child",
         "Deku Tree GS Basement Back Room": "deku.s_bombable_behind_web_child",
-        "Deku Tree Queen Gohma Heart": [
-            "deku.c_gohma",
-            "deku_mq.c_gohma"
-        ],
+        "Deku Tree Queen Gohma Heart": "deku.c_gohma",
         "Dodongos Cavern Compass Chest": "dodongo.c_compass",
         "Dodongos Cavern Map Chest": "dodongo.c_map",
         "Dodongos Cavern Bomb Flower Platform Chest": "dodongo.c_bomb_flower_platform",
@@ -3340,10 +3337,7 @@
         "Dodongos Cavern GS Alcove Above Stairs": "dodongo.s_above_big_staircase_adult",
         "Dodongos Cavern GS Scarecrow": "dodongo.s_east_corridor_scarecrow_adult",
         "Dodongos Cavern GS Side Room Near Lower Lizalfos": "dodongo.s_east_corridor_bombable",
-        "Dodongos Cavern King Dodongo Heart": [
-            "dodongo.c_dodongo",
-            "dodongo_mq.c_dodongo"
-        ],
+        "Dodongos Cavern King Dodongo Heart": "dodongo.c_dodongo",
         "Jabu Jabus Belly Boomerang Chest": "jabujabu.c_boomerang",
         "Jabu Jabus Belly GS Water Switch Room": "jabujabu.s_b1_rising_water_child",
         "Jabu Jabus Belly GS Lobby Basement Lower": "jabujabu.s_b1_ruto1_child",
@@ -3352,10 +3346,7 @@
         "Jabu Jabus Belly Map Chest": "jabujabu.c_map",
         "Jabu Jabus Belly Compass Chest": "jabujabu.c_compass",
         "Jabu Jabus Belly GS Near Boss": "jabujabu.s_1f_near_boss_child",
-        "Jabu Jabus Belly Barinade Heart": [
-            "jabujabu.c_barinade",
-            "jabujabu_mq.c_barinade"
-        ],
+        "Jabu Jabus Belly Barinade Heart": "jabujabu_mq.c_barinade",
         "Bottom of the Well Freestanding Key": "well.c_coffin_key",
         "Bottom of the Well Front Left Fake Wall Chest": "well.c_front_left_hidden_wall",
         "Bottom of the Well Front Center Bombable Chest": "well.c_front_center_bombable",
@@ -3376,10 +3367,7 @@
         "Ice Cavern Map Chest": "ice_cavern.c_map",
         "Ice Cavern Compass Chest": "ice_cavern.c_compass",
         "Ice Cavern Iron Boots Chest": "ice_cavern.c_boots",
-        "Sheik in Ice Cavern": [
-            "ice_cavern.c_sheik",
-            "ice_cavern_mq.c_sheik"
-        ],
+        "Sheik in Ice Cavern": "ice_cavern.c_sheik",
         "Ice Cavern Freestanding PoH": "ice_cavern.c_hp",
         "Ice Cavern GS Spinning Scythe Room": "ice_cavern.s_ice_blades_adult",
         "Ice Cavern GS Heart Piece Room": "ice_cavern.s_compass_room_adult",
@@ -3424,10 +3412,7 @@
         "Forest Temple Blue Poe Chest": "temple_forest.c_poe_blue",
         "Forest Temple Basement Chest": "temple_forest.c_near_boss",
         "Forest Temple GS Basement": "temple_forest.s_near_boss_adult",
-        "Forest Temple Phantom Ganon Heart": [
-            "temple_forest.c_phantomganon",
-            "temple_forest_mq.c_phantomganon"
-        ],
+        "Forest Temple Phantom Ganon Heart": "temple_forest.c_phantomganon",
         "Fire Temple Near Boss Chest": "temple_fire.c_near_boss",
         "Fire Temple Flare Dancer Chest": "temple_fire.c_dancer",
         "Fire Temple Boss Key Chest": "temple_fire.c_boss_key",
@@ -3447,10 +3432,7 @@
         "Fire Temple GS Scarecrow Top": "temple_fire.s_boulder_maze_scarecrow2_adult",
         "Fire Temple Highest Goron Chest": "temple_fire.c_highest_goron",
         "Fire Temple Megaton Hammer Chest": "temple_fire.c_hammer",
-        "Fire Temple Volvagia Heart": [
-            "temple_fire.c_volvagia",
-            "temple_fire_mq.c_volvagia"
-        ],
+        "Fire Temple Volvagia Heart": "temple_fire.c_volvagia",
         "Water Temple Map Chest": "temple_water.c_map",
         "Water Temple Compass Chest": "temple_water.c_compass",
         "Water Temple Torches Chest": "temple_water.c_torches",
@@ -3466,10 +3448,7 @@
         "Water Temple River Chest": "temple_water.c_river",
         "Water Temple GS River": "temple_water.s_river_adult",
         "Water Temple GS Falling Platform Room": "temple_water.s_big_waterfall_adult",
-        "Water Temple Morpha Heart": [
-            "temple_water.c_morpha",
-            "temple_water_mq.c_morpha"
-        ],
+        "Water Temple Morpha Heart": "temple_water.c_morpha",
         "Shadow Temple Map Chest": "temple_shadow.c_map",
         "Shadow Temple Hover Boots Chest": "temple_shadow.c_boots",
         "Shadow Temple Compass Chest": "temple_shadow.c_compass",
@@ -3492,10 +3471,7 @@
         "Shadow Temple Boss Key Chest": "temple_shadow.c_boss_key",
         "Shadow Temple Invisible Floormaster Chest": "temple_shadow.c_hidden_floormaster",
         "Shadow Temple GS Triple Giant Pot": "temple_shadow.s_behind_giant_pots_adult",
-        "Shadow Temple Bongo Bongo Heart": [
-            "temple_shadow.c_bongobongo",
-            "temple_shadow_mq.c_bongobongo"
-        ],
+        "Shadow Temple Bongo Bongo Heart": "temple_shadow.c_bongobongo",
         "Spirit Temple Child Bridge Chest": "temple_spirit.c_child_left",
         "Spirit Temple Child Early Torches Chest": "temple_spirit.c_child_right",
         "Spirit Temple GS Metal Fence": "temple_spirit.s_childsegment_left",
@@ -3513,20 +3489,14 @@
         "Spirit Temple Statue Room Northeast Chest": "temple_spirit.c_main_room_NE",
         "Spirit Temple GS Hall After Sun Block Room": "temple_spirit.s_childsegment_before_iron_knight",
         "Spirit Temple GS Lobby": "temple_spirit.s_coloss_room_adult",
-        "Spirit Temple Silver Gauntlets Chest": [
-            "temple_spirit.c_gauntlets",
-            "temple_spirit_mq.c_gauntlets"
-        ],
+        "Spirit Temple Silver Gauntlets Chest": "temple_spirit.c_gauntlets",
         "Spirit Temple Mirror Shield Chest": "temple_spirit.c_shield",
         "Spirit Temple Near Four Armos Chest": "temple_spirit.c_near_four_armos",
         "Spirit Temple Hallway Left Invisible Chest": "temple_spirit.c_hallway_left_invisible",
         "Spirit Temple Hallway Right Invisible Chest": "temple_spirit.c_hallway_right_invisible",
         "Spirit Temple Boss Key Chest": "temple_spirit.c_boss_key",
         "Spirit Temple Topmost Chest": "temple_spirit.c_topmost",
-        "Spirit Temple Twinrova Heart": [
-            "temple_spirit.c_twinrova",
-            "temple_spirit_mq.c_twinrova"
-        ],
+        "Spirit Temple Twinrova Heart": "temple_spirit.c_twinrova",
         "Ganons Castle Deku Scrub Center-Left": "castle_ganon.c_under_bridge_salesman_1",
         "Ganons Castle Deku Scrub Center-Right": "castle_ganon.c_under_bridge_salesman_2",
         "Ganons Castle Deku Scrub Right": "castle_ganon.c_under_bridge_salesman_3",
@@ -3738,10 +3708,7 @@
         "GS Deku Tree Basement Vines": "deku.s_basement_vines_child",
         "GS Deku Tree Basement Gate": "deku.s_basement_metal_gate_child",
         "GS Deku Tree Basement Back Room": "deku.s_bombable_behind_web_child",
-        "Queen Gohma Heart": [
-            "deku.c_gohma",
-            "deku_mq.c_gohma"
-        ],
+        "Queen Gohma Heart": "deku.c_gohma",
         "GS Dodongo's Cavern East Side Room": "dodongo.s_east_corridor_bombable",
         "GS Dodongo's Cavern Scarecrow": "dodongo.s_east_corridor_scarecrow_adult",
         "DC Deku Scrub Deku Sticks": "dodongo.c_lobby_salesman",
@@ -3752,20 +3719,14 @@
         "DC Deku Scrub Deku Nuts": "dodongo.c_near_bomb_bag_salesman_2",
         "GS Dodongo's Cavern Alcove Above Stairs": "dodongo.s_above_big_staircase_adult",
         "Chest Above King Dodongo": "dodongo.c_chest_above_dodongo",
-        "King Dodongo Heart": [
-            "dodongo.c_dodongo",
-            "dodongo_mq.c_dodongo"
-        ],
+        "King Dodongo Heart": "dodongo.c_dodongo",
         "GS Dodongo's Cavern Back Room": "dodongo.s_near_boss_bombable",
         "Boomerang Chest": "jabujabu.c_boomerang",
         "GS Jabu Jabu Water Switch Room": "jabujabu.s_b1_rising_water_child",
         "GS Jabu Jabu Lobby Basement Lower": "jabujabu.s_b1_ruto1_child",
         "GS Jabu Jabu Lobby Basement Upper": "jabujabu.s_b1_ruto2_child",
         "Jabu Deku Scrub Deku Nuts": "jabujabu.c_elevator_dive_salesman",
-        "Barinade Heart": [
-            "jabujabu.c_barinade",
-            "jabujabu_mq.c_barinade"
-        ],
+        "Barinade Heart": "jabujabu.c_barinade",
         "GS Jabu Jabu Near Boss": "jabujabu.s_1f_near_boss_child",
         "Forest Temple First Chest": "temple_forest.c_entrance",
         "Forest Temple Chest Behind Lobby": "temple_forest.c_behind_lobby",
@@ -3777,10 +3738,7 @@
         "Forest Temple Falling Room Chest": "temple_forest.c_falling_room",
         "Forest Temple Block Push Chest": "temple_forest.c_block_push",
         "Forest Temple Near Boss Chest": "temple_forest.c_near_boss",
-        "Phantom Ganon Heart": [
-            "temple_forest.c_phantomganon",
-            "temple_forest_mq.c_phantomganon"
-        ],
+        "Phantom Ganon Heart": "temple_forest.c_phantomganon",
         "GS Forest Temple Basement": "temple_forest.s_near_boss_adult",
         "Bottom of the Well Front Left Hidden Wall": "well.c_front_left_hidden_wall",
         "Bottom of the Well Front Center Bombable": "well.c_front_center_bombable",
@@ -3797,10 +3755,7 @@
         "GS Well Like Like Cage": "well.s_locked_pits_child",
         "Fire Temple Chest Near Boss": "temple_fire.c_near_boss",
         "Fire Temple Fire Dancer Chest": "temple_fire.c_dancer",
-        "Volvagia Heart": [
-            "temple_fire.c_volvagia",
-            "temple_fire_mq.c_volvagia"
-        ],
+        "Volvagia Heart": "temple_fire.c_volvagia",
         "GS Fire Temple Basement": "temple_fire.s_near_boss_key_adult",
         "Fire Temple Big Lava Room Open Chest": "temple_fire.c_big_lava_open",
         "Fire Temple Big Lava Room Bombable Chest": "temple_fire.c_big_lava_bomb",
@@ -3813,10 +3768,7 @@
         "GS Ice Cavern Spinning Scythe Room": "ice_cavern.s_ice_blades_adult",
         "GS Ice Cavern Heart Piece Room": "ice_cavern.s_compass_room_adult",
         "GS Ice Cavern Push Block Room": "ice_cavern.s_block_puzzle_adult",
-        "Morpha Heart": [
-            "temple_water.c_morpha",
-            "temple_water_mq.c_morpha"
-        ],
+        "Morpha Heart": "temple_water.c_morpha",
         "GS Water Temple South Basement": "temple_water.s_lowest_level_south_adult",
         "GS Water Temple Near Boss Key Chest": "temple_water.s_near_boss_key_adult",
         "GS Water Temple Central Room": "temple_water.s_center_pillar_adult",
@@ -3829,10 +3781,7 @@
         "GS Shadow Temple Single Giant Pot": "temple_shadow.s_behind_giant_pot_adult",
         "GS Shadow Temple Near Ship": "temple_shadow.s_boat_adult",
         "Shadow Temple Hidden Floormaster Chest": "temple_shadow.c_hidden_floormaster",
-        "Bongo Bongo Heart": [
-            "temple_shadow.c_bongobongo",
-            "temple_shadow_mq.c_bongobongo"
-        ],
+        "Bongo Bongo Heart": "temple_shadow.c_bongobongo",
         "GS Shadow Temple Triple Giant Pot": "temple_shadow.s_behind_giant_pots_adult",
         "Spirit Temple Child Left Chest": "temple_spirit.c_child_left",
         "Spirit Temple Child Right Chest": "temple_spirit.c_child_right",
@@ -3845,10 +3794,7 @@
         "GS Spirit Temple Lobby": "temple_spirit.s_coloss_room_adult",
         "Silver Gauntlets Chest": "temple_spirit.c_gauntlets",
         "Mirror Shield Chest": "temple_spirit.c_shield",
-        "Twinrova Heart": [
-            "temple_spirit.c_twinrova",
-            "temple_spirit_mq.c_twinrova"
-        ],
+        "Twinrova Heart": "temple_spirit.c_twinrova",
         "GC Deku Scrub Bombs": "castle_ganon.c_under_bridge_salesman_1",
         "GC Deku Scrub Arrows": "castle_ganon.c_under_bridge_salesman_2",
         "GC Deku Scrub Red Potion": "castle_ganon.c_under_bridge_salesman_3",

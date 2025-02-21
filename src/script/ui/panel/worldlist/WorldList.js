@@ -10,7 +10,7 @@ import "./components/entries/Exit.js";
 import "./components/entries/Location.js";
 import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
-import "./components/entries/ScubLocation.js";
+import "./components/entries/ScrubLocation.js";
 import "./components/button/TypeButton.js";
 import "../dungeonstate/components/DungeonType.js";
 

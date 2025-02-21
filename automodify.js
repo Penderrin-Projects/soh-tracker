@@ -88,7 +88,6 @@ function modify(source = {}, target = {}) {
             entranceActive: oldProps.entranceActive ?? true,
             includeInactiveEntrances: oldProps.includeInactiveEntrances ?? false,
             isBiDir: oldProps.isBiDir ?? false,
-            ignoreMixedEntrances: oldProps.ignoreMixedEntrances ?? false,
             tags: oldProps.tags ?? []
         };
         exits[ref] = newProps;

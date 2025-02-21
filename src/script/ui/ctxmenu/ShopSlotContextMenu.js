@@ -12,7 +12,9 @@ export default class ShopSlotContextMenu extends ContextMenu {
             {menuAction: "junk", content: "Set Junk"},
             {menuAction: "disassociate", content: "Clear Item"},
             "splitter",
-            {menuAction: "show_logic", content: "Show Logic"}
+            {menuAction: "show_logic", content: "Show Logic"},
+            {type: "splitter", group: "AP"},
+            {group: "AP", menuAction: "hint_ap_location", content: "AP Hint Location"}
         ]);
     }
 

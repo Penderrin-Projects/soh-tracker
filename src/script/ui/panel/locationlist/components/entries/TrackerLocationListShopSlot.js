@@ -4,13 +4,17 @@ import {
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
+import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu";
+import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};
 import STYLE from "./TrackerLocationListShopSlot.js.css" assert {type: "css"};
+
+const apHintLocations = APHintLocations.get();
 
 function applyElements(target) {
     const textEl = target.getElementById("text");
@@ -87,6 +91,25 @@ export default class TrackerLocationListShopSlot extends BaseClass {
             const state = this.getState();
             if (state != null) {
                 state.reset();
+            }
+        });
+        this.addDefaultContextMenuHandler("hint_ap_location", () => {
+            const apHintLocation = apHintLocations[this.ref];
+            if (apHintLocation != null) {
+                const viewchoiceEl = document.getElementById("main-content");
+                viewchoiceEl.active = "ap";
+                const apTextClient = document.getElementById("ap-textclient");
+                apTextClient.setChatMessageToSend(`!hint ${apHintLocation}`);
+            }
+        });
+        /* AP */
+        if (!Savestate.getMeta("archipelago")) {
+            this.toggleDefaultContextMenuGroupActive("ap", false);
+        }
+        Savestate.addEventListener("meta", (event) => {
+            const {key, value} = event.data;
+            if (key === "archipelago") {
+                this.toggleDefaultContextMenuGroupActive("ap", !!value);
             }
         });
     }

@@ -11,7 +11,7 @@ import "./components/entries/Exit.js";
 import "./components/entries/Location.js";
 import "./components/entries/Gossipstone.js";
 import "./components/entries/ShopSlot.js";
-import "./components/entries/ScubLocation.js";
+import "./components/entries/ScrubLocation.js";
 
 const TPL = new Template(`
 <ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
