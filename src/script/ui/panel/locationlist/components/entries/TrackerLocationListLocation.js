@@ -31,7 +31,7 @@ export default class TrackerLocationListLocation extends LocationListLocation {
                 const viewchoiceEl = document.getElementById("main-content");
                 viewchoiceEl.active = "ap";
                 const apTextClient = document.getElementById("ap-textclient");
-                apTextClient.setChatMessageToSend(`!hint ${apHintLocation}`);
+                apTextClient.setLocationHintMessage(apHintLocation);
             }
         });
         /* AP */
