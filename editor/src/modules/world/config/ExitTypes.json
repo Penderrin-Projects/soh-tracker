@@ -9,5 +9,7 @@
     "flight": "Owl Flight",
     "spawn": "Child/Adult Spawn",
     "warp": "Warp Song",
-    "voided": "Void Out"
+    "blue_warp": "Blue Warp",
+    "voided": "Void Out",
+    "special": "Special"
 }

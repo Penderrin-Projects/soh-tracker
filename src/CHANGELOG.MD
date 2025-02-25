@@ -23,6 +23,7 @@ Application:    Track-OOT
 - remove legacy mq dungeon boss entries
 - change location translations to be more consistent
 - let all active exits/entrances be mixed if mixed entrances is active
+- add blue warp entrances
 
 ### BUG FIXES
 

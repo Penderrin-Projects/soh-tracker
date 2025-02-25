@@ -122360,6 +122360,7 @@
             },
             "icon": "/images/icons/entrance.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "overworld",
                 "warp"
@@ -122658,14 +122659,35 @@
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -122677,6 +122699,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "overworld",
                 "warp"
@@ -122703,10 +122726,43 @@
             "logicAccess": "",
             "area": {
                 "type": "Area",
-                "name": "owl_lake_gateway"
+                "name": "hyrule_field"
             },
             "visible": false,
-            "filter": {},
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
             "icon": "/images/icons/location.svg",
             "bindsTo": [],
             "unbindable": false,
@@ -122742,14 +122798,35 @@
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -122761,6 +122838,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "overworld",
                 "warp"
@@ -122824,14 +122902,35 @@
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -122843,14 +122942,15 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
-                "spawn",
-                "warp",
-                "overworld",
-                "interior_outer",
-                "interior_inner",
+                "grotto_inner",
                 "grotto_outer",
-                "grotto_inner"
+                "interior_inner",
+                "interior_outer",
+                "overworld",
+                "spawn",
+                "warp"
             ],
             "unbindable": true,
             "ignoreBound": true,
@@ -122911,14 +123011,35 @@
             },
             "filter": {
                 "era": {
+                    "both": true,
                     "child": true,
                     "adult": true
                 },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
                 "time": {
+                    "both": true,
                     "day": true,
                     "night": true
                 },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
                 "show_done": {
+                    "true": true,
                     "false": {
                         "type": "not",
                         "content": {
@@ -122930,14 +123051,15 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
-                "spawn",
-                "warp",
-                "overworld",
-                "interior_outer",
-                "interior_inner",
+                "grotto_inner",
                 "grotto_outer",
-                "grotto_inner"
+                "interior_inner",
+                "interior_outer",
+                "overworld",
+                "spawn",
+                "warp"
             ],
             "unbindable": true,
             "ignoreBound": true,
@@ -123019,6 +123141,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123074,6 +123197,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123135,6 +123259,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123222,6 +123347,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123309,6 +123435,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123396,6 +123523,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -123483,6 +123611,7 @@
             },
             "icon": "/images/icons/location.svg",
             "bindsTo": [
+                "blue_warp",
                 "flight",
                 "spawn",
                 "warp",
@@ -133471,6 +133600,446 @@
                 "boss",
                 "temple_spirit"
             ]
+        },
+        "blue_warp_ghoma_gateway -> ghoma_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "kokiri"
+            },
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": []
+        },
+        "blue_warp_dodongo_gateway -> dodongo_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "mountain"
+            },
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": []
+        },
+        "blue_warp_barinade_gateway -> barinade_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "fountain"
+            }
+        },
+        "blue_warp_phantom_ganon_gateway -> phantom_ganon_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "meadow"
+            }
+        },
+        "blue_warp_volvagia_gateway -> volvagia_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "crater"
+            }
+        },
+        "blue_warp_morpha_gateway -> morpha_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "lake"
+            }
+        },
+        "blue_warp_bongo_bongo_gateway -> bongo_bongo_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "graveyard"
+            }
+        },
+        "blue_warp_twinrova_gateway -> twinrova_blue_warp_gateway": {
+            "type": "blue_warp",
+            "target": {
+                "type": "",
+                "name": ""
+            },
+            "logicAccess": "",
+            "visible": false,
+            "filter": {
+                "era": {
+                    "both": true,
+                    "child": true,
+                    "adult": true
+                },
+                "era_apply": {
+                    "loose": true,
+                    "force": true
+                },
+                "time": {
+                    "both": true,
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "true": true,
+                    "false": true
+                },
+                "skulltulas": {
+                    "true": true,
+                    "dungeons": true,
+                    "overworld": true,
+                    "false": true
+                },
+                "gossipstones": {
+                    "true": true,
+                    "false": true
+                },
+                "show_done": {
+                    "true": true,
+                    "false": true
+                }
+            },
+            "icon": "/images/icons/blue_warp.svg",
+            "bindsTo": [],
+            "unbindable": false,
+            "ignoreBound": false,
+            "entranceActive": true,
+            "includeInactiveEntrances": false,
+            "isBiDir": false,
+            "tags": [],
+            "area": {
+                "type": "Area",
+                "name": "colossus"
+            }
         }
     }
 }

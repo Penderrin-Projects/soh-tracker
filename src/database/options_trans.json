@@ -1510,6 +1510,16 @@
             "Desert Colossus -> Requiem of Spirit Warp": "colossus_requiem_gateway -> requiem_colossus_gateway",
             "Prelude of Light Warp -> Temple of Time": "prelude_temple_of_time_gateway -> temple_of_time_prelude_gateway",
             "Temple of Time -> Prelude of Light Warp": "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway"
+        },
+        "blue_warps": {
+            "KF Outside Deku Tree -> Queen Gohma Boss Room": "blue_warp_ghoma_gateway -> ghoma_blue_warp_gateway",
+            "Death Mountain -> King Dodongo Boss Room": "blue_warp_dodongo_gateway -> dodongo_blue_warp_gateway",
+            "Zoras Fountain -> Barinade Boss Room": "blue_warp_barinade_gateway -> barinade_blue_warp_gateway",
+            "Sacred Forest Meadow -> Phantom Ganon Boss Room": "blue_warp_phantom_ganon_gateway -> phantom_ganon_blue_warp_gateway",
+            "DMC Central Local -> Volvagia Boss Room": "blue_warp_volvagia_gateway -> volvagia_blue_warp_gateway",
+            "Lake Hylia -> Morpha Boss Room": "blue_warp_morpha_gateway -> morpha_blue_warp_gateway",
+            "Graveyard Warp Pad Region -> Bongo Bongo Boss Room": "blue_warp_bongo_bongo_gateway -> bongo_bongo_blue_warp_gateway",
+            "Desert Colossus -> Twinrova Boss Room": "blue_warp_twinrova_gateway -> twinrova_blue_warp_gateway"
         }
     },
     "barren": {

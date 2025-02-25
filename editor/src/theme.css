@@ -36,6 +36,8 @@
     /* === input === */
     --input-placeholder-text-color: #adadad;
 
+    --input-invalid-text-color: #000000;
+
     /* === input-button === */
     --input-button-text-color: #aaaaaa;
     --input-button-back-color: #1e0e2c;

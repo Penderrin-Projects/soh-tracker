@@ -1,5 +1,85 @@
 {
     "edges": {
+        "region[blue_warp_ghoma_gateway:out]{child}": {
+            "region[kf_outside_deku_tree]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_ghoma_gateway:out]{adult}": {
+            "region[kf_outside_deku_tree]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_dodongo_gateway:out]{child}": {
+            "region[death_mountain]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_dodongo_gateway:out]{adult}": {
+            "region[death_mountain]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_barinade_gateway:out]{child}": {
+            "region[zoras_fountain]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_barinade_gateway:out]{adult}": {
+            "region[zoras_fountain]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_phantom_ganon_gateway:out]{child}": {
+            "region[sacred_forest_meadow]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_phantom_ganon_gateway:out]{adult}": {
+            "region[sacred_forest_meadow]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_volvagia_gateway:out]{child}": {
+            "region[dmc_central_local]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_volvagia_gateway:out]{adult}": {
+            "region[dmc_central_local]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_morpha_gateway:out]{child}": {
+            "region[lake_hylia]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_morpha_gateway:out]{adult}": {
+            "region[lake_hylia]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_bongo_bongo_gateway:out]{child}": {
+            "region[graveyard_warp_pad_region]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_bongo_bongo_gateway:out]{adult}": {
+            "region[graveyard_warp_pad_region]{adult}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_twinrova_gateway:out]{child}": {
+            "region[desert_colossus]{child}": {
+                "type": "true"
+            }
+        },
+        "region[blue_warp_twinrova_gateway:out]{adult}": {
+            "region[desert_colossus]{adult}": {
+                "type": "true"
+            }
+        },
         "region[child_spawn_links_house_gateway:in]{child}": {
             "region[links_house_child_spawn_gateway:out]{child}": {
                 "type": "true"
