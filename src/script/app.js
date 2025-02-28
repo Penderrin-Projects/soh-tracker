@@ -18,8 +18,9 @@ import LoadingMessageHandler from "/GameTrackerJS/util/LoadingMessageHandler.js"
 import Language from "/GameTrackerJS/util/Language.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
-import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
+import EntranceBindingHandler from "/GameTrackerJS/util/handler/EntranceBindingHandler.js";
+import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
 import "/GameTrackerJS/util/logic/LogicCaller.js";
@@ -58,6 +59,21 @@ LoadingMessageHandler.registerCallback(updateLoadingMessage);
 window.onbeforeunload = function() {
     return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
 };
+
+// mixed entrances
+{
+    const INNER_GATEWAYS = ["boss_inner", "dungeon_inner", "interior_inner", "grotto_inner"];
+    const OUTER_GATEWAYS = ["boss_outer", "dungeon_outer", "interior_outer", "grotto_outer"];
+    EntranceBindingHandler.setMixedEntranceRule((exit, entrance) => {
+        if (INNER_GATEWAYS.includes(exit.props.type)) {
+            return !INNER_GATEWAYS.includes(entrance.props.type);
+        }
+        if (OUTER_GATEWAYS.includes(exit.props.type)) {
+            return !OUTER_GATEWAYS.includes(entrance.props.type);
+        }
+        return true;
+    });
+}
 
 try {
     window.onerror = null;
