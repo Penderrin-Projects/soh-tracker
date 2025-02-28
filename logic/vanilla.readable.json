@@ -1,11 +1,11 @@
 {
     "edges": {
-        "region[blue_warp_ghoma_gateway:out]{child}": {
+        "region[blue_warp_gohma_gateway:out]{child}": {
             "region[kf_outside_deku_tree]{child}": {
                 "type": "true"
             }
         },
-        "region[blue_warp_ghoma_gateway:out]{adult}": {
+        "region[blue_warp_gohma_gateway:out]{adult}": {
             "region[kf_outside_deku_tree]{adult}": {
                 "type": "true"
             }

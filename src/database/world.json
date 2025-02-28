@@ -133601,7 +133601,7 @@
                 "temple_spirit"
             ]
         },
-        "blue_warp_ghoma_gateway -> ghoma_blue_warp_gateway": {
+        "blue_warp_gohma_gateway -> gohma_blue_warp_gateway": {
             "type": "blue_warp",
             "target": {
                 "type": "",

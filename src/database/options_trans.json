@@ -1512,7 +1512,7 @@
             "Temple of Time -> Prelude of Light Warp": "temple_of_time_prelude_gateway -> prelude_temple_of_time_gateway"
         },
         "blue_warps": {
-            "KF Outside Deku Tree -> Queen Gohma Boss Room": "blue_warp_ghoma_gateway -> ghoma_blue_warp_gateway",
+            "KF Outside Deku Tree -> Queen Gohma Boss Room": "blue_warp_gohma_gateway -> gohma_blue_warp_gateway",
             "Death Mountain -> King Dodongo Boss Room": "blue_warp_dodongo_gateway -> dodongo_blue_warp_gateway",
             "Zoras Fountain -> Barinade Boss Room": "blue_warp_barinade_gateway -> barinade_blue_warp_gateway",
             "Sacred Forest Meadow -> Phantom Ganon Boss Room": "blue_warp_phantom_ganon_gateway -> phantom_ganon_blue_warp_gateway",
