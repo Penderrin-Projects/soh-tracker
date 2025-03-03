@@ -3343,12 +3343,12 @@
             }
         },
         "region[crater_hammer_grotto_gateway:out]{child}": {
-            "region[dmc_lower_nearby]{child}": {
+            "region[dmc_lower_local]{child}": {
                 "type": "true"
             }
         },
         "region[crater_hammer_grotto_gateway:out]{adult}": {
-            "region[dmc_lower_nearby]{adult}": {
+            "region[dmc_lower_local]{adult}": {
                 "type": "true"
             }
         },
@@ -3383,12 +3383,12 @@
             }
         },
         "region[crater_bomb_grotto_gateway:out]{child}": {
-            "region[dmc_upper_nearby]{child}": {
+            "region[dmc_upper_local]{child}": {
                 "type": "true"
             }
         },
         "region[crater_bomb_grotto_gateway:out]{adult}": {
-            "region[dmc_upper_nearby]{adult}": {
+            "region[dmc_upper_local]{adult}": {
                 "type": "true"
             }
         },
@@ -5143,12 +5143,12 @@
             }
         },
         "region[crater_great_fairy_gateway:out]{child}": {
-            "region[dmc_lower_nearby]{child}": {
+            "region[dmc_lower_local]{child}": {
                 "type": "true"
             }
         },
         "region[crater_great_fairy_gateway:out]{adult}": {
-            "region[dmc_lower_nearby]{adult}": {
+            "region[dmc_lower_local]{adult}": {
                 "type": "true"
             }
         },
