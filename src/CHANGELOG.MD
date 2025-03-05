@@ -34,6 +34,7 @@ Application:    Track-OOT
 - fix spoiler log parsing
 - fix font size in dungeon state panel context menus
 - fix "Skip Child Zelda" bug where it would not get considered
+- fix available locations counter on area markers for continous dungeons
 
 ---
 
