@@ -5551,7 +5551,7 @@
             }
         },
         "region[king_dodongo_boss_room]{child}": {
-            "region[dodongos_cavern_mouth]{child}": {
+            "region[boss_dodongo_gateway:in]{child}": {
                 "type": "true"
             },
             "reach_location[dodongo.c_chest_above_dodongo]": {
@@ -5645,7 +5645,7 @@
             }
         },
         "region[king_dodongo_boss_room]{adult}": {
-            "region[dodongos_cavern_mouth]{adult}": {
+            "region[boss_dodongo_gateway:in]{adult}": {
                 "type": "true"
             },
             "reach_location[dodongo.c_chest_above_dodongo]": {
