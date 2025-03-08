@@ -19465,6 +19465,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -19512,6 +19516,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19571,6 +19579,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -19613,6 +19625,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19660,12 +19676,144 @@
             "icon": "/images/icons/shops.svg",
             "tags": []
         },
+        "kokiri.kokiri_shop_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kokiri.kokiri_shop_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kokiri.kokiri_shop_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kokiri.kokiri_shop_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kokiri.kokiri_shop_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
         "kakariko.shop_bazaar_8": {
             "type": "shopslot",
             "logicAccess": "reach_location[kakariko.shop_bazaar_8]",
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19714,6 +19862,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19773,6 +19925,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -19815,6 +19971,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19869,6 +20029,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -19916,6 +20080,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -19975,6 +20143,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -20017,6 +20189,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20071,6 +20247,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -20118,6 +20298,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20177,6 +20361,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -20219,6 +20407,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20273,6 +20465,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -20320,6 +20516,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20379,6 +20579,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -20421,6 +20625,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20475,6 +20683,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -20522,6 +20734,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20581,6 +20797,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -20623,6 +20843,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20677,6 +20901,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -20724,6 +20952,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20783,6 +21015,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -20825,6 +21061,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20879,6 +21119,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "3"
@@ -20926,6 +21170,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -20985,6 +21233,10 @@
                 "type": "or",
                 "content": [
                     {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
+                    {
                         "type": "state",
                         "ref": "option[shopsanity]",
                         "value": "4"
@@ -21027,6 +21279,10 @@
             "visible": {
                 "type": "or",
                 "content": [
+                    {
+                        "type": "value",
+                        "ref": "setting[always_show_shop_slots]"
+                    },
                     {
                         "type": "state",
                         "ref": "option[shopsanity]",
@@ -71878,6 +72134,902 @@
                 "castle",
                 "grounds"
             ]
+        },
+        "kakariko.shop_bazaar_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_bazaar_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_bazaar_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_bazaar_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_bazaar_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_magic_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_magic_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_magic_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_magic_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_magic_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_magic_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "kakariko.shop_magic_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[kakariko.shop_magic_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bazaar_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bazaar_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bazaar_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bazaar_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bazaar_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_magic_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_magic_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_magic_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_magic_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_magic_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_magic_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_magic_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_magic_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bombchu_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bombchu_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bombchu_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "castle_town.shop_bombchu_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[castle_town.shop_bombchu_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "goron.goron_shop_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[goron.goron_shop_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "goron.goron_shop_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[goron.goron_shop_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "goron.goron_shop_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[goron.goron_shop_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "goron.goron_shop_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[goron.goron_shop_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "zoras.zoras_shop_1": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[zoras.zoras_shop_1]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "zoras.zoras_shop_2": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[zoras.zoras_shop_2]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "zoras.zoras_shop_3": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[zoras.zoras_shop_3]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
+        },
+        "zoras.zoras_shop_4": {
+            "type": "shopslot",
+            "logicAccess": "reach_location[zoras.zoras_shop_4]",
+            "visible": {
+                "type": "value",
+                "ref": "setting[always_show_shop_slots]"
+            },
+            "filter": {
+                "era": {
+                    "child": true,
+                    "adult": true
+                },
+                "time": {
+                    "day": true,
+                    "night": true
+                },
+                "chests": {
+                    "false": false
+                },
+                "show_done": {
+                    "false": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "$IS_DONE"
+                        }
+                    }
+                }
+            },
+            "icon": "/images/icons/shops.svg",
+            "tags": []
         }
     },
     "collections": {
@@ -115321,7 +116473,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "kokiri.kokiri_shop_7"
+                            "name": "kokiri.kokiri_shop_6"
                         },
                         "pos": {
                             "x": 115,
@@ -115335,7 +116487,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "kokiri.kokiri_shop_6"
+                            "name": "kokiri.kokiri_shop_7"
                         },
                         "pos": {
                             "x": 80,
@@ -115353,6 +116505,62 @@
                         },
                         "pos": {
                             "x": 115,
+                            "y": 100,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.kokiri_shop_2"
+                        },
+                        "pos": {
+                            "x": 165,
+                            "y": 70,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.kokiri_shop_4"
+                        },
+                        "pos": {
+                            "x": 200,
+                            "y": 70,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.kokiri_shop_1"
+                        },
+                        "pos": {
+                            "x": 165,
+                            "y": 100,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kokiri.kokiri_shop_3"
+                        },
+                        "pos": {
+                            "x": 200,
                             "y": 100,
                             "scale": 75
                         },
@@ -115829,21 +117037,7 @@
                         "pos": {
                             "x": 135,
                             "y": 80,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "castle_town.shop_magic_7"
-                        },
-                        "pos": {
-                            "x": 160,
-                            "y": 80,
-                            "scale": 60
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -115855,9 +117049,23 @@
                             "name": "castle_town.shop_magic_6"
                         },
                         "pos": {
+                            "x": 170,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_magic_7"
+                        },
+                        "pos": {
                             "x": 135,
-                            "y": 105,
-                            "scale": 60
+                            "y": 110,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -115869,9 +117077,65 @@
                             "name": "castle_town.shop_magic_5"
                         },
                         "pos": {
-                            "x": 160,
-                            "y": 105,
-                            "scale": 60
+                            "x": 170,
+                            "y": 110,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_magic_2"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_magic_4"
+                        },
+                        "pos": {
+                            "x": 255,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_magic_1"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 110,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_magic_3"
+                        },
+                        "pos": {
+                            "x": 255,
+                            "y": 110,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116002,21 +117266,7 @@
                         "pos": {
                             "x": 100,
                             "y": 65,
-                            "scale": 65
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "castle_town.shop_bombchu_7"
-                        },
-                        "pos": {
-                            "x": 140,
-                            "y": 65,
-                            "scale": 65
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116028,9 +117278,23 @@
                             "name": "castle_town.shop_bombchu_6"
                         },
                         "pos": {
+                            "x": 135,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bombchu_7"
+                        },
+                        "pos": {
                             "x": 100,
                             "y": 95,
-                            "scale": 65
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116042,9 +117306,65 @@
                             "name": "castle_town.shop_bombchu_5"
                         },
                         "pos": {
-                            "x": 140,
+                            "x": 135,
                             "y": 95,
-                            "scale": 65
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bombchu_2"
+                        },
+                        "pos": {
+                            "x": 185,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bombchu_4"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bombchu_1"
+                        },
+                        "pos": {
+                            "x": 185,
+                            "y": 95,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bombchu_3"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 95,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116354,21 +117674,7 @@
                         "pos": {
                             "x": 55,
                             "y": 65,
-                            "scale": 65
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "castle_town.shop_bazaar_7"
-                        },
-                        "pos": {
-                            "x": 100,
-                            "y": 65,
-                            "scale": 65
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116380,9 +117686,23 @@
                             "name": "castle_town.shop_bazaar_6"
                         },
                         "pos": {
+                            "x": 90,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bazaar_7"
+                        },
+                        "pos": {
                             "x": 55,
-                            "y": 100,
-                            "scale": 65
+                            "y": 95,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116394,9 +117714,65 @@
                             "name": "castle_town.shop_bazaar_5"
                         },
                         "pos": {
-                            "x": 100,
-                            "y": 100,
-                            "scale": 65
+                            "x": 90,
+                            "y": 95,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bazaar_2"
+                        },
+                        "pos": {
+                            "x": 140,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bazaar_4"
+                        },
+                        "pos": {
+                            "x": 175,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bazaar_1"
+                        },
+                        "pos": {
+                            "x": 140,
+                            "y": 95,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "castle_town.shop_bazaar_3"
+                        },
+                        "pos": {
+                            "x": 175,
+                            "y": 95,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116785,21 +118161,7 @@
                         "pos": {
                             "x": 55,
                             "y": 65,
-                            "scale": 65
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "kakariko.shop_bazaar_7"
-                        },
-                        "pos": {
-                            "x": 100,
-                            "y": 65,
-                            "scale": 65
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116811,9 +118173,23 @@
                             "name": "kakariko.shop_bazaar_6"
                         },
                         "pos": {
+                            "x": 90,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_bazaar_7"
+                        },
+                        "pos": {
                             "x": 55,
-                            "y": 100,
-                            "scale": 65
+                            "y": 95,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116825,9 +118201,65 @@
                             "name": "kakariko.shop_bazaar_5"
                         },
                         "pos": {
-                            "x": 100,
-                            "y": 100,
-                            "scale": 65
+                            "x": 90,
+                            "y": 95,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_bazaar_2"
+                        },
+                        "pos": {
+                            "x": 140,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_bazaar_4"
+                        },
+                        "pos": {
+                            "x": 175,
+                            "y": 65,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_bazaar_1"
+                        },
+                        "pos": {
+                            "x": 140,
+                            "y": 95,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_bazaar_3"
+                        },
+                        "pos": {
+                            "x": 175,
+                            "y": 95,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116961,21 +118393,7 @@
                         "pos": {
                             "x": 135,
                             "y": 80,
-                            "scale": 60
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "kakariko.shop_magic_7"
-                        },
-                        "pos": {
-                            "x": 160,
-                            "y": 80,
-                            "scale": 60
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -116987,9 +118405,23 @@
                             "name": "kakariko.shop_magic_6"
                         },
                         "pos": {
+                            "x": 170,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_magic_7"
+                        },
+                        "pos": {
                             "x": 135,
-                            "y": 105,
-                            "scale": 60
+                            "y": 110,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117001,9 +118433,65 @@
                             "name": "kakariko.shop_magic_5"
                         },
                         "pos": {
-                            "x": 160,
-                            "y": 105,
-                            "scale": 60
+                            "x": 170,
+                            "y": 110,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_magic_2"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_magic_4"
+                        },
+                        "pos": {
+                            "x": 255,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_magic_1"
+                        },
+                        "pos": {
+                            "x": 220,
+                            "y": 110,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.shop_magic_3"
+                        },
+                        "pos": {
+                            "x": 255,
+                            "y": 110,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117262,23 +118750,9 @@
                             "name": "goron.goron_shop_8"
                         },
                         "pos": {
-                            "x": 162,
+                            "x": 50,
                             "y": 49,
-                            "scale": 70
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "goron.goron_shop_7"
-                        },
-                        "pos": {
-                            "x": 198,
-                            "y": 49,
-                            "scale": 70
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117290,9 +118764,23 @@
                             "name": "goron.goron_shop_6"
                         },
                         "pos": {
-                            "x": 163,
-                            "y": 90,
-                            "scale": 70
+                            "x": 85,
+                            "y": 49,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "goron.goron_shop_7"
+                        },
+                        "pos": {
+                            "x": 50,
+                            "y": 79,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117304,9 +118792,65 @@
                             "name": "goron.goron_shop_5"
                         },
                         "pos": {
-                            "x": 198,
-                            "y": 90,
-                            "scale": 70
+                            "x": 85,
+                            "y": 79,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "goron.goron_shop_2"
+                        },
+                        "pos": {
+                            "x": 135,
+                            "y": 49,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "goron.goron_shop_4"
+                        },
+                        "pos": {
+                            "x": 170,
+                            "y": 49,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "goron.goron_shop_1"
+                        },
+                        "pos": {
+                            "x": 135,
+                            "y": 79,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "goron.goron_shop_3"
+                        },
+                        "pos": {
+                            "x": 170,
+                            "y": 79,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117552,21 +119096,7 @@
                         "pos": {
                             "x": 120,
                             "y": 80,
-                            "scale": 70
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "zoras.zoras_shop_7"
-                        },
-                        "pos": {
-                            "x": 155,
-                            "y": 80,
-                            "scale": 70
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117578,9 +119108,23 @@
                             "name": "zoras.zoras_shop_6"
                         },
                         "pos": {
+                            "x": 155,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "zoras.zoras_shop_7"
+                        },
+                        "pos": {
                             "x": 120,
                             "y": 110,
-                            "scale": 70
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,
@@ -117594,7 +119138,63 @@
                         "pos": {
                             "x": 155,
                             "y": 110,
-                            "scale": 70
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "zoras.zoras_shop_2"
+                        },
+                        "pos": {
+                            "x": 205,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "zoras.zoras_shop_4"
+                        },
+                        "pos": {
+                            "x": 240,
+                            "y": 80,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "zoras.zoras_shop_1"
+                        },
+                        "pos": {
+                            "x": 205,
+                            "y": 110,
+                            "scale": 75
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "zoras.zoras_shop_3"
+                        },
+                        "pos": {
+                            "x": 240,
+                            "y": 110,
+                            "scale": 75
                         },
                         "visible": true,
                         "mapOnly": false,

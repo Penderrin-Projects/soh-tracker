@@ -177,6 +177,11 @@
         "type": "check",
         "default": true
     },
+    "always_show_shop_slots": {
+        "category": "world",
+        "type": "check",
+        "default": true
+    },
     "show_filter_badges": {
         "category": "world",
         "type": "check",

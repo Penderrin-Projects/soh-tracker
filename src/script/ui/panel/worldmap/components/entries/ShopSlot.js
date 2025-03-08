@@ -1,6 +1,3 @@
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
-import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
@@ -11,41 +8,15 @@ import APHintLocations from "../../../../../resource/APHintLocations.js";
 
 const apHintLocations = APHintLocations.get();
 
-const TPL = new Template(`
-<emc-labeledicon id="item" halign="center" valign="center"></emc-labeledicon>
-`);
-
-const STYLE = new GlobalStyle(`
-#item {
-    width: 32px;
-    height: 32px;
-    margin-left: 5px;
-    font-size: 0.7em;
-}
-`);
-
-function applyElements(target) {
-    const textEl = target.getElementById("text");
-    const tpl = TPL.generate();
-    const itemEl = tpl.getElementById("item");
-    textEl.insertAdjacentElement("afterend", itemEl);
-}
-
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
 export default class WorldMapShopSlot extends WorldMapLocation {
 
     constructor() {
         super();
-        applyElements(this.shadowRoot);
-        STYLE.apply(this.shadowRoot);
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
-        /* item */
-        const itemEl = this.shadowRoot.getElementById("item");
-        itemEl.valign = "end";
-        itemEl.halign = "end";
         /* observer */
         shopsanityObserver.addEventListener("change", () => {
             const state = this.getState();

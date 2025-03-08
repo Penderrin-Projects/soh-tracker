@@ -42,10 +42,6 @@ export default class WorldListShopSlot extends BaseClass {
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
-        /* item */
-        const itemEl = this.shadowRoot.getElementById("item");
-        itemEl.valign = "end";
-        itemEl.halign = "end";
         /* observer */
         shopsanityObserver.addEventListener("change", () => {
             const state = this.getState();

@@ -25,10 +25,6 @@ export default class TrackerWorldMapScrubLocation extends WorldMapLocation {
 
     constructor() {
         super();
-        /* --- */
-        this.#itemEl = this.shadowRoot.getElementById("item");
-        this.#itemEl.halign = "end";
-        this.#itemEl.valign = "end";
         /* state handler */
         this.registerStateHandler("price", () => {
             const state = this.getState();

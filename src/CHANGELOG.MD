@@ -25,6 +25,8 @@ Application:    Track-OOT
 - let all active exits/entrances be mixed if mixed entrances is active
 - add entrance binding rules for mixed entrances
 - add blue warp entrances
+- add missing shop slots for list and map (shop right side)
+- add setting to always show shop slots even without randomization
 
 ### BUG FIXES
 
@@ -35,6 +37,7 @@ Application:    Track-OOT
 - fix font size in dungeon state panel context menus
 - fix "Skip Child Zelda" bug where it would not get considered
 - fix available locations counter on area markers for continous dungeons
+- fix shop slot positions on map
 
 ---
 
