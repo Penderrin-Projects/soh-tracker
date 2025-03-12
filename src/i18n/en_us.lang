@@ -1,6 +1,5 @@
-@author: ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
-@label: English
-
+# @author ZidArgs, Fraggerman, Luigimeansme, Takacomic, ZeroGravity
+# @label English
 ???=???
 (to overworld)=(to overworld)
 a11y=Accessibility
@@ -893,7 +892,7 @@ item_sanity=Item Sanity
 item[]=unknown
 item[ap_item]=Archipelago foreign Item
 item[arrow_fire]=Fire Arrows
-item[arrow_ice]=Ice Arrows
+item[arrow_ice]=Ice Arrows / Blue Fire Arrows
 item[arrow_light]=Light Arrows
 item[arrows_10]=Arrows (10)
 item[arrows_30]=Arrows (30)

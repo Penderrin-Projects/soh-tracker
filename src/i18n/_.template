@@ -1,4 +1,3 @@
-#!language file for track-oot
 # @label: ${language translation name} (mandatory)
 # @author: ${your name and probably others} (optional)
 # @base: ${translation base} (optional)
