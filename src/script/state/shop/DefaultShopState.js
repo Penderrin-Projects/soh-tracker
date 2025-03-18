@@ -155,7 +155,12 @@ export default class DefaultShopState extends DataState {
     }
 
     get price() {
-        return this.#price;
+        if (this.#price !== 0) {
+            return this.#price;
+        } else if (!isSanity()) {
+            return this.props.price;
+        }
+        return 0;
     }
 
     set bought(value) {
@@ -203,12 +208,12 @@ export default class DefaultShopState extends DataState {
     }
 
     get itemData() {
-        if (this.item !== "") {
-            const itemData = ShopItemsResource.get(this.item);
+        if (this.#item !== "") {
+            const itemData = ShopItemsResource.get(this.#item);
             if (itemData != null) {
                 return {
                     ...itemData,
-                    "price": this.#price
+                    "price": this.price
                 };
             } else {
                 return {

@@ -26,6 +26,7 @@ export default class RTCPeerClient extends RTCPeer {
         eventTargetManager.set(["closed", "failed"], async (/* key */) => {
             await Dialog.alert("Disconnected from host", "The connection to the host closed unexpectedly.");
         });
+        this.mute();
     }
 
     async disconnect() {
@@ -38,6 +39,8 @@ export default class RTCPeerClient extends RTCPeer {
     async rtcMessageHandler(key, msg) {
         if (msg.type == "join") {
             Toast.info(`Multiplayer: "${msg.data}" joined`);
+        } else if (msg.type == "synced") {
+            this.unmute();
         } else if (msg.type == "leave") {
             Toast.warn(`Multiplayer: "${msg.data}" left`);
         } else if (msg.type == "kick") {

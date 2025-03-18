@@ -24,7 +24,6 @@ const STORAGES = {
     gossipstoneItems: Savestate.getStorage("gossipstoneItems")
 };
 
-const EVENT_MODULE = new WeakMap();
 const RTC = new WeakMap();
 const USERNAME = new WeakMap();
 const MUTED = new WeakMap();
@@ -80,9 +79,6 @@ export default class RTCPeer extends EventTarget {
     async disconnect() {
         const rtcClient = RTC.get(this);
         await rtcClient.disconnect();
-        /* EVENTS */
-        const eventModule = EVENT_MODULE.get(this);
-        eventModule.clear();
     }
 
     async rtcMessageHandler(key, msg) {
