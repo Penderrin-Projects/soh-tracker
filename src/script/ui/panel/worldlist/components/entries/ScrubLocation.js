@@ -27,8 +27,6 @@ export default class TrackerWorldListScrubLocation extends WorldListLocation {
         super();
         /* --- */
         this.#itemEl = this.shadowRoot.getElementById("item");
-        this.#itemEl.halign = "end";
-        this.#itemEl.valign = "end";
         /* state handler */
         this.registerStateHandler("price", () => {
             const state = this.getState();
@@ -95,20 +93,21 @@ export default class TrackerWorldListScrubLocation extends WorldListLocation {
     }
 
     #applyPrice(price) {
-        if (price != null) {
-            this.#itemEl.text = price;
-        } else {
-            this.#itemEl.text = "?";
+        if (this.#itemEl != null) {
+            if (price != null) {
+                this.#itemEl.text = price;
+            } else {
+                this.#itemEl.text = "?";
+            }
         }
     }
 
     applyItem(itemData) {
-        const itemEl = this.shadowRoot.getElementById("item");
-        if (itemEl != null) {
+        if (this.#itemEl != null) {
             if (itemData != null) {
-                itemEl.src = resolveIcon(itemData?.icon) ?? "/images/items/unknown.png";
+                this.#itemEl.src = resolveIcon(itemData?.icon) ?? "/images/items/unknown.png";
             } else {
-                itemEl.src = "/images/items/unknown.png";
+                this.#itemEl.src = "/images/items/unknown.png";
             }
         }
     }

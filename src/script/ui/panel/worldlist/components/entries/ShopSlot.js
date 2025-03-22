@@ -35,10 +35,14 @@ const BaseClass = mix(
 
 export default class WorldListShopSlot extends BaseClass {
 
+    #itemEl;
+
     constructor() {
         super();
         applyElements(this.shadowRoot);
         STYLE.apply(this.shadowRoot);
+        /* --- */
+        this.#itemEl = this.shadowRoot.getElementById("item");
         /* badge */
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
@@ -149,14 +153,13 @@ export default class WorldListShopSlot extends BaseClass {
     }
 
     #applyItem(itemData) {
-        const itemEl = this.shadowRoot.getElementById("item");
-        if (itemEl != null) {
+        if (this.#itemEl != null) {
             if (itemData != null) {
-                itemEl.src = itemData.image;
-                itemEl.text = itemData.price;
+                this.#itemEl.src = itemData.image;
+                this.#itemEl.text = itemData.price;
             } else {
-                itemEl.src = "/images/items/unknown.png";
-                itemEl.text = "?";
+                this.#itemEl.src = "/images/items/unknown.png";
+                this.#itemEl.text = "?";
             }
         }
     }

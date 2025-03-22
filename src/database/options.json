@@ -17,6 +17,22 @@
             "adult"
         ]
     },
+    "starting_tod": {
+        "category": "options",
+        "type": "-choice",
+        "default": "tod_default",
+        "values": [
+            "tod_default",
+            "tod_sunrise",
+            "tod_morning",
+            "tod_noon",
+            "tod_afternoon",
+            "tod_sunset",
+            "tod_evening",
+            "tod_midnight",
+            "tod_witching_hour"
+        ]
+    },
     "starting_hearts": {
         "category": "options",
         "type": "number",
