@@ -17,8 +17,9 @@ export default class ShopState extends AreaState  {
                         entry.item = "";
                         entry.price = "";
                     }
+                } else {
+                    super.setAllEntries(value);
                 }
-                entry.value = value;
             }
         }
     }
