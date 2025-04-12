@@ -157,6 +157,8 @@ const Q_TAB = [
 
 export default class HTMLTrackerShopItemChoice extends Window {
 
+    #currentTargetCategory = null;
+
     constructor(title = "Item Choice", options = {}) {
         super(title, options.close);
         const els = TPL.generate();
@@ -266,7 +268,12 @@ export default class HTMLTrackerShopItemChoice extends Window {
                         // category
                         const parent = nl.parentElement;
                         if (parent != null) {
-                            this.active = parent.dataset.ref;
+                            const category = parent.dataset.ref;
+                            this.active = category;
+                            this.#currentTargetCategory = category;
+                        } else {
+                            this.active = "";
+                            this.#currentTargetCategory = "";
                         }
                         // price
                         const priceEl = this.shadowRoot.getElementById("price");
@@ -294,6 +301,8 @@ export default class HTMLTrackerShopItemChoice extends Window {
         super.show();
         if (category) {
             this.active = category;
+        } else if (this.#currentTargetCategory) {
+            this.active = this.#currentTargetCategory;
         } else if (!this.active) {
             const ctg = this.shadowRoot.getElementById("categories").children;
             if (ctg.length) {

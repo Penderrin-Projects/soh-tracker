@@ -13,7 +13,7 @@ const TPL = new Template(`
             display: inline-flex;
             flex-direction: column;
             width: 220px;
-            height: 100px;
+            height: 120px;
             padding: 10px;
             margin: 5px;
             color: white;

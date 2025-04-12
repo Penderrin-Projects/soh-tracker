@@ -12,7 +12,7 @@
   "type": "module",
   "dependencies": {
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.20.1",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.7.3",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.7.4",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.2.2",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.0",
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.0.1",

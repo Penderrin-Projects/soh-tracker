@@ -76,13 +76,14 @@ export default class DefaultAPLocationState extends BaseClass {
 
     #visible = true;
 
+    #apLocationsObserver;
+
     constructor(ref, props) {
         super(ref, props);
 
         /* VALUES */
-        const apLocationsObserver = new ObservableStorageObserver(AP_STORAGES.locations, ref);
-        this.setAPValue(apLocationsObserver.value, true);
-        apLocationsObserver.addEventListener("change", (event) => {
+        this.#apLocationsObserver = new ObservableStorageObserver(AP_STORAGES.locations, ref);
+        this.#apLocationsObserver.addEventListener("change", (event) => {
             this.setAPValue(event.value);
         });
 
@@ -98,18 +99,14 @@ export default class DefaultAPLocationState extends BaseClass {
             this.item = event.value;
         });
 
-        if (this.item) {
-            const itemData = ItemStateManager.get(this.item);
+        if (this.#item) {
+            const itemData = ItemStateManager.get(this.#item);
             this.#itemData = itemData?.props;
         }
 
         /* LOGIC */
         const logicAccess = props.logicAccess ?? "";
         this.#reachable = !!Logic.getValue(logicAccess);
-        setTimeout(() => {
-            this.#access = getLogicAccess(this.value, this.reachable);
-            this.setLogicData("$IS_DONE", this.#access.value === AccessStateEnum.OPENED);
-        }, 0);
         Logic.addEventListener("change", () => {
             const reachable = !!Logic.getValue(logicAccess);
             if (reachable != this.#reachable) {
@@ -122,6 +119,8 @@ export default class DefaultAPLocationState extends BaseClass {
             }
         });
 
+        this.#init();
+
         /* EVENT */
         this.addEventListener("visible", () => {
             this.checkVisibility();
@@ -131,6 +130,13 @@ export default class DefaultAPLocationState extends BaseClass {
         });
         this.checkVisibility();
     }
+
+    #init = debounce(() => {
+        this.setAPValue(this.#apLocationsObserver.value, true);
+
+        this.#access = getLogicAccess(this.value, this.reachable);
+        this.setLogicData("$IS_DONE", this.#access.value === AccessStateEnum.OPENED);
+    });
 
     checkVisibility = debounce(() => {
         const value = this.visible && !this.filtered;

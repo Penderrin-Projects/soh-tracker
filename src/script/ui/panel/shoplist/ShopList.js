@@ -1,9 +1,6 @@
-// frameworks
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
-
-// Track-OOT
-import ShopsResource from "/script/resource/ShopsResource.js";
+import ShopsResource from "../../../resource/ShopsResource.js";
 import "./components/ShopField.js";
 
 const STYLE = new GlobalStyle(`

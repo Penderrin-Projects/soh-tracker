@@ -31,7 +31,7 @@ export default class WorldMapShopSlot extends WorldMapLocation {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
-        this.registerStateHandler("bought", () => {
+        this.registerStateHandler("value", () => {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
@@ -135,7 +135,7 @@ export default class WorldMapShopSlot extends WorldMapLocation {
     #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(this.ref);
+            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
             d.item = state.item;
             d.price = state.price;
             d.addEventListener("submit", (result) => {

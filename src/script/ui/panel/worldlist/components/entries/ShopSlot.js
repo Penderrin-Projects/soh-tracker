@@ -56,7 +56,7 @@ export default class WorldListShopSlot extends BaseClass {
             const state = this.getState();
             this.#applyItem(state?.itemData);
         });
-        this.registerStateHandler("bought", () => {
+        this.registerStateHandler("value", () => {
             const state = this.getState();
             this.#applyItem(state?.itemData);
         });
@@ -167,7 +167,7 @@ export default class WorldListShopSlot extends BaseClass {
     #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(this.ref);
+            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
             d.item = state.item;
             d.price = state.price;
             d.addEventListener("submit", (result) => {

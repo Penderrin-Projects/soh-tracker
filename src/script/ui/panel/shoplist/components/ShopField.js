@@ -1,11 +1,8 @@
-// frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
-
-// GameTrackerJS
 import Language from "/GameTrackerJS/util/Language.js";
-// Track-OOT
+import ShopsResource from "../../../../resource/ShopsResource.js";
 import "./ShopItem.js";
 
 const TPL = new Template(`
@@ -68,9 +65,11 @@ export default class HTMLTrackerShopField extends CustomElement {
         if (oldValue != newValue) {
             const title = this.shadowRoot.getElementById("title-text");
             Language.applyLabel(title, `shop[${newValue}]`);
+            const shop = ShopsResource.get(newValue);
             for (let i = 0; i < 8; ++i) {
+                const shopSlot = shop[i];
                 const el = this.shadowRoot.getElementById(`slot${i}`);
-                el.ref = `${newValue}/${i}`;
+                el.ref = shopSlot.ref;
             }
         }
     }

@@ -1,17 +1,13 @@
-// frameworks
 import Template from "/emcJS/util/html/Template.js";
 import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
-
-// GameTrackerJS
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import StateDataEventManagerMixin from "/GameTrackerJS/ui/mixin/StateDataEventManagerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
-// Track-OOT
+import WorldStateManagerRegistry from "/GameTrackerJS/statemanager/WorldStateManagerRegistry.js";
 import ShopItemChoiceDialog from "../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../ctxmenu/ShopSlotContextMenu.js";
-import ShopStates from "../../../../state/shop/ShopStateManager.js";
 
 const TPL = new Template(`
 <div id="image"></div>
@@ -104,16 +100,6 @@ const STYLE = new GlobalStyle(`
 `);
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
-const SHOP_SLOT_IDS = [
-    "left/top-left",
-    "left/top-right",
-    "right/top-left",
-    "right/top-right",
-    "left/bottom-left",
-    "left/bottom-right",
-    "right/bottom-left",
-    "right/bottom-right"
-];
 
 function getIcon(itemData, bought) {
     if (itemData == null) {
@@ -126,17 +112,6 @@ function getIcon(itemData, bought) {
         return "/images/items/sold_out.png";
     }
     return itemData.image ?? "/images/items/unknown.png";
-}
-
-function getDialogTitle(ref) {
-    const [shopRef, slotRef] = ref.split("/");
-    const shopTitleEl = Language.generateLabel(shopRef);
-    const slotTitleEl = Language.generateLabel(SHOP_SLOT_IDS[slotRef]);
-    const titleEl = document.createElement("span");
-    titleEl.append(shopTitleEl);
-    titleEl.append(document.createTextNode(" "));
-    titleEl.append(slotTitleEl);
-    return titleEl;
 }
 
 export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDataEventManagerMixin(CustomElement)) {
@@ -169,7 +144,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             }
             this.#applyItem();
         });
-        this.registerStateHandler("bought", () => {
+        this.registerStateHandler("value", () => {
             this.#applyItem();
         });
         this.registerStateHandler("price", (event) => {
@@ -190,13 +165,13 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.addDefaultContextMenuHandler("check", () => {
             const state = this.getState();
             if (state != null) {
-                state.bought = true;
+                state.value = true;
             }
         });
         this.addDefaultContextMenuHandler("uncheck", () => {
             const state = this.getState();
             if (state != null) {
-                state.bought = false;
+                state.value = false;
             }
         });
         this.addDefaultContextMenuHandler("associate", () => {
@@ -207,7 +182,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
             if (state != null) {
                 state.item = "refill_item";
                 state.price = "0";
-                state.bought = true;
+                state.value = true;
             }
         });
         this.addDefaultContextMenuHandler("disassociate", () => {
@@ -225,14 +200,14 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
                     if (state.item != "refill_item") {
                         state.item = "refill_item";
                         state.price = "0";
-                        state.bought = true;
+                        state.value = true;
                     } else {
                         state.reset();
                     }
                 } else if (state.isDefault()) {
                     this.#editItem();
                 } else {
-                    state.bought = !state.bought;
+                    state.value = !state.value;
                 }
             }
             /* --- */
@@ -316,7 +291,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         if (itemData != null) {
             // icon
             if (imageEl != null) {
-                const icon = getIcon(itemData, state.bought);
+                const icon = getIcon(itemData, state.value);
                 imageEl.style.backgroundImage = `url("${icon}")`;
             }
             // mark
@@ -339,7 +314,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
     #editItem() {
         const state = this.getState();
         if (state != null) {
-            const d = new ShopItemChoiceDialog(getDialogTitle(this.ref));
+            const d = new ShopItemChoiceDialog(`location[${this.ref}]`);
             d.item = state.item;
             d.price = state.price;
             d.addEventListener("submit", (result) => {
@@ -369,8 +344,12 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
 
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue != newValue) {
-            const state = ShopStates.get(this.ref);
-            this.switchState(state);
+            switch (name) {
+                case "ref": {
+                    const state = WorldStateManagerRegistry.get("Location").get(this.ref);
+                    this.switchState(state);
+                } break;
+            }
         }
     }
 

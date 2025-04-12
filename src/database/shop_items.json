@@ -573,154 +573,154 @@
         "price": false
     },
     "silver_rupee_well_basement": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_dodongo_staircase": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_forest": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_forest": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_fire": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_fire": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_water": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_water": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_shadow": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_shadow": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_spirit": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_spirit": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
-    "silver_rupee_castle_ganon_trial_light": {
-        "image": "/images/items/key_small.png",
+    "silver_rupee_ganon_trial_light": {
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_training_grounds_lava": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_training_grounds_water": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_training_grounds_slopes": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_ice_cavern_spinning_scythe": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_ice_cavern_block_push": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_shadow_scythe_shortcut": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_shadow_invisible_blades": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_shadow_huge_pit": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_shadow_invisible_spikes": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_spirit_lobby_and_lower_adult": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_spirit_adult_climb": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_spirit_child_early_torches": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_spirit_adult_boulders": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "silver_rupee_temple_spirit_sun_block": {
-        "image": "/images/items/key_small.png",
+        "image": "/images/items/rupee_silver.png",
         "category": "unlocking_items",
         "refill": false,
         "mark": "gold",
@@ -1011,42 +1011,42 @@
     },
     "ocarina": {
         "image": "/images/items/ocarina_saria.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "ocarina_a_button": {
         "image": "/images/items/ocarina_note_a.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "ocarina_down_button": {
         "image": "/images/items/ocarina_note_down.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "ocarina_left_button": {
         "image": "/images/items/ocarina_note_left.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "ocarina_right_button": {
         "image": "/images/items/ocarina_note_right.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
     },
     "ocarina_up_button": {
         "image": "/images/items/ocarina_note_up.png",
-        "category": "ocarina",
+        "category": "ocarina_items",
         "refill": false,
         "mark": "gold",
         "price": false
