@@ -24,8 +24,8 @@ const TPL = new Template(`
             display: none;
         }
         #logger {
-            max-height: 30vh;
-            min-height: 20vh;
+            max-height: 30dvh;
+            min-height: 20dvh;
         }
     </style>
     <ootrt-multiplayerlobby id="lobby_view" class="active"></ootrt-multiplayerlobby>

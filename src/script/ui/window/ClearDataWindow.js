@@ -46,7 +46,7 @@ const TPL = new Template(`
 
 const STYLE = new GlobalStyle(`
 #body {
-    height: 50vh;
+    height: 50dvh;
 }
 `);
 
