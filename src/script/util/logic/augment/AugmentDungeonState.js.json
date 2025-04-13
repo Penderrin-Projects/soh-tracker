@@ -27,14 +27,14 @@
         "reach_location[dodongo_mq.staircase_silver_rupee_top_right_crate]",
         "reach_location[dodongo_mq.staircase_silver_rupee_vines]"
     ],
-    "item[silver_rupee_castle_ganon_trial_forest]": [
+    "item[silver_rupee_ganon_trial_forest]": [
         "reach_location[castle_ganon.forest_trial_silver_rupee_front_right]",
         "reach_location[castle_ganon.forest_trial_silver_rupee_front_left]",
         "reach_location[castle_ganon.forest_trial_silver_rupee_back_right]",
         "reach_location[castle_ganon.forest_trial_silver_rupee_back_center]",
         "reach_location[castle_ganon.forest_trial_silver_rupee_center_left]"
     ],
-    "item[silver_rupee_castle_ganon_trial_fire]": [
+    "item[silver_rupee_ganon_trial_fire]": [
         "reach_location[castle_ganon_mq.fire_trial_silver_rupee_rising_platform]",
         "reach_location[castle_ganon_mq.fire_trial_silver_rupee_beamos]",
         "reach_location[castle_ganon_mq.fire_trial_silver_rupee_left_front]",
@@ -46,28 +46,28 @@
         "reach_location[castle_ganon.fire_trial_silver_rupee_right_front]",
         "reach_location[castle_ganon.fire_trial_silver_rupee_inside_pillar]"
     ],
-    "item[silver_rupee_castle_ganon_trial_water]": [
+    "item[silver_rupee_ganon_trial_water]": [
         "reach_location[castle_ganon_mq.water_trial_silver_rupee_hole]",
         "reach_location[castle_ganon_mq.water_trial_silver_rupee_near_blocks]",
         "reach_location[castle_ganon_mq.water_trial_silver_rupee_center_left]",
         "reach_location[castle_ganon_mq.water_trial_silver_rupee_red_ice]",
         "reach_location[castle_ganon_mq.water_trial_silver_rupee_above_void]"
     ],
-    "item[silver_rupee_castle_ganon_trial_shadow]": [
+    "item[silver_rupee_ganon_trial_shadow]": [
         "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_moving_platform]",
         "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_bomb_flower]",
         "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_first_beamos]",
         "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_last_beamos]",
         "reach_location[castle_ganon_mq.shadow_trial_silver_rupee_guillotine]"
     ],
-    "item[silver_rupee_castle_ganon_trial_spirit]": [
+    "item[silver_rupee_ganon_trial_spirit]": [
         "reach_location[castle_ganon.spirit_trial_silver_rupee_ceiling]",
         "reach_location[castle_ganon.spirit_trial_silver_rupee_front_right]",
         "reach_location[castle_ganon.spirit_trial_silver_rupee_center]",
         "reach_location[castle_ganon.spirit_trial_silver_rupee_back_left]",
         "reach_location[castle_ganon.spirit_trial_silver_rupee_back_right]"
     ],
-    "item[silver_rupee_castle_ganon_trial_light]": [
+    "item[silver_rupee_ganon_trial_light]": [
         "reach_location[castle_ganon.light_trial_silver_rupee_right_alcove]",
         "reach_location[castle_ganon.light_trial_silver_rupee_left_alcove]",
         "reach_location[castle_ganon.light_trial_silver_rupee_center_top]",

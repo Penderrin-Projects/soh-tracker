@@ -209,12 +209,12 @@
         "keys": "key_small_ganon",
         "bosskey": "key_boss_ganon",
         "silver_rupees": {
-            "Forest Trial": "silver_rupee_castle_ganon_trial_forest",
-            "Fire Trial": "silver_rupee_castle_ganon_trial_fire",
-            "Water Trial": "silver_rupee_castle_ganon_trial_water",
-            "Shadow Trial": "silver_rupee_castle_ganon_trial_shadow",
-            "Spirit Trial": "silver_rupee_castle_ganon_trial_spirit",
-            "Light Trial": "silver_rupee_castle_ganon_trial_light"
+            "Forest Trial": "silver_rupee_ganon_trial_forest",
+            "Fire Trial": "silver_rupee_ganon_trial_fire",
+            "Water Trial": "silver_rupee_ganon_trial_water",
+            "Shadow Trial": "silver_rupee_ganon_trial_shadow",
+            "Spirit Trial": "silver_rupee_ganon_trial_spirit",
+            "Light Trial": "silver_rupee_ganon_trial_light"
         },
         "keys_group": "ganon",
         "bosskey_group": "ganon",

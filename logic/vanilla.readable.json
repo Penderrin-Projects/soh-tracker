@@ -29181,7 +29181,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_water]"
+                    "ref": "item[silver_rupee_ganon_trial_water]"
                 },
                 "value": 5
             },
@@ -29220,7 +29220,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_water]"
+                    "ref": "item[silver_rupee_ganon_trial_water]"
                 },
                 "value": 5
             },
@@ -29653,7 +29653,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_shadow]"
+                    "ref": "item[silver_rupee_ganon_trial_shadow]"
                 },
                 "value": 5
             },
@@ -29684,7 +29684,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_shadow]"
+                    "ref": "item[silver_rupee_ganon_trial_shadow]"
                 },
                 "value": 5
             },
@@ -29772,7 +29772,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_fire]"
+                            "ref": "item[silver_rupee_ganon_trial_fire]"
                         },
                         "value": 5
                     },
@@ -29900,7 +29900,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_fire]"
+                            "ref": "item[silver_rupee_ganon_trial_fire]"
                         },
                         "value": 5
                     },
@@ -31047,7 +31047,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_forest]"
+                    "ref": "item[silver_rupee_ganon_trial_forest]"
                 },
                 "value": 5
             },
@@ -31077,7 +31077,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_forest]"
+                    "ref": "item[silver_rupee_ganon_trial_forest]"
                 },
                 "value": 5
             },
@@ -31936,7 +31936,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_fire]"
+                            "ref": "item[silver_rupee_ganon_trial_fire]"
                         },
                         "value": 5
                     },
@@ -32041,7 +32041,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_fire]"
+                            "ref": "item[silver_rupee_ganon_trial_fire]"
                         },
                         "value": 5
                     },
@@ -32374,7 +32374,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_light]"
+                            "ref": "item[silver_rupee_ganon_trial_light]"
                         },
                         "value": 5
                     },
@@ -32448,7 +32448,7 @@
                         "type": "min",
                         "content": {
                             "type": "value",
-                            "ref": "item[silver_rupee_castle_ganon_trial_light]"
+                            "ref": "item[silver_rupee_ganon_trial_light]"
                         },
                         "value": 5
                     },
@@ -32565,7 +32565,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_spirit]"
+                    "ref": "item[silver_rupee_ganon_trial_spirit]"
                 },
                 "value": 5
             },
@@ -32626,7 +32626,7 @@
                 "type": "min",
                 "content": {
                     "type": "value",
-                    "ref": "item[silver_rupee_castle_ganon_trial_spirit]"
+                    "ref": "item[silver_rupee_ganon_trial_spirit]"
                 },
                 "value": 5
             },

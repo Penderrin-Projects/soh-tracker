@@ -1256,7 +1256,7 @@
             ]
         }
     },
-    "silver_rupee_castle_ganon_trial_forest": {
+    "silver_rupee_ganon_trial_forest": {
         "type": "key",
         "max": 5,
         "typeMax": {
@@ -1290,7 +1290,7 @@
             ]
         }
     },
-    "silver_rupee_castle_ganon_trial_fire": {
+    "silver_rupee_ganon_trial_fire": {
         "type": "key",
         "max": 5,
         "relatedDungeon": "castle_ganon",
@@ -1316,41 +1316,7 @@
             ]
         }
     },
-    "silver_rupee_castle_ganon_trial_water": {
-        "type": "key",
-        "max": 5,
-        "typeMax": {
-            "v": 0
-        },
-        "relatedDungeon": "castle_ganon",
-        "counting": true,
-        "alwaysCounting": true,
-        "showMax": true,
-        "icon": "/images/items/rupee_silver.png",
-        "halign": "end",
-        "valign": "end",
-        "visible": {
-            "type": "nor",
-            "content": [
-                {
-                    "type": "state",
-                    "ref": "option[shuffle_silver_rupees]",
-                    "value": "keylogic_keysy"
-                },
-                {
-                    "type": "state",
-                    "ref": "option[shuffle_silver_rupees]",
-                    "value": "keylogic_vanilla"
-                },
-                {
-                    "type": "state",
-                    "ref": "arealist[castle_ganon]",
-                    "value": "v"
-                }
-            ]
-        }
-    },
-    "silver_rupee_castle_ganon_trial_shadow": {
+    "silver_rupee_ganon_trial_water": {
         "type": "key",
         "max": 5,
         "typeMax": {
@@ -1384,7 +1350,41 @@
             ]
         }
     },
-    "silver_rupee_castle_ganon_trial_spirit": {
+    "silver_rupee_ganon_trial_shadow": {
+        "type": "key",
+        "max": 5,
+        "typeMax": {
+            "v": 0
+        },
+        "relatedDungeon": "castle_ganon",
+        "counting": true,
+        "alwaysCounting": true,
+        "showMax": true,
+        "icon": "/images/items/rupee_silver.png",
+        "halign": "end",
+        "valign": "end",
+        "visible": {
+            "type": "nor",
+            "content": [
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_keysy"
+                },
+                {
+                    "type": "state",
+                    "ref": "option[shuffle_silver_rupees]",
+                    "value": "keylogic_vanilla"
+                },
+                {
+                    "type": "state",
+                    "ref": "arealist[castle_ganon]",
+                    "value": "v"
+                }
+            ]
+        }
+    },
+    "silver_rupee_ganon_trial_spirit": {
         "type": "key",
         "max": 5,
         "typeMax": {
@@ -1418,7 +1418,7 @@
             ]
         }
     },
-    "silver_rupee_castle_ganon_trial_light": {
+    "silver_rupee_ganon_trial_light": {
         "type": "key",
         "max": 5,
         "typeMax": {

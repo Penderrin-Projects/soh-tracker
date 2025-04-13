@@ -25,7 +25,7 @@ SavestateConverter.register(function(state) {
             exitBindings: state.data?.exitBindings ?? {},
             areaHints: state.data?.areaHints ?? {},
             areaActiveLists: state.data?.areaActiveLists ?? {},
-            locationItems: state.data?.locationItems ?? {},
+            locationItems: {},
             startItems: state.data?.startItems ?? {},
             options: state.data?.options ?? {},
             filter: state.data?.filter ?? {},
@@ -111,9 +111,24 @@ SavestateConverter.register(function(state) {
         "magic_adult/7": "kakariko.shop_magic_3"
     };
 
+    const ITEM_NAME_TRANSLATION = {
+        "silver_rupee_castle_ganon_trial_forest": "silver_rupee_ganon_trial_forest",
+        "silver_rupee_castle_ganon_trial_fire": "silver_rupee_ganon_trial_fire",
+        "silver_rupee_castle_ganon_trial_water": "silver_rupee_ganon_trial_water",
+        "silver_rupee_castle_ganon_trial_shadow": "silver_rupee_ganon_trial_shadow",
+        "silver_rupee_castle_ganon_trial_spirit": "silver_rupee_ganon_trial_spirit",
+        "silver_rupee_castle_ganon_trial_light": "silver_rupee_ganon_trial_light"
+    };
+
+    for (const [key, value] of Object.entries(state.data?.locationItems ?? {})) {
+        if (value) {
+            res.data.locationItems[key] = ITEM_NAME_TRANSLATION[value] ?? value;
+        }
+    }
+
     for (const [key, value] of Object.entries(state.data?.shopItems ?? {})) {
         if (value) {
-            res.data.locationItems[CONVERSION_MAP[key] ?? key] = value;
+            res.data.locationItems[CONVERSION_MAP[key] ?? key] = ITEM_NAME_TRANSLATION[value] ?? value;
         }
     }
 
