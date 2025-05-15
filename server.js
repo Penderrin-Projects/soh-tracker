@@ -3,9 +3,10 @@ import StaticService from "jswebservice/services/StaticService.js";
 
 const enableCors = process.argv.indexOf("-cors") >= 1;
 const port = process.argv.indexOf("-port") >= 1 ? process.argv[process.argv.indexOf("-port") + 1] : "5000";
+const inProduction = process.argv.indexOf("-prod") >= 1;
 
 const service = new WebService(port, {enableCors});
-service.registerServiceModule(StaticService, "", {serveFolder: "./dev"});
+service.registerServiceModule(StaticService, "", {serveFolder: inProduction ? "./prod" : "./dev"});
 
 const po = service.port.toString().padEnd(5);
 
