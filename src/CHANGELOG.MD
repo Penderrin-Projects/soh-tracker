@@ -11,7 +11,7 @@ Application:    Track-OOT
 - add autotracking for archipelago
 - add settings sync for archipelago
 - add item hint builder for archipelago
-- add location hint menu item to location context menu
+- add ap location hint menu item to location context menu
 - add rupee item collection to grid
 - add store/reload functionality (automatic) for map size and position per area
 - add reset map size and position button per area
