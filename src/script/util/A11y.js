@@ -14,3 +14,8 @@ new StyleVarSettingsHandler("ap_color_item_normal", "ap-color-item-normal");
 new StyleVarSettingsHandler("ap_color_item_trap", "ap-color-item-trap");
 new StyleVarSettingsHandler("ap_color_location", "ap-color-location");
 new StyleVarSettingsHandler("ap_color_entrance", "ap-color-entrance");
+new StyleVarSettingsHandler("ap_color_hint_unspecified", "ap-color-hint-unspecified");
+new StyleVarSettingsHandler("ap_color_hint_no_priority", "ap-color-hint-no-priority");
+new StyleVarSettingsHandler("ap_color_hint_priority", "ap-color-hint-priority");
+new StyleVarSettingsHandler("ap_color_hint_avoid", "ap-color-hint-avoid");
+new StyleVarSettingsHandler("ap_color_hint_found", "ap-color-hint-found");

@@ -44,3 +44,23 @@
 #container .entrance {
     color: var(--ap-color-entrance, #6495ed);
 }
+
+#container .hint-unspecified {
+    color: var(--ap-color-hint-unspecified, #ffffff);
+}
+
+#container .hint-no-priority {
+    color: var(--ap-color-hint-no-priority, #00eeee);
+}
+
+#container .hint-priority {
+    color: var(--ap-color-hint-priority, #af99ef);
+}
+
+#container .hint-avoid {
+    color: var(--ap-color-hint-avoid, #fa8072);
+}
+
+#container .hint-found {
+    color: var(--ap-color-hint-found, #00ff7f);
+}

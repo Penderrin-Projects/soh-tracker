@@ -5,8 +5,16 @@ import {
 import {
     PRINT_JSON_TYPE
 } from "/ArchipelagoJS/consts/PrintJSONType.js";
+import {
+    HINT_STATUS
+} from "/ArchipelagoJS/consts/HintStatus.js";
 import TPL from "./ChatListEntry.js.html" assert {type: "html"};
 import STYLE from "./ChatListEntry.js.css" assert {type: "css"};
+
+const hintTypes = Object.entries(HINT_STATUS).reduce((prev, [key, value]) => {
+    prev[value] = key.toLowerCase().replace(/_/g, "-");
+    return prev;
+}, {});
 
 export default class ChatListEntry extends CustomElement {
 
@@ -43,6 +51,11 @@ export default class ChatListEntry extends CustomElement {
             return `${packet.playerAlias}: ${escapedText.replace(/</g, "&lt;").replace(/>/g, "&gt;")}`;
         }
 
+        /**
+         * TODO
+         * add dictionary to combine message resolving and rendering into one entry.
+         * the idea is to make it easily extendible.
+         */
         return packet.message.reduce((string, piece) => {
             switch (piece.type) {
                 case VALID_JSON_MESSAGE_TYPE.PLAYER_ID: {
@@ -69,6 +82,11 @@ export default class ChatListEntry extends CustomElement {
                 case VALID_JSON_MESSAGE_TYPE.ENTRANCE_NAME: {
                     const escapedEntranceName = piece.entranceName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                     return `${string}<span class="entrance">${escapedEntranceName}</span>`;
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.HINT_STATUS: {
+                    const escapedHintText = piece.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return `${string}<span class="${hintTypes[piece.hintStatus]}">${escapedHintText}</span>`;
                 }
 
                 case VALID_JSON_MESSAGE_TYPE.COLOR: {

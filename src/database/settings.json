@@ -157,6 +157,36 @@
         "default": "#6495ed",
         "resettable": true
     },
+    "ap_color_hint_unspecified": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#ffffff",
+        "resettable": true
+    },
+    "ap_color_hint_no_priority": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#00eeee",
+        "resettable": true
+    },
+    "ap_color_hint_priority": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#af99ef",
+        "resettable": true
+    },
+    "ap_color_hint_avoid": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#fa8072",
+        "resettable": true
+    },
+    "ap_color_hint_found": {
+        "category": "a11y",
+        "type": "color",
+        "default": "#00ff7f",
+        "resettable": true
+    },
     "sort_worldlist_by_access": {
         "category": "world",
         "type": "check",

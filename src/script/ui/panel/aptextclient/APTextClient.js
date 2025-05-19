@@ -284,6 +284,11 @@ class APTextClient extends Panel {
         }
 
         const apPlayerId = ArchipelagoController.playerId;
+        /**
+         * TODO
+         * add dictionary to combine message resolving and rendering into one entry.
+         * the idea is to make it easily extendible.
+         */
         const resolvedMessageData = packet.data.map((piece) => {
             switch (piece.type) {
                 case VALID_JSON_MESSAGE_TYPE.PLAYER_ID: {
@@ -330,6 +335,14 @@ class APTextClient extends Panel {
                     return {
                         type: piece.type,
                         entranceName: piece.text
+                    };
+                }
+
+                case VALID_JSON_MESSAGE_TYPE.HINT_STATUS: {
+                    return {
+                        type: piece.type,
+                        hintStatus: piece.hint_status,
+                        text: piece.text
                     };
                 }
 

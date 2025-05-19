@@ -4,6 +4,15 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.1
+
+### CHANGES
+
+- update archipelagojs
+- add support for hint status rendering in chat
+
+---
+
 ## VERSION 3.1.0
 
 ### CHANGES
