@@ -9,7 +9,7 @@ Application:    Track-OOT
 ### CHANGES
 
 - update archipelagojs
-- add support for hint status rendering in chat
+- add support for ap hint status rendering in chat
 
 ---
 
