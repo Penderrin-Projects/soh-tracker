@@ -8,7 +8,7 @@ Application:    Track-OOT
 
 ### BUG FIXES
 
-- fix entrance selection to ignot inside/outside definition if detached entrances is active
+- fix entrance selection to ignore inside/outside definition if detached entrances is active
 
 ---
 
