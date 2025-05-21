@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.2
+
+### BUG FIXES
+
+- fix entrance selection to ignot inside/outside definition if detached entrances is active
+
+---
+
 ## VERSION 3.1.1
 
 ### CHANGES

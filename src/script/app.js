@@ -45,6 +45,7 @@ import "/script/ui/LayoutContainer.js";
 import "/script/ui/multiplayer/Multiplayer.js";
 import APWindow from "./ui/window/APWindow.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
+import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 
 Logic.suspended = true;
 
@@ -62,14 +63,18 @@ window.onbeforeunload = function() {
 
 // mixed entrances
 {
+    const detachedEntrancesObserver = new OptionsObserver("detached_entrances");
+
     const INNER_GATEWAYS = ["boss_inner", "dungeon_inner", "interior_inner", "grotto_inner"];
     const OUTER_GATEWAYS = ["boss_outer", "dungeon_outer", "interior_outer", "grotto_outer"];
     EntranceBindingHandler.setMixedEntranceRule((exit, entrance) => {
-        if (INNER_GATEWAYS.includes(exit.props.type)) {
-            return !INNER_GATEWAYS.includes(entrance.props.type);
-        }
-        if (OUTER_GATEWAYS.includes(exit.props.type)) {
-            return !OUTER_GATEWAYS.includes(entrance.props.type);
+        if (!detachedEntrancesObserver.value) {
+            if (INNER_GATEWAYS.includes(exit.props.type)) {
+                return !INNER_GATEWAYS.includes(entrance.props.type);
+            }
+            if (OUTER_GATEWAYS.includes(exit.props.type)) {
+                return !OUTER_GATEWAYS.includes(entrance.props.type);
+            }
         }
         return true;
     });
