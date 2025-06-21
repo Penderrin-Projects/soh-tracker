@@ -4,10 +4,10 @@ import {
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import WorldListElement from "/GameTrackerJS/ui/panel/worldlist/components/abstract/Element.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
 import Language from "/GameTrackerJS/util/Language.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
@@ -16,7 +16,10 @@ import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./ShopSlot.js.html" assert {type: "html"};
 import STYLE from "./ShopSlot.js.css" assert {type: "css"};
 
+const archipelagoActiveObserver = new MetaObserver("archipelago");
 const apHintLocations = APHintLocations.get();
+
+const shopsanityObserver = new OptionsObserver("shopsanity");
 
 function applyElements(target) {
     const textEl = target.getElementById("text");
@@ -24,8 +27,6 @@ function applyElements(target) {
     const itemEl = tpl.getElementById("item");
     textEl.insertAdjacentElement("afterend", itemEl);
 }
-
-const shopsanityObserver = new OptionsObserver("shopsanity");
 
 const BaseClass = mix(
     WorldListElement
@@ -47,7 +48,7 @@ export default class WorldListShopSlot extends BaseClass {
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
         /* observer */
-        shopsanityObserver.addEventListener("change", () => {
+        shopsanityObserver.onChange(() => {
             const state = this.getState();
             this.#applyItem(state?.itemData);
         });
@@ -112,14 +113,12 @@ export default class WorldListShopSlot extends BaseClass {
             }
         });
         /* AP */
-        if (!Savestate.getMeta("archipelago")) {
+        if (!archipelagoActiveObserver.value) {
             this.toggleDefaultContextMenuGroupActive("ap", false);
         }
-        Savestate.addEventListener("meta", (event) => {
-            const {key, value} = event.data;
-            if (key === "archipelago") {
-                this.toggleDefaultContextMenuGroupActive("ap", !!value);
-            }
+        archipelagoActiveObserver.onChange((event) => {
+            const {value} = event;
+            this.toggleDefaultContextMenuGroupActive("ap", !!value);
         });
     }
 

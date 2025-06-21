@@ -18,7 +18,7 @@ export default class StartSettingsState extends DefaultAPItemState {
                 const startValue = optionObserver.value ?? 0;
                 this.#startValue = parseInt(startValue);
             }
-            optionObserver.addEventListener("change", (event) => {
+            optionObserver.onChange((event) => {
                 this.#applyStartValue(parseInt(event.value));
             });
         }

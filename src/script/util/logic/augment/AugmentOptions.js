@@ -1,13 +1,19 @@
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
+
+const archipelagoActiveObserver = new MetaObserver("archipelago");
 
 // ref: World.py -> self.keysanity = settings.shuffle_smallkeys in ...
-const KEYSANITY = ["keylogic_keysanity", "keylogic_remove", "keylogic_any_dungeon", "keylogic_overworld"];
+const KEYSANITY = ["keylogic_keysanity", "keylogic_remove", "keylogic_any_dungeon", "keylogic_overworld", "keylogic_regional"];
+// ref (AP): Init.py -> self.keysanity = settings.shuffle_smallkeys in ...
+const KEYSANITY_AP = ["keylogic_keysanity", "keylogic_remove", "keylogic_any_dungeon", "keylogic_overworld"];
 
 function augment(cache) {
     // small keys
     if (cache.hasChange("option[small_key_logic]")) {
         const keyLogic = cache.get("option[small_key_logic]");
-        if (KEYSANITY.includes(keyLogic)) {
+        if (archipelagoActiveObserver.value && KEYSANITY_AP.includes(keyLogic)
+            || !archipelagoActiveObserver.value && KEYSANITY.includes(keyLogic)) {
             cache.setAugmented("option[small_key_logic]", "keylogic_keysanity");
         } else {
             cache.deleteAugmented("option[small_key_logic]");

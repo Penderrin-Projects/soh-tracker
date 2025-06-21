@@ -20,13 +20,13 @@ export default class GossipstoneState extends DefaultAPLocationState {
         /* VALUES */
         const gossipstoneItemsObserver = new ObservableStorageObserver(STORAGES.gossipstoneItems, ref);
         ITEM.set(this, gossipstoneItemsObserver.value);
-        gossipstoneItemsObserver.addEventListener("change", (event) => {
+        gossipstoneItemsObserver.onChange((event) => {
             this.item = event.value;
         });
 
         const gossipstoneLocationsObserver = new ObservableStorageObserver(STORAGES.gossipstoneLocations, ref);
         LOCATION.set(this, gossipstoneLocationsObserver.value);
-        gossipstoneLocationsObserver.addEventListener("change", (event) => {
+        gossipstoneLocationsObserver.onChange((event) => {
             this.location = event.value;
         });
     }

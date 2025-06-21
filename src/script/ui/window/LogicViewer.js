@@ -1,11 +1,12 @@
 import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import IDBStorage from "/emcJS/data/storage/IDBStorage.js";
+import LogicUIAbstractElement from "/emcJS/ui/logic/abstract/AbstractElement.js";
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import LogicUIAbstractElement from "/JSEditors/ui/logic/AbstractElement.js";
 import LogicResource from "../../resource/LogicResource.js";
 import LogicGlitchedResource from "../../resource/LogicGlitchedResource.js";
+import "../logic/LogicElementsLoader.js";
 
 const CONFIG = WorldResource.get("config");
 const GATEWAYS_VARIANTS = CONFIG.gateways?.variants;

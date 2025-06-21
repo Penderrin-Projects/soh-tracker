@@ -1,11 +1,12 @@
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 
+const archipelagoActiveObserver = new MetaObserver("archipelago");
 const apHintLocations = APHintLocations.get();
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
@@ -22,7 +23,7 @@ export default class WorldMapShopSlot extends WorldMapLocation {
         const badgeEl = this.shadowRoot.getElementById("badge");
         badgeEl.hideValues = true;
         /* observer */
-        shopsanityObserver.addEventListener("change", () => {
+        shopsanityObserver.onChange(() => {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
@@ -80,14 +81,12 @@ export default class WorldMapShopSlot extends WorldMapLocation {
             }
         });
         /* AP */
-        if (!Savestate.getMeta("archipelago")) {
+        if (!archipelagoActiveObserver.value) {
             this.toggleDefaultContextMenuGroupActive("ap", false);
         }
-        Savestate.addEventListener("meta", (event) => {
-            const {key, value} = event.data;
-            if (key === "archipelago") {
-                this.toggleDefaultContextMenuGroupActive("ap", !!value);
-            }
+        archipelagoActiveObserver.onChange((event) => {
+            const {value} = event;
+            this.toggleDefaultContextMenuGroupActive("ap", !!value);
         });
     }
 

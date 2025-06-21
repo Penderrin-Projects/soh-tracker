@@ -1,10 +1,11 @@
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import WorldMapLocation from "/GameTrackerJS/ui/panel/worldmap/components/entries/Location.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
 import APHintLocations from "../../../../../resource/APHintLocations.js";
 
+const archipelagoActiveObserver = new MetaObserver("archipelago");
 const apHintLocations = APHintLocations.get();
 
 export default class TrackerWorldMapLocation extends WorldMapLocation {
@@ -35,14 +36,12 @@ export default class TrackerWorldMapLocation extends WorldMapLocation {
             }
         });
         /* AP */
-        if (!Savestate.getMeta("archipelago")) {
+        if (!archipelagoActiveObserver.value) {
             this.toggleDefaultContextMenuGroupActive("ap", false);
         }
-        Savestate.addEventListener("meta", (event) => {
-            const {key, value} = event.data;
-            if (key === "archipelago") {
-                this.toggleDefaultContextMenuGroupActive("ap", !!value);
-            }
+        archipelagoActiveObserver.onChange((event) => {
+            const {value} = event;
+            this.toggleDefaultContextMenuGroupActive("ap", !!value);
         });
     }
 

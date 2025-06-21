@@ -29,11 +29,11 @@ export default class CustomLogicUpdater {
         }
         INSTANCE = this;
         // register event for (de-)activate entrances
-        logicRuleTypeObserver.addEventListener("change", () => {
+        logicRuleTypeObserver.onChange(() => {
             this.#updateLogic();
         });
         // register event for (de-)activate custom logic
-        useCustomLogicObserver.addEventListener("change", () => {
+        useCustomLogicObserver.onChange(() => {
             this.#updateLogic();
         });
         // register event for changing custom logic

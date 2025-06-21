@@ -87105,6 +87105,19 @@
                         "y": 1266,
                         "scale": 100
                     }
+                },
+                {
+                    "label": "C",
+                    "posA": {
+                        "x": 736,
+                        "y": 1215,
+                        "scale": 100
+                    },
+                    "posB": {
+                        "x": 1078,
+                        "y": 1495,
+                        "scale": 100
+                    }
                 }
             ],
             "lists": {
@@ -87685,7 +87698,8 @@
                         },
                         "visible": true,
                         "mapOnly": false,
-                        "rootOnly": false
+                        "rootOnly": false,
+                        "accessPenetration": false
                     }
                 ],
                 "mq": [
@@ -111231,8 +111245,8 @@
                             "name": "kakariko.c_skulltula_10"
                         },
                         "pos": {
-                            "x": 200,
-                            "y": 220,
+                            "x": 201,
+                            "y": 33,
                             "scale": 100
                         },
                         "visible": true,
@@ -111245,8 +111259,8 @@
                             "name": "kakariko.c_skulltula_20"
                         },
                         "pos": {
-                            "x": 201,
-                            "y": 33,
+                            "x": 200,
+                            "y": 220,
                             "scale": 100
                         },
                         "visible": true,
@@ -111257,6 +111271,20 @@
                         "ref": {
                             "type": "Location",
                             "name": "kakariko.c_skulltula_30"
+                        },
+                        "pos": {
+                            "x": 35,
+                            "y": 129,
+                            "scale": 100
+                        },
+                        "visible": true,
+                        "mapOnly": false,
+                        "rootOnly": false
+                    },
+                    {
+                        "ref": {
+                            "type": "Location",
+                            "name": "kakariko.c_skulltula_40"
                         },
                         "pos": {
                             "x": 88,
@@ -111270,25 +111298,11 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "kakariko.c_skulltula_40"
+                            "name": "kakariko.c_skulltula_50"
                         },
                         "pos": {
                             "x": 90,
                             "y": 34,
-                            "scale": 100
-                        },
-                        "visible": true,
-                        "mapOnly": false,
-                        "rootOnly": false
-                    },
-                    {
-                        "ref": {
-                            "type": "Location",
-                            "name": "kakariko.c_skulltula_50"
-                        },
-                        "pos": {
-                            "x": 35,
-                            "y": 129,
                             "scale": 100
                         },
                         "visible": true,
@@ -111325,7 +111339,8 @@
                         },
                         "visible": true,
                         "mapOnly": false,
-                        "rootOnly": true
+                        "rootOnly": true,
+                        "accessPenetration": false
                     }
                 ]
             },

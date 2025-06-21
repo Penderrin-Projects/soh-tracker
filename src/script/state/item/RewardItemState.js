@@ -26,7 +26,7 @@ export default class RewardItemState extends DefaultAPItemState {
         /* VALUES */
         const rewardItemObserver = new RewardItemObserver(ref);
         DUNGEON.set(this, rewardItemObserver.value);
-        rewardItemObserver.addEventListener("change", (event) => {
+        rewardItemObserver.onChange((event) => {
             this.#setDungeon(event.value);
         });
     }

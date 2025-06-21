@@ -32,7 +32,7 @@ export default class DefaultDungeonState extends DataState {
 
         const dungeonRewardsObserver = new ObservableStorageObserver(STORAGES.dungeonRewards, ref);
         REWARD.set(this, dungeonRewardsObserver.value);
-        dungeonRewardsObserver.addEventListener("change", (event) => {
+        dungeonRewardsObserver.onChange((event) => {
             this.reward = event.value;
         });
     }

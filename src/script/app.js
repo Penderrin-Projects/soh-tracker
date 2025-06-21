@@ -20,6 +20,7 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 import EntranceBindingHandler from "/GameTrackerJS/util/handler/EntranceBindingHandler.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/savestate/AutosaveHandler.js";
 import "/GameTrackerJS/util/sync/StorageSyncMaster.js";
 import "/GameTrackerJS/util/handler/ExitBindingHandler.js";
@@ -127,18 +128,14 @@ try {
     viewchoiceEl.setTab("ap", "Archipelago", "images/icons/ap.svg");
 
     // AP state tab handling
-    if (!Savestate.getMeta("archipelago")) {
+    const archipelagoActiveObserver = new MetaObserver("archipelago");
+
+    if (!archipelagoActiveObserver.value) {
         viewchoiceEl.setTabButtonVisibility("ap", false);
     }
-    Savestate.addEventListener("meta", (event) => {
-        const {key, value} = event.data;
-        if (key === "archipelago") {
-            viewchoiceEl.setTabButtonVisibility("ap", !!value);
-        }
-    });
-    Savestate.addEventListener("load", () => {
-        const isApState = !!Savestate.getMeta("archipelago");
-        viewchoiceEl.setTabButtonVisibility("ap", isApState);
+    archipelagoActiveObserver.onChange((event) => {
+        const {value} = event;
+        viewchoiceEl.setTabButtonVisibility("ap", !!value);
     });
 
     // XXX

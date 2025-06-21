@@ -34,7 +34,7 @@ for (const dungeon of REWARD_DUNGEONS) {
     const dungeonRewardsObserver = new ObservableStorageObserver(STORAGES.dungeonRewards, dungeon);
     const value = dungeonRewardsObserver.value;
     DUNGEON.set(value, dungeon);
-    dungeonRewardsObserver.addEventListener("change", (event) => {
+    dungeonRewardsObserver.onChange((event) => {
         DUNGEON.set(event.value, dungeon);
         // ---
         const oldInst = getInstance(event.oldValue);
@@ -55,6 +55,7 @@ for (const dungeon of REWARD_DUNGEONS) {
 
 const KEY = new WeakMap();
 
+// TODO check if this is actually needed this way or if this can be somehow substituted by an extended ObservableStorageObserver
 export default class RewardItemObserver extends EventTarget {
 
     constructor(key) {
@@ -75,6 +76,20 @@ export default class RewardItemObserver extends EventTarget {
 
     get value() {
         return DUNGEON.get(this.key) ?? "";
+    }
+
+    onChange(fn) {
+        if (!(typeof fn === "function")) {
+            throw new TypeError("Failed to execute 'onChange' on 'AppStateMetaObserver': parameter 1 is not of type 'function'.");
+        }
+        this.addEventListener("change", fn);
+    }
+
+    unChange(fn) {
+        if (!(typeof fn === "function")) {
+            throw new TypeError("Failed to execute 'unChange' on 'AppStateMetaObserver': parameter 1 is not of type 'function'.");
+        }
+        this.addEventListener("change", fn);
     }
 
 }

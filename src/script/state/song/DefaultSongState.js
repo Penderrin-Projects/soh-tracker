@@ -20,7 +20,7 @@ export default class DefaultSongState extends DataState {
         if (props.editable) {
             const songNotesObserver = new ObservableStorageObserver(STORAGES.songNotes, ref);
             NOTES.set(this, songNotesObserver.value);
-            songNotesObserver.addEventListener("change", (event) => {
+            songNotesObserver.onChange((event) => {
                 this.notes = event.value;
             });
         } else {

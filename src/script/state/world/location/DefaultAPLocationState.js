@@ -83,19 +83,19 @@ export default class DefaultAPLocationState extends BaseClass {
 
         /* VALUES */
         this.#apLocationsObserver = new ObservableStorageObserver(AP_STORAGES.locations, ref);
-        this.#apLocationsObserver.addEventListener("change", (event) => {
+        this.#apLocationsObserver.onChange((event) => {
             this.setAPValue(event.value);
         });
 
         const locationsObserver = new ObservableStorageObserver(STORAGES.locations, ref);
         this.#value = locationsObserver.value;
-        locationsObserver.addEventListener("change", (event) => {
+        locationsObserver.onChange((event) => {
             this.value = event.value;
         });
 
         const locationItemsObserver = new ObservableStorageObserver(STORAGES.locationItems, ref);
         this.#item = locationItemsObserver.value;
-        locationItemsObserver.addEventListener("change", (event) => {
+        locationItemsObserver.onChange((event) => {
             this.item = event.value;
         });
 

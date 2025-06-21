@@ -23,7 +23,7 @@ export default class ScrubLocationState extends DefaultAPLocationState {
         /* STORAGE */
         this.#scrubPricesObserver = new ObservableStorageObserver(STORAGES.scrubPrices, ref);
         this.#price = this.#scrubPricesObserver.value;
-        this.#scrubPricesObserver.addEventListener("change", (event) => {
+        this.#scrubPricesObserver.onChange((event) => {
             this.price = event.value;
         });
         /* EVENTS */

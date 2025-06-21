@@ -121,7 +121,7 @@ export default class HTMLTrackerShopItem extends ContextMenuManagerMixin(StateDa
         this.shadowRoot.append(TPL.generate());
         STYLE.apply(this.shadowRoot);
         /* --- */
-        shopsanityObserver.addEventListener("change", () => {
+        shopsanityObserver.onChange(() => {
             const state = this.getState();
             if (state != null) {
                 // title

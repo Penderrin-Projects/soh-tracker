@@ -8,7 +8,7 @@ export default class AreaState extends DefaultAreaState {
 
     constructor(ref, props) {
         super(ref, props);
-        mixedEntrancePoolObserver.addEventListener("change", () => {
+        mixedEntrancePoolObserver.onChange(() => {
             this.onListEntriesChange();
         });
     }

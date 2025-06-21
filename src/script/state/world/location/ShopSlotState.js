@@ -56,24 +56,24 @@ export default class ShopSlotState extends DefaultAPLocationState {
 
         const locationItemsObserver = new ObservableStorageObserver(STORAGES.locationItems, ref);
         this.#item = locationItemsObserver.value;
-        locationItemsObserver.addEventListener("change", (event) => {
+        locationItemsObserver.onChange((event) => {
             this.item = event.value;
         });
 
         const shopItemsPriceObserver = new ObservableStorageObserver(STORAGES.shopItemsPrice, ref);
         this.#price = shopItemsPriceObserver.value;
-        shopItemsPriceObserver.addEventListener("change", (event) => {
+        shopItemsPriceObserver.onChange((event) => {
             this.price = event.value;
         });
 
         const shopItemsNameObserver = new ObservableStorageObserver(STORAGES.shopItemsName, ref);
         this.#name = shopItemsNameObserver.value;
-        shopItemsNameObserver.addEventListener("change", (event) => {
+        shopItemsNameObserver.onChange((event) => {
             this.name = event.value;
         });
 
         /* shoposanity */
-        shopsanityObserver.addEventListener("change", () => {
+        shopsanityObserver.onChange(() => {
             if (this.item) {
                 this.#refill = this.#itemData?.refill ?? !isSanity();
                 // bought

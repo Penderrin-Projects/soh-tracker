@@ -4,9 +4,9 @@ import {
 import "/emcJS/ui/icon/LabeledIcon.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
-import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationListEntry from "/GameTrackerJS/ui/panel/locationlist/components/abstract/LocationListEntry.js";
 import AccessTextMarkerMixin from "/GameTrackerJS/ui/panel/worldlist/components/mixin/AccessTextMarkerMixin.js";
+import MetaObserver from "/GameTrackerJS/util/observer/MetaObserver.js";
 import "/GameTrackerJS/ui/panel/locationlist/components/entries/LocationListLocation.js";
 import ShopItemChoiceDialog from "../../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../../ctxmenu/ShopSlotContextMenu";
@@ -14,6 +14,7 @@ import APHintLocations from "../../../../../resource/APHintLocations.js";
 import TPL from "./TrackerLocationListShopSlot.js.html" assert {type: "html"};
 import STYLE from "./TrackerLocationListShopSlot.js.css" assert {type: "css"};
 
+const archipelagoActiveObserver = new MetaObserver("archipelago");
 const apHintLocations = APHintLocations.get();
 
 function applyElements(target) {
@@ -45,7 +46,7 @@ export default class TrackerLocationListShopSlot extends BaseClass {
         itemEl.valign = "end";
         itemEl.halign = "end";
         /* observer */
-        shopsanityObserver.addEventListener("change", () => {
+        shopsanityObserver.onChange(() => {
             const state = this.getState();
             this.#applyItem(state?.itemData, state?.price);
         });
@@ -103,14 +104,12 @@ export default class TrackerLocationListShopSlot extends BaseClass {
             }
         });
         /* AP */
-        if (!Savestate.getMeta("archipelago")) {
+        if (!archipelagoActiveObserver.value) {
             this.toggleDefaultContextMenuGroupActive("ap", false);
         }
-        Savestate.addEventListener("meta", (event) => {
-            const {key, value} = event.data;
-            if (key === "archipelago") {
-                this.toggleDefaultContextMenuGroupActive("ap", !!value);
-            }
+        archipelagoActiveObserver.onChange((event) => {
+            const {value} = event;
+            this.toggleDefaultContextMenuGroupActive("ap", !!value);
         });
     }
 
