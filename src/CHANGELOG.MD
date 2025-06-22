@@ -6,11 +6,14 @@ Application:    Track-OOT
 
 ## VERSION 3.1.3
 
+### CHANGES
+
+- change logic viewer to use new logic nodes for visualization
+
 ### BUG FIXES
 
 - fix skultulla reward order
 - fix missing connection marker in training grounds
-- change logic viewer to use new logic nodes for visualization
 - fix keysanity augment to include regional for non AP states
 
 ### WORLD EDITOR FIXES
