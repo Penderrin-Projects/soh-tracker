@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // GameTrackerJS
@@ -14,7 +14,7 @@ import "./components/entries/ScrubLocation.js";
 import "./components/button/TypeButton.js";
 import "../dungeonstate/components/DungeonType.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <ootrt-dungeontype id="dungeontype" class="button" ref="overworld" value="v" readonly="true"></ootrt-dungeontype>
 <ootrt-worldlist-typebutton id="vanilla" class="button" listname="v" text="vanilla"></ootrt-worldlist-typebutton>
 <ootrt-worldlist-typebutton id="masterquest" class="button" listname="mq" text="masterquest"></ootrt-worldlist-typebutton>

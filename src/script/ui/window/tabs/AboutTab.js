@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import "/emcJS/ui/input/InputWrapper.js";
@@ -9,7 +9,7 @@ import VersionData from "/GameTrackerJS/data/VersionData.js";
 // Track-OOT
 import "/script/ui/UpdateHandler.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div style="display: flex; padding: 5px;">
     <div style="flex: 1;">
         <div style="padding: 5px;">

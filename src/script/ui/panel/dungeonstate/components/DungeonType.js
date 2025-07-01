@@ -1,6 +1,6 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/input/Option.js";
 
@@ -10,13 +10,13 @@ import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateMa
 // Track-OOT
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <emc-option value style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
 <emc-option value="v" style="background-image: url('images/icons/dungeontype_vanilla.svg')"></emc-option>
 <emc-option value="mq" style="background-image: url('images/icons/dungeontype_masterquest.svg')"></emc-option>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-flex;
     align-items: center;

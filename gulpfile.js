@@ -287,8 +287,8 @@ function finish(dest, done) {
             path.resolve(dest, "index.js"),
             path.resolve(dest, "script/StateRecovery.js"),
             path.resolve(dest, "detached/index.js"),
-            path.resolve(dest, "emcJS/util/html/Template.js"),
-            path.resolve(dest, "emcJS/util/html/GlobalStyle.js")
+            path.resolve(dest, "emcJS/util/html/template/HTMLTemplate.js"),
+            path.resolve(dest, "emcJS/util/html/template/CSSTemplate.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*|worker\/.*|StateConverter[0-9]+)\.js/,
         deleteUnused: DELETE_UNUSED_FILES

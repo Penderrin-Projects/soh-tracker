@@ -1,11 +1,11 @@
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import ShopsResource from "../../../../resource/ShopsResource.js";
 import "./ShopItem.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="title">
     <span id="title-text"></span>
 </div>
@@ -21,7 +21,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-block;
     padding: 10px;

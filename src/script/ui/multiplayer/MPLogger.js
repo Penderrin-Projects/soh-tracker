@@ -1,8 +1,8 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <style>
         :host {
             display: flex;

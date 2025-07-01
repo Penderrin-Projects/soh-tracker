@@ -1,4 +1,4 @@
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import {
     mix
 } from "/emcJS/util/Mixin.js";
@@ -10,7 +10,7 @@ import "/GameTrackerJS/ui/panel/worldlist/components/entries/Location.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="hintlocation-container" class="textarea">
     <emc-i18n-label id="hintlocation"></emc-i18n-label>
 </div>

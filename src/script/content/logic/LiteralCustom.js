@@ -1,12 +1,12 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import AbstractElement from "/JSEditors/ui/logic/AbstractElement.js";
 
 const TPL_CAPTION = "CUSTOM";
 const TPL_BACKGROUND = "#ffffff";
 const TPL_BORDER = "#777777";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <style>
         :host {
             --logic-color-back: ${TPL_BACKGROUND};
@@ -23,7 +23,7 @@ const TPL = new Template(`
     <div id="ref" class="body"></div>
     <div id="value" class="body"></div>
 `);
-// const SVG = new Template(`
+// const SVG = new HTMLTemplate(`
 //     <div class="logic-element" style="--logic-color-back: ${TPL_BACKGROUND}; --logic-color-border: ${TPL_BORDER};">
 //         <div class="header" data-value="0">${TPL_CAPTION}</div>
 //     </div>

@@ -1,6 +1,6 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import "/emcJS/ui/input/Option.js";
 import "/emcJS/ui/i18n/I18nLabel.js";
 
@@ -8,13 +8,13 @@ import "/emcJS/ui/i18n/I18nLabel.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import ItemElement from "/GameTrackerJS/ui/itemgrid/interactive/components/abstract/ItemElement.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="icon">
     <emc-i18n-label id="value"></emc-i18n-label>
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 #icon {
     width: 100%;
     height: 100%;

@@ -1,7 +1,7 @@
 // frameworks
 import GlobalContext from "/emcJS/data/storage/global/GlobalContext.js";
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
 import "/emcJS/ui/layout/panel/TabPanel.js";
 import "/emcJS/ui/input/ListSelect.js";
@@ -9,7 +9,7 @@ import "/emcJS/ui/input/ListSelect.js";
 // GameTrackerJS
 import SettingsStorage from "/GameTrackerJS/storage/SettingsStorage.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div>
     You have a few options to initialize your new savestate.
     <br><br>
@@ -34,7 +34,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const FOOTER = new Template(`
+const FOOTER = new HTMLTemplate(`
 <div id="footer">
     <label class="settings-option">
         <emc-input-wrapper>
@@ -47,7 +47,7 @@ const FOOTER = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 #body {
     height: 50dvh;
 }

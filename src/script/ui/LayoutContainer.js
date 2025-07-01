@@ -1,5 +1,5 @@
 // frameworks
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Layout from "/emcJS/ui/layout/Layout.js";
 
 // GameTrackerJS
@@ -15,7 +15,7 @@ import "/script/ui/panel/songlist/SongList.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
 import "/script/ui/panel/aptextclient/APTextClient.js";
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 .state {
     display: inline;
     padding: 0 5px;

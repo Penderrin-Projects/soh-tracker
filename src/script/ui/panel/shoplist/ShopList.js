@@ -1,9 +1,9 @@
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 import ShopsResource from "../../../resource/ShopsResource.js";
 import "./components/ShopField.js";
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-block;
     width: 300px;

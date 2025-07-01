@@ -1,6 +1,6 @@
 
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import FileSystem from "/emcJS/util/file/FileSystem.js";
 import SettingsBuilder from "/emcJS/util/SettingsBuilder.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
@@ -17,7 +17,7 @@ import SpoilerParser from "/script/util/spoilerparser/SpoilerParser.js";
 
 let spoiler = {};
 
-const LOAD_SPOILER = new Template(`
+const LOAD_SPOILER = new HTMLTemplate(`
 <div id="options-spoiler-wrapper">
     <button id="load-spoiler-preset" class="settings-button" type="button" value="undefined" style="margin-right: 10px;"></button>
 </div>

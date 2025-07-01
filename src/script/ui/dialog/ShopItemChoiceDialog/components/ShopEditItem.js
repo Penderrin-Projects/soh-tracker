@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // GameTrackerJS
@@ -7,7 +7,7 @@ import Language from "/GameTrackerJS/util/Language.js";
 // Track-OOT
 import ShopItemsResource from "/script/resource/ShopItemsResource.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <style>
         :host {
             display: inline-flex;

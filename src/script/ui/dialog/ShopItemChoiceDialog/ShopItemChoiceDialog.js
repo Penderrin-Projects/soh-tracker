@@ -1,6 +1,6 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Window from "/emcJS/ui/overlay/window/Window.js";
 
 // GameTrackerJS
@@ -11,7 +11,7 @@ import "./components/ShopEditItem.js";
 
 // TODO use TabPanel
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="categories">
 </div>
 <div class="panel" id="panel_about">
@@ -28,7 +28,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 #footer,
 #submit,
 #cancel {

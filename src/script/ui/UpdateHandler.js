@@ -1,10 +1,10 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import "/emcJS/ui/input/InputWrapper.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <div id="update-check" style="padding: 5px;">
         checking for new version...
     </div>
@@ -43,7 +43,7 @@ const TPL = new Template(`
     </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 #update-progress {
     -webkit-appearance: none;
 }

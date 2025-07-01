@@ -6,7 +6,7 @@ import svgo from "gulp-svgo";
 import newer from "gulp-newer";
 import autoprefixer from "gulp-autoprefixer";
 import FileIndex from "emcjs/_build_tools/FileIndex.js";
-import ImageIndex from "emcJS/_build_tools/ImageIndex.js.js";
+import ImageIndex from "emcJS/_build_tools/ImageIndex.js";
 import LanguageManager from "emcjs/_build_tools/LanguageManager.js";
 import sourceImport from "emcjs/_build_tools/sourceImport.js";
 import ImportAnalyzer from "emcjs/_build_tools/ImportAnalyzer.js";
@@ -219,8 +219,8 @@ function finish(done) {
         usedImports: ImportAnalyzer.getUsedImports(
             BUILD_PATH,
             path.resolve(BUILD_PATH, "index.js"),
-            path.resolve(BUILD_PATH, "emcJS/util/html/Template.js"),
-            path.resolve(BUILD_PATH, "emcJS/util/html/GlobalStyle.js")
+            path.resolve(BUILD_PATH, "emcJS/util/html/template/HTMLTemplate.js"),
+            path.resolve(BUILD_PATH, "emcJS/util/html/template/CSSTemplate.js")
         ),
         ignoreImportPaths: /.*\/(i18n\/fragments\/.*|emcJS\/polyfills\/.*)\.js/,
         deleteUnused: DELETE_UNUSED_FILES

@@ -1,12 +1,12 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
 import "./SongStave.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="title"></div>
 <ootrt-stave id="stave"></ootrt-stave>
 <div id="buttons">
@@ -19,7 +19,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-block;
     width: 320px;

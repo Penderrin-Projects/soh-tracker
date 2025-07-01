@@ -1,5 +1,5 @@
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Language from "/GameTrackerJS/util/Language.js";
 import UIRegistry from "/GameTrackerJS/registry/UIRegistry.js";
 import WorldMapMarkedEntry from "/GameTrackerJS/ui/panel/worldmap/components/abstract/MarkedEntry.js";
@@ -8,7 +8,7 @@ import "/GameTrackerJS/ui/Badge.js";
 import GossipstoneContextMenu from "../../../../ctxmenu/GossipstoneContextMenu.js";
 import LogicViewer from "../../../../window/LogicViewer.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="hintlocation-container" class="textarea">
     <emc-i18n-label id="hintlocation"></emc-i18n-label>
 </div>
@@ -17,7 +17,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     --size: 32px;
     --rotation: 0deg;

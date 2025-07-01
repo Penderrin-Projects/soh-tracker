@@ -1,6 +1,6 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 
@@ -12,7 +12,7 @@ import SongStateManager from "/script/state/song/SongStateManager.js";
 import "./SongStave.js";
 import "./SongBuilder.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div class="caption">
     <span id="title"></span>
     <button id="edit" class="button hidden" title="edit">✎</button>
@@ -22,7 +22,7 @@ const TPL = new Template(`
 <ootrt-stave id="stave"></ootrt-stave>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-block;
     width: 500px;

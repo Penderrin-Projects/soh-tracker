@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import AbstractElement from "/JSEditors/ui/logic/AbstractElement.js";
 
 const TPL_CAPTION = "MIXIN";
@@ -7,7 +7,7 @@ const TPL_BACKGROUND = "#ffffff";
 const TPL_BORDER = "#777777";
 const REFERENCE = "mixin";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <style>
         :host {
             --logic-color-back: ${TPL_BACKGROUND};

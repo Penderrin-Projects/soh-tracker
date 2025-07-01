@@ -1,7 +1,7 @@
 // frameworks
 import LocalStorage from "/emcJS/data/storage/global/LocalStorage.js";
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
@@ -12,7 +12,7 @@ if (location.hostname == "localhost") {
     SUPPORTER_URL.port = 10001;
 }
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="credits">
     <div class="panel">
         <label>
@@ -31,7 +31,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 #credits {
     height: 100%;
     display: flex;

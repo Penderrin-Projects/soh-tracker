@@ -1,12 +1,12 @@
 // frameworks
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import Panel from "/emcJS/ui/layout/Panel.js";
 
 // Track-OOT
 import SongsResource from "/script/resource/SongsResource.js";
 import "./components/SongField.js";
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-block;
     width: 300px;

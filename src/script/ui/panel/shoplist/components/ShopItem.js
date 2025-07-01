@@ -1,5 +1,5 @@
-import Template from "/emcJS/util/html/Template.js";
-import GlobalStyle from "/emcJS/util/html/GlobalStyle.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
+import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 import ContextMenuManagerMixin from "/emcJS/ui/mixin/ContextMenuManagerMixin.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
@@ -9,7 +9,7 @@ import WorldStateManagerRegistry from "/GameTrackerJS/statemanager/WorldStateMan
 import ShopItemChoiceDialog from "../../../dialog/ShopItemChoiceDialog/ShopItemChoiceDialog.js";
 import ShopSlotContextMenu from "../../../ctxmenu/ShopSlotContextMenu.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
 <div id="image"></div>
 <div id="title"></div>
 <div id="info">
@@ -18,7 +18,7 @@ const TPL = new Template(`
 </div>
 `);
 
-const STYLE = new GlobalStyle(`
+const STYLE = new CSSTemplate(`
 :host {
     display: inline-flex;
     flex-direction: column;

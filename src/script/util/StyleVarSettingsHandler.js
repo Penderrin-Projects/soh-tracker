@@ -1,7 +1,4 @@
-// frameworks
-import StyleVariables from "/emcJS/util/html/StyleVariables.js";
-
-// GameTrackerJS
+import StyleVariables from "/emcJS/util/html/style/GlobalStyleVariables.js";
 import SettingsObserver from "/GameTrackerJS/util/observer/SettingsObserver.js";
 
 export default class StyleVarSettingsHandler {

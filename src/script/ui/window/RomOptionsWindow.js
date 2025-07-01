@@ -1,4 +1,4 @@
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import "/emcJS/ui/i18n/builtin/I18nOption.js";
 import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
@@ -9,7 +9,7 @@ import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
 
 OptionsStorage.registerDefault("dungeonstate_active_types", "");
 
-const LOAD_RULESET = new Template(`
+const LOAD_RULESET = new HTMLTemplate(`
     <div id="options-preset-wrapper">
         <select id="select-options-preset" class="settings-input" type="input"></select>
         <button id="load-options-preset" class="settings-button" type="button" value="undefined" style="margin-right: 10px;"></button>

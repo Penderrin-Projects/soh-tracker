@@ -73,7 +73,9 @@ class APTextClient extends Panel {
         const apLogItemClassEl = this.shadowRoot.getElementById("ap-log-itemclass");
         const apLogDirectionEl = this.shadowRoot.getElementById("ap-log-direction");
         const apLogListDataProvider = new SimpleDataProvider(apLogListEl, [], {
-            filterIgnoreNullValues: true
+            config: {
+                filterIgnoreNullValues: true
+            }
         });
         const apHintGridEl = this.shadowRoot.getElementById("ap-hints");
         const apHintsSearchEl = this.shadowRoot.getElementById("ap-hints-search");
@@ -81,9 +83,11 @@ class APTextClient extends Panel {
         const apHintsDirectionEl = this.shadowRoot.getElementById("ap-hints-direction");
         const apHintsStatusEl = this.shadowRoot.getElementById("ap-hints-status");
         const apHintGridDataProvider = new SimpleDataProvider(apHintGridEl, dictToRecords(AP_STORAGES.hints.getAll()), {
-            searchFields: ["finder", "item.item", "reciever", "location", "entrance"],
-            filterIgnoreNullValues: true,
-            sort: ["found"]
+            config: {
+                searchFields: ["finder", "item.item", "reciever", "location", "entrance"],
+                filterIgnoreNullValues: true,
+                sort: ["found"]
+            }
         });
         const apItemHintBuilderEl = this.shadowRoot.getElementById("ap-item-hint-builder");
         this.#apHintsAvailable = this.shadowRoot.getElementById("ap-hints-available");
@@ -105,17 +109,17 @@ class APTextClient extends Panel {
             apLogListDataProvider.addEntry(resolvedMessage);
         });
         apLogSearchEl.addEventListener("change", () => {
-            apLogListDataProvider.updateOptions({search: apLogSearchEl.value});
+            apLogListDataProvider.updateConfig({search: apLogSearchEl.value});
         });
         apLogMsgTypeEl.addEventListener("change", () => {
             const {filter} = apLogListDataProvider.getOptions();
             filter.type = apLogMsgTypeEl.value;
-            apLogListDataProvider.updateOptions({filter});
+            apLogListDataProvider.updateConfig({filter});
         });
         apLogItemClassEl.addEventListener("change", () => {
             const {filter} = apLogListDataProvider.getOptions();
             filter.itemClass = apLogItemClassEl.value;
-            apLogListDataProvider.updateOptions({filter});
+            apLogListDataProvider.updateConfig({filter});
         });
         apLogDirectionEl.addEventListener("change", () => {
             const {filter} = apLogListDataProvider.getOptions();
@@ -135,7 +139,7 @@ class APTextClient extends Panel {
                 filter.isSender = false;
                 filter.isReciever = false;
             }
-            apLogListDataProvider.updateOptions({filter});
+            apLogListDataProvider.updateConfig({filter});
         });
         apLogListEl.addEventListener("scrollend", (event) => {
             event.stopPropagation();
@@ -150,12 +154,12 @@ class APTextClient extends Panel {
             AP_STORAGES.hints.setAll(recordsToDict(apHintGridDataProvider.getSource()));
         });
         apHintsSearchEl.addEventListener("change", () => {
-            apHintGridDataProvider.updateOptions({search: apHintsSearchEl.value});
+            apHintGridDataProvider.updateConfig({search: apHintsSearchEl.value});
         });
         apHintsItemClassEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();
             filter["item.itemClass"] = apHintsItemClassEl.value;
-            apHintGridDataProvider.updateOptions({filter});
+            apHintGridDataProvider.updateConfig({filter});
         });
         apHintsDirectionEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();
@@ -175,7 +179,7 @@ class APTextClient extends Panel {
                 filter["finder.current"] = false;
                 filter["reciever.current"] = false;
             }
-            apHintGridDataProvider.updateOptions({filter});
+            apHintGridDataProvider.updateConfig({filter});
         });
         apHintsStatusEl.addEventListener("change", () => {
             const {filter} = apHintGridDataProvider.getOptions();
@@ -191,7 +195,7 @@ class APTextClient extends Panel {
             } else {
                 filter.found = [];
             }
-            apHintGridDataProvider.updateOptions({filter});
+            apHintGridDataProvider.updateConfig({filter});
         });
         /* --- */
         apItemHintBuilderEl.addEventListener("hint", (event) => {

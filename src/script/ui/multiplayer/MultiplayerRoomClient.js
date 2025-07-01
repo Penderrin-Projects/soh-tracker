@@ -1,5 +1,5 @@
 // frameworks
-import Template from "/emcJS/util/html/Template.js";
+import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CustomElement from "/emcJS/ui/element/CustomElement.js";
 
 // Track-OOT
@@ -8,7 +8,7 @@ import RTCPeerClient from "/script/util/rtc/RTCPeerClient.js";
 import "./MPUser.js";
 import "./MPLogger.js";
 
-const TPL = new Template(`
+const TPL = new HTMLTemplate(`
     <style>
         :host {
             display: flex;
