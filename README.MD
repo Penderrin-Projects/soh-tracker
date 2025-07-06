@@ -1,8 +1,6 @@
 ## dependencies
 
 - yarn (https://classic.yarnpkg.com/en/docs/install/)
-- some server tool to host the website
-    - > e.g.: serve (https://www.npmjs.com/package/serve)
 
 ## installing the application
 
@@ -15,15 +13,12 @@
 ### production
 
 - run `yarn build`
-- serve the `./prod` folder as local server
-    - >e.g.: run `serve ./prod`
+- run `yarn serve -prod` to serve the `./prod` folder as local server
 
 ### development
 
 - run `yarn buildDev`
-    - or as watch job `yarn watch`
-- serve the `./dev` folder as local server
-    - >e.g.: run `serve ./dev` (alias: `yarn serve`)
+- run `yarn serve` to serve the `./dev` folder as local server
 
 ### flags
 
@@ -31,18 +26,18 @@ the build process allows flags to be added.
 flags need to be added with a `-` before them.
 > e.g.: `yarn build -nocompress -rebuildjs`
 
-| command | description | 
-| --- | --- |
+| command    | description                                                                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | nocompress | by default the build process will look over the json files and try to compress them, this options disables that feature, since it can take a lot of time |
-| rebuild | force rebuilding all files, not only the changed ones |
-| rebuildjs | force rebuilding all javascript files, not only the changed ones. not needed if rebuild is already declared |
+| rebuild    | force rebuilding all files, not only the changed ones                                                                                                    |
+| rebuildjs  | force rebuilding all javascript files, not only the changed ones. not needed if rebuild is already declared                                              |
 
 ## editor
 
 use the editor to change tracker configurations.
 > the editor is currently a work in progress
 
-- run `yarn edit`
+- `yarn editWeb` for an in browser editor
 
 included:
 

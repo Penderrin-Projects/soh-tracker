@@ -87697,9 +87697,9 @@
                             "scale": 100
                         },
                         "visible": true,
+                        "accessPenetration": false,
                         "mapOnly": false,
-                        "rootOnly": false,
-                        "accessPenetration": false
+                        "rootOnly": false
                     }
                 ],
                 "mq": [
@@ -111338,9 +111338,9 @@
                             "scale": 100
                         },
                         "visible": true,
+                        "accessPenetration": false,
                         "mapOnly": false,
-                        "rootOnly": true,
-                        "accessPenetration": false
+                        "rootOnly": true
                     }
                 ]
             },
@@ -135349,6 +135349,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "fountain"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135391,11 +135395,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "fountain"
-            }
+            "tags": []
         },
         "blue_warp_phantom_ganon_gateway -> phantom_ganon_blue_warp_gateway": {
             "type": "blue_warp",
@@ -135404,6 +135404,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "meadow"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135446,11 +135450,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "meadow"
-            }
+            "tags": []
         },
         "blue_warp_volvagia_gateway -> volvagia_blue_warp_gateway": {
             "type": "blue_warp",
@@ -135459,6 +135459,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "crater"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135501,11 +135505,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "crater"
-            }
+            "tags": []
         },
         "blue_warp_morpha_gateway -> morpha_blue_warp_gateway": {
             "type": "blue_warp",
@@ -135514,6 +135514,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "lake"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135556,11 +135560,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "lake"
-            }
+            "tags": []
         },
         "blue_warp_bongo_bongo_gateway -> bongo_bongo_blue_warp_gateway": {
             "type": "blue_warp",
@@ -135569,6 +135569,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "graveyard"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135611,11 +135615,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "graveyard"
-            }
+            "tags": []
         },
         "blue_warp_twinrova_gateway -> twinrova_blue_warp_gateway": {
             "type": "blue_warp",
@@ -135624,6 +135624,10 @@
                 "name": ""
             },
             "logicAccess": "",
+            "area": {
+                "type": "Area",
+                "name": "colossus"
+            },
             "visible": false,
             "filter": {
                 "era": {
@@ -135666,11 +135670,7 @@
             "entranceActive": true,
             "includeInactiveEntrances": false,
             "isBiDir": false,
-            "tags": [],
-            "area": {
-                "type": "Area",
-                "name": "colossus"
-            }
+            "tags": []
         }
     }
 }

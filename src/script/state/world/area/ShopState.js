@@ -4,7 +4,7 @@ import AreaState from "./AreaState.js";
 
 export default class ShopState extends AreaState  {
 
-    setAllEntries(value = true) {
+    setAllChecked(value = true) {
         const list = this.getList();
         for (const state of list) {
             if (state != null && state.entry != null) {
@@ -18,7 +18,7 @@ export default class ShopState extends AreaState  {
                         entry.price = "";
                     }
                 } else {
-                    super.setAllEntries(value);
+                    super.setAllChecked(value);
                 }
             }
         }
