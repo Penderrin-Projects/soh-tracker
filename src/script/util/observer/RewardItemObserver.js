@@ -2,7 +2,7 @@
 import {
     filterObject
 } from "/emcJS/util/helper/collection/ObjectContent.js";
-import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
 // GameTrackerJS
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 // Track-OOT

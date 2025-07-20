@@ -1,5 +1,5 @@
 
-import ObservableStorageObserver from "/emcJS/util/observer/ObservableStorageObserver.js";
+import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";

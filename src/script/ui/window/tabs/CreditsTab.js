@@ -16,7 +16,7 @@ const TPL = new HTMLTemplate(`
 <div id="credits">
     <div class="panel">
         <label>
-            <span class="title">Dev-Team</span>
+            <span class="title">Team</span>
             <ul id="team">
             </ul>
         </label>
@@ -62,7 +62,7 @@ const STYLE = new CSSTemplate(`
     color: #cb9c3d;
 }
 #credits .name.team {
-    color: #ffdb00;
+    color: #0099ff;
 }
 #credits .name.contributor {
     color: #ff2baa;
