@@ -4,6 +4,16 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.4
+
+### CHANGES
+
+- add links house and ToT as shortcuts to spawns collection (only if child/adult spawn not shuffled)
+
+### BUG FIXES
+
+- fix marker list input in world editor did not react to any edit operation internally but only visually
+
 ## VERSION 3.1.3
 
 ### CHANGES

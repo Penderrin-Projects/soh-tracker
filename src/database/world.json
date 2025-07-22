@@ -73045,6 +73045,28 @@
             "list": [
                 {
                     "ref": {
+                        "type": "Area",
+                        "name": "kokiri.links_house"
+                    },
+                    "pos": {
+                        "x": 70,
+                        "y": 275,
+                        "scale": 70
+                    },
+                    "visible": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "option[shuffle_spawn_child]"
+                        }
+                    },
+                    "ignoreEntryVisibility": true,
+                    "accessPenetration": true,
+                    "mapOnly": false,
+                    "rootOnly": false
+                },
+                {
+                    "ref": {
                         "type": "Exit",
                         "name": "child_spawn_links_house_gateway -> links_house_child_spawn_gateway"
                     },
@@ -73054,6 +73076,28 @@
                         "scale": 70
                     },
                     "visible": true,
+                    "mapOnly": false,
+                    "rootOnly": false
+                },
+                {
+                    "ref": {
+                        "type": "Area",
+                        "name": "castle_town.temple_of_time"
+                    },
+                    "pos": {
+                        "x": 430,
+                        "y": 275,
+                        "scale": 70
+                    },
+                    "visible": {
+                        "type": "not",
+                        "content": {
+                            "type": "value",
+                            "ref": "option[shuffle_spawn_adult]"
+                        }
+                    },
+                    "ignoreEntryVisibility": true,
+                    "accessPenetration": true,
                     "mapOnly": false,
                     "rootOnly": false
                 },

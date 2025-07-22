@@ -1,13 +1,22 @@
 import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import "/emcJS/ui/i18n/builtin/I18nOption.js";
 import OptionsResource from "/GameTrackerJS/data/resource/OptionsResource.js";
+import SettingsAliasRegistry from "/GameTrackerJS/registry/SettingsAliasRegistry.js";
 import SavestateOptionsWindow from "/GameTrackerJS/ui/window/settings/SavestateOptionsWindow.js";
 import Language from "/GameTrackerJS/util/Language.js";
-import RulesetsResource from "../../resource/RulesetsResource.js";
-import "../form/input/dungeonStateActiveTypes/DungeonStateActiveTypes.js";
 import OptionsStorage from "/GameTrackerJS/savestate/storage/OptionsStorage.js";
+import RulesetsResource from "../../resource/RulesetsResource.js";
+import APHintLocations from "../../resource/APHintLocations.js";
+import "../form/input/dungeonStateActiveTypes/DungeonStateActiveTypes.js";
 
 OptionsStorage.registerDefault("dungeonstate_active_types", "");
+
+const LOCATIONS_AP = APHintLocations.get();
+const LOCATION_NAMES_AP = Object.keys(LOCATIONS_AP).reduce((res, value) => {
+    res[`excluded_location[${value}]`] = `location[${value}]`;
+    return res;
+}, {});
+SettingsAliasRegistry.registerAlias("Locations.ap_names", () => LOCATION_NAMES_AP);
 
 const LOAD_RULESET = new HTMLTemplate(`
     <div id="options-preset-wrapper">
