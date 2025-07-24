@@ -13,6 +13,8 @@ Application:    Track-OOT
 ### BUG FIXES
 
 - fix marker list input in world editor did not react to any edit operation internally but only visually
+- fix interpreting interior entrance values in spoiler parser
+- fix overworld entrance parser by adding changed names
 
 ## VERSION 3.1.3
 

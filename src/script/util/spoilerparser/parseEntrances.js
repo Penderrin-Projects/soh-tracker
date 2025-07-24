@@ -12,12 +12,12 @@ export default function parseEntrances(addError, target = {}, data = {}, trans =
             v = data[i]["region"] + " -> " + data[i]["from"];
         }
 
-        const [category, edgeThere] = getCategoryAndTranslation(trans.entrances, i);
+        const [category, edgeThere] = getEntranceCategoryAndTranslation(trans.entrances, i);
         if (edgeThere == null) {
             addError(`"${i}" is a invalid entrance value`, "Entrances");
             continue;
         }
-        const [, edgeBack] = getCategoryAndTranslation(trans.entrances, v);
+        const [, edgeBack] = getExitCategoryAndTranslation(trans.entrances, v);
         if (edgeBack === null) {
             addError(`"${v}" is a invalid exit value`, "Entrances");
             continue;
@@ -69,11 +69,43 @@ export default function parseEntrances(addError, target = {}, data = {}, trans =
     }
 }
 
-function getCategoryAndTranslation(entrances, needle) {
-    for (const [category, values] of Object.entries(entrances)) {
-        const translation = values[needle];
-        if (translation != null) {
-            return [category, translation];
+function getEntranceCategoryAndTranslation(entrances, needle) {
+    if (needle.includes(" -> ")) {
+        for (const [category, values] of Object.entries(entrances)) {
+            const translation = values[needle];
+            if (translation != null) {
+                return [category, translation];
+            }
+        }
+    } else {
+        needle = ` -> ${needle}`;
+        for (const [category, values] of Object.entries(entrances)) {
+            for (const [key, translation] of Object.entries(values)) {
+                if (key.endsWith(needle)) {
+                    return [category, translation];
+                }
+            }
+        }
+    }
+    return [null, null];
+}
+
+function getExitCategoryAndTranslation(entrances, needle) {
+    if (needle.includes(" -> ")) {
+        for (const [category, values] of Object.entries(entrances)) {
+            const translation = values[needle];
+            if (translation != null) {
+                return [category, translation];
+            }
+        }
+    } else {
+        needle = `${needle} -> `;
+        for (const [category, values] of Object.entries(entrances)) {
+            for (const [key, translation] of Object.entries(values)) {
+                if (key.startsWith(needle)) {
+                    return [category, translation];
+                }
+            }
         }
     }
     return [null, null];
