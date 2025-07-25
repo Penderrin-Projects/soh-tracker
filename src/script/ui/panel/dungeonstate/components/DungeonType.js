@@ -11,9 +11,9 @@ import AreaStateManager from "/GameTrackerJS/statemanager/world/area/AreaStateMa
 import DungeonstateStates from "/script/state/dungeon/DungeonStateManager.js";
 
 const TPL = new HTMLTemplate(`
-<emc-option value style="background-image: url('images/icons/dungeontype_undefined.svg')"></emc-option>
-<emc-option value="v" style="background-image: url('images/icons/dungeontype_vanilla.svg')"></emc-option>
-<emc-option value="mq" style="background-image: url('images/icons/dungeontype_masterquest.svg')"></emc-option>
+<emc-option value style="background-image: url('/images/icons/dungeontype_undefined.svg')"></emc-option>
+<emc-option value="v" style="background-image: url('/images/icons/dungeontype_vanilla.svg')"></emc-option>
+<emc-option value="mq" style="background-image: url('/images/icons/dungeontype_masterquest.svg')"></emc-option>
 `);
 
 const STYLE = new CSSTemplate(`

@@ -16,9 +16,9 @@ const TPL = new HTMLTemplate(`
 `);
 
 const ICONS = {
-    "": "images/icons/dungeontype_undefined.svg",
-    "v": "images/icons/dungeontype_vanilla.svg",
-    "mq": "images/icons/dungeontype_masterquest.svg"
+    "": "/images/icons/dungeontype_undefined.svg",
+    "v": "/images/icons/dungeontype_vanilla.svg",
+    "mq": "/images/icons/dungeontype_masterquest.svg"
 };
 
 function applyElements(target) {

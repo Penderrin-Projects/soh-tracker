@@ -50,6 +50,12 @@ PageSwitcher.register("main", [{
         "content": "DETACHED ITEM WINDOW",
         "handler": openDetachedItems
     }, {
+    //     "content": "DETACHED LOCATIONLIST WINDOW",
+    //     "handler": openDetachedLocationlist
+    // }, {
+    //     "content": "DETACHED WORLDMAP WINDOW",
+    //     "handler": openDetachedWorldmap
+    // }, {
         "content": "EDITORS",
         "handler": showEditors
     }]
@@ -125,8 +131,21 @@ async function states_Manage() {
 }
 
 function openDetachedItems() {
-    window.open("/detached/#items", "TrackOOT", "popup=1,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+    const popup = window.open("/detached/#items", "TrackOOT", "popup=1,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+    popup.moveTo(0, 0);
 }
+
+// function openDetachedLocationlist() {
+//     const popup = window.open("/detached/#locationlist", "TrackOOT", "popup=1,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+//     popup.moveTo(0, 0);
+//     popup.resizeTo(600, screen.availHeigh);
+// }
+
+// function openDetachedWorldmap() {
+//     const popup = window.open("/detached/#map", "TrackOOT", "popup=1,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,titlebar=0");
+//     popup.moveTo(0, 0);
+//     popup.resizeTo(screen.availWidth, screen.availHeight);
+// }
 
 function openSettingsWindow() {
     const trackerSettingsWindow = GlobalContext.get("TrackerSettingsWindow");

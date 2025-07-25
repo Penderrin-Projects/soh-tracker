@@ -158,8 +158,22 @@
             "false"
         ],
         "images": [
-            "/images/icons/opened_visible.svg",
-            "/images/icons/opened_invisible.svg"
+            "/images/icons/access_opened_visible.svg",
+            "/images/icons/access_opened_invisible.svg"
+        ],
+        "badge": false
+    },
+    "show_unavailable": {
+        "choice": true,
+        "persist": true,
+        "default": "true",
+        "values": [
+            "true",
+            "false"
+        ],
+        "images": [
+            "/images/icons/access_unavailable_visible.svg",
+            "/images/icons/access_unavailable_invisible.svg"
         ],
         "badge": false
     }

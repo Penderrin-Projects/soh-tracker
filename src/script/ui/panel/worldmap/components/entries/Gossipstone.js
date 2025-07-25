@@ -109,13 +109,13 @@ export default class WorldMapGossipstone extends WorldMapMarkedEntry {
     }
 
     applyDefaultValues() {
-        super.applyDefaultValues("images/icons/gossipstone.svg");
+        super.applyDefaultValues("/images/icons/gossipstone.svg");
         this.applyItem();
         this.applyLocation();
     }
 
     applyStateValues(state) {
-        super.applyStateValues(state, "images/icons/gossipstone.svg");
+        super.applyStateValues(state, "/images/icons/gossipstone.svg");
         this.applyItem(state.item);
         this.applyLocation(state.location);
     }

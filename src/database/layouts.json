@@ -23,6 +23,21 @@
             }
         ]
     },
+    "locationlist": {
+        "type": "panel",
+        "name": "worldlist",
+        "options": {
+            "fit-to-window": true
+        }
+    },
+    "map": {
+        "type": "panel",
+        "name": "worldmap",
+        "options": {
+            "storetransform": "main-map",
+            "fit-to-window": true
+        }
+    },
     "items-essentials": {
         "type": "hbox",
         "items": [

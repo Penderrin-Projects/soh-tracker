@@ -761,7 +761,7 @@
     },
     "exclude_locations": {
         "category": "locations",
-        "type": "-list",
+        "type": "list",
         "default": "Locations.names",
         "values": "Locations.names"
     },

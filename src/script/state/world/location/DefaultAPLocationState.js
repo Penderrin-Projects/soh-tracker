@@ -136,6 +136,9 @@ export default class DefaultAPLocationState extends BaseClass {
 
         this.#access = getLogicAccess(this.value, this.reachable);
         this.setLogicData("$IS_DONE", this.#access.value === AccessStateEnum.OPENED);
+        this.setLogicData("$IS_AVAILABLE", this.#access.value === AccessStateEnum.AVAILABLE);
+        this.setLogicData("$IS_POSSIBLE", false);
+        this.setLogicData("$IS_UNAVAILABLE", this.#access.value === AccessStateEnum.UNAVAILABLE);
     });
 
     checkVisibility = debounce(() => {
@@ -159,6 +162,8 @@ export default class DefaultAPLocationState extends BaseClass {
             this.dispatchEvent(ev);
             // logic data
             this.setLogicData("$IS_DONE", access.value === AccessStateEnum.OPENED);
+            this.setLogicData("$IS_AVAILABLE", access.value === AccessStateEnum.AVAILABLE);
+            this.setLogicData("$IS_UNAVAILABLE", access.value === AccessStateEnum.UNAVAILABLE);
         }
     }
 

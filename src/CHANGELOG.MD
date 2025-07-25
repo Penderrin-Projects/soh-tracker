@@ -9,6 +9,7 @@ Application:    Track-OOT
 ### CHANGES
 
 - add links house and ToT as shortcuts to spawns collection (only if child/adult spawn not shuffled)
+- add filter for unavailable locations
 
 ### BUG FIXES
 
