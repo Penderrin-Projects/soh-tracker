@@ -25,17 +25,13 @@
     },
     "locationlist": {
         "type": "panel",
-        "name": "worldlist",
-        "options": {
-            "fit-to-window": true
-        }
+        "name": "worldlist"
     },
     "map": {
         "type": "panel",
         "name": "worldmap",
         "options": {
-            "storetransform": "main-map",
-            "fit-to-window": true
+            "storetransform": "main-map"
         }
     },
     "items-essentials": {

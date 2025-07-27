@@ -16,6 +16,7 @@ Application:    Track-OOT
 - fix marker list input in world editor did not react to any edit operation internally but only visually
 - fix interpreting interior entrance values in spoiler parser
 - fix overworld entrance parser by adding changed names
+- fix map position for cow in links house
 
 ## VERSION 3.1.3
 

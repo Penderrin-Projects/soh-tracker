@@ -14,6 +14,12 @@ import "/script/ui/panel/worldmap/WorldMap.js";
 import "/script/ui/panel/dungeonstate/DungeonState.js";
 import "./styles.js";
 
+const fillPage = location.search.includes("fill");
+const containerEl = document.getElementById("container");
+if (fillPage) {
+    containerEl.classList.add("fill");
+}
+
 try {
     // load current language
     await Language.load(SettingsStorage.get("language"), "en_us");
