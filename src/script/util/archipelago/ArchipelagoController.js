@@ -2,6 +2,7 @@ import Dialog from "/emcJS/ui/overlay/window/Dialog.js";
 import Toast from "/emcJS/ui/overlay/message/Toast.js";
 import SavestateHandler from "/GameTrackerJS/savestate/SavestateHandler.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
+import WorldResource from "/GameTrackerJS/data/resource/WorldResource.js";
 import Client from "/ArchipelagoJS/Client.js";
 import {
     COMMON_TAGS
@@ -26,11 +27,27 @@ import {
 import {
     translateAPSettings
 } from "./APSettingsTranslator.js";
+import APHintLocations from "../../resource/APHintLocations.js";
 
 const LOCALHOST_ALIASES = ["localhost", "127.0.0.1"];
 const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
 const BOUNCE_TIMEOUT_TIME = 1; // seconds
+
+// TODO dont exclude gossip stones
+// TODO dont exclude shops
+// TODO dont exclude skulltulas
+const LOCATIONS = WorldResource.get("locations");
+const LOCATION_NAMES = Object.keys(LOCATIONS).reduce((res, value) => {
+    res.push(value);
+    return res;
+}, []);
+
+const LOCATIONS_AP = APHintLocations.get();
+const LOCATION_SET_AP = Object.keys(LOCATIONS_AP).reduce((res, value) => {
+    res.push(value);
+    return res;
+}, []);
 
 class ArchipelagoController extends EventTarget {
 
@@ -181,10 +198,39 @@ class ArchipelagoController extends EventTarget {
         const [packet] = data;
         const {slot, team, checked_locations, slot_data, hint_points, missing_locations} = packet;
 
+        this.#slotId = slot;
+        this.#teamId = team;
+        Toast.success("You are now connected to Archipelago");
+        this.#resetTimeout();
+
+        const translatedCheckedLocations = this.#translateLocations(checked_locations);
+        // const translatedMissingLocations = this.#translateLocations(missing_locations);
+
         if (this.#syncSettings) {
             if (slot_data != null) {
-                const [options, errors] = translateAPSettings(slot_data);
-                Savestate.overwrite(options);
+                const [savestate_data, errors] = translateAPSettings(slot_data);
+
+                const excludedLocations = new Set(LOCATION_NAMES);
+
+                // for (const name of Object.keys(translatedCheckedLocations)) {
+                //     savestate_data.options[`excluded_location[${name}]`] = false;
+                //     excludedLocations.delete(name);
+                // }
+                // for (const name of Object.keys(translatedMissingLocations)) {
+                //     savestate_data.options[`excluded_location[${name}]`] = false;
+                //     excludedLocations.delete(name);
+                // }
+
+                for (const name of LOCATION_SET_AP) {
+                    savestate_data.options[`excluded_location[${name}]`] = false;
+                    excludedLocations.delete(name);
+                }
+
+                for (const name of excludedLocations) {
+                    savestate_data.options[`excluded_location[${name}]`] = true;
+                }
+
+                Savestate.overwrite(savestate_data);
                 if (errors.length > 0) {
                     console.warn("errors converting data:", errors);
                 }
@@ -193,15 +239,8 @@ class ArchipelagoController extends EventTarget {
             }
         }
 
-        this.#slotId = slot;
-        this.#teamId = team;
-        Toast.success("You are now connected to Archipelago");
-        this.#resetTimeout();
-
-        const translatedLocations = this.#collectLocations(checked_locations);
-
         Savestate.setMeta("archipelago", true);
-        AP_STORAGES.locations.deserializeAsChange(translatedLocations);
+        AP_STORAGES.locations.deserializeAsChange(translatedCheckedLocations);
         SavestateHandler.forceCache();
 
         this.#currentHintPoints = hint_points;
@@ -239,16 +278,16 @@ class ArchipelagoController extends EventTarget {
         const {index, items} = packet;
 
         if (index === 0) {
-            const collectedItems = this.#collectItems(items);
-            this.#itemIndex = collectedItems.length;
+            const translatedItems = this.#translateItems(items);
+            this.#itemIndex = translatedItems.length;
 
-            AP_STORAGES.items.deserializeAsChange(collectedItems);
+            AP_STORAGES.items.deserializeAsChange(translatedItems);
             SavestateHandler.forceCache();
         } else if (index > this.#itemIndex) {
-            const collectedItems = this.#collectItems(items, AP_STORAGES.items.getAll());
-            this.#itemIndex += collectedItems.length;
+            const translatedItems = this.#translateItems(items, AP_STORAGES.items.getAll());
+            this.#itemIndex += translatedItems.length;
 
-            AP_STORAGES.items.setAll(collectedItems);
+            AP_STORAGES.items.setAll(translatedItems);
         }
     }
 
@@ -258,9 +297,9 @@ class ArchipelagoController extends EventTarget {
         const {checked_locations, hint_points, hint_cost} = packet;
 
         if (checked_locations != null) {
-            const collectedLocations = this.#collectLocations(checked_locations);
+            const translatedCheckedLocations = this.#translateLocations(checked_locations);
 
-            AP_STORAGES.locations.setAll(collectedLocations);
+            AP_STORAGES.locations.setAll(translatedCheckedLocations);
             SavestateHandler.forceCache();
         }
 
@@ -317,11 +356,11 @@ class ArchipelagoController extends EventTarget {
         }, BOUNCE_PERIOD_TIME * 1000);
     }
 
-    #collectLocations(locationList = []) {
+    #translateLocations(locationList = []) {
         const unknownLocations = [];
         const resLocations = {};
         for (const location of locationList) {
-            const apLocationName = this.#client.locations.name(this.#slotId, location);
+            const apLocationName = this.getLocationName(this.#slotId, location);
             const locationTranslation = translateLocation(apLocationName);
             // console.log("[AP] (Location) %s -> %s", apLocationName, locationTranslation);
             if (locationTranslation != null) {
@@ -346,12 +385,12 @@ class ArchipelagoController extends EventTarget {
         return resLocations;
     }
 
-    #collectItems(itemList = [], initialItems = {}) {
+    #translateItems(itemList = [], initialItems = {}) {
         const unknownItems = [];
         const resultItems = {};
         for (const itemEntry of itemList) {
             const {item} = itemEntry;
-            const apItemName = this.#client.items.name(this.#slotId, item);
+            const apItemName = this.getItemName(this.#slotId, item);
             const itemTranslation = translateItem(apItemName);
             // console.log("[AP] (Item) %s -> %s", apItemName, itemTranslation);
             if (itemTranslation != null) {

@@ -25,6 +25,7 @@ import LocationStateManager from "/GameTrackerJS/statemanager/world/location/Loc
 import {
     AP_STORAGES
 } from "../../../util/archipelago/storage/RegisterAPStorage.js";
+import ExcludedLocationMixin from "../../mixin/ExcludedLocationMixin.js";
 
 const STORAGES = {
     locations: Savestate.getStorage("locations"),
@@ -57,7 +58,8 @@ const BaseClass = mix(
     DataState
 ).with(
     StateVisibilityMixin,
-    StateFilterMixin
+    StateFilterMixin,
+    ExcludedLocationMixin
 );
 
 export default class DefaultAPLocationState extends BaseClass {
@@ -128,6 +130,9 @@ export default class DefaultAPLocationState extends BaseClass {
         this.addEventListener("filtered", () => {
             this.checkVisibility();
         });
+        this.addEventListener("excluded", () => {
+            this.checkVisibility();
+        });
         this.checkVisibility();
     }
 
@@ -142,7 +147,7 @@ export default class DefaultAPLocationState extends BaseClass {
     });
 
     checkVisibility = debounce(() => {
-        const value = this.visible && !this.filtered;
+        const value = this.visible && !this.filtered && !this.excluded;
         if (this.#visible != value) {
             this.#visible = value;
             // external

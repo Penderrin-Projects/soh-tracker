@@ -10,6 +10,9 @@ Application:    Track-OOT
 
 - add links house and ToT as shortcuts to spawns collection (only if child/adult spawn not shuffled)
 - add filter for unavailable locations
+- add detached window for location list
+- add detached window for world map
+- add excluded locations option
 
 ### BUG FIXES
 

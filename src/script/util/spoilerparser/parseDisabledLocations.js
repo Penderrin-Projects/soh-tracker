@@ -14,7 +14,7 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
             if (locationTrans.length > 0) {
                 for (const locationTransValue of locationTrans) {
                     if (locationTransValue) {
-                        target.locations[locationTransValue] = true;
+                        target.options[`excluded_location[${locationTransValue}]`] = true;
                     }
                 }
             } else {
