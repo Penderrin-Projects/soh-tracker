@@ -1,4 +1,7 @@
 import OptionsTransAPResource from "../../resource/OptionsTransAPResource.js";
+import {
+    translateLocation
+} from "./APNameTranslator.js";
 
 const trans = OptionsTransAPResource.get();
 
@@ -14,13 +17,14 @@ export function translateAPSettings(data = {}) {
     const tricks = trans["tricks"];
 
     const {
-        spawn_positions,
-        logic_tricks,
-        dungeon_shortcuts,
-        dungeon_shortcuts_list,
-        mq_dungeons_mode,
-        mq_dungeons_list,
-        mq_dungeons_count,
+        spawn_positions = 0,
+        logic_tricks = [],
+        dungeon_shortcuts = 0,
+        dungeon_shortcuts_list = [],
+        mq_dungeons_mode = 0,
+        mq_dungeons_list = [],
+        mq_dungeons_count = 0,
+        exclude_locations = [],
         ...rest_data
     } = data;
 
@@ -67,6 +71,12 @@ export function translateAPSettings(data = {}) {
             const internalName = dungeons[dungeonName];
             target.areaActiveLists[internalName] = mq_dungeons_list.includes(dungeonName) ? "mq" : "v";
         }
+    }
+
+    // exclude locations
+    for (const name of exclude_locations) {
+        const internalName = translateLocation(name);
+        target.options[`excluded_location[${internalName}]`] = true;
     }
 
     // other settings

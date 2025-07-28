@@ -6,7 +6,7 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
         return;
     }
 
-    target.locations = target.locations ?? {};
+    target.options = target.options ?? {};
 
     for (const i of data) {
         const locationTrans = location_trans[i];
@@ -21,7 +21,7 @@ export default function parseDisabledLocations(addError, target = {}, data = {},
                 addError("[" + i + "] is a invalid value", "Location");
             }
         } else if (locationTrans) {
-            target.locations[locationTrans] = true;
+            target.options[`excluded_location[${locationTrans}]`] = true;
         } else {
             addError("[" + i + "] is a invalid value", "Location");
         }

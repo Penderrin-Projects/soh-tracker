@@ -2,12 +2,13 @@ import OptionsTransResource from "../../resource/OptionsTransResource.js";
 
 const trans = OptionsTransResource.get();
 
+const itemList = trans["itemList"] ?? {};
+const locations = trans["locations"] ?? {};
+
 export function translateItem(itemName) {
-    const itemList = trans["itemList"] ?? {};
     return itemList[itemName];
 }
 
 export function translateLocation(locationName) {
-    const locations = trans["locations"] ?? {};
     return locations[locationName];
 }

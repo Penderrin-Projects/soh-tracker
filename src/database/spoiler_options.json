@@ -11,6 +11,11 @@
         "type": "check",
         "default": true
     },
+    "starting_items": {
+        "category": "spoilerOptions",
+        "type": "check",
+        "default": false
+    },
     "item_association": {
         "category": "spoilerOptions",
         "type": "check",
@@ -26,16 +31,6 @@
         }
     },
     "woth_hints": {
-        "category": "spoilerOptions",
-        "type": "check",
-        "default": false
-    },
-    "starting_items": {
-        "category": "spoilerOptions",
-        "type": "check",
-        "default": false
-    },
-    "disabled_locations": {
         "category": "spoilerOptions",
         "type": "check",
         "default": false

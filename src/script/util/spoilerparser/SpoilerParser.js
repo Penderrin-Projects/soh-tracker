@@ -98,6 +98,8 @@ class SpoilerParser {
         if (debugSpoiler || settings["settings"]) {
             // options
             parseSettings(addError, result, spoiler["settings"], trans);
+            // disabled_locations
+            parseDisabledLocations(addError, result, spoiler["settings"]?.["disabled_locations"], trans);
         }
         if (debugSpoiler || settings["starting_items"]) {
             // startItems
@@ -138,10 +140,6 @@ class SpoilerParser {
         if (debugSpoiler || settings["dungeons"]) {
             // dungeonTypes
             parseDungeonTypes(addError, result, getWorldData(spoiler["dungeons"], world), trans);
-        }
-        if (debugSpoiler || settings["disabled_locations"]) {
-            // locations
-            parseDisabledLocations(addError, result, spoiler["settings"]?.["disabled_locations"], trans);
         }
 
         // exitBindings

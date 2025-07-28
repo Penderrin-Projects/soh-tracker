@@ -34,20 +34,25 @@ const GAME_NAME = "Ocarina of Time";
 const BOUNCE_PERIOD_TIME = 120; // seconds
 const BOUNCE_TIMEOUT_TIME = 1; // seconds
 
-// TODO dont exclude gossip stones
-// TODO dont exclude shops
-// TODO dont exclude skulltulas
 const LOCATIONS = WorldResource.get("locations");
-const LOCATION_NAMES = Object.keys(LOCATIONS).reduce((res, value) => {
-    res.push(value);
+const LOCATION_SET = Object.keys(LOCATIONS).reduce((res, key) => {
+    res.add(key);
     return res;
-}, []);
+}, new Set());
 
 const LOCATIONS_AP = APHintLocations.get();
-const LOCATION_SET_AP = Object.keys(LOCATIONS_AP).reduce((res, value) => {
-    res.push(value);
+const LOCATION_SET_AP = Object.keys(LOCATIONS_AP).reduce((res, key) => {
+    res.add(key);
     return res;
-}, []);
+}, new Set());
+
+export const NON_AP_LOCATIONS = new Set();
+
+for (const key of LOCATION_SET) {
+    if (!LOCATION_SET_AP.has(key)) {
+        NON_AP_LOCATIONS.add(key);
+    }
+}
 
 class ArchipelagoController extends EventTarget {
 
@@ -204,29 +209,12 @@ class ArchipelagoController extends EventTarget {
         this.#resetTimeout();
 
         const translatedCheckedLocations = this.#translateLocations(checked_locations);
-        // const translatedMissingLocations = this.#translateLocations(missing_locations);
 
         if (this.#syncSettings) {
             if (slot_data != null) {
                 const [savestate_data, errors] = translateAPSettings(slot_data);
 
-                const excludedLocations = new Set(LOCATION_NAMES);
-
-                // for (const name of Object.keys(translatedCheckedLocations)) {
-                //     savestate_data.options[`excluded_location[${name}]`] = false;
-                //     excludedLocations.delete(name);
-                // }
-                // for (const name of Object.keys(translatedMissingLocations)) {
-                //     savestate_data.options[`excluded_location[${name}]`] = false;
-                //     excludedLocations.delete(name);
-                // }
-
-                for (const name of LOCATION_SET_AP) {
-                    savestate_data.options[`excluded_location[${name}]`] = false;
-                    excludedLocations.delete(name);
-                }
-
-                for (const name of excludedLocations) {
+                for (const name of NON_AP_LOCATIONS) {
                     savestate_data.options[`excluded_location[${name}]`] = true;
                 }
 
