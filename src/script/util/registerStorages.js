@@ -1,4 +1,4 @@
-import ObservableDefaultingStorage from "/emcJS/data/storage/observable/ObservableDefaultingStorage.js";
+import ObservableMultiDefaultValueStorage from "/emcJS/data/storage/observable/ObservableMultiDefaultValueStorage.js";
 import ObservableDefaultValueStorage from "/emcJS/data/storage/observable/ObservableDefaultValueStorage.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LogicCaller from "/GameTrackerJS/util/logic/LogicCaller.js";
@@ -19,7 +19,7 @@ Savestate.registerStorage("gossipstoneItems", new ObservableDefaultValueStorage(
 Savestate.registerStorage("gossipstoneLocations", new ObservableDefaultValueStorage(""));
 
 // songs
-const songNotesStorage = new ObservableDefaultingStorage();
+const songNotesStorage = new ObservableMultiDefaultValueStorage();
 const songData = SongsResource.get();
 for (const ref in songData) {
     songNotesStorage.setDefault(ref, songData[ref].notes);
