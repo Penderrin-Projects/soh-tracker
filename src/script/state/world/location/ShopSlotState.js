@@ -86,6 +86,7 @@ export default class ShopSlotState extends DefaultAPLocationState {
                 this.#refill = !isSanity();
                 STORAGES.locations.set(ref, false);
             }
+            this.refreshAccess();
             // external
             const event = new Event("item");
             event.value = this.item;

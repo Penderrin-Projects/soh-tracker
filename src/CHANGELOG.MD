@@ -20,6 +20,7 @@ Application:    Track-OOT
 - fix interpreting interior entrance values in spoiler parser
 - fix overworld entrance parser by adding changed names
 - fix map position for cow in links house
+- fix shop slots to apply proper state on shopsanity change
 
 ## VERSION 3.1.3
 
