@@ -21,6 +21,9 @@ Application:    Track-OOT
 - fix overworld entrance parser by adding changed names
 - fix map position for cow in links house
 - fix shop slots to apply proper state on shopsanity change
+- fix some options not resolving properly
+- fix accessibility colors would not apply correctly
+- fix barinade status would not be applied correctly from AP state
 
 ## VERSION 3.1.3
 
