@@ -24035,46 +24035,6 @@
             "icon": "/images/icons/chest.svg",
             "tags": []
         },
-        "temple_spirit_mq.c_gauntlets": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_spirit.c_gauntlets]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": true,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                },
-                "show_unavailable": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_UNAVAILABLE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
         "temple_spirit_mq.c_child_center": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.c_child_center]",
@@ -24398,46 +24358,6 @@
         "temple_spirit_mq.c_dinolfos_ice": {
             "type": "chest",
             "logicAccess": "reach_location[temple_spirit_mq.c_dinolfos_ice]",
-            "visible": true,
-            "filter": {
-                "era": {
-                    "child": false,
-                    "adult": true
-                },
-                "time": {
-                    "day": true,
-                    "night": true
-                },
-                "chests": {
-                    "false": false
-                },
-                "show_done": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_DONE"
-                        }
-                    }
-                },
-                "show_unavailable": {
-                    "true": true,
-                    "false": {
-                        "type": "not",
-                        "content": {
-                            "type": "value",
-                            "ref": "$IS_UNAVAILABLE"
-                        }
-                    }
-                }
-            },
-            "icon": "/images/icons/chest.svg",
-            "tags": []
-        },
-        "temple_spirit_mq.c_mirror_shield": {
-            "type": "chest",
-            "logicAccess": "reach_location[temple_spirit.c_shield]",
             "visible": true,
             "filter": {
                 "era": {
@@ -125384,7 +125304,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_spirit_mq.c_gauntlets"
+                            "name": "temple_spirit.c_gauntlets"
                         },
                         "pos": {
                             "x": 1304,
@@ -125393,6 +125313,7 @@
                         },
                         "visible": true,
                         "ignoreEntryVisibility": false,
+                        "accessPenetration": null,
                         "mapOnly": false,
                         "rootOnly": false
                     },
@@ -125624,7 +125545,7 @@
                     {
                         "ref": {
                             "type": "Location",
-                            "name": "temple_spirit_mq.c_mirror_shield"
+                            "name": "temple_spirit.c_shield"
                         },
                         "pos": {
                             "x": 1581,
@@ -125633,6 +125554,7 @@
                         },
                         "visible": true,
                         "ignoreEntryVisibility": false,
+                        "accessPenetration": null,
                         "mapOnly": false,
                         "rootOnly": false
                     },

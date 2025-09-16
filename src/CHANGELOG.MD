@@ -13,6 +13,9 @@ Application:    Track-OOT
 - add detached window for location list
 - add detached window for world map
 - add excluded locations option
+- replace old mq silver gauntlets chest with non mq version
+- replace old mq mirror shield chest with non mq version
+- add zip archive creation for multi-state-downloads
 
 ### BUG FIXES
 
