@@ -11,21 +11,21 @@
   "main": "parse.js",
   "type": "module",
   "dependencies": {
+    "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.0",
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.22.7",
     "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.8.2",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.0",
-    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.0",
-    "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.0",
-    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#2.1.4"
+    "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#2.1.4",
+    "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.10",
-    "@babel/eslint-parser": "^7.16.5",
-    "@babel/plugin-syntax-import-assertions": "^7.17.12",
+    "@babel/core": "^7.28.4",
+    "@babel/eslint-parser": "^7.28.4",
+    "@babel/plugin-syntax-import-assertions": "^7.27.1",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "del": "^5.1.0",
     "electron": "^28.1.0",
-    "eslint": "^8.0.0",
+    "eslint": "^9.35.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
