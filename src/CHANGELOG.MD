@@ -31,6 +31,8 @@ Application:    Track-OOT
 - fix worldmap area change handling when detailed maps is deactivated
 - fix missing spoiler log keys for starting items
 
+---
+
 ## VERSION 3.1.3
 
 ### CHANGES
