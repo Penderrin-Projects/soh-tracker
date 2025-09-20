@@ -16,6 +16,7 @@ Application:    Track-OOT
 - replace old mq silver gauntlets chest with non mq version
 - replace old mq mirror shield chest with non mq version
 - add zip archive creation for multi-state-downloads
+- add detailed maps (de-)activated button to map panel
 
 ### BUG FIXES
 
@@ -27,6 +28,8 @@ Application:    Track-OOT
 - fix some options not resolving properly
 - fix accessibility colors would not apply correctly
 - fix barinade status would not be applied correctly from AP state
+- fix worldmap area change handling when detailed maps is deactivated
+- fix missing spoiler log keys for starting items
 
 ## VERSION 3.1.3
 
