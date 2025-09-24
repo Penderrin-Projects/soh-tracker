@@ -4,6 +4,14 @@ Application:    Track-OOT
 
 ***
 
+## VERSION 3.1.5
+
+### BUG FIXES
+
+- fix handling AP tricks from sync that are not send in lowercase
+
+---
+
 ## VERSION 3.1.4
 
 ### CHANGES

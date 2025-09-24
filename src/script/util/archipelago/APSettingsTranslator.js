@@ -33,8 +33,9 @@ export function translateAPSettings(data = {}) {
     target.options["shuffle_spawn_adult"] = !!(spawn_positions >> 1 & 1);
 
     // tricks
+    const activeAPTricks = logic_tricks.map((entry) => entry.toLowerCase());
     for (const [apTrick, trick] of Object.entries(tricks)) {
-        target.options[trick] = logic_tricks.includes(apTrick);
+        target.options[trick] = activeAPTricks.includes(apTrick);
     }
 
     // dungeon shortcuts
