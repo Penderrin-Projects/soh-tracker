@@ -1,20 +1,10 @@
-import {
-    mix
-} from "/emcJS/util/Mixin.js";
-import {
-    debounce
-} from "/emcJS/util/Debouncer.js";
-import {
-    immute
-} from "/emcJS/data/Immutable.js";
+import {mix} from "/emcJS/util/Mixin.js";
+import {debounce} from "/emcJS/util/Debouncer.js";
+import {immute} from "/emcJS/data/Immutable.js";
 import ObservableStorageObserver from "/emcJS/util/observer/data/storage/ObservableStorageObserver.js";
-import {
-    isEqual
-} from "/emcJS/util/helper/Comparator.js";
+import {isEqual} from "/emcJS/util/helper/Comparator.js";
 import ItemStateManager from "/GameTrackerJS/statemanager/item/ItemStateManager.js";
-import {
-    getDefaultAccess
-} from "/GameTrackerJS/util/helper/ListAccessHelper.js";
+import {getDefaultAccess} from "/GameTrackerJS/util/helper/ListAccessHelper.js";
 import AccessStateEnum from "/GameTrackerJS/enum/AccessStateEnum.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import DataState from "/GameTrackerJS/state/DataState.js";
@@ -22,9 +12,7 @@ import StateVisibilityMixin from "/GameTrackerJS/state/mixins/StateVisibilityMix
 import StateFilterMixin from "/GameTrackerJS/state/mixins/StateFilterMixin.js";
 import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import LocationStateManager from "/GameTrackerJS/statemanager/world/location/LocationStateManager.js";
-import {
-    AP_STORAGES
-} from "../../../util/archipelago/storage/RegisterAPStorage.js";
+import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 import ExcludedLocationMixin from "../../mixin/ExcludedLocationMixin.js";
 
 const STORAGES = {
@@ -54,13 +42,9 @@ function getLogicAccess(checked, reachable) {
     return immute(res);
 }
 
-const BaseClass = mix(
-    DataState
-).with(
-    StateVisibilityMixin,
+const BaseClass = mix(DataState).with(StateVisibilityMixin,
     StateFilterMixin,
-    ExcludedLocationMixin
-);
+    ExcludedLocationMixin);
 
 export default class DefaultAPLocationState extends BaseClass {
 
@@ -207,7 +191,7 @@ export default class DefaultAPLocationState extends BaseClass {
     }
 
     get value() {
-        return this.#value || this.#apValue;
+        return this.#value || this.#apValue || false;
     }
 
     set item(value) {

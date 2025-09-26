@@ -7,6 +7,7 @@ import Savestate from "/GameTrackerJS/savestate/Savestate.js";
 import DefaultAPLocationState from "./DefaultAPLocationState.js";
 import ShopItemsResource from "../../../resource/ShopItemsResource.js";
 import ShopsResource from "../../../resource/ShopsResource.js";
+import {AP_STORAGES} from "../../../util/archipelago/storage/RegisterAPStorage.js";
 
 const shopsanityObserver = new OptionsObserver("shopsanity");
 
@@ -72,19 +73,20 @@ export default class ShopSlotState extends DefaultAPLocationState {
             this.name = event.value;
         });
 
+        Savestate.addEventListener("load", () => {
+            this.item = STORAGES.locationItems.get(this.ref);
+            this.price = STORAGES.shopItemsPrice.get(this.ref);
+            this.name = STORAGES.shopItemsName.get(this.ref);
+            this.value = STORAGES.locations.get(this.ref);
+            this.setAPValue(AP_STORAGES.locations.get(this.ref));
+        });
+
         /* shoposanity */
         shopsanityObserver.onChange(() => {
             if (this.item) {
                 this.#refill = this.#itemData?.refill ?? !isSanity();
-                // bought
-                if (this.#refill) {
-                    STORAGES.locations.set(ref, true);
-                } else {
-                    STORAGES.locations.set(ref, false);
-                }
             } else {
                 this.#refill = !isSanity();
-                STORAGES.locations.set(ref, false);
             }
             this.refreshAccess();
             // external
@@ -147,20 +149,12 @@ export default class ShopSlotState extends DefaultAPLocationState {
             if (value) {
                 this.#itemData = ShopItemsResource.get(value);
                 this.#refill = this.#itemData?.refill ?? !isSanity();
-                // bought
-                if (this.#refill) {
-                    STORAGES.locations.set(ref, true);
-                } else {
-                    STORAGES.locations.set(ref, false);
-                }
             } else if (isSanity()) {
                 this.#itemData = null;
                 this.#refill = false;
-                STORAGES.locations.set(ref, false);
             } else {
                 this.#itemData = ShopItemsResource.get(this.#shopProps.item);
                 this.#refill = true;
-                STORAGES.locations.set(ref, false);
             }
             this.refreshAccess();
             // external

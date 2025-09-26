@@ -9,6 +9,7 @@ Application:    Track-OOT
 ### BUG FIXES
 
 - fix handling AP tricks from sync that are not send in lowercase
+- fix shop data not applied properly after savestate load
 
 ---
 

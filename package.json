@@ -12,8 +12,8 @@
   "type": "module",
   "dependencies": {
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.0",
-    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.24.1",
-    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.8.5",
+    "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.24.3",
+    "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.8.6",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.0",
     "jswebservice": "git+https://bitbucket.org/zidargs/jswebservice.git/#2.1.5",
     "rtcclient": "git+https://bitbucket.org/zidargs/rtcclient.git/#1.2.0"
@@ -23,9 +23,10 @@
     "@babel/eslint-parser": "^7.28.4",
     "@babel/plugin-syntax-import-assertions": "^7.27.1",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "@stylistic/eslint-plugin": "^5.4.0",
     "del": "^5.1.0",
     "electron": "^28.1.0",
-    "eslint": "^9.35.0",
+    "eslint": "^9.36.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
