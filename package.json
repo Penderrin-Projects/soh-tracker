@@ -6,12 +6,43 @@
   "main": "soh-integration/electron/main.js",
   "type": "commonjs",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
   },
   "dependencies": {
     "chokidar": "^3.6.0"
   },
   "devDependencies": {
-    "electron": "^33.4.11"
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "version": "1.0.0",
+  "productName": "SoH Rando Tracker",
+  "build": {
+    "appId": "net.tabormedia.soh-tracker",
+    "productName": "SoH Rando Tracker",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "soh-integration/**/*",
+      "dev/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "SoH-Rando-Tracker-${version}-portable.exe",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "SoH-Rando-Tracker-${version}-portable.exe"
+    }
   }
 }
