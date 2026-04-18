@@ -250,7 +250,39 @@ function createWindow() {
     );
   });
 
-  // Open devtools via F12
+  // Handle window.open() for Track-OOT's detached item / locationlist /
+  // worldmap windows. They call window.open("/detached/#items", ...) etc.
+  // By default Electron blocks these - we need to allow them and configure
+  // the new window properly.
+  win.webContents.setWindowOpenHandler(({ url, frameName, features }) => {
+    // Parse the features string (e.g. "popup=1,toolbar=0,...")
+    const featureMap = Object.fromEntries(
+      (features || '').split(',').map(f => {
+        const [k, v] = f.split('=');
+        return [k.trim(), (v ?? '').trim()];
+      })
+    );
+
+    return {
+      action: 'allow',
+      overrideBrowserWindowOptions: {
+        width: 400,
+        height: 500,
+        parent: win,
+        backgroundColor: '#222',
+        title: frameName || 'Track-OOT',
+        autoHideMenuBar: true,
+        webPreferences: {
+          preload: path.join(__dirname, 'preload.js'),
+          contextIsolation: true,
+          nodeIntegration: false,
+          sandbox: false,
+        },
+      },
+    };
+  });
+
+  // Open devtools via F12 (on the main window)
   win.webContents.on('before-input-event', (_, input) => {
     if (input.key === 'F12') {
       win.webContents.toggleDevTools();
@@ -314,68 +346,31 @@ function setupIpc(win) {
 // ---------------------------------------------------------------------------
 
 function buildMenu(win) {
-  const template = [
-    {
-      label: 'File',
-      submenu: [
-        {
-          label: 'Choose Save File...',
-          accelerator: 'Ctrl+O',
-          click: () => {
-            win.webContents.send('soh:trigger-pick-save');
-          },
-        },
-        { type: 'separator' },
-        {
-          label: 'Reload Save',
-          accelerator: 'Ctrl+R',
-          click: async () => {
-            if (currentSavePath) {
-              const state = await saveParser.parseSaveFile(currentSavePath);
-              lastState = state;
-              win.webContents.send('soh:state-update', state);
-            }
-          },
-        },
-        { type: 'separator' },
-        { role: 'quit' },
-      ],
-    },
-    {
-      label: 'View',
-      submenu: [
-        { role: 'reload' },
-        { role: 'forceReload' },
-        { role: 'toggleDevTools' },
-        { type: 'separator' },
-        { role: 'resetZoom' },
-        { role: 'zoomIn' },
-        { role: 'zoomOut' },
-        { type: 'separator' },
-        { role: 'togglefullscreen' },
-      ],
-    },
-    {
-      label: 'Help',
-      submenu: [
-        {
-          label: 'About',
-          click: () => {
-            dialog.showMessageBox(win, {
-              type: 'info',
-              title: 'SoH Rando Tracker',
-              message: 'SoH Rando Tracker',
-              detail:
-                'Built on Track-OOT by Denis Weiß (ZidArgs) — MIT License.\n' +
-                'https://bitbucket.org/zidargs/track-oot\n\n' +
-                'This fork adds Ship of Harkinian save-file auto-tracking.',
-            });
-          },
-        },
-      ],
-    },
-  ];
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  // Hide the native Electron menu bar — all file actions are in the
+  // in-app navigation (Track-OOT's FILE dropdown).
+  // Ctrl+O and Ctrl+R are still handled via accelerators registered below.
+  Menu.setApplicationMenu(null);
+
+  // Register accelerators on the window directly so Ctrl+O / Ctrl+R still work
+  win.webContents.on('before-input-event', (event, input) => {
+    if (!input.control || input.type !== 'keyDown') return;
+    const key = (input.key || '').toLowerCase();
+    if (key === 'o') {
+      win.webContents.send('soh:trigger-pick-save');
+      event.preventDefault();
+    } else if (key === 'r') {
+      (async () => {
+        if (currentSavePath) {
+          try {
+            const state = await saveParser.parseSaveFile(currentSavePath);
+            lastState = state;
+            win.webContents.send('soh:state-update', state);
+          } catch (e) { console.error('reload failed:', e); }
+        }
+      })();
+      event.preventDefault();
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------

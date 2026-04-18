@@ -15,26 +15,20 @@ import "/script/savestateConverter/StateConverter.js";
 PageSwitcher.register("main", [{
     "content": "FILE",
     "submenu": [{
-        "content": "NEW",
-        "handler": state_New
+        "content": "CHOOSE SAVE FILE",
+        "handler": soh_ChooseSaveFile
     }, {
-        "content": "LOAD",
-        "handler": state_Load
-    }, {
-        "content": "SAVE",
-        "handler": state_Save
-    }, {
-        "content": "SAVE AS",
-        "handler": state_SaveAs
-    }, {
-        "content": "MANAGE",
-        "handler": states_Manage
+        "content": "RELOAD SAVE",
+        "handler": soh_ReloadSave
     }]
 }, {
     "content": "EXTRAS",
     "submenu": [{"mixin": "fullscreen"}, {
-        "content": "UPLOAD SPOILER",
-        "handler": openSpoilerSettingsWindow
+        "content": "ITEM LOOKUP",
+        "handler": openSpoilerLookupWindow
+    }, {
+        "content": "CUSTOM COLOR",
+        "handler": openCustomColorWindow
     }, {
         "content": "CLEAR SPECIFIC DATA",
         "handler": openClearDataWindow
@@ -47,13 +41,7 @@ PageSwitcher.register("main", [{
     }, {
         "content": "DETACHED WORLDMAP WINDOW",
         "handler": openDetachedWorldmap
-    }, {
-        "content": "EDITORS",
-        "handler": showEditors
     }]
-}, {
-    "content": "ITEM LOOKUP",
-    "handler": openSpoilerLookupWindow
 }, {
     "content": "RANDOMIZER OPTIONS",
     "handler": openRomSettingsWindow
@@ -61,17 +49,51 @@ PageSwitcher.register("main", [{
     "content": "TRACKER SETTINGS",
     "handler": openSettingsWindow
 }], {
-    "hk_state_new": state_New,
-    "hk_state_load": state_Load,
-    "hk_state_save": state_Save,
-    "hk_state_saveas": state_SaveAs,
-    "hk_state_manage": states_Manage,
     "hk_detached_window": openDetachedItems,
     "hk_import_spoiler": openSpoilerSettingsWindow,
     "hk_options": openRomSettingsWindow,
     "hk_settings": openSettingsWindow
 });
 PageSwitcher.switch("main");
+
+/**
+ * SoH save file actions. These proxy through the Electron preload bridge
+ * (window.sohTracker) so they're Electron-only; in a browser context they're
+ * no-ops with a friendly toast.
+ */
+async function soh_ChooseSaveFile() {
+    if (!globalThis.sohTracker?.pickSaveFile) {
+        Toast.warning("Save-file picker only available in the desktop app.");
+        return;
+    }
+    try {
+        const chosen = await globalThis.sohTracker.pickSaveFile();
+        if (chosen) {
+            Toast.success(`Watching: ${chosen.split(/[/\\]/).pop()}`);
+        }
+    } catch (err) {
+        console.error(err);
+        Toast.error(`Could not pick save file: ${err.message || err}`);
+    }
+}
+
+async function soh_ReloadSave() {
+    if (!globalThis.sohTracker?.reload) {
+        Toast.warning("Reload only available in the desktop app.");
+        return;
+    }
+    try {
+        const res = await globalThis.sohTracker.reload();
+        if (res?.ok) {
+            Toast.success("Save reloaded.");
+        } else {
+            Toast.warning(res?.error || "No save file configured. Use CHOOSE SAVE FILE first.");
+        }
+    } catch (err) {
+        console.error(err);
+        Toast.error(`Reload failed: ${err.message || err}`);
+    }
+}
 
 async function state_Save() {
     const activestate = await SavestateHandler.getName();
@@ -179,6 +201,13 @@ function openSpoilerLookupWindow() {
     const spoilerLookupWindow = GlobalContext.get("SpoilerLookupWindow");
     if (spoilerLookupWindow) {
         spoilerLookupWindow.show();
+    }
+}
+
+function openCustomColorWindow() {
+    const customColorWindow = GlobalContext.get("CustomColorWindow");
+    if (customColorWindow) {
+        customColorWindow.show();
     }
 }
 

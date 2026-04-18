@@ -50,8 +50,12 @@ import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
 // SoH integration - auto-tracks from Ship of Harkinian save file
 import SohBridge from "/script/soh-bridge/SohBridge.js";
 import SpoilerLookupWindow from "/script/soh-bridge/SpoilerLookupWindow.js";
+import CustomColorWindow, { applyStoredColor } from "/script/soh-bridge/CustomColorWindow.js";
 
 Logic.suspended = true;
+
+// Apply any user-chosen custom theme color before the UI paints
+applyStoredColor();
 
 const spl = document.getElementById("loading-info");
 
@@ -153,6 +157,7 @@ try {
         GlobalContext.set("ArchipelagoWindow", new APWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
         GlobalContext.set("SpoilerLookupWindow", new SpoilerLookupWindow());
+        GlobalContext.set("CustomColorWindow", new CustomColorWindow());
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
