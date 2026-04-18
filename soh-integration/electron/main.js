@@ -198,17 +198,18 @@ function serveFile(req, res) {
 }
 
 let serverPort = 0;
+let httpServer = null;
 
 function startStaticServer() {
   return new Promise((resolve, reject) => {
-    const server = http.createServer(serveFile);
+    httpServer = http.createServer(serveFile);
     // Port 0 = random free port (avoids conflicts with Track-OOT's default 5000)
-    server.listen(0, '127.0.0.1', () => {
-      serverPort = server.address().port;
+    httpServer.listen(0, '127.0.0.1', () => {
+      serverPort = httpServer.address().port;
       console.log(`[server] serving ${DEV_ROOT} at http://127.0.0.1:${serverPort}`);
-      resolve(server);
+      resolve(httpServer);
     });
-    server.on('error', reject);
+    httpServer.on('error', reject);
   });
 }
 
@@ -298,11 +299,18 @@ function startWatcher(win, savePath) {
 function createWindow() {
   const { width, height, x, y } = prefs.windowBounds || {};
 
+  // Icon path differs dev vs packaged:
+  //   - dev: {repo}/build/icon.png  (electron main is in soh-integration/electron/)
+  //   - packaged: app.asar/build/icon.png  (electron-builder bundles build/)
+  const iconPath = path.join(__dirname, '..', '..', 'build', 'icon.png');
+
   const win = new BrowserWindow({
     width: width || 1600,
     height: height || 1000,
     x, y,
     backgroundColor: '#222',
+    icon: fs.existsSync(iconPath) ? iconPath : undefined,
+    title: 'SoH Rando Tracker',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -311,10 +319,21 @@ function createWindow() {
     },
   });
 
-  // Persist window bounds on close
+  // Persist window bounds and force-quit when the main window closes.
+  // Any detached popup windows get closed automatically since they're
+  // children (parent: win). Also explicitly stop chokidar + http server
+  // so the process can exit cleanly.
   win.on('close', () => {
-    prefs.windowBounds = win.getBounds();
-    savePrefs(prefs);
+    try {
+      prefs.windowBounds = win.getBounds();
+      savePrefs(prefs);
+    } catch (_) { /* ignore */ }
+    // Close any remaining windows (detached popups) so app can quit
+    for (const w of BrowserWindow.getAllWindows()) {
+      if (w !== win && !w.isDestroyed()) {
+        try { w.destroy(); } catch (_) {}
+      }
+    }
   });
 
   // Load Track-OOT from the embedded HTTP server. Track-OOT's sources use
@@ -356,6 +375,7 @@ function createWindow() {
         parent: win,
         backgroundColor: '#222',
         title: frameName || 'Track-OOT',
+        icon: fs.existsSync(iconPath) ? iconPath : undefined,
         autoHideMenuBar: true,
         webPreferences: {
           preload: path.join(__dirname, 'preload.js'),
@@ -495,6 +515,14 @@ app.whenReady().then(async () => {
 });
 
 app.on('window-all-closed', () => {
-  stopWatcher();
+  try { stopWatcher(); } catch (_) {}
+  try {
+    if (httpServer) httpServer.close();
+  } catch (_) {}
   app.quit();
+  // Belt-and-suspenders: if something hangs the event loop, force-exit
+  // after a short grace period so the user never has to kill the process.
+  setTimeout(() => {
+    process.exit(0);
+  }, 1500).unref();
 });

@@ -27,7 +27,8 @@
     "files": [
       "soh-integration/**/*",
       "dev/**/*",
-      "package.json"
+      "package.json",
+      "build/**/*"
     ],
     "win": {
       "target": [
@@ -39,7 +40,8 @@
         }
       ],
       "artifactName": "SoH-Rando-Tracker-${version}-portable.exe",
-      "signAndEditExecutable": false
+      "signAndEditExecutable": false,
+      "icon": "build/icon.ico"
     },
     "portable": {
       "artifactName": "SoH-Rando-Tracker-${version}-portable.exe"
