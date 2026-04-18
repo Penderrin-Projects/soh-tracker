@@ -3,3 +3,8 @@ dev/
 build-dist/
 *.log
 .DS_Store
+
+# debug scripts (local only)
+debug-*.js
+*-probe.js
+smoke-*.js
