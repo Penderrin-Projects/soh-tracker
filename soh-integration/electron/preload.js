@@ -19,6 +19,8 @@ const INVOKE_CHANNELS = new Set([
   'soh:get-last-state',
   'soh:reload',
   'soh:toggle-poll',
+  'soh:get-custom-color',
+  'soh:set-custom-color',
 ]);
 
 // Whitelist of main -> renderer events the renderer can subscribe to
@@ -63,6 +65,8 @@ contextBridge.exposeInMainWorld('sohTracker', {
   setSavePath: (p) => ipcRenderer.invoke('soh:set-save-path', p),
   reload: () => ipcRenderer.invoke('soh:reload'),
   togglePoll: () => ipcRenderer.invoke('soh:toggle-poll'),
+  getCustomColor: () => ipcRenderer.invoke('soh:get-custom-color'),
+  setCustomColor: (color) => ipcRenderer.invoke('soh:set-custom-color', color),
 
   onStateUpdate(handler) {
     const wrapped = (_event, state) => handler(state);

@@ -80,6 +80,39 @@ const MIME = {
   '.map':  'application/json; charset=utf-8',
 };
 
+// CSS variables that track the primary theme color
+const THEME_COLOR_VARS = [
+  '--navigation-back-color',
+  '--modal-header-back-color',
+  '--modal-footer-back-color',
+  '--tabpanel-categories-border-color',
+  '--contextmenu-text-color',
+  '--contextmenu-border-color',
+  '--button-active-back-color',
+];
+const THEME_ALPHA_VARS = [
+  { name: '--page-hover-back-color', alpha: '5c' },
+  { name: '--main-hover-color', alpha: '32' },
+  { name: '--contextmenu-hover-back-color', alpha: '32' },
+];
+const DEFAULT_THEME_COLOR = '#cb9c3d';
+
+/**
+ * Build a <style> block that overrides Track-OOT's gold theme with the
+ * user's chosen color. Returns empty string if the user hasn't chosen one
+ * or picked the default gold.
+ */
+function buildColorOverrideStyle() {
+  const hex = prefs.customColor;
+  if (!hex || !/^#[0-9a-fA-F]{6}$/.test(hex)) return '';
+  if (hex.toLowerCase() === DEFAULT_THEME_COLOR.toLowerCase()) return '';
+  const lines = ['<style id="soh-custom-color-override">', ':root {'];
+  for (const v of THEME_COLOR_VARS) lines.push(`  ${v}: ${hex} !important;`);
+  for (const { name, alpha } of THEME_ALPHA_VARS) lines.push(`  ${name}: ${hex}${alpha} !important;`);
+  lines.push('}', '</style>');
+  return lines.join('\n');
+}
+
 function serveFile(req, res) {
   try {
     // Strip query string, decode URL
@@ -100,6 +133,44 @@ function serveFile(req, res) {
       filePath = path.join(filePath, 'index.html');
     }
 
+    const finishServe = (fp, stat) => {
+      const ext = path.extname(fp).toLowerCase();
+      // For HTML responses, inject any custom theme-color override so
+      // persistence survives restarts and can't be stomped by
+      // Track-OOT's later stylesheet loads.
+      if (ext === '.html') {
+        fs.readFile(fp, 'utf8', (err, html) => {
+          if (err) {
+            res.writeHead(500); res.end('Read error: ' + err.message); return;
+          }
+          const inject = buildColorOverrideStyle();
+          if (inject) {
+            // Append immediately before </body> (or end of document as fallback)
+            if (html.includes('</body>')) {
+              html = html.replace('</body>', inject + '\n</body>');
+            } else {
+              html = html + '\n' + inject;
+            }
+          }
+          const buf = Buffer.from(html, 'utf8');
+          res.writeHead(200, {
+            'Content-Type': MIME['.html'],
+            'Content-Length': buf.length,
+            'Cache-Control': 'no-store',
+          });
+          res.end(buf);
+        });
+        return;
+      }
+
+      res.writeHead(200, {
+        'Content-Type': MIME[ext] || 'application/octet-stream',
+        'Content-Length': stat.size,
+        'Cache-Control': 'no-store',
+      });
+      fs.createReadStream(fp).pipe(res);
+    };
+
     fs.stat(filePath, (err, stat) => {
       // If stat failed and we didn't already try an index.html, try one now
       if ((err || !stat.isFile()) && !filePath.endsWith('index.html')) {
@@ -110,13 +181,7 @@ function serveFile(req, res) {
             res.end('Not found: ' + urlPath);
             return;
           }
-          const ext2 = '.html';
-          res.writeHead(200, {
-            'Content-Type': MIME[ext2] || 'application/octet-stream',
-            'Content-Length': s2.size,
-            'Cache-Control': 'no-store',
-          });
-          fs.createReadStream(withIndex).pipe(res);
+          finishServe(withIndex, s2);
         });
         return;
       }
@@ -125,13 +190,7 @@ function serveFile(req, res) {
         res.end('Not found: ' + urlPath);
         return;
       }
-      const ext = path.extname(filePath).toLowerCase();
-      res.writeHead(200, {
-        'Content-Type': MIME[ext] || 'application/octet-stream',
-        'Content-Length': stat.size,
-        'Cache-Control': 'no-store',
-      });
-      fs.createReadStream(filePath).pipe(res);
+      finishServe(filePath, stat);
     });
   } catch (e) {
     res.writeHead(500); res.end('Server error: ' + e.message);
@@ -364,6 +423,18 @@ function setupIpc(win) {
     savePrefs(prefs);
     if (currentSavePath) startWatcher(win, currentSavePath);
     return prefs.watchPoll;
+  });
+
+  ipcMain.handle('soh:get-custom-color', () => prefs.customColor || null);
+
+  ipcMain.handle('soh:set-custom-color', async (_ev, color) => {
+    if (color === null || color === undefined) {
+      delete prefs.customColor;
+    } else {
+      prefs.customColor = String(color);
+    }
+    savePrefs(prefs);
+    return { ok: true };
   });
 }
 

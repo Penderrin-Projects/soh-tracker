@@ -200,7 +200,7 @@
     "show_detailed_maps": {
         "category": "world",
         "type": "check",
-        "default": false
+        "default": true
     },
     "show_map_connections": {
         "category": "world",

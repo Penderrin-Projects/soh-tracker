@@ -67,6 +67,22 @@ class SohBridge {
             this.#dungeonTypeStore = null;
         }
 
+        // Seed all dungeons to vanilla ("v") as the baseline. This makes
+        // vanilla the default before any save is loaded, and SoH's
+        // masterQuestDungeons flags still flip specific ones to "mq" later
+        // via applyState -> #buildDungeonTypes.
+        if (this.#dungeonTypeStore) {
+            try {
+                const seed = {};
+                for (const name of Object.values(DUNGEON_TYPE_KEYS)) {
+                    seed[name] = "v";
+                }
+                this.#dungeonTypeStore.setAll(seed);
+            } catch (e) {
+                console.warn("[SohBridge] could not seed dungeon defaults:", e);
+            }
+        }
+
         // --- Load SoH RC -> Track-OOT location mapping
         await loadMapping();
         console.log(`[SohBridge] mapping loaded: ${getMappingSize()} entries`);

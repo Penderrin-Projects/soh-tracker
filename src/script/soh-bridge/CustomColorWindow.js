@@ -1,6 +1,12 @@
 /**
  * CustomColorWindow — lets the user override Track-OOT's gold theme color.
- * Persists to localStorage; applies live via CSS variables.
+ * Persistence is handled by the Electron main process (prefs.json): on
+ * every HTTP serve of an HTML file, the main process injects a <style>
+ * block overriding :root vars. That means the color survives restarts
+ * and is applied BEFORE any JS runs (no flash, nothing to race).
+ *
+ * This file is only responsible for the picker UI and live-apply while
+ * the app is running.
  */
 
 import Window from "/emcJS/ui/overlay/window/Window.js";
@@ -8,11 +14,8 @@ import HTMLTemplate from "/emcJS/util/html/template/HTMLTemplate.js";
 import CSSTemplate from "/emcJS/util/html/template/CSSTemplate.js";
 
 const DEFAULT_COLOR = "#cb9c3d";
-const STORAGE_KEY = "sohTracker_customColor";
 
-// CSS variables that should track the primary theme color.
-// Derived from theme.css — these are all the places --navigation-back-color
-// appears to make the gold theme.
+// Must match THEME_COLOR_VARS in soh-integration/electron/main.js
 const COLOR_VARS = [
     "--navigation-back-color",
     "--modal-header-back-color",
@@ -23,88 +26,34 @@ const COLOR_VARS = [
     "--button-active-back-color",
 ];
 
-// Slightly transparent variants
+// Must match THEME_ALPHA_VARS in soh-integration/electron/main.js
 const ALPHA_VARS = [
-    { name: "--page-hover-back-color",            alpha: "5c" },
-    { name: "--main-hover-color",                 alpha: "32" },
-    { name: "--contextmenu-hover-back-color",     alpha: "32" },
+    { name: "--page-hover-back-color",        alpha: "5c" },
+    { name: "--main-hover-color",             alpha: "32" },
+    { name: "--contextmenu-hover-back-color", alpha: "32" },
 ];
 
 /**
- * Apply a color by injecting a <style> element that overrides the :root vars.
- * Style element is appended to <html> (rather than <head>) so it comes last in
- * document order and wins the cascade against Track-OOT's later-loaded stylesheets.
+ * Update or remove the <style id="soh-custom-color-override"> element
+ * in the current document. Called live while the user adjusts the picker.
+ * On the next restart, the main process handles this injection directly.
  */
-function applyColor(hex) {
+function applyColorLive(hex) {
     let styleEl = document.getElementById("soh-custom-color-override");
     if (!hex || hex.toLowerCase() === DEFAULT_COLOR.toLowerCase()) {
-        // Reset: remove override
         if (styleEl) styleEl.remove();
         return;
     }
     if (!styleEl) {
         styleEl = document.createElement("style");
         styleEl.id = "soh-custom-color-override";
+        document.documentElement.appendChild(styleEl);
     }
     const lines = [":root {"];
-    for (const v of COLOR_VARS) lines.push(`    ${v}: ${hex} !important;`);
-    for (const { name, alpha } of ALPHA_VARS) lines.push(`    ${name}: ${hex}${alpha} !important;`);
+    for (const v of COLOR_VARS) lines.push(`  ${v}: ${hex} !important;`);
+    for (const { name, alpha } of ALPHA_VARS) lines.push(`  ${name}: ${hex}${alpha} !important;`);
     lines.push("}");
     styleEl.textContent = lines.join("\n");
-    // Always keep our override as the last child of <html> so it wins cascade
-    document.documentElement.appendChild(styleEl);
-}
-
-/**
- * Read saved color from localStorage and apply it, robustly.
- *
- * Track-OOT injects stylesheets throughout its boot sequence, any of which
- * could reset our override. We handle this by:
- *   1. Applying immediately at module-load
- *   2. Re-applying after DOMContentLoaded
- *   3. Re-applying after the window fully loads
- *   4. Watching for new <link>/<style> being added to <head> and re-applying
- */
-export function applyStoredColor() {
-    const readColor = () => {
-        try { return localStorage.getItem(STORAGE_KEY); } catch (_) { return null; }
-    };
-
-    const tryApply = () => {
-        const saved = readColor();
-        if (saved) applyColor(saved);
-    };
-
-    // 1. Apply now
-    tryApply();
-
-    // 2. Re-apply after DOM is ready
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", tryApply, { once: true });
-    }
-
-    // 3. Re-apply after window fully loads (all stylesheets done)
-    window.addEventListener("load", tryApply, { once: true });
-
-    // 4. Defend against Track-OOT adding more stylesheets after ours
-    try {
-        const obs = new MutationObserver((muts) => {
-            for (const m of muts) {
-                for (const n of m.addedNodes) {
-                    if (n.nodeType !== 1) continue;
-                    if (n.id === "soh-custom-color-override") continue;
-                    if (n.tagName === "STYLE" || n.tagName === "LINK") {
-                        // New stylesheet added - make sure ours stays last
-                        tryApply();
-                        return;
-                    }
-                }
-            }
-        });
-        obs.observe(document.documentElement, { childList: true, subtree: true });
-        // Stop observing after 10s - by then app is fully booted
-        setTimeout(() => obs.disconnect(), 10000);
-    } catch (_) { /* ignore */ }
 }
 
 const TPL = new HTMLTemplate(`
@@ -179,12 +128,13 @@ export default class CustomColorWindow extends Window {
         this.shadowRoot.getElementById("cc-reset").addEventListener("click", () => this.#reset());
     }
 
-    show() {
-        // Preload current color
-        const current = (() => {
-            try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_COLOR; }
-            catch(_) { return DEFAULT_COLOR; }
-        })();
+    async show() {
+        // Preload current color from main-process prefs
+        let current = DEFAULT_COLOR;
+        try {
+            const saved = await globalThis.sohTracker?.getCustomColor?.();
+            if (saved) current = saved;
+        } catch (_) { /* ignore */ }
         this.#pickerEl.value = current;
         this.#textEl.value = current;
         this.#statusEl.textContent = "";
@@ -192,22 +142,29 @@ export default class CustomColorWindow extends Window {
         else this.setAttribute("shown", "");
     }
 
-    #apply() {
+    async #apply() {
         const v = this.#textEl.value.trim();
         if (!/^#[0-9a-fA-F]{6}$/.test(v)) {
             this.#statusEl.textContent = "Invalid color. Use format #RRGGBB.";
             this.#statusEl.style.color = "#f88";
             return;
         }
-        applyColor(v);
-        try { localStorage.setItem(STORAGE_KEY, v); } catch (_) {}
-        this.#statusEl.textContent = "Applied.";
-        this.#statusEl.style.color = "#8f8";
+        applyColorLive(v);
+        try {
+            await globalThis.sohTracker?.setCustomColor?.(v);
+            this.#statusEl.textContent = "Applied. Will persist across restarts.";
+            this.#statusEl.style.color = "#8f8";
+        } catch (err) {
+            this.#statusEl.textContent = "Applied (not persisted): " + (err?.message || err);
+            this.#statusEl.style.color = "#fc8";
+        }
     }
 
-    #reset() {
-        applyColor(DEFAULT_COLOR);
-        try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+    async #reset() {
+        applyColorLive(DEFAULT_COLOR);
+        try {
+            await globalThis.sohTracker?.setCustomColor?.(null);
+        } catch (_) { /* ignore */ }
         this.#pickerEl.value = DEFAULT_COLOR;
         this.#textEl.value = DEFAULT_COLOR;
         this.#statusEl.textContent = "Reset to default.";
