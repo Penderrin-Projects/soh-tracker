@@ -60,8 +60,8 @@ PageSwitcher.register("main", [{
         "handler": showEditors
     }]
 }, {
-    "content": "ARCHIPELAGO",
-    "handler": openArchipelagoWindow
+    "content": "ITEM LOOKUP",
+    "handler": openSpoilerLookupWindow
 }, {
     "content": "RANDOMIZER OPTIONS",
     "handler": openRomSettingsWindow
@@ -180,6 +180,13 @@ function openClearDataWindow() {
     const clearDataWindow = GlobalContext.get("ClearDataWindow");
     if (clearDataWindow) {
         clearDataWindow.show();
+    }
+}
+
+function openSpoilerLookupWindow() {
+    const spoilerLookupWindow = GlobalContext.get("SpoilerLookupWindow");
+    if (spoilerLookupWindow) {
+        spoilerLookupWindow.show();
     }
 }
 

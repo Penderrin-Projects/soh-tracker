@@ -1,0 +1,41 @@
+{
+  "description": "Manual SoH RC -> Track-OOT location ID overrides. These are checks where normalized canonical name lookup fails (different naming conventions, boss checks, etc.)",
+  "overrides": {
+    "2":   "deku.c_gohma",
+    "3":   "dodongo.c_dodongo",
+    "4":   "jabujabu.c_barinade",
+    "5":   "temple_forest.c_phantomganon",
+    "6":   "temple_fire.c_volvagia",
+    "7":   "temple_water.c_morpha",
+    "8":   "temple_shadow.c_bongobongo",
+    "9":   "temple_spirit.c_twinrova",
+    "10":  null,
+    "11":  null,
+    "46":  "woods.c_trade_cojiro",
+    "50":  "woods.c_trade_odd_potion",
+    "185": "mountain.c_trade_broken_sword",
+    "186": "mountain.c_trade_eyedrops",
+    "245": "zora.c_trade_prescription",
+    "401": null,
+    "426": null,
+    "487": null,
+    "524": null,
+    "551": null,
+    "599": null,
+    "649": null
+  },
+  "deliberately_unmapped": {
+    "0":   "Unknown Check - not a real RC",
+    "1":   "Links Pocket - starting item slot, not a world check",
+    "10":  "Ganon - win condition, Track-OOT doesn't track",
+    "11":  "Gift From Rauru - not in Track-OOT's location list",
+    "149": "Kak 100 Gold Skulltula Reward - Track-OOT only has 10-50 GS rewards",
+    "401": "King Dodongo Heart - Track-OOT combines boss heart with boss check",
+    "426": "Barinade Heart - Track-OOT combines boss heart with boss check",
+    "487": "Phantom Ganon Heart - Track-OOT combines boss heart with boss check",
+    "524": "Volvagia Heart - Track-OOT combines boss heart with boss check",
+    "551": "Morpha Heart - Track-OOT combines boss heart with boss check",
+    "599": "Bongo Bongo Heart - Track-OOT combines boss heart with boss check",
+    "649": "Twinrova Heart - Track-OOT combines boss heart with boss check"
+  }
+}

@@ -1,7 +1,24 @@
 MIT License
 
-for Track-OOT (https://bitbucket.org/zidargs/track-oot)
+This project is a fork of Track-OOT (https://bitbucket.org/zidargs/track-oot)
+with an added Ship of Harkinian auto-tracking integration layer.
+
+======================================================================
+Track-OOT (original, unchanged core): the src/, logic/, editor/, and
+related Track-OOT resources
+======================================================================
+
 Copyright (c) 2025 Denis Weiß (ZidArgs)
+
+======================================================================
+SoH Rando Tracker additions: the soh-integration/ folder, the
+src/script/soh-bridge/ folder, the .bat launcher scripts, and the
+SoH-specific configuration and documentation
+======================================================================
+
+Copyright (c) 2026 Penderrin
+
+======================================================================
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

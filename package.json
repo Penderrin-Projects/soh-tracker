@@ -1,17 +1,29 @@
 {
-  "name": "track-oot",
-  "description": "Tracker for OOT-Randomizer",
-  "author": "Denis Weiß (ZidArgs)",
+  "name": "soh-tracker",
+  "description": "Ship of Harkinian rando auto-tracker (built on Track-OOT by Denis Weiß/ZidArgs, MIT)",
+  "author": "Penderrin",
   "license": "MIT",
+  "main": "soh-integration/electron/main.js",
+  "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/zidargs/track-oot.git"
+    "url": "fork of https://bitbucket.org/zidargs/track-oot"
   },
-  "homepage": "https://bitbucket.org/zidargs/track-oot/src",
-  "main": "parse.js",
-  "type": "module",
+  "scripts": {
+    "dev-build": "node ./soh-integration/dev-build.js",
+    "dev-build-clean": "node ./soh-integration/dev-build.js --clean",
+    "start": "electron .",
+    "dev": "npm run dev-build && npm run start",
+    "build": "gulp build",
+    "buildDev": "gulp buildDev",
+    "watch": "gulp watch -nocompress",
+    "serve": "node --trace-deprecation ./server.js",
+    "lint": "eslint .",
+    "lintfix": "eslint --fix ."
+  },
   "dependencies": {
     "archipelagojs": "git+https://bitbucket.org/zidargs/archipelagojs.git/#1.1.0",
+    "chokidar": "^3.6.0",
     "emcjs": "git+https://bitbucket.org/zidargs/emcjs.git/#0.24.3",
     "gametrackerjs": "git+https://bitbucket.org/zidargs/gametrackerjs.git/#0.8.6",
     "jseditors": "git+https://bitbucket.org/zidargs/jseditors.git/#0.3.0",
@@ -26,6 +38,7 @@
     "@stylistic/eslint-plugin": "^5.4.0",
     "del": "^5.1.0",
     "electron": "^28.1.0",
+    "electron-builder": "^24.13.3",
     "eslint": "^9.36.0",
     "glob-all": "^3.1.0",
     "gulp": "^4.0.2",
@@ -39,17 +52,20 @@
     "gulp-terser": "^1.4.1",
     "through": "^2.3.8"
   },
-  "scripts": {
-    "lint": "yarn eslint .",
-    "lintfix": "yarn eslint --fix .",
-    "integrityCheck": "node ./test/verifyWorldFile.js",
-    "build": "gulp build",
-    "buildDev": "gulp buildDev",
-    "watch": "gulp watch -nocompress",
-    "serve": "node --trace-deprecation ./server.js",
-    "correctWorld": "node ./correctWorldData.js",
-    "buildEditor": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress",
-    "edit": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && electron ./editor --no-sandbox > ./editor/info.log 2>&1 -debug",
-    "editWeb": "gulp --gulpfile ./editor/gulpfile.js build -rebuild -nocompress && node ./editor/server.js"
+  "build": {
+    "appId": "com.tabor.soh-tracker",
+    "productName": "SoH Rando Tracker",
+    "files": [
+      "dev/**/*",
+      "soh-integration/electron/**/*",
+      "soh-integration/mappings/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "build-dist"
+    },
+    "win": {
+      "target": ["portable", "nsis"]
+    }
   }
 }

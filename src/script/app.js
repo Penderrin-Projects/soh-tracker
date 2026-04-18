@@ -47,6 +47,9 @@ import "/script/ui/multiplayer/Multiplayer.js";
 import APWindow from "./ui/window/APWindow.js";
 import Logic from "/GameTrackerJS/util/logic/Logic.js";
 import OptionsObserver from "/GameTrackerJS/util/observer/OptionsObserver.js";
+// SoH integration - auto-tracks from Ship of Harkinian save file
+import SohBridge from "/script/soh-bridge/SohBridge.js";
+import SpoilerLookupWindow from "/script/soh-bridge/SpoilerLookupWindow.js";
 
 Logic.suspended = true;
 
@@ -149,6 +152,7 @@ try {
         GlobalContext.set("SpoilerLogWindow", new SpoilerLogWindow());
         GlobalContext.set("ArchipelagoWindow", new APWindow());
         GlobalContext.set("ClearDataWindow", new ClearDataWindow());
+        GlobalContext.set("SpoilerLookupWindow", new SpoilerLookupWindow());
         const newGameWindow = new NewGameWindow();
         GlobalContext.set("NewGameWindow", newGameWindow);
     }
@@ -162,6 +166,14 @@ try {
     const spl = document.getElementById("splash");
     if (spl) {
         spl.className = "inactive";
+    }
+
+    // SoH integration: start watching save file for auto-tracking.
+    // Failures here are non-fatal - manual tracking still works.
+    try {
+        await SohBridge.init();
+    } catch (e) {
+        console.error("SohBridge failed to initialize:", e);
     }
 
     SavestateHandler.addEventListener("load", () => {
