@@ -319,21 +319,32 @@ function createWindow() {
     },
   });
 
-  // Persist window bounds and force-quit when the main window closes.
-  // Any detached popup windows get closed automatically since they're
-  // children (parent: win). Also explicitly stop chokidar + http server
-  // so the process can exit cleanly.
-  win.on('close', () => {
+  // Persist window bounds just before the window is destroyed.
+  win.on('close', (e) => {
     try {
       prefs.windowBounds = win.getBounds();
       savePrefs(prefs);
     } catch (_) { /* ignore */ }
-    // Close any remaining windows (detached popups) so app can quit
-    for (const w of BrowserWindow.getAllWindows()) {
-      if (w !== win && !w.isDestroyed()) {
-        try { w.destroy(); } catch (_) {}
+  });
+
+  // When the main window is actually destroyed (after 'close' fires and
+  // any beforeunload handlers have resolved), forcibly tear down
+  // everything and exit. This is belt-and-suspenders: something in
+  // Track-OOT (or chromium's default close behavior) can veto the close
+  // event itself, and chokidar/the HTTP server can keep the Node event
+  // loop alive past app.quit(). process.exit is the only guaranteed
+  // way to make X-button-close actually close the app every time.
+  win.on('closed', () => {
+    try {
+      for (const w of BrowserWindow.getAllWindows()) {
+        if (!w.isDestroyed()) { try { w.destroy(); } catch (_) {} }
       }
-    }
+    } catch (_) {}
+    try { stopWatcher(); } catch (_) {}
+    try { if (httpServer) httpServer.close(); } catch (_) {}
+    // Give app.quit() a moment, then hard-exit
+    app.quit();
+    setTimeout(() => process.exit(0), 500).unref();
   });
 
   // Load Track-OOT from the embedded HTTP server. Track-OOT's sources use

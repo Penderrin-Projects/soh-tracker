@@ -62,9 +62,10 @@ function updateLoadingMessage(msg = "loading...") {
 
 LoadingMessageHandler.registerCallback(updateLoadingMessage);
 
-window.onbeforeunload = function() {
-    return "Are you sure you want to close the tracker?\nUnsafed progress will be lost.";
-};
+// NOTE: Track-OOT originally had a window.onbeforeunload handler here that
+// prompted "Are you sure you want to close the tracker?". In Electron this
+// silently vetos close attempts, making the X button appear broken.
+// Removed because save state is managed by SoH (not Track-OOT) in this fork.
 
 // mixed entrances
 {
