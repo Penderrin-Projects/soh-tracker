@@ -88,12 +88,38 @@ function serveFile(req, res) {
 
     // Prevent path traversal
     const safePath = path.posix.normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
-    const filePath = path.join(DEV_ROOT, safePath);
+    let filePath = path.join(DEV_ROOT, safePath);
     if (!filePath.startsWith(DEV_ROOT)) {
       res.writeHead(403); res.end('Forbidden'); return;
     }
 
+    // If the request points at a directory (or a path with a trailing slash),
+    // try serving its index.html. Track-OOT's detached windows rely on this:
+    // window.open("/detached/#items") -> requests /detached/ -> /detached/index.html
+    if (urlPath.endsWith('/')) {
+      filePath = path.join(filePath, 'index.html');
+    }
+
     fs.stat(filePath, (err, stat) => {
+      // If stat failed and we didn't already try an index.html, try one now
+      if ((err || !stat.isFile()) && !filePath.endsWith('index.html')) {
+        const withIndex = path.join(filePath, 'index.html');
+        fs.stat(withIndex, (e2, s2) => {
+          if (e2 || !s2.isFile()) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Not found: ' + urlPath);
+            return;
+          }
+          const ext2 = '.html';
+          res.writeHead(200, {
+            'Content-Type': MIME[ext2] || 'application/octet-stream',
+            'Content-Length': s2.size,
+            'Cache-Control': 'no-store',
+          });
+          fs.createReadStream(withIndex).pipe(res);
+        });
+        return;
+      }
       if (err || !stat.isFile()) {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not found: ' + urlPath);
