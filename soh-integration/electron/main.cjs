@@ -13,9 +13,10 @@
 const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
+const http = require('node:http');
 const chokidar = require('chokidar');
 
-const saveParser = require('./save-parser');
+const saveParser = require('./save-parser.cjs');
 
 // ---------------------------------------------------------------------------
 // Preferences (persisted to %APPDATA%/soh-tracker/prefs.json)
@@ -48,6 +49,83 @@ function savePrefs(prefs) {
 }
 
 let prefs = loadPrefs();
+
+// ---------------------------------------------------------------------------
+// Embedded static HTTP server
+//
+// Track-OOT uses ES module imports with absolute paths like
+// "/script/foo.js" and "/GameTrackerJS/bar.js". These only resolve correctly
+// when served from an HTTP origin, not via file://. We run a minimal static
+// server on localhost and have Electron load from it.
+// ---------------------------------------------------------------------------
+
+const DEV_ROOT = path.join(__dirname, '..', '..', 'dev');
+
+const MIME = {
+  '.html': 'text/html; charset=utf-8',
+  '.js':   'application/javascript; charset=utf-8',
+  '.mjs':  'application/javascript; charset=utf-8',
+  '.css':  'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg':  'image/svg+xml',
+  '.png':  'image/png',
+  '.jpg':  'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.gif':  'image/gif',
+  '.ico':  'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2':'font/woff2',
+  '.ttf':  'font/ttf',
+  '.map':  'application/json; charset=utf-8',
+};
+
+function serveFile(req, res) {
+  try {
+    // Strip query string, decode URL
+    let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
+    if (urlPath === '/' || urlPath === '') urlPath = '/index.html';
+
+    // Prevent path traversal
+    const safePath = path.posix.normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
+    const filePath = path.join(DEV_ROOT, safePath);
+    if (!filePath.startsWith(DEV_ROOT)) {
+      res.writeHead(403); res.end('Forbidden'); return;
+    }
+
+    fs.stat(filePath, (err, stat) => {
+      if (err || !stat.isFile()) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not found: ' + urlPath);
+        return;
+      }
+      const ext = path.extname(filePath).toLowerCase();
+      res.writeHead(200, {
+        'Content-Type': MIME[ext] || 'application/octet-stream',
+        'Content-Length': stat.size,
+        'Cache-Control': 'no-store',
+      });
+      fs.createReadStream(filePath).pipe(res);
+    });
+  } catch (e) {
+    res.writeHead(500); res.end('Server error: ' + e.message);
+  }
+}
+
+let serverPort = 0;
+
+function startStaticServer() {
+  return new Promise((resolve, reject) => {
+    const server = http.createServer(serveFile);
+    // Port 0 = random free port (avoids conflicts with Track-OOT's default 5000)
+    server.listen(0, '127.0.0.1', () => {
+      serverPort = server.address().port;
+      console.log(`[server] serving ${DEV_ROOT} at http://127.0.0.1:${serverPort}`);
+      resolve(server);
+    });
+    server.on('error', reject);
+  });
+}
 
 // ---------------------------------------------------------------------------
 // Save watcher
@@ -141,7 +219,7 @@ function createWindow() {
     x, y,
     backgroundColor: '#222',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false,
@@ -154,15 +232,21 @@ function createWindow() {
     savePrefs(prefs);
   });
 
-  // Load Track-OOT's index.html from dev/
-  const indexPath = path.join(app.getAppPath(), 'dev', 'index.html');
-  win.loadFile(indexPath).catch((err) => {
-    console.error('Failed to load dev/index.html:', err);
+  // Load Track-OOT from the embedded HTTP server. Track-OOT's sources use
+  // absolute paths like "/script/foo.js" which require an HTTP origin to
+  // resolve. file:// would look for "C:/script/foo.js" which fails.
+  //
+  // ?nosw disables service-worker registration. Service workers make sense
+  // for a hosted web app but cause cache/state issues inside Electron.
+  const appUrl = `http://127.0.0.1:${serverPort}/?nosw`;
+  win.loadURL(appUrl).catch((err) => {
+    console.error('Failed to load app URL:', err);
     dialog.showErrorBox(
-      'Build missing',
-      `Could not find dev/index.html at:\n${indexPath}\n\n` +
-      `Run the build step before starting the tracker:\n` +
-      `  node ./soh-integration/dev-build.js`
+      'App load failed',
+      `Could not load ${appUrl}\n\n` +
+      `Make sure dev/ has been built:\n` +
+      `  node ./soh-integration/dev-build.js\n\n` +
+      `Error: ${err.message}`
     );
   });
 
@@ -298,7 +382,14 @@ function buildMenu(win) {
 // App lifecycle
 // ---------------------------------------------------------------------------
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  try {
+    await startStaticServer();
+  } catch (err) {
+    dialog.showErrorBox('Server failed', `Could not start embedded web server:\n${err.message}`);
+    app.quit();
+    return;
+  }
   const win = createWindow();
   setupIpc(win);
   buildMenu(win);

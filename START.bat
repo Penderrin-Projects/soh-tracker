@@ -18,15 +18,21 @@ if not exist "node_modules\" (
     echo.
 )
 
-:: Build the app into dev/ if needed (fast - about 10s)
+:: Build dev/ if missing. Prefer gulp (canonical Track-OOT build), fall back
+:: to our custom raw-copy builder if gulp fails for any reason.
 if not exist "dev\index.html" (
-    echo Building app...
-    call node ./soh-integration/dev-build.js
+    echo Building app ^(gulp buildDev^)...
+    call node_modules\.bin\gulp.cmd buildDev
     if errorlevel 1 (
         echo.
-        echo ERROR: build failed.
-        pause
-        exit /b 1
+        echo gulp buildDev failed. Falling back to the custom builder.
+        call node ./soh-integration/dev-build.cjs
+        if errorlevel 1 (
+            echo.
+            echo ERROR: both builds failed. See output above.
+            pause
+            exit /b 1
+        )
     )
     echo.
 )
@@ -34,7 +40,6 @@ if not exist "dev\index.html" (
 :: Start Electron
 echo Starting SoH Rando Tracker...
 echo.
-echo (If this is your first time, open File -> Choose Save File
-echo  and pick your Ship of Harkinian file1.sav)
+echo First time: File menu -^> Choose Save File -^> pick file1.sav
 echo.
 call npx electron .

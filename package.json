@@ -1,17 +1,17 @@
 {
   "name": "soh-tracker",
-  "description": "Ship of Harkinian rando auto-tracker (built on Track-OOT by Denis Weiß/ZidArgs, MIT)",
+  "description": "Ship of Harkinian rando auto-tracker (built on Track-OOT by Denis Wei\u00df/ZidArgs, MIT)",
   "author": "Penderrin",
   "license": "MIT",
-  "main": "soh-integration/electron/main.js",
-  "type": "commonjs",
+  "main": "soh-integration/electron/main.cjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "fork of https://bitbucket.org/zidargs/track-oot"
   },
   "scripts": {
-    "dev-build": "node ./soh-integration/dev-build.js",
-    "dev-build-clean": "node ./soh-integration/dev-build.js --clean",
+    "dev-build": "node ./soh-integration/dev-build.cjs",
+    "dev-build-clean": "node ./soh-integration/dev-build.cjs --clean",
     "start": "electron .",
     "dev": "npm run dev-build && npm run start",
     "build": "gulp build",
@@ -37,7 +37,7 @@
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@stylistic/eslint-plugin": "^5.4.0",
     "del": "^5.1.0",
-    "electron": "^28.1.0",
+    "electron": "^33.4.11",
     "electron-builder": "^24.13.3",
     "eslint": "^9.36.0",
     "glob-all": "^3.1.0",
@@ -65,7 +65,10 @@
       "output": "build-dist"
     },
     "win": {
-      "target": ["portable", "nsis"]
+      "target": [
+        "portable",
+        "nsis"
+      ]
     }
   }
 }
