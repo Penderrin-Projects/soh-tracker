@@ -1,47 +1,5 @@
-# --- Node / build artifacts ---
 node_modules/
 dev/
-prod/
-out/
-dist/
 build-dist/
-yarn-error.log
-yarn.lock
-package-lock.json
-*.zip
-*.exe
-.pnp.cjs
-.pnp.loader.mjs
-.yarn/install-state.gz
-
-# --- Editor / IDE ---
-.idea/
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-
-# --- OS ---
+*.log
 .DS_Store
-Thumbs.db
-*.swp
-*~
-
-# --- Editor-specific Track-OOT files ---
-editor/build
-editor/info.log
-import_tree.json
-import_removed.json
-backup.json
-
-# --- SoH Tracker-specific ---
-# User preferences persisted by Electron
-soh-integration/prefs.json
-# Any testing save files dropped in the repo
-*.sav
-# Our deployment zips and chunks
-soh-chunks/
-soh-tracker.zip
-# Our temporary smoke-test harness
-smoke-main.js
-# Old redundant electron main
-soh-integration/electron/main.old.js
