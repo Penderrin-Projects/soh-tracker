@@ -16,7 +16,7 @@ const fs = require('node:fs');
 const http = require('node:http');
 const chokidar = require('chokidar');
 
-const saveParser = require('./save-parser.cjs');
+const saveParser = require('./save-parser.js');
 
 // ---------------------------------------------------------------------------
 // Preferences (persisted to %APPDATA%/soh-tracker/prefs.json)
@@ -219,7 +219,7 @@ function createWindow() {
     x, y,
     backgroundColor: '#222',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.cjs'),
+      preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false,

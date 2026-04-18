@@ -8,3 +8,4 @@ build-dist/
 debug-*.js
 *-probe.js
 smoke-*.js
+dev.zip
