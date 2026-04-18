@@ -32,6 +32,8 @@ const ALPHA_VARS = [
 
 /**
  * Apply a color by injecting a <style> element that overrides the :root vars.
+ * Style element is appended to <html> (rather than <head>) so it comes last in
+ * document order and wins the cascade against Track-OOT's later-loaded stylesheets.
  */
 function applyColor(hex) {
     let styleEl = document.getElementById("soh-custom-color-override");
@@ -43,22 +45,65 @@ function applyColor(hex) {
     if (!styleEl) {
         styleEl = document.createElement("style");
         styleEl.id = "soh-custom-color-override";
-        document.head.append(styleEl);
     }
     const lines = [":root {"];
     for (const v of COLOR_VARS) lines.push(`    ${v}: ${hex} !important;`);
     for (const { name, alpha } of ALPHA_VARS) lines.push(`    ${name}: ${hex}${alpha} !important;`);
     lines.push("}");
     styleEl.textContent = lines.join("\n");
+    // Always keep our override as the last child of <html> so it wins cascade
+    document.documentElement.appendChild(styleEl);
 }
 
 /**
- * Read saved color from localStorage and apply it. Call this once at boot.
+ * Read saved color from localStorage and apply it, robustly.
+ *
+ * Track-OOT injects stylesheets throughout its boot sequence, any of which
+ * could reset our override. We handle this by:
+ *   1. Applying immediately at module-load
+ *   2. Re-applying after DOMContentLoaded
+ *   3. Re-applying after the window fully loads
+ *   4. Watching for new <link>/<style> being added to <head> and re-applying
  */
 export function applyStoredColor() {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
+    const readColor = () => {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (_) { return null; }
+    };
+
+    const tryApply = () => {
+        const saved = readColor();
         if (saved) applyColor(saved);
+    };
+
+    // 1. Apply now
+    tryApply();
+
+    // 2. Re-apply after DOM is ready
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", tryApply, { once: true });
+    }
+
+    // 3. Re-apply after window fully loads (all stylesheets done)
+    window.addEventListener("load", tryApply, { once: true });
+
+    // 4. Defend against Track-OOT adding more stylesheets after ours
+    try {
+        const obs = new MutationObserver((muts) => {
+            for (const m of muts) {
+                for (const n of m.addedNodes) {
+                    if (n.nodeType !== 1) continue;
+                    if (n.id === "soh-custom-color-override") continue;
+                    if (n.tagName === "STYLE" || n.tagName === "LINK") {
+                        // New stylesheet added - make sure ours stays last
+                        tryApply();
+                        return;
+                    }
+                }
+            }
+        });
+        obs.observe(document.documentElement, { childList: true, subtree: true });
+        // Stop observing after 10s - by then app is fully booted
+        setTimeout(() => obs.disconnect(), 10000);
     } catch (_) { /* ignore */ }
 }
 
