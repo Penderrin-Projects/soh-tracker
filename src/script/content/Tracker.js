@@ -31,14 +31,6 @@ PageSwitcher.register("main", [{
         "handler": states_Manage
     }]
 }, {
-    "content": "DISCORD",
-    "href": "https://discord.gg/wgFVtuv",
-    "target": "_blank"
-}, {
-    "content": "PATREON",
-    "href": "https://www.patreon.com/zidargs",
-    "target": "_blank"
-}, {
     "content": "EXTRAS",
     "submenu": [{"mixin": "fullscreen"}, {
         "content": "UPLOAD SPOILER",
