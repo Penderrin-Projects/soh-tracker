@@ -12,19 +12,24 @@
 const fs = require('node:fs').promises;
 
 /**
- * SoH equipment bitfield layout (from randomizerTypes.h)
- * These are shifts within the 16-bit `equipment` field in inventory
+ * Equipment bitfield (u16). Each nibble is a category.
+ * Layout from SoH's `EquipInv*` enums in z64item.h.
+ *
+ * Nibble 0 (bits 0-3)  = swords
+ * Nibble 1 (bits 4-7)  = shields
+ * Nibble 2 (bits 8-11) = tunics
+ * Nibble 3 (bits 12-15) = boots
  */
 const EQUIP_FLAGS = {
+  // Swords
+  KOKIRI_SWORD:   0x0001,  // bit 0 EQUIP_INV_SWORD_KOKIRI
+  MASTER_SWORD:   0x0002,  // bit 1 EQUIP_INV_SWORD_MASTER
+  BIGGORON_SWORD: 0x0004,  // bit 2 EQUIP_INV_SWORD_BIGGORON (post-trade, intact)
+  GIANT_KNIFE:    0x0008,  // bit 3 EQUIP_INV_SWORD_BROKENGIANTKNIFE (broken form)
   // Shields
-  KOKIRI_SHIELD:  0x0010,  // bit 4
+  KOKIRI_SHIELD:  0x0010,  // bit 4 (a.k.a. Deku shield)
   HYLIAN_SHIELD:  0x0020,  // bit 5
   MIRROR_SHIELD:  0x0040,  // bit 6
-  // Swords
-  KOKIRI_SWORD:   0x0001,  // bit 0
-  MASTER_SWORD:   0x0002,  // bit 1
-  GIANT_KNIFE:    0x0004,  // bit 2 (biggoron sword before breaking)
-  BIGGORON_SWORD: 0x0008,  // bit 3 (post-trade)
   // Tunics
   KOKIRI_TUNIC:   0x0100,  // bit 8
   GORON_TUNIC:    0x0200,  // bit 9
@@ -55,33 +60,46 @@ const UPGRADE_FLAGS = {
 };
 
 /**
- * Quest items bitfield (30 bits)
+ * Quest items bitfield (u32). Layout from SoH's `QuestItem` enum (z64item.h):
+ *
+ *  bits 0-5   : medallions (forest, fire, water, spirit, shadow, light)
+ *  bits 6-11  : WARP songs (minuet, bolero, serenade, requiem, nocturne, prelude)
+ *  bits 12-17 : OCARINA songs (lullaby, epona, saria, sun, time, storms)
+ *  bits 18-20 : stones (kokiri emerald, goron ruby, zora sapphire)
+ *  bit 21     : stone of agony
+ *  bit 22     : gerudo card
+ *  bit 23     : skull token (flag only; real count is inventory.gsTokens)
+ *  bit 24     : heart piece (tally flag)
  */
 const QUEST_FLAGS = {
+  // Medallions
   MEDALLION_FOREST:  1 << 0,
   MEDALLION_FIRE:    1 << 1,
   MEDALLION_WATER:   1 << 2,
   MEDALLION_SPIRIT:  1 << 3,
   MEDALLION_SHADOW:  1 << 4,
   MEDALLION_LIGHT:   1 << 5,
-  SONG_LULLABY:      1 << 6,
-  SONG_EPONA:        1 << 7,
-  SONG_SARIA:        1 << 8,
-  SONG_SUN:          1 << 9,
-  SONG_TIME:         1 << 10,
-  SONG_STORMS:       1 << 11,
-  SONG_MINUET:       1 << 12,
-  SONG_BOLERO:       1 << 13,
-  SONG_SERENADE:     1 << 14,
-  SONG_REQUIEM:      1 << 15,
-  SONG_NOCTURNE:     1 << 16,
-  SONG_PRELUDE:      1 << 17,
+  // Warp songs (bits 6-11)
+  SONG_MINUET:       1 << 6,
+  SONG_BOLERO:       1 << 7,
+  SONG_SERENADE:     1 << 8,
+  SONG_REQUIEM:      1 << 9,
+  SONG_NOCTURNE:     1 << 10,
+  SONG_PRELUDE:      1 << 11,
+  // Ocarina songs (bits 12-17)
+  SONG_LULLABY:      1 << 12,
+  SONG_EPONA:        1 << 13,
+  SONG_SARIA:        1 << 14,
+  SONG_SUN:          1 << 15,
+  SONG_TIME:         1 << 16,
+  SONG_STORMS:       1 << 17,
+  // Spiritual stones
   STONE_KOKIRI:      1 << 18,
   STONE_GORON:       1 << 19,
   STONE_ZORA:        1 << 20,
+  // Misc
   STONE_OF_AGONY:    1 << 21,
   GERUDO_CARD:       1 << 22,
-  // bits 23-29 are skulltula token counter
 };
 
 /**

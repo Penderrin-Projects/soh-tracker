@@ -47,30 +47,37 @@ const UPGRADES = [
 ];
 
 // -- Quest items bitfield -----------------------------------------------------
+// -- Quest items bitfield - authoritative layout from SoH's QuestItem enum
+// (z64item.h). Bits 6-11 are WARP songs, bits 12-17 are OCARINA songs.
 const QUEST = [
+    // Medallions (bits 0-5)
     { bit: 1 << 0,  key: "medallion_forest" },
     { bit: 1 << 1,  key: "medallion_fire" },
     { bit: 1 << 2,  key: "medallion_water" },
     { bit: 1 << 3,  key: "medallion_spirit" },
     { bit: 1 << 4,  key: "medallion_shadow" },
     { bit: 1 << 5,  key: "medallion_light" },
-    { bit: 1 << 6,  key: "song_zelda" },
-    { bit: 1 << 7,  key: "song_epona" },
-    { bit: 1 << 8,  key: "song_saria" },
-    { bit: 1 << 9,  key: "song_sun" },
-    { bit: 1 << 10, key: "song_time" },
-    { bit: 1 << 11, key: "song_storm" },
-    { bit: 1 << 12, key: "warp_forest" },
-    { bit: 1 << 13, key: "warp_fire" },
-    { bit: 1 << 14, key: "warp_water" },
-    { bit: 1 << 15, key: "warp_spirit" },
-    { bit: 1 << 16, key: "warp_shadow" },
-    { bit: 1 << 17, key: "warp_light" },
-    { bit: 1 << 18, key: "stone_forest" },
-    { bit: 1 << 19, key: "stone_fire" },
-    { bit: 1 << 20, key: "stone_water" },
+    // Warp songs (bits 6-11)
+    { bit: 1 << 6,  key: "warp_forest" },  // minuet
+    { bit: 1 << 7,  key: "warp_fire" },    // bolero
+    { bit: 1 << 8,  key: "warp_water" },   // serenade
+    { bit: 1 << 9,  key: "warp_spirit" },  // requiem
+    { bit: 1 << 10, key: "warp_shadow" },  // nocturne
+    { bit: 1 << 11, key: "warp_light" },   // prelude
+    // Ocarina songs (bits 12-17)
+    { bit: 1 << 12, key: "song_zelda" },   // lullaby
+    { bit: 1 << 13, key: "song_epona" },
+    { bit: 1 << 14, key: "song_saria" },
+    { bit: 1 << 15, key: "song_sun" },
+    { bit: 1 << 16, key: "song_time" },
+    { bit: 1 << 17, key: "song_storm" },
+    // Spiritual stones (bits 18-20)
+    { bit: 1 << 18, key: "stone_forest" },  // kokiri emerald
+    { bit: 1 << 19, key: "stone_fire" },    // goron ruby
+    { bit: 1 << 20, key: "stone_water" },   // zora sapphire
+    // Misc (bits 21-22)
     { bit: 1 << 21, key: "stone_of_agony" },
-    { bit: 1 << 22, key: "membership" },
+    { bit: 1 << 22, key: "membership" },    // gerudo card
 ];
 
 // -- B-button slot (items[]) ID mapping ---------------------------------------
