@@ -32,16 +32,18 @@ const EQUIPMENT = [
     { mask: 0x4000, key: "boots_hover",    value: 1 },
 ];
 
-// -- Upgrades bitfield - each field is N bits wide, value is the count --------
+// -- Upgrades bitfield - each field is 3 bits, value is the count.
+// Authoritative layout is OoT's gUpgradeMasks/gUpgradeShifts (CUR_UPG_VALUE
+// macro). Order in this array doesn't matter; mask/shift is what counts.
 const UPGRADES = [
-    { mask: 0x00000007, shift: 0,  key: "bombs" },         // bomb_bag   3 bits
-    { mask: 0x00000038, shift: 3,  key: "glove" },         // strength   3 bits
-    { mask: 0x000001C0, shift: 6,  key: "bow" },           // bow        3 bits (quiver)
-    { mask: 0x00000E00, shift: 9,  key: "slingshot" },     // slingshot  3 bits (bullet)
-    { mask: 0x00003000, shift: 12, key: "wallet" },        // wallet     2 bits
-    { mask: 0x0001C000, shift: 14, key: "scale" },         // scale      3 bits
-    { mask: 0x000E0000, shift: 17, key: "nut_upgrade" },   // nut        3 bits
-    { mask: 0x00700000, shift: 20, key: "stick_upgrade" }, // stick      3 bits
+    { mask: 0x00000007, shift: 0,  key: "bow" },           // UPG_QUIVER     bits 0-2
+    { mask: 0x00000038, shift: 3,  key: "bombs" },         // UPG_BOMB_BAG   bits 3-5
+    { mask: 0x000001C0, shift: 6,  key: "glove" },         // UPG_STRENGTH   bits 6-8
+    { mask: 0x00000E00, shift: 9,  key: "scale" },         // UPG_SCALE      bits 9-11
+    { mask: 0x00007000, shift: 12, key: "wallet" },        // UPG_WALLET     bits 12-14
+    { mask: 0x00038000, shift: 15, key: "slingshot" },     // UPG_BULLET_BAG bits 15-17
+    { mask: 0x001C0000, shift: 18, key: "stick_upgrade" }, // UPG_STICKS     bits 18-20
+    { mask: 0x00E00000, shift: 21, key: "nut_upgrade" },   // UPG_NUTS       bits 21-23
 ];
 
 // -- Quest items bitfield -----------------------------------------------------

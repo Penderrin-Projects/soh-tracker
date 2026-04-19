@@ -36,19 +36,22 @@ const EQUIP_FLAGS = {
 };
 
 /**
- * Upgrades bitfield
+ * Upgrades bitfield — 3 bits each, packed in this exact order.
+ * Authoritative layout comes from OoT's `gUpgradeMasks`/`gUpgradeShifts`
+ * arrays (see the CUR_UPG_VALUE macro in soh/include/macros.h), indexed
+ * by the UpgradeType enum (UPG_QUIVER=0, UPG_BOMB_BAG=1, UPG_STRENGTH=2,
+ * UPG_SCALE=3, UPG_WALLET=4, UPG_BULLET_BAG=5, UPG_DEKU_STICKS=6,
+ * UPG_DEKU_NUTS=7). OCARINA is not stored here (it's in questItems).
  */
 const UPGRADE_FLAGS = {
-  STRENGTH:    0x00000038, // bits 3-5
-  BOMB_BAG:    0x00000007, // bits 0-2
-  BOW:         0x000001C0, // bits 6-8
-  SLINGSHOT:   0x00000E00, // bits 9-11
-  WALLET:      0x00003000, // bits 12-13
-  SCALE:       0x0001C000, // bits 14-16
-  NUT_UPG:     0x000E0000, // bits 17-19
-  STICK_UPG:   0x00700000, // bits 20-22
-  BULLET_BAG:  0x03800000, // bits 23-25
-  OCARINA:     0x1C000000, // bits 26-28
+  BOW:         0x00000007, // bits 0-2   (UPG_QUIVER)
+  BOMB_BAG:    0x00000038, // bits 3-5
+  STRENGTH:    0x000001C0, // bits 6-8
+  SCALE:       0x00000E00, // bits 9-11
+  WALLET:      0x00007000, // bits 12-14
+  SLINGSHOT:   0x00038000, // bits 15-17 (UPG_BULLET_BAG)
+  STICK_UPG:   0x001C0000, // bits 18-20
+  NUT_UPG:     0x00E00000, // bits 21-23
 };
 
 /**
